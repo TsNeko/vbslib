@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML> 
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>!DOSバッチファイル</TITLE>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+/***********************************************************
+  <<< [init] HTML ファイルをロードした後に実行する処理 >>>
+************************************************************/
+function  init() {
+  if ( !document.getElementsByTagName )  return;
+
+  // 全てのノードを閉じる
+  divs = document.getElementsByTagName( "div" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "node" ) {
+      divs[i].style.display = "none";
+    }
+  }
+  sw_imgs = document.getElementsByTagName( "IMG" );
+  for ( i = 0; i < sw_imgs.length; i++ ) {
+    if ( sw_imgs[i].className == "sw_img" ) {
+      s = sw_imgs[i].src;
+      sw_imgs[i].src = "../files.files/t_plus"+ s.substring( s.length - 5, s.length - 4 ) +".gif";
+    }
+  }
+
+  // URL の # 以降を name 属性に持つツリー要素を選択する
+  s = self.location.href;
+  i = s.indexOf( "#" );  if ( i == -1 )  return;
+  sub = s.substring( i + 1 );
+
+  selectTreeElem( sub );
+}
+
+
+/***********************************************************
+  <<< [sw] ツリーノードを開くか閉じる >>>
+************************************************************/
+function  sw( node_name, edge_flag, url, target, open_flag ) {
+  var sw       = document.getElementsByName( node_name + "_sw" );
+  var icon     = document.getElementsByName( node_name + "_icon" );
+  var children = document.getElementsByName( node_name + "_children" );
+
+  if ( children[0].style.display == "block" ) { /* 開いていたとき、閉じる */
+    if ( open_flag != 1 ) {
+      sw[0].src = "t_plus" + edge_flag + ".gif";
+      icon[0].src = "t_node.gif";
+      children[0].style.display = "none";
+    }
+  }
+  else { /* 閉じていたとき、開ける */
+    if ( open_flag != 0 ) {
+      sw[0].src = "t_minus" + edge_flag + ".gif";
+      icon[0].src = "t_open.gif";
+      children[0].style.display = "block";
+    }
+  }
+
+  if ( url != '' )
+    target.location.href = url;
+
+  return false;
+}
+
+
+/***********************************************************
+  <<< [selectTreeElem] ツリー要素を選択する >>>
+************************************************************/
+function  selectTreeElem( elem_id )
+{
+  // ノード番号を得る
+  for ( i = 0; i < g_elem_ids.length; i++ )
+    if ( g_elem_ids[i] == elem_id )  break;
+  iNode = i;
+
+  // 親を開いていく
+  for (;;) {
+    i = g_parents[ i ];
+    if ( i == -1 )  break;
+
+    sw( "node" + i, g_flags[ i ], '', null, 1 );
+  }
+
+  // ツリーノードを選択する
+  nodes = document.getElementsByName( elem_id );
+  if ( nodes.length > 0 )  nodes[0].focus();
+}
+
+/************************************************************/
+//]]>
+</SCRIPT>
+<STYLE type="text/css">
+div.tree  { font-size:10pt;  vertical-align:middle; line-height:14px; }
+span.text { cursor:hand; color:black; text-decoration:none; }
+a         { color:black; text-decoration:none; }
+img       { vertical-align:middle; border:0; }
+</STYLE>
+</HEAD>
+<BODY onload="init()" bgcolor="#CCDDCC">
+
+<DIV class="tree"><NOBR>
+
+ 
+  <A href="dos_batch_01.html#svgcats_vml_p1" target="main" name="svgcats_index_p1"><IMG src="../files.files/t_file.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p1_text"> 
+   DOSバッチファイル</SPAN></A><BR/>
+ 
+<SPAN class="sw" onclick="return sw('node2','3','',parent.main,-1);"><IMG name="node2_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node2','3','dos_batch_01.html#svgcats_vml_p2',parent.main,-1);"><IMG name="node2_icon" src="../files.files/t_node.gif"></SPAN
+><A href="dos_batch_01.html#svgcats_vml_p2" target="main" name="svgcats_index_p2"><SPAN class="text" name="node2_text"
+> コマンドプロンプト、コンソール (cmd.exe)</SPAN></A><BR>
+<DIV class="node" id="node2_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p3" target="main" name="svgcats_index_p3"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p3_text"> 
+   環境変数などの設定をしたコマンドプロンプトを開く</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p4" target="main" name="svgcats_index_p4"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p4_text"> 
+   コマンドラインの引数とエスケープ (DOS)</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p5" target="main" name="svgcats_index_p5"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p5_text"> 
+   レジストリからの AutoRun コマンド</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p6" target="main" name="svgcats_index_p6"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p6_text"> 
+   コマンド拡張機能</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p7" target="main" name="svgcats_index_p7"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p7_text"> 
+   遅延環境変数</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p8" target="main" name="svgcats_index_p8"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p8_text"> 
+   ファイル名補完機能</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p9" target="main" name="svgcats_index_p9"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p9_text"> 
+   別のユーザとして実行</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p10" target="main" name="svgcats_index_p10"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p10_text"> 
+   Unicode に対応した cmd.exe</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p11" target="main" name="svgcats_index_p11"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p11_text"> 
+   文字コード chcp</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p12" target="main" name="svgcats_index_p12"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p12_text"> 
+   Windows Vista のコマンドプロンプト</SPAN></A><BR/>
+ 
+<IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node13','2','',parent.main,-1);"><IMG name="node13_sw" class="sw_img" src="../files.files/t_minus2.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node13','2','dos_batch_01.html#svgcats_vml_p13',parent.main,-1);"><IMG name="node13_icon" src="../files.files/t_node.gif"></SPAN
+><A href="dos_batch_01.html#svgcats_vml_p13" target="main" name="svgcats_index_p13"><SPAN class="text" name="node13_text"
+> API</SPAN></A><BR>
+<DIV class="node" id="node13_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_spc.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p14" target="main" name="svgcats_index_p14"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p14_text"> 
+   _getch</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_spc.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="dos_batch_01.html#svgcats_vml_p15" target="main" name="svgcats_index_p15"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p15_text"> 
+   _getcwd</SPAN></A><BR/>
+ 
+
+</DIV>
+
+
+</DIV>
+
+<SPAN class="sw" onclick="return sw('node16','3','',parent.main,-1);"><IMG name="node16_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node16','3','dos_batch_01.html#svgcats_vml_p16',parent.main,-1);"><IMG name="node16_icon" src="../files.files/t_node.gif"></SPAN
+><A href="dos_batch_01.html#svgcats_vml_p16" target="main" name="svgcats_index_p16"><SPAN class="text" name="node16_text"
+> バッチファイルを使ったテストの自動化</SPAN></A><BR>
+<DIV class="node" id="node16_children">
+
+ 
+<IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node17','3','',parent.main,-1);"><IMG name="node17_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node17','3','dos_batch_01.html#svgcats_vml_p17',parent.main,-1);"><IMG name="node17_icon" src="../files.files/t_node.gif"></SPAN
+><A href="dos_batch_01.html#svgcats_vml_p17" target="main" name="svgcats_index_p17"><SPAN class="text" name="node17_text"
+> テストバッチのテンプレート</SPAN></A><BR>
+<DIV class="node" id="node17_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p18" target="main" name="svgcats_index_p18"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p18_text"> 
+   FCBat テストツール(.zip)</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p19" target="main" name="svgcats_index_p19"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p19_text"> 
+   出力結果に絶対パスがあるとき</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p20" target="main" name="svgcats_index_p20"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p20_text"> 
+   バージョン別パッケージ (ver_pack)</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p21" target="main" name="svgcats_index_p21"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p21_text"> 
+   コピーファイル同期</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p22" target="main" name="svgcats_index_p22"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p22_text"> 
+   プロジェクト・テンプレート (auto.bat)</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p23" target="main" name="svgcats_index_p23"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p23_text"> 
+   テスト用フォルダをリセット（削除＆コピー）</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p24" target="main" name="svgcats_index_p24"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p24_text"> 
+   テストプログラムの起動</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p25" target="main" name="svgcats_index_p25"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p25_text"> 
+   notepad</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p26" target="main" name="svgcats_index_p26"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p26_text"> 
+   全テスト実行バッチ</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p27" target="main" name="svgcats_index_p27"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p27_text"> 
+   エラー処理、プログラムの返り値のチェック （</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p28" target="main" name="svgcats_index_p28"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p28_text"> 
+   バッチファイルのデバッグ</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p29" target="main" name="svgcats_index_p29"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p29_text"> 
+   VisualBat</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p30" target="main" name="svgcats_index_p30"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p30_text"> 
+   パラメータ、プログラムのチェック</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_02.html#svgcats_vml_p31" target="main" name="svgcats_index_p31"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p31_text"> 
+   リダイレクト、パイプ、tee</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p32" target="main" name="svgcats_index_p32"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p32_text"> 
+   call &amp; 引数</SPAN></A><BR/>
+ 
+<SPAN class="sw" onclick="return sw('node33','3','',parent.main,-1);"><IMG name="node33_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node33','3','dos_batch_03.html#svgcats_vml_p33',parent.main,-1);"><IMG name="node33_icon" src="../files.files/t_node.gif"></SPAN
+><A href="dos_batch_03.html#svgcats_vml_p33" target="main" name="svgcats_index_p33"><SPAN class="text" name="node33_text"
+> 変数の活用</SPAN></A><BR>
+<DIV class="node" id="node33_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p34" target="main" name="svgcats_index_p34"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p34_text"> 
+   部分文字列</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p35" target="main" name="svgcats_index_p35"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p35_text"> 
+   置き換え、置換</SPAN></A><BR/>
+ 
+<IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node36','3','',parent.main,-1);"><IMG name="node36_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node36','3','dos_batch_03.html#svgcats_vml_p36',parent.main,-1);"><IMG name="node36_icon" src="../files.files/t_node.gif"></SPAN
+><A href="dos_batch_03.html#svgcats_vml_p36" target="main" name="svgcats_index_p36"><SPAN class="text" name="node36_text"
+> ファイル名、パス</SPAN></A><BR>
+<DIV class="node" id="node36_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p37" target="main" name="svgcats_index_p37"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p37_text"> 
+   GetFileName</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p38" target="main" name="svgcats_index_p38"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p38_text"> 
+   GetParentPath</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p39" target="main" name="svgcats_index_p39"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p39_text"> 
+   SearchParent</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p40" target="main" name="svgcats_index_p40"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p40_text"> 
+   日付 (%date%, %time%, timedate)</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p41" target="main" name="svgcats_index_p41"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p41_text"> 
+   計算</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p42" target="main" name="svgcats_index_p42"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p42_text"> 
+   プロセス間の環境変数の引継ぎ</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p43" target="main" name="svgcats_index_p43"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p43_text"> 
+   set /?</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_03.html#svgcats_vml_p44" target="main" name="svgcats_index_p44"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p44_text"> 
+   MS-DOS</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p45" target="main" name="svgcats_index_p45"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p45_text"> 
+   start</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p46" target="main" name="svgcats_index_p46"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p46_text"> 
+   cd, pushd, popd</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p47" target="main" name="svgcats_index_p47"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p47_text"> 
+   dir, tree</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p48" target="main" name="svgcats_index_p48"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p48_text"> 
+   echo, @</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p49" target="main" name="svgcats_index_p49"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p49_text"> 
+   pause</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p50" target="main" name="svgcats_index_p50"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p50_text"> 
+   timeout</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p51" target="main" name="svgcats_index_p51"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p51_text"> 
+   set /p : ユーザーに任意の文字列を入力させる</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p52" target="main" name="svgcats_index_p52"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p52_text"> 
+   shift</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p53" target="main" name="svgcats_index_p53"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p53_text"> 
+   if</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p54" target="main" name="svgcats_index_p54"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p54_text"> 
+   goto</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_04.html#svgcats_vml_p55" target="main" name="svgcats_index_p55"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p55_text"> 
+   for</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p56" target="main" name="svgcats_index_p56"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p56_text"> 
+   fc</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p57" target="main" name="svgcats_index_p57"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p57_text"> 
+   comp</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p58" target="main" name="svgcats_index_p58"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p58_text"> 
+   find (DOS)</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p59" target="main" name="svgcats_index_p59"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p59_text"> 
+   findstr</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p60" target="main" name="svgcats_index_p60"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p60_text"> 
+   sort</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p61" target="main" name="svgcats_index_p61"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p61_text"> 
+   copy, move</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p62" target="main" name="svgcats_index_p62"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p62_text"> 
+   xcopy</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p63" target="main" name="svgcats_index_p63"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p63_text"> 
+   mkdir (md)</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p64" target="main" name="svgcats_index_p64"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p64_text"> 
+   rmdir (rd)</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p65" target="main" name="svgcats_index_p65"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p65_text"> 
+   subst</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="dos_batch_05.html#svgcats_vml_p66" target="main" name="svgcats_index_p66"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p66_text"> 
+   tasklist</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_last.gif"
+   /><A href="dos_batch_06.html#svgcats_vml_p67" target="main" name="svgcats_index_p67"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p67_text"> 
+   taskkill</SPAN></A><BR/>
+ 
+
+</NOBR></DIV>
+
+</BODY>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+g_elem_ids = new Array( "",
+  "svgcats_index_p1", "svgcats_index_p2", "svgcats_index_p3", "svgcats_index_p4",
+  "svgcats_index_p5", "svgcats_index_p6", "svgcats_index_p7", "svgcats_index_p8",
+  "svgcats_index_p9", "svgcats_index_p10", "svgcats_index_p11", "svgcats_index_p12",
+  "svgcats_index_p13", "svgcats_index_p14", "svgcats_index_p15", "svgcats_index_p16",
+  "svgcats_index_p17", "svgcats_index_p18", "svgcats_index_p19", "svgcats_index_p20",
+  "svgcats_index_p21", "svgcats_index_p22", "svgcats_index_p23", "svgcats_index_p24",
+  "svgcats_index_p25", "svgcats_index_p26", "svgcats_index_p27", "svgcats_index_p28",
+  "svgcats_index_p29", "svgcats_index_p30", "svgcats_index_p31", "svgcats_index_p32",
+  "svgcats_index_p33", "svgcats_index_p34", "svgcats_index_p35", "svgcats_index_p36",
+  "svgcats_index_p37", "svgcats_index_p38", "svgcats_index_p39", "svgcats_index_p40",
+  "svgcats_index_p41", "svgcats_index_p42", "svgcats_index_p43", "svgcats_index_p44",
+  "svgcats_index_p45", "svgcats_index_p46", "svgcats_index_p47", "svgcats_index_p48",
+  "svgcats_index_p49", "svgcats_index_p50", "svgcats_index_p51", "svgcats_index_p52",
+  "svgcats_index_p53", "svgcats_index_p54", "svgcats_index_p55", "svgcats_index_p56",
+  "svgcats_index_p57", "svgcats_index_p58", "svgcats_index_p59", "svgcats_index_p60",
+  "svgcats_index_p61", "svgcats_index_p62", "svgcats_index_p63", "svgcats_index_p64",
+  "svgcats_index_p65", "svgcats_index_p66", "svgcats_index_p67" );
+g_parents = new Array( -1,
+  -1, -1, 2, 2,
+  2, 2, 2, 2,
+  2, 2, 2, 2,
+  2, 13, 13, -1,
+  16, 17, 16, 16,
+  16, 16, 16, 16,
+  16, 16, -1, -1,
+  -1, -1, -1, -1,
+  -1, 33, 33, 33,
+  36, 36, 36, 33,
+  33, 33, 33, -1,
+  -1, -1, -1, -1,
+  -1, -1, -1, -1,
+  -1, -1, -1, -1,
+  -1, -1, -1, -1,
+  -1, -1, -1, -1,
+  -1, -1, -1 );
+g_flags = new Array( 0,
+  1, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  2, 3, 2, 3,
+  3, 2, 3, 3,
+  3, 3, 3, 3,
+  3, 2, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 2, 3,
+  3, 3, 2, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 2 );
+
+//]]>
+</SCRIPT>
+
+</HTML>
+ 

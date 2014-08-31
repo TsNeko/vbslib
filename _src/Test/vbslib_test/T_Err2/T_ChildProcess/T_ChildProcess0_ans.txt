@@ -1,0 +1,52 @@
+  ((( [T_ChildProcess0] )))
+ErrID = 0
+ErrID = 1
+  ((( [T_ChildProcess0_Sub] )))
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo T_ChildProcess0_Sub.vbs /ChildProcess:0
+ArgumentExist( "ChildProcess" ) = True
+/ChildProcess = 0
+
+error level = 21
+ErrID = 1
+  ((( [T_ChildProcess0_ErrorMessage] )))
+
+Next is Error Test
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo T_ChildProcess0_Sub.vbs /Error
+ArgumentExist( "ChildProcess" ) = True
+%MultiLine%
+error level = 9999
+ErrID = 2
+
+Next is Error Test
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo T_ChildProcess0_Sub.vbs /ChildProcess:0 /Error
+ArgumentExist( "ChildProcess" ) = True
+/ChildProcess = 0
+WSH のデバッガーがインストールされていれば、スクリプト・ファイルへのショートカットを作成、プロパティ - リンク先に、下記の /g_debug オプションを追加、ショートカットから起動すると、問題がある場所で停止します。
+----------------------------------------------------------------------
+"T_ChildProcess0_Sub.vbs" /g_debug:1
+----------------------------------------------------------------------
+<ERROR err_number='1' err_description='General Error'/>
+
+error level = 9999
+ErrID = 3
+
+Next is Error Test
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo T_ChildProcess0_NoVbsLib_Sub.vbs
+ABC
+
+error level = 9999
+
+Next is Error Test
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo T_ChildProcess0_NoVbsLibSyntaxError_Sub.vbs
+%FullPath(.)%\T_ChildProcess0_NoVbsLibSyntaxError_Sub.vbs(1, 21) Microsoft VBScript コンパイル エラー: ')' がありません。
+
+
+error level = 9999
+error level = 0
+error level = 1
+Pass.

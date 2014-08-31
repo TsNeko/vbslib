@@ -1,0 +1,1462 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_31.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_31.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 626 --> 
+<PAGE>
+<A id="svgcats_vml_p626" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '626' );">←</A>
+<A href="#svgcats_vml_p627" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_30.html#svgcats_vml_p625" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_30.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:611px; height:1535px;" fillcolor="white"/>
+<DIV id="text626_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="UnitTest_Delegate">
+UnitTest::Delegate</A></DIV>
+<DIV id="text626_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:82px; line-height:15px; white-space:nowrap">
+ユーザ向けの、任意の値やオブジェクトを格納する変数。</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:47px; width:220px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text626_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:54px; line-height:13px; white-space:nowrap">
+Dim&nbsp; UnitTest::Delegate as variant</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:182px; width:538px; height:370px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text626_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:188px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; '//&nbsp; Set g = GetTemporaryTestsObject().CurrentTest.Delegate<BR/>
+&nbsp; RunTestPrompt&nbsp; AppKey.NewWritable( "." )<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; Test_current( tests )<BR/>
+&nbsp; If IsEmpty( tests.CurrentTest.Delegate ) Then<BR/>
+&nbsp; &nbsp; Set g = CreateObject( "Scripting.Dictionary" ) : Set tests.CurrentTest.Delegate = g<BR/>
+&nbsp; &nbsp; '// call_vbs&nbsp; SearchParent("TestCommon.vbs"), "TestCommon_setVariables",&nbsp; g<BR/>
+<BR/>
+&nbsp; &nbsp; '[Setting]<BR/>
+&nbsp; &nbsp; '==============================================================================<BR/>
+&nbsp; &nbsp; g("ExeName") = "Sample"<BR/>
+&nbsp; &nbsp; If IsEmpty( g("Config") ) Then&nbsp; g("Config") = "Release"<BR/>
+&nbsp; &nbsp; '==============================================================================<BR/>
+<BR/>
+&nbsp; &nbsp; x = WScript.Arguments.Named( "Config" ) : If not IsEmpty( x ) Then&nbsp; g("Config") = x<BR/>
+&nbsp; End If<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; Test_build( tests )<BR/>
+&nbsp; Set g = tests.CurrentTest.Delegate<BR/>
+&nbsp; devenv_rebuild&nbsp; g("ExeName")+".sln", g("Config")<BR/>
+End Sub</DIV>
+<DIV id="text626_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:162px; line-height:15px; white-space:nowrap">
+サンプル in Test.vbs：</DIV>
+<DIV id="text626_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:240px; margin-top:279px; line-height:13px; white-space:nowrap">
+Delegate</DIV>
+<DIV id="text626_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:216px; margin-top:504px; line-height:13px; white-space:nowrap">
+Delegate</DIV>
+<DIV id="text626_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:90px; margin-top:369px; line-height:13px; white-space:nowrap">
+ExeName</DIV>
+<DIV id="text626_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:168px; margin-top:369px; line-height:13px; white-space:nowrap">
+Sample</DIV>
+<DIV id="text626_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:174px; margin-top:519px; line-height:13px; white-space:nowrap">
+ExeName</DIV>
+<DIV id="text626_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:108px; line-height:15px; white-space:nowrap">
+Tests.vbs のグローバル変数の代わりです。<BR/>
+（Tests.vbs は、ExecuteGlobal を何度も行われるため、グローバル変数を置くことができません。）</DIV>
+<DIV id="text626_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:1445px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text626_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:1445px; line-height:15px; white-space:nowrap">
+→ Test_template1.vbs # Delegate</DIV>
+<DIV id="text626_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:1469px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text626_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:1469px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_12.html#GetMainSetting">
+→ GetMainSetting 関数 (vbsool)</A></DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:934px; width:538px; height:250px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text626_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:940px; line-height:15px; white-space:nowrap">
+'********************************************************************************<BR/>
+'&nbsp; &lt;&lt;&lt; [TestCommon_setVariables] &gt;&gt;&gt;<BR/>
+'********************************************************************************<BR/>
+Dim&nbsp; g_TestCommon_ConfigInited<BR/>
+<BR/>
+Sub&nbsp; TestCommon_setVariables( g )<BR/>
+&nbsp; AssertExist&nbsp; env("%SAMPLEROOT%")&nbsp; '// 環境変数をチェックする<BR/>
+<BR/>
+&nbsp; g("LocalConfig") = "Debug"&nbsp; '// g はテスト(Test.vbs)ごとに存在する UnitTest::Delegate<BR/>
+<BR/>
+&nbsp; If IsEmpty( g_TestCommon_ConfigInited ) Then&nbsp; '// プロセスごとの設定<BR/>
+&nbsp; &nbsp; Dim xx : Set xx = ReadTestCase( SearchParent("TestCommon_Data.xml"), Empty )<BR/>
+&nbsp; &nbsp; set_ "Config", xx("Config")<BR/>
+&nbsp; &nbsp; g_TestCommon_ConfigInited= True<BR/>
+&nbsp; End If<BR/>
+End Sub</DIV>
+<DIV id="text626_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:137px; margin-top:915px; line-height:15px; white-space:nowrap">
+<A name="TestCommon_setVariables">
+の中の TestCommon_setVariables 関数 のサンプル：</A></DIV>
+<DIV id="text626_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:584px; line-height:15px; white-space:nowrap">
+サンプル in TestTarget.vbs：</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:603px; width:502px; height:250px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text626_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:609px; line-height:15px; white-space:nowrap">
+Dim g_g : Sub GetMainSetting( g ) : If not IsEmpty(g_g) Then Set g=g_g : Exit Sub<BR/>
+&nbsp; Set g=CreateObject("Scripting.Dictionary") : Set g_g=g<BR/>
+&nbsp; TestCommon_setVariables&nbsp; g&nbsp; '// g("Config")<BR/>
+<BR/>
+&nbsp; '[Setting]<BR/>
+&nbsp; '==============================================================================<BR/>
+&nbsp; g("ExeName") = "Sample"<BR/>
+&nbsp; '==============================================================================<BR/>
+End Sub<BR/>
+<BR/>
+<BR/>
+Sub&nbsp; Main()<BR/>
+&nbsp; include&nbsp; SearchParent("TestCommon.vbs")&nbsp; '// TestCommon_setVariables<BR/>
+&nbsp; Dim&nbsp; g : GetMainSetting&nbsp; g<BR/>
+&nbsp; devenv_rebuild&nbsp; g("ExeName")+".sln", g("Config")<BR/>
+End Sub</DIV>
+<DIV id="text626_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:354px; margin-top:309px; line-height:13px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+TestCommon_setVariables</A></DIV>
+<DIV id="text626_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:60px; margin-top:640px; line-height:13px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+TestCommon_setVariables</A></DIV>
+<DIV id="text626_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:330px; margin-top:790px; line-height:13px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+TestCommon_setVariables</A></DIV>
+<DIV id="text626_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:162px; line-height:15px; white-space:nowrap">
+RunTestPrompt を実行する場合は、Delegate を使う</DIV>
+<DIV id="text626_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:584px; line-height:15px; white-space:nowrap">
+RunTestPrompt を実行しない場合は、Delegate を使わない</DIV>
+<DIV id="text626_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:156px; margin-top:700px; line-height:13px; white-space:nowrap">
+Sample</DIV>
+<DIV id="text626_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:78px; margin-top:700px; line-height:13px; white-space:nowrap">
+ExeName</DIV>
+<DIV id="text626_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:174px; margin-top:820px; line-height:13px; white-space:nowrap">
+ExeName</DIV>
+<DIV id="text626_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:1487px; line-height:15px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+→ TestCommon.vbs</A></DIV>
+<DIV id="text626_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:102px; margin-top:1121px; line-height:13px; white-space:nowrap">
+"Config", xx("Config")</DIV>
+<DIV id="text626_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:60px; margin-top:1061px; line-height:13px; white-space:nowrap">
+g("LocalConfig") = "Debug"</DIV>
+<DIV id="text626_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:60px; margin-top:1031px; line-height:13px; white-space:nowrap">
+<A href="vbslib_34.html#AssertExist">
+AssertExist</A></DIV>
+<DIV id="text626_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:348px; margin-top:1106px; line-height:13px; white-space:nowrap">
+<A href="#TestCommon_Data_xml">
+TestCommon_Data.xml</A></DIV>
+<DIV id="text626_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:1220px; line-height:15px; white-space:nowrap">
+コールツリー (Test.vbs)</DIV>
+<DIV id="text626_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:77px; margin-top:1284px; line-height:13px; white-space:nowrap">
+Test_current</DIV>
+<DIV id="text626_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:88px; margin-top:1302px; line-height:13px; white-space:nowrap">
+TestCommon_setVariables</DIV>
+<DIV id="text626_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:1266px; line-height:13px; white-space:nowrap">
+Tests::DoAllTest</DIV>
+<DIV id="text626_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:1247px; line-height:13px; white-space:nowrap">
+RunTestPrompt</DIV>
+<DIV id="text626_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:1365px; line-height:13px; white-space:nowrap">
+main</DIV>
+<DIV id="text626_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:1383px; line-height:13px; white-space:nowrap">
+GetMainSetting</DIV>
+<DIV id="text626_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:78px; margin-top:1401px; line-height:13px; white-space:nowrap">
+TestCommon_setVariables</DIV>
+<DIV id="text626_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:1338px; line-height:15px; white-space:nowrap">
+コールツリー (一般スクリプト)</DIV>
+<DIV id="text626_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:180px; margin-top:1106px; line-height:13px; white-space:nowrap">
+<A href="vbslib_32.html#ReadTestCase">
+ReadTestCase</A></DIV>
+<DIV id="text626_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:244px; margin-top:1284px; line-height:13px; white-space:nowrap">
+// テストごとに異なる UnitTest::Delegate</DIV>
+<DIV id="text626_44" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:244px; margin-top:1302px; line-height:13px; white-space:nowrap">
+// 全テストに共通の UnitTest::Delegate など</DIV>
+<DIV id="text626_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:237px; margin-top:1401px; line-height:13px; white-space:nowrap">
+// 全スクリプト共通の UnitTest::Delegate など</DIV>
+<DIV id="text626_46" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:237px; margin-top:1383px; line-height:13px; white-space:nowrap">
+// スクリプト・ファイルごとに異なる UnitTest::Delegate</DIV>
+<DIV id="text626_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:915px; line-height:15px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+TestCommon.vbs</A></DIV>
+<DIV id="text626_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:198px; margin-top:790px; line-height:13px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+TestCommon.vbs</A></DIV>
+<DIV id="text626_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:240px; margin-top:309px; line-height:13px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+TestCommon.vbs</A></DIV>
+<DIV id="text626_50" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:63px; margin-top:54px; line-height:13px; white-space:nowrap">
+<A href="vbslib_32.html#UnitTest">
+UnitTest</A></DIV>
+
+<v:line from="0,0" to="611,0"/>
+<v:line from="611,0" to="611,1535"/>
+<v:line from="611,1535" to="0,1535"/>
+<v:line from="0,1535" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 627 --> 
+<PAGE>
+<A id="svgcats_vml_p627" class="to_tree" style="margin-top:1540px;" onClick="selectTreeElem( '627' );">←</A>
+<A href="#svgcats_vml_p628" class="to_next_page" style="margin-top:1540px;">▼</A>
+<A href="#svgcats_vml_p626" class="to_prev_page" style="margin-top:1540px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1551px; width:658px; height:573px;" fillcolor="white"/>
+<DIV id="text627_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1568px; line-height:15px; white-space:nowrap">
+<A name="TestCommon_vbs" href="#TestCommon_vbs" style="color:#008000">
+TestCommon.vbs</A></DIV>
+<DIV id="text627_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1658px; line-height:15px; white-space:nowrap">
+Test.vbs</DIV>
+<DIV id="text627_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1912px; line-height:15px; white-space:nowrap">
+TestCommon.vbs</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:1680px; width:586px; height:190px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text627_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:1686px; line-height:15px; white-space:nowrap">
+Sub main2( Opt, AppKey )<BR/>
+&nbsp; RunTestPrompt&nbsp; AppKey.NewWritable( "." )<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; Test_current( tests )<BR/>
+&nbsp; If IsEmpty( tests.CurrentTest.Delegate ) Then<BR/>
+&nbsp; &nbsp; Dim g : Set g = CreateObject( "Scripting.Dictionary" ) : Set tests.CurrentTest.Delegate = g<BR/>
+&nbsp; &nbsp; call_vbs&nbsp; SearchParent("TestCommon.vbs"), "TestCommon_setVariables",&nbsp; g<BR/>
+&nbsp; End If<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; Test_start( tests ) : TestCommon_test_start&nbsp; tests : Pass : End Sub</DIV>
+<DIV id="text627_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:1599px; line-height:15px; white-space:nowrap">
+サブ・フォルダーにある Test.vbs に共通するスクリプトを記述します。<BR/>
+ライブラリにするほど汎用的ではないが、複数のテストで使われる関数などを記述します。</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:1932px; width:280px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text627_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:1938px; line-height:15px; white-space:nowrap">
+Sub&nbsp; TestCommon_setVariables( g )<BR/>
+&nbsp; Set g("GlobalTestObject") = new SampleTest<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; TestCommon_test_start( tests )<BR/>
+&nbsp; '// 複数のテストで行う処理<BR/>
+End Sub</DIV>
+<v:line style="position:absolute;" from="263,1808" to="91,1915" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="221,1866" to="164,1998" strokecolor="#FF9F11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="417,1808" to="137,1938" strokecolor="#11FFFF" strokeweight="1pt"/>
+<DIV id="text627_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:78px; margin-top:1939px; line-height:13px; white-space:nowrap">
+<A href="#TestCommon_setVariables">
+TestCommon_setVariables</A></DIV>
+<DIV id="text627_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:180px; margin-top:1570px; line-height:12px; white-space:nowrap">
+<A href="vbslib_30.html#test_prompt">
+[ 親: テスト・プロンプト Test.vbs ]</A></DIV>
+<DIV id="text627_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2076px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text627_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:76px; margin-top:2076px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_12.html#GetMainSetting">
+→ GetMainSetting 関数 (vbsool)</A></DIV>
+
+<v:line from="0,1551" to="658,1551"/>
+<v:line from="658,1551" to="658,2124"/>
+<v:line from="658,2124" to="0,2124"/>
+<v:line from="0,2124" to="0,1551"/>
+
+</PAGE>
+ 
+<!-- page 628 --> 
+<PAGE>
+<A id="svgcats_vml_p628" class="to_tree" style="margin-top:2129px;" onClick="selectTreeElem( '628' );">←</A>
+<A href="#svgcats_vml_p629" class="to_next_page" style="margin-top:2129px;">▼</A>
+<A href="#svgcats_vml_p627" class="to_prev_page" style="margin-top:2129px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2140px; width:541px; height:278px;" fillcolor="white"/>
+<DIV id="text628_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2157px; line-height:15px; white-space:nowrap">
+<A name="g_test_data">
+グローバル・テスト・オブジェクト, SampleTest</A></DIV>
+<DIV id="text628_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:2187px; line-height:15px; white-space:nowrap">
+<A href="#TestCommon_vbs">
+TestCommon.vbs</A></DIV>
+<DIV id="text628_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:127px; margin-top:2187px; line-height:15px; white-space:nowrap">
+で定義する TestCommon_setVariables 関数で、グローバル・テスト・</DIV>
+<DIV id="text628_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2203px; line-height:15px; white-space:nowrap">
+オブジェクトを生成し、</DIV>
+<DIV id="text628_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:146px; margin-top:2203px; line-height:15px; white-space:nowrap">
+<A href="#UnitTest_Delegate">
+UnitTest::Delegate</A></DIV>
+<DIV id="text628_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:254px; margin-top:2203px; line-height:15px; white-space:nowrap">
+から参照します。</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:2245px; width:352px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text628_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:2251px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Test_build( tests )<BR/>
+&nbsp; Dim&nbsp; g : Set g = tests.CurrentTest.Delegate<BR/>
+&nbsp; RunProg&nbsp; """"+ g("GlobalTestObject").ExePath +"""", ""<BR/>
+End Sub</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:2331px; width:280px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text628_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:2337px; line-height:15px; white-space:nowrap">
+Sub&nbsp; TestCommon_setVariables( g )<BR/>
+&nbsp; Set g("GlobalTestObject") = new SampleTest<BR/>
+End Sub</DIV>
+
+<v:line from="0,2140" to="541,2140"/>
+<v:line from="541,2140" to="541,2418"/>
+<v:line from="541,2418" to="0,2418"/>
+<v:line from="0,2418" to="0,2140"/>
+
+</PAGE>
+ 
+<!-- page 629 --> 
+<PAGE>
+<A id="svgcats_vml_p629" class="to_tree" style="margin-top:2423px;" onClick="selectTreeElem( '629' );">←</A>
+<A href="#svgcats_vml_p630" class="to_next_page" style="margin-top:2423px;">▼</A>
+<A href="#svgcats_vml_p628" class="to_prev_page" style="margin-top:2423px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2434px; width:585px; height:754px;" fillcolor="white"/>
+<DIV id="text629_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2451px; line-height:15px; white-space:nowrap">
+<A name="TestCommon_Data_xml">
+TestCommon_Data.xml</A></DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2568px; width:298px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text629_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2575px; line-height:13px; white-space:nowrap">
+&lt;TestCases TestSymbols="T_Sample1, T_Sample2"/&gt;</DIV>
+<DIV id="text629_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2540px; line-height:15px; white-space:nowrap">
+<A name="TestSymbols">
+TestSymbols 属性</A></DIV>
+<DIV id="text629_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:206px; margin-top:2601px; line-height:15px; white-space:nowrap">
+を選んだときに実施するテストを選択します。</DIV>
+<DIV id="text629_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:112px; margin-top:2601px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#DoAllTest">
+2. Do ALL Test</A></DIV>
+<DIV id="text629_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:2601px; line-height:15px; white-space:nowrap">
+Test.vbs の</DIV>
+<DIV id="text629_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:2724px; line-height:15px; white-space:nowrap">
+この属性が無いときは、サブ・フォルダーにある全てのテストを実施します。</DIV>
+<DIV id="text629_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:2618px; line-height:15px; white-space:nowrap">
+実施するテストのシンボルを CSV 形式で指定してください。<BR/>
+Test.vbs の<BR/>
+シンボルが多いときは、改行を入れることができます。</DIV>
+<v:rect style="position:absolute; margin-left:70px; margin-top:2671px; width:286px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text629_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:78px; margin-top:2677px; line-height:15px; white-space:nowrap">
+&lt;TestCases TestSymbols="T_Sample1, T_Sample2,<BR/>
+&nbsp; &nbsp;T_Sample3"/&gt;</DIV>
+<DIV id="text629_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:113px; margin-top:2633px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#SelectTest">
+1. Select the Test</A></DIV>
+<DIV id="text629_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:224px; margin-top:2633px; line-height:15px; white-space:nowrap">
+を選ぶと、シンボルを一覧できます。</DIV>
+<DIV id="text629_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2485px; line-height:15px; white-space:nowrap">
+テストに関する情報をまとめたデータ・ファイルです。<BR/>
+ダブルクリックする Test.vbs と同じフォルダーに TestCommon_Data.xml を作成してください。</DIV>
+<DIV id="text629_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:43px; margin-top:2751px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text629_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:86px; margin-top:2751px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#Tests_LoadTestSet">
+→ Tests::LoadTestSet</A></DIV>
+<DIV id="text629_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:87px; margin-top:3139px; line-height:15px; white-space:nowrap">
+<A href="#TestCommon_setVariables">
+→ TestCommon.vbs の中の TestCommon_setVariables 関数 のサンプル</A></DIV>
+<DIV id="text629_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:43px; margin-top:3139px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text629_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3085px; line-height:15px; white-space:nowrap">
+その他、オリジナル属性</DIV>
+<DIV id="text629_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:3113px; line-height:15px; white-space:nowrap">
+テスト固有のオリジナル属性を、TestCommon_Data.xml に含めることができます。</DIV>
+<DIV id="text629_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:217px; margin-top:2453px; line-height:12px; white-space:nowrap">
+<A href="vbslib_30.html#test_prompt">
+[ 親: テスト・プロンプト Test.vbs ]</A></DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2820px; width:286px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text629_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2826px; line-height:15px; white-space:nowrap">
+&lt;TestCases TestSymbols="T_Sample1, T_Sample2"<BR/>
+&nbsp;TestScriptFileName="Test_target.vbs"/&gt;</DIV>
+<DIV id="text629_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2796px; line-height:15px; white-space:nowrap">
+TestScriptFileName 属性</DIV>
+<DIV id="text629_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:2870px; line-height:15px; white-space:nowrap">
+TestScriptFileName 属性に、Test.vbs のファイル名を指定すると、そのファイル名から<BR/>
+起動した場合のみ、有効になります。</DIV>
+<DIV id="text629_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2930px; line-height:15px; white-space:nowrap">
+<A name="TestScriptFileNameExcepted">
+TestScriptFileNameExcepted 属性</A></DIV>
+<DIV id="text629_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:3007px; line-height:15px; white-space:nowrap">
+TestScriptFileNameExcepted 属性に、Test.vbs のファイル名を指定すると、その<BR/>
+ファイル名「以外」から起動した場合のみ、有効になります。</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2957px; width:286px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text629_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2963px; line-height:15px; white-space:nowrap">
+&lt;TestCases TestSymbols="T_Sample1, T_Sample2"<BR/>
+&nbsp;TestScriptFileNameExcepted="Test.vbs"/&gt;</DIV>
+
+<v:line from="0,2434" to="585,2434"/>
+<v:line from="585,2434" to="585,3188"/>
+<v:line from="585,3188" to="0,3188"/>
+<v:line from="0,3188" to="0,2434"/>
+
+</PAGE>
+ 
+<!-- page 630 --> 
+<PAGE>
+<A id="svgcats_vml_p630" class="to_tree" style="margin-top:3193px;" onClick="selectTreeElem( '630' );">←</A>
+<A href="#svgcats_vml_p631" class="to_next_page" style="margin-top:3193px;">▼</A>
+<A href="#svgcats_vml_p629" class="to_prev_page" style="margin-top:3193px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3204px; width:557px; height:599px;" fillcolor="white"/>
+<DIV id="text630_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3221px; line-height:15px; white-space:nowrap">
+<A name="TestOpt">
+Test.vbs のコマンドライン・オプション</A></DIV>
+<DIV id="text630_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:3252px; line-height:15px; white-space:nowrap">
+コマンドライン・オプションを指定して起動すると、メニューから選択することなく、自動的に<BR/>
+テストの実施などを行うことができます。</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:3329px; width:274px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text630_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:3335px; line-height:15px; white-space:nowrap">
+@echo off<BR/>
+echo テストのビルド・ステップを実行します。<BR/>
+pause<BR/>
+cscript&nbsp; Test.vbs /Build</DIV>
+<DIV id="text630_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:3306px; line-height:15px; white-space:nowrap">
+サンプル： BuildTest.bat</DIV>
+<DIV id="text630_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3574px; line-height:13px; white-space:nowrap">
+/Build</DIV>
+<DIV id="text630_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3572px; line-height:15px; white-space:nowrap">
+Test_build 関数を呼び出します。 呼び出したら、プロセスを終了します。</DIV>
+<DIV id="text630_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:3423px; line-height:15px; white-space:nowrap">
+次のオプションがあります。</DIV>
+<DIV id="text630_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3464px; line-height:13px; white-space:nowrap">
+/Case:TestSymbol</DIV>
+<DIV id="text630_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3485px; line-height:15px; white-space:nowrap">
+TestSymbol に指定したテスト・シンボルの Test.vbs を選択します。<BR/>
+/Case オプションが無いときは、すべての Test.vbs を選択します。</DIV>
+<DIV id="text630_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3594px; line-height:15px; white-space:nowrap">
+Test_setup 関数を呼び出します。 呼び出したら、プロセスを終了します。</DIV>
+<DIV id="text630_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3596px; line-height:13px; white-space:nowrap">
+/Setup</DIV>
+<DIV id="text630_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3640px; line-height:13px; white-space:nowrap">
+/Check</DIV>
+<DIV id="text630_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3638px; line-height:15px; white-space:nowrap">
+Test_check 関数を呼び出します。 呼び出したら、プロセスを終了します。</DIV>
+<DIV id="text630_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3616px; line-height:15px; white-space:nowrap">
+Test_start 関数を呼び出します。 呼び出したら、プロセスを終了します。</DIV>
+<DIV id="text630_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3618px; line-height:13px; white-space:nowrap">
+/Start</DIV>
+<DIV id="text630_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3660px; line-height:15px; white-space:nowrap">
+Test_clean 関数を呼び出します。 呼び出したら、プロセスを終了します。</DIV>
+<DIV id="text630_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3662px; line-height:13px; white-space:nowrap">
+/Clean</DIV>
+<DIV id="text630_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3531px; line-height:13px; white-space:nowrap">
+/All</DIV>
+<DIV id="text630_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3529px; line-height:15px; white-space:nowrap">
+Test.vbs の Test_build, Test_setup, Test_start, Test_check, Test_clean を<BR/>
+呼び出します。 呼び出したら、プロセスを終了します。</DIV>
+<DIV id="text630_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3755px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text630_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:3755px; line-height:15px; white-space:nowrap">
+<A href="#TestScript2">
+→ テスト・スクリプト ver2</A></DIV>
+<DIV id="text630_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:250px; margin-top:3755px; line-height:15px; white-space:nowrap">
+VBS から Test.vbs を呼び出す</DIV>
+<DIV id="text630_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:3730px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text630_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:3730px; line-height:15px; white-space:nowrap">
+→ T_Prpt フォルダ</DIV>
+<DIV id="text630_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:25px; margin-top:3695px; line-height:13px; white-space:nowrap">
+/log</DIV>
+<DIV id="text630_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:3693px; line-height:15px; white-space:nowrap">
+テストのログのファイル名。 デフォルトは、"Test_logs.txt"</DIV>
+
+<v:line from="0,3204" to="557,3204"/>
+<v:line from="557,3204" to="557,3803"/>
+<v:line from="557,3803" to="0,3803"/>
+<v:line from="0,3803" to="0,3204"/>
+
+</PAGE>
+ 
+<!-- page 631 --> 
+<PAGE>
+<A id="svgcats_vml_p631" class="to_tree" style="margin-top:3808px;" onClick="selectTreeElem( '631' );">←</A>
+<A href="#svgcats_vml_p632" class="to_next_page" style="margin-top:3808px;">▼</A>
+<A href="#svgcats_vml_p630" class="to_prev_page" style="margin-top:3808px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3819px; width:616px; height:1214px;" fillcolor="white"/>
+<DIV id="text631_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3836px; line-height:15px; white-space:nowrap">
+<A name="TestPromptDebug">
+Fail したとき</A></DIV>
+<DIV id="text631_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:205px; margin-top:3839px; line-height:12px; white-space:nowrap">
+<A href="vbslib_30.html#test_prompt">
+[ 親: テスト・プロンプト ]</A></DIV>
+<DIV id="text631_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:3958px; line-height:15px; white-space:nowrap">
+Test_start などでエラーが発生しても、エラーがあったことを表示して、Test_logs.txt に記録<BR/>
+するだけで、次のテスト関数を呼び出しに行きます。</DIV>
+<v:rect style="position:absolute; margin-left:59px; margin-top:4079px; width:466px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text631_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:4085px; line-height:15px; white-space:nowrap">
+[FAIL] Fail the Test<BR/>
+&nbsp;in "Test_start" function in "C:\home\vbslib_pack\_src\T_Priority\Test.vbs"</DIV>
+<DIV id="text631_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4037px; line-height:15px; white-space:nowrap">
+Test_logs.txt には、エラーが発生した Test.vbs のフル・パスと、テスト関数が記録されて<BR/>
+います。</DIV>
+<DIV id="text631_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:4882px; line-height:15px; white-space:nowrap">
+Test_logs.txt に記録されている Test.vbs を</DIV>
+<DIV id="text631_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:286px; margin-top:4882px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#prompt_debug_script">
+デバッグモード(Script)</A></DIV>
+<DIV id="text631_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:416px; margin-top:4882px; line-height:15px; white-space:nowrap">
+で実行すると、問題がある</DIV>
+<DIV id="text631_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:4899px; line-height:15px; white-space:nowrap">
+場所でブレークします。</DIV>
+<DIV id="text631_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:4926px; line-height:15px; white-space:nowrap">
+多くの場合、テスト対象のプログラムの出力値チェックでエラーになっているので、Test.vbs を</DIV>
+<DIV id="text631_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:242px; margin-top:3895px; line-height:15px; white-space:nowrap">
+<A href="%usb_mem_e%\MyDoc\programming\スクリプト\DOS バッチファイル\!DOSバッチファイル.svg#FCBat_FindFail">
+→ Fail したテスト項目を特定する (FCBat)</A></DIV>
+<DIV id="text631_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:45px; margin-top:4943px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#prompt_debug_target">
+デバッグモード(Target)</A></DIV>
+<DIV id="text631_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4943px; line-height:15px; white-space:nowrap">
+で実行します。</DIV>
+<DIV id="text631_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:3895px; line-height:15px; white-space:nowrap">
+FCBat を使っているときは、</DIV>
+<DIV id="text631_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4137px; line-height:15px; white-space:nowrap">
+Test_logs.txt を「書き込みできない」とき、テスト・プロンプトが二重に起動して同じファイルを<BR/>
+開こうとしているときがあります。 そのときは、下記の /log オプションを指定して Test.vbs を<BR/>
+起動するか、Main 関数の先頭で、m_DefLogFName にログ・ファイルの名前を設定してください。</DIV>
+<v:rect style="position:absolute; margin-left:62px; margin-top:4192px; width:262px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text631_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:70px; margin-top:4199px; line-height:13px; white-space:nowrap">
+cscript Test.vbs /log:TestTarget_logs.txt</DIV>
+<v:rect style="position:absolute; margin-left:62px; margin-top:4223px; width:304px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text631_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:70px; margin-top:4229px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; &nbsp; g_Test.m_DefLogFName = "TestTarget_logs.txt"<BR/>
+&nbsp; &nbsp; RunTestPrompt AppKey.NewWritable( "." )<BR/>
+End Sub</DIV>
+<DIV id="text631_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:4970px; line-height:15px; white-space:nowrap">
+テスト・プロンプト自体をデバッグするときは、デバッグモード(Script) で実行してブレークする<BR/>
+場所に、Stop 命令を記述し、cscript.exe //x で、Test.vbs を実行してください。</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:4681px; width:544px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text631_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:4688px; line-height:13px; white-space:nowrap">
+Sub main2( Opt, AppKey ):set_input "5." :RunTestPrompt AppKey.NewWritable( "." ):End Sub</DIV>
+<DIV id="text631_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3932px; line-height:15px; white-space:nowrap">
+1.エラー状況を確認する</DIV>
+<DIV id="text631_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4608px; line-height:15px; white-space:nowrap">
+2.繰り返し実行する環境を作る</DIV>
+<DIV id="text631_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:4638px; line-height:15px; white-space:nowrap">
+テスト・プロンプトへの入力を自動化することで、繰り返しテストを実行することを簡単にします。</DIV>
+<DIV id="text631_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:4662px; line-height:15px; white-space:nowrap">
+Tests.vbs</DIV>
+<DIV id="text631_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4745px; line-height:15px; white-space:nowrap">
+3.デバッガに接続して、問題のある場所で止める</DIV>
+<DIV id="text631_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:263px; margin-top:4688px; line-height:13px; white-space:nowrap">
+5.</DIV>
+<DIV id="text631_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:97px; margin-top:4052px; line-height:15px; white-space:nowrap">
+<A href="#RunTestPrompt">
+RunTestPrompt</A></DIV>
+<DIV id="text631_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:4052px; line-height:15px; white-space:nowrap">
+で、テストを１つだけ指定したときは、Test_log.txt に記録されます。</DIV>
+<DIV id="text631_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:50px; margin-top:4010px; line-height:15px; white-space:nowrap">
+<A name="test_log">
+Test_logs.txt, Test_log.txt</A></DIV>
+<DIV id="text631_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:3895px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text631_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:50px; margin-top:4320px; line-height:15px; white-space:nowrap">
+<A name="AutoDiff">
+旧 AutoDiff モード</A></DIV>
+<DIV id="text631_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4411px; line-height:15px; white-space:nowrap">
+AutoDiff モードを有効にすると、テストが失敗したとき、テスト・ログの中にコマンドプロンプトの</DIV>
+<DIV id="text631_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:3870px; line-height:15px; white-space:nowrap">
+テストに Fail したときの対応のヒントを説明します。</DIV>
+<DIV id="text631_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:34px; margin-top:4859px; line-height:15px; white-space:nowrap">
+（旧版）</DIV>
+<DIV id="text631_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:47px; margin-top:4777px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#err_break">
+→ エラーが発生した瞬間のスクリプト内部の様子を調べる</A></DIV>
+<DIV id="text631_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:47px; margin-top:4796px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#err_break_set">
+→ エラー・ブレークを有効にする</A></DIV>
+<DIV id="text631_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:50px; margin-top:4426px; line-height:15px; white-space:nowrap">
+<A href="..\dos_batch.files\dos_batch_05.html#fc">
+fc コマンド</A></DIV>
+<DIV id="text631_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:112px; margin-top:4426px; line-height:15px; white-space:nowrap">
+の出力（テキストの差分表示）があれば、Diff ツールを起動します。</DIV>
+<DIV id="text631_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:162px; margin-top:4532px; line-height:15px; white-space:nowrap">
+<A href="vbslib_05.html#Setting_getDiffCmdLine">
+→ Setting_getDiffCmdLine</A></DIV>
+<DIV id="text631_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4532px; line-height:15px; white-space:nowrap">
+Diff ツールの設定</DIV>
+<v:rect style="position:absolute; margin-left:62px; margin-top:4451px; width:274px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text631_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:70px; margin-top:4457px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; &nbsp; g_Test.m_bAutoDiff = True<BR/>
+&nbsp; &nbsp; RunTestPrompt AppKey.NewWritable( "." )<BR/>
+End Sub</DIV>
+<DIV id="text631_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:136px; margin-top:4473px; line-height:13px; white-space:nowrap">
+<A href="vbslib_32.html#Tests_m_bAutoDiff">
+m_bAutoDiff</A></DIV>
+<DIV id="text631_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:102px; margin-top:4553px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_AutoDiff">
+→ [T_AutoDiff] 自動的に Diff ツールを開く</A></DIV>
+<DIV id="text631_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:50px; margin-top:4553px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text631_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4346px; line-height:15px; white-space:nowrap">
+廃止されました。</DIV>
+<DIV id="text631_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:158px; margin-top:4346px; line-height:15px; white-space:nowrap">
+<A href="vbslib_34.html#AssertFC">
+AssertFC</A></DIV>
+<DIV id="text631_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4372px; line-height:15px; white-space:nowrap">
+ver4 では、m_bAutoDiff_ に変えると動きますが、今後は無くなります。</DIV>
+<DIV id="text631_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:4346px; line-height:15px; white-space:nowrap">
+を使ってください。</DIV>
+
+<v:line from="0,3819" to="616,3819"/>
+<v:line from="616,3819" to="616,5033"/>
+<v:line from="616,5033" to="0,5033"/>
+<v:line from="0,5033" to="0,3819"/>
+
+</PAGE>
+ 
+<!-- page 632 --> 
+<PAGE>
+<A id="svgcats_vml_p632" class="to_tree" style="margin-top:5038px;" onClick="selectTreeElem( '632' );">←</A>
+<A href="#svgcats_vml_p633" class="to_next_page" style="margin-top:5038px;">▼</A>
+<A href="#svgcats_vml_p631" class="to_prev_page" style="margin-top:5038px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5049px; width:543px; height:886px;" fillcolor="white"/>
+<v:image src="632/image01.png"
+   style="position:absolute; margin-left:38px; margin-top:5198px; width:18px; height:15px;"/>
+<v:image src="632/image02.png"
+   style="position:absolute; margin-left:56px; margin-top:5221px; width:18px; height:18px;"/>
+<v:image src="632/image03.png"
+   style="position:absolute; margin-left:77px; margin-top:5269px; width:18px; height:18px;"/>
+<v:image src="632/image04.png"
+   style="position:absolute; margin-left:57px; margin-top:5246px; width:18px; height:15px;"/>
+<v:image src="632/image05.png"
+   style="position:absolute; margin-left:57px; margin-top:5294px; width:18px; height:15px;"/>
+<v:image src="632/image06.png"
+   style="position:absolute; margin-left:77px; margin-top:5317px; width:18px; height:18px;"/>
+<DIV id="text632_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:22px; margin-top:5065px; line-height:15px; white-space:nowrap">
+<A name="unit_call">
+サブフォルダの関数の呼び出し順序</A></DIV>
+<DIV id="text632_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:5198px; line-height:15px; white-space:nowrap">
+T_SomeTests</DIV>
+<DIV id="text632_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:5222px; line-height:15px; white-space:nowrap">
+Test.vbs</DIV>
+<DIV id="text632_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:5270px; line-height:15px; white-space:nowrap">
+Test.vbs</DIV>
+<DIV id="text632_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:5246px; line-height:15px; white-space:nowrap">
+T_UnitTest1</DIV>
+<DIV id="text632_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:5318px; line-height:15px; white-space:nowrap">
+Test.vbs</DIV>
+<DIV id="text632_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:5294px; line-height:15px; white-space:nowrap">
+T_UnitTest2</DIV>
+<DIV id="text632_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:222px; margin-top:5170px; line-height:13px; white-space:nowrap">
+Test_current</DIV>
+<DIV id="text632_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:269px; margin-top:5184px; line-height:13px; white-space:nowrap">
+Test_build</DIV>
+<DIV id="text632_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:316px; margin-top:5198px; line-height:13px; white-space:nowrap">
+Test_setup</DIV>
+<DIV id="text632_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:406px; margin-top:5184px; line-height:13px; white-space:nowrap">
+Test_check</DIV>
+<DIV id="text632_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:440px; margin-top:5198px; line-height:13px; white-space:nowrap">
+Test_clean</DIV>
+<DIV id="text632_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:363px; margin-top:5320px; line-height:13px; white-space:nowrap">
+12</DIV>
+<DIV id="text632_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:363px; margin-top:5272px; line-height:13px; white-space:nowrap">
+11</DIV>
+<DIV id="text632_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:363px; margin-top:5224px; line-height:13px; white-space:nowrap">
+10</DIV>
+<DIV id="text632_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:5407px; line-height:15px; white-space:nowrap">
+ALL テストを行うと、すべての Test.vbs ファイル（起動時のファイル名と同じ名前の<BR/>
+ファイル）の Test_current を読んだ後に、すべての Test.vbsファイルの Test_build を<BR/>
+呼び出す…、と繰り返していきます。<BR/>
+<BR/>
+Test_current, Test_build, Test_setup, Test_start は、Tests::AddTestScript した順に、<BR/>
+Test_check, Test_clean は、Tests::AddTestScript した順と逆に呼ばれます。<BR/>
+<BR/>
+Tests::AddTestScriptAuto は、親フォルダから追加していくので、<BR/>
+Test_current, Test_build, Test_setup, Test_start は、親フォルダから、<BR/>
+Test_check, Test_clean は、子フォルダから呼ばれます。</DIV>
+<DIV id="text632_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:363px; margin-top:5170px; line-height:13px; white-space:nowrap">
+Test_start</DIV>
+<DIV id="text632_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:86px; margin-top:5169px; text-align: right; line-height:15px; white-space:nowrap">
+AddTestScriptAuto<BR/>
+追加順序</DIV>
+<DIV id="text632_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:173px; margin-top:5272px; line-height:13px; white-space:nowrap">
+２</DIV>
+<DIV id="text632_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:173px; margin-top:5320px; line-height:13px; white-space:nowrap">
+３</DIV>
+<DIV id="text632_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:173px; margin-top:5224px; line-height:13px; white-space:nowrap">
+１</DIV>
+<DIV id="text632_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:5361px; line-height:15px; white-space:nowrap">
+数字に書いてある順番に Test_current 関数などがコールバックされます。<BR/>
+ただし、同じ深さの T_UnitTest1 と T_UnitTest2 の順番は変わることがあります。</DIV>
+<DIV id="text632_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:269px; margin-top:5320px; line-height:13px; white-space:nowrap">
+６</DIV>
+<DIV id="text632_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:269px; margin-top:5272px; line-height:13px; white-space:nowrap">
+５</DIV>
+<DIV id="text632_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:269px; margin-top:5224px; line-height:13px; white-space:nowrap">
+４</DIV>
+<DIV id="text632_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:222px; margin-top:5272px; line-height:13px; white-space:nowrap">
+２</DIV>
+<DIV id="text632_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:222px; margin-top:5320px; line-height:13px; white-space:nowrap">
+３</DIV>
+<DIV id="text632_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:222px; margin-top:5224px; line-height:13px; white-space:nowrap">
+１</DIV>
+<DIV id="text632_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:316px; margin-top:5320px; line-height:13px; white-space:nowrap">
+９</DIV>
+<DIV id="text632_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:316px; margin-top:5272px; line-height:13px; white-space:nowrap">
+８</DIV>
+<DIV id="text632_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:316px; margin-top:5224px; line-height:13px; white-space:nowrap">
+７</DIV>
+<DIV id="text632_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:406px; margin-top:5273px; line-height:13px; white-space:nowrap">
+14</DIV>
+<DIV id="text632_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:406px; margin-top:5321px; line-height:13px; white-space:nowrap">
+13</DIV>
+<DIV id="text632_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:406px; margin-top:5225px; line-height:13px; white-space:nowrap">
+15</DIV>
+<DIV id="text632_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:449px; margin-top:5321px; line-height:13px; white-space:nowrap">
+16</DIV>
+<DIV id="text632_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:449px; margin-top:5273px; line-height:13px; white-space:nowrap">
+17</DIV>
+<DIV id="text632_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:449px; margin-top:5225px; line-height:13px; white-space:nowrap">
+18</DIV>
+<v:line style="position:absolute;" from="150,5215" to="504,5215" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="204,5169" to="204,5340" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="238,5241" to="238,5313" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="238,5313" to="242,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="238,5313" to="234,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="286,5241" to="286,5313" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="286,5313" to="290,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="286,5313" to="282,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="334,5241" to="334,5313" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="334,5313" to="338,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="334,5313" to="330,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="381,5241" to="381,5313" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="381,5313" to="385,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="381,5313" to="377,5302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="421,5312" to="421,5244" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="421,5244" to="417,5255" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="421,5244" to="425,5255" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="466,5312" to="466,5244" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="466,5244" to="462,5255" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="466,5244" to="470,5255" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text632_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:5851px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#Tests_CurrentTestPriority">
+→ Tests::CurrentTestPriority</A></DIV>
+<DIV id="text632_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:5569px; line-height:15px; white-space:nowrap">
+Tests::CurrentTestPriority を設定することで、テストの順番を変えることができます。</DIV>
+<DIV id="text632_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:5869px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#Tests_SetCur">
+→ Tests::SetCur</A></DIV>
+<DIV id="text632_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:5100px; line-height:15px; white-space:nowrap">
+テスト・プロンプトは、サブフォルダにある Test.vbs （起動時のファイル名と同じ名前の<BR/>
+ファイル）も呼び出します。 （TestCommon_Data.xml の<BR/>
+によって実施するテストは制限できます。） その呼び出す順序を説明します。</DIV>
+<v:line style="position:absolute;" from="229,5185" to="229,5210" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="229,5210" to="233,5199" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="229,5210" to="225,5199" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="276,5197" to="276,5210" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="276,5210" to="280,5199" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="276,5210" to="272,5199" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="413,5197" to="413,5210" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="413,5210" to="417,5199" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="413,5210" to="409,5199" strokecolor="#C0C0C0" strokeweight="1pt"/>
+<DIV id="text632_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:5603px; line-height:15px; white-space:nowrap">
+(ver4) テストに失敗したら、そのテストの続きの関数はコールバックされません。<BR/>
+たとえば、T_UnitTest1 の Test_start 関数内でエラーが発生したら、T_UnitTest1<BR/>
+の Test_check, Test_clean 関数はコールバックされません。</DIV>
+<DIV id="text632_60" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:5660px; line-height:15px; white-space:nowrap">
+(ver4) テストをスキップしたら、そのテストの続きの関数はコールバックされませんが、<BR/>
+Test_clean 関数はコールバックされます。 たとえば、T_UnitTest1 の Test_start 関数<BR/>
+内で Skip 関数を呼び出したら、T_UnitTest1 の Test_check 関数はコールバックされ<BR/>
+ませんが、T_UnitTest1 の Test_clean 関数はコールバックされます。</DIV>
+<DIV id="text632_61" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:5851px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text632_62" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:5732px; line-height:15px; white-space:nowrap">
+(ver4) Test_build 関数と Test_setup 関数と Test_start 関数は、親フォルダーの<BR/>
+テストに失敗があれば、子フォルダーの同じ名前の関数はコールバックされません。<BR/>
+Test_check 関数と Test_clean 関数は、子フォルダーのテストに失敗があれば、<BR/>
+親フォルダーの関数はコールバックされません。</DIV>
+<DIV id="text632_63" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:5818px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text632_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:5818px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_SomeTests">
+→ [T_SomeTests] 複数のテストスクリプト</A></DIV>
+<DIV id="text632_65" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:338px; margin-top:5115px; line-height:15px; white-space:nowrap">
+<A href="#TestSymbols">
+/TestCases/@TestSymbols</A></DIV>
+<DIV id="text632_66" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:5887px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#SelectTest">
+→ Select the Test メニュー</A></DIV>
+<DIV id="text632_67" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:236px; margin-top:5887px; line-height:15px; white-space:nowrap">
+呼び出し順序を確認する</DIV>
+
+<v:line from="0,5049" to="543,5049"/>
+<v:line from="543,5049" to="543,5935"/>
+<v:line from="543,5935" to="0,5935"/>
+<v:line from="0,5935" to="0,5049"/>
+
+</PAGE>
+ 
+<!-- page 633 --> 
+<PAGE>
+<A id="svgcats_vml_p633" class="to_tree" style="margin-top:5940px;" onClick="selectTreeElem( '633' );">←</A>
+<A href="#svgcats_vml_p634" class="to_next_page" style="margin-top:5940px;">▼</A>
+<A href="#svgcats_vml_p632" class="to_prev_page" style="margin-top:5940px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5951px; width:668px; height:1544px;" fillcolor="white"/>
+<DIV id="text633_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7070px; line-height:15px; white-space:nowrap">
+<A name="together">
+他のプログラムを起動する機能のテスト</A></DIV>
+<DIV id="text633_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:7122px; line-height:15px; white-space:nowrap">
+WaitForFile で待つ</DIV>
+<DIV id="text633_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:7104px; line-height:15px; white-space:nowrap">
+Setting_getEditorCmdLine などを、プログラムを起動しないようにする</DIV>
+<DIV id="text633_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:25px; margin-top:5973px; line-height:15px; white-space:nowrap">
+<A name="tp_hint">
+テストプログラム作成のヒント</A></DIV>
+<DIV id="text633_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:25px; margin-top:6957px; line-height:15px; white-space:nowrap">
+<A name="file_create_test">
+ファイルを生成したり、更新したりするテスト</A></DIV>
+<DIV id="text633_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:6984px; line-height:15px; white-space:nowrap">
+各テスト項目の最初で、存在する可能性のあるすべてのファイルを削除する関数を呼ぶ。</DIV>
+<DIV id="text633_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:7011px; line-height:15px; white-space:nowrap">
+よくある、すでに存在するファイルがあるときは、そのテンプレートからコピーする</DIV>
+<DIV id="text633_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6139px; line-height:15px; white-space:nowrap">
+<A name="manually_guide">
+手動テストは、ユーザーをガイドするスクリプトを作成すること</A></DIV>
+<DIV id="text633_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:6170px; line-height:15px; white-space:nowrap">
+実際にテストを実行する前に、スクリプトで、自動的に行われる動作の説明と、手動で操作する内容と<BR/>
+確認する内容を表示して、pause 関数を呼び出してください。</DIV>
+<DIV id="text633_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:6363px; line-height:15px; white-space:nowrap">
+手動テストが存在することを知らせるために、Test_start 関数で、ManualTest 関数を呼び出してください。</DIV>
+<v:rect style="position:absolute; margin-left:82px; margin-top:6208px; width:256px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text633_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:90px; margin-top:6214px; line-height:15px; white-space:nowrap">
+&nbsp; echo_line<BR/>
+&nbsp; EchoTestStart&nbsp; "T_Sample"<BR/>
+&nbsp; echo&nbsp; "～されるので、～してください。"<BR/>
+&nbsp; echo&nbsp; "～であること。"<BR/>
+&nbsp; pause<BR/>
+&nbsp; echo_line<BR/>
+&nbsp; （手動テストの自動部分の処理）</DIV>
+<DIV id="text633_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:6333px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text633_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:118px; margin-top:6333px; line-height:15px; white-space:nowrap">
+→ samples/Test/T_TestByManual フォルダ</DIV>
+<DIV id="text633_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7179px; line-height:15px; white-space:nowrap">
+<A name="chk_errmsg">
+エラーメッセージをチェックするテスト</A></DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:7204px; width:286px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text633_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:7210px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Dim&nbsp; e, e2&nbsp; ' as Err2<BR/>
+<BR/>
+&nbsp; &nbsp; '// Error Handling Test<BR/>
+&nbsp; &nbsp; echo&nbsp; vbCRLF+"Next is Error Test"<BR/>
+&nbsp; &nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; ...<BR/>
+<BR/>
+&nbsp; &nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+&nbsp; &nbsp; e.CopyAndClear&nbsp; e2&nbsp; '//[out] e2<BR/>
+&nbsp; &nbsp; echo&nbsp; &nbsp; e2.desc<BR/>
+&nbsp; &nbsp; Assert&nbsp; InStr( e2.desc, "SomeError" ) &gt; 0<BR/>
+&nbsp; &nbsp; Assert&nbsp; e2.num &lt;&gt; 0</DIV>
+<DIV id="text633_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:7433px; line-height:15px; white-space:nowrap">
+エラーの情報を Err2::CopyAndClear でコピーしてから、チェックしてください。<BR/>
+g_debug を設定したときに、Fail したところで正しくブレークするようになります。</DIV>
+<DIV id="text633_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:84px; margin-top:7346px; line-height:13px; white-space:nowrap">
+<A href="vbslib_38.html#CopyAndClear_Err2">
+CopyAndClear</A></DIV>
+<DIV id="text633_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:6082px; line-height:15px; white-space:nowrap">
+<A href="#chk_errmsg">
+→ エラーメッセージをチェックするテスト</A></DIV>
+<DIV id="text633_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:6063px; line-height:15px; white-space:nowrap">
+<A href="#together">
+→ 他のプログラムを起動する機能のテスト</A></DIV>
+<DIV id="text633_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:6044px; line-height:15px; white-space:nowrap">
+<A href="#file_create_test">
+→ ファイルを生成したり、更新したりするテスト</A></DIV>
+<DIV id="text633_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:6006px; line-height:15px; white-space:nowrap">
+<A href="#manually_guide">
+→ 手動テストは、ユーザーをガイドするスクリプトを作成すること</A></DIV>
+<DIV id="text633_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:25px; margin-top:6430px; line-height:15px; white-space:nowrap">
+<A name="multi_case">
+テストケースの組み合わせ</A></DIV>
+<DIV id="text633_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:6025px; line-height:15px; white-space:nowrap">
+<A href="#multi_case">
+→ テストケースの組み合わせ</A></DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:6534px; width:460px; height:340px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text633_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:6540px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; t, t2<BR/>
+&nbsp; For Each t&nbsp; In&nbsp; DicTable(Array( _<BR/>
+&nbsp; &nbsp; &nbsp; "Case",&nbsp; &nbsp; &nbsp;"SrcPath",&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"AnsPath",&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Empty, _<BR/>
+&nbsp; &nbsp; &nbsp; "Default",&nbsp; "sample1.xml",&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"sample1_replaced.xml", _<BR/>
+&nbsp; &nbsp; &nbsp; "UTF8_BOM", "sample6_utf8bom.xml", "sample6_utf8bom_replaced.xml", _<BR/>
+&nbsp; &nbsp; &nbsp; "Unicode",&nbsp; "sample3_unicode.xml", "sample3_unicode_replaced.xml" ))<BR/>
+<BR/>
+&nbsp; For Each t2&nbsp; In&nbsp; DicTable(Array( _<BR/>
+&nbsp; &nbsp; &nbsp; "Case2",&nbsp; &nbsp; &nbsp; &nbsp; "DstPath",&nbsp; &nbsp;"OutPath",&nbsp; &nbsp; Empty, _<BR/>
+&nbsp; &nbsp; &nbsp; "DstNormal",&nbsp; &nbsp; "out.xml",&nbsp; &nbsp;"out.xml", _<BR/>
+&nbsp; &nbsp; &nbsp; "DstEmpty",&nbsp; &nbsp; &nbsp;Empty,&nbsp; &nbsp; &nbsp; &nbsp;"out.xml", _<BR/>
+&nbsp; &nbsp; &nbsp; "DstOverWrite", "out.xml",&nbsp; &nbsp;"out.xml" ))<BR/>
+&nbsp; &nbsp; Dic_add&nbsp; t, t2 : t2.RemoveAll&nbsp; '// cross join<BR/>
+<BR/>
+&nbsp; &nbsp; '//=== setup files<BR/>
+&nbsp; &nbsp; ...<BR/>
+<BR/>
+&nbsp; &nbsp; '//=== Do test&nbsp; '//##################################### Test Point<BR/>
+&nbsp; &nbsp; Assert&nbsp; Convert( t("SrcPath"), t("DstPath") ) = t("AnsPath")<BR/>
+<BR/>
+&nbsp; Next<BR/>
+&nbsp; Next</DIV>
+<DIV id="text633_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:6463px; line-height:15px; white-space:nowrap">
+テストケースの組み合わせは多重ループで記述します。 ただし、組み合わせは必要最低限にして<BR/>
+ください。 テストのパラメーターは、<BR/>
+記述しやすくなります。<BR/>
+実際にテストを行うコードは、ループの最後の方にあります。</DIV>
+<DIV id="text633_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:37px; margin-top:6895px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text633_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:6895px; line-height:15px; white-space:nowrap">
+→ TestNums</DIV>
+<DIV id="text633_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:233px; margin-top:6478px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#DicTable">
+DicTable 関数</A></DIV>
+<DIV id="text633_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:512px; margin-top:6478px; line-height:15px; white-space:nowrap">
+を使うと</DIV>
+<DIV id="text633_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:431px; margin-top:6478px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Dic_add">
+Dic_add 関数</A></DIV>
+<DIV id="text633_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:157px; margin-top:6556px; line-height:13px; white-space:nowrap">
+DicTable</DIV>
+<DIV id="text633_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:163px; margin-top:6646px; line-height:13px; white-space:nowrap">
+DicTable</DIV>
+<DIV id="text633_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:73px; margin-top:6721px; line-height:13px; white-space:nowrap">
+Dic_add</DIV>
+<DIV id="text633_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:174px; margin-top:6895px; line-height:15px; white-space:nowrap">
+→ SQL JOIN</DIV>
+<DIV id="text633_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:319px; margin-top:6478px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#JoinDicTable">
+JoinDicTable 関数</A></DIV>
+
+<v:line from="0,5951" to="668,5951"/>
+<v:line from="668,5951" to="668,7495"/>
+<v:line from="668,7495" to="0,7495"/>
+<v:line from="0,7495" to="0,5951"/>
+
+</PAGE>
+ 
+<!-- page 634 --> 
+<PAGE>
+<A id="svgcats_vml_p634" class="to_tree" style="margin-top:7500px;" onClick="selectTreeElem( '634' );">←</A>
+<A href="#svgcats_vml_p635" class="to_next_page" style="margin-top:7500px;">▼</A>
+<A href="#svgcats_vml_p633" class="to_prev_page" style="margin-top:7500px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7511px; width:445px; height:677px;" fillcolor="white"/>
+<DIV id="text634_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7528px; line-height:15px; white-space:nowrap">
+<A name="test_prompt_flow">
+処理フロー (Test.vbs)</A></DIV>
+<v:line style="position:absolute;" from="45,7799" to="45,8114" strokecolor="#808080" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:line style="position:absolute;" from="173,7802" to="173,8117" strokecolor="#808080" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:line style="position:absolute;" from="289,7806" to="289,8121" strokecolor="#808080" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:roundrect style="position:absolute; margin-left:140px; margin-top:7786px; width:101px; height:22px;" arcsize="0.454545" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:147px; margin-top:7790px; line-height:15px; white-space:nowrap">
+TestPrompt.vbs</DIV>
+<A href="vbslib_30.html#Test_vbs">
+<v:roundrect style="position:absolute; margin-left:28px; margin-top:7786px; width:61px; height:22px;" arcsize="0.454545" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text634_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7790px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#Test_vbs">
+Test.vbs</A></DIV>
+<v:roundrect style="position:absolute; margin-left:270px; margin-top:7786px; width:128px; height:22px;" arcsize="0.454545" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:277px; margin-top:7790px; line-height:15px; white-space:nowrap">
+ターゲットプログラム</DIV>
+<v:line style="position:absolute;" from="45,7872" to="173,7872" strokecolor="#000000" strokeweight="1pt"/>
+<v:shape style="position:absolute; margin-left:163px; margin-top:7867px; width:10px; height:10px"
+ fillcolor="#000000" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<DIV id="text634_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:180px; margin-top:7856px; line-height:15px; white-space:nowrap">
+<A href="#RunTestPrompt">
+RunTestPrompt</A></DIV>
+<DIV id="text634_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:7943px; line-height:15px; white-space:nowrap">
+メニューを表示</DIV>
+<DIV id="text634_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:83px; margin-top:7948px; line-height:15px; white-space:nowrap">
+(UnitTest).vbs<BR/>
+を再ロード</DIV>
+<DIV id="text634_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:59px; margin-top:7994px; line-height:15px; white-space:nowrap">
+Test_start<BR/>
+などをコールバック</DIV>
+<v:line style="position:absolute;" from="45,7981" to="173,7981" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:shape style="position:absolute; margin-left:163px; margin-top:7976px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<v:line style="position:absolute;" from="173,8029" to="45,8029" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:line style="position:absolute;" from="45,8029" to="56,8033" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="45,8029" to="56,8025" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:66px; margin-top:8040px; line-height:15px; white-space:nowrap">
+起動</DIV>
+<v:line style="position:absolute;" from="45,8056" to="289,8056" strokecolor="#000000" strokeweight="1pt"/>
+<v:shape style="position:absolute; margin-left:279px; margin-top:8051px; width:10px; height:10px"
+ fillcolor="#000000" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<v:line style="position:absolute;" from="289,8067" to="45,8067" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:line style="position:absolute;" from="45,8067" to="56,8071" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="45,8067" to="56,8063" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:66px; margin-top:8077px; line-height:15px; white-space:nowrap">
+結果を報告</DIV>
+<v:line style="position:absolute;" from="45,8093" to="173,8093" strokecolor="#000000" strokeweight="1pt"/>
+<v:shape style="position:absolute; margin-left:163px; margin-top:8088px; width:10px; height:10px"
+ fillcolor="#000000" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<DIV id="text634_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:7887px; line-height:15px; white-space:nowrap">
+TestPrompt_Setting.vbs<BR/>
+をロード＆SetTest をコール</DIV>
+<DIV id="text634_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:299px; margin-top:8051px; line-height:15px; white-space:nowrap">
+テストを実行</DIV>
+<v:line style="position:absolute;" from="45,7810" to="45,7872" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="173,7872" to="173,8029" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="45,8029" to="45,8056" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="289,8056" to="289,8067" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="45,8093" to="45,8067" strokecolor="#8080FF" strokeweight="2pt"/>
+<DIV id="text634_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:8104px; line-height:15px; white-space:nowrap">
+メニューを表示</DIV>
+<v:line style="position:absolute;" from="173,8093" to="173,8117" strokecolor="#8080FF" strokeweight="2pt"/>
+<DIV id="text634_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7561px; line-height:15px; white-space:nowrap">
+テストスクリプトを起動すると、テストプロンプトが起動します。<BR/>
+ユーザがメニューから選択すると、テスト・プロンプトからコールバック<BR/>
+されるので、テストの実施などを行います。</DIV>
+<v:shape style="position:absolute; margin-left:37px; margin-top:8123px; width:151px; height:14px;" strokecolor="#000000" strokeweight="1pt" filled="false">
+<v:path v="ar 908,-500 1000,500 954,500 1000,0 e m 954,500 l 546,500 e ar 500,500 592,1500 546,500 500,1000 e ar 408,500 500,1500 500,1000 454,500 e m 46,500 l 454,500 e ar 0,-500 92,500 0,0 46,500 e"/>
+</v:shape>
+<DIV id="text634_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:8140px; line-height:15px; white-space:nowrap">
+同一プロセス内</DIV>
+<DIV id="text634_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:24px; margin-top:7771px; line-height:12px; white-space:nowrap">
+各テスト項目</DIV>
+<DIV id="text634_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:141px; margin-top:7771px; line-height:12px; white-space:nowrap">
+テスト・プロンプト・エンジン</DIV>
+<A href="vbslib_30.html#ts_unitprompt">
+<v:rect style="position:absolute; margin-left:28px; margin-top:7625px; width:76px; height:118px;" fillcolor="#C4FFC4" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text634_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:7662px; text-align: center; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#ts_unitprompt">
+テスト<BR/>
+スクリプト<BR/>
+（Test.vbs）</A></DIV>
+<A href="#TestScript2">
+<v:rect style="position:absolute; margin-left:197px; margin-top:7628px; width:117px; height:56px;" fillcolor="#F0F3FF" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text634_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:204px; margin-top:7634px; text-align: center; line-height:15px; white-space:nowrap">
+<A href="#TestScript2">
+テスト<BR/>
+プロンプト<BR/>
+（TestPrompt.vbs）</A></DIV>
+<v:line style="position:absolute;" from="112,7676" to="184,7676" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="112,7676" to="123,7680" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="112,7676" to="123,7672" strokecolor="#000000" strokeweight="1pt"/>
+<v:roundrect style="position:absolute; margin-left:338px; margin-top:7689px; width:73px; height:37px;" arcsize="0.270270" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:344px; margin-top:7693px; text-align: center; line-height:15px; white-space:nowrap">
+テスト対象<BR/>
+プロセス</DIV>
+<v:line style="position:absolute;" from="113,7700" to="330,7700" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="330,7700" to="319,7696" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="330,7700" to="319,7704" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="184,7644" to="112,7644" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="184,7644" to="173,7640" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="184,7644" to="173,7648" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:113px; margin-top:7627px; line-height:15px; white-space:nowrap">
+インクルード</DIV>
+<DIV id="text634_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:115px; margin-top:7655px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#T_ALL_vbs">
+コールバック</A></DIV>
+<DIV id="text634_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:127px; margin-top:7684px; line-height:15px; white-space:nowrap">
+テスト実施</DIV>
+<v:rect style="position:absolute; margin-left:178px; margin-top:7713px; width:77px; height:26px;" fillcolor="#E6E6FF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:7719px; line-height:15px; white-space:nowrap">
+出力データ</DIV>
+<v:line style="position:absolute;" from="326,7719" to="260,7719" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="260,7719" to="271,7723" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="260,7719" to="271,7715" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="113,7729" to="166,7729" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="166,7729" to="155,7725" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="166,7729" to="155,7733" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text634_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:113px; margin-top:7713px; line-height:15px; white-space:nowrap">
+チェック</DIV>
+<DIV id="text634_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:279px; margin-top:7723px; line-height:15px; white-space:nowrap">
+出力</DIV>
+<DIV id="text634_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:257px; margin-top:7531px; line-height:12px; white-space:nowrap">
+<A href="vbslib_30.html#test_prompt">
+[ 親: テスト・プロンプト ]</A></DIV>
+<DIV id="text634_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:273px; margin-top:7860px; line-height:12px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text634_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:269px; margin-top:7946px; line-height:12px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text634_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; font-weight: bold; margin-left:182px; margin-top:7974px; line-height:15px; white-space:nowrap">
+<A name="Tests_DoAllTest_f" href="vbslib_32.html#Tests_DoAllTest">
+Tests::DoAllTest</A></DIV>
+<DIV id="text634_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:9pt; color:#0000FF; font-weight: bold; margin-left:182px; margin-top:8021px; line-height:13px; white-space:nowrap">
+<A href="#unit_call">
+→ 呼び出し順序</A></DIV>
+<DIV id="text634_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:281px; margin-top:8084px; line-height:12px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text634_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:8082px; line-height:15px; white-space:nowrap">
+TestScript::Finish</DIV>
+<DIV id="text634_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:192px; margin-top:7919px; line-height:12px; white-space:nowrap">
+<A href="vbslib_05.html#Setting_buildTestPrompt">
+→ Setting_buildTestPrompt</A></DIV>
+
+<v:line from="0,7511" to="445,7511"/>
+<v:line from="445,7511" to="445,8188"/>
+<v:line from="445,8188" to="0,8188"/>
+<v:line from="0,8188" to="0,7511"/>
+
+</PAGE>
+ 
+<!-- page 635 --> 
+<PAGE>
+<A id="svgcats_vml_p635" class="to_tree" style="margin-top:8193px;" onClick="selectTreeElem( '635' );">←</A>
+<A href="#svgcats_vml_p636" class="to_next_page" style="margin-top:8193px;">▼</A>
+<A href="#svgcats_vml_p634" class="to_prev_page" style="margin-top:8193px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8204px; width:381px; height:347px;" fillcolor="white"/>
+<DIV id="text635_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8221px; line-height:15px; white-space:nowrap">
+<A name="test_d">
+データ構造 (Test.vbs)</A></DIV>
+<DIV id="text635_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8265px; line-height:13px; white-space:nowrap">
+<A href="vbslib_32.html#TestPrompt_class">
+TestPrompt</A></DIV>
+<DIV id="text635_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:45px; margin-top:8319px; line-height:13px; white-space:nowrap">
+<A href="vbslib_32.html#Tests">
+Tests</A></DIV>
+<DIV id="text635_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:139px; margin-top:8319px; line-height:13px; white-space:nowrap">
+.m_Tests</DIV>
+<DIV id="text635_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:139px; margin-top:8291px; line-height:13px; white-space:nowrap">
+.m_Menu()</DIV>
+<DIV id="text635_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:8291px; line-height:13px; white-space:nowrap">
+MenuItem</DIV>
+<DIV id="text635_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:205px; margin-top:8347px; line-height:13px; white-space:nowrap">
+.Sets</DIV>
+<DIV id="text635_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:8347px; line-height:13px; white-space:nowrap">
+Dic&lt; UnitTest &gt;</DIV>
+<DIV id="text635_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:205px; margin-top:8368px; line-height:13px; white-space:nowrap">
+.CurrentTest</DIV>
+<DIV id="text635_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:68px; margin-top:8368px; line-height:13px; white-space:nowrap">
+<A href="vbslib_32.html#UnitTest">
+UnitTest</A></DIV>
+<DIV id="text635_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:159px; margin-top:8265px; line-height:13px; white-space:nowrap">
+in RunTestPrompt()</DIV>
+<DIV id="text635_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:8264px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text635_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:83px; margin-top:8317px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text635_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8400px; line-height:13px; white-space:nowrap">
+<A href="vbslib_32.html#TestScript_class">
+TestScript</A></DIV>
+<DIV id="text635_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:8400px; line-height:13px; white-space:nowrap">
+g_Test</DIV>
+<DIV id="text635_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:24px; margin-top:8440px; line-height:13px; white-space:nowrap">
+Tests::DoAllTest</DIV>
+<DIV id="text635_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:55px; margin-top:8460px; line-height:13px; white-space:nowrap">
+<A href="vbslib_27.html#SectionTree">
+SectionTree</A></DIV>
+<DIV id="text635_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:126px; margin-top:8438px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text635_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:163px; margin-top:8460px; line-height:13px; white-space:nowrap">
+section</DIV>
+
+<v:line from="0,8204" to="381,8204"/>
+<v:line from="381,8204" to="381,8551"/>
+<v:line from="381,8551" to="0,8551"/>
+<v:line from="0,8551" to="0,8204"/>
+
+</PAGE>
+ 
+<!-- page 636 --> 
+<PAGE>
+<A id="svgcats_vml_p636" class="to_tree" style="margin-top:8556px;" onClick="selectTreeElem( '636' );">←</A>
+<A href="#svgcats_vml_p637" class="to_next_page" style="margin-top:8556px;">▼</A>
+<A href="#svgcats_vml_p635" class="to_prev_page" style="margin-top:8556px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8567px; width:557px; height:538px;" fillcolor="white"/>
+<v:rect style="position:absolute; margin-left:81px; margin-top:8736px; width:267px; height:75px;" fillcolor="#CAFFCA" strokecolor="#000000" strokeweight="1pt">
+<v:fill opacity="0.00"/></v:rect>
+<DIV id="text636_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8584px; line-height:15px; white-space:nowrap">
+<A name="TestScript2">
+テスト・スクリプト ver2</A></DIV>
+<DIV id="text636_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:8618px; line-height:15px; white-space:nowrap">
+別の VBS ファイルを呼び出したり、ログをとったりします。</DIV>
+<DIV id="text636_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:8652px; line-height:15px; white-space:nowrap">
+全テストのとき、ユニットテストのとき、デバッグのとき、という状況に応じて、<BR/>
+テストスケジューラは、臨機応変にテストスクリプトを呼び出します。<BR/>
+テスト処理が失敗したら、テストスクリプトからテストスケジューラに return 的に戻り、<BR/>
+テストスケジューラは、次のテストスクリプトを実行します。</DIV>
+<v:rect style="position:absolute; margin-left:273px; margin-top:8753px; width:68px; height:41px;" fillcolor="#C4FFC4" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text636_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:281px; margin-top:8759px; text-align: center; line-height:15px; white-space:nowrap">
+テスト<BR/>
+スクリプト</DIV>
+<v:rect style="position:absolute; margin-left:92px; margin-top:8753px; width:87px; height:41px;" fillcolor="#F0F3FF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text636_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:8759px; text-align: center; line-height:15px; white-space:nowrap">
+テスト<BR/>
+スケジューラ</DIV>
+<v:roundrect style="position:absolute; margin-left:207px; margin-top:8762px; width:35px; height:22px;" arcsize="0.454545" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text636_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:214px; margin-top:8766px; line-height:15px; white-space:nowrap">
+Do_</DIV>
+<v:line style="position:absolute;" from="181,8773" to="203,8773" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="203,8773" to="192,8769" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="203,8773" to="192,8777" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="246,8773" to="268,8773" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="268,8773" to="257,8769" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="268,8773" to="257,8777" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:92px; margin-top:8727px; width:103px; height:17px;" fillcolor="#FFFFFF" strokecolor="#FFFFFF" strokeweight="1pt"/>
+<DIV id="text636_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:8729px; line-height:15px; white-space:nowrap">
+cscript.exe など</DIV>
+<v:roundrect style="position:absolute; margin-left:370px; margin-top:8762px; width:88px; height:22px;" arcsize="0.454545" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text636_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:377px; margin-top:8766px; line-height:15px; white-space:nowrap">
+プロセス起動</DIV>
+<v:line style="position:absolute;" from="344,8773" to="366,8773" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="366,8773" to="355,8769" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="366,8773" to="355,8777" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text636_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:8833px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#TestPrompt_class">
+→ TestPrompt クラス</A></DIV>
+<DIV id="text636_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:8849px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#Tests">
+→ Tests クラス</A></DIV>
+<DIV id="text636_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:8865px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#TestScript_class">
+→ TestScript クラス</A></DIV>
+<DIV id="text636_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:8882px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#TestScript_otherfunc">
+→ その他の関数</A></DIV>
+<DIV id="text636_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:180px; margin-top:8833px; line-height:15px; white-space:nowrap">
+Tests クラスをユーザから使うためのコマンドプロンプトです。</DIV>
+<DIV id="text636_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:180px; margin-top:8849px; line-height:15px; white-space:nowrap">
+テストをスケジューリングするクラスです。</DIV>
+<DIV id="text636_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:180px; margin-top:8865px; line-height:15px; white-space:nowrap">
+テストスクリプトを呼び出すクラスです。</DIV>
+<DIV id="text636_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:9030px; line-height:15px; white-space:nowrap">
+→ テストツールの接続場所</DIV>
+<DIV id="text636_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:9030px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text636_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:9055px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text636_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:9055px; line-height:15px; white-space:nowrap">
+→ TestsClass フォルダ</DIV>
+<v:rect style="position:absolute; margin-left:51px; margin-top:8942px; width:250px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text636_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:8948px; line-height:15px; white-space:nowrap">
+&nbsp; Dim ts : Set ts = new Tests<BR/>
+&nbsp; ts.AddTestScriptAuto&nbsp; ".", "Test.vbs"<BR/>
+&nbsp; ts.DoAllTest</DIV>
+<DIV id="text636_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:8921px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,8567" to="557,8567"/>
+<v:line from="557,8567" to="557,9105"/>
+<v:line from="557,9105" to="0,9105"/>
+<v:line from="0,9105" to="0,8567"/>
+
+</PAGE>
+ 
+<!-- page 637 --> 
+<PAGE>
+<A id="svgcats_vml_p637" class="to_tree" style="margin-top:9110px;" onClick="selectTreeElem( '637' );">←</A>
+<A href="#svgcats_vml_p638" class="to_next_page" style="margin-top:9110px;">▼</A>
+<A href="#svgcats_vml_p636" class="to_prev_page" style="margin-top:9110px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9121px; width:477px; height:429px;" fillcolor="white"/>
+<DIV id="text637_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9138px; line-height:15px; white-space:nowrap">
+<A name="TestPrompt_Setting">
+設定ファイル TestPrompt_Setting.vbs</A></DIV>
+<DIV id="text637_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9173px; line-height:15px; white-space:nowrap">
+テスト・プロンプトに関する設定を記述したファイルです。<BR/>
+通常、編集しなくてもそのまま使えます。</DIV>
+<DIV id="text637_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9350px; line-height:15px; white-space:nowrap">
+テストシンボルと、ユニット・テスト・プロンプトの VBS ファイルのあるパスの<BR/>
+対応関係を記述します。</DIV>
+<DIV id="text637_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9249px; line-height:15px; white-space:nowrap">
+テスト・プロンプトのメニュー項目を記述します。</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:9277px; width:298px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text637_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:9283px; line-height:15px; white-space:nowrap">
+&nbsp; prompt.m_Menu(1).m_Caption = "1. Do ALL Test"<BR/>
+&nbsp; prompt.m_Menu(1).m_OpType = prompt.Op_AllTest</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:9441px; width:370px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text637_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:9447px; line-height:15px; white-space:nowrap">
+&nbsp; fo = "test\"<BR/>
+&nbsp; Set t= tests.AddTestScript( "T_Fold1", fo+"T_Fold1.vbs" )</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:9387px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text637_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:9394px; line-height:13px; white-space:nowrap">
+&nbsp; tests.AddTestScriptAuto&nbsp; tests.BaseFolderPath, "Test.vbs"</DIV>
+<DIV id="text637_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:67px; margin-top:9419px; line-height:15px; white-space:nowrap">
+または</DIV>
+<DIV id="text637_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:9217px; line-height:15px; white-space:nowrap">
+<A href="vbslib_05.html#Setting_buildTestPrompt">
+Setting_buildTestPrompt 関数</A></DIV>
+<DIV id="text637_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:198px; margin-top:9217px; line-height:15px; white-space:nowrap">
+に設定を記述してください。</DIV>
+<DIV id="text637_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9503px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text637_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:92px; margin-top:9503px; line-height:15px; white-space:nowrap">
+→ TestPrompt_Setting_default.vbs # Setting_buildTestPrompt</DIV>
+
+<v:line from="0,9121" to="477,9121"/>
+<v:line from="477,9121" to="477,9550"/>
+<v:line from="477,9550" to="0,9550"/>
+<v:line from="0,9550" to="0,9121"/>
+
+</PAGE>
+ 
+<!-- page 638 --> 
+<PAGE>
+<A id="svgcats_vml_p638" class="to_tree" style="margin-top:9555px;" onClick="selectTreeElem( '638' );">←</A>
+<A href="vbslib_32.html#svgcats_vml_p639" class="to_next_page" style="margin-top:9555px;">▼</A>
+<A href="#svgcats_vml_p637" class="to_prev_page" style="margin-top:9555px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9566px; width:524px; height:652px;" fillcolor="white"/>
+<DIV id="text638_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9583px; line-height:15px; white-space:nowrap">
+<A name="RunTestPrompt">
+RunTestPrompt</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:9616px; width:166px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text638_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:9623px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RunTestPrompt( Opt )</DIV>
+<DIV id="text638_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:9583px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text638_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:9679px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text638_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:124px; margin-top:9679px; line-height:15px; white-space:nowrap">
+Empty または、Test.vbs のパス、または Writables オブジェクト</DIV>
+<DIV id="text638_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:9679px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text638_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:9654px; line-height:15px; white-space:nowrap">
+テスト・プロンプトを開きます。</DIV>
+<DIV id="text638_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:9911px; line-height:15px; white-space:nowrap">
+Opt に Empty を指定すると、サブフォルダにある Test.vbs もテストします。<BR/>
+Opt に</DIV>
+<DIV id="text638_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:9926px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#Test_vbs">
+Test.vbs</A></DIV>
+<DIV id="text638_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:118px; margin-top:9926px; line-height:15px; white-space:nowrap">
+のパスを指定すると、そのテストだけをテストします。</DIV>
+<DIV id="text638_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:9957px; line-height:15px; white-space:nowrap">
+Opt に Test.vbs のパスを指定しなかったときのログのファイル名は、Test_logs.txt、<BR/>
+指定したときのログのファイル名は、Test_log.txt になります。</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:9740px; width:268px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text638_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:9746px; line-height:15px; white-space:nowrap">
+Sub&nbsp; main2( Opt, AppKey )<BR/>
+&nbsp; RunTestPrompt&nbsp; AppKey.NewWritable( "." )<BR/>
+End Sub</DIV>
+<DIV id="text638_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:9720px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text638_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10055px; line-height:15px; white-space:nowrap">
+コールツリー</DIV>
+<DIV id="text638_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:10103px; line-height:13px; white-space:nowrap">
+RunTestPrompt</DIV>
+<DIV id="text638_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:10087px; line-height:13px; white-space:nowrap">
+main2</DIV>
+<DIV id="text638_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:10119px; line-height:13px; white-space:nowrap">
+TestPrompt::DoPrompt</DIV>
+<DIV id="text638_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:83px; margin-top:10138px; line-height:13px; white-space:nowrap">
+TestPrompt::DoTest</DIV>
+<DIV id="text638_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:9879px; line-height:15px; white-space:nowrap">
+Opt に Writables オブジェクトを指定すると、その設定を使い、、サブフォルダに<BR/>
+ある Test.vbs もテストします。</DIV>
+<DIV id="text638_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:309px; margin-top:9831px; line-height:15px; white-space:nowrap">
+<A href="vbslib_30.html#T_ALL_vbs">
+Test.vbs に記述する関数</A></DIV>
+<DIV id="text638_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:9848px; line-height:15px; white-space:nowrap">
+（Test_build など） を呼び出します。</DIV>
+<DIV id="text638_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:9831px; line-height:15px; white-space:nowrap">
+テスト・プロンプトで選択したメニュー項目によって、</DIV>
+<DIV id="text638_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10170px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text638_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:10170px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#GetTemporaryTestsObject">
+→ GetTemporaryTestsObject</A></DIV>
+<DIV id="text638_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:10003px; line-height:15px; white-space:nowrap">
+<A href="vbslib_32.html#RunTestPromptConfigClass">
+RunTestPromptConfigClass</A></DIV>
+<DIV id="text638_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:10003px; line-height:15px; white-space:nowrap">
+Opt に</DIV>
+<DIV id="text638_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:228px; margin-top:10003px; line-height:15px; white-space:nowrap">
+のオブジェクトを指定できます。</DIV>
+
+<v:line from="0,9566" to="524,9566"/>
+<v:line from="524,9566" to="524,10218"/>
+<v:line from="524,10218" to="0,10218"/>
+<v:line from="0,10218" to="0,9566"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10218px;">
+<A id="svgcats_vml_p638" class="to_tree" onClick="selectTreeElem( '638' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10218px;">
+<A id="page_group_bottom" href="vbslib_32.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

@@ -1,0 +1,26 @@
+テキスト・ファイルの中に、英文字以外の文字が含まれるファイルを一覧します。
+サブフォルダーも含めてチェックします。
+
+調べるフォルダーのパス>T_CheckEnglishOnly
+
+Enter のみ："%FullPath(..\..\..\..)%\Samples\Translate\SettingForCheckEnglish.ini"
+除外ファイルなどの設定ファイル>T_CheckEnglishOnly\SettingForCheckEnglish.ini
+-------------------------------------------------------------------------------
+ ((( CheckEnglishOnly )))
+テキストファイルが英語だけになっているかチェックします。
+チェックするファイルまたはフォルダーのパス: %FullPath(.)%\T_CheckEnglishOnly
+設定ファイルのパス: %FullPath(.)%\T_CheckEnglishOnly\SettingForCheckEnglish.ini
+
+<FILE path="T_CheckEnglishOnly\KanjiInUnicode.txt">
+  <LINE num="2" text="漢字"/>
+  <LINE num="4" text="です。"/>
+  <SUMMARY count="2"/>
+</FILE>
+
+<FILE path="T_CheckEnglishOnly\SJisInAscii.txt">
+  <LINE num="2" text="シフトJIS"/>
+  <LINE num="4" text="です。"/>
+  <SUMMARY count="2"/>
+</FILE>
+
+<ERROR errnum="1"/>

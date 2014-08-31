@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCases name="common"
+  CommonData1 = "Sample.exe"
+  base_data="#11d"
+>
+
+
+<TestCase id="T_TestCaseData_1">
+<SubCase
+  InputData = "123"       _comment1= "Number"
+  Answer    = "ans1.txt"  _comment2= "FilePath"
+/>
+<SubCase
+  InputData = "ABCDE"     _comment2= "Alphabet"
+  Answer    = "ans2.txt"
+/>
+</TestCase>
+
+
+<TestCase id="T_TestCaseData_2"> <!-- This is cross parameter against T_TestCaseData_1 -->
+<SubCase
+  CurrentFolder = ""
+  StepPath      = "Data\"
+/>
+<SubCase
+  CurrentFolder = "Data"
+  StepPath      = ""
+/>
+</TestCase>
+
+
+<TestCase id="T_BaseTestCaseData_1">
+<SubCase name="1a" a="1" ab="1"      base_data="#1b"/>
+</TestCase>
+
+<TestCase id="T_BaseTestCaseData_1_Sub">
+<SubCase name="1b"       ab="2" b="2"/>
+</TestCase>
+
+
+<TestCase id="T_BaseTestCaseData_2">
+<SubCase name="2b" b="2" ab="2" bcd="2" abcd="2" bd="2"  base_data="#2c"/>
+<SubCase name="2a" a="1" ab="1"         abcd="1"         base_data="#2b, #2d"/>
+</TestCase>
+
+<TestCase id="T_BaseTestCaseData_2_Sub">
+<SubCase name="2c" c="3" cd="3" bcd="3" abcd="3"/>
+<SubCase name="2d" d="4" cd="4" bcd="4" abcd="4" bd="4"/>
+</TestCase>
+
+
+<TestCase id="T_BaseTestCaseData_3">
+<SubCase name="3a" a="1" ab="1"  base_data="T_TestCaseData\sub\T_TestCaseData2.xml#3b"/>
+</TestCase>
+
+
+<TestCase id="T_BaseTestCaseData_11_Sub">
+<SubCase name="11b"       ab="2" b="2" bcd="2"/>
+</TestCase>
+
+<TestCase id="T_BaseTestCaseData_11_Sub2">
+<SubCase name="11d"       bcd="4" cd="4" d="4"/>
+</TestCase>
+
+
+<TestCase id="T_AggregateTestCaseData_1"
+  aggregate="#T_AggregateTestCaseData_1_Sub,
+             T_TestCaseData\sub\T_TestCaseData2.xml#T_AggregateTestCaseData_1_Sub2">
+<SubCase name="1" attr="value1"/>
+<SubCase name="2" attr="value2"/>
+</TestCase>
+
+<TestCase id="T_AggregateTestCaseData_1_Sub">
+<SubCase name="3" attr="value3"/>
+<SubCase name="4" attr="value4"/>
+</TestCase>
+
+
+<TestCase id="T_BaseTestCaseData_Cyclic">
+<SubCase name="basecyc1" attr="value1" base_data="#basecyc2"/>
+<SubCase name="basecyc2" attr="value2" base_data="#basecyc1"/>
+</TestCase>
+
+<TestCase id="T_AggregateTestCaseData_Cyclic_1A" aggregate="#T_AggregateTestCaseData_Cyclic_1B">
+<SubCase name="aggrecyc1" attr="value1"/>
+</TestCase>
+<TestCase id="T_AggregateTestCaseData_Cyclic_1B" aggregate="#T_AggregateTestCaseData_Cyclic_1A">
+<SubCase name="aggrecyc2" attr="value2"/>
+</TestCase>
+
+
+</TestCases>

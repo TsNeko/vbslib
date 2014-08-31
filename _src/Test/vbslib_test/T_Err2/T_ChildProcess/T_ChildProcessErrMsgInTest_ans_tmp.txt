@@ -1,0 +1,17 @@
+Test Start : TestFor_T_ChildProcessErrMsgInTest.vbs
+==========================================================
+((( [T_ChildProcess\TestFor_T_ChildProcessErrMsgInTest.vbs] - Test_start )))
+  ((( [T_ChildProcessErrMsgInTest] )))
+>current dir = "%FullPath(.)%"
+>RunProg  cscript //nologo T_ChildProcessErr_SubTree.vbs /Test:T_ChildProcessErrMsgInTest
+  ((( [T_Err2_Tree1] )))
+
+WSH のデバッガーがインストールされていれば、スクリプト・ファイルへのショートカットを作成、プロパティ - リンク先に、下記の /g_debug オプションを追加、ショートカットから起動すると、問題がある場所で停止します。
+----------------------------------------------------------------------
+"TestFor_T_ChildProcessErrMsgInTest.vbs" /g_debug:2,3,2;1
+----------------------------------------------------------------------
+[FAIL] [ERROR](1) T_Err2_Tree1_2
+ in "Test_start" function in "%FullPath(.)%\TestFor_T_ChildProcessErrMsgInTest.vbs"
+==========================================================
+Test Finish (Pass=0, Manual=0, Skip=0, Fail=1)
+

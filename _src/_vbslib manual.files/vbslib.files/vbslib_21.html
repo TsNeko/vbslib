@@ -1,0 +1,1727 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_21.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_21.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 412 --> 
+<PAGE>
+<A id="svgcats_vml_p412" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '412' );">←</A>
+<A href="#svgcats_vml_p413" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_20.html#svgcats_vml_p411" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_20.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:631px; height:430px;" fillcolor="white"/>
+<DIV id="text412_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="ReplaceParentPath">
+ReplaceParentPath</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:302px; width:538px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text412_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:309px; line-height:13px; white-space:nowrap">
+Assert&nbsp; ReplaceParentPath( "..\..\folder", "..", "_parent" ) = "_parent\_parent\folder"</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:47px; width:574px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text412_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:54px; line-height:13px; white-space:nowrap">
+Function&nbsp; ReplaceParentPath( Path as string, FromSign as string, ToSign as string ) as string</DIV>
+<DIV id="text412_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:84px; line-height:15px; white-space:nowrap">
+親フォルダーの記号を置き換えます。</DIV>
+<DIV id="text412_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:110px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text412_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:110px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text412_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:129px; line-height:15px; white-space:nowrap">
+FromSign</DIV>
+<DIV id="text412_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:110px; line-height:15px; white-space:nowrap">
+置き換える前のパス</DIV>
+<DIV id="text412_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:129px; line-height:15px; white-space:nowrap">
+置き換える前の親フォルダーの記号</DIV>
+<DIV id="text412_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:148px; line-height:15px; white-space:nowrap">
+ToSign</DIV>
+<DIV id="text412_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:148px; line-height:15px; white-space:nowrap">
+置き換えた後の親フォルダーの記号</DIV>
+<DIV id="text412_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:383px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text412_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:279px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text412_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:362px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text412_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:167px; line-height:15px; white-space:nowrap">
+置き換えた後のパス</DIV>
+<DIV id="text412_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:167px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text412_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:362px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text412_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:383px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs</DIV>
+<DIV id="text412_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:383px; line-height:15px; white-space:nowrap">
+T_ReplaceParentPath</DIV>
+<DIV id="text412_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:201px; line-height:15px; white-space:nowrap">
+親フォルダーにアクセスさせないときに使用します。<BR/>
+返り値に、FromSign の文字列は、全く含まれなくなります。</DIV>
+<DIV id="text412_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:231px; line-height:15px; white-space:nowrap">
+内部で、</DIV>
+<DIV id="text412_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:82px; margin-top:231px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#NormalizePath">
+NormalizePath</A></DIV>
+<DIV id="text412_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:231px; line-height:15px; white-space:nowrap">
+が呼ばれます。</DIV>
+
+<v:line from="0,0" to="631,0"/>
+<v:line from="631,0" to="631,430"/>
+<v:line from="631,430" to="0,430"/>
+<v:line from="0,430" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 413 --> 
+<PAGE>
+<A id="svgcats_vml_p413" class="to_tree" style="margin-top:435px;" onClick="selectTreeElem( '413' );">←</A>
+<A href="#svgcats_vml_p414" class="to_next_page" style="margin-top:435px;">▼</A>
+<A href="#svgcats_vml_p412" class="to_prev_page" style="margin-top:435px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:446px; width:522px; height:351px;" fillcolor="white"/>
+<DIV id="text413_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:463px; line-height:15px; white-space:nowrap">
+<A name="SearchParent">
+SearchParent</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:492px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text413_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:499px; line-height:13px; white-space:nowrap">
+Function&nbsp; SearchParent( StepPath as string ) as string</DIV>
+<DIV id="text413_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:528px; line-height:15px; white-space:nowrap">
+StepPath&nbsp; に指定したファイルまたはフォルダを、親フォルダに向かって探します。</DIV>
+<DIV id="text413_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:554px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text413_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:554px; line-height:15px; white-space:nowrap">
+StepPath</DIV>
+<DIV id="text413_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:554px; line-height:15px; white-space:nowrap">
+ファイル名、または相対パス</DIV>
+<DIV id="text413_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:573px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text413_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:573px; line-height:15px; white-space:nowrap">
+見つかったファイルまたはフォルダのフル・パス</DIV>
+<DIV id="text413_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:607px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:38px; margin-top:627px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text413_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:46px; margin-top:634px; line-height:13px; white-space:nowrap">
+&nbsp; Set root = LoadXML( SearchParent( "common.xml" ), Empty )</DIV>
+<DIV id="text413_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:463px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text413_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:703px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs</DIV>
+<DIV id="text413_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:28px; margin-top:703px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text413_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:110px; margin-top:607px; line-height:15px; white-space:nowrap">
+..\common.xml などを開きます</DIV>
+<DIV id="text413_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:28px; margin-top:726px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text413_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:726px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#GetParentFullPath">
+→ GetParentFullPath</A></DIV>
+<DIV id="text413_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:670px; line-height:15px; white-space:nowrap">
+見つからないときは、Empty を返します。</DIV>
+<DIV id="text413_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:746px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#GetFullPath">
+→ GetFullPath</A></DIV>
+<DIV id="text413_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:746px; line-height:15px; white-space:nowrap">
+を使ってピリオドを３つ並べる記法を展開する</DIV>
+<DIV id="text413_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:703px; line-height:15px; white-space:nowrap">
+T_SearchParent</DIV>
+
+<v:line from="0,446" to="522,446"/>
+<v:line from="522,446" to="522,797"/>
+<v:line from="522,797" to="0,797"/>
+<v:line from="0,797" to="0,446"/>
+
+</PAGE>
+ 
+<!-- page 414 --> 
+<PAGE>
+<A id="svgcats_vml_p414" class="to_tree" style="margin-top:802px;" onClick="selectTreeElem( '414' );">←</A>
+<A href="#svgcats_vml_p415" class="to_next_page" style="margin-top:802px;">▼</A>
+<A href="#svgcats_vml_p413" class="to_prev_page" style="margin-top:802px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:813px; width:581px; height:570px;" fillcolor="white"/>
+<DIV id="text414_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:830px; line-height:15px; white-space:nowrap">
+<A name="AddLastOfFileName">
+AddLastOfFileName</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:859px; width:484px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text414_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:866px; line-height:13px; white-space:nowrap">
+Function&nbsp; AddLastOfFileName( BasePath as string, AddName as string ) as string</DIV>
+<DIV id="text414_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:830px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text414_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:897px; line-height:15px; white-space:nowrap">
+ファイルパスの最後（拡張子より前）に、文字列を追加します。 または拡張子を変更します。</DIV>
+<DIV id="text414_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:923px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text414_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:923px; line-height:15px; white-space:nowrap">
+BasePath</DIV>
+<DIV id="text414_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:942px; line-height:15px; white-space:nowrap">
+AddName</DIV>
+<DIV id="text414_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:923px; line-height:15px; white-space:nowrap">
+追加前のファイルパス</DIV>
+<DIV id="text414_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:942px; line-height:15px; white-space:nowrap">
+追加する文字列</DIV>
+<DIV id="text414_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:961px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text414_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:961px; line-height:15px; white-space:nowrap">
+追加後のファイルパス</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1064px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text414_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1071px; line-height:13px; white-space:nowrap">
+AddLastOfFileName( "file.txt", "123" ) = "file123.txt"</DIV>
+<DIV id="text414_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1043px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text414_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1000px; line-height:15px; white-space:nowrap">
+AddName に拡張子があったら、返り値の拡張子は、AddName の拡張子に変わります。</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1100px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text414_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1107px; line-height:13px; white-space:nowrap">
+AddLastOfFileName( "file.txt", "123.html" ) = "file123.html"</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1136px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text414_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1143px; line-height:13px; white-space:nowrap">
+AddLastOfFileName( "file.txt", ".html" ) = "file.html"</DIV>
+<DIV id="text414_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:1293px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs # [T_AddLastOfFileName]</DIV>
+<DIV id="text414_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:32px; margin-top:1293px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text414_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:32px; margin-top:1317px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text414_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:1317px; line-height:15px; white-space:nowrap">
+<A href="#CutLastOfFileName">
+→ CutLastOfFileName</A></DIV>
+<DIV id="text414_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:32px; margin-top:1255px; line-height:12px; white-space:nowrap">
+キーワード：</DIV>
+<DIV id="text414_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:90px; margin-top:1255px; line-height:12px; white-space:nowrap">
+<A name="AddLastOfFileName_ext">
+拡張子の変更</A></DIV>
+<DIV id="text414_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:1335px; line-height:15px; white-space:nowrap">
+→ StrT_addLastOfFileName (clib)</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1172px; width:286px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text414_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1179px; line-height:13px; white-space:nowrap">
+AddLastOfFileName( "file.txt", "." ) = "file"</DIV>
+<DIV id="text414_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:349px; margin-top:1177px; line-height:15px; white-space:nowrap">
+拡張子を無くす</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1208px; width:388px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text414_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1215px; line-height:13px; white-space:nowrap">
+AddLastOfFileName( path1, "."+g_fs.GetExtensionName( path2 ) )</DIV>
+<DIV id="text414_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:446px; margin-top:1213px; line-height:15px; white-space:nowrap">
+拡張子を合わせる</DIV>
+
+<v:line from="0,813" to="581,813"/>
+<v:line from="581,813" to="581,1383"/>
+<v:line from="581,1383" to="0,1383"/>
+<v:line from="0,1383" to="0,813"/>
+
+</PAGE>
+ 
+<!-- page 415 --> 
+<PAGE>
+<A id="svgcats_vml_p415" class="to_tree" style="margin-top:1388px;" onClick="selectTreeElem( '415' );">←</A>
+<A href="#svgcats_vml_p416" class="to_next_page" style="margin-top:1388px;">▼</A>
+<A href="#svgcats_vml_p414" class="to_prev_page" style="margin-top:1388px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1399px; width:565px; height:531px;" fillcolor="white"/>
+<DIV id="text415_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1416px; line-height:15px; white-space:nowrap">
+<A name="CutLastOfFileName">
+CutLastOfFileName</A></DIV>
+<DIV id="text415_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:1416px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1446px; width:508px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text415_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1453px; line-height:13px; white-space:nowrap">
+Sub&nbsp; CutLastOfFileName( in_out_Path as string, LastStr as string, Opt as integer )</DIV>
+<DIV id="text415_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1483px; line-height:15px; white-space:nowrap">
+ファイル名（拡張子を除く）の最後に、指定した文字列があれば削除します。</DIV>
+<DIV id="text415_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1576px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:38px; margin-top:1598px; width:226px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text415_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:46px; margin-top:1604px; line-height:15px; white-space:nowrap">
+Dim&nbsp; s<BR/>
+s = "File_Add.txt"<BR/>
+CutLastOfFileName&nbsp; s, "_Add", Emtpy<BR/>
+'// s = "File.txt"</DIV>
+<DIV id="text415_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:76px; margin-top:1620px; line-height:13px; white-space:nowrap">
+File_Add.txt</DIV>
+<DIV id="text415_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:184px; margin-top:1635px; line-height:13px; white-space:nowrap">
+_Add</DIV>
+<DIV id="text415_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:100px; margin-top:1650px; line-height:13px; white-space:nowrap">
+File.txt</DIV>
+<DIV id="text415_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1698px; line-height:15px; white-space:nowrap">
+呼び出し前の in_out_Path</DIV>
+<DIV id="text415_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:1698px; line-height:15px; white-space:nowrap">
+LastStr</DIV>
+<DIV id="text415_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:285px; margin-top:1698px; line-height:15px; white-space:nowrap">
+呼び出し後の in_out_Path</DIV>
+<v:line style="position:absolute;" from="29,1720" to="464,1720" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text415_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1729px; line-height:13px; white-space:nowrap">
+"File_Add.txt"</DIV>
+<DIV id="text415_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:211px; margin-top:1729px; line-height:13px; white-space:nowrap">
+"_Add"</DIV>
+<DIV id="text415_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1509px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text415_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1509px; line-height:15px; white-space:nowrap">
+in_out_Path</DIV>
+<DIV id="text415_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1528px; line-height:15px; white-space:nowrap">
+out_Obj</DIV>
+<DIV id="text415_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:1509px; line-height:15px; white-space:nowrap">
+（入出力）パスやファイル名を含む文字列</DIV>
+<DIV id="text415_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:1528px; line-height:15px; white-space:nowrap">
+（出力） 削除する内容の文字列</DIV>
+<DIV id="text415_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1547px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text415_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:285px; margin-top:1729px; line-height:13px; white-space:nowrap">
+"File.txt"</DIV>
+<DIV id="text415_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1749px; line-height:13px; white-space:nowrap">
+"File_Add.txt"</DIV>
+<DIV id="text415_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:211px; margin-top:1749px; line-height:13px; white-space:nowrap">
+"_Insert"</DIV>
+<DIV id="text415_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:285px; margin-top:1749px; line-height:13px; white-space:nowrap">
+"File_Add.txt"</DIV>
+<DIV id="text415_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1785px; line-height:15px; white-space:nowrap">
+補足</DIV>
+<DIV id="text415_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:1810px; line-height:15px; white-space:nowrap">
+拡張子も含めて削除するときは、</DIV>
+<DIV id="text415_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:286px; margin-top:1810px; line-height:15px; white-space:nowrap">
+を使ってください。</DIV>
+<DIV id="text415_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:221px; margin-top:1810px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#CutLastOf">
+CutLastOf</A></DIV>
+<DIV id="text415_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:1882px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#CutLastOf">
+→ CutLastOf</A></DIV>
+<DIV id="text415_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1882px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text415_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1854px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text415_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:1854px; line-height:15px; white-space:nowrap">
+→ T_Str.vbs # [T_StrComp]</DIV>
+<DIV id="text415_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:271px; margin-top:1549px; line-height:13px; white-space:nowrap">
+<A href="vbslib_07.html#CaseSensitive_get_Consts">
+c.CaseSensitive</A></DIV>
+<DIV id="text415_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:1547px; line-height:15px; white-space:nowrap">
+Empty または</DIV>
+<DIV id="text415_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:167px; margin-top:1882px; line-height:15px; white-space:nowrap">
+<A href="#StrCompLastOfFileName">
+→ StrCompLastOfFileName</A></DIV>
+
+<v:line from="0,1399" to="565,1399"/>
+<v:line from="565,1399" to="565,1930"/>
+<v:line from="565,1930" to="0,1930"/>
+<v:line from="0,1930" to="0,1399"/>
+
+</PAGE>
+ 
+<!-- page 416 --> 
+<PAGE>
+<A id="svgcats_vml_p416" class="to_tree" style="margin-top:1935px;" onClick="selectTreeElem( '416' );">←</A>
+<A href="#svgcats_vml_p417" class="to_next_page" style="margin-top:1935px;">▼</A>
+<A href="#svgcats_vml_p415" class="to_prev_page" style="margin-top:1935px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1946px; width:643px; height:398px;" fillcolor="white"/>
+<DIV id="text416_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1963px; line-height:15px; white-space:nowrap">
+<A name="StrCompLastOfFileName">
+StrCompLastOfFileName</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1993px; width:586px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text416_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2000px; line-height:13px; white-space:nowrap">
+Function&nbsp; StrCompLastOfFileName( Path as string, LastStr as string, Opt as integer ) as integer</DIV>
+<DIV id="text416_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:1963px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text416_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2030px; line-height:15px; white-space:nowrap">
+ファイル名（拡張子を除く）の末尾を比較します。</DIV>
+<DIV id="text416_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2056px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text416_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2056px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text416_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2075px; line-height:15px; white-space:nowrap">
+LastStr</DIV>
+<DIV id="text416_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:168px; margin-top:2056px; line-height:15px; white-space:nowrap">
+比較されるファイル名またはパス</DIV>
+<DIV id="text416_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:168px; margin-top:2075px; line-height:15px; white-space:nowrap">
+Path の末尾と比較する文字列</DIV>
+<DIV id="text416_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:251px; margin-top:2096px; line-height:13px; white-space:nowrap">
+<A href="vbslib_07.html#CaseSensitive_get_Consts">
+c.CaseSensitive</A></DIV>
+<DIV id="text416_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2094px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text416_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:168px; margin-top:2094px; line-height:15px; white-space:nowrap">
+Empty または</DIV>
+<DIV id="text416_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2161px; line-height:15px; white-space:nowrap">
+Str 引数の値</DIV>
+<DIV id="text416_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:138px; margin-top:2161px; line-height:15px; white-space:nowrap">
+LastStr 引数の値</DIV>
+<v:line style="position:absolute;" from="23,2182" to="498,2182" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text416_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:276px; margin-top:2161px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text416_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2113px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text416_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:168px; margin-top:2113px; line-height:15px; white-space:nowrap">
+Path の末尾 = LastStr なら、0 </DIV>
+<DIV id="text416_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:359px; margin-top:2113px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_09.html#StrComp">
+→ StrComp</A></DIV>
+<DIV id="text416_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2193px; line-height:13px; white-space:nowrap">
+"ABCDE.txt"</DIV>
+<DIV id="text416_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:2193px; line-height:13px; white-space:nowrap">
+"CDE"</DIV>
+<DIV id="text416_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:285px; margin-top:2193px; line-height:13px; white-space:nowrap">
+0 (=一致)</DIV>
+<DIV id="text416_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:285px; margin-top:2213px; line-height:13px; white-space:nowrap">
+0以外(=異なる)</DIV>
+<DIV id="text416_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:2213px; line-height:13px; white-space:nowrap">
+"ABC"</DIV>
+<DIV id="text416_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2213px; line-height:13px; white-space:nowrap">
+"ABCDE.txt"</DIV>
+<DIV id="text416_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:285px; margin-top:2233px; line-height:13px; white-space:nowrap">
+0以外(=異なる)</DIV>
+<DIV id="text416_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:2233px; line-height:13px; white-space:nowrap">
+"CDE.txt"</DIV>
+<DIV id="text416_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2233px; line-height:13px; white-space:nowrap">
+"ABCDE.txt"</DIV>
+<DIV id="text416_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2296px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text416_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2268px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text416_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:2268px; line-height:15px; white-space:nowrap">
+→ T_Str.vbs # [T_StrComp]</DIV>
+<DIV id="text416_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:191px; margin-top:2296px; line-height:15px; white-space:nowrap">
+<A href="#CutLastOfFileName">
+→ CutLastOfFileName</A></DIV>
+<DIV id="text416_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:2296px; line-height:15px; white-space:nowrap">
+<A href="vbslib_11.html#StrCompLastOf">
+→ StrCompLastOf</A></DIV>
+
+<v:line from="0,1946" to="643,1946"/>
+<v:line from="643,1946" to="643,2344"/>
+<v:line from="643,2344" to="0,2344"/>
+<v:line from="0,2344" to="0,1946"/>
+
+</PAGE>
+ 
+<!-- page 417 --> 
+<PAGE>
+<A id="svgcats_vml_p417" class="to_tree" style="margin-top:2349px;" onClick="selectTreeElem( '417' );">←</A>
+<A href="#svgcats_vml_p418" class="to_next_page" style="margin-top:2349px;">▼</A>
+<A href="#svgcats_vml_p416" class="to_prev_page" style="margin-top:2349px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2360px; width:503px; height:704px;" fillcolor="white"/>
+<DIV id="text417_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2377px; line-height:15px; white-space:nowrap">
+<A name="GetTagJumpParams">
+GetTagJumpParams</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:2406px; width:448px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text417_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:2413px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetTagJumpParams( PathAndFragment as string ) as TagJumpParams</DIV>
+<DIV id="text417_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:2377px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text417_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:2445px; line-height:15px; white-space:nowrap">
+タグジャンプ形式の文字列（パス＋行番号）を分解します。</DIV>
+<DIV id="text417_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:2474px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:2494px; width:364px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text417_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2500px; line-height:15px; white-space:nowrap">
+Set jumps = GetTagJumpParams( "C:\folder\file1.txt(100)" )<BR/>
+'// jumps.Path = "C:\folder\file1.txt"<BR/>
+'// jumps.LineNum = 100<BR/>
+'// IsEmpty( jumps.Keyword )</DIV>
+<DIV id="text417_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:2995px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text417_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:2953px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text417_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:2974px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs # [T_GetTagJumpParams]</DIV>
+<DIV id="text417_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:2995px; line-height:15px; white-space:nowrap">
+<A href="vbslib_29.html#GetEditorCmdLine">
+→ GetEditorCmdLine</A></DIV>
+<DIV id="text417_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:2953px; line-height:15px; white-space:nowrap">
+→ T_EditorDiff_Manually.vbs # [T_EditorManually]</DIV>
+<DIV id="text417_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:21px; margin-top:2823px; line-height:15px; white-space:nowrap">
+<A name="TagJumpParams">
+TagJumpParams クラス</A></DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:2845px; width:370px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text417_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2851px; line-height:15px; white-space:nowrap">
+Class&nbsp; TagJumpParams<BR/>
+&nbsp; Public&nbsp; Path&nbsp; &nbsp; &nbsp;'// パス or ""、フル・パスとは限りません<BR/>
+&nbsp; Public&nbsp; LineNum&nbsp; '// as integer or Empty<BR/>
+&nbsp; Public&nbsp; Keyword&nbsp; '// as string or Empty<BR/>
+End Class</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:2572px; width:298px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text417_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2578px; line-height:15px; white-space:nowrap">
+Set jumps = GetTagJumpParams( "file1.txt#Key" )<BR/>
+'// jumps.Path = "file1.txt"<BR/>
+'// jumps.Keyword = "Key"<BR/>
+'// IsEmpty( jumps.LineNum )</DIV>
+<DIV id="text417_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:2778px; line-height:15px; white-space:nowrap">
+<A href="vbslib_29.html#GetEditorCmdLine">
+→ GetEditorCmdLine</A></DIV>
+<DIV id="text417_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:2778px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text417_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:221px; margin-top:2778px; line-height:15px; white-space:nowrap">
+タグジャンプ形式の文字列の詳細</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:2728px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text417_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2735px; line-height:13px; white-space:nowrap">
+GetTagJumpParams( "C:\folder\file1.txt(100)" ).Path</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:2650px; width:274px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text417_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2656px; line-height:15px; white-space:nowrap">
+Set jumps = GetTagJumpParams( "file1.txt" )<BR/>
+'// jumps.Path = "file1.txt"<BR/>
+'// IsEmpty( jumps.LineNum )<BR/>
+'// IsEmpty( jumps.Keyword )</DIV>
+
+<v:line from="0,2360" to="503,2360"/>
+<v:line from="503,2360" to="503,3064"/>
+<v:line from="503,3064" to="0,3064"/>
+<v:line from="0,3064" to="0,2360"/>
+
+</PAGE>
+ 
+<!-- page 418 --> 
+<PAGE>
+<A id="svgcats_vml_p418" class="to_tree" style="margin-top:3069px;" onClick="selectTreeElem( '418' );">←</A>
+<A href="#svgcats_vml_p419" class="to_next_page" style="margin-top:3069px;">▼</A>
+<A href="#svgcats_vml_p417" class="to_prev_page" style="margin-top:3069px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3080px; width:439px; height:309px;" fillcolor="white"/>
+<DIV id="text418_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3097px; line-height:15px; white-space:nowrap">
+<A name="GetTagJumpPath">
+GetTagJumpPath</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:3126px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text418_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:3133px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetTagJumpPath( PathAndLine as string ) as string</DIV>
+<DIV id="text418_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:3166px; line-height:15px; white-space:nowrap">
+タグジャンプ形式の文字列（パス＋行番号）から、パスを取り出す。</DIV>
+<DIV id="text418_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:3228px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:3248px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text418_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:3255px; line-height:13px; white-space:nowrap">
+path = GetTagJumpPath( "C:\folder\file1.txt(100)" )</DIV>
+<DIV id="text418_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:3279px; line-height:15px; white-space:nowrap">
+path には、"C:\folder\file1.txt" が入ります。</DIV>
+<DIV id="text418_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:3097px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text418_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:3341px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text418_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:3319px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text418_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:3319px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs # GetTagJumpPath</DIV>
+<DIV id="text418_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:31px; margin-top:3197px; line-height:15px; white-space:nowrap">
+廃止予定です。 GetTagJumpParams を使ってください。</DIV>
+<DIV id="text418_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:3341px; line-height:15px; white-space:nowrap">
+<A href="#GetTagJumpParams">
+→ GetTagJumpParams</A></DIV>
+
+<v:line from="0,3080" to="439,3080"/>
+<v:line from="439,3080" to="439,3389"/>
+<v:line from="439,3389" to="0,3389"/>
+<v:line from="0,3389" to="0,3080"/>
+
+</PAGE>
+ 
+<!-- page 419 --> 
+<PAGE>
+<A id="svgcats_vml_p419" class="to_tree" style="margin-top:3394px;" onClick="selectTreeElem( '419' );">←</A>
+<A href="#svgcats_vml_p420" class="to_next_page" style="margin-top:3394px;">▼</A>
+<A href="#svgcats_vml_p418" class="to_prev_page" style="margin-top:3394px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3405px; width:454px; height:359px;" fillcolor="white"/>
+<DIV id="text419_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3422px; line-height:15px; white-space:nowrap">
+<A name="GetTagJumpLine">
+GetTagJumpLine</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:3451px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text419_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:3458px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetTagJumpLine( PathAndLine as string ) as integer</DIV>
+<DIV id="text419_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:3491px; line-height:15px; white-space:nowrap">
+タグジャンプ形式の文字列（パス＋行番号）から、行番号を取り出す。</DIV>
+<DIV id="text419_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:3595px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:3615px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text419_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:3622px; line-height:13px; white-space:nowrap">
+line = GetTagJumpPath( "C:\folder\file1.txt(100)" )</DIV>
+<DIV id="text419_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:3646px; line-height:15px; white-space:nowrap">
+line には、100 が入ります。</DIV>
+<DIV id="text419_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:3422px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text419_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:3716px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text419_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:3695px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text419_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:3695px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs # GetTagJumpLine</DIV>
+<DIV id="text419_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:3562px; line-height:15px; white-space:nowrap">
+PathAndLine に行番号が無いときは、0 が返ります。</DIV>
+<DIV id="text419_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:31px; margin-top:3522px; line-height:15px; white-space:nowrap">
+廃止予定です。 GetTagJumpParams を使ってください。</DIV>
+<DIV id="text419_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:3716px; line-height:15px; white-space:nowrap">
+<A href="#GetTagJumpParams">
+→ GetTagJumpParams</A></DIV>
+
+<v:line from="0,3405" to="454,3405"/>
+<v:line from="454,3405" to="454,3764"/>
+<v:line from="454,3764" to="0,3764"/>
+<v:line from="0,3764" to="0,3405"/>
+
+</PAGE>
+ 
+<!-- page 420 --> 
+<PAGE>
+<A id="svgcats_vml_p420" class="to_tree" style="margin-top:3769px;" onClick="selectTreeElem( '420' );">←</A>
+<A href="#svgcats_vml_p421" class="to_next_page" style="margin-top:3769px;">▼</A>
+<A href="#svgcats_vml_p419" class="to_prev_page" style="margin-top:3769px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3780px; width:629px; height:266px;" fillcolor="white"/>
+<DIV id="text420_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3797px; line-height:15px; white-space:nowrap">
+<A name="IsMovablePathToPath">
+IsMovablePathToPath</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:3826px; width:574px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text420_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:3832px; line-height:15px; white-space:nowrap">
+Function&nbsp; IsMovablePathToPath( SrcPath as string, DstPath as string, IsDstFolder as boolean )<BR/>
+&nbsp; &nbsp; as boolean</DIV>
+<DIV id="text420_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:3797px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text420_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:3879px; line-height:15px; white-space:nowrap">
+ファイルやフォルダーのパス SrcPath と DstPath の間で、移動ができるかどうかを返します。</DIV>
+<DIV id="text420_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3907px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text420_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3907px; line-height:15px; white-space:nowrap">
+SrcPath</DIV>
+<DIV id="text420_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3926px; line-height:15px; white-space:nowrap">
+DstPath</DIV>
+<DIV id="text420_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:3907px; line-height:15px; white-space:nowrap">
+移動元のファイルやフォルダーのパス</DIV>
+<DIV id="text420_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:3926px; line-height:15px; white-space:nowrap">
+移動先のファイルやフォルダーのパス</DIV>
+<DIV id="text420_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3945px; line-height:15px; white-space:nowrap">
+IsDstFolder</DIV>
+<DIV id="text420_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:3945px; line-height:15px; white-space:nowrap">
+DstPath がフォルダーかどうか</DIV>
+<DIV id="text420_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:3964px; line-height:15px; white-space:nowrap">
+移動ができるかどうか</DIV>
+<DIV id="text420_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3964px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text420_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3998px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text420_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3998px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs # [T_IsMovablePathToPath]</DIV>
+
+<v:line from="0,3780" to="629,3780"/>
+<v:line from="629,3780" to="629,4046"/>
+<v:line from="629,4046" to="0,4046"/>
+<v:line from="0,4046" to="0,3780"/>
+
+</PAGE>
+ 
+<!-- page 421 --> 
+<PAGE>
+<A id="svgcats_vml_p421" class="to_tree" style="margin-top:4051px;" onClick="selectTreeElem( '421' );">←</A>
+<A href="#svgcats_vml_p422" class="to_next_page" style="margin-top:4051px;">▼</A>
+<A href="#svgcats_vml_p420" class="to_prev_page" style="margin-top:4051px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4062px; width:659px; height:588px;" fillcolor="white"/>
+<DIV id="text421_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4079px; line-height:15px; white-space:nowrap">
+<A name="FilePathClass">
+FilePathClass</A></DIV>
+<DIV id="text421_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4114px; line-height:15px; white-space:nowrap">
+ファイルのパスか、ファイルの内容に相当する文字列の抽象。<BR/>
+一部の vbslib の関数の引数にファイル名の代わりに指定することができるファイル・パス・オブジェクトです。<BR/>
+文字列や、スクリプトの中のコメントなどを、ファイルとして扱います。</DIV>
+<DIV id="text421_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:131px; margin-top:4450px; line-height:13px; white-space:nowrap">
+<A href="vbslib_24.html#LoadXML">
+LoadXML</A></DIV>
+<DIV id="text421_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4420px; line-height:15px; white-space:nowrap">
+次の関数のファイル名の代わりに指定することができます。</DIV>
+<DIV id="text421_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4493px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:4520px; width:430px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text421_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:4527px; line-height:13px; white-space:nowrap">
+Set root = LoadXML( new_FilePathForString( "&lt;Root&gt;&lt;/Root&gt;" ), Empty )</DIV>
+<DIV id="text421_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4182px; line-height:15px; white-space:nowrap">
+次の関数で FilePathClass のオブジェクトを生成することができます。</DIV>
+<DIV id="text421_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:56px; margin-top:4214px; line-height:13px; white-space:nowrap">
+<A href="#new_FilePathForString">
+new_FilePathForString</A></DIV>
+<DIV id="text421_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4602px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text421_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4602px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text421_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:4602px; line-height:15px; white-space:nowrap">
+T_LoadXML_PathObject</DIV>
+<DIV id="text421_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4577px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text421_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4577px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text421_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:56px; margin-top:4233px; line-height:13px; white-space:nowrap">
+<A href="#new_FilePathForFileInScript">
+new_FilePathForFileInScript</A></DIV>
+<DIV id="text421_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:56px; margin-top:4252px; line-height:13px; white-space:nowrap">
+<A href="#GetFilePathString">
+GetFilePathString</A></DIV>
+<DIV id="text421_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:244px; margin-top:4212px; line-height:15px; white-space:nowrap">
+文字列をファイルとして扱います</DIV>
+<DIV id="text421_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:244px; margin-top:4231px; line-height:15px; white-space:nowrap">
+スクリプトの中のコメントをファイルとして扱います</DIV>
+<DIV id="text421_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:244px; margin-top:4250px; line-height:15px; white-space:nowrap">
+入力ファイル・パスに相当する文字列を返します</DIV>
+<DIV id="text421_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4294px; line-height:15px; white-space:nowrap">
+次のプロパティがあります。 <BR/>
+FilePathClass のオブジェクトを ReadFile 関数に渡し、その返り値を使ってファイルの内容を処理するコード<BR/>
+は共通にできるでしょう。</DIV>
+<DIV id="text421_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:4358px; line-height:13px; white-space:nowrap">
+.Text</DIV>
+<DIV id="text421_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:4377px; line-height:13px; white-space:nowrap">
+.FilePath</DIV>
+<DIV id="text421_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:140px; margin-top:4356px; line-height:15px; white-space:nowrap">
+テキスト・ファイルの内容</DIV>
+<DIV id="text421_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:140px; margin-top:4375px; line-height:15px; white-space:nowrap">
+ファイル・パス</DIV>
+<DIV id="text421_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:296px; margin-top:4375px; line-height:15px; white-space:nowrap">
+<A href="#GetFilePathString">
+→ GetFilePathString</A></DIV>
+<DIV id="text421_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:238px; margin-top:4375px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text421_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:296px; margin-top:4356px; line-height:15px; white-space:nowrap">
+<A href="vbslib_16.html#ReadFile">
+→ ReadFile</A></DIV>
+<DIV id="text421_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:200px; margin-top:4450px; line-height:13px; white-space:nowrap">
+<A href="vbslib_34.html#AssertExist">
+AssertExist</A></DIV>
+<DIV id="text421_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:56px; margin-top:4450px; line-height:13px; white-space:nowrap">
+<A href="vbslib_16.html#ReadFile">
+ReadFile</A></DIV>
+<DIV id="text421_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:292px; margin-top:4450px; line-height:13px; white-space:nowrap">
+<A href="vbslib_16.html#IsSynchronizedFilesX">
+IsSynchronizedFilesX</A></DIV>
+
+<v:line from="0,4062" to="659,4062"/>
+<v:line from="659,4062" to="659,4650"/>
+<v:line from="659,4650" to="0,4650"/>
+<v:line from="0,4650" to="0,4062"/>
+
+</PAGE>
+ 
+<!-- page 422 --> 
+<PAGE>
+<A id="svgcats_vml_p422" class="to_tree" style="margin-top:4655px;" onClick="selectTreeElem( '422' );">←</A>
+<A href="#svgcats_vml_p423" class="to_next_page" style="margin-top:4655px;">▼</A>
+<A href="#svgcats_vml_p421" class="to_prev_page" style="margin-top:4655px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4666px; width:572px; height:314px;" fillcolor="white"/>
+<DIV id="text422_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4683px; line-height:15px; white-space:nowrap">
+<A name="new_FilePathForString">
+new_FilePathForString</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:4858px; width:430px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text422_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:4865px; line-height:13px; white-space:nowrap">
+Set root = LoadXML( new_FilePathForString( "&lt;Root&gt;&lt;/Root&gt;" ), Empty )</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:4713px; width:412px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text422_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:4720px; line-height:13px; white-space:nowrap">
+Function&nbsp; new_FilePathForString( Text as string ) as FilePathClass</DIV>
+<DIV id="text422_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4750px; line-height:15px; white-space:nowrap">
+文字列をファイルとして扱うように、ファイル名の代わりに指定するオブジェクトを返します。</DIV>
+<DIV id="text422_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4776px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text422_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4776px; line-height:15px; white-space:nowrap">
+Text</DIV>
+<DIV id="text422_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4776px; line-height:15px; white-space:nowrap">
+ファイルの内容</DIV>
+<DIV id="text422_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4795px; line-height:15px; white-space:nowrap">
+ファイル名の代わりに指定するオブジェクト</DIV>
+<DIV id="text422_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4795px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text422_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4932px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text422_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4835px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text422_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4906px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text422_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4932px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text422_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:4932px; line-height:15px; white-space:nowrap">
+T_LoadXML_PathObject</DIV>
+<DIV id="text422_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4906px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text422_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:428px; margin-top:4795px; line-height:15px; white-space:nowrap">
+<A href="#FilePathClass">
+→ FilePathClass</A></DIV>
+
+<v:line from="0,4666" to="572,4666"/>
+<v:line from="572,4666" to="572,4980"/>
+<v:line from="572,4980" to="0,4980"/>
+<v:line from="0,4980" to="0,4666"/>
+
+</PAGE>
+ 
+<!-- page 423 --> 
+<PAGE>
+<A id="svgcats_vml_p423" class="to_tree" style="margin-top:4985px;" onClick="selectTreeElem( '423' );">←</A>
+<A href="#svgcats_vml_p424" class="to_next_page" style="margin-top:4985px;">▼</A>
+<A href="#svgcats_vml_p422" class="to_prev_page" style="margin-top:4985px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4996px; width:666px; height:894px;" fillcolor="white"/>
+<DIV id="text423_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5013px; line-height:15px; white-space:nowrap">
+<A name="new_FilePathForFileInScript">
+new_FilePathForFileInScript</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5043px; width:472px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text423_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5050px; line-height:13px; white-space:nowrap">
+Function&nbsp; new_FilePathForFileInScript( Parameter as Empty ) as FilePathClass</DIV>
+<DIV id="text423_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5080px; line-height:15px; white-space:nowrap">
+スクリプトの中のコメントをファイルとして扱うように、ファイル名の代わりに指定するオブジェクトを返します。</DIV>
+<DIV id="text423_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5106px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text423_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5106px; line-height:15px; white-space:nowrap">
+Parameter</DIV>
+<DIV id="text423_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5106px; line-height:15px; white-space:nowrap">
+VBScript ファイルのパス、# 可能、Empty = </DIV>
+<DIV id="text423_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5125px; line-height:15px; white-space:nowrap">
+ファイル名の代わりに指定するオブジェクト</DIV>
+<DIV id="text423_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5125px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:5327px; width:490px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text423_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:5333px; line-height:15px; white-space:nowrap">
+'------------------------------------------------------------[FileInScript.xml]<BR/>
+'&lt;Root&gt;<BR/>
+'&lt;Tag out_path="_Out.txt"/&gt;<BR/>
+'&lt;/Root&gt;<BR/>
+'-----------------------------------------------------------[/FileInScript.xml]<BR/>
+<BR/>
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; &nbsp; CommandA_App&nbsp; AppKey, new_FilePathForFileInScript( Empty )<BR/>
+End Sub<BR/>
+<BR/>
+<BR/>
+'--- start of vbslib include ------------------------------<BR/>
+&nbsp; ：&nbsp; &nbsp;（vbslib をインクルードして main を呼び出すコード）</DIV>
+<DIV id="text423_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5257px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text423_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:428px; margin-top:5125px; line-height:15px; white-space:nowrap">
+<A href="#FilePathClass">
+→ FilePathClass</A></DIV>
+<DIV id="text423_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:137px; margin-top:5499px; line-height:13px; white-space:nowrap">
+<A href="vbslib_36.html#vbslib_include_f">
+vbslib include</A></DIV>
+<DIV id="text423_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:5842px; line-height:15px; white-space:nowrap">
+<A href="vbslib_17.html#ReadVBS_Comment">
+→ ReadVBS_Comment</A></DIV>
+<DIV id="text423_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5842px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text423_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:5169px; line-height:15px; white-space:nowrap">
+メイン・スクリプト・ファイル（WScript.ScriptFullName） に書かれた [FileInScript.*] がある行の次の行から、<BR/>
+[/FileInScript.*] がある行の前の行までを、ファイルの内容として扱います。 * は任意の文字列です。</DIV>
+<DIV id="text423_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:5284px; line-height:15px; white-space:nowrap">
+スクリプト・ファイルの中にある XML データを CommandA に渡します。</DIV>
+<DIV id="text423_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5812px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text423_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:5812px; line-height:15px; white-space:nowrap">
+→ T_FileInScript.vbs</DIV>
+<DIV id="text423_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:208px; margin-top:5812px; line-height:15px; white-space:nowrap">
+T_new_FilePathForFileInScript</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:5570px; width:460px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text423_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:5576px; line-height:15px; white-space:nowrap">
+Sub&nbsp; CommandA_App( AppKey, Path )<BR/>
+&nbsp; &nbsp; Set root = LoadXML( Path, Empty )<BR/>
+<BR/>
+&nbsp; &nbsp; out_path = root.selectSingleNode( "./Tag" ).getAttribute( "out_path" )<BR/>
+&nbsp; &nbsp; Set w_=AppKey.NewWritable( out_path ).Enable()<BR/>
+End Sub</DIV>
+<DIV id="text423_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:5547px; line-height:15px; white-space:nowrap">
+上記スクリプトから呼び出す CommandA_App 関数の例：</DIV>
+<DIV id="text423_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5782px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text423_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:5782px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text423_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:5301px; line-height:15px; white-space:nowrap">
+ファイルの内容（XML データ）の部分の行頭には、' が必要です。</DIV>
+<DIV id="text423_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:5203px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text423_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:5203px; line-height:15px; white-space:nowrap">
+<A href="vbslib_01.html#script_data">
+→ スクリプト・データ・ファイル (vbslib)</A></DIV>
+<DIV id="text423_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:427px; margin-top:5106px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_01.html#ScriptFullName">
+WScript.ScriptFullName</A></DIV>
+<DIV id="text423_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:5691px; line-height:15px; white-space:nowrap">
+Path に、URL のように # を付けると、スクリプト・ファイルの中の行末にあるタグを検索して、<BR/>
+その中のデータをファイルとして扱います。</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:5728px; width:400px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text423_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:5735px; line-height:13px; white-space:nowrap">
+path_object = new_FilePathForFileInScript( "#FileInScript.xml" )</DIV>
+
+<v:line from="0,4996" to="666,4996"/>
+<v:line from="666,4996" to="666,5890"/>
+<v:line from="666,5890" to="0,5890"/>
+<v:line from="0,5890" to="0,4996"/>
+
+</PAGE>
+ 
+<!-- page 424 --> 
+<PAGE>
+<A id="svgcats_vml_p424" class="to_tree" style="margin-top:5895px;" onClick="selectTreeElem( '424' );">←</A>
+<A href="#svgcats_vml_p425" class="to_next_page" style="margin-top:5895px;">▼</A>
+<A href="#svgcats_vml_p423" class="to_prev_page" style="margin-top:5895px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5906px; width:627px; height:372px;" fillcolor="white"/>
+<DIV id="text424_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5923px; line-height:15px; white-space:nowrap">
+<A name="GetFilePathString">
+GetFilePathString</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5953px; width:448px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text424_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5960px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetFilePathString( Path as string or FilePathClass ) as string</DIV>
+<DIV id="text424_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5990px; line-height:15px; white-space:nowrap">
+入力ファイル・パスに相当する文字列を返します。</DIV>
+<DIV id="text424_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6016px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text424_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6016px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text424_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:6016px; line-height:15px; white-space:nowrap">
+ファイル・パス・オブジェクト、または、入力ファイル・パス</DIV>
+<DIV id="text424_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:6035px; line-height:15px; white-space:nowrap">
+入力ファイル・パスに相当する文字列</DIV>
+<DIV id="text424_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6035px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text424_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6119px; line-height:15px; white-space:nowrap">
+返り値は、データが存在するファイル・パスを表示するため、データ・ファイルがあるフォルダーの<BR/>
+パスを取得するために使うことができます。</DIV>
+<DIV id="text424_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6165px; line-height:15px; white-space:nowrap">
+返り値を、</DIV>
+<DIV id="text424_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:97px; margin-top:6165px; line-height:15px; white-space:nowrap">
+<A href="vbslib_16.html#ReadFile">
+ReadFile</A></DIV>
+<DIV id="text424_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:6165px; line-height:15px; white-space:nowrap">
+など、ファイルの内容にアクセスする関数に渡すと、期待と異なるデータを入力</DIV>
+<DIV id="text424_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6073px; line-height:15px; white-space:nowrap">
+Path 引数が</DIV>
+<DIV id="text424_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:247px; margin-top:6182px; line-height:15px; white-space:nowrap">
+<A href="#new_FilePathForFileInScript">
+new_FilePathForFileInScript</A></DIV>
+<DIV id="text424_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:409px; margin-top:6182px; line-height:15px; white-space:nowrap">
+の返り値を、GetFilePath の</DIV>
+<DIV id="text424_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6182px; line-height:15px; white-space:nowrap">
+してしまうことがあります。 たとえば、</DIV>
+<DIV id="text424_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6199px; line-height:15px; white-space:nowrap">
+引数に指定したときは、スクリプトの中のコメントではなく、スクリプト・ファイル全体を入力します。</DIV>
+<DIV id="text424_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6230px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text424_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:6230px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text424_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6088px; line-height:15px; white-space:nowrap">
+Path 引数が 文字列なら、その文字列を返します。</DIV>
+<DIV id="text424_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:207px; margin-top:6073px; line-height:15px; white-space:nowrap">
+なら、WScript.ScriptFullName を返します。</DIV>
+<DIV id="text424_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:110px; margin-top:6073px; line-height:15px; white-space:nowrap">
+<A href="#FilePathClass">
+FilePathClass 型</A></DIV>
+
+<v:line from="0,5906" to="627,5906"/>
+<v:line from="627,5906" to="627,6278"/>
+<v:line from="627,6278" to="0,6278"/>
+<v:line from="0,6278" to="0,5906"/>
+
+</PAGE>
+ 
+<!-- page 425 --> 
+<PAGE>
+<A id="svgcats_vml_p425" class="to_tree" style="margin-top:6283px;" onClick="selectTreeElem( '425' );">←</A>
+<A href="#svgcats_vml_p426" class="to_next_page" style="margin-top:6283px;">▼</A>
+<A href="#svgcats_vml_p424" class="to_prev_page" style="margin-top:6283px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6294px; width:550px; height:227px;" fillcolor="white"/>
+<DIV id="text425_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6311px; line-height:15px; white-space:nowrap">
+その他</DIV>
+<DIV id="text425_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:6345px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#ReplaceFileNameWildcard">
+→ ReplaceFileNameWildcard</A></DIV>
+<DIV id="text425_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:221px; margin-top:6345px; line-height:15px; white-space:nowrap">
+ワイルドカードを使って、ファイルパスを変更します。</DIV>
+<DIV id="text425_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6403px; line-height:15px; white-space:nowrap">
+旧仕様</DIV>
+<DIV id="text425_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:6432px; line-height:13px; white-space:nowrap">
+<A name="IsAbsPath">
+IsAbsPath</A></DIV>
+<DIV id="text425_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:167px; margin-top:6430px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#IsFullPath">
+→ IsFullPath</A></DIV>
+<DIV id="text425_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:6455px; line-height:13px; white-space:nowrap">
+<A name="GetAbsPath">
+GetAbsPath</A></DIV>
+<DIV id="text425_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:167px; margin-top:6454px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#GetFullPath">
+→ GetFullPath</A></DIV>
+<DIV id="text425_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:167px; margin-top:6478px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#GetParentFullPath">
+→ GetParentFullPath</A></DIV>
+<DIV id="text425_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:6480px; line-height:13px; white-space:nowrap">
+<A name="GetParentAbsPath">
+GetParentAbsPath</A></DIV>
+
+<v:line from="0,6294" to="550,6294"/>
+<v:line from="550,6294" to="550,6521"/>
+<v:line from="550,6521" to="0,6521"/>
+<v:line from="0,6521" to="0,6294"/>
+
+</PAGE>
+ 
+<!-- page 426 --> 
+<PAGE>
+<A id="svgcats_vml_p426" class="to_tree" style="margin-top:6526px;" onClick="selectTreeElem( '426' );">←</A>
+<A href="#svgcats_vml_p427" class="to_next_page" style="margin-top:6526px;">▼</A>
+<A href="#svgcats_vml_p425" class="to_prev_page" style="margin-top:6526px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6537px; width:603px; height:823px;" fillcolor="white"/>
+<DIV id="text426_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6554px; line-height:15px; white-space:nowrap">
+<A name="ArrayFromWildcard">
+ファイル一覧、ArrayFromWildcard</A></DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:6583px; width:538px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text426_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:6590px; line-height:13px; white-space:nowrap">
+Function&nbsp; ArrayFromWildcard( WildcardPath as string ) as PathDictionaryClass of Nothing</DIV>
+<DIV id="text426_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6620px; line-height:15px; white-space:nowrap">
+ワイルドカードを展開します。 サブ フォルダーも検索します。</DIV>
+<DIV id="text426_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6646px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text426_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:6646px; line-height:15px; white-space:nowrap">
+ワイルドカードを含むパス。フォルダ指定も可。配列可</DIV>
+<DIV id="text426_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:6646px; line-height:15px; white-space:nowrap">
+WildcardPath</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:6767px; width:418px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text426_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:6773px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; For Each&nbsp; full_path&nbsp; In ArrayFromWildcard( "data\*" ).FullPaths<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; echo&nbsp; full_path<BR/>
+&nbsp; &nbsp; Next</DIV>
+<DIV id="text426_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6851px; line-height:15px; white-space:nowrap">
+<A name="ArrayFromWildcard_wildcard">
+(*1) WildcardPath 引数</A></DIV>
+<DIV id="text426_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:480px; margin-top:6646px; line-height:15px; white-space:nowrap">
+<A href="#ArrayFromWildcard_wildcard">
+(*1)</A></DIV>
+<DIV id="text426_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:6876px; line-height:15px; white-space:nowrap">
+可能：</DIV>
+<DIV id="text426_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:120px; margin-top:6877px; line-height:15px; white-space:nowrap">
+"*", "*.txt", "file*", "folder\*.txt", Array( "Fo\*.txt", "Fo\*.log" )<BR/>
+"NoWildcard.txt", "folder\*", "fo\*\file.txt", "*\file.txt", ".\file.txt"</DIV>
+<DIV id="text426_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7266px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_05.html#file_list">
+→ ファイル一覧 (VBScript)</A></DIV>
+<DIV id="text426_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7266px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text426_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:241px; margin-top:7266px; line-height:15px; white-space:nowrap">
+→ ファイル一覧</DIV>
+<DIV id="text426_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7204px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text426_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7289px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#EnumFolderObject">
+→ EnumFolderObject</A></DIV>
+<DIV id="text426_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:7289px; line-height:15px; white-space:nowrap">
+高速なフォルダ一覧</DIV>
+<DIV id="text426_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6699px; line-height:15px; white-space:nowrap">
+ファイル名やフォルダー名でソートされます。</DIV>
+<DIV id="text426_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6743px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text426_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7225px; line-height:15px; white-space:nowrap">
+性能</DIV>
+<DIV id="text426_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:6911px; line-height:15px; white-space:nowrap">
+不可能：</DIV>
+<DIV id="text426_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:121px; margin-top:6913px; line-height:13px; white-space:nowrap">
+"folder*\file.txt", "folder"</DIV>
+<DIV id="text426_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7312px; line-height:15px; white-space:nowrap">
+<A href="vbslib_28.html#CallForEach_copy">
+→ CallForEach_copy</A></DIV>
+<DIV id="text426_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:7312px; line-height:15px; white-space:nowrap">
+ファイル・パスの配列を使ってコピーする</DIV>
+<DIV id="text426_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7183px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text426_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:7183px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text426_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:6666px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text426_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:179px; margin-top:6666px; line-height:15px; white-space:nowrap">
+<A href="#PathDictionaryClass">
+PathDictionaryClass</A></DIV>
+<DIV id="text426_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:298px; margin-top:6666px; line-height:15px; white-space:nowrap">
+of Nothing</DIV>
+<DIV id="text426_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:7204px; line-height:15px; white-space:nowrap">
+→ T_Wildcard.vbs</DIV>
+<DIV id="text426_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:216px; margin-top:7204px; line-height:15px; white-space:nowrap">
+T_ArrayFromWildcard1</DIV>
+<DIV id="text426_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:56px; margin-top:6940px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#sub_folder_symbol">
+サブ フォルダー記号</A></DIV>
+<DIV id="text426_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:6940px; line-height:15px; white-space:nowrap">
+が使えます。</DIV>
+<DIV id="text426_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:284px; margin-top:6699px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#PathNameCompare">
+→ PathNameCompare</A></DIV>
+<DIV id="text426_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:88px; margin-top:7225px; line-height:15px; white-space:nowrap">
+<A href="#filelist_speed_vbslib">
+→ ファイルを一覧するときの速度</A></DIV>
+<DIV id="text426_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:7108px; line-height:15px; white-space:nowrap">
+配列を指定したら、配列要素それぞれのワイルドカードを展開します。</DIV>
+<DIV id="text426_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:7135px; line-height:15px; white-space:nowrap">
+PathDictionaryClass のオブジェクトを指定したら、そのオブジェクトを返します。</DIV>
+<DIV id="text426_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:6985px; line-height:15px; white-space:nowrap">
+ワイルドカードが、ファイル名やフォルダー名に相当する部分（もっとも右の \ の右側）に<BR/>
+あれば、サブ・フォルダーも検索します。 また、指定したパスのファイルやフォルダーがない<BR/>
+ときはエラーにします。<BR/>
+ワイルドカードがなくてもフォルダーを指しているパスなら、そのフォルダーの中のサブ <BR/>
+フォルダーを検索します。<BR/>
+ファイルを指しているパスなら、サブ フォルダーを検索しません。</DIV>
+<DIV id="text426_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:392px; margin-top:7076px; line-height:15px; white-space:nowrap">
+が優先されます。</DIV>
+<DIV id="text426_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:270px; margin-top:7076px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#sub_folder_symbol">
+サブ フォルダー記号</A></DIV>
+<DIV id="text426_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:7076px; line-height:15px; white-space:nowrap">
+ただし、WildcardPath 引数に指定した</DIV>
+<DIV id="text426_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:6969px; line-height:15px; white-space:nowrap">
+サブ フォルダー記号が指定されていない（ .\ も *\ もない）ときは、</DIV>
+
+<v:line from="0,6537" to="603,6537"/>
+<v:line from="603,6537" to="603,7360"/>
+<v:line from="603,7360" to="0,7360"/>
+<v:line from="0,7360" to="0,6537"/>
+
+</PAGE>
+ 
+<!-- page 427 --> 
+<PAGE>
+<A id="svgcats_vml_p427" class="to_tree" style="margin-top:7365px;" onClick="selectTreeElem( '427' );">←</A>
+<A href="#svgcats_vml_p428" class="to_next_page" style="margin-top:7365px;">▼</A>
+<A href="#svgcats_vml_p426" class="to_prev_page" style="margin-top:7365px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7376px; width:363px; height:183px;" fillcolor="white"/>
+<DIV id="text427_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7393px; line-height:15px; white-space:nowrap">
+<A name="filelist_speed_vbslib">
+ファイルを一覧するときの速度</A></DIV>
+<DIV id="text427_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:70px; margin-top:7511px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_14.html#filelist_speed">
+→ ファイルを一覧するときの速度 - VBScript</A></DIV>
+<DIV id="text427_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7511px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text427_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7479px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text427_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:7479px; line-height:15px; white-space:nowrap">
+→ T_Wildcard.vbs # T_Wildcard_Speed</DIV>
+<DIV id="text427_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:119px; margin-top:7437px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#EnumFolderObject">
+EnumFolderObject</A></DIV>
+<DIV id="text427_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:26px; margin-top:7437px; line-height:15px; white-space:nowrap">
+最も速いのは、</DIV>
+<DIV id="text427_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:229px; margin-top:7437px; line-height:15px; white-space:nowrap">
+を使う方法です。</DIV>
+
+<v:line from="0,7376" to="363,7376"/>
+<v:line from="363,7376" to="363,7559"/>
+<v:line from="363,7559" to="0,7559"/>
+<v:line from="0,7559" to="0,7376"/>
+
+</PAGE>
+ 
+<!-- page 428 --> 
+<PAGE>
+<A id="svgcats_vml_p428" class="to_tree" style="margin-top:7564px;" onClick="selectTreeElem( '428' );">←</A>
+<A href="#svgcats_vml_p429" class="to_next_page" style="margin-top:7564px;">▼</A>
+<A href="#svgcats_vml_p427" class="to_prev_page" style="margin-top:7564px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7575px; width:601px; height:1319px;" fillcolor="white"/>
+<DIV id="text428_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7592px; line-height:15px; white-space:nowrap">
+<A name="ExpandWildcard">
+ExpandWildcard</A></DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:7621px; width:478px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text428_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:7627px; line-height:15px; white-space:nowrap">
+Sub&nbsp; ExpandWildcard( WildcardPath as string, Flags as integer,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;out_Folder as string, out_StepPaths as array of string )</DIV>
+<DIV id="text428_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:7679px; line-height:15px; white-space:nowrap">
+ワイルドカードを展開します。 サブ・フォルダーも検索します。</DIV>
+<DIV id="text428_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:7705px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text428_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:7743px; line-height:15px; white-space:nowrap">
+out_Folder</DIV>
+<DIV id="text428_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:7762px; line-height:15px; white-space:nowrap">
+out_StepPaths</DIV>
+<DIV id="text428_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:7743px; line-height:15px; white-space:nowrap">
+（出力） wildcard が含まれるフォルダのフル・パス</DIV>
+<DIV id="text428_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:7762px; line-height:15px; white-space:nowrap">
+（出力） ワイルドカードにマッチした相対パスの配列</DIV>
+<DIV id="text428_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:7705px; line-height:15px; white-space:nowrap">
+ワイルドカードを含むパス。フォルダ指定も可。配列可</DIV>
+<DIV id="text428_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:7705px; line-height:15px; white-space:nowrap">
+WildcardPath</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:8259px; width:526px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text428_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:8265px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set c = g_VBS_Lib<BR/>
+<BR/>
+&nbsp; &nbsp; ExpandWildcard&nbsp; "data\*", c.File or c.SubFolder, folder, step_paths<BR/>
+&nbsp; &nbsp; For Each step_path&nbsp; In step_paths<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; If InStr( step_path, "\_setup_" ) = 0 Then&nbsp; '// 除外<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo&nbsp; GetFullPath( step_path, folder )&nbsp; '// g_fs.BuildPath は使わないこと<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; End If<BR/>
+&nbsp; &nbsp; Next</DIV>
+<DIV id="text428_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:7724px; line-height:15px; white-space:nowrap">
+論理和フラグ</DIV>
+<DIV id="text428_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:7724px; line-height:15px; white-space:nowrap">
+Flags</DIV>
+<DIV id="text428_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:128px; margin-top:8411px; line-height:15px; white-space:nowrap">
+c.SubFolder</DIV>
+<DIV id="text428_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8411px; line-height:15px; white-space:nowrap">
+wildcard</DIV>
+<v:line style="position:absolute;" from="33,8429" to="540,8429" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text428_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:248px; margin-top:8411px; line-height:15px; white-space:nowrap">
+f.txt</DIV>
+<DIV id="text428_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:306px; margin-top:8411px; line-height:15px; white-space:nowrap">
+f.bin</DIV>
+<DIV id="text428_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8437px; line-height:15px; white-space:nowrap">
+f.txt</DIV>
+<v:line style="position:absolute;" from="219,8411" to="219,8536" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text428_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:351px; margin-top:8411px; line-height:15px; white-space:nowrap">
+sub\f.txt</DIV>
+<DIV id="text428_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:128px; margin-top:8437px; line-height:15px; white-space:nowrap">
+False</DIV>
+<DIV id="text428_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:8437px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:311px; margin-top:8437px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:369px; margin-top:8437px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0080C0; margin-left:47px; margin-top:8456px; line-height:15px; white-space:nowrap">
+f.txt</DIV>
+<DIV id="text428_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:128px; margin-top:8456px; line-height:15px; white-space:nowrap">
+True</DIV>
+<DIV id="text428_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:369px; margin-top:8456px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:311px; margin-top:8456px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:8456px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0080C0; margin-left:47px; margin-top:8475px; line-height:15px; white-space:nowrap">
+*.txt</DIV>
+<DIV id="text428_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:413px; margin-top:8411px; line-height:15px; white-space:nowrap">
+sub\abc.txt</DIV>
+<DIV id="text428_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:428px; margin-top:8437px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0080C0; margin-left:428px; margin-top:8457px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0080C0; margin-left:428px; margin-top:8477px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:128px; margin-top:8475px; line-height:15px; white-space:nowrap">
+True</DIV>
+<DIV id="text428_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:311px; margin-top:8475px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:369px; margin-top:8475px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:8475px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:47px; margin-top:8494px; line-height:15px; white-space:nowrap">
+sub\*</DIV>
+<DIV id="text428_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:47px; margin-top:8513px; line-height:15px; white-space:nowrap">
+sub</DIV>
+<DIV id="text428_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:128px; margin-top:8494px; line-height:15px; white-space:nowrap">
+True</DIV>
+<DIV id="text428_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:128px; margin-top:8513px; line-height:15px; white-space:nowrap">
+True</DIV>
+<DIV id="text428_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:8494px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:311px; margin-top:8494px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:369px; margin-top:8494px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:427px; margin-top:8494px; line-height:15px; white-space:nowrap">
+○</DIV>
+<DIV id="text428_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:311px; margin-top:8513px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:8513px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:427px; margin-top:8513px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:369px; margin-top:8513px; line-height:15px; white-space:nowrap">
+×</DIV>
+<DIV id="text428_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7842px; line-height:15px; white-space:nowrap">
+<A name="ExpandWildcard_wildcard">
+(*1) WildcardPath 引数</A></DIV>
+<DIV id="text428_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:480px; margin-top:7705px; line-height:15px; white-space:nowrap">
+<A href="#ExpandWildcard_wildcard">
+(*1)</A></DIV>
+<DIV id="text428_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:8801px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_05.html#file_list">
+→ ファイル一覧 (VBScript)</A></DIV>
+<DIV id="text428_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8801px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text428_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:241px; margin-top:8801px; line-height:15px; white-space:nowrap">
+→ ファイル一覧</DIV>
+<DIV id="text428_57" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:198px; margin-top:7908px; line-height:15px; white-space:nowrap">
+<A name="F_File">
+旧 F_File, F_Folder, F_SubFolder</A></DIV>
+<DIV id="text428_58" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8739px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text428_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:8824px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#EnumFolderObject">
+→ EnumFolderObject</A></DIV>
+<DIV id="text428_60" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:8824px; line-height:15px; white-space:nowrap">
+高速なフォルダ一覧</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:8663px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text428_61" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:8670px; line-height:13px; white-space:nowrap">
+g_Vers("ExpandWildcard_Sort") = True</DIV>
+<DIV id="text428_62" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8609px; line-height:15px; white-space:nowrap">
+下記のように設定してから、ExpandWildcard を呼び出すと、ファイル名やフォルダー名で<BR/>
+ソートされます。 少し遅くなりますが、列挙されるファイルの順番がどのような環境でも<BR/>
+同じになります。</DIV>
+<DIV id="text428_63" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:8739px; line-height:15px; white-space:nowrap">
+→ T_Wildcard.vbs # Main</DIV>
+<DIV id="text428_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:264px; margin-top:7724px; line-height:15px; white-space:nowrap">
+<A href="#ExpandWildcard_Flags">
+(*2)</A></DIV>
+<DIV id="text428_65" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7908px; line-height:15px; white-space:nowrap">
+<A name="ExpandWildcard_Flags">
+(*2) Flags 引数</A></DIV>
+<DIV id="text428_66" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:7967px; line-height:13px; white-space:nowrap">
+<A name="c_File">
+c.File</A></DIV>
+<DIV id="text428_67" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:7987px; line-height:13px; white-space:nowrap">
+<A name="c_Folder">
+c.Folder</A></DIV>
+<DIV id="text428_68" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:8007px; line-height:13px; white-space:nowrap">
+<A name="c_SubFolder">
+c.SubFolder</A></DIV>
+<DIV id="text428_69" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:7935px; line-height:15px; white-space:nowrap">
+下記の定数の or。 下記の c は、g_VBS_Lib の返り値。</DIV>
+<DIV id="text428_70" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:8141px; line-height:13px; white-space:nowrap">
+<A name="c_FullPath">
+c.FullPath</A></DIV>
+<DIV id="text428_71" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:8161px; line-height:13px; white-space:nowrap">
+<A name="c_ArrayOfArray">
+c.ArrayOfArray</A></DIV>
+<DIV id="text428_72" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:7965px; line-height:15px; white-space:nowrap">
+ファイルを検索する</DIV>
+<DIV id="text428_73" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:7985px; line-height:15px; white-space:nowrap">
+フォルダーを検索する</DIV>
+<DIV id="text428_74" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:8005px; line-height:15px; white-space:nowrap">
+サブ・フォルダーも検索する。</DIV>
+<DIV id="text428_75" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:8139px; line-height:15px; white-space:nowrap">
+out_Folder を out_StepPaths に含め、out_Folder = Empty にする</DIV>
+<DIV id="text428_76" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:8159px; line-height:15px; white-space:nowrap">
+out_StepPaths の配列要素数を、WildcardPath に指定した配列<BR/>
+の要素数と同じにして、配列要素は、それぞれのワイルドカード<BR/>
+にマッチしたパスの配列にする</DIV>
+<DIV id="text428_77" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8235px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text428_78" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8760px; line-height:15px; white-space:nowrap">
+性能</DIV>
+<DIV id="text428_79" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:8847px; line-height:15px; white-space:nowrap">
+<A href="vbslib_28.html#CallForEach_copy">
+→ CallForEach_copy</A></DIV>
+<DIV id="text428_80" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:8847px; line-height:15px; white-space:nowrap">
+ファイル・パスの配列を使ってコピーする</DIV>
+<DIV id="text428_81" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:8064px; line-height:13px; white-space:nowrap">
+<A name="SubFolderIfWildcard">
+c.SubFolderIfWildcard</A></DIV>
+<DIV id="text428_82" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:56px; margin-top:8121px; line-height:13px; white-space:nowrap">
+<A name="c_NoError">
+c.NoError</A></DIV>
+<DIV id="text428_83" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:8119px; line-height:15px; white-space:nowrap">
+指定したパスに見つからないときにもエラーにしない</DIV>
+<DIV id="text428_84" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7801px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text428_85" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:7801px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text428_86" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:56px; margin-top:7866px; line-height:15px; white-space:nowrap">
+<A href="#ArrayFromWildcard_wildcard">
+→ (*1) ArrayFromWildcard の WildcardPath 引数</A></DIV>
+<DIV id="text428_87" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:8760px; line-height:15px; white-space:nowrap">
+<A href="#filelist_speed_vbslib">
+→ ファイルを一覧するときの速度</A></DIV>
+<DIV id="text428_88" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8580px; line-height:15px; white-space:nowrap">
+<A name="ExpandWildcard_Sort">
+ExpandWildcard_Sort 変数</A></DIV>
+<DIV id="text428_89" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8718px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text428_90" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:8718px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text428_91" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:421px; margin-top:8020px; line-height:15px; white-space:nowrap">
+<A href="vbslib_20.html#sub_folder_symbol">
+サブ フォルダー記号</A></DIV>
+<DIV id="text428_92" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:207px; margin-top:8020px; line-height:15px; white-space:nowrap">
+ただし、WildcardPath 引数に指定した</DIV>
+<DIV id="text428_93" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:207px; margin-top:8035px; line-height:15px; white-space:nowrap">
+が優先されます。</DIV>
+<DIV id="text428_94" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:262px; margin-top:8091px; line-height:15px; white-space:nowrap">
+<A href="#ArrayFromWildcard_wildcard">
+→ (*1) ArrayFromWildcard の WildcardPath 引数</A></DIV>
+<DIV id="text428_95" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:207px; margin-top:8061px; line-height:15px; white-space:nowrap">
+サブ・フォルダーも検索するかどうかは、ワールドカードが<BR/>
+指定されたかどうかなどによって決めます。 </DIV>
+<DIV id="text428_96" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:207px; margin-top:8091px; line-height:15px; white-space:nowrap">
+詳細は、</DIV>
+
+<v:line from="0,7575" to="601,7575"/>
+<v:line from="601,7575" to="601,8894"/>
+<v:line from="601,8894" to="0,8894"/>
+<v:line from="0,8894" to="0,7575"/>
+
+</PAGE>
+ 
+<!-- page 429 --> 
+<PAGE>
+<A id="svgcats_vml_p429" class="to_tree" style="margin-top:8899px;" onClick="selectTreeElem( '429' );">←</A>
+<A href="#svgcats_vml_p430" class="to_next_page" style="margin-top:8899px;">▼</A>
+<A href="#svgcats_vml_p428" class="to_prev_page" style="margin-top:8899px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8910px; width:795px; height:522px;" fillcolor="white"/>
+<DIV id="text429_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8927px; line-height:15px; white-space:nowrap">
+ExpandWildcard の内部データ構造</DIV>
+<DIV id="text429_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:24px; margin-top:9000px; line-height:13px; white-space:nowrap">
+ExpandWildcardWorkClass</DIV>
+<DIV id="text429_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:307px; margin-top:9021px; line-height:13px; white-space:nowrap">
+.items</DIV>
+<DIV id="text429_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:307px; margin-top:9095px; line-height:13px; white-space:nowrap">
+.is_root_folder</DIV>
+<DIV id="text429_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:307px; margin-top:9114px; line-height:13px; white-space:nowrap">
+.folder_path</DIV>
+<DIV id="text429_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:307px; margin-top:9133px; line-height:13px; white-space:nowrap">
+.first_out_count</DIV>
+<DIV id="text429_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:307px; margin-top:9152px; line-height:13px; white-space:nowrap">
+.out_fast_ubound</DIV>
+<DIV id="text429_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:307px; margin-top:9171px; line-height:13px; white-space:nowrap">
+.sort_box</DIV>
+<DIV id="text429_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9021px; line-height:13px; white-space:nowrap">
+ArrayClass &lt;ExpandWildcardItemClass&gt;</DIV>
+<DIV id="text429_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9095px; line-height:13px; white-space:nowrap">
+boolean</DIV>
+<DIV id="text429_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9114px; line-height:13px; white-space:nowrap">
+string</DIV>
+<DIV id="text429_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9133px; line-height:13px; white-space:nowrap">
+integer</DIV>
+<DIV id="text429_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9152px; line-height:13px; white-space:nowrap">
+integer</DIV>
+<DIV id="text429_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9171px; line-height:13px; white-space:nowrap">
+ArrayClass &lt;string&gt;</DIV>
+<DIV id="text429_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:331px; margin-top:9041px; line-height:13px; white-space:nowrap">
+.re</DIV>
+<DIV id="text429_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:331px; margin-top:9058px; line-height:13px; white-space:nowrap">
+.re2</DIV>
+<DIV id="text429_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:331px; margin-top:9075px; line-height:13px; white-space:nowrap">
+.IsSubFolder</DIV>
+<DIV id="text429_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:80px; margin-top:9041px; line-height:13px; white-space:nowrap">
+re_type&nbsp; (*1)</DIV>
+<DIV id="text429_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:80px; margin-top:9075px; line-height:13px; white-space:nowrap">
+boolean</DIV>
+<DIV id="text429_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:9317px; line-height:13px; white-space:nowrap">
+Empty</DIV>
+<DIV id="text429_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:80px; margin-top:9058px; line-height:13px; white-space:nowrap">
+re2_type (*1)</DIV>
+<DIV id="text429_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:21px; margin-top:9258px; line-height:15px; white-space:nowrap">
+(*1) re_type と re2_type は、以下の組み合わせのいずれかです。</DIV>
+<DIV id="text429_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:9289px; line-height:13px; white-space:nowrap">
+re_type</DIV>
+<DIV id="text429_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:389px; margin-top:9289px; line-height:13px; white-space:nowrap">
+re2_type</DIV>
+<DIV id="text429_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:9386px; line-height:13px; white-space:nowrap">
+RegExp</DIV>
+<DIV id="text429_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:389px; margin-top:9386px; line-height:13px; white-space:nowrap">
+RegExp</DIV>
+<DIV id="text429_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:389px; margin-top:9317px; line-height:13px; white-space:nowrap">
+Empty</DIV>
+<DIV id="text429_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:389px; margin-top:9340px; line-height:13px; white-space:nowrap">
+Empty</DIV>
+<DIV id="text429_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:389px; margin-top:9363px; line-height:13px; white-space:nowrap">
+Empty</DIV>
+<DIV id="text429_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:9363px; line-height:13px; white-space:nowrap">
+StrMatchKey</DIV>
+<DIV id="text429_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:9340px; line-height:13px; white-space:nowrap">
+NameOnlyClass</DIV>
+<v:line style="position:absolute;" from="50,9307" to="469,9307" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text429_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:9289px; line-height:13px; white-space:nowrap">
+WildcardPath 引数</DIV>
+<DIV id="text429_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:9315px; line-height:15px; white-space:nowrap">
+"*"</DIV>
+<DIV id="text429_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:9338px; line-height:15px; white-space:nowrap">
+ワイルドカードがない</DIV>
+<DIV id="text429_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:9361px; line-height:15px; white-space:nowrap">
+"*" が１個のとき</DIV>
+<DIV id="text429_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:9384px; line-height:15px; white-space:nowrap">
+* が２つのときか、? があるとき</DIV>
+<DIV id="text429_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:291px; margin-top:9000px; line-height:13px; white-space:nowrap">
+work</DIV>
+<DIV id="text429_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:441px; margin-top:8970px; line-height:13px; white-space:nowrap">
+reg_exp_dic</DIV>
+<DIV id="text429_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:24px; margin-top:8970px; line-height:13px; white-space:nowrap">
+dictionary &lt; (folder_path), ArrayClass &lt;ExpandWildcardItemClass&gt; &gt;</DIV>
+<DIV id="text429_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:270px; margin-top:9203px; line-height:13px; white-space:nowrap">
+out_StepPaths</DIV>
+<DIV id="text429_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:24px; margin-top:9203px; line-height:13px; white-space:nowrap">
+array &lt; File or Folder or (abs_path) &gt;</DIV>
+<DIV id="text429_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:431px; margin-top:9133px; line-height:13px; white-space:nowrap">
+// ExpandWildcard_sub 開始時の UBound( out_StepPaths )</DIV>
+<DIV id="text429_44" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:431px; margin-top:9152px; line-height:13px; white-space:nowrap">
+// 実質的な UBound( out_StepPaths )</DIV>
+
+<v:line from="0,8910" to="795,8910"/>
+<v:line from="795,8910" to="795,9432"/>
+<v:line from="795,9432" to="0,9432"/>
+<v:line from="0,9432" to="0,8910"/>
+
+</PAGE>
+ 
+<!-- page 430 --> 
+<PAGE>
+<A id="svgcats_vml_p430" class="to_tree" style="margin-top:9437px;" onClick="selectTreeElem( '430' );">←</A>
+<A href="vbslib_22.html#svgcats_vml_p431" class="to_next_page" style="margin-top:9437px;">▼</A>
+<A href="#svgcats_vml_p429" class="to_prev_page" style="margin-top:9437px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9448px; width:648px; height:1640px;" fillcolor="white"/>
+<DIV id="text430_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9465px; line-height:15px; white-space:nowrap">
+<A name="PathDictionaryClass">
+PathDictionaryClass</A></DIV>
+<DIV id="text430_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9494px; line-height:15px; white-space:nowrap">
+キーがファイルやフォルダーのパスである辞書。<BR/>
+アイテムには、任意のオブジェクトを指定できますが、オブジェクト型のみ指定できます。</DIV>
+<DIV id="text430_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10479px; line-height:13px; white-space:nowrap">
+.FilePaths</DIV>
+<DIV id="text430_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10395px; line-height:13px; white-space:nowrap">
+.Item Set</DIV>
+<DIV id="text430_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10433px; line-height:13px; white-space:nowrap">
+.Item Get</DIV>
+<DIV id="text430_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:10431px; line-height:15px; white-space:nowrap">
+.Item Set に指定したフォルダーの中にあるファイルやフォルダーも指定可能。<BR/>
+ただし、.Item Set に指定したキーが相対パスなら、絶対パスとはマッチしません。</DIV>
+<DIV id="text430_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:10477px; line-height:15px; white-space:nowrap">
+.Item Set に指定したフォルダーの中にあるファイルも列挙します。<BR/>
+キーが相対パスなら、相対パスの配列が返ります。</DIV>
+<DIV id="text430_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:10393px; line-height:15px; white-space:nowrap">
+ファイル、または、フォルダーのパスをキーに指定します。<BR/>
+サブ フォルダーも含むワイルド カードも指定可能です。</DIV>
+<DIV id="text430_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10913px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text430_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10892px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text430_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:79px; margin-top:10913px; line-height:15px; white-space:nowrap">
+→ T_Wildcard.vbs</DIV>
+<DIV id="text430_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:10913px; line-height:15px; white-space:nowrap">
+T_PathDictionary_1, T_PathDictionary_Wildcard, T_PathDictionary_OverSub</DIV>
+<DIV id="text430_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:79px; margin-top:10892px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:10725px; width:514px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text430_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:10731px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set&nbsp; dic = new PathDictionaryClass<BR/>
+&nbsp; &nbsp; Set&nbsp; dic( "Folder\Sub" ) = a_object<BR/>
+&nbsp; &nbsp; dic.AddRemove&nbsp; "*.bak"<BR/>
+<BR/>
+&nbsp; &nbsp; Assert&nbsp; IsSameArray( dic.FilePaths, Array( "Files\1\A.txt", "Files\1\B.txt" ) )<BR/>
+<BR/>
+&nbsp; &nbsp; For Each&nbsp; key&nbsp; In dic.FilePaths<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Assert&nbsp; dic( key ) Is a_object<BR/>
+&nbsp; &nbsp; Next</DIV>
+<DIV id="text430_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10705px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text430_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:10019px; line-height:15px; white-space:nowrap">
+サブフォルダーのキーも設定されたときは、サブ フォルダーの設定が優先されます。</DIV>
+<DIV id="text430_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10554px; line-height:13px; white-space:nowrap">
+.AddRemove()</DIV>
+<DIV id="text430_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:10552px; line-height:15px; white-space:nowrap">
+対象外にするフォルダーのパスや、拡張子を設定します</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:10042px; width:328px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text430_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:10048px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set dic = new PathDictionaryClass<BR/>
+&nbsp; &nbsp; Set dic( "Folder" ) = a_object<BR/>
+&nbsp; &nbsp; Set dic( "Folder\Sub" ) = b_object<BR/>
+&nbsp; &nbsp; Assert&nbsp; dic( "Folder\File.txt" ) Is a_object<BR/>
+&nbsp; &nbsp; Assert&nbsp; dic( "Folder\Sub\File.txt" ) Is b_object</DIV>
+<DIV id="text430_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9643px; line-height:15px; white-space:nowrap">
+フォルダーの中にあるファイルをキーに指定したら、フォルダーに対する Item が得られます。</DIV>
+<DIV id="text430_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10337px; line-height:15px; white-space:nowrap">
+メンバー</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:9685px; width:304px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text430_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:9691px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set dic = new PathDictionaryClass<BR/>
+&nbsp; &nbsp; Set dic( "Folder" ) = a_object<BR/>
+&nbsp; &nbsp; Assert&nbsp; dic( "Folder\File.txt" ) Is a_object</DIV>
+<DIV id="text430_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:10143px; line-height:15px; white-space:nowrap">
+FilePaths プロパティは、フォルダーの中にあるファイルのパスも含まれます。<BR/>
+AddRemove が呼び出してあったら、FilePaths の対象外になります。</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:10183px; width:514px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text430_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:10189px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set dic = new PathDictionaryClass<BR/>
+&nbsp; &nbsp; dic.BasePath = "C:\Folder"<BR/>
+&nbsp; &nbsp; Set dic( "Folder" ) = a_object<BR/>
+&nbsp; &nbsp; dic.AddRemove&nbsp; "*.bak"<BR/>
+&nbsp; &nbsp; Assert&nbsp; IsSameArray( dic.FilePaths, Array( "Files\1\A.txt", "Files\1\B.txt" ) )</DIV>
+<DIV id="text430_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:10968px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#new_PathDictionaryClass_fromXML">
+→ new_PathDictionaryClass_fromXML</A></DIV>
+<DIV id="text430_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10950px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text430_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10584px; line-height:13px; white-space:nowrap">
+.FileExists( Path )</DIV>
+<DIV id="text430_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:180px; margin-top:10582px; line-height:15px; white-space:nowrap">
+キーに指定したファイルパスが辞書にあるなら True。<BR/>
+キーに指定したフォルダーの中（のサブフォルダー）にあるファイルの<BR/>
+パスが指定されたときも、True。</DIV>
+<DIV id="text430_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10372px; line-height:13px; white-space:nowrap">
+.BasePath</DIV>
+<DIV id="text430_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:10370px; line-height:15px; white-space:nowrap">
+キーに相対パスを指定した時の基準パス。 初期値は生成時のカレントフォルダー</DIV>
+<DIV id="text430_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10639px; line-height:13px; white-space:nowrap">
+.Add( Key, Item ), .Count, .Keys, .Items, .CompareMode, .Remove(), .RemoveAll()</DIV>
+<DIV id="text430_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:130px; margin-top:10656px; line-height:15px; white-space:nowrap">
+Scripting.Dictionary と同じ</DIV>
+<DIV id="text430_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:44px; margin-top:10523px; line-height:13px; white-space:nowrap">
+.FullPaths</DIV>
+<DIV id="text430_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:10522px; line-height:15px; white-space:nowrap">
+絶対パスの配列が返る FilePaths。</DIV>
+<DIV id="text430_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:11004px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#EnumFolderObjectDic">
+→ EnumFolderObjectDic</A></DIV>
+<DIV id="text430_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:11022px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#EnumFileObjectDic">
+→ EnumFileObjectDic</A></DIV>
+<DIV id="text430_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:234px; margin-top:11022px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_05.html#Folder_Files">
+→ Folder::Files</A></DIV>
+<DIV id="text430_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:234px; margin-top:11004px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_05.html#Folder_SubFolders">
+→ Folder::SubFolders</A></DIV>
+<DIV id="text430_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:371px; margin-top:11004px; line-height:15px; white-space:nowrap">
+フォルダーを一覧する</DIV>
+<DIV id="text430_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:371px; margin-top:11022px; line-height:15px; white-space:nowrap">
+ファイルを一覧する</DIV>
+<DIV id="text430_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:371px; margin-top:10968px; line-height:15px; white-space:nowrap">
+XML からファイルの集合を指定する</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:9538px; width:304px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text430_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:9544px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set dic = new PathDictionaryClass<BR/>
+&nbsp; &nbsp; Set dic( "Folder\File.txt" ) = a_object<BR/>
+&nbsp; &nbsp; Assert&nbsp; dic( "Folder\File.txt" ) Is a_object</DIV>
+<DIV id="text430_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:10290px; line-height:15px; white-space:nowrap">
+FilePaths プロパティは、</DIV>
+<DIV id="text430_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:163px; margin-top:10290px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#PathNameCompare">
+PathNameCompare</A></DIV>
+<DIV id="text430_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:278px; margin-top:10290px; line-height:15px; white-space:nowrap">
+でソートされた配列を取得します。</DIV>
+<DIV id="text430_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#800000; margin-left:62px; margin-top:9595px; line-height:15px; white-space:nowrap">
+存在するファイルのパスをキーに指定してください。</DIV>
+<DIV id="text430_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:10950px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_07.html#dic">
+→ Dictionary クラス （ハッシュ、辞書、Scripting.Dictionary）</A></DIV>
+<DIV id="text430_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:10986px; line-height:15px; white-space:nowrap">
+<A href="#ArrayFromWildcard">
+→ ArrayFromWildcard</A></DIV>
+<DIV id="text430_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:371px; margin-top:10986px; line-height:15px; white-space:nowrap">
+PathDictionaryClass を取得する別の方法</DIV>
+<DIV id="text430_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:11040px; line-height:15px; white-space:nowrap">
+<A href="#FilePathClass">
+→ FilePathClass</A></DIV>
+<DIV id="text430_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:270px; margin-top:11040px; line-height:15px; white-space:nowrap">
+ファイルのパスか、ファイルの内容に相当する文字列の抽象</DIV>
+<DIV id="text430_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:9824px; line-height:15px; white-space:nowrap">
+<A href="vbslib_22.html#new_PathDictionaryClass_fromXML">
+new_PathDictionaryClass_fromXML</A></DIV>
+<DIV id="text430_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:9824px; line-height:15px; white-space:nowrap">
+を使えば、XML ファイルの中からパスの指定を取得できます。</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:9850px; width:358px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text430_54" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:9856px; line-height:15px; white-space:nowrap">
+&lt;Root&gt;<BR/>
+&nbsp; &nbsp; &lt;Variable name="${ExceptExts}" value="*.obj, *.bak"/&gt;<BR/>
+<BR/>
+&nbsp; &nbsp; &lt;File path="Sample.txt"/&gt;<BR/>
+&nbsp; &nbsp; &lt;Folder path="SubFolder" attr="ABC"&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Except path="${ExceptExts}"/&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Except path="SubFolder\Debug"/&gt;<BR/>
+&nbsp; &nbsp; &lt;/Folder&gt;<BR/>
+&lt;/Root&gt;</DIV>
+<DIV id="text430_55" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:92px; margin-top:9872px; line-height:13px; white-space:nowrap">
+Variable name</DIV>
+<DIV id="text430_56" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:272px; margin-top:9872px; line-height:13px; white-space:nowrap">
+value</DIV>
+<DIV id="text430_57" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:116px; margin-top:9932px; line-height:13px; white-space:nowrap">
+Except</DIV>
+<DIV id="text430_58" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:116px; margin-top:9947px; line-height:13px; white-space:nowrap">
+Except</DIV>
+<DIV id="text430_59" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:92px; margin-top:9917px; line-height:13px; white-space:nowrap">
+Folder path</DIV>
+<DIV id="text430_60" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:158px; margin-top:9932px; line-height:13px; white-space:nowrap">
+path</DIV>
+<DIV id="text430_61" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:158px; margin-top:9947px; line-height:13px; white-space:nowrap">
+path</DIV>
+<DIV id="text430_62" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:92px; margin-top:9902px; line-height:13px; white-space:nowrap">
+File path</DIV>
+<DIV id="text430_63" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:9658px; line-height:15px; white-space:nowrap">
+<A href="#ArrayFromWildcard">
+ArrayFromWildcard</A></DIV>
+<DIV id="text430_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:137px; margin-top:9658px; line-height:15px; white-space:nowrap">
+でも、PathDictionaryClass のオブジェクトが得られます。</DIV>
+<v:rect style="position:absolute; margin-left:54px; margin-top:9751px; width:298px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text430_65" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:62px; margin-top:9757px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set dic = ArrayFromWildcard( "Folder" )<BR/>
+&nbsp; &nbsp; Assert&nbsp; dic( "Folder\File.txt" ) Is Nothing</DIV>
+
+<v:line from="0,9448" to="648,9448"/>
+<v:line from="648,9448" to="648,11088"/>
+<v:line from="648,11088" to="0,11088"/>
+<v:line from="0,11088" to="0,9448"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:11088px;">
+<A id="svgcats_vml_p430" class="to_tree" onClick="selectTreeElem( '430' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:11088px;">
+<A id="page_group_bottom" href="vbslib_22.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

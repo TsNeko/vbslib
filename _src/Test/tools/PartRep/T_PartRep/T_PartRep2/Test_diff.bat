@@ -1,0 +1,1 @@
+start "" "C:\home\mem_cache\prog\Rekisa\Rekisa\Rekisa.exe" "C:\home\mem_cache\MyDoc\src\vbslib\_src\Test\tools\PartRep\test\T_PartRep2\T_Basic1_log.txt" "C:\home\mem_cache\MyDoc\src\vbslib\_src\Test\tools\PartRep\test\T_PartRep2\T_BASIC1_ANS.TXT"

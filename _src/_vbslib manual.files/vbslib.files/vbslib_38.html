@@ -1,0 +1,1530 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_38.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_38.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 786 --> 
+<PAGE>
+<A id="svgcats_vml_p786" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '786' );">←</A>
+<A href="#svgcats_vml_p787" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_37.html#svgcats_vml_p785" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_37.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:510px; height:658px;" fillcolor="white"/>
+<DIV id="text786_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="SetVar">
+set_, SetVar</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:214px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text786_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:221px; line-height:13px; white-space:nowrap">
+&nbsp; set_&nbsp; &nbsp; "FooVar", "1"</DIV>
+<DIV id="text786_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:27px; margin-top:194px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:81px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text786_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:88px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetVar( Symbol as string, Value as variant )</DIV>
+<DIV id="text786_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:118px; line-height:15px; white-space:nowrap">
+vbslib の環境変数を設定します。</DIV>
+<DIV id="text786_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:144px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text786_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:144px; line-height:15px; white-space:nowrap">
+Symbol</DIV>
+<DIV id="text786_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:163px; line-height:15px; white-space:nowrap">
+Value</DIV>
+<DIV id="text786_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:144px; line-height:15px; white-space:nowrap">
+変数名</DIV>
+<DIV id="text786_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:163px; line-height:15px; white-space:nowrap">
+設定する値、Empty = 変数を未定義にする</DIV>
+<DIV id="text786_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:520px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text786_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:520px; line-height:15px; white-space:nowrap">
+<A href="#GetVar">
+→ GetVar</A></DIV>
+<DIV id="text786_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:239px; margin-top:520px; line-height:15px; white-space:nowrap">
+<A href="#SetVarBreak">
+→ SetVarBreak</A></DIV>
+<DIV id="text786_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:17px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text786_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:608px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_01.html#T_Var">
+→ [T_Var] vbslib の環境変数のテスト</A></DIV>
+<DIV id="text786_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:348px; margin-top:520px; line-height:15px; white-space:nowrap">
+<A href="vbslib_26.html#env">
+→ env</A></DIV>
+<DIV id="text786_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:264px; margin-top:20px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#var">
+[ 親: 環境変数 ]</A></DIV>
+<DIV id="text786_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:26px; margin-top:282px; line-height:15px; white-space:nowrap">
+set_ は、OS の環境変数には設定されます。<BR/>
+SetVar は、OS の環境変数には設定されません。そのため、RunProg などで<BR/>
+子プロセスを起動しても、伝達されません。<BR/>
+その代わり、文字列以外（数値や配列など）を設定することができます。<BR/>
+set_ も SetVar も、env を使って参照することができます。</DIV>
+<DIV id="text786_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:26px; margin-top:379px; line-height:15px; white-space:nowrap">
+注意</DIV>
+<DIV id="text786_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:379px; line-height:15px; white-space:nowrap">
+環境変数はグローバル変数と同じなので、なるべく使わないでください。<BR/>
+下記のいずれかが使用できないか検討してください。</DIV>
+<DIV id="text786_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:83px; margin-top:456px; line-height:15px; white-space:nowrap">
+<A href="vbslib_04.html#setting_vbs">
+・setting フォルダ, setting_default フォルダ</A></DIV>
+<DIV id="text786_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:83px; margin-top:440px; line-height:15px; white-space:nowrap">
+・設定関数</DIV>
+<DIV id="text786_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:83px; margin-top:422px; line-height:15px; white-space:nowrap">
+・オブジェクトのメソッド、プロパティ</DIV>
+<DIV id="text786_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:538px; line-height:15px; white-space:nowrap">
+→ clib の環境変数</DIV>
+<DIV id="text786_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:305px; margin-top:608px; line-height:15px; white-space:nowrap">
+→ T_Var フォルダ</DIV>
+<DIV id="text786_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:608px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:49px; width:292px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text786_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:56px; line-height:13px; white-space:nowrap">
+Sub&nbsp; set_( Symbol as string, Value as string )</DIV>
+<DIV id="text786_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:205px; margin-top:538px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_02.html#Environment_Shell">
+→ Environment (Shell)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:243px; width:142px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text786_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:250px; line-height:13px; white-space:nowrap">
+&nbsp; SetVar&nbsp; "FooVar", 1</DIV>
+<DIV id="text786_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:414px; margin-top:520px; line-height:15px; white-space:nowrap">
+<A href="vbslib_26.html#RunCmd">
+→ RunBat</A></DIV>
+<DIV id="text786_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:208px; margin-top:17px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text786_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:355px; margin-top:538px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#cond_break">
+→ 条件ブレーク</A></DIV>
+<DIV id="text786_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:494px; line-height:15px; white-space:nowrap">
+→ T_Var フォルダ</DIV>
+<DIV id="text786_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:494px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text786_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:145px; margin-top:520px; line-height:15px; white-space:nowrap">
+<A href="#VarStack">
+→ VarStack</A></DIV>
+<DIV id="text786_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:209px; margin-top:219px; line-height:15px; white-space:nowrap">
+OS の環境変数</DIV>
+<DIV id="text786_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:198px; margin-top:248px; line-height:15px; white-space:nowrap">
+<A name="local_env">
+ローカル環境変数 （vbslib が持つ辞書）</A></DIV>
+<DIV id="text786_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:556px; line-height:15px; white-space:nowrap">
+<A href="%vbslib_n_new%\_src\vbslib_n.svg#SetDefaultEnvironmentVariables">
+→ SetDefaultEnvironmentVariables</A></DIV>
+<DIV id="text786_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:574px; line-height:15px; white-space:nowrap">
+<A href="vbslib_11.html#AddIfNotExist">
+→ AddIfNotExist</A></DIV>
+
+<v:line from="0,0" to="510,0"/>
+<v:line from="510,0" to="510,658"/>
+<v:line from="510,658" to="0,658"/>
+<v:line from="0,658" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 787 --> 
+<PAGE>
+<A id="svgcats_vml_p787" class="to_tree" style="margin-top:663px;" onClick="selectTreeElem( '787' );">←</A>
+<A href="#svgcats_vml_p788" class="to_next_page" style="margin-top:663px;">▼</A>
+<A href="#svgcats_vml_p786" class="to_prev_page" style="margin-top:663px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:674px; width:593px; height:468px;" fillcolor="white"/>
+<DIV id="text787_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:691px; line-height:15px; white-space:nowrap">
+<A name="GetVar">
+GetVar</A></DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:858px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text787_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:865px; line-height:13px; white-space:nowrap">
+&nbsp; v = GetVar( "FooVar" )</DIV>
+<DIV id="text787_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:838px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:721px; width:298px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text787_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:728px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetVar( Symbol as string ) as variant</DIV>
+<DIV id="text787_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:758px; line-height:15px; white-space:nowrap">
+vbslib の環境変数の値を返します。</DIV>
+<DIV id="text787_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:784px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text787_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:784px; line-height:15px; white-space:nowrap">
+Symbol</DIV>
+<DIV id="text787_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:803px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text787_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:784px; line-height:15px; white-space:nowrap">
+変数名</DIV>
+<DIV id="text787_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:803px; line-height:15px; white-space:nowrap">
+Symbol に指定した環境変数の値</DIV>
+<DIV id="text787_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:1094px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text787_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:1094px; line-height:15px; white-space:nowrap">
+<A href="#SetVar">
+→ SetVar</A></DIV>
+<DIV id="text787_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:691px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text787_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:151px; margin-top:1094px; line-height:15px; white-space:nowrap">
+<A href="#SetVarBreak">
+→ SetVarBreak</A></DIV>
+<DIV id="text787_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:904px; line-height:15px; white-space:nowrap">
+値を設定していない環境変数を指定したときは、エラーが発生するのではなく、Empty を返し<BR/>
+ます。<BR/>
+<BR/>
+OS の環境変数を指定することもできます。</DIV>
+<DIV id="text787_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:256px; margin-top:1094px; line-height:15px; white-space:nowrap">
+<A href="vbslib_26.html#env">
+→ env</A></DIV>
+<DIV id="text787_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:216px; margin-top:694px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#var">
+[ 親: 環境変数 ]</A></DIV>
+<DIV id="text787_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:319px; margin-top:1094px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#cond_break">
+→ 条件ブレーク</A></DIV>
+<DIV id="text787_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:79px; margin-top:1067px; line-height:15px; white-space:nowrap">
+→ T_Var フォルダ</DIV>
+<DIV id="text787_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:1067px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text787_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:1067px; line-height:15px; white-space:nowrap">
+T_Var1</DIV>
+<DIV id="text787_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:270px; margin-top:1067px; line-height:15px; white-space:nowrap">
+T_Var2</DIV>
+<DIV id="text787_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:984px; line-height:15px; white-space:nowrap">
+変数名に % を付けたものを指定した場合、% が無い変数名の値が返ります。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:1006px; width:274px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text787_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:1013px; line-height:13px; white-space:nowrap">
+&nbsp; GetVar( "FooVar" ) = GetVar( "%FooVar%" )</DIV>
+
+<v:line from="0,674" to="593,674"/>
+<v:line from="593,674" to="593,1142"/>
+<v:line from="593,1142" to="0,1142"/>
+<v:line from="0,1142" to="0,674"/>
+
+</PAGE>
+ 
+<!-- page 788 --> 
+<PAGE>
+<A id="svgcats_vml_p788" class="to_tree" style="margin-top:1147px;" onClick="selectTreeElem( '788' );">←</A>
+<A href="#svgcats_vml_p789" class="to_next_page" style="margin-top:1147px;">▼</A>
+<A href="#svgcats_vml_p787" class="to_prev_page" style="margin-top:1147px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1158px; width:578px; height:278px;" fillcolor="white"/>
+<DIV id="text788_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1175px; line-height:15px; white-space:nowrap">
+<A name="SetVarBreak">
+SetVarBreak</A></DIV>
+<DIV id="text788_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:1175px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:1338px; width:196px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text788_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:1345px; line-height:13px; white-space:nowrap">
+&nbsp; SetVarBreak&nbsp; "FooVar", Empty</DIV>
+<DIV id="text788_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:27px; margin-top:1318px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1205px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text788_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1212px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetVarBreak( Symbol as string, Opt as Empty )</DIV>
+<DIV id="text788_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1242px; line-height:15px; white-space:nowrap">
+vbslib の環境変数の値を設定、または参照しているところでブレークするように設定します。</DIV>
+<DIV id="text788_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1268px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text788_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1268px; line-height:15px; white-space:nowrap">
+Symbol</DIV>
+<DIV id="text788_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1287px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text788_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:1268px; line-height:15px; white-space:nowrap">
+変数名</DIV>
+<DIV id="text788_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:1287px; line-height:15px; white-space:nowrap">
+Empty を指定してください</DIV>
+<DIV id="text788_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:1388px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text788_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:1388px; line-height:15px; white-space:nowrap">
+<A href="#SetVar">
+→ SetVar</A></DIV>
+<DIV id="text788_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:154px; margin-top:1388px; line-height:15px; white-space:nowrap">
+<A href="#GetVar">
+→ GetVar</A></DIV>
+<DIV id="text788_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:236px; margin-top:1388px; line-height:15px; white-space:nowrap">
+<A href="vbslib_26.html#env">
+→ env</A></DIV>
+<DIV id="text788_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:216px; margin-top:1178px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#var">
+[ 親: 環境変数 ]</A></DIV>
+
+<v:line from="0,1158" to="578,1158"/>
+<v:line from="578,1158" to="578,1436"/>
+<v:line from="578,1436" to="0,1436"/>
+<v:line from="0,1436" to="0,1158"/>
+
+</PAGE>
+ 
+<!-- page 789 --> 
+<PAGE>
+<A id="svgcats_vml_p789" class="to_tree" style="margin-top:1441px;" onClick="selectTreeElem( '789' );">←</A>
+<A href="#svgcats_vml_p790" class="to_next_page" style="margin-top:1441px;">▼</A>
+<A href="#svgcats_vml_p788" class="to_prev_page" style="margin-top:1441px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1452px; width:453px; height:254px;" fillcolor="white"/>
+<DIV id="text789_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1469px; line-height:15px; white-space:nowrap">
+<A name="VarStack">
+VarStack</A></DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:1544px; width:226px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text789_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:1550px; line-height:15px; white-space:nowrap">
+Sub&nbsp; FuncA()<BR/>
+&nbsp; Set v_= new VarStack<BR/>
+<BR/>
+&nbsp; set_&nbsp; &nbsp;"Foo2", "2a"<BR/>
+&nbsp; SetVar "Foo3",&nbsp; 3<BR/>
+&nbsp; g_Vers "Foo4",&nbsp; 1<BR/>
+<BR/>
+End Sub&nbsp; '// 元の環境変数の値に戻る</DIV>
+<DIV id="text789_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1500px; line-height:15px; white-space:nowrap">
+オブジェクトが破棄されるタイミングで、環境変数の値を元に戻します。<BR/>
+下記の場合、関数から抜けると戻します。</DIV>
+<DIV id="text789_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:1469px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text789_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:216px; margin-top:1472px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#var">
+[ 親: 環境変数 ]</A></DIV>
+<DIV id="text789_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:46px; margin-top:1596px; line-height:13px; white-space:nowrap">
+<A href="#SetVar">
+set_</A></DIV>
+<DIV id="text789_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:46px; margin-top:1611px; line-height:13px; white-space:nowrap">
+<A href="#SetVar">
+SetVar</A></DIV>
+<DIV id="text789_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:46px; margin-top:1626px; line-height:13px; white-space:nowrap">
+<A href="vbslib_37.html#g_Vers">
+g_Vers</A></DIV>
+
+<v:line from="0,1452" to="453,1452"/>
+<v:line from="453,1452" to="453,1706"/>
+<v:line from="453,1706" to="0,1706"/>
+<v:line from="0,1706" to="0,1452"/>
+
+</PAGE>
+ 
+<!-- page 790 --> 
+<PAGE>
+<A id="svgcats_vml_p790" class="to_tree" style="margin-top:1711px;" onClick="selectTreeElem( '790' );">←</A>
+<A href="#svgcats_vml_p791" class="to_next_page" style="margin-top:1711px;">▼</A>
+<A href="#svgcats_vml_p789" class="to_prev_page" style="margin-top:1711px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1722px; width:589px; height:874px;" fillcolor="white"/>
+<DIV id="text790_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1739px; line-height:15px; white-space:nowrap">
+<A name="LoadEnvVars">
+LoadEnvVars</A></DIV>
+<DIV id="text790_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:1739px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text790_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:216px; margin-top:1742px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#var">
+[ 親: 環境変数 ]</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1769px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text790_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1776px; line-height:13px; white-space:nowrap">
+Sub&nbsp; LoadEnvVars( Path_ofSetCommandLog, Option_ )</DIV>
+<DIV id="text790_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1806px; line-height:15px; white-space:nowrap">
+ファイルを参照して、複数の環境変数を現在のプロセスに設定します。</DIV>
+<DIV id="text790_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1832px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text790_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1832px; line-height:15px; white-space:nowrap">
+Path_ofSetCommandLog</DIV>
+<DIV id="text790_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:259px; margin-top:1832px; line-height:15px; white-space:nowrap">
+環境変数の設定の一覧のファイルパス、または辞書</DIV>
+<DIV id="text790_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:101px; margin-top:1970px; line-height:15px; white-space:nowrap">
+環境変数全体を、ファイルに記述された値に設定します。</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:1989px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text790_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:1996px; line-height:13px; white-space:nowrap">
+&nbsp; LoadEnvVars&nbsp; "settings.txt", Empty</DIV>
+<DIV id="text790_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2029px; line-height:15px; white-space:nowrap">
+setting.txt</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:2049px; width:82px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text790_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:2055px; line-height:15px; white-space:nowrap">
+VAR1=value1<BR/>
+VAR2=3<BR/>
+VAR3=cmd</DIV>
+<DIV id="text790_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:2522px; line-height:15px; white-space:nowrap">
+→ T_Var.vbs # T_LoadEnvVars</DIV>
+<DIV id="text790_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2522px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text790_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1895px; line-height:15px; white-space:nowrap">
+今まで設定されていた環境変数のうち、Path_ofSetCommandLog のファイルに記述されて<BR/>
+いない環境変数は、削除されます。 ただし、Option_ = F_Append にすると削除されません。</DIV>
+<DIV id="text790_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1852px; line-height:15px; white-space:nowrap">
+Option_</DIV>
+<DIV id="text790_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:259px; margin-top:1852px; line-height:15px; white-space:nowrap">
+Empty または F_Append または辞書</DIV>
+<DIV id="text790_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:44px; margin-top:2109px; line-height:15px; white-space:nowrap">
+setting.txt は、コマンドプロンプトの set (Enter) で出力される内容と同じフォーマットです。<BR/>
+VBScript では、下記のように記述します。</DIV>
+<v:rect style="position:absolute; margin-left:64px; margin-top:2144px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text790_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:72px; margin-top:2151px; line-height:13px; white-space:nowrap">
+g_sh.Run&nbsp; "cmd /C (set &gt; ""C:\folder\settings.txt"")",, True</DIV>
+<DIV id="text790_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2497px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text790_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:70px; margin-top:2497px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#defvar">
+→ デフォルトの環境変数の設定タイミング</A></DIV>
+<DIV id="text790_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:101px; margin-top:2222px; line-height:15px; white-space:nowrap">
+環境変数全体を、辞書に入っている内容に設定します。</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:2241px; width:316px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text790_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:2247px; line-height:15px; white-space:nowrap">
+&nbsp; Set dic = CreateObject( "Scripting.Dictionary" )<BR/>
+&nbsp; dic.Item( "VAR1" ) = "value1"<BR/>
+&nbsp; dic.Item( "VAR2" ) = "3"<BR/>
+&nbsp; LoadEnvVars( dic, Empty )</DIV>
+<DIV id="text790_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2547px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text790_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:291px; margin-top:2547px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Dic_add">
+→ Dic_add</A></DIV>
+<DIV id="text790_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:70px; margin-top:2547px; line-height:15px; white-space:nowrap">
+<A href="#SaveEnvVars">
+→ SaveEnvVars</A></DIV>
+<DIV id="text790_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:179px; margin-top:2547px; line-height:15px; white-space:nowrap">
+<A href="#ClearEnvVars">
+→ ClearEnvVars</A></DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:2375px; width:322px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text790_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:2381px; line-height:15px; white-space:nowrap">
+&nbsp; Set envs = CreateObject( "Scripting.Dictionary" )<BR/>
+&nbsp; LoadEnvVars&nbsp; "settings.txt", envs</DIV>
+<DIV id="text790_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:2354px; line-height:15px; white-space:nowrap">
+ファイルに入っている環境変数の設定を、辞書に格納する</DIV>
+<DIV id="text790_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2354px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text790_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:2424px; line-height:15px; white-space:nowrap">
+Option_ 引数に辞書オブジェクトを渡すと、その辞書オブジェクトの内容が変わるだけで、<BR/>
+環境変数の値は変わりません。</DIV>
+<DIV id="text790_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2222px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text790_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:1970px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,1722" to="589,1722"/>
+<v:line from="589,1722" to="589,2596"/>
+<v:line from="589,2596" to="0,2596"/>
+<v:line from="0,2596" to="0,1722"/>
+
+</PAGE>
+ 
+<!-- page 791 --> 
+<PAGE>
+<A id="svgcats_vml_p791" class="to_tree" style="margin-top:2601px;" onClick="selectTreeElem( '791' );">←</A>
+<A href="#svgcats_vml_p792" class="to_next_page" style="margin-top:2601px;">▼</A>
+<A href="#svgcats_vml_p790" class="to_prev_page" style="margin-top:2601px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2612px; width:528px; height:408px;" fillcolor="white"/>
+<DIV id="text791_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2629px; line-height:15px; white-space:nowrap">
+<A name="SaveEnvVars">
+SaveEnvVars</A></DIV>
+<DIV id="text791_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:2629px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text791_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:216px; margin-top:2632px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#var">
+[ 親: 環境変数 ]</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2659px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text791_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2666px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SaveEnvVars( Path_ofSetCommandLog, Option_ )</DIV>
+<DIV id="text791_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2696px; line-height:15px; white-space:nowrap">
+現在の環境変数をファイルに保存するか、辞書に格納します。</DIV>
+<DIV id="text791_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2722px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text791_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2722px; line-height:15px; white-space:nowrap">
+Path_ofSetCommandLog</DIV>
+<DIV id="text791_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:259px; margin-top:2722px; line-height:15px; white-space:nowrap">
+ファイルパス、または辞書、または Empty</DIV>
+<DIV id="text791_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2742px; line-height:15px; white-space:nowrap">
+Option_</DIV>
+<DIV id="text791_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:259px; margin-top:2742px; line-height:15px; white-space:nowrap">
+Empty 固定</DIV>
+<DIV id="text791_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2776px; line-height:15px; white-space:nowrap">
+Path_ofSetCommandLog に、値が入っていない（Empty の）変数を指定したら、<BR/>
+内部で Dictionary オブジェクトを生成して、その中に環境変数の設定値を<BR/>
+格納します。</DIV>
+<DIV id="text791_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2837px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:2858px; width:262px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text791_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:2864px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; envs<BR/>
+&nbsp; SaveEnvVars&nbsp; envs, Empty&nbsp; '//[out] envs<BR/>
+&nbsp; echo&nbsp; envs<BR/>
+&nbsp; LoadEnvVars&nbsp; envs, Empty</DIV>
+<DIV id="text791_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:79px; margin-top:2950px; line-height:15px; white-space:nowrap">
+→ T_Var.vbs # T_LoadEnvVars</DIV>
+<DIV id="text791_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:2950px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text791_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:2972px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text791_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:2972px; line-height:15px; white-space:nowrap">
+<A href="#VarStack">
+→ VarStack</A></DIV>
+
+<v:line from="0,2612" to="528,2612"/>
+<v:line from="528,2612" to="528,3020"/>
+<v:line from="528,3020" to="0,3020"/>
+<v:line from="0,3020" to="0,2612"/>
+
+</PAGE>
+ 
+<!-- page 792 --> 
+<PAGE>
+<A id="svgcats_vml_p792" class="to_tree" style="margin-top:3025px;" onClick="selectTreeElem( '792' );">←</A>
+<A href="#svgcats_vml_p793" class="to_next_page" style="margin-top:3025px;">▼</A>
+<A href="#svgcats_vml_p791" class="to_prev_page" style="margin-top:3025px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3036px; width:373px; height:193px;" fillcolor="white"/>
+<DIV id="text792_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3053px; line-height:15px; white-space:nowrap">
+<A name="ClearEnvVars">
+ClearEnvVars</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3083px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text792_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3090px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ClearEnvVars()</DIV>
+<DIV id="text792_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3120px; line-height:15px; white-space:nowrap">
+現在のプロセスの環境変数をほぼすべて削除します。</DIV>
+<DIV id="text792_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:3053px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text792_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:216px; margin-top:3056px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#var">
+[ 親: 環境変数 ]</A></DIV>
+<DIV id="text792_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:79px; margin-top:3181px; line-height:15px; white-space:nowrap">
+→ T_Var.vbs # T_LoadEnvVars</DIV>
+<DIV id="text792_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:3181px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text792_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3148px; line-height:15px; white-space:nowrap">
+VBScript から削除できない環境変数は残ります。</DIV>
+
+<v:line from="0,3036" to="373,3036"/>
+<v:line from="373,3036" to="373,3229"/>
+<v:line from="373,3229" to="0,3229"/>
+<v:line from="0,3229" to="0,3036"/>
+
+</PAGE>
+ 
+<!-- page 793 --> 
+<PAGE>
+<A id="svgcats_vml_p793" class="to_tree" style="margin-top:3234px;" onClick="selectTreeElem( '793' );">←</A>
+<A href="#svgcats_vml_p794" class="to_next_page" style="margin-top:3234px;">▼</A>
+<A href="#svgcats_vml_p792" class="to_prev_page" style="margin-top:3234px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3245px; width:531px; height:467px;" fillcolor="white"/>
+<DIV id="text793_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3262px; line-height:15px; white-space:nowrap">
+<A name="OpenForEnvVarsFile">
+OpenForEnvVarsFile</A></DIV>
+<DIV id="text793_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:84px; margin-top:3639px; line-height:15px; white-space:nowrap">
+<A href="vbslib_35.html#OpenForRegFile">
+→ OpenForRegFile</A></DIV>
+<DIV id="text793_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:32px; margin-top:3639px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:3292px; width:472px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text793_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:3299px; line-height:13px; white-space:nowrap">
+Function&nbsp; OpenForEnvVarsFile( EnvVarsFilePath as string ) as EditEnvVarsFile</DIV>
+<DIV id="text793_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:203px; margin-top:3262px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text793_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3330px; line-height:15px; white-space:nowrap">
+環境変数ファイルを編集します。</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:3425px; width:400px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text793_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:3431px; line-height:15px; white-space:nowrap">
+Dim&nbsp; f : Set f = OpenForEnvVarsFile( "settings.txt" )<BR/>
+echo&nbsp; f.get_( "VAR_A" )<BR/>
+f.set_ "VAR_A", "1"<BR/>
+f.select_&nbsp; "VAR_A", "1", Array( "VAR_A", "VAR_B", "VAR_C" ), "0"<BR/>
+f = Empty&nbsp; '// Write</DIV>
+<DIV id="text793_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3354px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text793_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:3354px; line-height:15px; white-space:nowrap">
+EnvVarsFilePath</DIV>
+<DIV id="text793_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:3373px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text793_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:224px; margin-top:3354px; line-height:15px; white-space:nowrap">
+環境変数ファイルのパス</DIV>
+<DIV id="text793_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:224px; margin-top:3373px; line-height:15px; white-space:nowrap">
+<A href="#EditEnvVarsFile">
+EditEnvVarsFile オブジェクト</A></DIV>
+<DIV id="text793_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:3404px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text793_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:3528px; line-height:15px; white-space:nowrap">
+ランダムアクセスに対応しています。 OpenForRead や OpenForWrite のように<BR/>
+シーケンシャル（ファイルの先頭から順番）にアクセスする必要はありませんし、<BR/>
+変更しないキーまで Write する必要はありません。<BR/>
+<BR/>
+存在しない環境変数を新規に set_ したときは、ABC 順でファイルに記述されます。<BR/>
+Empty の値を set_ すると、その環境変数はファイルから削除されます。</DIV>
+<DIV id="text793_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:271px; margin-top:3432px; line-height:13px; white-space:nowrap">
+settings.txt</DIV>
+<DIV id="text793_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:91px; margin-top:3462px; line-height:13px; white-space:nowrap">
+VAR_A</DIV>
+<DIV id="text793_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:145px; margin-top:3462px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text793_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:169px; margin-top:3477px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text793_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:115px; margin-top:3477px; line-height:13px; white-space:nowrap">
+VAR_A</DIV>
+<DIV id="text793_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:3664px; line-height:15px; white-space:nowrap">
+→ T_VarFile.vbs # [T_VarFile1]</DIV>
+<DIV id="text793_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:32px; margin-top:3664px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text793_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:133px; margin-top:3447px; line-height:13px; white-space:nowrap">
+VAR_A</DIV>
+
+<v:line from="0,3245" to="531,3245"/>
+<v:line from="531,3245" to="531,3712"/>
+<v:line from="531,3712" to="0,3712"/>
+<v:line from="0,3712" to="0,3245"/>
+
+</PAGE>
+ 
+<!-- page 794 --> 
+<PAGE>
+<A id="svgcats_vml_p794" class="to_tree" style="margin-top:3717px;" onClick="selectTreeElem( '794' );">←</A>
+<A href="#svgcats_vml_p795" class="to_next_page" style="margin-top:3717px;">▼</A>
+<A href="#svgcats_vml_p793" class="to_prev_page" style="margin-top:3717px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3728px; width:562px; height:292px;" fillcolor="white"/>
+<DIV id="text794_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3745px; line-height:15px; white-space:nowrap">
+<A name="EditEnvVarsFile">
+EditEnvVarsFile クラス</A></DIV>
+<DIV id="text794_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:38px; margin-top:3829px; line-height:13px; white-space:nowrap">
+.Path</DIV>
+<v:rect style="position:absolute; margin-left:112px; margin-top:3825px; width:166px; height:19px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text794_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:120px; margin-top:3829px; line-height:13px; white-space:nowrap">
+Property&nbsp; .Path as string</DIV>
+<DIV id="text794_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:38px; margin-top:3897px; line-height:13px; white-space:nowrap">
+.get_</DIV>
+<v:rect style="position:absolute; margin-left:112px; margin-top:3893px; width:274px; height:19px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text794_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:120px; margin-top:3897px; line-height:13px; white-space:nowrap">
+Function&nbsp; .get_( Name as string ) as string</DIV>
+<DIV id="text794_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:120px; margin-top:3921px; line-height:15px; white-space:nowrap">
+Name が定義されていないときは、Empty を返します</DIV>
+<v:rect style="position:absolute; margin-left:112px; margin-top:3859px; width:340px; height:19px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text794_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:120px; margin-top:3863px; line-height:13px; white-space:nowrap">
+Sub&nbsp; .set_( Name as string, Value as string or Empty )</DIV>
+<DIV id="text794_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:38px; margin-top:3863px; line-height:13px; white-space:nowrap">
+.set_</DIV>
+<v:rect style="position:absolute; margin-left:112px; margin-top:3955px; width:418px; height:34px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text794_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:120px; margin-top:3958px; line-height:15px; white-space:nowrap">
+Sub&nbsp; select_( Name as string, Value as string,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OtherNames as array of string, OtherValue as string )</DIV>
+<DIV id="text794_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:38px; margin-top:3959px; line-height:13px; white-space:nowrap">
+.select_</DIV>
+<DIV id="text794_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:83px; margin-top:3785px; line-height:15px; white-space:nowrap">
+<A href="#OpenForEnvVarsFile">
+→ OpenForEnvVarsFile</A></DIV>
+<DIV id="text794_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:38px; margin-top:3785px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,3728" to="562,3728"/>
+<v:line from="562,3728" to="562,4020"/>
+<v:line from="562,4020" to="0,4020"/>
+<v:line from="0,4020" to="0,3728"/>
+
+</PAGE>
+ 
+<!-- page 795 --> 
+<PAGE>
+<A id="svgcats_vml_p795" class="to_tree" style="margin-top:4025px;" onClick="selectTreeElem( '795' );">←</A>
+<A href="#svgcats_vml_p796" class="to_next_page" style="margin-top:4025px;">▼</A>
+<A href="#svgcats_vml_p794" class="to_prev_page" style="margin-top:4025px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4036px; width:529px; height:265px;" fillcolor="white"/>
+<DIV id="text795_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4053px; line-height:15px; white-space:nowrap">
+<A name="SetVarInBatchFile">
+SetVarInBatchFile</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:4083px; width:472px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text795_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:4090px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetVarInBatchFile( Path as string, Symbol as string, Value as variant )</DIV>
+<DIV id="text795_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4120px; line-height:15px; white-space:nowrap">
+バッチ・ファイルの中で、環境変数を設定している部分の値を変更します。</DIV>
+<DIV id="text795_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4146px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text795_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4146px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text795_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4165px; line-height:15px; white-space:nowrap">
+Symbol</DIV>
+<DIV id="text795_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4146px; line-height:15px; white-space:nowrap">
+バッチ・ファイルのパス</DIV>
+<DIV id="text795_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4165px; line-height:15px; white-space:nowrap">
+環境変数の名前</DIV>
+<DIV id="text795_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4184px; line-height:15px; white-space:nowrap">
+Value</DIV>
+<DIV id="text795_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4184px; line-height:15px; white-space:nowrap">
+環境変数の値</DIV>
+<DIV id="text795_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4252px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text795_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:4252px; line-height:15px; white-space:nowrap">
+→ T_VarFile.vbs</DIV>
+<DIV id="text795_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:196px; margin-top:4252px; line-height:15px; white-space:nowrap">
+T_SetVarInBatchFile</DIV>
+<DIV id="text795_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4227px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text795_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:4227px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,4036" to="529,4036"/>
+<v:line from="529,4036" to="529,4301"/>
+<v:line from="529,4301" to="0,4301"/>
+<v:line from="0,4301" to="0,4036"/>
+
+</PAGE>
+ 
+<!-- page 796 --> 
+<PAGE>
+<A id="svgcats_vml_p796" class="to_tree" style="margin-top:4306px;" onClick="selectTreeElem( '796' );">←</A>
+<A href="#svgcats_vml_p797" class="to_next_page" style="margin-top:4306px;">▼</A>
+<A href="#svgcats_vml_p795" class="to_prev_page" style="margin-top:4306px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4317px; width:446px; height:426px;" fillcolor="white"/>
+<DIV id="text796_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4334px; line-height:15px; white-space:nowrap">
+<A name="err2">
+エラー処理 （Err2）</A></DIV>
+<DIV id="text796_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4490px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#raise">
+→ Raise</A></DIV>
+<DIV id="text796_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:145px; margin-top:4490px; line-height:15px; white-space:nowrap">
+新規にエラーを発生させます。</DIV>
+<DIV id="text796_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:4686px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_15.html#on_err_no_err2">
+→ エラー処理 （Err 版）</A></DIV>
+<DIV id="text796_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4471px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#Error">
+→ Error</A></DIV>
+<DIV id="text796_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:145px; margin-top:4471px; line-height:15px; white-space:nowrap">
+未知のエラーを発生させます。</DIV>
+<DIV id="text796_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4372px; line-height:15px; white-space:nowrap">
+<A href="#err2_coding">
+→ Err2 のコーディング例 (TryStart, TryEnd)</A></DIV>
+<DIV id="text796_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4410px; line-height:15px; white-space:nowrap">
+<A href="#Err2_membvar">
+→ Err2 オブジェクト</A></DIV>
+<DIV id="text796_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4528px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#FinObj">
+→ FinObj クラス</A></DIV>
+<DIV id="text796_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:145px; margin-top:4528px; line-height:15px; white-space:nowrap">
+Finally ブロックに似た記述をする</DIV>
+<DIV id="text796_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:224px; margin-top:4336px; line-height:12px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#err">
+[ テスト ]</A></DIV>
+<DIV id="text796_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4429px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#ErrCode">
+→ エラーコード</A></DIV>
+<DIV id="text796_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4588px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#err_ov">
+→ エラー発生時の動作</A></DIV>
+<DIV id="text796_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4569px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#errmsg_xml">
+→ エラーメッセージ文字列の標準書式</A></DIV>
+<DIV id="text796_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4619px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#Err2_flow">
+→ Err2 の処理フロー</A></DIV>
+<DIV id="text796_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:4686px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text796_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:4661px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text796_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:4661px; line-height:15px; white-space:nowrap">
+→ T_Err2 フォルダ</DIV>
+<DIV id="text796_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:201px; margin-top:4661px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_Err2">
+→ [T_Err2] Err2 オブジェクトのテスト</A></DIV>
+<DIV id="text796_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4509px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#Error">
+→ Warning</A></DIV>
+<DIV id="text796_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:145px; margin-top:4509px; line-height:15px; white-space:nowrap">
+警告を表示してプロセスを終了します。</DIV>
+<DIV id="text796_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4391px; line-height:15px; white-space:nowrap">
+<A href="vbslib_31.html#chk_errmsg">
+→ エラーメッセージをチェックするテスト</A></DIV>
+
+<v:line from="0,4317" to="446,4317"/>
+<v:line from="446,4317" to="446,4743"/>
+<v:line from="446,4743" to="0,4743"/>
+<v:line from="0,4743" to="0,4317"/>
+
+</PAGE>
+ 
+<!-- page 797 --> 
+<PAGE>
+<A id="svgcats_vml_p797" class="to_tree" style="margin-top:4748px;" onClick="selectTreeElem( '797' );">←</A>
+<A href="#svgcats_vml_p798" class="to_next_page" style="margin-top:4748px;">▼</A>
+<A href="#svgcats_vml_p796" class="to_prev_page" style="margin-top:4748px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4759px; width:495px; height:887px;" fillcolor="white"/>
+<DIV id="text797_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:21px; margin-top:4776px; line-height:15px; white-space:nowrap">
+<A name="err2_coding">
+Err2 のコーディング例 (TryStart, TryEnd)</A></DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:4843px; width:310px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text797_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:4849px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Dim&nbsp; e&nbsp; ' as Err2<BR/>
+&nbsp; &nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; ...<BR/>
+&nbsp; &nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+&nbsp; &nbsp; If e.num = E_FileNotExist&nbsp; Then ... : e.Clear<BR/>
+&nbsp; &nbsp; If e.num &lt;&gt; 0 Then&nbsp; e.Raise</DIV>
+<DIV id="text797_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:82px; margin-top:5579px; line-height:15px; white-space:nowrap">
+<A href="#Err2_membvar">
+→ メンバ変数 (Err2)</A></DIV>
+<DIV id="text797_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:5579px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text797_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:38px; margin-top:5498px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#Err2_BreakErrID">
+→ Err2::BreakErrID</A></DIV>
+<DIV id="text797_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:90px; margin-top:4865px; line-height:13px; white-space:nowrap">
+<A href="vbslib_39.html#TryStart">
+TryStart</A></DIV>
+<DIV id="text797_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:90px; margin-top:5091px; line-height:13px; white-space:nowrap">
+<A href="vbslib_39.html#TryStart">
+TryStart</A></DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:5069px; width:310px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text797_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:5075px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Dim&nbsp; e&nbsp; ' as Err2<BR/>
+&nbsp; &nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+&nbsp; &nbsp; If Trying Then&nbsp; ...<BR/>
+&nbsp; &nbsp; If Trying Then&nbsp; ...<BR/>
+&nbsp; &nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+&nbsp; &nbsp; If e.num = E_FileNotExist&nbsp; Then ... : e.Clear<BR/>
+&nbsp; &nbsp; If e.num &lt;&gt; 0 Then&nbsp; e.Raise</DIV>
+<DIV id="text797_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:4818px; line-height:15px; white-space:nowrap">
+Try ブロックの中が、1行だけのとき</DIV>
+<DIV id="text797_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:5047px; line-height:15px; white-space:nowrap">
+Try ブロックの中が、複数行のとき</DIV>
+<DIV id="text797_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:90px; margin-top:4895px; line-height:13px; white-space:nowrap">
+<A href="vbslib_39.html#TryEnd">
+TryEnd</A></DIV>
+<DIV id="text797_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:90px; margin-top:5136px; line-height:13px; white-space:nowrap">
+<A href="vbslib_39.html#TryEnd">
+TryEnd</A></DIV>
+<DIV id="text797_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:90px; margin-top:5091px; line-height:13px; white-space:nowrap">
+<A href="vbslib_39.html#TryStart">
+TryStart</A></DIV>
+<DIV id="text797_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:90px; margin-top:5106px; line-height:13px; white-space:nowrap">
+<A href="vbslib_39.html#Trying">
+Trying</A></DIV>
+<DIV id="text797_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:90px; margin-top:5121px; line-height:13px; white-space:nowrap">
+<A href="vbslib_39.html#Trying">
+Trying</A></DIV>
+<DIV id="text797_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:5192px; line-height:15px; white-space:nowrap">
+Trying は、毎行記述する必要があります。<BR/>
+エラーが発生しても、TryStart～TryEnd の間で続きを実行する場合は、<BR/>
+Trying は不要です。</DIV>
+<DIV id="text797_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:82px; margin-top:5597px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_15.html#on_err_no_err2">
+→ エラー処理 （Err 版）</A></DIV>
+<DIV id="text797_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5427px; line-height:15px; white-space:nowrap">
+TryStart を使うと、エラーが発生した場所で、ブレークさせることができます。</DIV>
+<DIV id="text797_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:312px; margin-top:4910px; line-height:13px; white-space:nowrap">
+<A href="#Err2_Clear">
+Clear</A></DIV>
+<DIV id="text797_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:204px; margin-top:4925px; line-height:13px; white-space:nowrap">
+<A href="#Err2_Raise">
+Raise</A></DIV>
+<DIV id="text797_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:312px; margin-top:5151px; line-height:13px; white-space:nowrap">
+<A href="#Err2_Clear">
+Clear</A></DIV>
+<DIV id="text797_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:204px; margin-top:5166px; line-height:13px; white-space:nowrap">
+<A href="#Err2_Raise">
+Raise</A></DIV>
+<DIV id="text797_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:150px; margin-top:4850px; line-height:13px; white-space:nowrap">
+<A href="#Err2_membvar">
+Err2</A></DIV>
+<DIV id="text797_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:150px; margin-top:5076px; line-height:13px; white-space:nowrap">
+<A href="#Err2_membvar">
+Err2</A></DIV>
+<DIV id="text797_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:138px; margin-top:4910px; line-height:13px; white-space:nowrap">
+E_FileNotExist</DIV>
+<DIV id="text797_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:138px; margin-top:5151px; line-height:13px; white-space:nowrap">
+E_FileNotExist</DIV>
+<DIV id="text797_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5481px; line-height:15px; white-space:nowrap">
+ブレークさせるときは、Err2::BreakErrID を設定してください。</DIV>
+<DIV id="text797_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#808080; margin-left:42px; margin-top:5446px; line-height:13px; white-space:nowrap">
+On Error Resume Next を呼び出したらブレークしなくなるので、TryStart が、<BR/>
+On Error Resume Next を呼び出すべきかどうかを判定します。</DIV>
+<DIV id="text797_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5542px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text797_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:90px; margin-top:5542px; line-height:15px; white-space:nowrap">
+→ _err2_test.lzh</DIV>
+<DIV id="text797_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:5262px; line-height:15px; white-space:nowrap">
+Try ブロックの中で発生したエラーでブレークさせるとき</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:5285px; width:376px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text797_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:5291px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; If g_count_up(1)=0 Then&nbsp; Stop '// watch-&gt; g_count [TODO]<BR/>
+&nbsp; &nbsp; echo "g_count(1)=" &amp; g_count(1)<BR/>
+&nbsp; &nbsp; If g_count(1) &lt; 99 Then<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+&nbsp; &nbsp; End If</DIV>
+<DIV id="text797_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:84px; margin-top:5377px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#g_count">
+→ g_count, g_count_up</A></DIV>
+<DIV id="text797_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:42px; margin-top:5377px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text797_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:78px; margin-top:4950px; line-height:15px; white-space:nowrap">
+<A href="vbslib_31.html#chk_errmsg">
+→ エラーメッセージをチェックするテスト</A></DIV>
+<DIV id="text797_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:42px; margin-top:4950px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text797_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:78px; margin-top:4968px; line-height:15px; white-space:nowrap">
+エラーをキューにためる</DIV>
+<DIV id="text797_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:225px; margin-top:4968px; line-height:15px; white-space:nowrap">
+<A href="#EnqueueAndClear_Err2">
+→ EnqueueAndClear (Err2)</A></DIV>
+<DIV id="text797_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:78px; margin-top:4986px; line-height:15px; white-space:nowrap">
+クリアしたエラーが発生した場所を調べるときは、クリアする代わりに<BR/>
+Err2::Raise してください。</DIV>
+
+<v:line from="0,4759" to="495,4759"/>
+<v:line from="495,4759" to="495,5646"/>
+<v:line from="495,5646" to="0,5646"/>
+<v:line from="0,5646" to="0,4759"/>
+
+</PAGE>
+ 
+<!-- page 798 --> 
+<PAGE>
+<A id="svgcats_vml_p798" class="to_tree" style="margin-top:5651px;" onClick="selectTreeElem( '798' );">←</A>
+<A href="#svgcats_vml_p799" class="to_next_page" style="margin-top:5651px;">▼</A>
+<A href="#svgcats_vml_p797" class="to_prev_page" style="margin-top:5651px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5662px; width:529px; height:590px;" fillcolor="white"/>
+<DIV id="text798_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5679px; line-height:15px; white-space:nowrap">
+<A name="Err2_membvar">
+Err2 オブジェクト</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:5902px; width:466px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text798_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:5908px; line-height:15px; white-space:nowrap">
+&nbsp; Public&nbsp; Number&nbsp; &nbsp; &nbsp; &nbsp;' Err.Number<BR/>
+&nbsp; Public&nbsp; num&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ' Err.Number<BR/>
+&nbsp; Public&nbsp; Description&nbsp; ' Err.Description (Error Message)<BR/>
+&nbsp; Public&nbsp; desc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' Err.Description (Error Message)<BR/>
+&nbsp; Public&nbsp; Source&nbsp; &nbsp; &nbsp; &nbsp;' Err.Source<BR/>
+&nbsp; Public&nbsp; ErrID&nbsp; &nbsp; &nbsp; &nbsp; ' count of (num &lt;&gt; 0) in each first Copy after Clear<BR/>
+&nbsp; Public&nbsp; RaiseID&nbsp; &nbsp; &nbsp; ' count of (num &lt;&gt; 0) in Copy<BR/>
+&nbsp; Public&nbsp; BreakErrID&nbsp; &nbsp;' as integer<BR/>
+&nbsp; Public&nbsp; BreakRaiseID ' as integer</DIV>
+<DIV id="text798_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:5679px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:5825px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text798_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:5832px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_Err2 as Err2</DIV>
+<DIV id="text798_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:25px; margin-top:6077px; line-height:15px; white-space:nowrap">
+メンバ関数</DIV>
+<DIV id="text798_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:40px; margin-top:6106px; line-height:13px; white-space:nowrap">
+<A href="#Err2_Copy">
+.Copy</A></DIV>
+<DIV id="text798_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:40px; margin-top:6122px; line-height:13px; white-space:nowrap">
+<A href="#Err2_Raise">
+.Raise</A></DIV>
+<DIV id="text798_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:40px; margin-top:6138px; line-height:13px; white-space:nowrap">
+<A href="#Err2_OverRaise">
+.OverRaise</A></DIV>
+<DIV id="text798_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:40px; margin-top:6154px; line-height:13px; white-space:nowrap">
+<A href="#Err2_Clear">
+.Clear</A></DIV>
+<DIV id="text798_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:139px; margin-top:6104px; line-height:15px; white-space:nowrap">
+err オブジェクトの内容をコピーします。</DIV>
+<DIV id="text798_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:139px; margin-top:6120px; line-height:15px; white-space:nowrap">
+同じ内容のエラーを再度発生させる。</DIV>
+<DIV id="text798_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:139px; margin-top:6136px; line-height:15px; white-space:nowrap">
+エラーの内容を変えて、再度エラーを発生させる。</DIV>
+<DIV id="text798_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:139px; margin-top:6152px; line-height:15px; white-space:nowrap">
+エラーをクリアする。</DIV>
+<DIV id="text798_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:5787px; line-height:15px; white-space:nowrap">
+TryStart を呼び出すと、Err2 オブジェクトを取得できます。<BR/>
+また、g_Err2 グローバル変数からアクセスすることもできます。</DIV>
+<DIV id="text798_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5878px; line-height:15px; white-space:nowrap">
+メンバ変数</DIV>
+<DIV id="text798_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5763px; line-height:15px; white-space:nowrap">
+<A name="g_Err2">
+取得, g_Err2</A></DIV>
+<DIV id="text798_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:5722px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_15.html#err_obj">
+→ Err オブジェクト</A></DIV>
+<DIV id="text798_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:38px; margin-top:5722px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text798_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:204px; margin-top:5722px; line-height:15px; white-space:nowrap">
+<A href="#err2_coding">
+→ Err2 のコーディング例 (TryStart, TryEnd)</A></DIV>
+<DIV id="text798_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:6204px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text798_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:294px; margin-top:6204px; line-height:15px; white-space:nowrap">
+→ T_Err2 フォルダ</DIV>
+<DIV id="text798_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:6204px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_Err2">
+→ [T_Err2] Err2 オブジェクトのテスト</A></DIV>
+<DIV id="text798_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:6175px; line-height:15px; white-space:nowrap">
+他にもあります。</DIV>
+
+<v:line from="0,5662" to="529,5662"/>
+<v:line from="529,5662" to="529,6252"/>
+<v:line from="529,6252" to="0,6252"/>
+<v:line from="0,6252" to="0,5662"/>
+
+</PAGE>
+ 
+<!-- page 799 --> 
+<PAGE>
+<A id="svgcats_vml_p799" class="to_tree" style="margin-top:6257px;" onClick="selectTreeElem( '799' );">←</A>
+<A href="#svgcats_vml_p800" class="to_next_page" style="margin-top:6257px;">▼</A>
+<A href="#svgcats_vml_p798" class="to_prev_page" style="margin-top:6257px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6268px; width:496px; height:271px;" fillcolor="white"/>
+<DIV id="text799_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6285px; line-height:15px; white-space:nowrap">
+<A name="Number_Err2">
+Number (Err2)</A></DIV>
+<DIV id="text799_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6301px; line-height:15px; white-space:nowrap">
+<A name="num_Err2">
+num (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:6329px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text799_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:6336px; line-height:13px; white-space:nowrap">
+Property Get&nbsp; Err2::Number() as integer</DIV>
+<DIV id="text799_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:6396px; line-height:15px; white-space:nowrap">
+エラーコード。</DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:6360px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text799_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:6367px; line-height:13px; white-space:nowrap">
+Property Get&nbsp; Err2::num() as integer</DIV>
+<DIV id="text799_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:146px; margin-top:6285px; line-height:15px; white-space:nowrap">
+<A href="#Err2_membvar">
+→ Err2 オブジェクト</A></DIV>
+<DIV id="text799_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:6423px; line-height:15px; white-space:nowrap">
+エラー状態でなければ、0 になります。</DIV>
+
+<v:line from="0,6268" to="496,6268"/>
+<v:line from="496,6268" to="496,6539"/>
+<v:line from="496,6539" to="0,6539"/>
+<v:line from="0,6539" to="0,6268"/>
+
+</PAGE>
+ 
+<!-- page 800 --> 
+<PAGE>
+<A id="svgcats_vml_p800" class="to_tree" style="margin-top:6544px;" onClick="selectTreeElem( '800' );">←</A>
+<A href="#svgcats_vml_p801" class="to_next_page" style="margin-top:6544px;">▼</A>
+<A href="#svgcats_vml_p799" class="to_prev_page" style="margin-top:6544px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6555px; width:337px; height:176px;" fillcolor="white"/>
+<DIV id="text800_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6572px; line-height:15px; white-space:nowrap">
+<A name="Description_Err2">
+Description (Err2)</A></DIV>
+<DIV id="text800_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6588px; line-height:15px; white-space:nowrap">
+<A name="desc_Err2">
+desc (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:6616px; width:274px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text800_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:6623px; line-height:13px; white-space:nowrap">
+Property Get&nbsp; Err2::Description() as string</DIV>
+<DIV id="text800_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:6683px; line-height:15px; white-space:nowrap">
+エラー・メッセージ。</DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:6647px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text800_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:6654px; line-height:13px; white-space:nowrap">
+Property Get&nbsp; Err2::desc() as string</DIV>
+<DIV id="text800_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:169px; margin-top:6572px; line-height:15px; white-space:nowrap">
+<A href="#Err2_membvar">
+→ Err2 オブジェクト</A></DIV>
+
+<v:line from="0,6555" to="337,6555"/>
+<v:line from="337,6555" to="337,6731"/>
+<v:line from="337,6731" to="0,6731"/>
+<v:line from="0,6731" to="0,6555"/>
+
+</PAGE>
+ 
+<!-- page 801 --> 
+<PAGE>
+<A id="svgcats_vml_p801" class="to_tree" style="margin-top:6736px;" onClick="selectTreeElem( '801' );">←</A>
+<A href="#svgcats_vml_p802" class="to_next_page" style="margin-top:6736px;">▼</A>
+<A href="#svgcats_vml_p800" class="to_prev_page" style="margin-top:6736px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6747px; width:529px; height:231px;" fillcolor="white"/>
+<DIV id="text801_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6764px; line-height:15px; white-space:nowrap">
+<A name="ErrStr_Err2">
+ErrStr (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6793px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text801_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6800px; line-height:13px; white-space:nowrap">
+Property Get&nbsp; Err2::ErrStr() as string</DIV>
+<DIV id="text801_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6826px; line-height:15px; white-space:nowrap">
+XML形式のエラーメッセージ。</DIV>
+<DIV id="text801_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:22px; margin-top:6859px; line-height:15px; white-space:nowrap">
+エラーメッセージの例：</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:6883px; width:460px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text801_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:6890px; line-height:13px; white-space:nowrap">
+&lt;ERROR err_number='500' err_description='この変数は宣言されていません。'/&gt;</DIV>
+<DIV id="text801_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:6930px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#errmsg_xml">
+→ エラーメッセージ文字列のXML書式</A></DIV>
+<DIV id="text801_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:18px; margin-top:6930px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text801_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:169px; margin-top:6764px; line-height:15px; white-space:nowrap">
+<A href="#Err2_membvar">
+→ Err2 オブジェクト</A></DIV>
+
+<v:line from="0,6747" to="529,6747"/>
+<v:line from="529,6747" to="529,6978"/>
+<v:line from="529,6978" to="0,6978"/>
+<v:line from="0,6978" to="0,6747"/>
+
+</PAGE>
+ 
+<!-- page 802 --> 
+<PAGE>
+<A id="svgcats_vml_p802" class="to_tree" style="margin-top:6983px;" onClick="selectTreeElem( '802' );">←</A>
+<A href="#svgcats_vml_p803" class="to_next_page" style="margin-top:6983px;">▼</A>
+<A href="#svgcats_vml_p801" class="to_prev_page" style="margin-top:6983px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6994px; width:529px; height:274px;" fillcolor="white"/>
+<DIV id="text802_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7011px; line-height:15px; white-space:nowrap">
+<A name="Err2_GetErrStr">
+GetErrStr (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7083px; width:238px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text802_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7090px; line-height:13px; white-space:nowrap">
+Function&nbsp; Err2::GetErrStr() as string</DIV>
+<DIV id="text802_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7116px; line-height:15px; white-space:nowrap">
+標準形式のエラーメッセージを返す。</DIV>
+<DIV id="text802_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:175px; margin-top:7011px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text802_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:22px; margin-top:7149px; line-height:15px; white-space:nowrap">
+エラーメッセージの例：</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:7173px; width:460px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text802_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:7180px; line-height:13px; white-space:nowrap">
+&lt;ERROR err_number='500' err_description='この変数は宣言されていません。'/&gt;</DIV>
+<DIV id="text802_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7220px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#errmsg_xml">
+→ エラーメッセージ文字列の標準書式(XML版)</A></DIV>
+<DIV id="text802_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:18px; margin-top:7220px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text802_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:24px; margin-top:7048px; line-height:15px; white-space:nowrap">
+廃止されました</DIV>
+<DIV id="text802_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:128px; margin-top:7048px; line-height:15px; white-space:nowrap">
+<A href="#ErrStr_Err2">
+→ ErrStr (Err2)</A></DIV>
+
+<v:line from="0,6994" to="529,6994"/>
+<v:line from="529,6994" to="529,7268"/>
+<v:line from="529,7268" to="0,7268"/>
+<v:line from="0,7268" to="0,6994"/>
+
+</PAGE>
+ 
+<!-- page 803 --> 
+<PAGE>
+<A id="svgcats_vml_p803" class="to_tree" style="margin-top:7273px;" onClick="selectTreeElem( '803' );">←</A>
+<A href="#svgcats_vml_p804" class="to_next_page" style="margin-top:7273px;">▼</A>
+<A href="#svgcats_vml_p802" class="to_prev_page" style="margin-top:7273px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7284px; width:531px; height:429px;" fillcolor="white"/>
+<DIV id="text803_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7301px; line-height:15px; white-space:nowrap">
+<A name="DebugHint_Err2">
+DebugHint (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:7332px; width:262px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text803_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:7339px; line-height:13px; white-space:nowrap">
+Property Get&nbsp; Err2::DebugHint() as string</DIV>
+<DIV id="text803_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:7365px; line-height:15px; white-space:nowrap">
+エラーの内容とデバッグのヒント。</DIV>
+<DIV id="text803_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7397px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:7420px; width:310px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text803_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:7426px; line-height:15px; white-space:nowrap">
+&nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+&nbsp; &nbsp; ...<BR/>
+&nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+&nbsp; If e.num &lt;&gt; 0 Then&nbsp; echo&nbsp; e.DebugHint : e.Clear</DIV>
+<DIV id="text803_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7505px; line-height:15px; white-space:nowrap">
+エラーメッセージの例：</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:7529px; width:460px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text803_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:7535px; line-height:15px; white-space:nowrap">
+下記のファイルをテキストエディタで開いて次のように変数の値を修正すると、<BR/>
+デバッガに接続して問題がある場所で停止します。<BR/>
+"T_Err2_Clear.vbs"<BR/>
+------------------------------------------------------------------<BR/>
+g_debug = 2<BR/>
+------------------------------------------------------------------<BR/>
+&lt;ERROR err_number='500' err_description='この変数は宣言されていません。'/&gt;</DIV>
+<DIV id="text803_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:169px; margin-top:7301px; line-height:15px; white-space:nowrap">
+<A href="#Err2_membvar">
+→ Err2 オブジェクト</A></DIV>
+<DIV id="text803_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7665px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text803_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:7665px; line-height:15px; white-space:nowrap">
+→ T_InputCommand.vbs # T_InputCommand_ForgetClear</DIV>
+
+<v:line from="0,7284" to="531,7284"/>
+<v:line from="531,7284" to="531,7713"/>
+<v:line from="531,7713" to="0,7713"/>
+<v:line from="0,7713" to="0,7284"/>
+
+</PAGE>
+ 
+<!-- page 804 --> 
+<PAGE>
+<A id="svgcats_vml_p804" class="to_tree" style="margin-top:7718px;" onClick="selectTreeElem( '804' );">←</A>
+<A href="#svgcats_vml_p805" class="to_next_page" style="margin-top:7718px;">▼</A>
+<A href="#svgcats_vml_p803" class="to_prev_page" style="margin-top:7718px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7729px; width:286px; height:169px;" fillcolor="white"/>
+<DIV id="text804_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7746px; line-height:15px; white-space:nowrap">
+<A name="Err2_Echo">
+Value (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:7817px; width:214px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text804_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:7824px; line-height:13px; white-space:nowrap">
+Function&nbsp; Err2::Value() as string</DIV>
+<DIV id="text804_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:7850px; line-height:15px; white-space:nowrap">
+エラーの内容を文字列型で返します。</DIV>
+<DIV id="text804_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:152px; margin-top:7746px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text804_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:24px; margin-top:7783px; line-height:15px; white-space:nowrap">
+廃止されました</DIV>
+<DIV id="text804_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:127px; margin-top:7783px; line-height:15px; white-space:nowrap">
+<A href="#DebugHint_Err2">
+→ DebugHint (Err2)</A></DIV>
+
+<v:line from="0,7729" to="286,7729"/>
+<v:line from="286,7729" to="286,7898"/>
+<v:line from="286,7898" to="0,7898"/>
+<v:line from="0,7898" to="0,7729"/>
+
+</PAGE>
+ 
+<!-- page 805 --> 
+<PAGE>
+<A id="svgcats_vml_p805" class="to_tree" style="margin-top:7903px;" onClick="selectTreeElem( '805' );">←</A>
+<A href="#svgcats_vml_p806" class="to_next_page" style="margin-top:7903px;">▼</A>
+<A href="#svgcats_vml_p804" class="to_prev_page" style="margin-top:7903px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7914px; width:294px; height:128px;" fillcolor="white"/>
+<DIV id="text805_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7931px; line-height:15px; white-space:nowrap">
+<A name="Err2_Copy">
+Copy (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:7961px; width:190px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text805_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:7968px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Err2::Copy( err as Err )</DIV>
+<DIV id="text805_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:7994px; line-height:15px; white-space:nowrap">
+err オブジェクトの内容をコピーします。</DIV>
+<DIV id="text805_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:152px; margin-top:7931px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,7914" to="294,7914"/>
+<v:line from="294,7914" to="294,8042"/>
+<v:line from="294,8042" to="0,8042"/>
+<v:line from="0,8042" to="0,7914"/>
+
+</PAGE>
+ 
+<!-- page 806 --> 
+<PAGE>
+<A id="svgcats_vml_p806" class="to_tree" style="margin-top:8047px;" onClick="selectTreeElem( '806' );">←</A>
+<A href="#svgcats_vml_p807" class="to_next_page" style="margin-top:8047px;">▼</A>
+<A href="#svgcats_vml_p805" class="to_prev_page" style="margin-top:8047px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8058px; width:287px; height:128px;" fillcolor="white"/>
+<DIV id="text806_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8075px; line-height:15px; white-space:nowrap">
+<A name="Err2_Raise">
+Raise (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:8105px; width:124px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text806_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:8112px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Err2::Raise()</DIV>
+<DIV id="text806_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8138px; line-height:15px; white-space:nowrap">
+同じ内容のエラーを再度発生させる。</DIV>
+<DIV id="text806_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:152px; margin-top:8075px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,8058" to="287,8058"/>
+<v:line from="287,8058" to="287,8186"/>
+<v:line from="287,8186" to="0,8186"/>
+<v:line from="0,8186" to="0,8058"/>
+
+</PAGE>
+ 
+<!-- page 807 --> 
+<PAGE>
+<A id="svgcats_vml_p807" class="to_tree" style="margin-top:8191px;" onClick="selectTreeElem( '807' );">←</A>
+<A href="#svgcats_vml_p808" class="to_next_page" style="margin-top:8191px;">▼</A>
+<A href="#svgcats_vml_p806" class="to_prev_page" style="margin-top:8191px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8202px; width:427px; height:128px;" fillcolor="white"/>
+<DIV id="text807_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8219px; line-height:15px; white-space:nowrap">
+<A name="Err2_OverRaise">
+OverRaise (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:8249px; width:364px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text807_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:8256px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Err2::OverRaise( e_num as integer, e_desc as string )</DIV>
+<DIV id="text807_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8282px; line-height:15px; white-space:nowrap">
+エラーの内容を変えて、再度エラーを発生させる。</DIV>
+<DIV id="text807_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:175px; margin-top:8219px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,8202" to="427,8202"/>
+<v:line from="427,8202" to="427,8330"/>
+<v:line from="427,8330" to="0,8330"/>
+<v:line from="0,8330" to="0,8202"/>
+
+</PAGE>
+ 
+<!-- page 808 --> 
+<PAGE>
+<A id="svgcats_vml_p808" class="to_tree" style="margin-top:8335px;" onClick="selectTreeElem( '808' );">←</A>
+<A href="#svgcats_vml_p809" class="to_next_page" style="margin-top:8335px;">▼</A>
+<A href="#svgcats_vml_p807" class="to_prev_page" style="margin-top:8335px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8346px; width:481px; height:248px;" fillcolor="white"/>
+<DIV id="text808_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8363px; line-height:15px; white-space:nowrap">
+<A name="Err2_Clear">
+Clear (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:8393px; width:124px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text808_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:8400px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Err2::Clear()</DIV>
+<DIV id="text808_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8426px; line-height:15px; white-space:nowrap">
+エラーをクリアする。</DIV>
+<DIV id="text808_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8459px; line-height:15px; white-space:nowrap">
+エラー処理が終わったことを示すため、メンバ変数をリセットします。</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:8480px; width:256px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text808_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:8487px; line-height:13px; white-space:nowrap">
+num = 0 : Description = "" : RaiseID = 0</DIV>
+<DIV id="text808_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:175px; margin-top:8363px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text808_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:8528px; line-height:15px; white-space:nowrap">
+<A href="#Err2_GetErrStr">
+→ GetErrStr (Err2)</A></DIV>
+<DIV id="text808_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:8528px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text808_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:228px; margin-top:8528px; line-height:15px; white-space:nowrap">
+エラーメッセージを取得する</DIV>
+<DIV id="text808_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:8546px; line-height:15px; white-space:nowrap">
+<A href="#CopyAndClear_Err2">
+→ CopyAndClear (Err2)</A></DIV>
+<DIV id="text808_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:228px; margin-top:8546px; line-height:15px; white-space:nowrap">
+エラーの情報コピーしてクリアする</DIV>
+
+<v:line from="0,8346" to="481,8346"/>
+<v:line from="481,8346" to="481,8594"/>
+<v:line from="481,8594" to="0,8594"/>
+<v:line from="0,8594" to="0,8346"/>
+
+</PAGE>
+ 
+<!-- page 809 --> 
+<PAGE>
+<A id="svgcats_vml_p809" class="to_tree" style="margin-top:8599px;" onClick="selectTreeElem( '809' );">←</A>
+<A href="#svgcats_vml_p810" class="to_next_page" style="margin-top:8599px;">▼</A>
+<A href="#svgcats_vml_p808" class="to_prev_page" style="margin-top:8599px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8610px; width:581px; height:496px;" fillcolor="white"/>
+<DIV id="text809_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8627px; line-height:15px; white-space:nowrap">
+<A name="CopyAndClear_Err2">
+CopyAndClear (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:8657px; width:262px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text809_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:8664px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Err2::CopyAndClear( out_e2 as Err2 )</DIV>
+<DIV id="text809_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8690px; line-height:15px; white-space:nowrap">
+エラーの情報を out_e2 にコピーしてから Err2 のエラーをクリアします。</DIV>
+<DIV id="text809_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:59px; margin-top:9034px; line-height:15px; white-space:nowrap">
+<A href="vbslib_31.html#chk_errmsg">
+→ エラーメッセージをチェックするテスト</A></DIV>
+<DIV id="text809_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9034px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text809_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8721px; line-height:15px; white-space:nowrap">
+内部で Err2 オブジェクトが生成されて、out_e2 に格納されます。</DIV>
+<DIV id="text809_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9058px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text809_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:9058px; line-height:15px; white-space:nowrap">
+→ T_Err2_Main.vbs # T_Err2_CopyAndClear</DIV>
+<DIV id="text809_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:206px; margin-top:8627px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text809_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8763px; line-height:15px; white-space:nowrap">
+CopyAndClear した後でエラーが発生した場合、テストによるエラーであると判断して、<BR/>
+次のようなメッセージが表示されます。</DIV>
+<v:rect style="position:absolute; margin-left:51px; margin-top:8806px; width:478px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text809_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:8813px; line-height:13px; white-space:nowrap">
+'//エラーが発生した場所を知るには、CopyAndClear する前に Raise してください。</DIV>
+<DIV id="text809_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8851px; line-height:15px; white-space:nowrap">
+次のように Raise するコードを追加してください。</DIV>
+<v:rect style="position:absolute; margin-left:59px; margin-top:8877px; width:490px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text809_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:8883px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; '//=== Error Handling Test<BR/>
+&nbsp; &nbsp; echo&nbsp; vbCRLF+"Next is Error Test"<BR/>
+&nbsp; &nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Test&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'// ここでエラーが発生する<BR/>
+&nbsp; &nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+e.Raise&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '// これを追加する<BR/>
+&nbsp; &nbsp; e.CopyAndClear&nbsp; e2&nbsp; '//[out] e2<BR/>
+&nbsp; &nbsp; Assert&nbsp; e2.num &lt;&gt; 0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '// テストによるエラーが発生した場所</DIV>
+
+<v:line from="0,8610" to="581,8610"/>
+<v:line from="581,8610" to="581,9106"/>
+<v:line from="581,9106" to="0,9106"/>
+<v:line from="0,9106" to="0,8610"/>
+
+</PAGE>
+ 
+<!-- page 810 --> 
+<PAGE>
+<A id="svgcats_vml_p810" class="to_tree" style="margin-top:9111px;" onClick="selectTreeElem( '810' );">←</A>
+<A href="#svgcats_vml_p811" class="to_next_page" style="margin-top:9111px;">▼</A>
+<A href="#svgcats_vml_p809" class="to_prev_page" style="margin-top:9111px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9122px; width:553px; height:343px;" fillcolor="white"/>
+<DIV id="text810_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9139px; line-height:15px; white-space:nowrap">
+<A name="EnqueueAndClear_Err2">
+EnqueueAndClear (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:9169px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text810_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:9176px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Err2::EnqueueAndClear()</DIV>
+<DIV id="text810_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9202px; line-height:15px; white-space:nowrap">
+エラーの情報を Err2 の内部キューに入れてから Err2 のエラーをクリアします。</DIV>
+<DIV id="text810_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9417px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text810_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:9417px; line-height:15px; white-space:nowrap">
+→ T_Err2_Main.vbs # T_Err2_EnqueueAndClear</DIV>
+<DIV id="text810_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9240px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:9262px; width:466px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text810_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:9268px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; e&nbsp; ' as Err2<BR/>
+<BR/>
+&nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+&nbsp; &nbsp; Err.Raise&nbsp; 1,, "Error1"<BR/>
+&nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+&nbsp; e.EnqueueAndClear<BR/>
+<BR/>
+&nbsp; If not IsEmpty(e) Then&nbsp; s = e.DequeueAll() : If s &lt;&gt; "" Then&nbsp; Raise&nbsp; 1, s</DIV>
+<DIV id="text810_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:75px; margin-top:9344px; line-height:13px; white-space:nowrap">
+EnqueueAndClear</DIV>
+<DIV id="text810_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:243px; margin-top:9374px; line-height:13px; white-space:nowrap">
+<A href="#DequeueAll_Err2">
+DequeueAll</A></DIV>
+<DIV id="text810_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:221px; margin-top:9139px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,9122" to="553,9122"/>
+<v:line from="553,9122" to="553,9465"/>
+<v:line from="553,9465" to="0,9465"/>
+<v:line from="0,9465" to="0,9122"/>
+
+</PAGE>
+ 
+<!-- page 811 --> 
+<PAGE>
+<A id="svgcats_vml_p811" class="to_tree" style="margin-top:9470px;" onClick="selectTreeElem( '811' );">←</A>
+<A href="#svgcats_vml_p812" class="to_next_page" style="margin-top:9470px;">▼</A>
+<A href="#svgcats_vml_p810" class="to_prev_page" style="margin-top:9470px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9481px; width:544px; height:344px;" fillcolor="white"/>
+<DIV id="text811_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9498px; line-height:15px; white-space:nowrap">
+<A name="DequeueAll_Err2">
+DequeueAll (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:9528px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text811_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:9535px; line-height:13px; white-space:nowrap">
+Function&nbsp; Err2::DequeueAll() as string</DIV>
+<DIV id="text811_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9561px; line-height:15px; white-space:nowrap">
+Err2 の内部キューの内容を返し、内部キューを空にします。</DIV>
+<DIV id="text811_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9777px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text811_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:9777px; line-height:15px; white-space:nowrap">
+→ T_Err2_Main.vbs # T_Err2_EnqueueAndClear</DIV>
+<DIV id="text811_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9585px; line-height:15px; white-space:nowrap">
+エラーがキューに入っていないときは、"" を返します。</DIV>
+<DIV id="text811_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9750px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text811_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:9750px; line-height:15px; white-space:nowrap">
+<A href="#EnqueueAndClear_Err2">
+→ EnqueueAndClear (Err2)</A></DIV>
+<DIV id="text811_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:221px; margin-top:9498px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:9686px; width:142px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text811_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:9692px; line-height:15px; white-space:nowrap">
+&lt;ERROR msg="Error1"/&gt;<BR/>
+&lt;ERROR msg="Error2"/&gt;</DIV>
+<DIV id="text811_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9611px; line-height:15px; white-space:nowrap">
+XML 書式のエラーメッセージを取得したいときは、ルート要素（タグ）を追加する<BR/>
+必要があるか検討してください。</DIV>
+<DIV id="text811_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9663px; line-height:15px; white-space:nowrap">
+サンプル返り値</DIV>
+
+<v:line from="0,9481" to="544,9481"/>
+<v:line from="544,9481" to="544,9825"/>
+<v:line from="544,9825" to="0,9825"/>
+<v:line from="0,9825" to="0,9481"/>
+
+</PAGE>
+ 
+<!-- page 812 --> 
+<PAGE>
+<A id="svgcats_vml_p812" class="to_tree" style="margin-top:9830px;" onClick="selectTreeElem( '812' );">←</A>
+<A href="vbslib_39.html#svgcats_vml_p813" class="to_next_page" style="margin-top:9830px;">▼</A>
+<A href="#svgcats_vml_p811" class="to_prev_page" style="margin-top:9830px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9841px; width:424px; height:207px;" fillcolor="white"/>
+<DIV id="text812_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9858px; line-height:15px; white-space:nowrap">
+<A name="Err2_ErrID">
+ErrID (Err2)</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:9888px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text812_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:9895px; line-height:13px; white-space:nowrap">
+Dim&nbsp; Err2::ErrID&nbsp; as integer</DIV>
+<DIV id="text812_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9921px; line-height:15px; white-space:nowrap">
+エラーの通し番号。</DIV>
+<DIV id="text812_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9954px; line-height:15px; white-space:nowrap">
+エラーが発生して初めての TryEnd を通ったとき +1 されます。<BR/>
+Err2::Clear した後で、次のエラーが発生すると +1 されます。</DIV>
+<DIV id="text812_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:10000px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#Err2_BreakErrID">
+→ Err2::BreakErrID</A></DIV>
+<DIV id="text812_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:10000px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,9841" to="424,9841"/>
+<v:line from="424,9841" to="424,10048"/>
+<v:line from="424,10048" to="0,10048"/>
+<v:line from="0,10048" to="0,9841"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10048px;">
+<A id="svgcats_vml_p812" class="to_tree" onClick="selectTreeElem( '812' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10048px;">
+<A id="page_group_bottom" href="vbslib_39.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

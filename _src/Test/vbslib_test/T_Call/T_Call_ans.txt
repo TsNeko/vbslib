@@ -1,0 +1,33 @@
+  ((( [T_Call_start] )))
+>del  "out1.txt"
+>start  cscript.exe out1.vbs /Opt1
+>WaitForFile  out1.txt
+>del  "out1.txt"
+>del  "out1.txt"
+>CreateFile  "out1.txt", "ABC"
+>WaitForFile  out1.txt
+>del  "out1.txt"
+>CreateFile  "out1.txt", ""
+>WaitForFile  out1.txt
+>del  "out1.txt"
+>CreateFile  "out1.txt", "ABC"+vbCRLF+...
+>WaitForFile  out1.txt
+>del  "out1.txt"
+>CreateFile  "out1.txt", "<ERROR msg="error"/>"
+>WaitForFile  out1.txt
+>del  "out1.txt"
+Next is Error Test
+<ERROR msg="error"/>
+>CreateFile  "out1.txt", "<?xml version="1.0" encoding="Shift_JIS"?>"+vbCRLF+...
+>WaitForFile  out1.txt
+>del  "out1.txt"
+Next is Error Test
+<ERROR num="3" msg="エラー"/>
+  ((( [T_Call_call_vbs] )))
+>call_vbs  "call1.vbs", Func1
+>call_vbs  "call1.vbs", Func1
+>call_vbs  "call2.vbs", Func1
+>call_vbs  "call1.vbs", Func1
+  ((( [T_Call_include] )))
+  ((( [T_Call_env] )))
+Pass.

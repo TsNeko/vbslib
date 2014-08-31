@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>!DOSバッチファイル</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../dos_batch.html?f1=dos_batch.files/dos_batch_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=dos_batch.files/dos_batch_04.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "dos_batch.files/dos_batch_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../dos_batch.html?f1=dos_batch.files/dos_batch_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=dos_batch.files/dos_batch_04.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 45 --> 
+<PAGE>
+<A id="svgcats_vml_p45" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '45' );">←</A>
+<A href="#svgcats_vml_p46" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="dos_batch_03.html#svgcats_vml_p44" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="dos_batch_03.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:648px; height:1295px;" fillcolor="white"/>
+<DIV id="text45_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="start">
+start</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:229px; width:484px; height:1060px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text45_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:235px; line-height:15px; white-space:nowrap">
+指定されたプログラムまたはコマンドを実行するためにウィンドウを開きます。<BR/>
+<BR/>
+START ["タイトル"] [/Dパス] [/I] [/MIN] [/MAX] [/SEPARATE | /SHARED]<BR/>
+&nbsp; &nbsp; &nbsp; [/LOW | /NORMAL | /HIGH | /REALTIME | /ABOVENORMAL | /BELOWNORMAL]<BR/>
+&nbsp; &nbsp; &nbsp; [/WAIT] [/B] [コマンド/プログラム]<BR/>
+&nbsp; &nbsp; &nbsp; [パラメータ]<BR/>
+<BR/>
+&nbsp; &nbsp; "タイトル"&nbsp; ウィンドウのタイトル バーに表示するタイトル。<BR/>
+&nbsp; &nbsp; パス&nbsp; &nbsp; &nbsp; &nbsp; 開始するディレクトリ。<BR/>
+&nbsp; &nbsp; B&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;新しいウィンドウを作成せずにアプリケーションを起動します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; アプリケーションは Ctrl+C を無視します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; アプリケーションで Ctrl+C を有効にしていない限り、<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ctrl+Break がアプリケーションを中断する唯一の方法です。<BR/>
+&nbsp; &nbsp; /I&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 新しい環境は、現在の環境ではなく、cmd.exe に渡された元の環境に<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; なります。<BR/>
+&nbsp; &nbsp; /MIN&nbsp; &nbsp; &nbsp; &nbsp; ウィンドウを最小化の状態で起動します。<BR/>
+&nbsp; &nbsp; /MAX&nbsp; &nbsp; &nbsp; &nbsp; ウィンドウを最大表示の状態で起動します。<BR/>
+&nbsp; &nbsp; /SEPARATE&nbsp; &nbsp;16 ビットの Windows プログラムを別メモリ領域で起動します。<BR/>
+&nbsp; &nbsp; /SHARED&nbsp; &nbsp; &nbsp;16 ビットの Windows プログラムを共有メモリ空間で起動します。<BR/>
+&nbsp; &nbsp; /LOW&nbsp; &nbsp; &nbsp; &nbsp; IDLE 優先度クラスでアプリケーションを起動します。<BR/>
+&nbsp; &nbsp; /NORMAL&nbsp; &nbsp; &nbsp;NORMAL 優先度クラスでアプリケーションを起動します。<BR/>
+&nbsp; &nbsp; /HIGH&nbsp; &nbsp; &nbsp; &nbsp;HIGH 優先度クラスでアプリケーションを起動します。<BR/>
+&nbsp; &nbsp; /REALTIME&nbsp; &nbsp;REALTIME 優先度クラスでアプリケーションを起動します。<BR/>
+&nbsp; &nbsp; /ABOVENORMAL<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ABOVENORMAL 優先度クラスでアプリケーションを起動します。<BR/>
+&nbsp; &nbsp; /BELOWNORMAL<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; BELOWNORMAL 優先度クラスでアプリケーションを起動します。<BR/>
+&nbsp; &nbsp; /WAIT&nbsp; &nbsp; &nbsp; &nbsp;アプリケーションを起動し、終了するまで待ちます。<BR/>
+&nbsp; &nbsp; コマンド/プログラム<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 内部コマンドまたはバッチ ファイルの場合、コマンド プロセッサ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; は cmd.exe の /K オプションを使用して実行されます。これは、コ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; マンドの実行の後でもウィンドウが残ることを意味します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 内部コマンドまたはバッチ ファイルではない場合、そのプログラム<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; はウィンドウ モードのアプリケーションまたはコンソール アプリ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ケーションとして動作します。<BR/>
+<BR/>
+&nbsp; &nbsp; パラメータ&nbsp; コマンド/プログラムに渡すパラメータです。<BR/>
+<BR/>
+<BR/>
+コマンド拡張機能を有効にすると、コマンド ラインまたは START コマンドに<BR/>
+よる外部コマンドの起動は、次のように変更されます:<BR/>
+<BR/>
+非実行可能ファイルは、ファイル名をコマンドとして入力することによって、<BR/>
+&nbsp; &nbsp; ファイルの関連付けを使って開くことができます (例:&nbsp; WORD.DOC は .DOC<BR/>
+&nbsp; &nbsp; ファイル拡張子に関連付けられているアプリケーションを起動します)。<BR/>
+&nbsp; &nbsp; コマンド スクリプト内でファイルの関連付けを作成する方法については、<BR/>
+&nbsp; &nbsp; ASSOC と FTYPE コマンドを参照してください。<BR/>
+<BR/>
+32 ビット GUI アプリケーションを実行する場合、CMD.EXE は、アプリケー<BR/>
+&nbsp; &nbsp; ションの終了を待たずにコマンド プロンプトに戻ります。コマンド スク<BR/>
+&nbsp; &nbsp; リプト内で実行する場合は、この動作は発生しません。<BR/>
+<BR/>
+最初のトークンが拡張子やパス修飾子を持たない文字列 "CMD" であるコマンド<BR/>
+&nbsp; &nbsp; ラインを実行する場合、"CMD" が COMSPEC 変数の値で置き換えられます。<BR/>
+&nbsp; &nbsp; これにより現在のディレクトリの CMD.EXE が使われないようにします。<BR/>
+<BR/>
+最初のトークンが拡張子を含まないコマンド ラインを実行する場合、CMD.EXE<BR/>
+&nbsp; &nbsp; は、PATHEXT 環境変数の値を使って拡張子の種類と順序を判断します。<BR/>
+&nbsp; &nbsp; PATHEXT 変数の既定値は、次のとおりです:<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; .COM;.EXE;.BAT;.CMD<BR/>
+<BR/>
+&nbsp; &nbsp; この構文は PATH 変数と同じであり、各要素はセミコロンで区切られて<BR/>
+&nbsp; &nbsp; いることに注意してください。<BR/>
+<BR/>
+実行可能なファイルを検索するときにどの拡張子でも一致するファイルが見つ<BR/>
+からない場合は、拡張子なしの名前がディレクトリ名と一致するかどうかを調<BR/>
+べます。一致する場合は、START コマンドがそのパスでエクスプローラを起動<BR/>
+します。コマンド ラインから実行した場合は、そのパスに対する CD /D の実<BR/>
+行と同じになります。</DIV>
+<DIV id="text45_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:210px; line-height:15px; white-space:nowrap">
+ヘルプ</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:120px; width:175px; height:12px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text45_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:8pt; color:#000000; margin-left:58px; margin-top:121px; line-height:12px; white-space:nowrap">
+start "c:\Program Files\a.exe"</DIV>
+<DIV id="text45_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:244px; margin-top:121px; line-height:12px; white-space:nowrap">
+a.exe を実行するのではなく、タイトルになります。</DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:68px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text45_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:75px; line-height:13px; white-space:nowrap">
+start "title" "c:\Program Files\a.exe"</DIV>
+<DIV id="text45_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:99px; line-height:15px; white-space:nowrap">
+実行ファイルのパスに空白を含むときは、タイトル指定をする必要があります。</DIV>
+<DIV id="text45_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:124px; margin-top:19px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:153px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text45_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:160px; line-height:13px; white-space:nowrap">
+start /WAIT "" "a.exe" param</DIV>
+
+<v:line from="0,0" to="648,0"/>
+<v:line from="648,0" to="648,1295"/>
+<v:line from="648,1295" to="0,1295"/>
+<v:line from="0,1295" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 46 --> 
+<PAGE>
+<A id="svgcats_vml_p46" class="to_tree" style="margin-top:1300px;" onClick="selectTreeElem( '46' );">←</A>
+<A href="#svgcats_vml_p47" class="to_next_page" style="margin-top:1300px;">▼</A>
+<A href="#svgcats_vml_p45" class="to_prev_page" style="margin-top:1300px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1311px; width:508px; height:427px;" fillcolor="white"/>
+<DIV id="text46_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1328px; line-height:15px; white-space:nowrap">
+<A name="cd">
+cd, pushd, popd</A></DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:1361px; width:118px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text46_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:1368px; line-height:13px; white-space:nowrap">
+cd (移動先のパス)</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:1444px; width:136px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text46_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:1451px; line-height:13px; white-space:nowrap">
+pushd (移動先のパス)</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:1530px; width:40px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text46_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:1537px; line-height:13px; white-space:nowrap">
+popd</DIV>
+<DIV id="text46_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:58px; margin-top:1400px; line-height:15px; white-space:nowrap">
+カレントフォルダを移動します。</DIV>
+<DIV id="text46_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:58px; margin-top:1481px; line-height:15px; white-space:nowrap">
+後で、popd できるように、カレントフォルダを移動します。</DIV>
+<DIV id="text46_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:64px; margin-top:1567px; line-height:15px; white-space:nowrap">
+pushd を実行したときのカレントフォルダに戻ります。</DIV>
+<DIV id="text46_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:19px; margin-top:1612px; line-height:15px; white-space:nowrap">
+<A name="currentfolder">
+カレントフォルダを取得する</A></DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:1642px; width:28px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text46_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:1649px; line-height:13px; white-space:nowrap">
+cd</DIV>
+<DIV id="text46_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:101px; margin-top:1647px; line-height:15px; white-space:nowrap">
+カレントフォルダを標準出力へ出力します。</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:1681px; width:112px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text46_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:1688px; line-height:13px; white-space:nowrap">
+set basedir=%cd%</DIV>
+<DIV id="text46_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:174px; margin-top:1686px; line-height:15px; white-space:nowrap">
+環境変数 basedir に、カレントフォルダを設定します。</DIV>
+<v:rect style="position:absolute; margin-left:243px; margin-top:1361px; width:136px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text46_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:251px; margin-top:1368px; line-height:13px; white-space:nowrap">
+cd /d (移動先のパス)</DIV>
+<DIV id="text46_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:268px; margin-top:1400px; line-height:15px; white-space:nowrap">
+ドライブも移動します。</DIV>
+
+<v:line from="0,1311" to="508,1311"/>
+<v:line from="508,1311" to="508,1738"/>
+<v:line from="508,1738" to="0,1738"/>
+<v:line from="0,1738" to="0,1311"/>
+
+</PAGE>
+ 
+<!-- page 47 --> 
+<PAGE>
+<A id="svgcats_vml_p47" class="to_tree" style="margin-top:1743px;" onClick="selectTreeElem( '47' );">←</A>
+<A href="#svgcats_vml_p48" class="to_next_page" style="margin-top:1743px;">▼</A>
+<A href="#svgcats_vml_p46" class="to_prev_page" style="margin-top:1743px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1754px; width:567px; height:1143px;" fillcolor="white"/>
+<DIV id="text47_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1771px; line-height:15px; white-space:nowrap">
+<A name="dir">
+dir, tree</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:2255px; width:484px; height:610px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:2261px; line-height:15px; white-space:nowrap">
+ディレクトリ中のファイルとサブディレクトリを一覧表示します。<BR/>
+<BR/>
+DIR [ドライブ:][パス][ファイル名] [/A[[:]属性]] [/B] [/C] [/D] [/L] [/N]<BR/>
+&nbsp; [/O[[:]ソート順]] [/P] [/Q] [/S] [/T[[:]タイムフィールド]] [/W] [/X] [/4]<BR/>
+<BR/>
+&nbsp; [ドライブ:][パス][ファイル名]<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 一覧表示するドライブ、ディレクトリ、またはファイルを指定します。<BR/>
+<BR/>
+&nbsp; /A&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定された属性のファイルを表示します。<BR/>
+&nbsp; 属性&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;D&nbsp; ディレクトリ&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; R&nbsp; 読み取り専用<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;H&nbsp; 隠しファイル&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; A&nbsp; アーカイブ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;S&nbsp; システム ファイル&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&nbsp; その属性以外<BR/>
+&nbsp; /B&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイル名のみを表示します (見出しや要約が付きません)。<BR/>
+&nbsp; /C&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイル サイズを桁区切り表示します。これは<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 既定の設定です。/-C とすると桁区切り表示されません。<BR/>
+&nbsp; /D&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /W と同じですが、ファイルを列で並べ替えた一覧を表示します。<BR/>
+&nbsp; /L&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 小文字で表示します。<BR/>
+&nbsp; /N&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイル名を右端に表示する一覧形式を使用します。<BR/>
+&nbsp; /O&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイルを並べ替えて表示します。<BR/>
+&nbsp; ソート順&nbsp; &nbsp; N&nbsp; 名前順 (アルファベット)&nbsp; &nbsp; &nbsp;S&nbsp; サイズ順 (小さいほうから)<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; E&nbsp; 拡張子順 (アルファベット)&nbsp; &nbsp;D&nbsp; 日時順 (古いほうから)<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; G&nbsp; グループ (ディレクトリから) -&nbsp; 降順<BR/>
+&nbsp; /P&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 画面ごとに停止して表示します。<BR/>
+&nbsp; /Q&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイルの所有者を表示します。<BR/>
+&nbsp; /S&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定されたディレクトリおよびそのサブディレクトリのすべての<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイルを表示します。<BR/>
+&nbsp; /T&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; どのタイムフィールドを表示するか、または並べ替えに使用するかを<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定します。<BR/>
+&nbsp; タイムフィールド&nbsp; &nbsp; C&nbsp; 作成<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; A&nbsp; 最終アクセス<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; W&nbsp; 最終更新<BR/>
+&nbsp; /W&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ワイド一覧形式で表示します。<BR/>
+&nbsp; /X&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; このオプションは MS-DOS 形式以外のファイル名に対する短い名前を<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 表示します。長い名前の前に短い名前を表示する点を除けば、<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /N オプションと同じです。短い名前がない場合は、ブランクに<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; なります。<BR/>
+&nbsp; /4&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4 つの数字で年を表示します。<BR/>
+<BR/>
+環境変数 DIRCMD にスイッチを設定できます。<BR/>
+/-W のように - (ハイフン) を前につけると、そのスイッチは無効になります。</DIV>
+<DIV id="text47_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2235px; line-height:15px; white-space:nowrap">
+ヘルプ</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:1840px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:1847px; line-height:13px; white-space:nowrap">
+dir /S /B * &gt; %USERPROFILE%\desktop\_file_list.txt</DIV>
+<DIV id="text47_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1819px; line-height:15px; white-space:nowrap">
+ファイル一覧を取得する（サブフォルダを含む）</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:2108px; width:172px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:2115px; line-height:13px; white-space:nowrap">
+dir /S /AR * &gt; c:\list.txt</DIV>
+<DIV id="text47_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:22px; margin-top:2089px; line-height:15px; white-space:nowrap">
+読み取り専用ファイルを一覧する（サブフォルダを含む）</DIV>
+<DIV id="text47_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:22px; margin-top:2029px; line-height:15px; white-space:nowrap">
+ファイルを検索する（サブフォルダを含む）</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:2050px; width:166px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:2057px; line-height:13px; white-space:nowrap">
+dir /S /B * | find "name"</DIV>
+<DIV id="text47_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:234px; margin-top:2055px; line-height:15px; white-space:nowrap">
+キーワードは "" で囲むこと</DIV>
+<DIV id="text47_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:1871px; line-height:15px; white-space:nowrap">
+&nbsp;/B （ファイル名のみ） は無くてもよい</DIV>
+<v:rect style="position:absolute; margin-left:398px; margin-top:1850px; width:100px; height:22px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:6pt; color:#000000; margin-left:406px; margin-top:1856px; line-height:9px; white-space:nowrap">
+cd /d "%1"<BR/>
+dir /S * &gt; _list.txt </DIV>
+<DIV id="text47_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:394px; margin-top:1832px; line-height:15px; white-space:nowrap">
+SendTo バッチ</DIV>
+<DIV id="text47_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:96px; margin-top:1772px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<DIV id="text47_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2157px; line-height:15px; white-space:nowrap">
+ファイル名の一覧だけをファイルにする</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:2175px; width:148px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:2182px; line-height:13px; white-space:nowrap">
+dir /B * &gt; c:\list.txt</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:1930px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:1937px; line-height:13px; white-space:nowrap">
+tree /A C:\Folder &gt; %USERPROFILE%\desktop\_tree.txt</DIV>
+<DIV id="text47_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1909px; line-height:15px; white-space:nowrap">
+フォルダー・ツリーをデスクトップの _tree.txt ファイルに出力する</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:1967px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text47_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:1974px; line-height:13px; white-space:nowrap">
+tree /F /A C:\Folder &gt; %USERPROFILE%\desktop\_tree.txt</DIV>
+<DIV id="text47_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:401px; margin-top:1935px; line-height:15px; white-space:nowrap">
+… ファイルは含まない</DIV>
+<DIV id="text47_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:401px; margin-top:1973px; line-height:15px; white-space:nowrap">
+… ファイルも含む</DIV>
+<DIV id="text47_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:95px; margin-top:1937px; line-height:13px; white-space:nowrap">
+C:\Folder</DIV>
+<DIV id="text47_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:113px; margin-top:1974px; line-height:13px; white-space:nowrap">
+C:\Folder</DIV>
+
+<v:line from="0,1754" to="567,1754"/>
+<v:line from="567,1754" to="567,2897"/>
+<v:line from="567,2897" to="0,2897"/>
+<v:line from="0,2897" to="0,1754"/>
+
+</PAGE>
+ 
+<!-- page 48 --> 
+<PAGE>
+<A id="svgcats_vml_p48" class="to_tree" style="margin-top:2902px;" onClick="selectTreeElem( '48' );">←</A>
+<A href="#svgcats_vml_p49" class="to_next_page" style="margin-top:2902px;">▼</A>
+<A href="#svgcats_vml_p47" class="to_prev_page" style="margin-top:2902px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2913px; width:434px; height:391px;" fillcolor="white"/>
+<DIV id="text48_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2930px; line-height:15px; white-space:nowrap">
+<A name="echo">
+echo, @</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:2973px; width:263px; height:18px;" fillcolor="#F8FFB0" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text48_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2975px; line-height:15px; white-space:nowrap">
+DOSのコマンドでリダイレクト記号を使いたい</DIV>
+<DIV id="text48_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:3002px; line-height:15px; white-space:nowrap">
+^ エスケープ文字を使う</DIV>
+<DIV id="text48_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:115px; margin-top:2932px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<DIV id="text48_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3124px; line-height:15px; white-space:nowrap">
+@ でコマンドをはじめると、echo on でもエコー出力しません。</DIV>
+<DIV id="text48_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:202px; margin-top:3154px; line-height:15px; white-space:nowrap">
+nmake の makefile</DIV>
+<DIV id="text48_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3154px; line-height:15px; white-space:nowrap">
+- でコマンドをはじめるのは </DIV>
+<DIV id="text48_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:313px; margin-top:3154px; line-height:15px; white-space:nowrap">
+で使えます。</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:3044px; width:58px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text48_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:3050px; line-height:15px; white-space:nowrap">
+echo ^&gt;<BR/>
+&gt;</DIV>
+<v:rect style="position:absolute; margin-left:189px; margin-top:3044px; width:46px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text48_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:197px; margin-top:3050px; line-height:15px; white-space:nowrap">
+echo.</DIV>
+<DIV id="text48_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:3086px; line-height:15px; white-space:nowrap">
+（空行）</DIV>
+<DIV id="text48_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:44px; margin-top:3086px; line-height:15px; white-space:nowrap">
+(リダイレクトしない)</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:3221px; width:106px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text48_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:3228px; line-height:13px; white-space:nowrap">
+echo ERROR! &gt;&amp;2</DIV>
+<DIV id="text48_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:3226px; line-height:15px; white-space:nowrap">
+エラー出力へ</DIV>
+
+<v:line from="0,2913" to="434,2913"/>
+<v:line from="434,2913" to="434,3304"/>
+<v:line from="434,3304" to="0,3304"/>
+<v:line from="0,3304" to="0,2913"/>
+
+</PAGE>
+ 
+<!-- page 49 --> 
+<PAGE>
+<A id="svgcats_vml_p49" class="to_tree" style="margin-top:3309px;" onClick="selectTreeElem( '49' );">←</A>
+<A href="#svgcats_vml_p50" class="to_next_page" style="margin-top:3309px;">▼</A>
+<A href="#svgcats_vml_p48" class="to_prev_page" style="margin-top:3309px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3320px; width:442px; height:315px;" fillcolor="white"/>
+<DIV id="text49_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3337px; line-height:15px; white-space:nowrap">
+<A name="pause">
+pause</A></DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:3368px; width:46px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text49_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:3375px; line-height:13px; white-space:nowrap">
+pause</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:3426px; width:274px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text49_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:3433px; line-height:13px; white-space:nowrap">
+続行するには何かキーを押してください . . . </DIV>
+<DIV id="text49_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:3401px; line-height:15px; white-space:nowrap">
+下記のメッセージを表示して、何かキーが押されるまで待ちます。</DIV>
+<DIV id="text49_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:3485px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:3513px; width:118px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text49_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:3520px; line-height:13px; white-space:nowrap">
+if "%1"=="" pause</DIV>
+<DIV id="text49_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:3547px; line-height:15px; white-space:nowrap">
+別のバッチから実行したときは止まらないようにできる pause</DIV>
+<DIV id="text49_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:3586px; line-height:15px; white-space:nowrap">
+<A href="#timeout">
+→ timeout</A></DIV>
+<DIV id="text49_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:3586px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,3320" to="442,3320"/>
+<v:line from="442,3320" to="442,3635"/>
+<v:line from="442,3635" to="0,3635"/>
+<v:line from="0,3635" to="0,3320"/>
+
+</PAGE>
+ 
+<!-- page 50 --> 
+<PAGE>
+<A id="svgcats_vml_p50" class="to_tree" style="margin-top:3640px;" onClick="selectTreeElem( '50' );">←</A>
+<A href="#svgcats_vml_p51" class="to_next_page" style="margin-top:3640px;">▼</A>
+<A href="#svgcats_vml_p49" class="to_prev_page" style="margin-top:3640px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3651px; width:642px; height:644px;" fillcolor="white"/>
+<DIV id="text50_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3668px; line-height:15px; white-space:nowrap">
+<A name="timeout">
+timeout</A></DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:3699px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text50_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:3706px; line-height:13px; white-space:nowrap">
+timeout /T 3</DIV>
+<DIV id="text50_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:3732px; line-height:15px; white-space:nowrap">
+下記のメッセージをカウントダウンしながら表示して、指定した秒数（上記なら３秒）が経過するか、<BR/>
+何かキーが押されるまで待ちます。</DIV>
+<v:rect style="position:absolute; margin-left:59px; margin-top:3776px; width:364px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text50_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:3783px; line-height:13px; white-space:nowrap">
+3 秒待っています。続行するには何かキーを押してください ...</DIV>
+<DIV id="text50_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:3824px; line-height:15px; white-space:nowrap">
+ただし、timeout コマンドは、Windows 7 以降で使えます。</DIV>
+<v:rect style="position:absolute; margin-left:59px; margin-top:4094px; width:274px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text50_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:4101px; line-height:13px; white-space:nowrap">
+choice /T 3 /C n /D n /M "Wait a minute..."</DIV>
+<DIV id="text50_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:4067px; line-height:15px; white-space:nowrap">
+choice を使った方法は、Windows 7 以降で使えます。 /T に秒数を指定します</DIV>
+<DIV id="text50_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4171px; line-height:15px; white-space:nowrap">
+VBScript から起動したバッチファイルでの制限事項</DIV>
+<DIV id="text50_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:53px; margin-top:4227px; line-height:15px; white-space:nowrap">
+timeout コマンドは、無視されます。</DIV>
+<DIV id="text50_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:53px; margin-top:4246px; line-height:15px; white-space:nowrap">
+choice コマンドは、停止してしまいます。</DIV>
+<DIV id="text50_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:99px; margin-top:4022px; line-height:15px; white-space:nowrap">
+<A href="http://stackoverflow.com/questions/1672338/how-to-sleep-for-5-seconds-in-windowss-command-prompt-or-dos" target="_blank">
+→ How to sleep for 5 seconds in Windows's Command Prompt - Stack Overflow (Web)</A></DIV>
+<DIV id="text50_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:57px; margin-top:4022px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text50_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:4208px; line-height:15px; white-space:nowrap">
+ping コマンドは使えます。</DIV>
+<v:rect style="position:absolute; margin-left:59px; margin-top:3900px; width:208px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text50_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:3906px; line-height:15px; white-space:nowrap">
+call :timeout_ 3<BR/>
+goto :eof<BR/>
+<BR/>
+:timeout_<BR/>
+echo Waiting %1 seconds ...<BR/>
+ping 1.1.1.1 -n 1 -w %1000 &gt; nul<BR/>
+goto :eof</DIV>
+<DIV id="text50_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:3860px; line-height:15px; white-space:nowrap">
+ping を使った方法は、Windows XP 以降で使えます。 -w にミリ秒を指定します。 <BR/>
+ただし、実際に待つ時間は、1秒単位です。</DIV>
+
+<v:line from="0,3651" to="642,3651"/>
+<v:line from="642,3651" to="642,4295"/>
+<v:line from="642,4295" to="0,4295"/>
+<v:line from="0,4295" to="0,3651"/>
+
+</PAGE>
+ 
+<!-- page 51 --> 
+<PAGE>
+<A id="svgcats_vml_p51" class="to_tree" style="margin-top:4300px;" onClick="selectTreeElem( '51' );">←</A>
+<A href="#svgcats_vml_p52" class="to_next_page" style="margin-top:4300px;">▼</A>
+<A href="#svgcats_vml_p50" class="to_prev_page" style="margin-top:4300px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4311px; width:466px; height:587px;" fillcolor="white"/>
+<DIV id="text51_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4328px; line-height:15px; white-space:nowrap">
+<A name="set_p">
+set /p : ユーザーに任意の文字列を入力させる</A></DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:4415px; width:226px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text51_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:4421px; line-height:15px; white-space:nowrap">
+set a=<BR/>
+set /p a=a の値を入力してください^&gt;<BR/>
+echo %a%</DIV>
+<DIV id="text51_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4362px; line-height:15px; white-space:nowrap">
+ユーザーに任意の文字列を入力させるには、次のようにします。<BR/>
+Enter のみ入力したら、環境変数の値は、今までのままになります。<BR/>
+&lt;, &gt;, | は入力できません。</DIV>
+<DIV id="text51_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4495px; line-height:15px; white-space:nowrap">
+Windows XP では、choice が使えません。</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:4586px; width:370px; height:280px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text51_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:4592px; line-height:15px; white-space:nowrap">
+if "%ROOT%" == "" @echo&nbsp; not defined ROOT&amp;pause&amp;goto :eof<BR/>
+<BR/>
+set SRC=%ROOT%\obj<BR/>
+<BR/>
+echo copy binaries.<BR/>
+<BR/>
+set out=<BR/>
+set /p out=Root folder of release package^&gt;<BR/>
+<BR/>
+if (%out%)==() echo quit.&amp;pause&amp;goto :eof<BR/>
+if ^%out:~0,1% == ^" echo Don't close by ""&amp;pause&amp;goto :eof<BR/>
+if not exist %out% echo not found "%out%"&amp;pause&amp;goto :eof<BR/>
+<BR/>
+REM /U option is copying files only exists in destination<BR/>
+xcopy /U %SRC%\* %out%<BR/>
+<BR/>
+echo copied from %SRC% to %out%<BR/>
+set out=</DIV>
+<DIV id="text51_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4560px; line-height:15px; white-space:nowrap">
+<A name="set_copy_exist">
+出力先フォルダーパスを入力して、出力先にあるファイルだけコピーする</A></DIV>
+<DIV id="text51_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:103px; margin-top:4623px; line-height:13px; white-space:nowrap">
+%ROOT%\obj</DIV>
+<DIV id="text51_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:85px; margin-top:4593px; line-height:13px; white-space:nowrap">
+ROOT</DIV>
+<DIV id="text51_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:277px; margin-top:4593px; line-height:13px; white-space:nowrap">
+ROOT</DIV>
+
+<v:line from="0,4311" to="466,4311"/>
+<v:line from="466,4311" to="466,4898"/>
+<v:line from="466,4898" to="0,4898"/>
+<v:line from="0,4898" to="0,4311"/>
+
+</PAGE>
+ 
+<!-- page 52 --> 
+<PAGE>
+<A id="svgcats_vml_p52" class="to_tree" style="margin-top:4903px;" onClick="selectTreeElem( '52' );">←</A>
+<A href="#svgcats_vml_p53" class="to_next_page" style="margin-top:4903px;">▼</A>
+<A href="#svgcats_vml_p51" class="to_prev_page" style="margin-top:4903px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4914px; width:409px; height:101px;" fillcolor="white"/>
+<DIV id="text52_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4931px; line-height:15px; white-space:nowrap">
+<A name="shift">
+shift</A></DIV>
+<DIV id="text52_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4967px; line-height:15px; white-space:nowrap">
+%0, %1, %2 … の内容を シフトします。%0=%1, %1=%2, %2=%3 …</DIV>
+
+<v:line from="0,4914" to="409,4914"/>
+<v:line from="409,4914" to="409,5015"/>
+<v:line from="409,5015" to="0,5015"/>
+<v:line from="0,5015" to="0,4914"/>
+
+</PAGE>
+ 
+<!-- page 53 --> 
+<PAGE>
+<A id="svgcats_vml_p53" class="to_tree" style="margin-top:5020px;" onClick="selectTreeElem( '53' );">←</A>
+<A href="#svgcats_vml_p54" class="to_next_page" style="margin-top:5020px;">▼</A>
+<A href="#svgcats_vml_p52" class="to_prev_page" style="margin-top:5020px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5031px; width:681px; height:2413px;" fillcolor="white"/>
+<DIV id="text53_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5048px; line-height:15px; white-space:nowrap">
+<A name="if">
+if</A></DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:5445px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:5452px; line-height:13px; white-space:nowrap">
+if exist "%~1" (command)</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:5476px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:5483px; line-height:13px; white-space:nowrap">
+if not exist "%~1" (command)</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:5778px; width:208px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:5784px; line-height:15px; white-space:nowrap">
+if exist C:\a.txt (type C:\a.txt<BR/>
+echo type OK<BR/>
+) else (<BR/>
+echo type NG<BR/>
+)</DIV>
+<DIV id="text53_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:5452px; line-height:15px; white-space:nowrap">
+ファイルまたはフォルダーが存在するとき</DIV>
+<DIV id="text53_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:5481px; line-height:15px; white-space:nowrap">
+ファイルまたはフォルダーが存在しないとき</DIV>
+<DIV id="text53_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:5586px; line-height:15px; white-space:nowrap">
+フォルダの中のすべてのファイルのうち、タイムスタンプが 6/12 以降のものを表示する</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:5553px; width:502px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:5560px; line-height:13px; white-space:nowrap">
+for /R %%i in (*.*) do @if "%%~ti" geq "2006/06/12 00:00"&nbsp; echo %%~ni "%%~ti" %%i</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:5748px; width:292px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:5755px; line-height:13px; white-space:nowrap">
+if exist C:\a.txt type C:\a.txt &amp; echo type OK</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:5917px; width:472px; height:1495px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:5923px; line-height:15px; white-space:nowrap">
+&gt;if /?<BR/>
+バッチ プログラム中で条件処理を実行します。<BR/>
+<BR/>
+IF [NOT] ERRORLEVEL 番号 コマンド<BR/>
+IF [NOT] 文字列1==文字列2 コマンド<BR/>
+IF [NOT] EXIST ファイル名 コマンド<BR/>
+<BR/>
+&nbsp; NOT&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;条件が偽の場合にだけ、Windows XP がコマンドを実行する<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ことを指定します。<BR/>
+<BR/>
+&nbsp; ERRORLEVEL 番号&nbsp; &nbsp;最後のプログラムの実行で指定された番号以上の終了コード<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; が返されたときに、条件が真になるように指定します。<BR/>
+<BR/>
+&nbsp; 文字列1==文字列2&nbsp; テキスト文字列が一致するときに条件が真になるように指定<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; します。<BR/>
+<BR/>
+&nbsp; EXIST ファイル名&nbsp; 指定したファイル名が存在するときに条件が真になるように<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定します。<BR/>
+<BR/>
+&nbsp; コマンド&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 条件が真のときに実行するコマンドを指定します。コマンドに<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 続けて、ELSE キーワードの後、指定した条件が偽の場合に<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 実行される ELSE コマンドを指定することができます。<BR/>
+<BR/>
+ELSE 節は、IF の後のコマンドと同じ行に置きます。<BR/>
+例:<BR/>
+<BR/>
+&nbsp; &nbsp; IF EXIST filename. (<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; del filename.<BR/>
+&nbsp; &nbsp; ) ELSE (<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; echo filename. missing.<BR/>
+&nbsp; &nbsp; )<BR/>
+<BR/>
+del コマンドは、改行で終了しなければならないため、次の例は、正しく動作し<BR/>
+ません:<BR/>
+<BR/>
+&nbsp; &nbsp; IF EXIST filename. del filename. ELSE echo filename. missing<BR/>
+<BR/>
+ELSE コマンドは、IF コマンドの終わりと同じ行で始まらなければならないため、<BR/>
+次の例は正しく動作しません:<BR/>
+<BR/>
+&nbsp; &nbsp; IF EXIST filename. del filename.<BR/>
+&nbsp; &nbsp; ELSE echo filename. missing<BR/>
+<BR/>
+次の例のように、すべてのコマンドを 1 行にすれば正しく動作します:<BR/>
+<BR/>
+&nbsp; &nbsp; IF EXIST filename. (del filename.) ELSE echo filename. missing<BR/>
+<BR/>
+コマンド拡張機能を有効にすると、IF は次のように変更されます:<BR/>
+<BR/>
+&nbsp; &nbsp; IF [/I] 文字列1 比較演算子 文字列2 コマンド<BR/>
+&nbsp; &nbsp; IF CMDEXTVERSION 番号 コマンド<BR/>
+&nbsp; &nbsp; IF DEFINED 変数 コマンド<BR/>
+<BR/>
+比較演算子は、次のいずれかです:<BR/>
+<BR/>
+&nbsp; &nbsp; EQU - 等しい<BR/>
+&nbsp; &nbsp; NEQ - 等しくない<BR/>
+&nbsp; &nbsp; LSS - より小さい<BR/>
+&nbsp; &nbsp; LEQ - 以下<BR/>
+&nbsp; &nbsp; GTR - より大きい<BR/>
+&nbsp; &nbsp; GEQ - 以上<BR/>
+<BR/>
+/I スイッチを指定すると、文字列は、大文字と小文字を区別せずに比較され<BR/>
+ます。/I スイッチは、IF の 文字列1==文字列2 形式で使うこともできます。<BR/>
+この比較は汎用であり、文字列1 と 文字列2 が両方とも数字だけを含む場合<BR/>
+は、文字列が数値に変換され、数値の比較が行われます。<BR/>
+<BR/>
+CMDEXTVERSION 条件は ERRORLEVEL と同様に動作しますが、コマンド拡張機能<BR/>
+に関連付けられている内部バージョン番号との比較を行います。最初のバー<BR/>
+ジョンは 1 です。コマンド拡張機能に重要な拡張が追加された場合は、値が<BR/>
+1 大きくなります。コマンド拡張機能が無効である場合は、CMDEXTVERSION は<BR/>
+条件は常に偽です。<BR/>
+<BR/>
+DEFINED 条件は EXISTS と同様に動作しますが、環境変数名を受け取って、環境<BR/>
+変数が定義されている場合は真を返します。<BR/>
+<BR/>
+%ERRORLEVEL% は、ERRORLEVEL の現在の値の文字列表記に展開されます。<BR/>
+ただし、ERRORLEVEL という名前の環境変数が既に定義されている場合は、その<BR/>
+環境変数の値が取得されます。プログラム実行後、次の例が ERRORLEVEL の使い方<BR/>
+を説明しています:<BR/>
+<BR/>
+&nbsp; &nbsp; goto answer%ERRORLEVEL%<BR/>
+&nbsp; &nbsp; :answer0<BR/>
+&nbsp; &nbsp; echo Program had return code 0<BR/>
+&nbsp; &nbsp; :answer1<BR/>
+&nbsp; &nbsp; echo Program had return code 1<BR/>
+<BR/>
+また、上の数値比較を使うこともできます:<BR/>
+<BR/>
+&nbsp; &nbsp; IF %ERRORLEVEL% LEQ 1 goto okay<BR/>
+<BR/>
+%CMDCMDLINE% は、CMD.EXE が処理する前の、CMD.EXE に渡されたオリジナル<BR/>
+のコマンド ラインに展開されます。ただし、CMDCMDLINE という名前の環境変数<BR/>
+が既に定義されている場合は、その環境変数の値が取得されます。<BR/>
+<BR/>
+%CMDEXTVERSION% は、CMDEXTVERSION の現在の値の文字列表記に展開されます。<BR/>
+ただし、CMDEXTVERSION という名前の環境変数が既に定義されている場合は、その<BR/>
+環境変数の値が取得されます。<BR/>
+C:\home\SVGCats_src\spec_test\workspace&gt;</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:5229px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:5236px; line-height:13px; white-space:nowrap">
+if "%~1"=="A" (command)</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:5320px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:5327px; line-height:13px; white-space:nowrap">
+if 56 lss 123 (command)</DIV>
+<v:rect style="position:absolute; margin-left:418px; margin-top:5231px; width:148px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:426px; margin-top:5237px; line-height:15px; white-space:nowrap">
+equ : ＝（等しい）<BR/>
+neq : ≠（等しくない）<BR/>
+lss : ＜（より小さい）<BR/>
+leq : ≦（以下）<BR/>
+gtr : ＞（より大きい）<BR/>
+geq : ≧（以上）</DIV>
+<DIV id="text53_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:240px; margin-top:5318px; line-height:15px; white-space:nowrap">
+数字だけのときは、<BR/>
+数値として 56 &lt; 123 （真）</DIV>
+<DIV id="text53_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:240px; margin-top:5234px; line-height:15px; white-space:nowrap">
+文字の比較</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:5351px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:5358px; line-height:13px; white-space:nowrap">
+if "56" gtr "123" (command)</DIV>
+<DIV id="text53_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:240px; margin-top:5356px; line-height:15px; white-space:nowrap">
+"" で囲むと文字として比較<BR/>
+"56" &gt; "123" （真）</DIV>
+<DIV id="text53_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#004000; margin-left:24px; margin-top:5191px; line-height:15px; white-space:nowrap">
+変数の比較</DIV>
+<DIV id="text53_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#004000; margin-left:21px; margin-top:5418px; line-height:15px; white-space:nowrap">
+ファイル、フォルダの比較</DIV>
+<DIV id="text53_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#004000; margin-left:17px; margin-top:5721px; line-height:15px; white-space:nowrap">
+複数行の記述</DIV>
+<DIV id="text53_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:145px; margin-top:5077px; line-height:15px; white-space:nowrap">
+ここで書かれているものは、Windows 2000/Xp 専用のものがあります。</DIV>
+<DIV id="text53_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#004000; margin-left:21px; margin-top:5895px; line-height:15px; white-space:nowrap">
+ヘルプ</DIV>
+<DIV id="text53_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:470px; margin-top:5606px; line-height:15px; white-space:nowrap">
+<A href="#for">
+%%~ti → for</A></DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:5289px; width:172px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:5296px; line-height:13px; white-space:nowrap">
+if /I "%~1"=="A" (command)</DIV>
+<DIV id="text53_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:240px; margin-top:5294px; line-height:15px; white-space:nowrap">
+大文字小文字を区別しない</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:5625px; width:616px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:5632px; line-height:13px; white-space:nowrap">
+if not exist "%ProgramFiles%\prog\prog.exe"&nbsp; echo prog を Program Files に入れてください &amp; goto :eof</DIV>
+<DIV id="text53_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:5660px; line-height:15px; white-space:nowrap">
+プログラムが入っていなかったら、メッセージを出して、バッチを終える。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:5259px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:5266px; line-height:13px; white-space:nowrap">
+if (%~1)==(A) (command)</DIV>
+<DIV id="text53_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:240px; margin-top:5264px; line-height:15px; white-space:nowrap">
+囲むのは "" でなくてもよい</DIV>
+<DIV id="text53_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:154px; margin-top:5050px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<DIV id="text53_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:240px; margin-top:5280px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_02.html#check">
+→ パラメータ、プログラムのチェック</A></DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:5108px; width:124px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:5114px; line-height:15px; white-space:nowrap">
+&nbsp; if exist "%%i" (<BR/>
+&nbsp; &nbsp; echo %%i<BR/>
+&nbsp; )</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:5510px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text53_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:5517px; line-height:13px; white-space:nowrap">
+if not exist "%~1" echo Not found "%~1"&amp; goto :eof</DIV>
+<DIV id="text53_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:391px; margin-top:5515px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,5031" to="681,5031"/>
+<v:line from="681,5031" to="681,7444"/>
+<v:line from="681,7444" to="0,7444"/>
+<v:line from="0,7444" to="0,5031"/>
+
+</PAGE>
+ 
+<!-- page 54 --> 
+<PAGE>
+<A id="svgcats_vml_p54" class="to_tree" style="margin-top:7449px;" onClick="selectTreeElem( '54' );">←</A>
+<A href="#svgcats_vml_p55" class="to_next_page" style="margin-top:7449px;">▼</A>
+<A href="#svgcats_vml_p53" class="to_prev_page" style="margin-top:7449px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7460px; width:445px; height:183px;" fillcolor="white"/>
+<DIV id="text54_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7477px; line-height:15px; white-space:nowrap">
+<A name="goto">
+goto</A></DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:7586px; width:70px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text54_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:7593px; line-height:13px; white-space:nowrap">
+goto :eof</DIV>
+<DIV id="text54_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:134px; margin-top:7591px; line-height:15px; white-space:nowrap">
+バッチファイルを終了します。 call 元へ戻ります。</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:7507px; width:64px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text54_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:7513px; line-height:15px; white-space:nowrap">
+goto :L1<BR/>
+<BR/>
+:L1</DIV>
+<DIV id="text54_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:114px; margin-top:7479px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+
+<v:line from="0,7460" to="445,7460"/>
+<v:line from="445,7460" to="445,7643"/>
+<v:line from="445,7643" to="0,7643"/>
+<v:line from="0,7643" to="0,7460"/>
+
+</PAGE>
+ 
+<!-- page 55 --> 
+<PAGE>
+<A id="svgcats_vml_p55" class="to_tree" style="margin-top:7648px;" onClick="selectTreeElem( '55' );">←</A>
+<A href="dos_batch_05.html#svgcats_vml_p56" class="to_next_page" style="margin-top:7648px;">▼</A>
+<A href="#svgcats_vml_p54" class="to_prev_page" style="margin-top:7648px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7659px; width:613px; height:3423px;" fillcolor="white"/>
+<DIV id="text55_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7676px; line-height:15px; white-space:nowrap">
+<A name="for">
+for</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:8472px; width:550px; height:2575px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:8478px; line-height:15px; white-space:nowrap">
+for /F "tokens=1-3 delims=/ " %%i in ('date /t') do SET DT=%%a%%b%%c <BR/>
+<BR/>
+<BR/>
+「in セット」の各要素に対して、指定された「do コマンド」を実行します。<BR/>
+<BR/>
+<BR/>
+FOR [オプション] %変数|%%変数 IN (セット) DO コマンド [コマンドパラメータ]<BR/>
+<BR/>
+&nbsp; %変数&nbsp; &nbsp; &nbsp;単一文字の置き換え可能な変数名を指定します。大文字小文字区別。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; コマンドライン例：%i、バッチファイル例：%%i<BR/>
+&nbsp; (セット)&nbsp; オプションによって変わります。ファイル セットならワイルドカードできます。<BR/>
+&nbsp; コマンド&nbsp; 各ファイルごとに実行するコマンドを指定します。<BR/>
+&nbsp; コマンドパラメータ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定されたコマンドのパラメータまたはスイッチを指定します。<BR/>
+<BR/>
+<BR/>
+<BR/>
+コマンド拡張機能を有効にすると、次の FOR コマンドの追加形式がサポートされる<BR/>
+ようになります:<BR/>
+<BR/>
+<BR/>
+[ディレクトリ]<BR/>
+FOR /D %変数 IN (セット) DO コマンド [コマンドパラメータ]<BR/>
+<BR/>
+&nbsp; &nbsp; セットがワイルドカードを含む場合は、ファイル名ではなくディレクトリ名<BR/>
+&nbsp; &nbsp; の一致を指定します。<BR/>
+&nbsp; &nbsp; サブディレクトリを再起検索しません<BR/>
+<BR/>
+<BR/>
+[サブディレクトリ]<BR/>
+FOR /R [[ドライブ:]パス] %変数 IN (セット) DO コマンド [コマンドパラメータ]<BR/>
+<BR/>
+&nbsp; &nbsp; [ドライブ:]パスから始めて、ツリーの各ディレクトリで FOR 文を実行し<BR/>
+&nbsp; &nbsp; ます。/R の後にディレクトリが指定されていない場合は、現在の<BR/>
+&nbsp; &nbsp; ディレクトリが使用されます。セットが単一のピリオド (.) である場合は、<BR/>
+&nbsp; &nbsp; ディレクトリ ツリーの列挙だけを行います。<BR/>
+<BR/>
+&nbsp; &nbsp; 例： for /R %%i in (build.log) do echo %%i<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;%%i には、サブディレクトリのそれぞれに、build.log を付けたものが入ります。<BR/>
+<BR/>
+&nbsp; &nbsp; 例： for /R %%i in (build*) do echo %%i<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;カレントかサブディレクトリに、build から始まるファイルがあれば、%%i に入ります。<BR/>
+<BR/>
+&nbsp; &nbsp; 例： for /R %%i in (build.log) do if exist %%i echo %%i<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;カレントかサブディレクトリに、build.log のファイルがあれば、echo します。<BR/>
+<BR/>
+<BR/>
+[数値]<BR/>
+FOR /L %変数 IN (開始,ステップ,終了) DO コマンド [コマンドパラメータ]<BR/>
+<BR/>
+&nbsp; &nbsp; セットは、ステップの量ごとに変化する開始から終了までの数列です。<BR/>
+&nbsp; &nbsp; たとえば、(1,1,5) は 1 2 3 4 5、(5,-1,1) は (5 4 3 2 1) という数列に<BR/>
+&nbsp; &nbsp; なります。<BR/>
+<BR/>
+<BR/>
+[ファイル][文字列][コマンド出力]<BR/>
+FOR /F ["オプション"] %変数 IN (ファイル セット) DO コマンド [コマンド パラメータ]<BR/>
+FOR /F ["オプション"] %変数 IN ("文字列") DO コマンド [コマンド パラメータ]<BR/>
+FOR /F ["オプション"] %変数 IN ('コマンド') DO コマンド [コマンド パラメータ]<BR/>
+<BR/>
+&nbsp; &nbsp; または usebackq オプションの場合:<BR/>
+<BR/>
+FOR /F ["オプション"] %変数 IN (ファイル セット) DO コマンド<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp;[コマンド パラメータ]<BR/>
+FOR /F ["オプション"] %変数 IN ('文字列') DO コマンド [コマンド パラメータ]<BR/>
+FOR /F ["オプション"] %変数 IN (`コマンド`) DO コマンド [コマンド パラメータ]<BR/>
+<BR/>
+&nbsp; &nbsp; ファイル名セットは、1 つ以上のファイル名です。各ファイルが開かれ、読み<BR/>
+&nbsp; &nbsp; 取られ、処理されてから、ファイル名セットの次のファイルに進みます。処理<BR/>
+&nbsp; &nbsp; には、ファイルの読み取り、個々のテキスト行への分割と、0 個以上のトークン<BR/>
+&nbsp; &nbsp; への解析が含まれます。その後、変数値を見つかったトークン文字列に設定して、<BR/>
+&nbsp; &nbsp; for ループの本体が呼び出されます。既定では、/F は、各ファイルの各行から、<BR/>
+&nbsp; &nbsp; 空白で区切られた最初のトークンを渡します。空白行はスキップされます。既定<BR/>
+&nbsp; &nbsp; の解析動作を変更するには、オプションの "オプション" パラメータを指定しま<BR/>
+&nbsp; &nbsp; す。これは、異なる解析オプションを指定する 1 つ以上のキーワードを含む、<BR/>
+&nbsp; &nbsp; 引用符で囲まれた文字列です。キーワードは、次のとおりです:<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; eol=c&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- 行末のコメント文字を指定します (1 文字)。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; skip=n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - ファイルの先頭でスキップする行数を指定します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; delims=xxx&nbsp; &nbsp; &nbsp; - 区切り文字のセットを指定します。これは、既定の<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 区切り文字であるスペースとタブを置き換えます。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; tokens=x,y,m-n&nbsp; - 各繰り返しに対して、各行から for 本体に渡すトー<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; クンを指定します。これにより、追加の変数名が割り当<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; てられます。m-n の形式は範囲で、m 番目から n 番目の<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; トークンを指定します。tokens= 文字列の最後の文字が<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; アスタリスクである場合は、追加の変数が割り当てられ、<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 最後のトークンが解析された後、行に含まれている残り<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; のテキストを受け取ります。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; usebackq&nbsp; &nbsp; &nbsp; &nbsp; - 次の新しい表示形式を指定します。逆引用符で囲まれた<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 文字列がコマンドとして実行され、一重引用符で囲まれた<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 文字列がリテラル文字列コマンドになりファイル名セット<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; のファイル名を二重引用符で囲めるようになります。<BR/>
+<BR/>
+&nbsp; &nbsp; 例:<BR/>
+<BR/>
+&nbsp; &nbsp; FOR /F "eol=; tokens=2,3* delims=, " %i in (myfile.txt) do @echo %i %j %k<BR/>
+<BR/>
+<BR/>
+&nbsp; &nbsp; この例は、myfile.txt の各行を解析します。セミコロンで始まる行を無視し、<BR/>
+&nbsp; &nbsp; 各行の 2 番目と 3 番目のトークンを for 本体に渡します。トークンは、カンマ<BR/>
+&nbsp; &nbsp; またはスペースで区切られています。for 本体の文が %i で 2 番目のトークン<BR/>
+&nbsp; &nbsp; を、%j で 3 番目のトークンを取得し、%k で 3 番目以降のすべてのトークンを<BR/>
+&nbsp; &nbsp; 取得していることに注意してください。スペースを含むファイル名に対しては、<BR/>
+&nbsp; &nbsp; 二重引用符でファイル名を引用する必要があります。この方法で二重引用符を使う<BR/>
+&nbsp; &nbsp; ためには、usebackq オプションを使わなければなりません。使わなければ、二重<BR/>
+&nbsp; &nbsp; 引用符はリテラル文字列の定義として解釈され、解析されます。<BR/>
+<BR/>
+&nbsp; &nbsp; %i は for 文で明示的に宣言され、%j と %k は tokens= オプションで暗黙的に<BR/>
+&nbsp; &nbsp; 宣言されています。tokens= 行を使って 26 個までのトークンを指定できますが、<BR/>
+&nbsp; &nbsp; 文字 'z' または 'Z' よりも高い変数を宣言することはできません。FOR 変数名は<BR/>
+&nbsp; &nbsp; 単一の文字で、大文字と小文字を区別し、グローバルなものであり、一度にアクティ<BR/>
+&nbsp; &nbsp; ブにできるのは合計 52 個までです。<BR/>
+<BR/>
+&nbsp; &nbsp; また、カッコで囲んだファイル名セットを一重引用符で囲み、文字列にすることに<BR/>
+&nbsp; &nbsp; より、即時の文字列に対する FOR /F 解析ロジックを使うこともできます。<BR/>
+&nbsp; &nbsp; これは、ファイルからの単一入力行として処理されます。<BR/>
+<BR/>
+&nbsp; &nbsp; 最後に、FOR /F コマンドを使って、コマンド出力を解析することができます。<BR/>
+&nbsp; &nbsp; カッコの中のファイル名セットを逆引用符で囲みます。この文字列は、コマンド<BR/>
+&nbsp; &nbsp; ラインとして子 CMD.EXE に渡されます。出力はメモリにキャプチャされ、ファイ<BR/>
+&nbsp; &nbsp; ルのように解析されます。<BR/>
+<BR/>
+&nbsp; &nbsp; 例:<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; FOR /F "usebackq delims==" %i IN (`set`) DO @echo %i<BR/>
+<BR/>
+&nbsp; &nbsp; この例は、現在の環境の環境変数名を列挙します。<BR/>
+<BR/>
+<BR/>
+また、FOR 変数参照の置換も拡張されました。<BR/>
+次のオプション構文を使うことができます:<BR/>
+<BR/>
+バッチファイルでは、 %I は %%I になります。<BR/>
+&nbsp; &nbsp; %I&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - ファイルのフルパス&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"c:\folder\file.txt"<BR/>
+&nbsp; &nbsp; %~I&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- すべての引用句 (") を削除して、I を展開します。&nbsp; "c:\folder\file.txt"<BR/>
+&nbsp; &nbsp; %~fI&nbsp; &nbsp; &nbsp; &nbsp; - %I を完全修飾パス名に展開します。&nbsp; &nbsp; "c:\folder\file.txt"<BR/>
+&nbsp; &nbsp; %~dI&nbsp; &nbsp; &nbsp; &nbsp; - %I をドライブ文字だけに展開します。&nbsp; "c:"<BR/>
+&nbsp; &nbsp; %~pI&nbsp; &nbsp; &nbsp; &nbsp; - %I をパス名だけに展開します。&nbsp; &nbsp; &nbsp; &nbsp; "\folder\"<BR/>
+&nbsp; &nbsp; %~nI&nbsp; &nbsp; &nbsp; &nbsp; - %I をファイル名だけに展開します。&nbsp; &nbsp; "file"<BR/>
+&nbsp; &nbsp; %~xI&nbsp; &nbsp; &nbsp; &nbsp; - %I をファイル拡張子だけに展開します。".txt"<BR/>
+&nbsp; &nbsp; %~sI&nbsp; &nbsp; &nbsp; &nbsp; - 展開されたパスは短い名前だけを含みます。 "c:\folde~1\file~1.txt"<BR/>
+&nbsp; &nbsp; %~aI&nbsp; &nbsp; &nbsp; &nbsp; - %I をファイルの属性に展開します。&nbsp; &nbsp; &nbsp;"--a------"<BR/>
+&nbsp; &nbsp; %~tI&nbsp; &nbsp; &nbsp; &nbsp; - %I ファイルの日付/時刻に展開します。&nbsp; "2006/03/15 00:35"<BR/>
+&nbsp; &nbsp; %~zI&nbsp; &nbsp; &nbsp; &nbsp; - %I ファイルのサイズに展開します。&nbsp; &nbsp; &nbsp;"283120"<BR/>
+&nbsp; &nbsp; %~$PATH:I&nbsp; &nbsp;- PATH 環境変数に指定されているディレクトリを<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 検索し、最初に見つかった完全修飾名に %I を<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 展開します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 環境変数名が定義されていない場合、または検索<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; してもファイルが見つからなかった場合は、この<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 修飾子を指定すると空の文字列に展開されます。<BR/>
+<BR/>
+<BR/>
+<BR/>
+<BR/>
+修飾子を組み合わせて、複合結果を得ることもできます:<BR/>
+<BR/>
+&nbsp; &nbsp; %~dpI&nbsp; &nbsp; &nbsp; &nbsp;- %I をドライブ文字とパスだけに展開します。&nbsp; "\folder\file"<BR/>
+&nbsp; &nbsp; %~nxI&nbsp; &nbsp; &nbsp; &nbsp;- %I をファイル名と拡張子だけに展開します。&nbsp; "file.txt"<BR/>
+&nbsp; &nbsp; %~fsI&nbsp; &nbsp; &nbsp; &nbsp;- %I を完全なパスと短い名前だけに展開します。<BR/>
+&nbsp; &nbsp; %~dp$PATH:I - PATH 環境変数に指定されているディレクトリを<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 検索して %I を探し、最初に見つかったファイル<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; のドライブ文字とパスだけに展開します。<BR/>
+&nbsp; &nbsp; %~ftzaI&nbsp; &nbsp; &nbsp;- %I を DIR コマンドの出力行のように展開します。<BR/>
+<BR/>
+上の例の %I と PATH は、ほかの有効な値で置き換えることができます。<BR/>
+%~ 構文は、有効な FOR 変数名によって区切られます。%I のような大<BR/>
+文字の変数を使うと読み取りやすく、大文字と小文字を区別しない修飾子<BR/>
+との混乱を避けることができます。<BR/>
+<BR/>
+「コマンド拡張機能を有効 にする（Xpではデフォルト）。/e:on</DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:7706px; width:328px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:7712px; line-height:15px; white-space:nowrap">
+for /R %%i in (a.log) do @if exist "%%i" echo "%%i"<BR/>
+for /D /R %%i in (obj) do @if exist "%%i" echo "%%i"</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:10735px; width:501px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:10741px; line-height:15px; white-space:nowrap">
+for /R %%i in (*.*) do echo&nbsp; 1 %%i 2 %%~i 3 %%~fi 4 %%~di 5 %%~pi 6 %%~ni 7 %%~xi<BR/>
+&nbsp;8 %%sfi 9 %%~ai 1 %%~ti 2 %%~zi</DIV>
+<v:rect style="position:absolute; margin-left:356px; margin-top:10393px; width:210px; height:65px;" fillcolor="#F8FFB0" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:364px; margin-top:10396px; line-height:15px; white-space:nowrap">
+%I と %i は異なります。<BR/>
+下記は /R ありのときです。<BR/>
+/R なしでは、%I はファイル名だけ。<BR/>
+相対パスは得られません。</DIV>
+<DIV id="text55_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:122px; margin-top:7678px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<DIV id="text55_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:80px; margin-top:8418px; line-height:15px; white-space:nowrap">
+<A href="dos_batch_05.html#rmdir_samp">
+→ rmdir のサンプル</A></DIV>
+<DIV id="text55_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:7756px; line-height:15px; white-space:nowrap">
+( ) の中にワイルドカードがあれば、ファイルが有るもののみマッチします。<BR/>
+( ) の中にワイルドカードが無ければ、ファイルの有無に関係なく全サブフォルダとマッチします。<BR/>
+( ) の中に、絶対パスを指定することもできます。<BR/>
+/R はサブディレクトリ、/D はディレクトリのみ<BR/>
+コマンドラインでは %i、バッチファイルでは %%i</DIV>
+<DIV id="text55_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:7847px; line-height:15px; white-space:nowrap">
+%%i は、空白を含んだパスでも "" で囲みません。<BR/>
+%%i は、for /R&nbsp; オプションがあると、フルパスになり、ないと、ファイル名だけになります。</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:7926px; width:220px; height:190px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:7932px; line-height:15px; white-space:nowrap">
+pushd ..<BR/>
+for /R %%i in (readme.txt) do (<BR/>
+&nbsp; if exist "%%i" (<BR/>
+&nbsp; &nbsp; echo %%i<BR/>
+&nbsp; &nbsp; if errorlevel 1 goto exit_for1<BR/>
+&nbsp; )<BR/>
+)<BR/>
+:exit_for1<BR/>
+echo.<BR/>
+echo done in %cd%<BR/>
+echo.<BR/>
+popd</DIV>
+<DIV id="text55_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8418px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text55_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:7903px; line-height:15px; white-space:nowrap">
+サンプル： 親フォルダの全サブフォルダにある readme.txt ファイルのパスを一覧する</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:8152px; width:286px; height:250px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:8158px; line-height:15px; white-space:nowrap">
+set src_name=readme.txt<BR/>
+set src=folderX\%src_name%<BR/>
+pushd ..<BR/>
+for /R %%i in (%src_name%) do (<BR/>
+&nbsp; if exist "%%i" if not "%cd%\%src%"=="%%i" (<BR/>
+&nbsp; &nbsp; fc "%src%" "%%i"<BR/>
+&nbsp; &nbsp; if errorlevel 1 goto exit_for1<BR/>
+&nbsp; )<BR/>
+)<BR/>
+:exit_for1<BR/>
+echo.<BR/>
+echo done in %cd%<BR/>
+echo.<BR/>
+popd<BR/>
+set src_name=<BR/>
+set src=</DIV>
+<DIV id="text55_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:8131px; line-height:15px; white-space:nowrap">
+サンプル： ..\folderX\readme.txt と、それ以外の readme.txt ファイルを比較する</DIV>
+<v:rect style="position:absolute; margin-left:442px; margin-top:10553px; width:76px; height:19px;" fillcolor="#F8FFB0" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:10557px; line-height:13px; white-space:nowrap">
+%%~ni%%~xi</DIV>
+<v:rect style="position:absolute; margin-left:442px; margin-top:10523px; width:76px; height:19px;" fillcolor="#F8FFB0" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text55_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:10527px; line-height:13px; white-space:nowrap">
+%%~di%%~pi</DIV>
+
+<v:line from="0,7659" to="613,7659"/>
+<v:line from="613,7659" to="613,11082"/>
+<v:line from="613,11082" to="0,11082"/>
+<v:line from="0,11082" to="0,7659"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:11082px;">
+<A id="svgcats_vml_p55" class="to_tree" onClick="selectTreeElem( '55' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:11082px;">
+<A id="page_group_bottom" href="dos_batch_05.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

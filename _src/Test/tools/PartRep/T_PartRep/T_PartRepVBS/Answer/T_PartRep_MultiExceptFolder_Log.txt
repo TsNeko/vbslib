@@ -1,0 +1,41 @@
+>copy  "T_PartRep_MultiExceptFolder\*", "work"
+
+Section> Except1
+<Section tree="Except1">
+-------------------------------------------------------------------------------
+>PartRep_replaceFiles  "%FullPath(..)%\work\*.txt"
+%FullPath(..)%\work\File1.txt
+%FullPath(..)%\work\ExceptFolder2\File1.txt
+-------------------------------------------------------------------------------
+2 個のファイルが下記の [From] と一致しました。
+/G オプションを付けて PartRep を起動すると、[To] の内容に置き換えます。
+[From] %FullPath(..)%\From.txt
+[To]   %FullPath(..)%\To.txt
+</Section>
+
+Section> Except0
+<Section tree="Except0">
+-------------------------------------------------------------------------------
+>PartRep_replaceFiles  "%FullPath(..)%\work\*.txt"
+%FullPath(..)%\work\File1.txt
+%FullPath(..)%\work\ExceptFolder1\File1.txt
+%FullPath(..)%\work\ExceptFolder2\File1.txt
+-------------------------------------------------------------------------------
+3 個のファイルが下記の [From] と一致しました。
+/G オプションを付けて PartRep を起動すると、[To] の内容に置き換えます。
+[From] %FullPath(..)%\From.txt
+[To]   %FullPath(..)%\To.txt
+</Section>
+
+Section> Except2
+<Section tree="Except2">
+-------------------------------------------------------------------------------
+>PartRep_replaceFiles  "%FullPath(..)%\work\*.txt"
+%FullPath(..)%\work\File1.txt
+-------------------------------------------------------------------------------
+1 個のファイルが下記の [From] と一致しました。
+/G オプションを付けて PartRep を起動すると、[To] の内容に置き換えます。
+[From] %FullPath(..)%\From.txt
+[To]   %FullPath(..)%\To.txt
+</Section>
+>del  "work"

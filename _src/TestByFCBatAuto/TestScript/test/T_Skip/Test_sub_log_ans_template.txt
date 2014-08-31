@@ -1,0 +1,82 @@
+Test Start : T_Skip.vbs
+
+Section> 1 - Test_current
+<Section tree="1 - Test_current">
+</Section>
+
+Section> TestTarget - Test_current
+<Section tree="TestTarget - Test_current">
+</Section>
+
+Section> 1 - Test_build
+<Section tree="1 - Test_build">
+==========================================================
+((( [TestTarget\TestSub.vbs] - Test_build )))
+Pass.
+</Section>
+
+Section> TestTarget - Test_build
+<Section tree="TestTarget - Test_build">
+==========================================================
+((( [1\TestSub.vbs] - Test_build )))
+Pass.
+</Section>
+
+Section> 1 - Test_setup
+<Section tree="1 - Test_setup">
+==========================================================
+((( [TestTarget\TestSub.vbs] - Test_setup )))
+Pass.
+</Section>
+
+Section> TestTarget - Test_setup
+<Section tree="TestTarget - Test_setup">
+==========================================================
+((( [1\TestSub.vbs] - Test_setup )))
+Pass.
+</Section>
+
+Section> 1 - Test_start
+<Section tree="1 - Test_start">
+==========================================================
+((( [TestTarget\TestSub.vbs] - Test_start )))
+[Skipped]
+Pass. ただし、Skipped が呼ばれています。 g_debug=99 にしてデバッガを起動し、Skipped にブレークポイントを張って、Skipped をカットしてください。
+<SKIP/>
+ in "Test_start" function in "%FullPath(TestTarget\TestSub.vbs)%"
+</Section>
+
+Section> TestTarget - Test_start
+<Section tree="TestTarget - Test_start">
+==========================================================
+((( [1\TestSub.vbs] - Test_start )))
+Pass.
+</Section>
+
+Section> 1 - Test_check
+<Section tree="1 - Test_check">
+==========================================================
+((( [1\TestSub.vbs] - Test_check )))
+Pass.
+</Section>
+
+Section> 1 - Test_check
+<Section tree="1 - Test_check">
+</Section>
+
+Section> 1 - Test_clean
+<Section tree="1 - Test_clean">
+==========================================================
+((( [1\TestSub.vbs] - Test_clean )))
+Pass.
+</Section>
+
+Section> 1 - Test_clean
+<Section tree="1 - Test_clean">
+==========================================================
+((( [TestTarget\TestSub.vbs] - Test_clean )))
+Pass.
+</Section>
+==========================================================
+Test Finish (Pass=8, Manual=0, Skip=1, Fail=0)
+

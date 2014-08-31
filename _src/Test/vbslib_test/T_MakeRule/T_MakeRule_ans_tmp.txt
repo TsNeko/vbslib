@@ -1,0 +1,118 @@
+  ((( [T_MakeRule0] )))
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Work0\File1_only.txt"
+>CreateFile  "Work0\File1_only.txt", ""
+>del  "Work0\File1_only.txt"
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Work0\File1_only.txt"
+>CreateFile  "Work0\File1_only.txt", ""
+>make
+Pass.
+  ((( [T_MakeRule1] )))
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Files1\File1_old.txt"
+Files1\File1_old.txt
+Pass.
+  ((( [T_MakeRule2A] )))
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Files2\File11_old.txt"
+Files2\File11_old.txt priority=1
+>cd  "%FullPath(.)%"
+
+make command for "Files2\File1_old.txt"
+Files2\File1_old.txt priority=1
+Pass.
+  ((( [T_MakeRule2B] )))
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Files2\File11_old.txt"
+Files2\File11_old.txt priority=1
+>cd  "%FullPath(.)%"
+
+make command for "Files2\File1_old.txt"
+Files2\File1_old.txt priority=1
+Pass.
+  ((( [T_MakeRule2C] )))
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Files2\File11_old.txt"
+Files2\File11_old.txt priority=1
+>cd  "%FullPath(.)%"
+
+make command for "Files2\File1_old.txt"
+Files2\File1_old.txt priority=1
+>cd  "%FullPath(.)%"
+
+make command for "Files2\File2_nothing.txt"
+Files2\File2_nothing.txt priority=1
+Pass.
+  ((( [T_MakeRule3A] )))
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Files3\File1_old.txt"
+newest>
+Files3\File13_newest.txt
+allnew>
+<Array ubound="1">
+  <Item id="0">Files3\File12_new.txt</Item>
+  <Item id="1">Files3\File13_newest.txt</Item>
+</Array>
+compare1>
+Files3\File11_old.txt = False
+Files3\File12_new.txt = True
+Files3\File13_newest.txt = True
+Files3\File0_no.txt = False
+Pass.
+  ((( [T_MakeRule3B] )))
+>copy  "Files3\*", "Files3_Work"
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Files3_Work\File22_old.txt"
+>copy_ren  "Files3_Work\File221_new.txt", "Files3_Work\File22_old.txt"
+>cd  "%FullPath(.)%"
+
+make command for "Files3_Work\File23_old.txt"
+>copy_ren  "Files3_Work\File231_newest.txt", "Files3_Work\File23_old.txt"
+>cd  "%FullPath(.)%"
+
+make command for "Files3_Work\File2_old.txt"
+newest>
+Files3_Work\File23_old.txt
+allnew>
+<Array ubound="1">
+  <Item id="0">Files3_Work\File22_old.txt</Item>
+  <Item id="1">Files3_Work\File23_old.txt</Item>
+</Array>
+compare1>
+Files3_Work\File21_old.txt = False
+Files3_Work\File22_old.txt = True
+Files3_Work\File23_old.txt = True
+>del  "Files3_Work"
+Pass.
+  ((( [T_MakeRule4] )))
+>make
+>cd  "%FullPath(.)%"
+
+make command for "Files4\File21_old.txt"
+Files4\File21_old.txt priority=1
+>cd  "%FullPath(.)%"
+
+make command for "Files4\File1_old.txt"
+Files4\File1_old.txt priority=2
+>cd  "%FullPath(.)%"
+
+make command for "Files4\File2_old.txt"
+Files4\File2_old.txt priority=2
+Pass.

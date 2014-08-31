@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML> 
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib_test2</TITLE>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+/***********************************************************
+  <<< [init] HTML ファイルをロードした後に実行する処理 >>>
+************************************************************/
+function  init() {
+  if ( !document.getElementsByTagName )  return;
+
+  // 全てのノードを閉じる
+  divs = document.getElementsByTagName( "div" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "node" ) {
+      divs[i].style.display = "none";
+    }
+  }
+  sw_imgs = document.getElementsByTagName( "IMG" );
+  for ( i = 0; i < sw_imgs.length; i++ ) {
+    if ( sw_imgs[i].className == "sw_img" ) {
+      s = sw_imgs[i].src;
+      sw_imgs[i].src = "../files.files/t_plus"+ s.substring( s.length - 5, s.length - 4 ) +".gif";
+    }
+  }
+
+  // URL の # 以降を name 属性に持つツリー要素を選択する
+  s = self.location.href;
+  i = s.indexOf( "#" );  if ( i == -1 )  return;
+  sub = s.substring( i + 1 );
+
+  selectTreeElem( sub );
+}
+
+
+/***********************************************************
+  <<< [sw] ツリーノードを開くか閉じる >>>
+************************************************************/
+function  sw( node_name, edge_flag, url, target, open_flag ) {
+  var sw       = document.getElementsByName( node_name + "_sw" );
+  var icon     = document.getElementsByName( node_name + "_icon" );
+  var children = document.getElementsByName( node_name + "_children" );
+
+  if ( children[0].style.display == "block" ) { /* 開いていたとき、閉じる */
+    if ( open_flag != 1 ) {
+      sw[0].src = "t_plus" + edge_flag + ".gif";
+      icon[0].src = "t_node.gif";
+      children[0].style.display = "none";
+    }
+  }
+  else { /* 閉じていたとき、開ける */
+    if ( open_flag != 0 ) {
+      sw[0].src = "t_minus" + edge_flag + ".gif";
+      icon[0].src = "t_open.gif";
+      children[0].style.display = "block";
+    }
+  }
+
+  if ( url != '' )
+    target.location.href = url;
+
+  return false;
+}
+
+
+/***********************************************************
+  <<< [selectTreeElem] ツリー要素を選択する >>>
+************************************************************/
+function  selectTreeElem( elem_id )
+{
+  // ノード番号を得る
+  for ( i = 0; i < g_elem_ids.length; i++ )
+    if ( g_elem_ids[i] == elem_id )  break;
+  iNode = i;
+
+  // 親を開いていく
+  for (;;) {
+    i = g_parents[ i ];
+    if ( i == -1 )  break;
+
+    sw( "node" + i, g_flags[ i ], '', null, 1 );
+  }
+
+  // ツリーノードを選択する
+  nodes = document.getElementsByName( elem_id );
+  if ( nodes.length > 0 )  nodes[0].focus();
+}
+
+/************************************************************/
+//]]>
+</SCRIPT>
+<STYLE type="text/css">
+div.tree  { font-size:10pt;  vertical-align:middle; line-height:14px; }
+span.text { cursor:hand; color:black; text-decoration:none; }
+a         { color:black; text-decoration:none; }
+img       { vertical-align:middle; border:0; }
+</STYLE>
+</HEAD>
+<BODY onload="init()" bgcolor="#CCDDCC">
+
+<DIV class="tree"><NOBR>
+
+ 
+  <A href="vbslib_test2_01.html#svgcats_vml_p1" target="main" name="svgcats_index_p1"><IMG src="../files.files/t_file.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p1_text"> 
+   vbslib Test</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p2" target="main" name="svgcats_index_p2"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p2_text"> 
+   テスト環境一覧</SPAN></A><BR/>
+ 
+<SPAN class="sw" onclick="return sw('node3','3','',parent.main,-1);"><IMG name="node3_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node3','3','vbslib_test2_01.html#svgcats_vml_p3',parent.main,-1);"><IMG name="node3_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_01.html#svgcats_vml_p3" target="main" name="svgcats_index_p3"><SPAN class="text" name="node3_text"
+> vbs_inc モジュールのテスト</SPAN></A><BR>
+<DIV class="node" id="node3_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p4" target="main" name="svgcats_index_p4"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p4_text"> 
+   [T_CommandPrompt] プロンプトを開く、閉じるテスト</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p5" target="main" name="svgcats_index_p5"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p5_text"> 
+   [T_SuccessRet] /SuccessRet オプションによるエラーレベル</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p6" target="main" name="svgcats_index_p6"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p6_text"> 
+   [T_StartFromOther] スクリプトが無いフォルダーから起動したとき</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p7" target="main" name="svgcats_index_p7"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p7_text"> 
+   [T_Func] 関数、クラス</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p8" target="main" name="svgcats_index_p8"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p8_text"> 
+   [T_GloVar] グローバル変数</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p9" target="main" name="svgcats_index_p9"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p9_text"> 
+   [T_IncErr] vbs_inc.vbs&nbsp; が見つからないとき</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p10" target="main" name="svgcats_index_p10"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p10_text"> 
+   [T_Setting] setting フォルダのテスト</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p11" target="main" name="svgcats_index_p11"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p11_text"> 
+   [T_DupFunc] 関数シンボルが重複したとき</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p12" target="main" name="svgcats_index_p12"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p12_text"> 
+   [T_DupClass] クラス名が重複したとき</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p13" target="main" name="svgcats_index_p13"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p13_text"> 
+   [T_SynErr] ライブラリに文法エラー</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p14" target="main" name="svgcats_index_p14"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p14_text"> 
+   [T_SynErr2] vbs_inc_setting.vbs に文法エラー</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p15" target="main" name="svgcats_index_p15"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p15_text"> 
+   [T_DebugParam] デバッガ接続、パラメータ指定</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p16" target="main" name="svgcats_index_p16"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p16_text"> 
+   [T_BatchParam] バッチファイルからパラメーターを指定</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p17" target="main" name="svgcats_index_p17"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p17_text"> 
+   [T_Admin] 管理者へログインして実行する</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p18" target="main" name="svgcats_index_p18"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p18_text"> 
+   [T_Var] vbslib の環境変数のテスト</SPAN></A><BR/>
+ 
+
+</DIV>
+
+<SPAN class="sw" onclick="return sw('node19','3','',parent.main,-1);"><IMG name="node19_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node19','3','vbslib_test2_01.html#svgcats_vml_p19',parent.main,-1);"><IMG name="node19_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_01.html#svgcats_vml_p19" target="main" name="svgcats_index_p19"><SPAN class="text" name="node19_text"
+> ユーザインターフェイスのテスト</SPAN></A><BR>
+<DIV class="node" id="node19_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p20" target="main" name="svgcats_index_p20"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p20_text"> 
+   [T_UI_Auto] 自動入力のテスト</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p21" target="main" name="svgcats_index_p21"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p21_text"> 
+   [T_ExecStdIn] Exec で起動したプロセスの標準入力</SPAN></A><BR/>
+ 
+<IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node22','2','',parent.main,-1);"><IMG name="node22_sw" class="sw_img" src="../files.files/t_minus2.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node22','2','vbslib_test2_01.html#svgcats_vml_p22',parent.main,-1);"><IMG name="node22_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_01.html#svgcats_vml_p22" target="main" name="svgcats_index_p22"><SPAN class="text" name="node22_text"
+> [T_ExecStdIn_300] 1行が長い入力</SPAN></A><BR>
+<DIV class="node" id="node22_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_spc.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p23" target="main" name="svgcats_index_p23"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p23_text"> 
+   300文字の英文字など</SPAN></A><BR/>
+ 
+
+</DIV>
+
+
+</DIV>
+
+<SPAN class="sw" onclick="return sw('node24','3','',parent.main,-1);"><IMG name="node24_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node24','3','vbslib_test2_01.html#svgcats_vml_p24',parent.main,-1);"><IMG name="node24_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_01.html#svgcats_vml_p24" target="main" name="svgcats_index_p24"><SPAN class="text" name="node24_text"
+> ファイル操作のテスト</SPAN></A><BR>
+<DIV class="node" id="node24_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p25" target="main" name="svgcats_index_p25"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p25_text"> 
+   [T_Work] ワークフォルダ</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p26" target="main" name="svgcats_index_p26"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p26_text"> 
+   [T_Copy] ファイルのコピーと移動</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p27" target="main" name="svgcats_index_p27"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p27_text"> 
+   [T_FromLock]</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p28" target="main" name="svgcats_index_p28"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p28_text"> 
+   [T_Wildcard]</SPAN></A><BR/>
+ 
+<IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node29','3','',parent.main,-1);"><IMG name="node29_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node29','3','vbslib_test2_01.html#svgcats_vml_p29',parent.main,-1);"><IMG name="node29_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_01.html#svgcats_vml_p29" target="main" name="svgcats_index_p29"><SPAN class="text" name="node29_text"
+> [T_Writable]</SPAN></A><BR>
+<DIV class="node" id="node29_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_01.html#svgcats_vml_p30" target="main" name="svgcats_index_p30"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p30_text"> 
+   [T_Writable]</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p31" target="main" name="svgcats_index_p31"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p31_text"> 
+   [T_File] ファイル作成、テンポラリ</SPAN></A><BR/>
+ 
+
+</DIV>
+
+<SPAN class="sw" onclick="return sw('node32','3','',parent.main,-1);"><IMG name="node32_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node32','3','vbslib_test2_02.html#svgcats_vml_p32',parent.main,-1);"><IMG name="node32_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_02.html#svgcats_vml_p32" target="main" name="svgcats_index_p32"><SPAN class="text" name="node32_text"
+> プロセス制御と include のテスト</SPAN></A><BR>
+<DIV class="node" id="node32_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p33" target="main" name="svgcats_index_p33"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p33_text"> 
+   [T_EditorDiff_Manually]</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p34" target="main" name="svgcats_index_p34"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p34_text"> 
+   システム、OS、レジストリのテスト</SPAN></A><BR/>
+ 
+<SPAN class="sw" onclick="return sw('node35','3','',parent.main,-1);"><IMG name="node35_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node35','3','vbslib_test2_02.html#svgcats_vml_p35',parent.main,-1);"><IMG name="node35_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_02.html#svgcats_vml_p35" target="main" name="svgcats_index_p35"><SPAN class="text" name="node35_text"
+> テスト・プロンプト・モジュールのテスト</SPAN></A><BR>
+<DIV class="node" id="node35_children">
+
+ 
+<IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node36','3','',parent.main,-1);"><IMG name="node36_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node36','3','vbslib_test2_02.html#svgcats_vml_p36',parent.main,-1);"><IMG name="node36_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_02.html#svgcats_vml_p36" target="main" name="svgcats_index_p36"><SPAN class="text" name="node36_text"
+> テスト・スクリプト ver2 ・モジュールのテスト</SPAN></A><BR>
+<DIV class="node" id="node36_children">
+
+ 
+<IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node37','3','',parent.main,-1);"><IMG name="node37_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node37','3','vbslib_test2_02.html#svgcats_vml_p37',parent.main,-1);"><IMG name="node37_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_02.html#svgcats_vml_p37" target="main" name="svgcats_index_p37"><SPAN class="text" name="node37_text"
+> CALL に関するテスト</SPAN></A><BR>
+<DIV class="node" id="node37_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p38" target="main" name="svgcats_index_p38"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p38_text"> 
+   [T_Pass] 2つのテストを実施し、Pass する</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p39" target="main" name="svgcats_index_p39"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p39_text"> 
+   [T_Fail] 2つのテストを実施し、1つ目を失敗する</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p40" target="main" name="svgcats_index_p40"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p40_text"> 
+   [T_CurDir] 別のフォルダから相対パス指定</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p41" target="main" name="svgcats_index_p41"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p41_text"> 
+   [T_RunVBS] RunVBSProg のテスト</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p42" target="main" name="svgcats_index_p42"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p42_text"> 
+   [T_Debug] エラーが発生した場所でブレークする</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p43" target="main" name="svgcats_index_p43"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p43_text"> 
+   [T_Log] テストログの内容</SPAN></A><BR/>
+ 
+
+</DIV>
+
+<IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node44','2','',parent.main,-1);"><IMG name="node44_sw" class="sw_img" src="../files.files/t_minus2.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node44','2','vbslib_test2_02.html#svgcats_vml_p44',parent.main,-1);"><IMG name="node44_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_02.html#svgcats_vml_p44" target="main" name="svgcats_index_p44"><SPAN class="text" name="node44_text"
+> テスト実施に関するテスト</SPAN></A><BR>
+<DIV class="node" id="node44_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_spc.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p45" target="main" name="svgcats_index_p45"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p45_text"> 
+   [T_UnitTest] １つのテスト項目</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_spc.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p46" target="main" name="svgcats_index_p46"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p46_text"> 
+   [T_AddAuto] テスト項目の自動追加</SPAN></A><BR/>
+ 
+
+</DIV>
+
+
+</DIV>
+
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p47" target="main" name="svgcats_index_p47"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p47_text"> 
+   サンプルのテスト</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p48" target="main" name="svgcats_index_p48"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p48_text"> 
+   [T_Prpt] 基本形のテスト</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p49" target="main" name="svgcats_index_p49"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p49_text"> 
+   [T_SomeTests] 複数のテストスクリプト</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p50" target="main" name="svgcats_index_p50"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p50_text"> 
+   [T_TestScErr] スクリプト内でエラーが発生したとき</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p51" target="main" name="svgcats_index_p51"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p51_text"> 
+   [T_AutoDiff] 自動的に Diff ツールを開く</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p52" target="main" name="svgcats_index_p52"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p52_text"> 
+   [T_Skip] テストをスキップする</SPAN></A><BR/>
+ 
+
+</DIV>
+
+<SPAN class="sw" onclick="return sw('node53','3','',parent.main,-1);"><IMG name="node53_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node53','3','vbslib_test2_02.html#svgcats_vml_p53',parent.main,-1);"><IMG name="node53_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_02.html#svgcats_vml_p53" target="main" name="svgcats_index_p53"><SPAN class="text" name="node53_text"
+> エラーハンドリングのテスト</SPAN></A><BR>
+<DIV class="node" id="node53_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p54" target="main" name="svgcats_index_p54"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p54_text"> 
+   [T_ErrInfo] ユーザへのエラー通知とデバッガ接続</SPAN></A><BR/>
+ 
+<IMG src="../files.files/t_vert.gif"/><SPAN class="sw" onclick="return sw('node55','3','',parent.main,-1);"><IMG name="node55_sw" class="sw_img" src="../files.files/t_minus3.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node55','3','vbslib_test2_02.html#svgcats_vml_p55',parent.main,-1);"><IMG name="node55_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_02.html#svgcats_vml_p55" target="main" name="svgcats_index_p55"><SPAN class="text" name="node55_text"
+> [T_Err2] Err2 オブジェクトとデバッガーのテスト</SPAN></A><BR>
+<DIV class="node" id="node55_children">
+
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p56" target="main" name="svgcats_index_p56"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p56_text"> 
+   [T_Err2_Clear_w]</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p57" target="main" name="svgcats_index_p57"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p57_text"> 
+   [T_Err2_ClearNot_w]</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_02.html#svgcats_vml_p58" target="main" name="svgcats_index_p58"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p58_text"> 
+   [T_Err2_Debug1_WithDebugger_*]</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_03.html#svgcats_vml_p59" target="main" name="svgcats_index_p59"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p59_text"> 
+   [T_SetupDebugTools] デバッガ時の初期設定</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_03.html#svgcats_vml_p60" target="main" name="svgcats_index_p60"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p60_text"> 
+   [T_ErrOnNew] コンストラクタで発生したエラーを検出</SPAN></A><BR/>
+ 
+  <IMG src="../files.files/t_vert.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_03.html#svgcats_vml_p61" target="main" name="svgcats_index_p61"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p61_text"> 
+   [T_ChildProcess] サブ・プロセスへの受け渡し</SPAN></A><BR/>
+ 
+
+</DIV>
+
+  <IMG src="../files.files/t_edge.gif"
+   /><A href="vbslib_test2_03.html#svgcats_vml_p62" target="main" name="svgcats_index_p62"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p62_text"> 
+   ネットワークのテスト</SPAN></A><BR/>
+ 
+<SPAN class="sw" onclick="return sw('node63','2','',parent.main,-1);"><IMG name="node63_sw" class="sw_img" src="../files.files/t_minus2.gif"></SPAN 
+><SPAN class="sw" onclick="return sw('node63','2','vbslib_test2_03.html#svgcats_vml_p63',parent.main,-1);"><IMG name="node63_icon" src="../files.files/t_node.gif"></SPAN
+><A href="vbslib_test2_03.html#svgcats_vml_p63" target="main" name="svgcats_index_p63"><SPAN class="text" name="node63_text"
+> 開発環境のテスト</SPAN></A><BR>
+<DIV class="node" id="node63_children">
+
+ 
+  <IMG src="../files.files/t_spc.gif"/><IMG src="../files.files/t_last.gif"
+   /><A href="vbslib_test2_03.html#svgcats_vml_p64" target="main" name="svgcats_index_p64"><IMG src="../files.files/t_leaf.gif" class="clickable"/><SPAN class="text" name="svgcats_index_p64_text"> 
+   [T_devenv]</SPAN></A><BR/>
+ 
+
+</DIV>
+
+
+</NOBR></DIV>
+
+</BODY>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+g_elem_ids = new Array( "",
+  "svgcats_index_p1", "svgcats_index_p2", "svgcats_index_p3", "svgcats_index_p4",
+  "svgcats_index_p5", "svgcats_index_p6", "svgcats_index_p7", "svgcats_index_p8",
+  "svgcats_index_p9", "svgcats_index_p10", "svgcats_index_p11", "svgcats_index_p12",
+  "svgcats_index_p13", "svgcats_index_p14", "svgcats_index_p15", "svgcats_index_p16",
+  "svgcats_index_p17", "svgcats_index_p18", "svgcats_index_p19", "svgcats_index_p20",
+  "svgcats_index_p21", "svgcats_index_p22", "svgcats_index_p23", "svgcats_index_p24",
+  "svgcats_index_p25", "svgcats_index_p26", "svgcats_index_p27", "svgcats_index_p28",
+  "svgcats_index_p29", "svgcats_index_p30", "svgcats_index_p31", "svgcats_index_p32",
+  "svgcats_index_p33", "svgcats_index_p34", "svgcats_index_p35", "svgcats_index_p36",
+  "svgcats_index_p37", "svgcats_index_p38", "svgcats_index_p39", "svgcats_index_p40",
+  "svgcats_index_p41", "svgcats_index_p42", "svgcats_index_p43", "svgcats_index_p44",
+  "svgcats_index_p45", "svgcats_index_p46", "svgcats_index_p47", "svgcats_index_p48",
+  "svgcats_index_p49", "svgcats_index_p50", "svgcats_index_p51", "svgcats_index_p52",
+  "svgcats_index_p53", "svgcats_index_p54", "svgcats_index_p55", "svgcats_index_p56",
+  "svgcats_index_p57", "svgcats_index_p58", "svgcats_index_p59", "svgcats_index_p60",
+  "svgcats_index_p61", "svgcats_index_p62", "svgcats_index_p63", "svgcats_index_p64" );
+g_parents = new Array( -1,
+  -1, -1, -1, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, -1, 19,
+  19, 19, 22, -1,
+  24, 24, 24, 24,
+  24, 29, 24, -1,
+  32, -1, -1, 35,
+  36, 37, 37, 37,
+  37, 37, 37, 36,
+  44, 44, 35, 35,
+  35, 35, 35, 35,
+  -1, 53, 53, 55,
+  55, 55, 53, 53,
+  53, -1, -1, 63 );
+g_flags = new Array( 0,
+  1, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 2, 3, 3,
+  3, 2, 2, 3,
+  3, 3, 3, 3,
+  3, 2, 2, 3,
+  2, 3, 3, 3,
+  3, 3, 3, 3,
+  3, 3, 2, 2,
+  3, 2, 3, 3,
+  3, 3, 3, 2,
+  3, 3, 3, 3,
+  3, 2, 3, 3,
+  2, 3, 2, 2 );
+
+//]]>
+</SCRIPT>
+
+</HTML>
+ 

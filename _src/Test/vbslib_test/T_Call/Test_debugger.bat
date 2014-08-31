@@ -1,0 +1,1 @@
+cscript //x  out1.vbs Opt1

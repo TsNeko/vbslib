@@ -1,0 +1,1461 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_15.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_15.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 304 --> 
+<PAGE>
+<A id="svgcats_vml_p304" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '304' );">←</A>
+<A href="#svgcats_vml_p305" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_14.html#svgcats_vml_p303" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_14.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:530px; height:316px;" fillcolor="white"/>
+<DIV id="text304_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="mkdir_for">
+mkdir_for</A></DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:46px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text304_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:53px; line-height:13px; white-space:nowrap">
+Sub&nbsp; mkdir_for( FilePath as string )</DIV>
+<DIV id="text304_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:81px; line-height:15px; white-space:nowrap">
+指定のファイルを作成するためのフォルダを作成します。 ファイルは作成しません。</DIV>
+<DIV id="text304_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:107px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text304_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:107px; line-height:15px; white-space:nowrap">
+FilePath</DIV>
+<DIV id="text304_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:107px; line-height:15px; white-space:nowrap">
+ファイルのパス</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:198px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text304_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:205px; line-height:13px; white-space:nowrap">
+&nbsp; mkdir_for&nbsp; "sub\file1.txt"</DIV>
+<DIV id="text304_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:229px; line-height:15px; white-space:nowrap">
+sub\file1.txt ファイルを格納する sub フォルダを作成します。</DIV>
+<DIV id="text304_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:266px; line-height:15px; white-space:nowrap">
+→ T_File.vbs # [T_MkDir]</DIV>
+<DIV id="text304_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:266px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text304_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:177px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text304_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:148px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text304_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:148px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,0" to="530,0"/>
+<v:line from="530,0" to="530,316"/>
+<v:line from="530,316" to="0,316"/>
+<v:line from="0,316" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 305 --> 
+<PAGE>
+<A id="svgcats_vml_p305" class="to_tree" style="margin-top:321px;" onClick="selectTreeElem( '305' );">←</A>
+<A href="#svgcats_vml_p306" class="to_next_page" style="margin-top:321px;">▼</A>
+<A href="#svgcats_vml_p304" class="to_prev_page" style="margin-top:321px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:332px; width:362px; height:349px;" fillcolor="white"/>
+<DIV id="text305_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:349px; line-height:15px; white-space:nowrap">
+<A name="rmdir">
+rmdir</A></DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:378px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text305_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:385px; line-height:13px; white-space:nowrap">
+Sub&nbsp; rmdir( Path as string )</DIV>
+<DIV id="text305_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:413px; line-height:15px; white-space:nowrap">
+フォルダーを削除します。</DIV>
+<DIV id="text305_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:476px; line-height:15px; white-space:nowrap">
+del でも、rmdir と同じようにフォルダを削除できます。</DIV>
+<DIV id="text305_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:107px; margin-top:349px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text305_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:439px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text305_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:439px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text305_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:439px; line-height:15px; white-space:nowrap">
+削除するフォルダーのパス</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:564px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text305_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:571px; line-height:13px; white-space:nowrap">
+&nbsp; rmdir&nbsp; "sub"</DIV>
+<DIV id="text305_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:541px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text305_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:607px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text305_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:607px; line-height:15px; white-space:nowrap">
+→ T_Copy.vbs # [T_Del]</DIV>
+<DIV id="text305_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:76px; margin-top:633px; line-height:15px; white-space:nowrap">
+<A href="vbslib_14.html#del">
+→ del</A></DIV>
+<DIV id="text305_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:633px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text305_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:512px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text305_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:512px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,332" to="362,332"/>
+<v:line from="362,332" to="362,681"/>
+<v:line from="362,681" to="0,681"/>
+<v:line from="0,681" to="0,332"/>
+
+</PAGE>
+ 
+<!-- page 306 --> 
+<PAGE>
+<A id="svgcats_vml_p306" class="to_tree" style="margin-top:686px;" onClick="selectTreeElem( '306' );">←</A>
+<A href="#svgcats_vml_p307" class="to_next_page" style="margin-top:686px;">▼</A>
+<A href="#svgcats_vml_p305" class="to_prev_page" style="margin-top:686px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:697px; width:378px; height:429px;" fillcolor="white"/>
+<DIV id="text306_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:714px; line-height:15px; white-space:nowrap">
+<A name="exist">
+exist</A></DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:743px; width:280px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text306_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:750px; line-height:13px; white-space:nowrap">
+Function&nbsp; exist( path as string ) as boolean</DIV>
+<DIV id="text306_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:778px; line-height:15px; white-space:nowrap">
+フォルダまたはファイルが存在するかどうかを返します。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:901px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text306_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:908px; line-height:13px; white-space:nowrap">
+If exist( "file1.txt" ) Then ...</DIV>
+<DIV id="text306_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:798px; line-height:15px; white-space:nowrap">
+ワイルドカードを指定することもできます。</DIV>
+<DIV id="text306_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:1042px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#FileSystemObject_FileExists">
+→ FileSystemObject::FileExists</A></DIV>
+<DIV id="text306_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1006px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text306_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:1060px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#FileSystemObject_FolderExists">
+→ FileSystemObject::FolderExists</A></DIV>
+<DIV id="text306_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:1078px; line-height:15px; white-space:nowrap">
+<A href="vbslib_05.html#GetExistPathInSetting">
+→ GetExistPathInSetting</A></DIV>
+<DIV id="text306_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:1006px; line-height:15px; white-space:nowrap">
+<A href="vbslib_34.html#AssertExist">
+→ AssertExist</A></DIV>
+<DIV id="text306_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:66px; margin-top:842px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#fname">
+→ ファイル名、パス (Windows)</A></DIV>
+<DIV id="text306_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:842px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text306_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:877px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text306_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:980px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text306_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:980px; line-height:15px; white-space:nowrap">
+→ T_File.vbs # [T_Exist]</DIV>
+<DIV id="text306_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:955px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text306_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:955px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text306_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:1024px; line-height:15px; white-space:nowrap">
+<A href="#exist_ex">
+→ exist_ex</A></DIV>
+
+<v:line from="0,697" to="378,697"/>
+<v:line from="378,697" to="378,1126"/>
+<v:line from="378,1126" to="0,1126"/>
+<v:line from="0,1126" to="0,697"/>
+
+</PAGE>
+ 
+<!-- page 307 --> 
+<PAGE>
+<A id="svgcats_vml_p307" class="to_tree" style="margin-top:1131px;" onClick="selectTreeElem( '307' );">←</A>
+<A href="#svgcats_vml_p308" class="to_next_page" style="margin-top:1131px;">▼</A>
+<A href="#svgcats_vml_p306" class="to_prev_page" style="margin-top:1131px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1142px; width:505px; height:372px;" fillcolor="white"/>
+<DIV id="text307_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1159px; line-height:15px; white-space:nowrap">
+<A name="exist_ex">
+exist_ex</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1357px; width:280px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text307_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1363px; line-height:15px; white-space:nowrap">
+Set c = g_VBS_Lib<BR/>
+If exist_ex( "a.txt", c.CaseSensitive ) Then</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1189px; width:448px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text307_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1196px; line-height:13px; white-space:nowrap">
+Function&nbsp; exist_ex( Path as string, Opt as Empty or integer ) as boolean</DIV>
+<DIV id="text307_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1226px; line-height:15px; white-space:nowrap">
+フォルダまたはファイルが存在するかどうかを返します。</DIV>
+<DIV id="text307_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1252px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text307_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1252px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text307_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1271px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text307_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:1252px; line-height:15px; white-space:nowrap">
+存在を調べるパス</DIV>
+<DIV id="text307_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:1271px; line-height:15px; white-space:nowrap">
+オプション、 Empty または c.CaseSensitive </DIV>
+<DIV id="text307_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1290px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text307_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:1290px; line-height:15px; white-space:nowrap">
+存在するかどうか</DIV>
+<DIV id="text307_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1466px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text307_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1334px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text307_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1441px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text307_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:1441px; line-height:15px; white-space:nowrap">
+→ T_File.vbs</DIV>
+<DIV id="text307_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1416px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text307_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:1416px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text307_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:162px; margin-top:1441px; line-height:15px; white-space:nowrap">
+T_Exist</DIV>
+<DIV id="text307_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:1466px; line-height:15px; white-space:nowrap">
+<A href="#exist">
+→ exist</A></DIV>
+
+<v:line from="0,1142" to="505,1142"/>
+<v:line from="505,1142" to="505,1514"/>
+<v:line from="505,1514" to="0,1514"/>
+<v:line from="0,1514" to="0,1142"/>
+
+</PAGE>
+ 
+<!-- page 308 --> 
+<PAGE>
+<A id="svgcats_vml_p308" class="to_tree" style="margin-top:1519px;" onClick="selectTreeElem( '308' );">←</A>
+<A href="#svgcats_vml_p309" class="to_next_page" style="margin-top:1519px;">▼</A>
+<A href="#svgcats_vml_p307" class="to_prev_page" style="margin-top:1519px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1530px; width:454px; height:803px;" fillcolor="white"/>
+<DIV id="text308_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1547px; line-height:15px; white-space:nowrap">
+<A name="fc">
+fc (比較)</A></DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:1576px; width:304px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text308_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:1583px; line-height:13px; white-space:nowrap">
+Function&nbsp; fc( PathA as string, PathB as string )</DIV>
+<DIV id="text308_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:1611px; line-height:15px; white-space:nowrap">
+ファイル、またはフォルダが同一かどうかを比較します。</DIV>
+<DIV id="text308_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:1637px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text308_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:1637px; line-height:15px; white-space:nowrap">
+PathA</DIV>
+<DIV id="text308_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:1656px; line-height:15px; white-space:nowrap">
+PathB</DIV>
+<DIV id="text308_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:1637px; line-height:15px; white-space:nowrap">
+比較するファイルパスA、またはフォルダパスA</DIV>
+<DIV id="text308_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:1656px; line-height:15px; white-space:nowrap">
+比較するファイルパスB、またはフォルダパスB</DIV>
+<DIV id="text308_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:1675px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text308_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:1675px; line-height:15px; white-space:nowrap">
+同一=True</DIV>
+<DIV id="text308_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:1783px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:1807px; width:238px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text308_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:1814px; line-height:13px; white-space:nowrap">
+Assert&nbsp; fc( "result.txt", "ans.txt" )</DIV>
+<DIV id="text308_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:35px; margin-top:1750px; line-height:15px; white-space:nowrap">
+vbslib.vbs が入ったフォルダに、feq.exe が必要です。</DIV>
+<DIV id="text308_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:1547px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text308_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:1893px; line-height:15px; white-space:nowrap">
+標準出力： ファイルの内容が同じだったとき</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:1912px; width:172px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text308_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:1918px; line-height:15px; white-space:nowrap">
+fc "result.txt", "ans.txt"<BR/>
+same.</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:1987px; width:172px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text308_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:1993px; line-height:15px; white-space:nowrap">
+fc "result.txt", "ans.txt"<BR/>
+different.</DIV>
+<DIV id="text308_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:1967px; line-height:15px; white-space:nowrap">
+標準出力： ファイルの内容が違ったとき</DIV>
+<DIV id="text308_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:2041px; line-height:15px; white-space:nowrap">
+標準出力： フォルダの内容が同じだったとき</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:2062px; width:154px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text308_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2068px; line-height:15px; white-space:nowrap">
+fc "folder1", "folder2"<BR/>
+same.</DIV>
+<DIV id="text308_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:2116px; line-height:15px; white-space:nowrap">
+標準出力： フォルダの内容が違ったとき</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:2137px; width:244px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text308_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2143px; line-height:15px; white-space:nowrap">
+fc "folder1", "folder2"<BR/>
+Not found "sub\file1.txt" in "folder1"<BR/>
+Not found "sub2" in "folder2"<BR/>
+Not same "sub\file2.txt"<BR/>
+different.</DIV>
+<DIV id="text308_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:1717px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#fname">
+→ ファイル名、パス (Windows)</A></DIV>
+<DIV id="text308_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:35px; margin-top:1717px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:1840px; width:388px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text308_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:1847px; line-height:13px; white-space:nowrap">
+If not fc( "result.txt", "ans.txt" ) Then&nbsp; raise E_TestFail,""</DIV>
+<DIV id="text308_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:2238px; line-height:15px; white-space:nowrap">
+→ T_fc フォルダ</DIV>
+<DIV id="text308_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2238px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text308_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2285px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text308_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:2285px; line-height:15px; white-space:nowrap">
+→ feq フォルダー</DIV>
+<DIV id="text308_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:200px; margin-top:2285px; line-height:15px; white-space:nowrap">
+feq.exe のソース</DIV>
+<DIV id="text308_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:2259px; line-height:15px; white-space:nowrap">
+→ T_feq フォルダー</DIV>
+
+<v:line from="0,1530" to="454,1530"/>
+<v:line from="454,1530" to="454,2333"/>
+<v:line from="454,2333" to="0,2333"/>
+<v:line from="0,2333" to="0,1530"/>
+
+</PAGE>
+ 
+<!-- page 309 --> 
+<PAGE>
+<A id="svgcats_vml_p309" class="to_tree" style="margin-top:2338px;" onClick="selectTreeElem( '309' );">←</A>
+<A href="#svgcats_vml_p310" class="to_next_page" style="margin-top:2338px;">▼</A>
+<A href="#svgcats_vml_p308" class="to_prev_page" style="margin-top:2338px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2349px; width:608px; height:898px;" fillcolor="white"/>
+<DIV id="text309_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2366px; line-height:15px; white-space:nowrap">
+<A name="IsSameTextFile">
+IsSameTextFile</A></DIV>
+<DIV id="text309_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3151px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text309_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2506px; line-height:15px; white-space:nowrap">
+テキスト・ファイルを比較します。 文字コードや改行文字が異なっていても構いません。</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2396px; width:370px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text309_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2402px; line-height:15px; white-space:nowrap">
+Function&nbsp; IsSameTextFile( PathA as string, PathB as string,<BR/>
+&nbsp; &nbsp; in_out_Options as variant ) as boolean</DIV>
+<DIV id="text309_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2533px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text309_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2533px; line-height:15px; white-space:nowrap">
+PathA</DIV>
+<DIV id="text309_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2552px; line-height:15px; white-space:nowrap">
+CharSetA</DIV>
+<DIV id="text309_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:199px; margin-top:2533px; line-height:15px; white-space:nowrap">
+比較するファイル A のパス</DIV>
+<DIV id="text309_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:199px; margin-top:2552px; line-height:15px; white-space:nowrap">
+比較するファイル A の文字コードセット (*1)</DIV>
+<DIV id="text309_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2628px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text309_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:199px; margin-top:2628px; line-height:15px; white-space:nowrap">
+２つのファイルの内容が同じかどうか</DIV>
+<DIV id="text309_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:199px; margin-top:2590px; line-height:15px; white-space:nowrap">
+比較するファイル B の文字コードセット (*1)</DIV>
+<DIV id="text309_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:199px; margin-top:2571px; line-height:15px; white-space:nowrap">
+比較するファイル B のパス</DIV>
+<DIV id="text309_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2590px; line-height:15px; white-space:nowrap">
+CharSetB</DIV>
+<DIV id="text309_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2571px; line-height:15px; white-space:nowrap">
+PathB</DIV>
+<DIV id="text309_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:192px; margin-top:2661px; line-height:15px; white-space:nowrap">
+<A href="vbslib_18.html#new_TextFileCharSetStack">
+→ new_TextFileCharSetStack</A></DIV>
+<DIV id="text309_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2661px; line-height:15px; white-space:nowrap">
+(*1)</DIV>
+<DIV id="text309_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:54px; margin-top:2661px; line-height:15px; white-space:nowrap">
+文字コードについては、</DIV>
+<DIV id="text309_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:54px; margin-top:2682px; line-height:15px; white-space:nowrap">
+ただし、BOM があるときや、Shift JIS のときは、Empty を指定できます。</DIV>
+<DIV id="text309_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2781px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:2805px; width:358px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text309_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:2812px; line-height:13px; white-space:nowrap">
+Assert&nbsp; IsSameTextFile( "FileA.txt", "FileB.txt", Empty )</DIV>
+<DIV id="text309_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2609px; line-height:15px; white-space:nowrap">
+in_out_Options</DIV>
+<DIV id="text309_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:199px; margin-top:2609px; line-height:15px; white-space:nowrap">
+オプション、または Empty</DIV>
+<DIV id="text309_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:156px; margin-top:2366px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text309_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3151px; line-height:15px; white-space:nowrap">
+→ T_fc.vbs # [T_IsSameTextFile]</DIV>
+<DIV id="text309_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:3199px; line-height:15px; white-space:nowrap">
+<A href="vbslib_02.html#fc_sth">
+→ fc コマンド</A></DIV>
+<DIV id="text309_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3199px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text309_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:48px; margin-top:2973px; line-height:13px; white-space:nowrap">
+<A name="SkipLeftSpaceLine">
+c.SkipLeftSpaceLine</A></DIV>
+<DIV id="text309_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2893px; line-height:15px; white-space:nowrap">
+Options_ 引数</DIV>
+<DIV id="text309_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:2972px; line-height:15px; white-space:nowrap">
+PathA のファイルにある空行は比較しない</DIV>
+<DIV id="text309_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:2927px; line-height:15px; white-space:nowrap">
+Empty または、下記の定数の or、または、OptionsFor_IsSameTextFile_Class を指定できます。<BR/>
+c は、g_VBS_Lib の返り値です。</DIV>
+<DIV id="text309_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:48px; margin-top:2993px; line-height:13px; white-space:nowrap">
+<A name="RightHasPercentFunction">
+c.RightHasPercentFunction</A></DIV>
+<DIV id="text309_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:2991px; line-height:15px; white-space:nowrap">
+PathB のファイルには、</DIV>
+<DIV id="text309_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:350px; margin-top:2991px; line-height:15px; white-space:nowrap">
+<A href="vbslib_16.html#PercentFunction">
+% を使った変換式</A></DIV>
+<DIV id="text309_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:450px; margin-top:2991px; line-height:15px; white-space:nowrap">
+を含む</DIV>
+<DIV id="text309_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3171px; line-height:15px; white-space:nowrap">
+→ T_fc.vbs # [T_IsSameTextFileRegExp]</DIV>
+<DIV id="text309_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:48px; margin-top:3013px; line-height:13px; white-space:nowrap">
+c.ErrorIfNotSame</DIV>
+<DIV id="text309_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:3011px; line-height:15px; white-space:nowrap">
+内容が異なっていたら、エラーにする</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2450px; width:454px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text309_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2456px; line-height:15px; white-space:nowrap">
+Function&nbsp; IsSameTextFile_Old( PathA as string, CharSetA as string,<BR/>
+&nbsp; &nbsp; PathB as string, CharSetB as string, Options_ as integer ) as boolean</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:2838px; width:484px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text309_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:2845px; line-height:13px; white-space:nowrap">
+Assert&nbsp; IsSameTextFile_Old( "FileA.txt", Empty, "FileB.txt", "EUC-JP", Empty )</DIV>
+<DIV id="text309_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2720px; line-height:15px; white-space:nowrap">
+IsSameTextFile は、</DIV>
+<DIV id="text309_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:2720px; line-height:15px; white-space:nowrap">
+です。</DIV>
+<DIV id="text309_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:138px; margin-top:2720px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#CompareFuncion">
+比較関数型</A></DIV>
+<DIV id="text309_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3052px; line-height:15px; white-space:nowrap">
+<A name="OptionsFor_IsSameTextFile_Class">
+OptionsFor_IsSameTextFile_Class</A></DIV>
+<DIV id="text309_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:48px; margin-top:3082px; line-height:13px; white-space:nowrap">
+.CharSetA</DIV>
+<DIV id="text309_46" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:48px; margin-top:3102px; line-height:13px; white-space:nowrap">
+.CharSetB</DIV>
+<DIV id="text309_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:129px; margin-top:3080px; line-height:15px; white-space:nowrap">
+比較するファイル A の文字コードセット (*1)</DIV>
+<DIV id="text309_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:129px; margin-top:3100px; line-height:15px; white-space:nowrap">
+比較するファイル B の文字コードセット (*1)</DIV>
+<DIV id="text309_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2738px; line-height:15px; white-space:nowrap">
+vbslib4 の IsSameTextFile は、IsSameTextFile_Old に置き換えてください。</DIV>
+
+<v:line from="0,2349" to="608,2349"/>
+<v:line from="608,2349" to="608,3247"/>
+<v:line from="608,3247" to="0,3247"/>
+<v:line from="0,3247" to="0,2349"/>
+
+</PAGE>
+ 
+<!-- page 310 --> 
+<PAGE>
+<A id="svgcats_vml_p310" class="to_tree" style="margin-top:3252px;" onClick="selectTreeElem( '310' );">←</A>
+<A href="#svgcats_vml_p311" class="to_next_page" style="margin-top:3252px;">▼</A>
+<A href="#svgcats_vml_p309" class="to_prev_page" style="margin-top:3252px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3263px; width:607px; height:494px;" fillcolor="white"/>
+<DIV id="text310_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3280px; line-height:15px; white-space:nowrap">
+<A name="IsSameBinaryFile">
+IsSameBinaryFile</A></DIV>
+<DIV id="text310_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3351px; line-height:15px; white-space:nowrap">
+バイナリ・ファイルを比較します。</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3310px; width:550px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text310_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3317px; line-height:13px; white-space:nowrap">
+Function&nbsp; IsSameBinaryFile( PathA as string, PathB as string, Opt as integer ) as boolean</DIV>
+<DIV id="text310_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3381px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text310_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3381px; line-height:15px; white-space:nowrap">
+PathA</DIV>
+<DIV id="text310_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:3381px; line-height:15px; white-space:nowrap">
+比較するファイル A のパス</DIV>
+<DIV id="text310_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3438px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text310_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:3438px; line-height:15px; white-space:nowrap">
+２つのファイルの内容が同じかどうか</DIV>
+<DIV id="text310_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:3400px; line-height:15px; white-space:nowrap">
+比較するファイル B のパス</DIV>
+<DIV id="text310_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3400px; line-height:15px; white-space:nowrap">
+PathB</DIV>
+<DIV id="text310_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3419px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text310_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:3419px; line-height:15px; white-space:nowrap">
+Empty</DIV>
+<DIV id="text310_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3570px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:3594px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text310_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:3601px; line-height:13px; white-space:nowrap">
+Assert&nbsp; IsSameBinaryFile( "FileA.jpg", "FileB.jpg", Empty )</DIV>
+<DIV id="text310_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3668px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text310_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3668px; line-height:15px; white-space:nowrap">
+→ T_fc.vbs</DIV>
+<DIV id="text310_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:3692px; line-height:15px; white-space:nowrap">
+<A href="vbslib_02.html#fc_sth">
+→ fc コマンド</A></DIV>
+<DIV id="text310_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3692px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text310_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3710px; line-height:15px; white-space:nowrap">
+→ FileT_isSameBinaryFile (clib)</DIV>
+<DIV id="text310_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3474px; line-height:15px; white-space:nowrap">
+PathA か PathB のどちらかのファイルがないときは、False を返します。<BR/>
+PathA か PathB の両方のファイルがないときは、True を返します。</DIV>
+<DIV id="text310_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:3668px; line-height:15px; white-space:nowrap">
+T_IsSameBinaryFile</DIV>
+<DIV id="text310_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3644px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text310_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3644px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text310_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3516px; line-height:15px; white-space:nowrap">
+IsSameBinaryFile は、</DIV>
+<DIV id="text310_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:233px; margin-top:3516px; line-height:15px; white-space:nowrap">
+です。</DIV>
+<DIV id="text310_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:160px; margin-top:3516px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#CompareFuncion">
+比較関数型</A></DIV>
+
+<v:line from="0,3263" to="607,3263"/>
+<v:line from="607,3263" to="607,3757"/>
+<v:line from="607,3757" to="0,3757"/>
+<v:line from="0,3757" to="0,3263"/>
+
+</PAGE>
+ 
+<!-- page 311 --> 
+<PAGE>
+<A id="svgcats_vml_p311" class="to_tree" style="margin-top:3762px;" onClick="selectTreeElem( '311' );">←</A>
+<A href="#svgcats_vml_p312" class="to_next_page" style="margin-top:3762px;">▼</A>
+<A href="#svgcats_vml_p310" class="to_prev_page" style="margin-top:3762px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3773px; width:618px; height:955px;" fillcolor="white"/>
+<DIV id="text311_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3790px; line-height:15px; white-space:nowrap">
+<A name="IsSameFolder">
+IsSameFolder</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3820px; width:358px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text311_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3826px; line-height:15px; white-space:nowrap">
+Function&nbsp; IsSameFolder( PathA as string, PathB as string,<BR/>
+&nbsp; &nbsp; in_out_Options as variant ) as boolean</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:4138px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text311_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:4145px; line-height:13px; white-space:nowrap">
+If IsSameFolder( folder_A, folder_B, Empty ) Then</DIV>
+<DIV id="text311_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3872px; line-height:15px; white-space:nowrap">
+フォルダーの内容が同じかどうか比較します。</DIV>
+<DIV id="text311_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3898px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text311_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3936px; line-height:15px; white-space:nowrap">
+in_out_Options</DIV>
+<DIV id="text311_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:3936px; line-height:15px; white-space:nowrap">
+オプション、または Empty</DIV>
+<DIV id="text311_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4659px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text311_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4638px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text311_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4115px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text311_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4617px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text311_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:143px; margin-top:4638px; line-height:15px; white-space:nowrap">
+T_IsSameFolder</DIV>
+<DIV id="text311_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3898px; line-height:15px; white-space:nowrap">
+PathA</DIV>
+<DIV id="text311_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:3898px; line-height:15px; white-space:nowrap">
+比較するフォルダー A のパス</DIV>
+<DIV id="text311_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:3917px; line-height:15px; white-space:nowrap">
+比較するフォルダー B のパス</DIV>
+<DIV id="text311_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3917px; line-height:15px; white-space:nowrap">
+PathB</DIV>
+<DIV id="text311_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:4474px; line-height:15px; white-space:nowrap">
+Empty または 比較しないファイルまたはフォルダー名</DIV>
+<DIV id="text311_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:3955px; line-height:15px; white-space:nowrap">
+２つのフォルダーの内容が同じかどうか</DIV>
+<DIV id="text311_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3955px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text311_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:63px; margin-top:4454px; line-height:13px; white-space:nowrap">
+<A name="IsSameFolder_ExceptNames">
+.ExceptNames</A></DIV>
+<DIV id="text311_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3991px; line-height:15px; white-space:nowrap">
+フォルダーの中のファイルの比較は、バイナリで比較します。</DIV>
+<DIV id="text311_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:374px; margin-top:3991px; line-height:15px; white-space:nowrap">
+<A href="#IsSameBinaryFile">
+（IsSameBinaryFile 相当）</A></DIV>
+<DIV id="text311_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:4638px; line-height:15px; white-space:nowrap">
+→ T_fc.vbs</DIV>
+<DIV id="text311_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:4659px; line-height:15px; white-space:nowrap">
+<A href="#fc">
+→ fc (比較)</A></DIV>
+<DIV id="text311_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:248px; margin-top:4638px; line-height:15px; white-space:nowrap">
+T_IsSameFolder_Echo</DIV>
+<DIV id="text311_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:4617px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text311_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4269px; line-height:15px; white-space:nowrap">
+<A name="IsSameFolder_Opt">
+Options 引数</A></DIV>
+<DIV id="text311_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:63px; margin-top:4347px; line-height:13px; white-space:nowrap">
+c.EchoV_NotSame</DIV>
+<DIV id="text311_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:63px; margin-top:4374px; line-height:13px; white-space:nowrap">
+c.NotSubFolder</DIV>
+<DIV id="text311_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:4345px; line-height:15px; white-space:nowrap">
+違いがあったときに、そのパスを echo_v で表示します</DIV>
+<DIV id="text311_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:4372px; line-height:15px; white-space:nowrap">
+サブ・フォルダーは調べません</DIV>
+<DIV id="text311_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:4295px; line-height:15px; white-space:nowrap">
+Empty または、下記の定数の or、または、OptionsFor_IsSameFolder_Class を指定できます。<BR/>
+c は、g_VBS_Lib の返り値です。</DIV>
+<DIV id="text311_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:415px; margin-top:4474px; line-height:15px; white-space:nowrap">
+<A href="#IsSameFolder_ExceptNames">
+→ 下記</A></DIV>
+<DIV id="text311_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:345px; margin-top:3936px; line-height:15px; white-space:nowrap">
+<A href="#IsSameFolder_Opt">
+→ 下記</A></DIV>
+<DIV id="text311_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:4492px; line-height:15px; white-space:nowrap">
+Thumb.db などの隠しファイルを指定すれば、そのファイルは比較対象ではなくします。</DIV>
+<DIV id="text311_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:160px; margin-top:4510px; line-height:15px; white-space:nowrap">
+が使えます。</DIV>
+<DIV id="text311_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:4510px; line-height:15px; white-space:nowrap">
+正規表現</DIV>
+<DIV id="text311_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4010px; line-height:15px; white-space:nowrap">
+PathA と PathB にファイルのパスを指定することもできます。</DIV>
+<DIV id="text311_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4420px; line-height:15px; white-space:nowrap">
+OptionsFor_IsSameFolder_Class</DIV>
+<DIV id="text311_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:151px; margin-top:4454px; line-height:13px; white-space:nowrap">
+as array of string</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:4170px; width:322px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text311_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:4176px; line-height:15px; white-space:nowrap">
+Set options = new OptionsFor_IsSameFolder_Class<BR/>
+options.BitFlags = c.EchoV_NotSame<BR/>
+options.ExceptNames = Array( "Thumbs.db" )<BR/>
+If IsSameFolder( folder_A, folder_B, options ) Then</DIV>
+<DIV id="text311_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4029px; line-height:15px; white-space:nowrap">
+IsSameFolder は、</DIV>
+<DIV id="text311_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:214px; margin-top:4029px; line-height:15px; white-space:nowrap">
+です。</DIV>
+<DIV id="text311_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:141px; margin-top:4029px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#CompareFuncion">
+比較関数型</A></DIV>
+<DIV id="text311_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:60px; margin-top:4541px; line-height:13px; white-space:nowrap">
+.IsSameFileFunction</DIV>
+<DIV id="text311_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:258px; margin-top:4539px; line-height:15px; white-space:nowrap">
+ファイルを比較する関数。</DIV>
+<DIV id="text311_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:411px; margin-top:4539px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#CompareFuncion">
+比較関数型</A></DIV>
+<DIV id="text311_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:60px; margin-top:4568px; line-height:13px; white-space:nowrap">
+.IsSameFileFunction_Parameter</DIV>
+<DIV id="text311_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:258px; margin-top:4566px; line-height:15px; white-space:nowrap">
+IsSameFileFunction に指定した関数の第3引数に渡す値</DIV>
+<DIV id="text311_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:385px; margin-top:4638px; line-height:15px; white-space:nowrap">
+T_IsSameFolder_File</DIV>
+<DIV id="text311_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4054px; line-height:15px; white-space:nowrap">
+拡張子によって比較する処理を変えたいときは、拡張子で分岐する関数を作成して、オプション<BR/>
+の IsSameFileFunction に指定してください。</DIV>
+<DIV id="text311_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:4680px; line-height:15px; white-space:nowrap">
+<A href="#MD5_List">
+→ MD5 リスト</A></DIV>
+
+<v:line from="0,3773" to="618,3773"/>
+<v:line from="618,3773" to="618,4728"/>
+<v:line from="618,4728" to="0,4728"/>
+<v:line from="0,4728" to="0,3773"/>
+
+</PAGE>
+ 
+<!-- page 312 --> 
+<PAGE>
+<A id="svgcats_vml_p312" class="to_tree" style="margin-top:4733px;" onClick="selectTreeElem( '312' );">←</A>
+<A href="#svgcats_vml_p313" class="to_next_page" style="margin-top:4733px;">▼</A>
+<A href="#svgcats_vml_p311" class="to_prev_page" style="margin-top:4733px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4744px; width:651px; height:409px;" fillcolor="white"/>
+<v:image src="312/image01.png"
+   style="position:absolute; margin-left:309px; margin-top:4906px; width:14px; height:17px;"/>
+<v:image src="312/image02.png"
+   style="position:absolute; margin-left:59px; margin-top:4905px; width:18px; height:15px;"/>
+<v:image src="312/image03.png"
+   style="position:absolute; margin-left:90px; margin-top:4927px; width:14px; height:17px;"/>
+<v:image src="312/image04.png"
+   style="position:absolute; margin-left:90px; margin-top:4948px; width:14px; height:17px;"/>
+<DIV id="text312_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4761px; line-height:15px; white-space:nowrap">
+<A name="MD5_List">
+MD5 リスト</A></DIV>
+<DIV id="text312_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:4788px; line-height:15px; white-space:nowrap">
+フォルダーの中にあるすべてのファイルの</DIV>
+<DIV id="text312_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:262px; margin-top:4788px; line-height:15px; white-space:nowrap">
+<A href="vbslib_23.html#MD5_BinaryArray">
+MD5</A></DIV>
+<DIV id="text312_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:295px; margin-top:4788px; line-height:15px; white-space:nowrap">
+を一覧したテキストファイル。</DIV>
+<DIV id="text312_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:4841px; line-height:15px; white-space:nowrap">
+作成したフォルダー(A)の内容が、以前固定したフォルダー(B)の内容と同じであるかどうかを<BR/>
+チェックするとき、フォルダー(B)に対応する MD5 リストと呼ばれるテキストファイルがあれば、<BR/>
+フォルダー(B) がなくてもチェックができます。</DIV>
+<DIV id="text312_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:5083px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text312_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:4805px; line-height:15px; white-space:nowrap">
+圧縮ファイルを展開したフォルダーやパッチをあてたフォルダーが正しく復元できたことを保証できます。</DIV>
+<DIV id="text312_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:5105px; line-height:15px; white-space:nowrap">
+<A href="http://www.forest.impress.co.jp/article/2005/12/15/cccs.html" target="_blank">
+→ 窓の杜 - CRCMD5リストを一括作成や連続比較して結果をタブで切り替え表示するソフト (Web)</A></DIV>
+<DIV id="text312_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:5083px; line-height:15px; white-space:nowrap">
+<A href="http://www.atmarkit.co.jp/fwin2k/win2ktips/597fciv/fciv.html" target="_blank">
+→ ハッシュ値を利用してファイルの同一性をチェックする － ＠IT (Web)</A></DIV>
+<DIV id="text312_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:331px; margin-top:4906px; line-height:15px; white-space:nowrap">
+MD5 リスト</DIV>
+<DIV id="text312_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:85px; margin-top:4906px; line-height:15px; white-space:nowrap">
+復元したフォルダー</DIV>
+<v:line style="position:absolute;" from="292,4914" to="216,4914" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="216,4914" to="227,4918" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="216,4914" to="227,4910" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text312_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:235px; margin-top:4921px; line-height:15px; white-space:nowrap">
+チェック</DIV>
+<DIV id="text312_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:4997px; line-height:15px; white-space:nowrap">
+<A href="#MakeFolderMD5List">
+→ MakeFolderMD5List 関数</A></DIV>
+<DIV id="text312_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:5017px; line-height:15px; white-space:nowrap">
+<A href="#CheckFolderMD5List">
+→ CheckFolderMD5List 関数</A></DIV>
+<DIV id="text312_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:112px; margin-top:4927px; line-height:15px; white-space:nowrap">
+FileA.txt</DIV>
+<DIV id="text312_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:112px; margin-top:4948px; line-height:15px; white-space:nowrap">
+FileB.txt</DIV>
+<v:rect style="position:absolute; margin-left:335px; margin-top:4927px; width:268px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text312_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:343px; margin-top:4933px; line-height:15px; white-space:nowrap">
+fadc3390060b1ba5ef3bef593b7c930d FileA.txt<BR/>
+60631deb298f23dc7e3a4ada23d8372c FileB.txt</DIV>
+<v:shape style="position:absolute; margin-left:348px; margin-top:4970px; width:184px; height:15px;" strokecolor="#000000" strokeweight="1pt" filled="false">
+<v:path v="ar 920,-500 1000,500 960,500 1000,0 e m 960,500 l 540,500 e ar 500,500 580,1500 540,500 500,1000 e ar 420,500 500,1500 500,1000 460,500 e m 40,500 l 460,500 e ar 0,-500 80,500 0,0 40,500 e"/>
+</v:shape>
+<v:shape style="position:absolute; margin-left:541px; margin-top:4971px; width:60px; height:15px;" strokecolor="#000000" strokeweight="1pt" filled="false">
+<v:path v="ar 750,-500 1000,500 875,500 1000,0 e m 875,500 l 625,500 e ar 500,500 750,1500 625,500 500,1000 e ar 250,500 500,1500 500,1000 375,500 e m 125,500 l 375,500 e ar 0,-500 250,500 0,0 125,500 e"/>
+</v:shape>
+<DIV id="text312_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:537px; margin-top:4991px; line-height:15px; white-space:nowrap">
+ファイル名</DIV>
+<DIV id="text312_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:423px; margin-top:4991px; line-height:15px; white-space:nowrap">
+<A href="vbslib_23.html#MD5_BinaryArray">
+MD5</A></DIV>
+<DIV id="text312_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:5037px; line-height:15px; white-space:nowrap">
+<A href="vbslib_02.html#MD5List_sth">
+→ MD5List コマンド</A></DIV>
+
+<v:line from="0,4744" to="651,4744"/>
+<v:line from="651,4744" to="651,5153"/>
+<v:line from="651,5153" to="0,5153"/>
+<v:line from="0,5153" to="0,4744"/>
+
+</PAGE>
+ 
+<!-- page 313 --> 
+<PAGE>
+<A id="svgcats_vml_p313" class="to_tree" style="margin-top:5158px;" onClick="selectTreeElem( '313' );">←</A>
+<A href="#svgcats_vml_p314" class="to_next_page" style="margin-top:5158px;">▼</A>
+<A href="#svgcats_vml_p312" class="to_prev_page" style="margin-top:5158px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5169px; width:585px; height:310px;" fillcolor="white"/>
+<DIV id="text313_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5186px; line-height:15px; white-space:nowrap">
+<A name="MakeFolderMD5List">
+MakeFolderMD5List</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5216px; width:454px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text313_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5223px; line-height:13px; white-space:nowrap">
+Sub&nbsp; MakeFolderMD5List( FolderPath as string, MD5ListFilePath as string )</DIV>
+<DIV id="text313_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5253px; line-height:15px; white-space:nowrap">
+後でフォルダーが正しく復元できたかどうかをチェックできるように、MD5 リストを作成します。</DIV>
+<DIV id="text313_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5279px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text313_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5279px; line-height:15px; white-space:nowrap">
+FolderPath</DIV>
+<DIV id="text313_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5298px; line-height:15px; white-space:nowrap">
+MD5ListFilePath</DIV>
+<DIV id="text313_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:5279px; line-height:15px; white-space:nowrap">
+復元した結果と同じ内容のフォルダーのパス</DIV>
+<DIV id="text313_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:5298px; line-height:15px; white-space:nowrap">
+MD5 リストのファイルパス</DIV>
+<DIV id="text313_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5432px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text313_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5411px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text313_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5390px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text313_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:5432px; line-height:15px; white-space:nowrap">
+<A href="#CheckFolderMD5List">
+→ CheckFolderMD5List</A></DIV>
+<DIV id="text313_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:143px; margin-top:5411px; line-height:15px; white-space:nowrap">
+T_MD5List</DIV>
+<DIV id="text313_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:5411px; line-height:15px; white-space:nowrap">
+→ T_fc.vbs</DIV>
+<DIV id="text313_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:5390px; line-height:15px; white-space:nowrap">
+→ ToolsLib.vbs</DIV>
+<DIV id="text313_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:406px; margin-top:5185px; line-height:15px; white-space:nowrap">
+<A href="#MD5_List">
+&lt;&lt;&nbsp; MD5 リスト</A></DIV>
+<DIV id="text313_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5330px; line-height:15px; white-space:nowrap">
+ファイル名が Ascii 文字だけのときは、Ascii 形式テキストファイルができます。<BR/>
+Ascii 文字以外が含まれるときは、Unicode 形式テキストファイルができます。</DIV>
+
+<v:line from="0,5169" to="585,5169"/>
+<v:line from="585,5169" to="585,5479"/>
+<v:line from="585,5479" to="0,5479"/>
+<v:line from="0,5479" to="0,5169"/>
+
+</PAGE>
+ 
+<!-- page 314 --> 
+<PAGE>
+<A id="svgcats_vml_p314" class="to_tree" style="margin-top:5484px;" onClick="selectTreeElem( '314' );">←</A>
+<A href="#svgcats_vml_p315" class="to_next_page" style="margin-top:5484px;">▼</A>
+<A href="#svgcats_vml_p313" class="to_prev_page" style="margin-top:5484px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5495px; width:601px; height:322px;" fillcolor="white"/>
+<DIV id="text314_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5512px; line-height:15px; white-space:nowrap">
+<A name="CheckFolderMD5List">
+CheckFolderMD5List</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5542px; width:544px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text314_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5549px; line-height:13px; white-space:nowrap">
+Sub&nbsp; CheckFolderMD5List( FolderPath as string, MD5ListFilePath as string, Opt as Empty )</DIV>
+<DIV id="text314_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5579px; line-height:15px; white-space:nowrap">
+MD5 リストを使って、フォルダーが正しく復元できたかどうかをチェックします。</DIV>
+<DIV id="text314_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5605px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text314_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5605px; line-height:15px; white-space:nowrap">
+FolderPath</DIV>
+<DIV id="text314_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5624px; line-height:15px; white-space:nowrap">
+MD5ListFilePath</DIV>
+<DIV id="text314_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:219px; margin-top:5605px; line-height:15px; white-space:nowrap">
+チェック対象のフォルダーのパス</DIV>
+<DIV id="text314_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:219px; margin-top:5624px; line-height:15px; white-space:nowrap">
+MD5 リストのファイルパス</DIV>
+<DIV id="text314_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5770px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text314_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5749px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text314_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5672px; line-height:15px; white-space:nowrap">
+正しく復元できていれば、そのまま関数から返ります。<BR/>
+正しく復元できていなければ、Diff ツールで差分が表示されます。</DIV>
+<DIV id="text314_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:410px; margin-top:5687px; line-height:15px; white-space:nowrap">
+<A href="vbslib_34.html#AssertFC">
+→ AssertFC</A></DIV>
+<DIV id="text314_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:5770px; line-height:15px; white-space:nowrap">
+<A href="#MakeFolderMD5List">
+→ MakeFolderMD5List</A></DIV>
+<DIV id="text314_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:143px; margin-top:5749px; line-height:15px; white-space:nowrap">
+T_MD5List</DIV>
+<DIV id="text314_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:5749px; line-height:15px; white-space:nowrap">
+→ T_fc.vbs</DIV>
+<DIV id="text314_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:406px; margin-top:5511px; line-height:15px; white-space:nowrap">
+<A href="#MD5_List">
+&lt;&lt;&nbsp; MD5 リスト</A></DIV>
+<DIV id="text314_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5728px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text314_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:5728px; line-height:15px; white-space:nowrap">
+→ ToolsLib.vbs</DIV>
+<DIV id="text314_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5643px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text314_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:219px; margin-top:5643px; line-height:15px; white-space:nowrap">
+Empty を指定してください</DIV>
+
+<v:line from="0,5495" to="601,5495"/>
+<v:line from="601,5495" to="601,5817"/>
+<v:line from="601,5817" to="0,5817"/>
+<v:line from="0,5817" to="0,5495"/>
+
+</PAGE>
+ 
+<!-- page 315 --> 
+<PAGE>
+<A id="svgcats_vml_p315" class="to_tree" style="margin-top:5822px;" onClick="selectTreeElem( '315' );">←</A>
+<A href="#svgcats_vml_p316" class="to_next_page" style="margin-top:5822px;">▼</A>
+<A href="#svgcats_vml_p314" class="to_prev_page" style="margin-top:5822px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5833px; width:601px; height:410px;" fillcolor="white"/>
+<DIV id="text315_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5850px; line-height:15px; white-space:nowrap">
+<A name="fc_r">
+fc_r</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5880px; width:544px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text315_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5887px; line-height:13px; white-space:nowrap">
+Function&nbsp; fc_r( path_a as string, path_b as string, redirect_path as string ) as boolean</DIV>
+<DIV id="text315_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5915px; line-height:15px; white-space:nowrap">
+ファイルやフォルダの内容が同じかどうか調べます。</DIV>
+<DIV id="text315_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:5940px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text315_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5940px; line-height:15px; white-space:nowrap">
+path_a</DIV>
+<DIV id="text315_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5959px; line-height:15px; white-space:nowrap">
+path_b</DIV>
+<DIV id="text315_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:5940px; line-height:15px; white-space:nowrap">
+１つ目のファイルのパス、またはフォルダのパス</DIV>
+<DIV id="text315_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:5959px; line-height:15px; white-space:nowrap">
+２つ目のファイルのパス、またはフォルダのパス</DIV>
+<DIV id="text315_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5978px; line-height:15px; white-space:nowrap">
+redirect_path</DIV>
+<DIV id="text315_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:5978px; line-height:15px; white-space:nowrap">
+調べた結果の詳細の出力先のファイルパス、Empty、"nul" 可</DIV>
+<DIV id="text315_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5997px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text315_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:5997px; line-height:15px; white-space:nowrap">
+同じかどうか</DIV>
+<DIV id="text315_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:36px; margin-top:6031px; line-height:15px; white-space:nowrap">
+vbslib.vbs が入ったフォルダに、feq.exe が必要です。</DIV>
+<DIV id="text315_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5849px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text315_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:6067px; line-height:15px; white-space:nowrap">
+redirect_path の値</DIV>
+<DIV id="text315_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:230px; margin-top:6067px; line-height:15px; white-space:nowrap">
+出力先</DIV>
+<v:line style="position:absolute;" from="44,6087" to="338,6087" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text315_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:6149px; line-height:15px; white-space:nowrap">
+その他</DIV>
+<DIV id="text315_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:6113px; line-height:15px; white-space:nowrap">
+"nul"</DIV>
+<DIV id="text315_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:239px; margin-top:6113px; line-height:15px; white-space:nowrap">
+なし</DIV>
+<DIV id="text315_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:6131px; line-height:15px; white-space:nowrap">
+Empty</DIV>
+<DIV id="text315_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:239px; margin-top:6131px; line-height:15px; white-space:nowrap">
+なし</DIV>
+<DIV id="text315_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:6095px; line-height:15px; white-space:nowrap">
+""</DIV>
+<DIV id="text315_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:224px; margin-top:6095px; line-height:15px; white-space:nowrap">
+標準出力</DIV>
+<DIV id="text315_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:228px; margin-top:6149px; line-height:15px; white-space:nowrap">
+ファイル</DIV>
+<DIV id="text315_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:170px; margin-top:6195px; line-height:15px; white-space:nowrap">
+<A href="#fc">
+→ fc</A></DIV>
+<DIV id="text315_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:6195px; line-height:15px; white-space:nowrap">
+出力内容については、</DIV>
+
+<v:line from="0,5833" to="601,5833"/>
+<v:line from="601,5833" to="601,6243"/>
+<v:line from="601,6243" to="0,6243"/>
+<v:line from="0,6243" to="0,5833"/>
+
+</PAGE>
+ 
+<!-- page 316 --> 
+<PAGE>
+<A id="svgcats_vml_p316" class="to_tree" style="margin-top:6248px;" onClick="selectTreeElem( '316' );">←</A>
+<A href="#svgcats_vml_p317" class="to_next_page" style="margin-top:6248px;">▼</A>
+<A href="#svgcats_vml_p315" class="to_prev_page" style="margin-top:6248px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6259px; width:648px; height:724px;" fillcolor="white"/>
+<DIV id="text316_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6276px; line-height:15px; white-space:nowrap">
+<A name="fc_ex">
+fc_ex</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6306px; width:496px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text316_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6313px; line-height:13px; white-space:nowrap">
+Function&nbsp; fc_ex( PathA as string, PathB as string, Opt as fc_option ) as boolean</DIV>
+<DIV id="text316_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6341px; line-height:15px; white-space:nowrap">
+ファイルやフォルダの内容が同じかどうか調べます。</DIV>
+<DIV id="text316_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6366px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text316_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:6366px; line-height:15px; white-space:nowrap">
+PathA</DIV>
+<DIV id="text316_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:6366px; line-height:15px; white-space:nowrap">
+１つ目のファイルのパス、またはフォルダのパス</DIV>
+<DIV id="text316_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:6404px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text316_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:6404px; line-height:15px; white-space:nowrap">
+Empty または オプション</DIV>
+<DIV id="text316_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:6423px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text316_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:6423px; line-height:15px; white-space:nowrap">
+同じかどうか</DIV>
+<DIV id="text316_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:36px; margin-top:6457px; line-height:15px; white-space:nowrap">
+vbslib.vbs が入ったフォルダに、feq.exe が必要です。</DIV>
+<DIV id="text316_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:6385px; line-height:15px; white-space:nowrap">
+PathB</DIV>
+<DIV id="text316_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:6385px; line-height:15px; white-space:nowrap">
+２つ目のファイルのパス、またはフォルダのパス</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:6526px; width:202px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text316_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:6532px; line-height:15px; white-space:nowrap">
+Class&nbsp; fc_option<BR/>
+&nbsp; Public&nbsp; FcOptionIniPath<BR/>
+&nbsp; Public&nbsp; FcResultRedirectPath<BR/>
+&nbsp; Public&nbsp; m_bStdOut<BR/>
+&nbsp; Public&nbsp; IsStartDiffIfNotSame<BR/>
+&nbsp; Public&nbsp; IsXmlComparedAsBinary<BR/>
+End Class</DIV>
+<DIV id="text316_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:6501px; line-height:15px; white-space:nowrap">
+<A name="fc_option">
+Opt 引数、fc_option</A></DIV>
+<DIV id="text316_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:258px; margin-top:6546px; line-height:15px; white-space:nowrap">
+オプション指定ファイル fc.ini のパス</DIV>
+<DIV id="text316_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:47px; margin-top:6655px; line-height:15px; white-space:nowrap">
+FcOptionIniPath、オプション指定ファイル fc.ini</DIV>
+<v:rect style="position:absolute; margin-left:59px; margin-top:6679px; width:100px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text316_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:6685px; line-height:15px; white-space:nowrap">
+[Excludes]<BR/>
+A = obj<BR/>
+A = proj\Debug<BR/>
+:&nbsp; &nbsp; &nbsp;:</DIV>
+<DIV id="text316_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:170px; margin-top:6684px; line-height:15px; white-space:nowrap">
+比較を行わないファイルの一覧</DIV>
+<DIV id="text316_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:258px; margin-top:6576px; line-height:15px; white-space:nowrap">
+未対応</DIV>
+<DIV id="text316_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:47px; margin-top:6767px; line-height:15px; white-space:nowrap">
+IsStartDiffIfNotSame</DIV>
+<DIV id="text316_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:6794px; line-height:15px; white-space:nowrap">
+違いが発見されたら、diff を起動。 起動したら、False になります</DIV>
+<DIV id="text316_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:6815px; line-height:15px; white-space:nowrap">
+diff ツールは、</DIV>
+<DIV id="text316_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:146px; margin-top:6815px; line-height:15px; white-space:nowrap">
+<A href="vbslib_05.html#Setting_getDiffCmdLine">
+Setting_getDiffCmdLine</A></DIV>
+<DIV id="text316_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:284px; margin-top:6815px; line-height:15px; white-space:nowrap">
+で設定します。</DIV>
+<DIV id="text316_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:258px; margin-top:6561px; line-height:15px; white-space:nowrap">
+結果を出力するファイルのパス</DIV>
+<DIV id="text316_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:258px; margin-top:6591px; line-height:15px; white-space:nowrap">
+未対応</DIV>
+<DIV id="text316_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:205px; margin-top:6767px; line-height:15px; white-space:nowrap">
+未対応</DIV>
+<DIV id="text316_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:258px; margin-top:6606px; line-height:15px; white-space:nowrap">
+XML として同じでも、テキストが異なれば、異なると判定する</DIV>
+<DIV id="text316_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:47px; margin-top:6853px; line-height:15px; white-space:nowrap">
+IsXmlComparedAsBinary</DIV>
+<DIV id="text316_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:6879px; line-height:15px; white-space:nowrap">
+False なら、文字コードや空白文字などの違いがあっても、XML ドキュメントのデータが同じであれば<BR/>
+同じと判定します。<BR/>
+デフォルト（Empty）は True です。</DIV>
+<DIV id="text316_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:6935px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs # [T_CompareXml]</DIV>
+<DIV id="text316_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:57px; margin-top:6935px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text316_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:6275px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,6259" to="648,6259"/>
+<v:line from="648,6259" to="648,6983"/>
+<v:line from="648,6983" to="0,6983"/>
+<v:line from="0,6983" to="0,6259"/>
+
+</PAGE>
+ 
+<!-- page 317 --> 
+<PAGE>
+<A id="svgcats_vml_p317" class="to_tree" style="margin-top:6988px;" onClick="selectTreeElem( '317' );">←</A>
+<A href="#svgcats_vml_p318" class="to_next_page" style="margin-top:6988px;">▼</A>
+<A href="#svgcats_vml_p316" class="to_prev_page" style="margin-top:6988px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6999px; width:596px; height:293px;" fillcolor="white"/>
+<DIV id="text317_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7016px; line-height:15px; white-space:nowrap">
+<A name="set_fc_option">
+set_fc_option</A></DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:7190px; width:316px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text317_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:7196px; line-height:15px; white-space:nowrap">
+set_fc_option( new fc_option ).m_bStartDiff = True<BR/>
+If not fc( file_a, file_b ) Then&nbsp; Fail<BR/>
+If not fc( file_a, file_c ) Then&nbsp; Fail<BR/>
+set_fc_option&nbsp; Empty</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7046px; width:352px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text317_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7053px; line-height:13px; white-space:nowrap">
+Function&nbsp; set_fc_option( opt as fc_option ) as fc_option</DIV>
+<DIV id="text317_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:7080px; line-height:15px; white-space:nowrap">
+<A href="#fc">
+fc</A></DIV>
+<DIV id="text317_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:7080px; line-height:15px; white-space:nowrap">
+のオプションを設定します。 デバッグ用です。</DIV>
+<DIV id="text317_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7167px; line-height:15px; white-space:nowrap">
+サンプル： fc で違いが発見されたら、そのファイルに対して diff を起動します。</DIV>
+<DIV id="text317_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7135px; line-height:15px; white-space:nowrap">
+このオプションは、fc, fc_r, fc_ex のすべてに設定され、set_fc_option Empty するまで有効です。</DIV>
+<DIV id="text317_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7105px; line-height:15px; white-space:nowrap">
+返り値は、opt 引数がそのまま返ります。</DIV>
+<DIV id="text317_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:225px; margin-top:7053px; line-height:13px; white-space:nowrap">
+<A href="#fc_option">
+fc_option</A></DIV>
+
+<v:line from="0,6999" to="596,6999"/>
+<v:line from="596,6999" to="596,7292"/>
+<v:line from="596,7292" to="0,7292"/>
+<v:line from="0,7292" to="0,6999"/>
+
+</PAGE>
+ 
+<!-- page 318 --> 
+<PAGE>
+<A id="svgcats_vml_p318" class="to_tree" style="margin-top:7297px;" onClick="selectTreeElem( '318' );">←</A>
+<A href="#svgcats_vml_p319" class="to_next_page" style="margin-top:7297px;">▼</A>
+<A href="#svgcats_vml_p317" class="to_prev_page" style="margin-top:7297px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7308px; width:578px; height:1407px;" fillcolor="white"/>
+<DIV id="text318_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7325px; line-height:15px; white-space:nowrap">
+<A name="SyncFilesMenu">
+SyncFilesMenu</A></DIV>
+<DIV id="text318_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7356px; line-height:15px; white-space:nowrap">
+複数のフォルダーにある複数のファイルの差分を調べて、Diff ツールやテキスト・エディターを<BR/>
+開くメニューを表示することで、手動でファイルの内容を同じにする作業を支援します。</DIV>
+<DIV id="text318_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7541px; line-height:13px; white-space:nowrap">
+.AddRootFolder</DIV>
+<DIV id="text318_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7541px; line-height:13px; white-space:nowrap">
+Function&nbsp; AddRootFolder( IndexNum, RootFolderPath )</DIV>
+<DIV id="text318_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7565px; line-height:13px; white-space:nowrap">
+.AddFile</DIV>
+<DIV id="text318_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7457px; line-height:13px; white-space:nowrap">
+.IsCompareTimeStamp</DIV>
+<DIV id="text318_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7481px; line-height:13px; white-space:nowrap">
+.IsCompareContents</DIV>
+<DIV id="text318_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7765px; line-height:13px; white-space:nowrap">
+.Compare</DIV>
+<DIV id="text318_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7765px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Compare()</DIV>
+<DIV id="text318_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7565px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AddFile( StepPath )</DIV>
+<DIV id="text318_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7457px; line-height:13px; white-space:nowrap">
+boolean</DIV>
+<DIV id="text318_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7481px; line-height:13px; white-space:nowrap">
+boolean</DIV>
+<DIV id="text318_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7789px; line-height:13px; white-space:nowrap">
+Sub&nbsp; OpenSyncMenu()</DIV>
+<DIV id="text318_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7789px; line-height:13px; white-space:nowrap">
+<A name="SyncFilesMenu_OpenSyncMenu">
+.OpenSyncMenu</A></DIV>
+<DIV id="text318_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:8641px; line-height:15px; white-space:nowrap">
+→ T_SyncFiles.vbs # main</DIV>
+<DIV id="text318_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8641px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text318_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:8616px; line-height:15px; white-space:nowrap">
+→ SyncFilesMenuLib.vbs</DIV>
+<DIV id="text318_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7813px; line-height:13px; white-space:nowrap">
+.IsSameFolder</DIV>
+<DIV id="text318_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7813px; line-height:13px; white-space:nowrap">
+Function&nbsp; IsSameFolder( FolderAIndexNum, FolderBIndexNum )</DIV>
+<DIV id="text318_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8173px; line-height:15px; white-space:nowrap">
+サンプル・コード</DIV>
+<v:rect style="position:absolute; margin-left:61px; margin-top:8199px; width:322px; height:220px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text318_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:8205px; line-height:15px; white-space:nowrap">
+&nbsp; Set menu = new SyncFilesMenu<BR/>
+&nbsp; menu.IsCompareTimeStamp = False<BR/>
+&nbsp; menu.Lead = "Comparing Base, Update1 and Update2"<BR/>
+&nbsp; menu.AddRootFolder&nbsp; 0, "Folder0"<BR/>
+&nbsp; menu.AddRootFolder&nbsp; 1, "Folder1"<BR/>
+&nbsp; menu.AddRootFolder&nbsp; 2, "Folder2"<BR/>
+&nbsp; menu.RootFolders(0).Label = "Base"<BR/>
+&nbsp; menu.RootFolders(1).Label = "FolderA"<BR/>
+&nbsp; menu.RootFolders(2).Label = "FolderB"<BR/>
+&nbsp; menu.AddFile&nbsp; "File1.txt"<BR/>
+&nbsp; menu.AddFile&nbsp; "File2.txt"<BR/>
+&nbsp; menu.AddFile&nbsp; "File3.txt"<BR/>
+&nbsp; menu.Compare<BR/>
+&nbsp; menu.OpenSyncMenu</DIV>
+<DIV id="text318_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8453px; line-height:15px; white-space:nowrap">
+データ構造</DIV>
+<DIV id="text318_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:67px; margin-top:8502px; line-height:13px; white-space:nowrap">
+SyncFilesRoot&lt;array&gt;</DIV>
+<DIV id="text318_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:262px; margin-top:8557px; line-height:13px; white-space:nowrap">
+.StepPath</DIV>
+<DIV id="text318_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:235px; margin-top:8521px; line-height:13px; white-space:nowrap">
+.AbsPath</DIV>
+<DIV id="text318_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:235px; margin-top:8537px; line-height:13px; white-space:nowrap">
+.Files( Key:StepPath )</DIV>
+<DIV id="text318_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:81px; margin-top:8537px; line-height:13px; white-space:nowrap">
+SyncFilesFile&lt;dic&gt;</DIV>
+<DIV id="text318_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:8483px; line-height:13px; white-space:nowrap">
+SyncFilesMenu</DIV>
+<DIV id="text318_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:220px; margin-top:8502px; line-height:13px; white-space:nowrap">
+.RootFolders( Index:Num )</DIV>
+<DIV id="text318_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:262px; margin-top:8573px; line-height:13px; white-space:nowrap">
+.IsSameBinary[ n ]</DIV>
+<DIV id="text318_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:81px; margin-top:8521px; line-height:13px; white-space:nowrap">
+string</DIV>
+<DIV id="text318_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:99px; margin-top:8557px; line-height:13px; white-space:nowrap">
+string</DIV>
+<DIV id="text318_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:99px; margin-top:8573px; line-height:13px; white-space:nowrap">
+boolean</DIV>
+<v:rect style="position:absolute; margin-left:61px; margin-top:7904px; width:400px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text318_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:7910px; line-height:15px; white-space:nowrap">
+Comparing Base, Update1 and Update2<BR/>
+&nbsp;1. NotSame.txt : Base≠FolderA, Base≠FolderB, FolderA≠FolderB<BR/>
+&nbsp;2. NotSameNo0.txt : Base に存在しません, FolderA≠FolderB<BR/>
+&nbsp;3. Only0.txt : Base のみに存在します<BR/>
+&nbsp;4. SameAll.txt : 同じ内容<BR/>
+&nbsp;99. 戻る<BR/>
+ファイルの番号を入力してください &gt;1<BR/>
+<BR/>
+NotSame.txt<BR/>
+&nbsp;1. Diff ツールを開く<BR/>
+&nbsp;4. Base のファイルを開く<BR/>
+&nbsp;5. FolderA のファイルを開く<BR/>
+&nbsp;6. FolderB のファイルを開く<BR/>
+&nbsp;99. 戻る<BR/>
+操作の番号を入力してください &gt;</DIV>
+<DIV id="text318_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7877px; line-height:15px; white-space:nowrap">
+サンプル画面</DIV>
+<DIV id="text318_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:24px; margin-top:7402px; line-height:15px; white-space:nowrap">
+比較するファイルは、AddFile メソッドを使って１つ１つ指定してください。</DIV>
+<DIV id="text318_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:142px; margin-top:7539px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text318_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:142px; margin-top:7563px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text318_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:142px; margin-top:7763px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text318_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:142px; margin-top:7787px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text318_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:142px; margin-top:7811px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text318_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7505px; line-height:13px; white-space:nowrap">
+.IsCallViaFile</DIV>
+<DIV id="text318_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7505px; line-height:13px; white-space:nowrap">
+boolean</DIV>
+<DIV id="text318_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:254px; margin-top:7503px; line-height:15px; white-space:nowrap">
+CallViaFile を呼ぶメニュー 80 を追加するかどうか</DIV>
+<DIV id="text318_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7705px; line-height:13px; white-space:nowrap">
+.RootFolders(i).Label</DIV>
+<DIV id="text318_46" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7705px; line-height:13px; white-space:nowrap">
+ラベル。 i は、AddFile の FileNum</DIV>
+<DIV id="text318_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7418px; line-height:15px; white-space:nowrap">
+ファイルが同じかどうかは、ReadFile の返り値が同じかどうかで判定します。</DIV>
+<DIV id="text318_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:39px; margin-top:7729px; line-height:13px; white-space:nowrap">
+<A href="#SetParentFolderProxyName_SyncFilesMenu">
+.SetParentFolderProxyName</A></DIV>
+<DIV id="text318_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:212px; margin-top:7729px; line-height:13px; white-space:nowrap">
+親フォルダーの指定を、サブ・フォルダーに置き換える</DIV>
+<DIV id="text318_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8666px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text318_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:8666px; line-height:15px; white-space:nowrap">
+<A href="vbslib_03.html#SyncFilesX">
+→ SyncFilesX</A></DIV>
+<DIV id="text318_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8616px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text318_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:194px; margin-top:7581px; line-height:15px; white-space:nowrap">
+StepPath を配列にすると、それぞれのフォルダーで異なる<BR/>
+相対パスを設定できます。 その配列の要素数は、AddRootFolder<BR/>
+を呼び出した回数に一致させてください。</DIV>
+<DIV id="text318_54" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:7639px; line-height:13px; white-space:nowrap">
+.AddFileWithLabel</DIV>
+<DIV id="text318_55" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:188px; margin-top:7639px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AddFileWithLabel( Label, StepPath )</DIV>
+<DIV id="text318_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:194px; margin-top:7658px; line-height:15px; white-space:nowrap">
+Label 引数が追加された AddFile。<BR/>
+ファイルを選ぶメニューで、ファイル名の右に表示します。</DIV>
+
+<v:line from="0,7308" to="578,7308"/>
+<v:line from="578,7308" to="578,8715"/>
+<v:line from="578,8715" to="0,8715"/>
+<v:line from="0,8715" to="0,7308"/>
+
+</PAGE>
+ 
+<!-- page 319 --> 
+<PAGE>
+<A id="svgcats_vml_p319" class="to_tree" style="margin-top:8720px;" onClick="selectTreeElem( '319' );">←</A>
+<A href="#svgcats_vml_p320" class="to_next_page" style="margin-top:8720px;">▼</A>
+<A href="#svgcats_vml_p318" class="to_prev_page" style="margin-top:8720px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8731px; width:579px; height:397px;" fillcolor="white"/>
+<DIV id="text319_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8748px; line-height:15px; white-space:nowrap">
+<A name="SetParentFolderProxyName_SyncFilesMenu">
+SetParentFolderProxyName (SyncFilesMenu)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8778px; width:514px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text319_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8785px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SyncFilesMenu::SetParentFolderProxyName( IndexNum as integer, Name as string )</DIV>
+<DIV id="text319_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8815px; line-height:15px; white-space:nowrap">
+親フォルダーの指定を、サブ・フォルダーに置き換えるように設定します。</DIV>
+<DIV id="text319_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8841px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text319_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8841px; line-height:15px; white-space:nowrap">
+IndexNum</DIV>
+<DIV id="text319_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8860px; line-height:15px; white-space:nowrap">
+Name</DIV>
+<DIV id="text319_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:8841px; line-height:15px; white-space:nowrap">
+フォルダー番号</DIV>
+<DIV id="text319_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:8860px; line-height:15px; white-space:nowrap">
+サブ・フォルダー名</DIV>
+<DIV id="text319_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:9080px; line-height:15px; white-space:nowrap">
+→ T_SyncFiles.vbs # T_SyncFilesParent</DIV>
+<DIV id="text319_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9080px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:8925px; width:274px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text319_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:8931px; line-height:15px; white-space:nowrap">
+Set menu = new SyncFilesMenu<BR/>
+menu.IsCompareTimeStamp = False<BR/>
+menu.AddRootFolder&nbsp; 0, "Folder0"<BR/>
+menu.AddRootFolder&nbsp; 1, "Folder1"<BR/>
+menu.SetParentFolderProxyName&nbsp; 1, "_parent"<BR/>
+menu.AddFile&nbsp; "..\Sample.txt"</DIV>
+<DIV id="text319_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8902px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text319_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:251px; margin-top:8992px; line-height:13px; white-space:nowrap">
+_parent</DIV>
+<DIV id="text319_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9036px; line-height:15px; white-space:nowrap">
+上記の場合、Folder0\..\Sample.txt と、Folder1\_parent\Sample.txt を比較します。</DIV>
+<DIV id="text319_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:373px; margin-top:8748px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,8731" to="579,8731"/>
+<v:line from="579,8731" to="579,9128"/>
+<v:line from="579,9128" to="0,9128"/>
+<v:line from="0,9128" to="0,8731"/>
+
+</PAGE>
+ 
+<!-- page 320 --> 
+<PAGE>
+<A id="svgcats_vml_p320" class="to_tree" style="margin-top:9133px;" onClick="selectTreeElem( '320' );">←</A>
+<A href="vbslib_16.html#svgcats_vml_p321" class="to_next_page" style="margin-top:9133px;">▼</A>
+<A href="#svgcats_vml_p319" class="to_prev_page" style="margin-top:9133px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9144px; width:611px; height:960px;" fillcolor="white"/>
+<DIV id="text320_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9161px; line-height:15px; white-space:nowrap">
+<A name="SynchronizeFolder">
+SynchronizeFolder</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:9442px; width:472px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text320_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:9449px; line-height:13px; white-space:nowrap">
+SynchronizeFolder&nbsp; "C:\FolderA", "C:\FolderB", "C:\Synchronized", "*", Empty</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9191px; width:454px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text320_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9197px; line-height:15px; white-space:nowrap">
+Sub&nbsp; SynchronizeFolder( FolderA_Path as string, FolderB_Path as string,<BR/>
+&nbsp; &nbsp; SynchronizedPath as string, Mask as string, in_out_Options as Empty )</DIV>
+<DIV id="text320_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9244px; line-height:15px; white-space:nowrap">
+２つのフォルダーを同期します。</DIV>
+<DIV id="text320_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9270px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text320_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9270px; line-height:15px; white-space:nowrap">
+FolderA_Path</DIV>
+<DIV id="text320_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9289px; line-height:15px; white-space:nowrap">
+FolderB_Path</DIV>
+<DIV id="text320_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:9270px; line-height:15px; white-space:nowrap">
+同期をとるフォルダーのパス</DIV>
+<DIV id="text320_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:9289px; line-height:15px; white-space:nowrap">
+同期をとるもう１つのフォルダーのパス</DIV>
+<DIV id="text320_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9308px; line-height:15px; white-space:nowrap">
+SynchronizedPath</DIV>
+<DIV id="text320_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:9308px; line-height:15px; white-space:nowrap">
+同期した内容をとっておくフォルダーのパス</DIV>
+<DIV id="text320_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9419px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text320_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9384px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text320_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9327px; line-height:15px; white-space:nowrap">
+Mask</DIV>
+<DIV id="text320_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9346px; line-height:15px; white-space:nowrap">
+in_out_Options</DIV>
+<DIV id="text320_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:9346px; line-height:15px; white-space:nowrap">
+Empty を指定してください</DIV>
+<DIV id="text320_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:9327px; line-height:15px; white-space:nowrap">
+ファイル名のフィルター（ワイルドカード）</DIV>
+<DIV id="text320_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10029px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text320_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:10029px; line-height:15px; white-space:nowrap">
+→ T_SynchronizeFolder.vbs</DIV>
+<DIV id="text320_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:88px; margin-top:9384px; line-height:15px; white-space:nowrap">
+→ ToolsLib.vbs</DIV>
+<DIV id="text320_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9483px; line-height:15px; white-space:nowrap">
+両方のフォルダーにある同じ名前のファイルが更新されていたら、手動で更新するように<BR/>
+エラーが表示されます。 hint_path にできたファイルに、手動で同期する必要がある<BR/>
+ファイルのパスが書かれています。 削除されたファイルや、タイムスタンプが過去に<BR/>
+戻ったファイルも手動で同期する必要があります。</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:9560px; width:466px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text320_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:9567px; line-height:13px; white-space:nowrap">
+&lt;ERROR msg="自動で同期できないファイルがあります" hint_path="C:\hint.txt"/&gt;</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:9617px; width:328px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text320_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:9623px; line-height:15px; white-space:nowrap">
+&gt;SynchronizeFolder<BR/>
+&nbsp; &nbsp; A: "C:\FolderA"<BR/>
+&nbsp; &nbsp; B: "C:\FolderB"<BR/>
+以下のファイルが、両方のフォルダーで変更されました。<BR/>
+<BR/>
+"1.txt"<BR/>
+Updated: "C:\FolderA\1.txt"<BR/>
+Updated: "C:\FolderB\1.txt"</DIV>
+<DIV id="text320_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:9599px; line-height:15px; white-space:nowrap">
+例： C:\hint.txt</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:9796px; width:532px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text320_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:9802px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; SynchronizeFolder&nbsp; folder_A, folder_B, folder_S, "*.h", Empty<BR/>
+<BR/>
+&nbsp; &nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+&nbsp; &nbsp; If e.num &lt;&gt; 0 Then<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Set root = LoadXML( e.desc, F_Str )<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; hint_path = root.getAttribute( "hint_path" )<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; echo&nbsp; ""<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; echo&nbsp; "自動で同期できないファイルのパスを、テキスト・エディターで表示します。"<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; start&nbsp; GetEditorCmdLine( hint_path )<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; e.Raise<BR/>
+&nbsp; &nbsp; End If</DIV>
+<DIV id="text320_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9775px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text320_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:117px; margin-top:9775px; line-height:15px; white-space:nowrap">
+エラーがあったら、その内容をエディターで開く</DIV>
+<DIV id="text320_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10056px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text320_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:10056px; line-height:15px; white-space:nowrap">
+<A href="vbslib_03.html#SyncFilesX">
+→ SyncFilesX</A></DIV>
+
+<v:line from="0,9144" to="611,9144"/>
+<v:line from="611,9144" to="611,10104"/>
+<v:line from="611,10104" to="0,10104"/>
+<v:line from="0,10104" to="0,9144"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10104px;">
+<A id="svgcats_vml_p320" class="to_tree" onClick="selectTreeElem( '320' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10104px;">
+<A id="page_group_bottom" href="vbslib_16.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

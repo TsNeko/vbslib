@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>!DOSバッチファイル</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../dos_batch.html?f1=dos_batch.files/dos_batch_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=dos_batch.files/dos_batch_05.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "dos_batch.files/dos_batch_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../dos_batch.html?f1=dos_batch.files/dos_batch_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=dos_batch.files/dos_batch_05.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 56 --> 
+<PAGE>
+<A id="svgcats_vml_p56" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '56' );">←</A>
+<A href="#svgcats_vml_p57" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="dos_batch_04.html#svgcats_vml_p55" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="dos_batch_04.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:527px; height:970px;" fillcolor="white"/>
+<DIV id="text56_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="fc">
+fc</A></DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:613px; width:460px; height:325px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text56_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:619px; line-height:15px; white-space:nowrap">
+FC [/A] [/C] [/L] [/LBn] [/N] [/OFF[LINE]] [/T] [/U] [/W] [/nnnn]<BR/>
+&nbsp; &nbsp;[ドライブ1:][パス1]ファイル名1 [ドライブ2:][パス2]ファイル名2<BR/>
+FC /B [ドライブ1:][パス1]ファイル名1 [ドライブ2:][パス2]ファイル名2<BR/>
+<BR/>
+&nbsp; /A&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;相違する各部分の 1 行目と最後の行だけを表示します。<BR/>
+&nbsp; /B&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;バイナリの比較を実行します。<BR/>
+&nbsp; /C&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;英字の大文字と小文字を区別しません。<BR/>
+&nbsp; /L&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ファイルを ASCII テキストとして比較します。<BR/>
+&nbsp; /LBn&nbsp; &nbsp; &nbsp; &nbsp;連続する最大不一致行を指定行数に設定します。<BR/>
+&nbsp; /N&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ASCII の比較で行番号を表示します。<BR/>
+&nbsp; /OFF[LINE] オフライン属性が設定されたファイルをスキップしません。<BR/>
+&nbsp; /T&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;タブをスペースに変換しません。<BR/>
+&nbsp; /U&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Unicode テキスト ファイルとしてファイルを比較します。<BR/>
+&nbsp; /W&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;連続した空白 (タブとスペース) を 1 つのスペースに圧縮して比較<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;します。<BR/>
+&nbsp; /nnnn&nbsp; &nbsp; &nbsp; 不一致発見後に確認する、一致すべき連続行数を指定します。<BR/>
+<BR/>
+&nbsp; [ドライブ1:][パス1]ファイル名1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;比較する最初のファイルまたはファイル セットを指定します。<BR/>
+&nbsp; [ドライブ2:][パス2]ファイル名2<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;比較する 2 番目のファイルまたはファイル セットを指定します。</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:44px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text56_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:51px; line-height:13px; white-space:nowrap">
+fc&nbsp; text1.txt&nbsp; text2.txt</DIV>
+<DIV id="text56_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:76px; line-height:15px; white-space:nowrap">
+テキストファイルやバイナリファイルを比較します。</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:163px; width:304px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text56_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:169px; line-height:15px; white-space:nowrap">
+C:\&gt;fc text1.txt text2.txt<BR/>
+ファイル text1.txt と text2.txt を比較しています<BR/>
+FC: 相違点は検出されませんでした</DIV>
+<DIV id="text56_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:99px; line-height:15px; white-space:nowrap">
+エラーレベル： 0=一致、1=不一致, 2=text1.txt か text2.txt が無い</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:254px; width:364px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text56_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:260px; line-height:15px; white-space:nowrap">
+C:\&gt;fc text1.txt text2.txt<BR/>
+ファイル text1.txt と text2.txt を比較しています<BR/>
+***** text1.txt<BR/>
+Test Start<BR/>
+==========================================================<BR/>
+***** text2.txt<BR/>
+&nbsp;Test Start<BR/>
+==========================================================<BR/>
+*****</DIV>
+<DIV id="text56_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:142px; line-height:15px; white-space:nowrap">
+一致するときの出力例：</DIV>
+<DIV id="text56_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:233px; line-height:15px; white-space:nowrap">
+一致しないときの出力例：</DIV>
+<DIV id="text56_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:591px; line-height:15px; white-space:nowrap">
+ヘルプ</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:452px; width:292px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text56_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:458px; line-height:15px; white-space:nowrap">
+fc T_ALL_ans.txt T_ALL_log.txt<BR/>
+echo.&gt;&gt; T_ALL_log.txt<BR/>
+echo Test log compare is ...&gt;&gt; T_ALL_log.txt<BR/>
+if not errorlevel 1 echo Pass.&gt;&gt; T_ALL_log.txt<BR/>
+if&nbsp; &nbsp; &nbsp;errorlevel 1 echo Fail.&gt;&gt; T_ALL_log.txt<BR/>
+start notepad T_ALL_log.txt </DIV>
+<DIV id="text56_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:429px; line-height:15px; white-space:nowrap">
+バッチファイルサンプル：</DIV>
+<DIV id="text56_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:338px; margin-top:458px; line-height:15px; white-space:nowrap">
+比較して<BR/>
+<BR/>
+<BR/>
+その結果を出力して<BR/>
+<BR/>
+出力結果を開いています。</DIV>
+
+<v:line from="0,0" to="527,0"/>
+<v:line from="527,0" to="527,970"/>
+<v:line from="527,970" to="0,970"/>
+<v:line from="0,970" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 57 --> 
+<PAGE>
+<A id="svgcats_vml_p57" class="to_tree" style="margin-top:975px;" onClick="selectTreeElem( '57' );">←</A>
+<A href="#svgcats_vml_p58" class="to_next_page" style="margin-top:975px;">▼</A>
+<A href="#svgcats_vml_p56" class="to_prev_page" style="margin-top:975px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:986px; width:393px; height:163px;" fillcolor="white"/>
+<DIV id="text57_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1003px; line-height:15px; white-space:nowrap">
+comp</DIV>
+<DIV id="text57_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:1101px; line-height:15px; white-space:nowrap">
+<A href="http://itpro.nikkeibp.co.jp/free/NT/WinKeyWord/20040805/1/comp.shtml" target="_blank">
+→ Windowsコマンド集：（comp） (Web)</A></DIV>
+<DIV id="text57_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1101px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:1040px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text57_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:1047px; line-height:13px; white-space:nowrap">
+comp&nbsp; bin1.txt&nbsp; bin2.txt</DIV>
+<DIV id="text57_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:1072px; line-height:15px; white-space:nowrap">
+テキストファイル、またはバイナリファイルを比較します。</DIV>
+
+<v:line from="0,986" to="393,986"/>
+<v:line from="393,986" to="393,1149"/>
+<v:line from="393,1149" to="0,1149"/>
+<v:line from="0,1149" to="0,986"/>
+
+</PAGE>
+ 
+<!-- page 58 --> 
+<PAGE>
+<A id="svgcats_vml_p58" class="to_tree" style="margin-top:1154px;" onClick="selectTreeElem( '58' );">←</A>
+<A href="#svgcats_vml_p59" class="to_next_page" style="margin-top:1154px;">▼</A>
+<A href="#svgcats_vml_p57" class="to_prev_page" style="margin-top:1154px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1165px; width:558px; height:752px;" fillcolor="white"/>
+<DIV id="text58_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1182px; line-height:15px; white-space:nowrap">
+<A name="find">
+find (DOS)</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:1257px; width:256px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text58_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:1264px; line-height:13px; white-space:nowrap">
+find "keyword" file.txt &gt; found_file.txt</DIV>
+<v:rect style="position:absolute; margin-left:51px; margin-top:1327px; width:34px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text58_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:1333px; line-height:15px; white-space:nowrap">
+def<BR/>
+gis<BR/>
+acd</DIV>
+<v:line style="position:absolute;" from="101,1354" to="174,1354" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="174,1354" to="163,1350" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="174,1354" to="163,1358" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:186px; margin-top:1328px; width:142px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text58_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:194px; margin-top:1334px; line-height:15px; white-space:nowrap">
+------------ FILT.TXT<BR/>
+gis</DIV>
+<DIV id="text58_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:1305px; line-height:15px; white-space:nowrap">
+file.txt</DIV>
+<DIV id="text58_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:1305px; line-height:15px; white-space:nowrap">
+found_file.txt</DIV>
+<DIV id="text58_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:115px; margin-top:1330px; line-height:15px; white-space:nowrap">
+find "is"</DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:1598px; width:502px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text58_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:1604px; line-height:15px; white-space:nowrap">
+ファイル (複数可) 内のテキスト文字列を検索します。<BR/>
+<BR/>
+FIND [/V] [/C] [/N] [/I] [/OFF[LINE]] "文字列" [[ドライブ:][パス]ファイル名[...]]<BR/>
+<BR/>
+&nbsp; /V&nbsp; &nbsp; &nbsp; &nbsp; 指定した文字列を含まない行をすべて表示します。<BR/>
+&nbsp; /C&nbsp; &nbsp; &nbsp; &nbsp; 指定した文字列を含む行の数だけを表示します。<BR/>
+&nbsp; /N&nbsp; &nbsp; &nbsp; &nbsp; 行番号を表示します。<BR/>
+&nbsp; /I&nbsp; &nbsp; &nbsp; &nbsp; 大文字と小文字の区別をしないで検索します。<BR/>
+&nbsp; /OFF[LINE] オフライン属性が設定されたファイルをスキップしません。<BR/>
+&nbsp; "文字列"&nbsp; 検索する文字列を指定します。<BR/>
+&nbsp; [ドライブ:][パス]ファイル名<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 検索するファイル (複数可) を指定します。<BR/>
+<BR/>
+パスが指定されていないときは、プロンプトで入力されたテキストまた<BR/>
+は別のコマンドからパイプ処理で渡されたテキストを検索します。</DIV>
+<DIV id="text58_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1220px; line-height:15px; white-space:nowrap">
+１つのファイルの中を検索します。<BR/>
+UNIXの grep に近い。 findstr もあります。</DIV>
+<DIV id="text58_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:133px; margin-top:1184px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:1448px; width:286px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text58_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:1455px; line-height:13px; white-space:nowrap">
+type file.txt | find "file1" &gt; found_file.txt</DIV>
+<DIV id="text58_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1422px; line-height:15px; white-space:nowrap">
+パイプを使い、ファイルパスを指定しないと、パイプされた内容から検索します。</DIV>
+<DIV id="text58_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:115px; margin-top:1511px; line-height:15px; white-space:nowrap">
+find "is"</DIV>
+<DIV id="text58_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:1486px; line-height:15px; white-space:nowrap">
+found_file.txt</DIV>
+<DIV id="text58_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:1486px; line-height:15px; white-space:nowrap">
+file.txt</DIV>
+<v:line style="position:absolute;" from="101,1535" to="174,1535" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="174,1535" to="163,1531" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="174,1535" to="163,1539" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:51px; margin-top:1508px; width:34px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text58_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:1514px; line-height:15px; white-space:nowrap">
+def<BR/>
+gis<BR/>
+acd</DIV>
+<v:rect style="position:absolute; margin-left:186px; margin-top:1509px; width:34px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text58_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:194px; margin-top:1515px; line-height:15px; white-space:nowrap">
+gis</DIV>
+<DIV id="text58_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:18px; margin-top:1850px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text58_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:59px; margin-top:1850px; line-height:15px; white-space:nowrap">
+→ find (Linux)</DIV>
+<DIV id="text58_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:59px; margin-top:1869px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_11.html#FindStringLines">
+→ FindStringLines (vbslib)</A></DIV>
+
+<v:line from="0,1165" to="558,1165"/>
+<v:line from="558,1165" to="558,1917"/>
+<v:line from="558,1917" to="0,1917"/>
+<v:line from="0,1917" to="0,1165"/>
+
+</PAGE>
+ 
+<!-- page 59 --> 
+<PAGE>
+<A id="svgcats_vml_p59" class="to_tree" style="margin-top:1922px;" onClick="selectTreeElem( '59' );">←</A>
+<A href="#svgcats_vml_p60" class="to_next_page" style="margin-top:1922px;">▼</A>
+<A href="#svgcats_vml_p58" class="to_prev_page" style="margin-top:1922px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1933px; width:544px; height:2684px;" fillcolor="white"/>
+<DIV id="text59_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1950px; line-height:15px; white-space:nowrap">
+<A name="findstr">
+findstr</A></DIV>
+<DIV id="text59_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:2021px; line-height:15px; white-space:nowrap">
+<A href="http://www.atmarkit.co.jp/fwin2k/win2ktips/511findstr/findstr.html" target="_blank">
+→ ＠IT：Windows TIPS -- Tips：findstrで正規表現を検索する (Web)</A></DIV>
+<DIV id="text59_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1979px; line-height:15px; white-space:nowrap">
+正規表現が使え、サブフォルダーも検索できる find です。<BR/>
+grep とほぼ同じです。 Windows 2000 から使えます。</DIV>
+<DIV id="text59_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2061px; line-height:15px; white-space:nowrap">
+検索する文字列が見つかったときは終了コード0を、<BR/>
+見つからなかったときは終了コード1を返します。</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:2357px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:2364px; line-height:13px; white-space:nowrap">
+findstr /S /N /R&nbsp; "\[PATCH_OF:.*\]"&nbsp; *</DIV>
+<DIV id="text59_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:4543px; line-height:15px; white-space:nowrap">
+→ grep (Linux)</DIV>
+<DIV id="text59_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:20px; margin-top:4543px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:3579px; width:484px; height:790px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:3585px; line-height:15px; white-space:nowrap">
+FINDSTR [/B] [/E] [/L] [/R] [/S] [/I] [/X] [/V] [/N] [/M] [/O] [/P] [/F:ファイ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; ル] [/C:文字列] [/G:ファイル] [/D:ディレクトリ一覧] [/A:色属性]<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; [/OFF[LINE]] 文字列 [[ドライブ:][パス]ファイル名[ ...]]<BR/>
+<BR/>
+&nbsp; /B&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;行の先頭にあるパターンを検索します。<BR/>
+&nbsp; /E&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;行の末尾にあるパターンを検索します。<BR/>
+&nbsp; /L&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;検索文字列をリテラルとして使用します。<BR/>
+&nbsp; /R&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;検索文字列を正規表現として使用します。<BR/>
+&nbsp; /S&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;現在のディレクトリとすべてのサブディレクトリから一致する<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ファイルを検索します。<BR/>
+&nbsp; /I&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;検索するときに大文字と小文字を区別しません。<BR/>
+&nbsp; /X&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;完全に一致する行を出力します。<BR/>
+&nbsp; /V&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;一致しない行のみを出力します。<BR/>
+&nbsp; /N&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;一致する各行の前に行番号を出力します。<BR/>
+&nbsp; /M&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ファイルに一致する行があるときに、ファイル名のみを出力します。<BR/>
+&nbsp; /O&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;一致する各行の前に文字オフセットを出力します。<BR/>
+&nbsp; /P&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;印刷不可能な文字を含むファイルをスキップします。<BR/>
+&nbsp; /OFF[LINE] 　オフライン属性が設定されたファイルをスキップしません。<BR/>
+&nbsp; /A:属性&nbsp; &nbsp; &nbsp; 2 桁の 16 進数で色属性を指定します。"color /?" を参照してくだ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;さい。<BR/>
+&nbsp; /F:ファイル&nbsp; 指定したファイルからファイル一覧を読み取ります (/ を指定する<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;とコンソール)。<BR/>
+&nbsp; /C:文字列&nbsp; &nbsp; 指定された文字列をリテラル検索文字列として使用します。<BR/>
+&nbsp; /G:ファイル&nbsp; 指定された文字列から検索文字列を取得します (/ を指定する<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;とコンソール)。<BR/>
+&nbsp; /D:ディレクトリ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;セミコロンで区切られた検索されるディレクトリ文字列テキストの<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;一覧を検索します。<BR/>
+&nbsp; [ドライブ:][パス]ファイル名<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;検索するファイルを指定します。<BR/>
+<BR/>
+複数の文字列を検索する場合には、引数 /C を使わず、各文字列をスペースで区切り<BR/>
+ます。<BR/>
+たとえば、FINDSTR "hello there" x.y と指定した場合は、ファイル x.y で "hello"<BR/>
+または "there" が検索されます。<BR/>
+これに対して、FINDSTR /C:"hello there" x.y と指定した場合はファイル x.y で<BR/>
+"hello there" が検索されます。<BR/>
+<BR/>
+正規表現クイック リファレンス:<BR/>
+&nbsp; .&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ワイルドカード: 任意の文字<BR/>
+&nbsp; *&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 繰り返し: ゼロ個以上の直前の文字またはクラス<BR/>
+&nbsp; ^&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 行位置: 行頭<BR/>
+&nbsp; $&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 行位置: 行末<BR/>
+&nbsp; [class]&nbsp; &nbsp; &nbsp; 文字クラス: セットの任意の 1 文字<BR/>
+&nbsp; [^class]&nbsp; &nbsp; &nbsp;逆クラス: セット以外の任意の 1 文字<BR/>
+&nbsp; [x-y]&nbsp; &nbsp; &nbsp; &nbsp; 範囲: 指定した範囲の任意の文字<BR/>
+&nbsp; \x&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;エスケープ: メタ文字 x のリテラル使用<BR/>
+&nbsp; \&lt;xyz&nbsp; &nbsp; &nbsp; &nbsp; 単語位置: 単語の先頭<BR/>
+&nbsp; xyz\&gt;&nbsp; &nbsp; &nbsp; &nbsp; 単語位置: 単語の終わり<BR/>
+<BR/>
+FINDSTR の詳細な正規表現に関しては、オンライン ヘルプのコマンド リファレンスを<BR/>
+参照してください。</DIV>
+<DIV id="text59_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:2394px; line-height:15px; white-space:nowrap">
+"[PATCH_OF:" から始まり、"]" で終わる文字列を含む行を検索する。<BR/>
+検索対象のファイルは、カレント・フォルダー以下にあるものすべて (*)。<BR/>
+サブフォルダーも探す (/S)、 行番号を出力する (/N)、 正規表現を使う (/R)。</DIV>
+<DIV id="text59_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:23px; margin-top:3555px; line-height:15px; white-space:nowrap">
+ヘルプ</DIV>
+<v:rect style="position:absolute; margin-left:62px; margin-top:2473px; width:280px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:70px; margin-top:2480px; line-height:13px; white-space:nowrap">
+FolderB\File1.c:51:#define&nbsp; USES_EXT_FUNC&nbsp; 1</DIV>
+<DIV id="text59_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:2452px; line-height:15px; white-space:nowrap">
+出力例：</DIV>
+<DIV id="text59_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2326px; line-height:15px; white-space:nowrap">
+サンプル : 正規表現</DIV>
+<DIV id="text59_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:3023px; line-height:15px; white-space:nowrap">
+サンプル : 複数のキーワード、空白を含むキーワード</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:3054px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:3061px; line-height:13px; white-space:nowrap">
+findstr /S /N /R&nbsp; "define SYMBOL"&nbsp; *</DIV>
+<DIV id="text59_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:3089px; line-height:15px; white-space:nowrap">
+"define" または "SYMBOL" を含む行を検索する。</DIV>
+<DIV id="text59_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:3190px; line-height:15px; white-space:nowrap">
+"define SYMBOL" を含む行を検索する。</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:3122px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:3129px; line-height:13px; white-space:nowrap">
+findstr /S /N /R&nbsp; /C:"define SYMBOL"&nbsp; *</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:2139px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:2146px; line-height:13px; white-space:nowrap">
+findstr /S /N /L "[PATCH_OF:"&nbsp; *</DIV>
+<DIV id="text59_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2114px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text59_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:2173px; line-height:15px; white-space:nowrap">
+"[PATCH_OF:" を含む行を検索する。<BR/>
+検索対象のファイルは、カレント・フォルダー以下にあるものすべて (*)。<BR/>
+サブフォルダーも探す (/S)、 行番号を出力する (/N)、 リテラル表現を使う (/L)。</DIV>
+<v:rect style="position:absolute; margin-left:62px; margin-top:2249px; width:370px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:70px; margin-top:2255px; line-height:15px; white-space:nowrap">
+FolderB\File1.c:51:&nbsp; //=== start of insert [PATCH_OF:FuncA]<BR/>
+FolderB\File1.c:53:&nbsp; //=== end of [PATCH_OF:FuncA]</DIV>
+<DIV id="text59_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:2228px; line-height:15px; white-space:nowrap">
+出力例：</DIV>
+<DIV id="text59_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2535px; line-height:15px; white-space:nowrap">
+サンプル : 検索対象ファイルの指定</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:2567px; width:268px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:2574px; line-height:13px; white-space:nowrap">
+findstr /S /N /L "[PATCH_OF:"&nbsp; C:\Folder\*</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:2627px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:2634px; line-height:13px; white-space:nowrap">
+findstr /S /N /L "[PATCH_OF:"&nbsp; *.txt</DIV>
+<DIV id="text59_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:2597px; line-height:15px; white-space:nowrap">
+C:\Folder フォルダー以下を検索する</DIV>
+<DIV id="text59_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:2657px; line-height:15px; white-space:nowrap">
+拡張子が txt のファイルの中を検索する</DIV>
+<DIV id="text59_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:20px; margin-top:4383px; line-height:15px; white-space:nowrap">
++ は使えません。 a+ は、aa* と表現してください。 [ab]+ は、[ab][ab]*。<BR/>
+? は使えません。<BR/>
+{ } を使った量指定子は使えません。<BR/>
+/C オプションを指定しないと、or 検索ができます。</DIV>
+<DIV id="text59_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:4564px; line-height:15px; white-space:nowrap">
+→ 互換性 （正規表現）</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:3153px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:3160px; line-height:13px; white-space:nowrap">
+findstr /S /N /R&nbsp; "/C:define SYMBOL"&nbsp; *</DIV>
+<DIV id="text59_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:20px; margin-top:4464px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text59_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:4464px; line-height:15px; white-space:nowrap">
+<A href="http://stackoverflow.com/questions/8844868/what-are-the-undocumented-features-and-limitations-of-the-windows-findstr-comman" target="_blank">
+→ batch file - What are the undocumented features and limitations of<BR/>
+&nbsp; &nbsp; &nbsp;the Windows FINDSTR command - Stack Overflow (Web)</A></DIV>
+<DIV id="text59_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:4498px; line-height:15px; white-space:nowrap">
+<A href="http://stackoverflow.com/questions/11515508/how-to-use-findstr-to-capitalize-all-words-a-string" target="_blank">
+→ command line - How to use FINDSTR to capitalize all words a string<BR/>
+&nbsp; &nbsp; - Stack Overflow (Web)</A></DIV>
+<DIV id="text59_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:2715px; line-height:15px; white-space:nowrap">
+サンプル : 単語単位検索</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:2743px; width:172px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:2750px; line-height:13px; white-space:nowrap">
+findstr /S /N&nbsp; "\&lt;abc\&gt;" *</DIV>
+<DIV id="text59_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:2780px; line-height:15px; white-space:nowrap">
+\&lt; と \&gt; でキーワードを囲みます。 ただし、&lt; と &gt; はリダイレクトの記号なので、<BR/>
+上記のように " " で囲か、\^&lt;abc\^&gt; とする必要があります。</DIV>
+<v:rect style="position:absolute; margin-left:69px; margin-top:2947px; width:118px; height:19px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:77px; margin-top:2951px; line-height:13px; white-space:nowrap">
+findstr "&lt;abc&gt;" *</DIV>
+<DIV id="text59_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:2834px; line-height:15px; white-space:nowrap">
+似たような指定をしたときの違いをまとめます。</DIV>
+<v:rect style="position:absolute; margin-left:69px; margin-top:2892px; width:130px; height:19px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:77px; margin-top:2896px; line-height:13px; white-space:nowrap">
+findstr "\&lt;abc\&gt;" *</DIV>
+<v:rect style="position:absolute; margin-left:69px; margin-top:2920px; width:106px; height:19px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:77px; margin-top:2924px; line-height:13px; white-space:nowrap">
+findstr "abc" *</DIV>
+<v:line style="position:absolute;" from="59,2883" to="465,2883" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:231px; margin-top:2865px; line-height:13px; white-space:nowrap">
+abc</DIV>
+<DIV id="text59_44" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:275px; margin-top:2865px; line-height:13px; white-space:nowrap">
+abcde</DIV>
+<DIV id="text59_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:387px; margin-top:2865px; line-height:13px; white-space:nowrap">
+&lt;abc&gt;de</DIV>
+<DIV id="text59_46" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:331px; margin-top:2865px; line-height:13px; white-space:nowrap">
+&lt;abc&gt;</DIV>
+<DIV id="text59_47" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:234px; margin-top:2896px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:234px; margin-top:2951px; line-height:13px; white-space:nowrap">
+×</DIV>
+<DIV id="text59_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:234px; margin-top:2924px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_50" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:284px; margin-top:2924px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_51" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:284px; margin-top:2951px; line-height:13px; white-space:nowrap">
+×</DIV>
+<DIV id="text59_52" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:284px; margin-top:2896px; line-height:13px; white-space:nowrap">
+×</DIV>
+<DIV id="text59_53" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:340px; margin-top:2951px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_54" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:340px; margin-top:2924px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_55" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:340px; margin-top:2896px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_56" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:402px; margin-top:2924px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_57" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:402px; margin-top:2951px; line-height:13px; white-space:nowrap">
+○</DIV>
+<DIV id="text59_58" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:402px; margin-top:2896px; line-height:13px; white-space:nowrap">
+○</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:3285px; width:178px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text59_59" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:3291px; line-height:15px; white-space:nowrap">
+@echo off<BR/>
+cd /d "C:\Folder"<BR/>
+<BR/>
+call :find1&nbsp; Symbol_1<BR/>
+call :find1&nbsp; Symbol_2<BR/>
+<BR/>
+pause<BR/>
+goto :eof<BR/>
+<BR/>
+<BR/>
+:find1<BR/>
+echo ======= %1<BR/>
+findstr /S /N /M "\&lt;%1\&gt;" *<BR/>
+<BR/>
+goto :eof</DIV>
+<DIV id="text59_60" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:3255px; line-height:15px; white-space:nowrap">
+<A name="multi_grep">
+サンプル : 連続実行</A></DIV>
+
+<v:line from="0,1933" to="544,1933"/>
+<v:line from="544,1933" to="544,4617"/>
+<v:line from="544,4617" to="0,4617"/>
+<v:line from="0,4617" to="0,1933"/>
+
+</PAGE>
+ 
+<!-- page 60 --> 
+<PAGE>
+<A id="svgcats_vml_p60" class="to_tree" style="margin-top:4622px;" onClick="selectTreeElem( '60' );">←</A>
+<A href="#svgcats_vml_p61" class="to_next_page" style="margin-top:4622px;">▼</A>
+<A href="#svgcats_vml_p59" class="to_prev_page" style="margin-top:4622px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4633px; width:544px; height:1026px;" fillcolor="white"/>
+<DIV id="text60_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4650px; line-height:15px; white-space:nowrap">
+<A name="sort">
+sort</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:4755px; width:484px; height:835px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text60_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:4761px; line-height:15px; white-space:nowrap">
+SORT [/R] [/+n] [/M KB] [/L ロケール] [/REC レコードバイト]<BR/>
+&nbsp; [[ドライブ1:][パス1]ファイル名1] [/T [ドライブ2:][パス2]]<BR/>
+&nbsp; [/O [ドライブ3:][パス3]ファイル名3]<BR/>
+&nbsp; /+n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;各行の比較を始める文字番号 n を指定します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /+3 は、各行の 3 番目の文字から比較を始める<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ことを意味します。n 文字より少ない行は、ほかの<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 行より前に照合されます。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 既定では、比較はそれぞれの行の最初から始め<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ます。<BR/>
+&nbsp; /L[OCALE] ロケール&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定されたロケールでシステム既定のロケールを<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 上書きします。""C"" ロケールは、最も速い照合<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; シーケンスに従います。現在指定できるロケール<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; は ""C"" のみです。並べ替えは、常に大文字と小<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 文字を区別します。<BR/>
+&nbsp; /M[EMORY] KB&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 並べ替えに使うメイン メモリのサイズを KB<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; で指定します。メモリ サイズは、常に最小<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 160 KB で制限されます。メモリ サイズが<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指定された場合、メイン メモリをどれだけ利用<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; できるかにかかわらず、指定されたサイズのメモリ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; を使用します。<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 通常は、メモリ サイズを指定していないとき、最高<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; のパフォーマンスを得られます。既定では、並べ替<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; えが既定の最大メモリ サイズに格納できる場合は、<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (一時ファイルを使わないで) 1 回のパスで実行<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; します。そうでない場合は、(一部の並べ替えられ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; たデータを一時ファイルに格納して) 2 回のパス<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; で実行し、並べ替えと結合パスのためのメモリのサイ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ズを等しくします。入力と出力の両方がファイルの<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 場合、既定の最大メモリ サイズは利用できるメイン<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; メモリの 90% になります。そうでない場合は、<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; メイン メモリの 45% になります。<BR/>
+&nbsp; /REC[ORD_MAXIMUM] 文字数&nbsp; &nbsp; レコードの最大文字数を指定します<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (既定値 4096、最大値 65535)。<BR/>
+&nbsp; /R[EVERSE]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 並べ替えの順序を降順にします。つまり、Z から A、<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 9 から 0 の順に並べ替えます。<BR/>
+&nbsp; [ドライブ1:][パス1]ファイル名1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 並べ替えられるファイルを指定します。指定されて<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; いない場合、標準入力を並べ替えます。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 入力ファイルを指定す方が同じファイルへの標準<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 入力をリダイレクトするより速くなります。<BR/>
+&nbsp; /T[EMPORARY]<BR/>
+&nbsp; &nbsp; [ドライブ2:][パス2]<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; データをメイン メモリに格納できないときのた<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; めに、並べ替えのための一時記憶域を保持する<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ディレクトリを指定します。既定ではシステムの<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 一時ディレクトリを使用します。<BR/>
+&nbsp; /O[UTPUT]<BR/>
+&nbsp; &nbsp; [ドライブ3:][パス3]ファイル名3<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 並べ替えられた入力ファイルが格納されるファイル<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; を指定します。指定されていない場合、データは<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 標準出力に書き込まれます。出力ファイルを指定す<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; る方が同じファイルへの標準出力をリダイレクト<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; するより早くなります。</DIV>
+<DIV id="text60_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4734px; line-height:15px; white-space:nowrap">
+ヘルプ表示</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:4681px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text60_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:4688px; line-height:13px; white-space:nowrap">
+sort InputPath /o OutputPath</DIV>
+<DIV id="text60_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:66px; margin-top:4688px; line-height:13px; white-space:nowrap">
+InputPath</DIV>
+<DIV id="text60_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:144px; margin-top:4688px; line-height:13px; white-space:nowrap">
+OutputPath</DIV>
+<DIV id="text60_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5611px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text60_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:5611px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_11.html#SortStringLines">
+→ SortStringLines (vbslib)</A></DIV>
+
+<v:line from="0,4633" to="544,4633"/>
+<v:line from="544,4633" to="544,5659"/>
+<v:line from="544,5659" to="0,5659"/>
+<v:line from="0,5659" to="0,4633"/>
+
+</PAGE>
+ 
+<!-- page 61 --> 
+<PAGE>
+<A id="svgcats_vml_p61" class="to_tree" style="margin-top:5664px;" onClick="selectTreeElem( '61' );">←</A>
+<A href="#svgcats_vml_p62" class="to_next_page" style="margin-top:5664px;">▼</A>
+<A href="#svgcats_vml_p60" class="to_prev_page" style="margin-top:5664px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5675px; width:522px; height:998px;" fillcolor="white"/>
+<DIV id="text61_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5692px; line-height:15px; white-space:nowrap">
+<A name="copy">
+copy, move</A></DIV>
+<v:rect style="position:absolute; margin-left:30px; margin-top:5852px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text61_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:38px; margin-top:5859px; line-height:13px; white-space:nowrap">
+copy /B&nbsp; a.001+a.002&nbsp; a.zip</DIV>
+<v:rect style="position:absolute; margin-left:30px; margin-top:6209px; width:460px; height:430px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text61_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:38px; margin-top:6215px; line-height:15px; white-space:nowrap">
+1 つまたは複数のファイルを別の場所にコピーします。<BR/>
+<BR/>
+COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/A | /B]送り側 [/A | /B]<BR/>
+&nbsp; &nbsp; &nbsp;[+ 送り側 [/A | /B] [+ ...]] [受け側 [/A | /B]]<BR/>
+<BR/>
+&nbsp; 送り側&nbsp; &nbsp; コピーするファイル (複数可) を指定します。<BR/>
+&nbsp; /A&nbsp; &nbsp; &nbsp; &nbsp; ASCII テキスト ファイルとして扱います。<BR/>
+&nbsp; /B&nbsp; &nbsp; &nbsp; &nbsp; バイナリ ファイルとして扱います。<BR/>
+&nbsp; /D&nbsp; &nbsp; &nbsp; &nbsp; 受け側のファイルが暗号化が解除されて作成されるようにします。<BR/>
+&nbsp; 受け側&nbsp; &nbsp; 新しいファイルのディレクトリまたはファイル名 (複数可) を指定し<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ます。<BR/>
+&nbsp; /V&nbsp; &nbsp; &nbsp; &nbsp; 新しいファイルが正しく書き込まれたか検査します。<BR/>
+&nbsp; /N&nbsp; &nbsp; &nbsp; &nbsp; MS-DOS 形式以外の名前のファイルをコピーするときに、利用可能な<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; らば、短いファイル名を使用します。<BR/>
+&nbsp; /Y&nbsp; &nbsp; &nbsp; &nbsp; 受け側の既存のファイルを上書きする前に確認のメッセージを表示し<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ません。<BR/>
+&nbsp; /-Y&nbsp; &nbsp; &nbsp; &nbsp;受け側の既存のファイルを上書きする前に確認のメッセージを表示し<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ます。<BR/>
+&nbsp; /Z&nbsp; &nbsp; &nbsp; &nbsp; ネットワーク ファイルを再起動可能モードでコピーします。<BR/>
+<BR/>
+環境変数 COPYCMD でスイッチ /Y が設定されている場合があります。<BR/>
+このスイッチは、コマンド ラインから /-Y が指定されると無効になります。既定<BR/>
+では、COPY コマンドがバッチ スクリプトから実行されていない場合、上書き確認<BR/>
+メッセージが表示されます。<BR/>
+<BR/>
+複数のファイルを付加するときは、受け側に 1 個のファイルを指定し、送り側に<BR/>
+複数のファイルを指定します (ワイルドカードを使うか、ファイル1+ファイル2+<BR/>
+ファイル3 と指定します)。</DIV>
+<DIV id="text61_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:6190px; line-height:15px; white-space:nowrap">
+ヘルプ</DIV>
+<v:rect style="position:absolute; margin-left:30px; margin-top:5792px; width:196px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text61_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:38px; margin-top:5799px; line-height:13px; white-space:nowrap">
+copy&nbsp; a-01.txt+a-02.txt&nbsp; a.txt</DIV>
+<DIV id="text61_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5835px; line-height:15px; white-space:nowrap">
+バイナリファイルの結合</DIV>
+<DIV id="text61_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5775px; line-height:15px; white-space:nowrap">
+テキストファイルの結合</DIV>
+<DIV id="text61_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:124px; margin-top:5694px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<DIV id="text61_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5903px; line-height:15px; white-space:nowrap">
+第2引数が存在するフォルダではないときは、第2引数をファイルとします。<BR/>
+第2引数が存在するフォルダではないときに、フォルダを move したら、<BR/>
+第1引数のフォルダ名を第2引数のフォルダ名に改名します</DIV>
+<v:rect style="position:absolute; margin-left:30px; margin-top:6067px; width:250px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text61_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:38px; margin-top:6073px; line-height:15px; white-space:nowrap">
+copy&nbsp; a.txt&nbsp; folder<BR/>
+if errorlevel 1 echo&nbsp; cannot copy a.txt</DIV>
+<DIV id="text61_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:6046px; line-height:15px; white-space:nowrap">
+コピーできなかったとき、errorlevel が設定されます。</DIV>
+<DIV id="text61_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:256px; margin-top:5797px; line-height:15px; white-space:nowrap">
++ で結合します</DIV>
+<DIV id="text61_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:5737px; line-height:15px; white-space:nowrap">
+move は、フォルダの移動にも使えます。</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:5959px; width:196px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text61_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:5966px; line-height:13px; white-space:nowrap">
+move C:\sub\folder1 C:\folder2</DIV>
+<DIV id="text61_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:5989px; line-height:15px; white-space:nowrap">
+C:\sub\folder1\file.txt は、C:\folder2\file.txt になります。</DIV>
+<DIV id="text61_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:6114px; line-height:15px; white-space:nowrap">
+成功 : errorlevel = 0<BR/>
+アクセスが拒否された、コピー元が無い、コピー先にフォルダが無い : errorlevel = 1</DIV>
+
+<v:line from="0,5675" to="522,5675"/>
+<v:line from="522,5675" to="522,6673"/>
+<v:line from="522,6673" to="0,6673"/>
+<v:line from="0,6673" to="0,5675"/>
+
+</PAGE>
+ 
+<!-- page 62 --> 
+<PAGE>
+<A id="svgcats_vml_p62" class="to_tree" style="margin-top:6678px;" onClick="selectTreeElem( '62' );">←</A>
+<A href="#svgcats_vml_p63" class="to_next_page" style="margin-top:6678px;">▼</A>
+<A href="#svgcats_vml_p61" class="to_prev_page" style="margin-top:6678px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6689px; width:563px; height:1718px;" fillcolor="white"/>
+<DIV id="text62_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6706px; line-height:15px; white-space:nowrap">
+<A name="xcopy">
+xcopy</A></DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:7427px; width:484px; height:850px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text62_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:7433px; line-height:15px; white-space:nowrap">
+ファイルとディレクトリ ツリーをコピーします。<BR/>
+<BR/>
+XCOPY 送り側 [受け側] [/A | /M] [/D[:日付]] [/P] [/S [/E]] [/V] [/W]<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [/C] [/I] [/Q] [/F] [/L] [/G] [/H] [/R] [/T] [/U]<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [/K] [/N] [/O] [/X] [/Y] [/-Y] [/Z]<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [/EXCLUDE:ファイル1[+ファイル2][+ファイル3]...]<BR/>
+<BR/>
+&nbsp; 送り側&nbsp; &nbsp; &nbsp; コピーするファイル (複数可) を指定します。<BR/>
+&nbsp; 受け側&nbsp; &nbsp; &nbsp; 新しいファイルの位置や名前を指定します。<BR/>
+&nbsp; /A&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; アーカイブ属性のファイルのみをコピーし、属性は変更しません。<BR/>
+&nbsp; /M&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; アーカイブ属性のファイルのみをコピーし、アーカイブ属性を解除<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; します。<BR/>
+&nbsp; /D:月-日-年 指定された日付以降に変更されたファイルをコピーします。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 日付が指定されなかったときは、送り側の日付が受け側の日付より<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 新しいファイルだけをコピーします。<BR/>
+&nbsp; /EXCLUDE:ファイル1[+ファイル2][+ファイル3]...<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 文字列を含むファイルの一覧を指定します。各文字列はファイルの<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 中で別の行でなければなりません。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 文字列がコピーされるファイルの絶対パスの一部と一致した場合、<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; そのファイルはコピーから除外されます。たとえば、\obj\ を指<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 定するとディレクトリ obj の下のファイルはすべて除外されます。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .obj という文字列を指定すると .obj という拡張子のファイルは<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; すべて除外されます。<BR/>
+&nbsp; /P&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 受け側のファイルを作成する前に確認のメッセージを表示します。<BR/>
+&nbsp; /S&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 空の場合を除いて、ディレクトリとサブディレクトリをコピーします。<BR/>
+&nbsp; /E&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ディレクトリまたはサブディレクトリが空であってもコピーします。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /S /E と同じ意味です。/T と同時に指定できます。<BR/>
+&nbsp; /V&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 書き込んだ各ファイルを検証します。<BR/>
+&nbsp; /W&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; キー入力があるまでコピー開始を待ちます。<BR/>
+&nbsp; /C&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; エラーが発生してもコピーを続けます。<BR/>
+&nbsp; /I&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 受け側がなく複数のファイルをコピーする場合、受け側をディレク<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; トリとしてコピーします。<BR/>
+&nbsp; /Q&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; コピー中ファイル名を表示しません。<BR/>
+&nbsp; /F&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; コピー中送り側と受け側の全ファイル名を表示します。<BR/>
+&nbsp; /L&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; コピーされるファイル名を表示します。<BR/>
+&nbsp; /G&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 暗号化をサポートしない受け側に、暗号化されたファイルをコピーす<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ることを許可します。<BR/>
+&nbsp; /H&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 隠しファイルやシステム ファイルもコピーします。<BR/>
+&nbsp; /R&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 読み取り専用ファイルを上書きします。<BR/>
+&nbsp; /T&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイルはコピーせずにディレクトリのみを作成します。ディレク<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; トリまたはサブディレクトリが空の場合は除きます。/E と使用すれ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ばディレクトリやサブディレクトリが空でも作成されます。<BR/>
+&nbsp; /U&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 受け側に既に存在するファイルだけをコピーします。<BR/>
+&nbsp; /K&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 属性をコピーします。通常の XCOPY は読み取り専用属性を変更し<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ます。<BR/>
+&nbsp; /N&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 生成された短い名前を使用してコピーします。<BR/>
+&nbsp; /O&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイルの所有権と ACL 情報をコピーします。<BR/>
+&nbsp; /X&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ファイルの監査設定をコピーします (/O を含む)。<BR/>
+&nbsp; /Y&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 受け側の既存のファイルを上書きする前に確認のメッセージを表示<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; しません。<BR/>
+&nbsp; /-Y&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;受け側の既存のファイルを上書きする前に確認のメッセージを表示<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; します。<BR/>
+&nbsp; /Z&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 再起動可能モードでネットワーク ファイルをコピーします。<BR/>
+<BR/>
+環境変数 COPYCMD にスイッチ /Y を設定できます。<BR/>
+これは、コマンド ラインの /-Y で無効になります。</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:6777px; width:196px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text62_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:6783px; line-height:15px; white-space:nowrap">
+mkdir folder2<BR/>
+xcopy /E /Y /Q folder1 folder2</DIV>
+<DIV id="text62_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:23px; margin-top:7403px; line-height:15px; white-space:nowrap">
+ヘルプ</DIV>
+<DIV id="text62_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:24px; margin-top:6748px; line-height:15px; white-space:nowrap">
+フォルダの中身全体をコピーする（上書き確認なし）</DIV>
+<DIV id="text62_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:24px; margin-top:6957px; line-height:15px; white-space:nowrap">
+コピー先が古いときだけコピーする(/D)</DIV>
+<DIV id="text62_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:255px; margin-top:6797px; line-height:15px; white-space:nowrap">
+folder2 に folder1 フォルダは作成しません</DIV>
+<DIV id="text62_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:94px; margin-top:6708px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<DIV id="text62_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:24px; margin-top:6862px; line-height:15px; white-space:nowrap">
+ACL も含めて完全にコピーする</DIV>
+<v:rect style="position:absolute; margin-left:138px; margin-top:6915px; width:118px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text62_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:146px; margin-top:6922px; line-height:13px; white-space:nowrap">
+/E /Y /H /R /K /X</DIV>
+<DIV id="text62_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:293px; margin-top:8306px; line-height:15px; white-space:nowrap">
+(cache)</DIV>
+<DIV id="text62_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:8306px; line-height:15px; white-space:nowrap">
+<A href="http://itpro.nikkeibp.co.jp/free/NT/WinKeyWord/20040805/1/xcopy.shtml" target="_blank">
+→ Windowsコマンド集：（xcopy） (Web)</A></DIV>
+<DIV id="text62_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8306px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text62_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:6829px; line-height:15px; white-space:nowrap">
+大量のファイル名を表示するときは、/Q を除いてください</DIV>
+<v:rect style="position:absolute; margin-left:346px; margin-top:6915px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text62_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:354px; margin-top:6922px; line-height:13px; white-space:nowrap">
+/Y /H /R /K /X</DIV>
+<DIV id="text62_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:6920px; line-height:15px; white-space:nowrap">
+フォルダ：</DIV>
+<DIV id="text62_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:287px; margin-top:6920px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:6982px; width:304px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text62_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:6989px; line-height:13px; white-space:nowrap">
+echo F | xcopy /D /Y folder1\a.txt folder2\a.txt</DIV>
+<DIV id="text62_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:6889px; line-height:15px; white-space:nowrap">
+次のようにオプションを指定します。</DIV>
+<DIV id="text62_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:7092px; line-height:15px; white-space:nowrap">
+echo F や /I が無いと、受け側のファイルかフォルダが存在しないときに、<BR/>
+次の質問がされます。</DIV>
+<v:rect style="position:absolute; margin-left:71px; margin-top:7129px; width:213px; height:20px;" fillcolor="#808080" strokecolor="#808080" strokeweight="1pt"/>
+<DIV id="text62_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FFFFFF; margin-left:85px; margin-top:7134px; line-height:13px; white-space:nowrap">
+(F= ファイル、D= ディレクトリ)?</DIV>
+<DIV id="text62_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:7242px; line-height:15px; white-space:nowrap">
+コピー先と同じタイムスタンプのときは、コピーしません。<BR/>
+コピー先の方が新しいときもコピーしません。<BR/>
+同じか新しいかは区別できません。</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:7050px; width:196px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text62_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:7057px; line-height:13px; white-space:nowrap">
+xcopy /D /Y /I folder1 folder2</DIV>
+<DIV id="text62_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:374px; margin-top:6987px; line-height:15px; white-space:nowrap">
+ファイルをコピー</DIV>
+<DIV id="text62_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:7055px; line-height:15px; white-space:nowrap">
+フォルダをコピー</DIV>
+<v:rect style="position:absolute; margin-left:71px; margin-top:7186px; width:339px; height:20px;" fillcolor="#808080" strokecolor="#808080" strokeweight="1pt"/>
+<DIV id="text62_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FFFFFF; margin-left:85px; margin-top:7191px; line-height:13px; white-space:nowrap">
+プロセスが、存在しないパイプに書き込もうとしました。</DIV>
+<DIV id="text62_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:7165px; line-height:15px; white-space:nowrap">
+echo F があると、次のメッセージが出ますが、無視できます。</DIV>
+<DIV id="text62_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:99px; margin-top:7291px; line-height:15px; white-space:nowrap">
+<A href="dos_batch_03.html#date">
+→ 日付 (timedate)</A></DIV>
+<DIV id="text62_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:7291px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:7016px; width:268px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text62_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:7023px; line-height:13px; white-space:nowrap">
+echo D | xcopy /D /Y folder1\a.txt folder2</DIV>
+<DIV id="text62_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:332px; margin-top:7021px; line-height:15px; white-space:nowrap">
+ファイルをコピー</DIV>
+<DIV id="text62_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:23px; margin-top:7339px; line-height:15px; white-space:nowrap">
+コピー先にあるファイルだけコピーする</DIV>
+<DIV id="text62_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:46px; margin-top:7362px; line-height:15px; white-space:nowrap">
+<A href="dos_batch_04.html#set_copy_exist">
+→ 出力先フォルダーパスを入力して、出力先にあるファイルだけコピーする</A></DIV>
+
+<v:line from="0,6689" to="563,6689"/>
+<v:line from="563,6689" to="563,8407"/>
+<v:line from="563,8407" to="0,8407"/>
+<v:line from="0,8407" to="0,6689"/>
+
+</PAGE>
+ 
+<!-- page 63 --> 
+<PAGE>
+<A id="svgcats_vml_p63" class="to_tree" style="margin-top:8412px;" onClick="selectTreeElem( '63' );">←</A>
+<A href="#svgcats_vml_p64" class="to_next_page" style="margin-top:8412px;">▼</A>
+<A href="#svgcats_vml_p62" class="to_prev_page" style="margin-top:8412px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8423px; width:452px; height:503px;" fillcolor="white"/>
+<DIV id="text63_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8440px; line-height:15px; white-space:nowrap">
+mkdir (md)</DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:8538px; width:394px; height:355px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text63_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:8544px; line-height:15px; white-space:nowrap">
+ディレクトリを作成します。<BR/>
+<BR/>
+MKDIR [ドライブ:]パス<BR/>
+MD [ドライブ:]パス<BR/>
+<BR/>
+コマンド拡張機能を有効にすると、MKDIR は次のように変更されます:<BR/>
+<BR/>
+MKDIR は、必要に応じてパスの中間ディレクトリを作成します。<BR/>
+たとえば、\a が存在しない場合、<BR/>
+<BR/>
+&nbsp; &nbsp; mkdir \a\b\c\d<BR/>
+<BR/>
+は、次と同じです:<BR/>
+<BR/>
+&nbsp; &nbsp; mkdir \a<BR/>
+&nbsp; &nbsp; chdir \a<BR/>
+&nbsp; &nbsp; mkdir b<BR/>
+&nbsp; &nbsp; chdir b<BR/>
+&nbsp; &nbsp; mkdir c<BR/>
+&nbsp; &nbsp; chdir c<BR/>
+&nbsp; &nbsp; mkdir d<BR/>
+<BR/>
+拡張機能が無効な場合は、上のように入力します。</DIV>
+<DIV id="text63_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:21px; margin-top:8514px; line-height:15px; white-space:nowrap">
+ヘルプ：</DIV>
+<DIV id="text63_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8473px; line-height:15px; white-space:nowrap">
+ディレクトリを作成します。</DIV>
+
+<v:line from="0,8423" to="452,8423"/>
+<v:line from="452,8423" to="452,8926"/>
+<v:line from="452,8926" to="0,8926"/>
+<v:line from="0,8926" to="0,8423"/>
+
+</PAGE>
+ 
+<!-- page 64 --> 
+<PAGE>
+<A id="svgcats_vml_p64" class="to_tree" style="margin-top:8931px;" onClick="selectTreeElem( '64' );">←</A>
+<A href="#svgcats_vml_p65" class="to_next_page" style="margin-top:8931px;">▼</A>
+<A href="#svgcats_vml_p63" class="to_prev_page" style="margin-top:8931px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8942px; width:562px; height:638px;" fillcolor="white"/>
+<DIV id="text64_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8959px; line-height:15px; white-space:nowrap">
+<A name="rmdir">
+rmdir (rd)</A></DIV>
+<DIV id="text64_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:9466px; line-height:15px; white-space:nowrap">
+→ rd - rmdir</DIV>
+<v:rect style="position:absolute; margin-left:69px; margin-top:9219px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text64_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:77px; margin-top:9226px; line-height:13px; white-space:nowrap">
+for /D /R %%i in (obj) do @if exist "%%i" rmdir /S /Q "%%i"</DIV>
+<DIV id="text64_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:9466px; line-height:15px; white-space:nowrap">
+参照</DIV>
+<DIV id="text64_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9140px; line-height:15px; white-space:nowrap">
+<A name="rmdir_samp">
+rmdir のサンプル</A></DIV>
+<DIV id="text64_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:9170px; line-height:15px; white-space:nowrap">
+サブフォルダに含まれる obj フォルダを削除します。</DIV>
+<DIV id="text64_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:8993px; line-height:15px; white-space:nowrap">
+フォルダを削除します</DIV>
+<DIV id="text64_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:127px; margin-top:8961px; line-height:12px; white-space:nowrap">
+<A href="dos_batch_01.html#bat">
+[ 親: DOSバッチファイル ]</A></DIV>
+<v:rect style="position:absolute; margin-left:69px; margin-top:9276px; width:352px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text64_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:77px; margin-top:9283px; line-height:13px; white-space:nowrap">
+for /D /R %i in (obj) do @if exist "%i" rmdir /S /Q "%i"</DIV>
+<DIV id="text64_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:9255px; line-height:15px; white-space:nowrap">
+コマンドライン版：</DIV>
+<DIV id="text64_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:9203px; line-height:15px; white-space:nowrap">
+バッチファイル版：</DIV>
+<DIV id="text64_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9331px; line-height:15px; white-space:nowrap">
+エラーチェック</DIV>
+<DIV id="text64_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:9358px; line-height:15px; white-space:nowrap">
+エラーレベルは設定されません。<BR/>
+共有違反などで、フォルダがまだ存在していれば失敗です。</DIV>
+<v:rect style="position:absolute; margin-left:80px; margin-top:9400px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text64_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:88px; margin-top:9407px; line-height:13px; white-space:nowrap">
+if exist folder_path&nbsp; echo rmdir failed &amp; pause &amp; goto :eof</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9035px; width:466px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text64_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9041px; line-height:15px; white-space:nowrap">
+set rmdir_path=obj<BR/>
+if exist %rmdir_path%&nbsp; rmdir /S /Q %rmdir_path%<BR/>
+if exist %rmdir_path%&nbsp; echo cannot delete %rmdir_path% &amp; set r=1&amp; goto :eof<BR/>
+set rmdir_path=</DIV>
+
+<v:line from="0,8942" to="562,8942"/>
+<v:line from="562,8942" to="562,9580"/>
+<v:line from="562,9580" to="0,9580"/>
+<v:line from="0,9580" to="0,8942"/>
+
+</PAGE>
+ 
+<!-- page 65 --> 
+<PAGE>
+<A id="svgcats_vml_p65" class="to_tree" style="margin-top:9585px;" onClick="selectTreeElem( '65' );">←</A>
+<A href="#svgcats_vml_p66" class="to_next_page" style="margin-top:9585px;">▼</A>
+<A href="#svgcats_vml_p64" class="to_prev_page" style="margin-top:9585px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9596px; width:508px; height:290px;" fillcolor="white"/>
+<DIV id="text65_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9613px; line-height:15px; white-space:nowrap">
+<A name="subst">
+subst</A></DIV>
+<DIV id="text65_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:9654px; line-height:15px; white-space:nowrap">
+<A href="http://www.geocities.co.jp/SiliconValley/3115/Human68k/subst.html" target="_blank">
+→ SUBST (Web)</A></DIV>
+<DIV id="text65_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9689px; line-height:15px; white-space:nowrap">
+SUBST P: A:\TEMP <BR/>
+&nbsp;これにより、ＰドライブをアクセスするとＡドライブのTEMPがアクセスされます。</DIV>
+<DIV id="text65_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9794px; line-height:15px; white-space:nowrap">
+SUBST A:\TEST C: <BR/>
+これにより、ＡドライブのTESTをアクセスするとＣドライブがアクセスされます。 </DIV>
+<DIV id="text65_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9838px; line-height:15px; white-space:nowrap">
+SUBST /D P:</DIV>
+<DIV id="text65_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9740px; line-height:15px; white-space:nowrap">
+SUBST P: \\pc01\folder<BR/>
+&nbsp;これにより、Ｐドライブをアクセスすると \\pc01\folder がアクセスされます。</DIV>
+<v:line style="position:absolute;" from="21,9802" to="166,9802" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="19,9818" to="466,9818" strokecolor="#000000" strokeweight="1pt"/>
+
+<v:line from="0,9596" to="508,9596"/>
+<v:line from="508,9596" to="508,9886"/>
+<v:line from="508,9886" to="0,9886"/>
+<v:line from="0,9886" to="0,9596"/>
+
+</PAGE>
+ 
+<!-- page 66 --> 
+<PAGE>
+<A id="svgcats_vml_p66" class="to_tree" style="margin-top:9891px;" onClick="selectTreeElem( '66' );">←</A>
+<A href="dos_batch_06.html#svgcats_vml_p67" class="to_next_page" style="margin-top:9891px;">▼</A>
+<A href="#svgcats_vml_p65" class="to_prev_page" style="margin-top:9891px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9902px; width:552px; height:1352px;" fillcolor="white"/>
+<DIV id="text66_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9919px; line-height:15px; white-space:nowrap">
+<A name="tasklist">
+tasklist</A></DIV>
+<DIV id="text66_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:10078px; line-height:15px; white-space:nowrap">
+<A href="http://ykr414.com/dos/dos04.html#30" target="_blank">
+→ コマンドプロンプトを使ってみよう！　－設定・システム操作－ (Web)</A></DIV>
+<DIV id="text66_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10078px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:10011px; width:136px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text66_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:10018px; line-height:13px; white-space:nowrap">
+tasklist /fo CSV /nh</DIV>
+<DIV id="text66_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9988px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text66_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:9946px; line-height:15px; white-space:nowrap">
+プロセスを一覧します。</DIV>
+<DIV id="text66_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:120px; margin-top:9988px; line-height:15px; white-space:nowrap">
+CSV形式でプロセスを一覧します。</DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:10147px; width:496px; height:1075px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text66_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:10153px; line-height:15px; white-space:nowrap">
+C:\&gt;tasklist /?<BR/>
+<BR/>
+TASKLIST [/S システム [/U ユーザー名 [/P [パスワード]]]]<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[/M [モジュール] | /SVC | /V] [/FI フィルター] [/FO 形式] [/NH]<BR/>
+<BR/>
+説明:<BR/>
+&nbsp; &nbsp; ローカルまたはリモートのシステムで実行されている<BR/>
+&nbsp; &nbsp; プロセスの一覧を表示します。<BR/>
+<BR/>
+パラメーター一覧:<BR/>
+&nbsp; &nbsp;/S&nbsp; &nbsp; システム&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 接続するリモート システムを指定します。<BR/>
+<BR/>
+&nbsp; &nbsp;/U&nbsp; &nbsp; [ドメイン\]ユーザー コマンドを実行するユーザー コンテキストを<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;指定します。<BR/>
+<BR/>
+&nbsp; &nbsp;/P&nbsp; &nbsp; [パスワード]&nbsp; &nbsp; &nbsp; &nbsp; 提供されたユーザー コンテキストのパスワードを<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;指定します。省略された場合は、入力を要求します。<BR/>
+<BR/>
+&nbsp; &nbsp;/M&nbsp; &nbsp; [モジュール]&nbsp; &nbsp; &nbsp; &nbsp; 指定された EXE/DLL 名を使用しているタスクを<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;すべて表示します。モジュール名が指定されない場合<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;は、読み込まれているモジュールすべてを表示します。<BR/>
+<BR/>
+&nbsp; &nbsp;/SVC&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 各プロセスをホストしているサービスを表示します。<BR/>
+<BR/>
+&nbsp; &nbsp;/V&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 詳細なタスク情報を表示します。<BR/>
+<BR/>
+&nbsp; &nbsp;/FI&nbsp; &nbsp; フィルター&nbsp; &nbsp; &nbsp; &nbsp;フィルターによって指定された、与えられた条件に一致<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;するタスクを表示します。<BR/>
+<BR/>
+&nbsp; &nbsp;/FO&nbsp; &nbsp; 形式&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;出力の形式を指定します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;有効な値: "TABLE", "LIST", "CSV"。<BR/>
+<BR/>
+&nbsp; &nbsp;/NH&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;出力するときに、"カラム ヘッダー"を<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;表示しないように指定します。<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"TABLE" と "CSV" のみ有効です。<BR/>
+<BR/>
+&nbsp; &nbsp;/?&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; このヘルプ メッセージを表示します。<BR/>
+<BR/>
+フィルター:<BR/>
+&nbsp; &nbsp; フィルター名&nbsp; &nbsp; &nbsp;有効な演算子&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 有効な値<BR/>
+&nbsp; &nbsp; -----------&nbsp; &nbsp; ---------------&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--------------------------<BR/>
+&nbsp; &nbsp; STATUS&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; eq, ne&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RUNNING |<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NOT RESPONDING | UNKNOWN<BR/>
+&nbsp; &nbsp; IMAGENAME&nbsp; &nbsp; &nbsp; &nbsp;eq, ne&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; イメージ名<BR/>
+&nbsp; &nbsp; PID&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;eq, ne, gt, lt, ge, le&nbsp; &nbsp; PID 値<BR/>
+&nbsp; &nbsp; SESSION&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;eq, ne, gt, lt, ge, le&nbsp; &nbsp; セッション番号<BR/>
+&nbsp; &nbsp; SESSIONNAME&nbsp; &nbsp; &nbsp;eq, ne&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; セッション名<BR/>
+&nbsp; &nbsp; CPUTIME&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;eq, ne, gt, lt, ge, le&nbsp; &nbsp; 次の形式の CPU 時間<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hh:mm:ss<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hh - 時間,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mm - 分、ss - 秒<BR/>
+&nbsp; &nbsp; MEMUSAGE&nbsp; &nbsp; &nbsp; &nbsp; eq, ne, gt, lt, ge, le&nbsp; &nbsp; メモリ使用 (KB)<BR/>
+&nbsp; &nbsp; USERNAME&nbsp; &nbsp; &nbsp; &nbsp; eq, ne&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ドメイン\]ユーザーの形式の<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 形式<BR/>
+&nbsp; &nbsp; SERVICES&nbsp; &nbsp; &nbsp; &nbsp; eq, ne&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; サービス名<BR/>
+&nbsp; &nbsp; WINDOWTITLE&nbsp; &nbsp; &nbsp;eq, ne&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ウィンドウ タイトル<BR/>
+&nbsp; &nbsp; MODULES&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;eq, ne&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DLL 名<BR/>
+<BR/>
+注意: リモート コンピューターを照会するときは、"WINDOWTITLE" フィルターと"STATUS<BR/>
+" フィルターはサポートされません。<BR/>
+<BR/>
+例:<BR/>
+&nbsp; &nbsp; TASKLIST<BR/>
+&nbsp; &nbsp; TASKLIST /M<BR/>
+&nbsp; &nbsp; TASKLIST /V /FO CSV<BR/>
+&nbsp; &nbsp; TASKLIST /SVC /FO LIST<BR/>
+&nbsp; &nbsp; TASKLIST /M wbem*<BR/>
+&nbsp; &nbsp; TASKLIST /S システム /FO LIST<BR/>
+&nbsp; &nbsp; TASKLIST /S システム /U ドメイン\ユーザー名 /FO CSV /NH<BR/>
+&nbsp; &nbsp; TASKLIST /S システム /U ユーザー名 /P パスワード /FO TABLE /NH<BR/>
+&nbsp; &nbsp; TASKLIST /FI "USERNAME ne NT AUTHORITY\SYSTEM" /FI "STATUS eq running"</DIV>
+<DIV id="text66_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:10128px; line-height:15px; white-space:nowrap">
+for Windows7</DIV>
+
+<v:line from="0,9902" to="552,9902"/>
+<v:line from="552,9902" to="552,11254"/>
+<v:line from="552,11254" to="0,11254"/>
+<v:line from="0,11254" to="0,9902"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:11254px;">
+<A id="svgcats_vml_p66" class="to_tree" onClick="selectTreeElem( '66' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:11254px;">
+<A id="page_group_bottom" href="dos_batch_06.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

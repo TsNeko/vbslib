@@ -1,0 +1,126 @@
+
+Section> T_Basic
+<Section tree="T_Basic">
+<DictionaryEx operation="Set" key="${RootPath}">C:\FolderA</DictionaryEx>
+<DictionaryEx operation="Get" key="${RootPath}">
+<Expand count="1">C:\FolderA</Expand>
+</DictionaryEx>
+</Section>
+
+Section> T_Value
+<Section tree="T_Value">
+<DictionaryEx operation="Set" key="${RootPath}">C:\Folder${Target}</DictionaryEx>
+<DictionaryEx operation="Set" key="${Target}">A</DictionaryEx>
+<DictionaryEx operation="Get" key="${RootPath}">
+<Expand count="1">C:\Folder${Target}</Expand>
+<Expand count="2">C:\FolderA</Expand>
+</DictionaryEx>
+<DictionaryEx operation="Set" key="${Target}">B</DictionaryEx>
+<DictionaryEx operation="Get" key="${RootPath}">
+<Expand count="1">C:\Folder${Target}</Expand>
+<Expand count="2">C:\FolderB</Expand>
+</DictionaryEx>
+</Section>
+
+Section> T_VarName
+<Section tree="T_VarName">
+<DictionaryEx operation="Set" key="${RootPath}">${${Target}/RootPath}</DictionaryEx>
+<DictionaryEx operation="Set" key="${TargetA/RootPath}">C:\FolderA</DictionaryEx>
+<DictionaryEx operation="Set" key="${TargetB/RootPath}">C:\FolderB</DictionaryEx>
+<DictionaryEx operation="Set" key="${Target}">TargetA</DictionaryEx>
+<DictionaryEx operation="Get" key="${RootPath}">
+<Expand count="1">${${Target}/RootPath}</Expand>
+<Expand count="2">${TargetA/RootPath}</Expand>
+<Expand count="3">C:\FolderA</Expand>
+</DictionaryEx>
+<DictionaryEx operation="Set" key="${Target}">TargetB</DictionaryEx>
+<DictionaryEx operation="Get" key="${RootPath}">
+<Expand count="1">${${Target}/RootPath}</Expand>
+<Expand count="2">${TargetB/RootPath}</Expand>
+<Expand count="3">C:\FolderB</Expand>
+</DictionaryEx>
+</Section>
+
+Section> T_Array
+<Section tree="T_Array">
+<DictionaryEx operation="Set" key="${Array}"><Array ubound="1">
+  <Item id="0">${${Target}/RootPath}/1</Item>
+  <Item id="1">${${Target}/RootPath}/2</Item>
+</Array></DictionaryEx>
+<DictionaryEx operation="Set" key="${TargetA/RootPath}">C:\FolderA</DictionaryEx>
+<DictionaryEx operation="Set" key="${Target}">TargetA</DictionaryEx>
+<DictionaryEx operation="Get" key="${Array}">
+<Expand count="1"><Array ubound="1">
+  <Item id="0">${${Target}/RootPath}/1</Item>
+  <Item id="1">${${Target}/RootPath}/2</Item>
+</Array></Expand>
+<Item index="0">
+<Expand count="2">${TargetA/RootPath}/1</Expand>
+<Expand count="3">C:\FolderA/1</Expand>
+</Item>
+<Item index="1">
+<Expand count="4">${TargetA/RootPath}/2</Expand>
+<Expand count="5">C:\FolderA/2</Expand>
+</Item>
+</DictionaryEx>
+</Section>
+
+Section> T_AddArray2
+<Section tree="T_AddArray2">
+<DictionaryEx operation="Set" key="${Array3}">${Array2}</DictionaryEx>
+<DictionaryEx operation="Set" key="${Array2}"><Array ubound="3">
+  <Item id="0">${Array1}</Item>
+  <Item id="1">${Var}/3</Item>
+  <Item id="2">${Var}/4</Item>
+  <Item id="3">${Var}/5</Item>
+</Array></DictionaryEx>
+<DictionaryEx operation="Set" key="${Array1}"><Array ubound="1">
+  <Item id="0">${Var}/1</Item>
+  <Item id="1">${Var}/2</Item>
+</Array></DictionaryEx>
+<DictionaryEx operation="Set" key="${Var}">x</DictionaryEx>
+<DictionaryEx operation="Get" key="${Array3}">
+<Expand count="1">${Array2}</Expand>
+<Expand count="2"><Array ubound="3">
+  <Item id="0">${Array1}</Item>
+  <Item id="1">${Var}/3</Item>
+  <Item id="2">${Var}/4</Item>
+  <Item id="3">${Var}/5</Item>
+</Array></Expand>
+<Item index="0">
+<Expand count="3"><Array ubound="1">
+  <Item id="0">${Var}/1</Item>
+  <Item id="1">${Var}/2</Item>
+</Array></Expand>
+</Item>
+<Item index="1">
+<Expand count="4">x/3</Expand>
+</Item>
+<Item index="2">
+<Expand count="5">x/4</Expand>
+</Item>
+<Item index="3">
+<Expand count="6">x/5</Expand>
+</Item>
+<Item index="0">
+<Expand count="7">x/1</Expand>
+</Item>
+<Item index="1">
+<Expand count="8">x/2</Expand>
+</Item>
+<Item index="2">x/3</Item>
+<Item index="3">x/4</Item>
+<Item index="4">x/5</Item>
+</DictionaryEx>
+</Section>
+
+Section> T_Escape
+<Section tree="T_Escape">
+<DictionaryEx operation="Set" key="${Var1}">x</DictionaryEx>
+<DictionaryEx operation="Set" key="${Var2}">${Var1},${Var1},$Var1,$\{Var1},$\\;</DictionaryEx>
+<DictionaryEx operation="Get" key="${Var2}">
+<Expand count="1">${Var1},${Var1},$Var1,$\{Var1},$\\;</Expand>
+<Expand count="2">x,x,$Var1,$\{Var1},$\\;</Expand>
+<Expand count="3">x,x,$Var1,${Var1},$\;</Expand>
+</DictionaryEx>
+</Section>

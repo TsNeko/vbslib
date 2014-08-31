@@ -1,0 +1,1 @@
+Test.vbs のファイル名を、TestForA.vbs に変えるテスト

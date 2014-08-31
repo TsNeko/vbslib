@@ -1,0 +1,1418 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>RepliCmp</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../replicmp.html?f1=replicmp.files/replicmp_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=replicmp.files/replicmp_01.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "replicmp.files/replicmp_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../replicmp.html?f1=replicmp.files/replicmp_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=replicmp.files/replicmp_01.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 1 --> 
+<PAGE>
+<A id="svgcats_vml_p1" class="to_tree" style="margin-top:-3px;" onClick="selectTreeElem( '1' );">←</A>
+<A href="#svgcats_vml_p2" class="to_next_page" style="margin-top:-3px;">▼</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:607px; height:405px;" fillcolor="white"/>
+<v:image src="01/image01.png"
+   style="position:absolute; margin-left:48px; margin-top:247px; width:18px; height:15px;"/>
+<DIV id="text1_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:25px; line-height:15px; white-space:nowrap">
+<A name="replicmp_module">
+RepliCmp, MergeLib モジュール (VBScript)</A></DIV>
+<DIV id="text1_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:26px; margin-top:65px; line-height:15px; white-space:nowrap">
+同じ名前のファイルの内容をマージする手助けをします。</DIV>
+<DIV id="text1_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:305px; line-height:15px; white-space:nowrap">
+→ フィードバック - 全体のリポジトリの更新 ver2</DIV>
+<DIV id="text1_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:49px; margin-top:129px; line-height:13px; white-space:nowrap">
+<A href="#RepliCmp">
+RepliCmp</A></DIV>
+<DIV id="text1_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:49px; margin-top:198px; line-height:13px; white-space:nowrap">
+<A href="#RunMergePrompt">
+RunMergePrompt</A></DIV>
+<DIV id="text1_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:49px; margin-top:152px; line-height:13px; white-space:nowrap">
+<A href="#SyncFiles">
+SyncFiles クラス</A></DIV>
+<DIV id="text1_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:49px; margin-top:175px; line-height:13px; white-space:nowrap">
+<A href="#PatchFiles">
+PatchFiles クラス</A></DIV>
+<DIV id="text1_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:127px; line-height:15px; white-space:nowrap">
+複数のフォルダにある同じ名前のファイルを同期します。</DIV>
+<DIV id="text1_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:196px; line-height:15px; white-space:nowrap">
+１つのファイルをマージする手助けをするプロンプトに入ります。</DIV>
+<DIV id="text1_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:150px; line-height:15px; white-space:nowrap">
+複数のファイルを同期する手助けをするプロンプトです。</DIV>
+<DIV id="text1_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:173px; line-height:15px; white-space:nowrap">
+バージョンアップ・マージする手助けをするプロンプトです。</DIV>
+<DIV id="text1_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:403px; margin-top:27px; line-height:12px; white-space:nowrap">
+[ テスト ]</DIV>
+<DIV id="text1_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:248px; line-height:15px; white-space:nowrap">
+リポジトリ</DIV>
+<DIV id="text1_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:40px; margin-top:98px; line-height:15px; white-space:nowrap">
+<A href="#prompt1">
+→ マージ・プロンプト</A></DIV>
+<DIV id="text1_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:49px; margin-top:221px; line-height:13px; white-space:nowrap">
+<A href="#RunMergeUpdate">
+RunMergeUpdate</A></DIV>
+<DIV id="text1_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:219px; line-height:15px; white-space:nowrap">
+同じ名前のファイルの内容を、すべて同じになるようにコピーします。</DIV>
+<DIV id="text1_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:26px; margin-top:335px; line-height:15px; white-space:nowrap">
+ライセンス</DIV>
+<DIV id="text1_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:113px; margin-top:367px; line-height:12px; white-space:nowrap">
+<A href="http://www.sage-p.com/" target="_blank">
+ソフトウェアデザイン館 Sage Plaisir 21&nbsp; http://www.sage-p.com/</A></DIV>
+<DIV id="text1_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:26px; margin-top:365px; line-height:15px; white-space:nowrap">
+サポート先</DIV>
+<DIV id="text1_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:113px; margin-top:335px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_01.html">
+→ vbslib</A></DIV>
+<DIV id="text1_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:335px; line-height:15px; white-space:nowrap">
+と同じです。</DIV>
+<DIV id="text1_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:269px; margin-top:335px; line-height:15px; white-space:nowrap">
+→ アプリケーション (vbslib付属)</DIV>
+<DIV id="text1_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:305px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,8" to="607,8"/>
+<v:line from="607,8" to="607,413"/>
+<v:line from="607,413" to="0,413"/>
+<v:line from="0,413" to="0,8"/>
+
+</PAGE>
+ 
+<!-- page 2 --> 
+<PAGE>
+<A id="svgcats_vml_p2" class="to_tree" style="margin-top:418px;" onClick="selectTreeElem( '2' );">←</A>
+<A href="#svgcats_vml_p3" class="to_next_page" style="margin-top:418px;">▼</A>
+<A href="#svgcats_vml_p1" class="to_prev_page" style="margin-top:418px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:429px; width:638px; height:1704px;" fillcolor="white"/>
+<v:image src="02/image01.png"
+   style="position:absolute; margin-left:75px; margin-top:1119px; width:18px; height:15px;"/>
+<v:image src="02/image02.png"
+   style="position:absolute; margin-left:75px; margin-top:1075px; width:18px; height:18px;"/>
+<v:image src="02/image03.png"
+   style="position:absolute; margin-left:75px; margin-top:1098px; width:18px; height:15px;"/>
+<v:image src="02/image04.png"
+   style="position:absolute; margin-left:79px; margin-top:1189px; width:14px; height:17px;"/>
+<v:image src="02/image05.png"
+   style="position:absolute; margin-left:79px; margin-top:1241px; width:14px; height:17px;"/>
+<v:image src="02/image06.png"
+   style="position:absolute; margin-left:79px; margin-top:1261px; width:14px; height:17px;"/>
+<v:image src="02/image07.png"
+   style="position:absolute; margin-left:51px; margin-top:1054px; width:18px; height:15px;"/>
+<DIV id="text2_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:446px; line-height:15px; white-space:nowrap">
+<A name="prompt1">
+マージ・プロンプト</A></DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:724px; width:286px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text2_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:730px; line-height:15px; white-space:nowrap">
+編集するファイルをコピーしてください<BR/>
+マージ・ステップ 1A/1B<BR/>
+1. Diff ツール起動<BR/>
+4. 左を開く: folder1\file1.txt<BR/>
+5. 中を開く: folder2\file1.txt<BR/>
+6. 右を開く: folder3\file1.txt<BR/>
+7. Editing フォルダへコピー（次のステップへ）<BR/>
+9. 終了<BR/>
+番号を入力してください。&gt;</DIV>
+<DIV id="text2_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1077px; line-height:15px; white-space:nowrap">
+Merge.vbs</DIV>
+<DIV id="text2_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1098px; line-height:15px; white-space:nowrap">
+Editing</DIV>
+<DIV id="text2_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1119px; line-height:15px; white-space:nowrap">
+New</DIV>
+<DIV id="text2_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:1098px; line-height:15px; white-space:nowrap">
+… マージ途中のファイルを格納するフォルダ</DIV>
+<DIV id="text2_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:1119px; line-height:15px; white-space:nowrap">
+… マージが完了したファイルを格納するフォルダ</DIV>
+<DIV id="text2_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:1077px; line-height:15px; white-space:nowrap">
+… マージする手助けをするプロンプトのスクリプト</DIV>
+<DIV id="text2_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1158px; line-height:15px; white-space:nowrap">
+Editing フォルダの内容</DIV>
+<DIV id="text2_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:1190px; line-height:15px; white-space:nowrap">
+file1(1)L.c</DIV>
+<DIV id="text2_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:1190px; line-height:15px; white-space:nowrap">
+… file1.c のマージステップが、1B のときにあるファイル</DIV>
+<DIV id="text2_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1242px; line-height:15px; white-space:nowrap">
+file1(2).c</DIV>
+<DIV id="text2_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:1242px; line-height:15px; white-space:nowrap">
+… file1.c のマージステップが、2A のときにあるファイル</DIV>
+<DIV id="text2_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:193px; margin-top:1262px; line-height:15px; white-space:nowrap">
+… file1.c のマージステップが、2B のときにあるファイル</DIV>
+<DIV id="text2_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1262px; line-height:15px; white-space:nowrap">
+file1(2)R.c</DIV>
+<DIV id="text2_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:1206px; line-height:15px; white-space:nowrap">
+Lは、マージステップ 1A で左のファイルをコピーしたことを<BR/>
+示します。LがM,(中) R(右) になっている場合もあります。</DIV>
+<DIV id="text2_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1292px; line-height:15px; white-space:nowrap">
+file1….c ファイルが無いときは、file1.c のマージステップが 1A です。</DIV>
+<DIV id="text2_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:1054px; line-height:15px; white-space:nowrap">
+merge_work</DIV>
+<DIV id="text2_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:23px; margin-top:1027px; line-height:15px; white-space:nowrap">
+マージ・ステップが進むと、Editing フォルダや New フォルダができます。</DIV>
+<v:line style="position:absolute;" from="40,1107" to="40,1151" strokecolor="#808080" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="40,1151" to="44,1140" strokecolor="#808080" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="40,1151" to="36,1140" strokecolor="#808080" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="40,1107" to="65,1107" strokecolor="#808080" strokeweight="1pt"/>
+<DIV id="text2_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:595px; line-height:15px; white-space:nowrap">
+<A name="step_a">
+マージ・ステップ 1A</A></DIV>
+<DIV id="text2_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:625px; line-height:15px; white-space:nowrap">
+Editing フォルダにコピーして、編集を開始するファイルを選択します。<BR/>
+左、中、右は、1. Diff ツールで見たときの左、中、右です。<BR/>
+中がマスター、左が１つ目の差分があるファイル、右が２つ目の差分があるファイルです。</DIV>
+<DIV id="text2_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:122px; margin-top:480px; line-height:15px; white-space:nowrap">
+<A href="#RunMergePrompt">
+RunMergePrompt</A></DIV>
+<DIV id="text2_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:229px; margin-top:480px; line-height:15px; white-space:nowrap">
+を使うと、マージ・プロンプトが開きます。</DIV>
+<DIV id="text2_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:50px; margin-top:511px; line-height:15px; white-space:nowrap">
+<A href="#step_a">
+→ マージ・ステップ 1A</A></DIV>
+<DIV id="text2_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1354px; line-height:15px; white-space:nowrap">
+<A name="step_b">
+マージ・ステップ 1B</A></DIV>
+<DIV id="text2_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:50px; margin-top:530px; line-height:15px; white-space:nowrap">
+<A href="#step_b">
+→ マージ・ステップ 1B</A></DIV>
+<DIV id="text2_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:201px; margin-top:511px; line-height:15px; white-space:nowrap">
+編集を開始するファイルを選択します</DIV>
+<DIV id="text2_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:201px; margin-top:530px; line-height:15px; white-space:nowrap">
+編集を行います。</DIV>
+<DIV id="text2_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:201px; margin-top:549px; line-height:15px; white-space:nowrap">
+マージが完了した状態です。コピーができます。</DIV>
+<DIV id="text2_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:1386px; line-height:15px; white-space:nowrap">
+Editing フォルダにコピーしたファイルを編集します。<BR/>
+下記のプロンプトは、ステップ 1A で左のファイルをコピーしたときのものです。</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:1429px; width:292px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text2_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:1435px; line-height:15px; white-space:nowrap">
+マージするために左のファイルを編集してください<BR/>
+マージ・ステップ 1B/1B<BR/>
+1. Diff ツール起動<BR/>
+4. 左を開く: Editing\file1(1)L.txt<BR/>
+5. 中を開く: folder2\file1.txt<BR/>
+6. 右を開く: folder3\file1.txt<BR/>
+7. 左の編集を完了して、次のステップへ<BR/>
+8. 前のステップへ<BR/>
+9. 終了<BR/>
+番号を入力してください。&gt;9</DIV>
+<DIV id="text2_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:23px; margin-top:884px; line-height:15px; white-space:nowrap">
+7. を選択すると、コピーするファイルを選ぶプロンプトになります。 選んだら ステップ1B に移ります。</DIV>
+<DIV id="text2_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:1609px; line-height:15px; white-space:nowrap">
+7. を選択すると、3ファイルマージのときは、New フォルダへコピーし、ステップ Fin になります。<BR/>
+4ファイルマージのときは、Editing フォルダへ別の名前でコピーし、ステップ 2A になります。<BR/>
+ステップ 2A は、4つ目のファイルをマージするためのプロンプトで、メニューはステップ1A と同じです。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:911px; width:274px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text2_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:917px; line-height:15px; white-space:nowrap">
+4. 左をコピーして、中と右の表示を入れ替える<BR/>
+5. 中をコピー"<BR/>
+6. 右をコピーして、左と中の表示を入れ替える<BR/>
+8. 戻る<BR/>
+番号を入力してください。&gt;</DIV>
+<DIV id="text2_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:50px; margin-top:549px; line-height:15px; white-space:nowrap">
+<A href="#step_fin">
+→ マージ・ステップ Fin</A></DIV>
+<DIV id="text2_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:675px; line-height:15px; white-space:nowrap">
+→ フィードバック - 全体のリポジトリの更新 ver2</DIV>
+<DIV id="text2_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:675px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text2_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1692px; line-height:15px; white-space:nowrap">
+<A name="step_fin">
+マージ・ステップ Fin</A></DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:1751px; width:310px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text2_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:1757px; line-height:15px; white-space:nowrap">
+file1.txt のマージは完了しました。<BR/>
+5. マージ済みを開く<BR/>
+6. マージ済みフォルダを開く<BR/>
+7. 同じ名前のファイルをすべてマージ済みに更新する<BR/>
+8. 前のステップへ<BR/>
+9. 終了<BR/>
+番号を入力してください。&gt;</DIV>
+<DIV id="text2_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:1725px; line-height:15px; white-space:nowrap">
+マージが完了したら、同じ名前のファイルを、すべてマージした内容にすることができます。</DIV>
+<DIV id="text2_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:2086px; line-height:15px; white-space:nowrap">
+<A href="#RunMergeUpdate">
+→ RunMergeUpdate</A></DIV>
+<DIV id="text2_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:2086px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:1923px; width:220px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text2_52" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:1929px; line-height:15px; white-space:nowrap">
+[MergeUpdate]<BR/>
+C:\folder1\fileA.txt<BR/>
+C:\folder2\fileA.txt<BR/>
+以上のファイルを更新しますか [Y/N]</DIV>
+<DIV id="text2_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:1885px; line-height:15px; white-space:nowrap">
+7.を選ぶと、更新が必要なファイル（内容が異なるファイル）を検索して一覧します。<BR/>
+Y を押すと、ファイルコピーを行います。</DIV>
+<DIV id="text2_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:2009px; line-height:15px; white-space:nowrap">
+上書きされる前のファイルは、そのファイルが格納されているフォルダの中に新しく作られる<BR/>
+backup フォルダの中に、バックアップとしてコピーします。<BR/>
+コピーしたファイルがプログラムのソースファイルなら、コピー先のプログラムのテストが通ってから、<BR/>
+backup フォルダを削除できます。</DIV>
+<DIV id="text2_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:39px; margin-top:480px; line-height:15px; white-space:nowrap">
+<A href="#RepliCmp">
+RepliCmp</A></DIV>
+<DIV id="text2_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:480px; line-height:15px; white-space:nowrap">
+や</DIV>
+<DIV id="text2_57" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:694px; line-height:15px; white-space:nowrap">
+ただし、</DIV>
+<DIV id="text2_58" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:82px; margin-top:694px; line-height:15px; white-space:nowrap">
+<A href="#PatchFiles">
+PatchFiles クラス</A></DIV>
+<DIV id="text2_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:694px; line-height:15px; white-space:nowrap">
+を使った場合、左、中、右の意味は異なります。</DIV>
+
+<v:line from="0,429" to="638,429"/>
+<v:line from="638,429" to="638,2133"/>
+<v:line from="638,2133" to="0,2133"/>
+<v:line from="0,2133" to="0,429"/>
+
+</PAGE>
+ 
+<!-- page 3 --> 
+<PAGE>
+<A id="svgcats_vml_p3" class="to_tree" style="margin-top:2138px;" onClick="selectTreeElem( '3' );">←</A>
+<A href="#svgcats_vml_p4" class="to_next_page" style="margin-top:2138px;">▼</A>
+<A href="#svgcats_vml_p2" class="to_prev_page" style="margin-top:2138px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2149px; width:626px; height:909px;" fillcolor="white"/>
+<DIV id="text3_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2370px; line-height:15px; white-space:nowrap">
+生成されるスクリプト Merge.vbs を実行すると、マージ・プロンプトが開きます。<BR/>
+詳しくは、</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:2716px; width:544px; height:265px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text3_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:2722px; line-height:15px; white-space:nowrap">
+'// vbslib ヘッダが必要<BR/>
+<BR/>
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; Set w_= AppKey.NewWritable( g_sh.SpecialFolders( "desktop" ) + "\_RepliCmp" ).Enable()<BR/>
+&nbsp; Dim opt : Set opt = new RepliCmp_Option<BR/>
+&nbsp; opt.m_EditorPath = Setting_getEditorCmdLine(0)<BR/>
+&nbsp; opt.m_DiffPath = Setting_getDiffCmdLine(0)<BR/>
+<BR/>
+&nbsp; folders = Array( _<BR/>
+&nbsp; &nbsp; "data\folder0", _<BR/>
+&nbsp; &nbsp; "data\folder1" )<BR/>
+<BR/>
+&nbsp; files = Array( _<BR/>
+&nbsp; &nbsp; "file1.txt" )<BR/>
+<BR/>
+&nbsp; RepliCmp&nbsp; folders, files, Opt<BR/>
+End Sub</DIV>
+<DIV id="text3_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:26px; margin-top:2166px; line-height:15px; white-space:nowrap">
+<A name="RepliCmp">
+RepliCmp</A></DIV>
+<DIV id="text3_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:2166px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:2193px; width:424px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text3_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:2199px; line-height:15px; white-space:nowrap">
+Sub&nbsp; RepliCmp( Folders as array of string, Files as array of string,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Opt as RepliCmp_Option )</DIV>
+<DIV id="text3_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2246px; line-height:15px; white-space:nowrap">
+複数のフォルダにある同じ名前のファイルを同期する手助けをするスクリプトを生成します。</DIV>
+<DIV id="text3_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2273px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text3_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2273px; line-height:15px; white-space:nowrap">
+Folders</DIV>
+<DIV id="text3_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:2273px; line-height:15px; white-space:nowrap">
+ベースフォルダパスの配列(*1)</DIV>
+<DIV id="text3_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2292px; line-height:15px; white-space:nowrap">
+Files</DIV>
+<DIV id="text3_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:2292px; line-height:15px; white-space:nowrap">
+比較するファイルの名前の配列</DIV>
+<DIV id="text3_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:103px; margin-top:2688px; line-height:15px; white-space:nowrap">
+data\folder0 と data\folder1 に入っている file1.txt を比較します。</DIV>
+<DIV id="text3_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:2688px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:2482px; width:310px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text3_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:2488px; line-height:15px; white-space:nowrap">
+Class&nbsp; RepliCmp_Option<BR/>
+&nbsp; Public&nbsp; m_EditorPath&nbsp; '// as string<BR/>
+&nbsp; Public&nbsp; m_DiffPath&nbsp; &nbsp; '// as string<BR/>
+&nbsp; Public&nbsp; m_bSilent&nbsp; &nbsp; &nbsp;'// as boolean<BR/>
+&nbsp; Public&nbsp; m_ExceptFolders&nbsp; '// as array of string<BR/>
+End Class</DIV>
+<DIV id="text3_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:2455px; line-height:15px; white-space:nowrap">
+<A name="RepliCmp_Option">
+RepliCmp_Option</A></DIV>
+<DIV id="text3_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2311px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text3_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:2311px; line-height:15px; white-space:nowrap">
+オプション</DIV>
+<DIV id="text3_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2346px; line-height:15px; white-space:nowrap">
+(*1)</DIV>
+<DIV id="text3_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:61px; margin-top:2346px; line-height:15px; white-space:nowrap">
+最初の配列要素は、マスターとして扱われます。</DIV>
+<DIV id="text3_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:2592px; line-height:15px; white-space:nowrap">
+m_EditorPath … エディタのパス<BR/>
+m_DiffPath … Diff ツールのパス<BR/>
+m_bSilent … マージ・フォルダを開かないかどうか<BR/>
+m_ExceptFolders … 除外するパスの一部</DIV>
+<DIV id="text3_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:89px; margin-top:2385px; line-height:15px; white-space:nowrap">
+<A href="#SyncFiles">
+→ SyncFiles クラス</A></DIV>
+<DIV id="text3_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2409px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:2407px; width:88px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text3_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:2411px; line-height:13px; white-space:nowrap">
+RepliCmp.vbs</DIV>
+<v:rect style="position:absolute; margin-left:191px; margin-top:2407px; width:88px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text3_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:199px; margin-top:2411px; line-height:13px; white-space:nowrap">
+MergeLib.vbs</DIV>
+<DIV id="text3_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:3010px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text3_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:3010px; line-height:15px; white-space:nowrap">
+→ T_RepliCmp フォルダ</DIV>
+
+<v:line from="0,2149" to="626,2149"/>
+<v:line from="626,2149" to="626,3058"/>
+<v:line from="626,3058" to="0,3058"/>
+<v:line from="0,3058" to="0,2149"/>
+
+</PAGE>
+ 
+<!-- page 4 --> 
+<PAGE>
+<A id="svgcats_vml_p4" class="to_tree" style="margin-top:3063px;" onClick="selectTreeElem( '4' );">←</A>
+<A href="#svgcats_vml_p5" class="to_next_page" style="margin-top:3063px;">▼</A>
+<A href="#svgcats_vml_p3" class="to_prev_page" style="margin-top:3063px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3074px; width:435px; height:349px;" fillcolor="white"/>
+<DIV id="text4_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3091px; line-height:15px; white-space:nowrap">
+コールツリー</DIV>
+<DIV id="text4_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:63px; margin-top:3358px; line-height:13px; white-space:nowrap">
+SyncFile::RunMergePromptMe</DIV>
+<DIV id="text4_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:3377px; line-height:13px; white-space:nowrap">
+<A name="RunMergePrompt_pos">
+RunMergePrompt</A></DIV>
+<DIV id="text4_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:86px; margin-top:3318px; line-height:13px; white-space:nowrap">
+in _RepliCmp\Merge.vbs</DIV>
+<DIV id="text4_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:3318px; line-height:13px; white-space:nowrap">
+main</DIV>
+<DIV id="text4_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:3338px; line-height:13px; white-space:nowrap">
+SyncFiles::RunMergePrompt</DIV>
+<DIV id="text4_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:3156px; line-height:13px; white-space:nowrap">
+RepliCmp</DIV>
+<DIV id="text4_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:24px; margin-top:3134px; line-height:13px; white-space:nowrap">
+Main</DIV>
+<DIV id="text4_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:69px; margin-top:3134px; line-height:13px; white-space:nowrap">
+in ～.vbs</DIV>
+<DIV id="text4_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:107px; margin-top:3156px; line-height:13px; white-space:nowrap">
+in RepliCmp.vbs</DIV>
+<DIV id="text4_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:56px; margin-top:3179px; line-height:13px; white-space:nowrap">
+//=== Collect replica files</DIV>
+<DIV id="text4_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:56px; margin-top:3254px; line-height:13px; white-space:nowrap">
+//=== Read and compare files</DIV>
+<DIV id="text4_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:56px; margin-top:3268px; line-height:13px; white-space:nowrap">
+For i_file = 0 To UBound(files)</DIV>
+<DIV id="text4_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:74px; margin-top:3285px; line-height:13px; white-space:nowrap">
+repli_files(i_file).OutDiff</DIV>
+<DIV id="text4_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:56px; margin-top:3194px; line-height:13px; white-space:nowrap">
+For Each&nbsp; fo&nbsp; In Folders</DIV>
+<DIV id="text4_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:74px; margin-top:3209px; line-height:13px; white-space:nowrap">
+echo&nbsp; "Investigating: " + fo</DIV>
+<DIV id="text4_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:74px; margin-top:3224px; line-height:13px; white-space:nowrap">
+ExpandWildcard&nbsp; fo + "\" + fi,</DIV>
+<DIV id="text4_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#800000; margin-left:272px; margin-top:3222px; line-height:15px; white-space:nowrap">
+ファイルの場所を検索</DIV>
+<DIV id="text4_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#800000; margin-left:272px; margin-top:3283px; line-height:15px; white-space:nowrap">
+ファイルの内容を比較</DIV>
+
+<v:line from="0,3074" to="435,3074"/>
+<v:line from="435,3074" to="435,3423"/>
+<v:line from="435,3423" to="0,3423"/>
+<v:line from="0,3423" to="0,3074"/>
+
+</PAGE>
+ 
+<!-- page 5 --> 
+<PAGE>
+<A id="svgcats_vml_p5" class="to_tree" style="margin-top:3428px;" onClick="selectTreeElem( '5' );">←</A>
+<A href="#svgcats_vml_p6" class="to_next_page" style="margin-top:3428px;">▼</A>
+<A href="#svgcats_vml_p4" class="to_prev_page" style="margin-top:3428px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3439px; width:499px; height:884px;" fillcolor="white"/>
+<v:image src="05/image01.png"
+   style="position:absolute; margin-left:73px; margin-top:3865px; width:18px; height:15px;"/>
+<v:image src="05/image02.png"
+   style="position:absolute; margin-left:97px; margin-top:3885px; width:14px; height:17px;"/>
+<v:image src="05/image03.png"
+   style="position:absolute; margin-left:97px; margin-top:3906px; width:14px; height:17px;"/>
+<v:image src="05/image04.png"
+   style="position:absolute; margin-left:213px; margin-top:3906px; width:14px; height:17px;"/>
+<v:image src="05/image05.png"
+   style="position:absolute; margin-left:213px; margin-top:3885px; width:14px; height:17px;"/>
+<v:image src="05/image06.png"
+   style="position:absolute; margin-left:189px; margin-top:3865px; width:18px; height:15px;"/>
+<v:image src="05/image07.png"
+   style="position:absolute; margin-left:300px; margin-top:3865px; width:18px; height:15px;"/>
+<v:image src="05/image08.png"
+   style="position:absolute; margin-left:324px; margin-top:3885px; width:14px; height:17px;"/>
+<v:image src="05/image09.png"
+   style="position:absolute; margin-left:54px; margin-top:3819px; width:18px; height:15px;"/>
+<v:image src="05/image10.png"
+   style="position:absolute; margin-left:72px; margin-top:3841px; width:18px; height:18px;"/>
+<DIV id="text5_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3456px; line-height:15px; white-space:nowrap">
+<A name="SyncFiles">
+SyncFiles クラス</A></DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:3981px; width:346px; height:310px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text5_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:3987px; line-height:15px; white-space:nowrap">
+'// vbslib ヘッダが必要<BR/>
+<BR/>
+Sub main()<BR/>
+&nbsp; Dim&nbsp; sync_files : Set sync_files = new SyncFiles<BR/>
+&nbsp; Dim&nbsp; opt : Set opt = new Merge_Option<BR/>
+<BR/>
+&nbsp; opt.m_EditorPath = "C:\Windows\notepad.exe"<BR/>
+&nbsp; opt.m_DiffPath = "C:\Program Files\Rekisa\Rekisa.exe"<BR/>
+<BR/>
+&nbsp; Set&nbsp; sync_files.m_MergeOption = opt<BR/>
+<BR/>
+&nbsp; sync_files.AddRepliFile&nbsp; "folder0\file1.txt"<BR/>
+&nbsp; sync_files.AddRepliFile&nbsp; "folder1\file1.txt"<BR/>
+&nbsp; sync_files.AddRepliFile&nbsp; "folder2\file1.txt"<BR/>
+&nbsp; sync_files.NextSyncFile<BR/>
+&nbsp; sync_files.AddRepliFile&nbsp; "folder0\file2.txt"<BR/>
+&nbsp; sync_files.AddRepliFile&nbsp; "folder1\file2.txt"<BR/>
+<BR/>
+&nbsp; sync_files.RunMergePrompt<BR/>
+End Sub</DIV>
+<DIV id="text5_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3490px; line-height:15px; white-space:nowrap">
+複数のファイルを同期する手助けをするプロンプトです。</DIV>
+<DIV id="text5_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:3456px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text5_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:3507px; line-height:15px; white-space:nowrap">
+<A href="#RepliCmp">
+RepliCmp</A></DIV>
+<DIV id="text5_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:3507px; line-height:15px; white-space:nowrap">
+を実行すると、SyncFiles クラスを使った Merge.vbs を生成します。</DIV>
+<DIV id="text5_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:33px; margin-top:3958px; line-height:15px; white-space:nowrap">
+Merge.vbs</DIV>
+<DIV id="text5_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3572px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text5_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:94px; margin-top:3865px; line-height:15px; white-space:nowrap">
+folder0</DIV>
+<DIV id="text5_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:116px; margin-top:3886px; line-height:15px; white-space:nowrap">
+file1.txt</DIV>
+<DIV id="text5_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:116px; margin-top:3907px; line-height:15px; white-space:nowrap">
+file2.txt</DIV>
+<DIV id="text5_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:3907px; line-height:15px; white-space:nowrap">
+file2.txt</DIV>
+<DIV id="text5_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:3886px; line-height:15px; white-space:nowrap">
+file1.txt</DIV>
+<DIV id="text5_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:3865px; line-height:15px; white-space:nowrap">
+folder1</DIV>
+<DIV id="text5_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:343px; margin-top:3886px; line-height:15px; white-space:nowrap">
+file1.txt</DIV>
+<DIV id="text5_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:321px; margin-top:3865px; line-height:15px; white-space:nowrap">
+folder2</DIV>
+<v:line style="position:absolute;" from="169,3894" to="199,3894" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="169,3894" to="180,3898" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="169,3894" to="180,3890" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="199,3894" to="188,3890" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="199,3894" to="188,3898" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="285,3894" to="315,3894" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="285,3894" to="296,3898" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="285,3894" to="296,3890" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="315,3894" to="304,3890" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="315,3894" to="304,3898" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="169,3914" to="199,3914" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="169,3914" to="180,3918" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="169,3914" to="180,3910" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="199,3914" to="188,3910" strokecolor="#8080FF" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="199,3914" to="188,3918" strokecolor="#8080FF" strokeweight="1pt"/>
+<DIV id="text5_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:3819px; line-height:15px; white-space:nowrap">
+merge_work</DIV>
+<DIV id="text5_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:94px; margin-top:3843px; line-height:15px; white-space:nowrap">
+Merge.vbs</DIV>
+<DIV id="text5_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#8080FF; margin-left:290px; margin-top:3903px; line-height:12px; white-space:nowrap">
+同期</DIV>
+<DIV id="text5_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#8080FF; margin-left:172px; margin-top:3924px; line-height:12px; white-space:nowrap">
+同期</DIV>
+<DIV id="text5_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:33px; margin-top:3793px; line-height:15px; white-space:nowrap">
+フォルダ構成</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:3676px; width:274px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text5_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:3682px; line-height:15px; white-space:nowrap">
+[Sync_Merge_Steps]<BR/>
+1) Step=Fin : file1.txt<BR/>
+2) Step=1A : file2.txt<BR/>
+-1) exit<BR/>
+マージするファイルの番号を入力してください&gt;</DIV>
+<DIV id="text5_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:33px; margin-top:3608px; line-height:15px; white-space:nowrap">
+プロンプト</DIV>
+<DIV id="text5_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:161px; margin-top:3651px; line-height:15px; white-space:nowrap">
+<A href="#prompt1">
+マージ・プロンプト</A></DIV>
+<DIV id="text5_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:3651px; line-height:15px; white-space:nowrap">
+ファイルを選択したら</DIV>
+<DIV id="text5_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:264px; margin-top:3651px; line-height:15px; white-space:nowrap">
+に入ります。</DIV>
+<DIV id="text5_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:3635px; line-height:15px; white-space:nowrap">
+Merge.vbs をダブルクリックしたときに開くプロンプトです。</DIV>
+<DIV id="text5_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3533px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:3531px; width:88px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text5_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:3535px; line-height:13px; white-space:nowrap">
+MergeLib.vbs</DIV>
+
+<v:line from="0,3439" to="499,3439"/>
+<v:line from="499,3439" to="499,4323"/>
+<v:line from="499,4323" to="0,4323"/>
+<v:line from="0,4323" to="0,3439"/>
+
+</PAGE>
+ 
+<!-- page 6 --> 
+<PAGE>
+<A id="svgcats_vml_p6" class="to_tree" style="margin-top:4328px;" onClick="selectTreeElem( '6' );">←</A>
+<A href="#svgcats_vml_p7" class="to_next_page" style="margin-top:4328px;">▼</A>
+<A href="#svgcats_vml_p5" class="to_prev_page" style="margin-top:4328px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4339px; width:432px; height:156px;" fillcolor="white"/>
+<DIV id="text6_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4356px; line-height:15px; white-space:nowrap">
+<A name="SyncFiles_AddRepliFile">
+SyncFiles::AddRepliFile</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:4386px; width:292px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text6_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:4393px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SyncFiles::AddRepliFile( Path as string )</DIV>
+<DIV id="text6_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4422px; line-height:15px; white-space:nowrap">
+内容が異なるファイルのうち、代表のファイルのパスを登録します</DIV>
+<DIV id="text6_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4447px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text6_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:4447px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text6_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:147px; margin-top:4447px; line-height:15px; white-space:nowrap">
+内容が異なるファイルの代表のパス</DIV>
+<DIV id="text6_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:4356px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,4339" to="432,4339"/>
+<v:line from="432,4339" to="432,4495"/>
+<v:line from="432,4495" to="0,4495"/>
+<v:line from="0,4495" to="0,4339"/>
+
+</PAGE>
+ 
+<!-- page 7 --> 
+<PAGE>
+<A id="svgcats_vml_p7" class="to_tree" style="margin-top:4500px;" onClick="selectTreeElem( '7' );">←</A>
+<A href="#svgcats_vml_p8" class="to_next_page" style="margin-top:4500px;">▼</A>
+<A href="#svgcats_vml_p6" class="to_prev_page" style="margin-top:4500px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4511px; width:524px; height:156px;" fillcolor="white"/>
+<DIV id="text7_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4528px; line-height:15px; white-space:nowrap">
+<A name="SyncFiles_AddRepliFile">
+SyncFiles::AddSameFile</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:4558px; width:286px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text7_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:4565px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SyncFiles::AddSameFile( Path as string )</DIV>
+<DIV id="text7_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4594px; line-height:15px; white-space:nowrap">
+以前に AddRepliFile に指定したファイルと内容が同じファイルのパスを登録します</DIV>
+<DIV id="text7_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4619px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text7_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:4619px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text7_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:147px; margin-top:4619px; line-height:15px; white-space:nowrap">
+内容が同じファイルのパス</DIV>
+<DIV id="text7_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:4528px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,4511" to="524,4511"/>
+<v:line from="524,4511" to="524,4667"/>
+<v:line from="524,4667" to="0,4667"/>
+<v:line from="0,4667" to="0,4511"/>
+
+</PAGE>
+ 
+<!-- page 8 --> 
+<PAGE>
+<A id="svgcats_vml_p8" class="to_tree" style="margin-top:4672px;" onClick="selectTreeElem( '8' );">←</A>
+<A href="#svgcats_vml_p9" class="to_next_page" style="margin-top:4672px;">▼</A>
+<A href="#svgcats_vml_p7" class="to_prev_page" style="margin-top:4672px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4683px; width:530px; height:131px;" fillcolor="white"/>
+<DIV id="text8_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4700px; line-height:15px; white-space:nowrap">
+<A name="SyncFiles_AddRepliFile">
+SyncFiles::NextSyncFile</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:4730px; width:196px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text8_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:4737px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SyncFiles::NextSyncFile()</DIV>
+<DIV id="text8_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4766px; line-height:15px; white-space:nowrap">
+AddRepliFile, AddSameFile に指定するファイルを、次の同期セットに切り替えます。</DIV>
+<DIV id="text8_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:4700px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,4683" to="530,4683"/>
+<v:line from="530,4683" to="530,4814"/>
+<v:line from="530,4814" to="0,4814"/>
+<v:line from="0,4814" to="0,4683"/>
+
+</PAGE>
+ 
+<!-- page 9 --> 
+<PAGE>
+<A id="svgcats_vml_p9" class="to_tree" style="margin-top:4819px;" onClick="selectTreeElem( '9' );">←</A>
+<A href="#svgcats_vml_p10" class="to_next_page" style="margin-top:4819px;">▼</A>
+<A href="#svgcats_vml_p8" class="to_prev_page" style="margin-top:4819px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4830px; width:548px; height:1324px;" fillcolor="white"/>
+<DIV id="text9_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4847px; line-height:15px; white-space:nowrap">
+<A name="PatchFiles">
+PatchFiles クラス</A></DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:5677px; width:334px; height:445px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text9_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:5683px; line-height:15px; white-space:nowrap">
+'// vbslib ヘッダが必要<BR/>
+<BR/>
+Sub main()<BR/>
+&nbsp; Dim&nbsp; patch_files : Set patch_files = new PatchFiles<BR/>
+&nbsp; Dim&nbsp; opt : Set opt = new Merge_Option<BR/>
+<BR/>
+&nbsp; opt.m_EditorPath = Setting_getEditorPath()<BR/>
+&nbsp; opt.m_DiffPath = Setting_getDiffPath()<BR/>
+<BR/>
+&nbsp; With&nbsp; patch_files<BR/>
+&nbsp; &nbsp; Set .m_MergeOption = opt<BR/>
+&nbsp; &nbsp; .m_OldFolderPath&nbsp; &nbsp;= "C:\folder0"<BR/>
+&nbsp; &nbsp; .m_PatchFolderPath = "C:\Patches"<BR/>
+&nbsp; &nbsp; .m_NewFolderPath&nbsp; &nbsp;= "C:\folder1"<BR/>
+&nbsp; End With<BR/>
+<BR/>
+&nbsp; patch_files.AddPatchFile&nbsp; "sub1\file1.txt"<BR/>
+&nbsp; patch_files.AddPatchFile&nbsp; "sub2\sub\file2.txt"<BR/>
+<BR/>
+&nbsp; Dim&nbsp; old, new<BR/>
+<BR/>
+&nbsp; old = "folderA" : new = old<BR/>
+&nbsp; patch_files.AddReplace&nbsp; old, new, "folderA_org"<BR/>
+&nbsp; patch_files.AddReplace&nbsp; old, new, "folderA_plus"<BR/>
+<BR/>
+&nbsp; patch_files.AddRenamed&nbsp; "sub2", "sub2A"<BR/>
+<BR/>
+&nbsp; patch_files.RunMergePrompt<BR/>
+End Sub</DIV>
+<DIV id="text9_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4881px; line-height:15px; white-space:nowrap">
+バージョンアップ・マージするときの手助けをするプロンプトです。</DIV>
+<DIV id="text9_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:4847px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text9_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:4899px; line-height:15px; white-space:nowrap">
+が下記のコードを出力します。</DIV>
+<DIV id="text9_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5653px; line-height:15px; white-space:nowrap">
+Merge.vbs</DIV>
+<DIV id="text9_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4899px; line-height:15px; white-space:nowrap">
+PatchSel::OutUpdateHelpScript</DIV>
+<DIV id="text9_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4988px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:5094px; width:274px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text9_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:5100px; line-height:15px; white-space:nowrap">
+[Update_Merge_Steps]<BR/>
+1) Step=Fin : file1.txt<BR/>
+2) Step=1A : file2.txt<BR/>
+-1) exit<BR/>
+マージするファイルの番号を入力してください&gt;</DIV>
+<DIV id="text9_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:33px; margin-top:5024px; line-height:15px; white-space:nowrap">
+プロンプト</DIV>
+<DIV id="text9_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:161px; margin-top:5067px; line-height:15px; white-space:nowrap">
+<A href="#prompt1">
+マージ・プロンプト</A></DIV>
+<DIV id="text9_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5067px; line-height:15px; white-space:nowrap">
+ファイルを選択したら</DIV>
+<DIV id="text9_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:264px; margin-top:5067px; line-height:15px; white-space:nowrap">
+に入ります。</DIV>
+<DIV id="text9_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5051px; line-height:15px; white-space:nowrap">
+Merge.vbs をダブルクリックしたときに開くプロンプトです。</DIV>
+<DIV id="text9_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5203px; line-height:15px; white-space:nowrap">
+パッチの適用元をバージョンアップする状況で、<BR/>
+をしたとき、Diff ツールで<BR/>
+　左がパッチ（PatchSel適用前）、中が古いマスター、右が新しいマスターです。<BR/>
+　通常、左または右をコピーして修正します。<BR/>
+　左を更新するためにコピーしたら、<BR/>
+　　　左がパッチ（PatchSel適用前）、中が新しいマスター、右が古いマスターです。<BR/>
+　　　右と中で差分がある部分が、左と中で無くなるようにしてください。<BR/>
+　右を更新するためにコピーしたら、<BR/>
+　　　左が古いマスター、中がパッチ（PatchSel適用前）、右が新しいマスターです。<BR/>
+　　　左と中で差分がある部分が、中と右で無くなるようにしてください。</DIV>
+<DIV id="text9_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:306px; margin-top:5203px; line-height:15px; white-space:nowrap">
+パッチタグによるテキストの変更</DIV>
+<DIV id="text9_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5494px; line-height:15px; white-space:nowrap">
+PatchSel で Compare したときは、<BR/>
+　左がパッチ（PatchSel適用前）、中が古いPatchSel適用後、右がターゲット<BR/>
+　　　（新しいPatchSel適用後となる予定のもの）です。<BR/>
+　通常、左を更新しますが、右をそのまま使うこともあります。<BR/>
+　左を更新するためにコピーしたら、<BR/>
+　　　左がパッチ（PatchSel適用前）、中がターゲット、右が古いPatchSel適用後です。<BR/>
+　　　右と中で差分がある部分が、左と中で無くなるようにしてください。<BR/>
+　PatchSel 適用後をそのまま使うときは、CompareWork フォルダからターゲットに<BR/>
+　　　コピーしてください。</DIV>
+<DIV id="text9_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:5375px; line-height:15px; white-space:nowrap">
+ファイルやフォルダごと置き換える</DIV>
+<DIV id="text9_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:5375px; line-height:15px; white-space:nowrap">
+パッチの適用元をバージョンアップする状況で、<BR/>
+をしたとき、(1) Diff ツールで、左がパッチ、中が古いマスター、右が新しいマスターです。<BR/>
+(4) Diff ツールで、左が古いパッチ、中が新しいパッチ、右が新しいマスターです。<BR/>
+(1) の中と右の差分を、(4)の中に反映させ、(4)の中と右の差分を、(1)の左と中の差分と<BR/>
+一致させてください。<BR/>
+マスターに無いファイルは、そのままパッチとして使います。</DIV>
+<DIV id="text9_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:4931px; line-height:15px; white-space:nowrap">
+<A href="#PatchFiles_ref">
+→ PatchFiles クラス・リファレンス</A></DIV>
+<DIV id="text9_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4931px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,4830" to="548,4830"/>
+<v:line from="548,4830" to="548,6154"/>
+<v:line from="548,6154" to="0,6154"/>
+<v:line from="0,6154" to="0,4830"/>
+
+</PAGE>
+ 
+<!-- page 10 --> 
+<PAGE>
+<A id="svgcats_vml_p10" class="to_tree" style="margin-top:6159px;" onClick="selectTreeElem( '10' );">←</A>
+<A href="#svgcats_vml_p11" class="to_next_page" style="margin-top:6159px;">▼</A>
+<A href="#svgcats_vml_p9" class="to_prev_page" style="margin-top:6159px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6170px; width:401px; height:149px;" fillcolor="white"/>
+<DIV id="text10_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6187px; line-height:15px; white-space:nowrap">
+<A name="PatchFiles_ref">
+PatchFiles クラス・リファレンス</A></DIV>
+<DIV id="text10_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:34px; margin-top:6235px; line-height:13px; white-space:nowrap">
+.m_OldFolderPath</DIV>
+<DIV id="text10_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:34px; margin-top:6273px; line-height:13px; white-space:nowrap">
+.m_PatchFolderPath</DIV>
+<DIV id="text10_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:34px; margin-top:6254px; line-height:13px; white-space:nowrap">
+.m_NewFolderPath</DIV>
+<DIV id="text10_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:6233px; line-height:15px; white-space:nowrap">
+古い適用元のフォルダのパス</DIV>
+<DIV id="text10_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:6252px; line-height:15px; white-space:nowrap">
+新しい適用元のフォルダのパス</DIV>
+<DIV id="text10_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:6271px; line-height:15px; white-space:nowrap">
+パッチのフォルダのパス</DIV>
+
+<v:line from="0,6170" to="401,6170"/>
+<v:line from="401,6170" to="401,6319"/>
+<v:line from="401,6319" to="0,6319"/>
+<v:line from="0,6319" to="0,6170"/>
+
+</PAGE>
+ 
+<!-- page 11 --> 
+<PAGE>
+<A id="svgcats_vml_p11" class="to_tree" style="margin-top:6324px;" onClick="selectTreeElem( '11' );">←</A>
+<A href="#svgcats_vml_p12" class="to_next_page" style="margin-top:6324px;">▼</A>
+<A href="#svgcats_vml_p10" class="to_prev_page" style="margin-top:6324px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6335px; width:518px; height:175px;" fillcolor="white"/>
+<DIV id="text11_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6352px; line-height:15px; white-space:nowrap">
+<A name="PatchFiles_AddRenamed">
+PatchFiles::AddRenamed</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:6382px; width:418px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text11_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:6389px; line-height:13px; white-space:nowrap">
+Sub&nbsp; PatchFiles::AddRenamed( OldPath as string, NewPath as string )</DIV>
+<DIV id="text11_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:6418px; line-height:15px; white-space:nowrap">
+パッチの適用元が新しくなって、フォルダやファイルが移動したことを設定します。</DIV>
+<DIV id="text11_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:6443px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text11_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:6443px; line-height:15px; white-space:nowrap">
+OldPath</DIV>
+<DIV id="text11_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:6443px; line-height:15px; white-space:nowrap">
+移動前のパス（m_OldFolderPath からの相対パス）</DIV>
+<DIV id="text11_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:6462px; line-height:15px; white-space:nowrap">
+NewPath</DIV>
+<DIV id="text11_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:6462px; line-height:15px; white-space:nowrap">
+移動後のパス（m_NewFolderPath からの相対パス）</DIV>
+
+<v:line from="0,6335" to="518,6335"/>
+<v:line from="518,6335" to="518,6510"/>
+<v:line from="518,6510" to="0,6510"/>
+<v:line from="0,6510" to="0,6335"/>
+
+</PAGE>
+ 
+<!-- page 12 --> 
+<PAGE>
+<A id="svgcats_vml_p12" class="to_tree" style="margin-top:6515px;" onClick="selectTreeElem( '12' );">←</A>
+<A href="#svgcats_vml_p13" class="to_next_page" style="margin-top:6515px;">▼</A>
+<A href="#svgcats_vml_p11" class="to_prev_page" style="margin-top:6515px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6526px; width:451px; height:257px;" fillcolor="white"/>
+<DIV id="text12_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6543px; line-height:15px; white-space:nowrap">
+<A name="PatchFiles_AddPatchFile">
+PatchFiles::AddPatchFile</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:6573px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text12_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:6580px; line-height:13px; white-space:nowrap">
+Sub&nbsp; PatchFiles::AddPatchFile( StepPath as string )</DIV>
+<DIV id="text12_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6615px; line-height:15px; white-space:nowrap">
+比較するファイルを登録します。</DIV>
+<DIV id="text12_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6642px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text12_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:106px; margin-top:6642px; line-height:15px; white-space:nowrap">
+StepPath</DIV>
+<DIV id="text12_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:106px; margin-top:6661px; line-height:15px; white-space:nowrap">
+surf</DIV>
+<DIV id="text12_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:6642px; line-height:15px; white-space:nowrap">
+比較するファイル。</DIV>
+<DIV id="text12_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:6661px; line-height:15px; white-space:nowrap">
+（出力） オブジェクトへのハンドル</DIV>
+<DIV id="text12_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6720px; line-height:15px; white-space:nowrap">
+Me.m_OldFolderPath, Me.m_NewFolderPath, Me.m_PatchFolderPath<BR/>
+からの相対パスです。</DIV>
+<DIV id="text12_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:215px; margin-top:6543px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:line style="position:absolute;" from="96,6669" to="390,6669" strokecolor="#000000" strokeweight="1pt"/>
+
+<v:line from="0,6526" to="451,6526"/>
+<v:line from="451,6526" to="451,6783"/>
+<v:line from="451,6783" to="0,6783"/>
+<v:line from="0,6783" to="0,6526"/>
+
+</PAGE>
+ 
+<!-- page 13 --> 
+<PAGE>
+<A id="svgcats_vml_p13" class="to_tree" style="margin-top:6788px;" onClick="selectTreeElem( '13' );">←</A>
+<A href="#svgcats_vml_p14" class="to_next_page" style="margin-top:6788px;">▼</A>
+<A href="#svgcats_vml_p12" class="to_prev_page" style="margin-top:6788px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6799px; width:617px; height:273px;" fillcolor="white"/>
+<DIV id="text13_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6816px; line-height:15px; white-space:nowrap">
+<A name="PatchFiles_AddPatchFile">
+PatchFiles::AddReplace</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:6846px; width:460px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text13_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:6852px; line-height:15px; white-space:nowrap">
+Sub&nbsp; PatchFiles::AddReplace( OldStepPath as string, NewStepPath as string,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PatchStepPath&nbsp; as string )</DIV>
+<DIV id="text13_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6905px; line-height:15px; white-space:nowrap">
+置き換えるファイルかフォルダを登録します。</DIV>
+<DIV id="text13_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6932px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text13_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:106px; margin-top:6932px; line-height:15px; white-space:nowrap">
+StepPath</DIV>
+<DIV id="text13_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:106px; margin-top:6951px; line-height:15px; white-space:nowrap">
+surf</DIV>
+<DIV id="text13_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:6932px; line-height:15px; white-space:nowrap">
+比較するファイルかフォルダ</DIV>
+<DIV id="text13_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:6951px; line-height:15px; white-space:nowrap">
+（出力） オブジェクトへのハンドル</DIV>
+<DIV id="text13_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:215px; margin-top:6816px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:line style="position:absolute;" from="100,6959" to="344,6959" strokecolor="#000000" strokeweight="1pt"/>
+
+<v:line from="0,6799" to="617,6799"/>
+<v:line from="617,6799" to="617,7072"/>
+<v:line from="617,7072" to="0,7072"/>
+<v:line from="0,7072" to="0,6799"/>
+
+</PAGE>
+ 
+<!-- page 14 --> 
+<PAGE>
+<A id="svgcats_vml_p14" class="to_tree" style="margin-top:7077px;" onClick="selectTreeElem( '14' );">←</A>
+<A href="#svgcats_vml_p15" class="to_next_page" style="margin-top:7077px;">▼</A>
+<A href="#svgcats_vml_p13" class="to_prev_page" style="margin-top:7077px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7088px; width:531px; height:752px;" fillcolor="white"/>
+<DIV id="text14_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7105px; line-height:15px; white-space:nowrap">
+<A name="RunMergePrompt">
+RunMergePrompt</A></DIV>
+<DIV id="text14_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:7105px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7130px; width:430px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text14_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7137px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RunMergePrompt( Pathes as array of string, Opt as Merge_Option )</DIV>
+<DIV id="text14_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7166px; line-height:15px; white-space:nowrap">
+１つのファイルをマージする手助けをするプロンプトに入ります。</DIV>
+<DIV id="text14_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7193px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text14_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7193px; line-height:15px; white-space:nowrap">
+Pathes</DIV>
+<DIV id="text14_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7212px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text14_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:7193px; line-height:15px; white-space:nowrap">
+マージするファイルのパスの配列。(0) はマスター</DIV>
+<DIV id="text14_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:7212px; line-height:15px; white-space:nowrap">
+オプション</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:7378px; width:148px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text14_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:7384px; line-height:15px; white-space:nowrap">
+Class&nbsp; Merge_Option<BR/>
+&nbsp; Public&nbsp; m_EditorPath<BR/>
+&nbsp; Public&nbsp; m_DiffPath<BR/>
+&nbsp; Public&nbsp; m_NewPath<BR/>
+&nbsp; Public&nbsp; m_SyncPathes<BR/>
+End Class</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:7527px; width:346px; height:220px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text14_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:7533px; line-height:15px; white-space:nowrap">
+'// vbslib ヘッダが必要<BR/>
+<BR/>
+Sub main()<BR/>
+&nbsp; Redim&nbsp; pathes(2)<BR/>
+&nbsp; pathes(0) ="folder0\file1.txt"<BR/>
+&nbsp; pathes(1) ="folder1\sub1\file1.txt"<BR/>
+&nbsp; pathes(2) ="folder1\sub2\file1.txt"<BR/>
+<BR/>
+&nbsp; Dim&nbsp; opt : Set opt = new Merge_Option<BR/>
+&nbsp; opt.m_EditorPath = "C:\Windows\notepad.exe"<BR/>
+&nbsp; opt.m_DiffPath = "C:\Program Files\Rekisa\Rekisa.exe"<BR/>
+<BR/>
+&nbsp; RunMergePrompt&nbsp; pathes, opt<BR/>
+End Sub</DIV>
+<DIV id="text14_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7506px; line-height:15px; white-space:nowrap">
+サンプル Merge.vbs</DIV>
+<DIV id="text14_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:207px; margin-top:7399px; line-height:15px; white-space:nowrap">
+… エディタのパス<BR/>
+… Diff ツールのパス<BR/>
+… マージが完了したときの出力パス<BR/>
+　　（デフォルト＝ New\（pathes(0)のファイル名））</DIV>
+<DIV id="text14_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:7285px; line-height:15px; white-space:nowrap">
+<A href="#SyncFiles">
+SyncFiles クラス</A></DIV>
+<DIV id="text14_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:144px; margin-top:7285px; line-height:15px; white-space:nowrap">
+<A href="#PatchFiles">
+PatchFiles クラス</A></DIV>
+<DIV id="text14_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:33px; margin-top:7358px; line-height:15px; white-space:nowrap">
+<A name="Merge_Option">
+Merge_Option</A></DIV>
+<DIV id="text14_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:127px; margin-top:7285px; line-height:15px; white-space:nowrap">
+や</DIV>
+<DIV id="text14_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:243px; margin-top:7285px; line-height:15px; white-space:nowrap">
+から呼ばれます。</DIV>
+<DIV id="text14_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7303px; line-height:15px; white-space:nowrap">
+また、下記のサンプルのようにスクリプトを手動で作成して、マージするプロンプトを<BR/>
+使うこともできます。</DIV>
+<DIV id="text14_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:76px; margin-top:7250px; line-height:15px; white-space:nowrap">
+<A href="#prompt1">
+→ マージ・プロンプト</A></DIV>
+<DIV id="text14_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7250px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text14_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:207px; margin-top:7471px; line-height:15px; white-space:nowrap">
+m_SyncPathes については、</DIV>
+<DIV id="text14_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:370px; margin-top:7471px; line-height:15px; white-space:nowrap">
+<A href="#RunMergeUpdate">
+→ RunMergeUpdate</A></DIV>
+<DIV id="text14_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:228px; margin-top:7212px; line-height:15px; white-space:nowrap">
+<A href="#Merge_Option">
+→ Merge_Option</A></DIV>
+<DIV id="text14_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:119px; margin-top:7792px; line-height:15px; white-space:nowrap">
+<A href="#RunMergePrompt_pos">
+→ RunMergePrompt (RepliCmp)</A></DIV>
+<DIV id="text14_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:35px; margin-top:7792px; line-height:15px; white-space:nowrap">
+内部フロー</DIV>
+<v:line style="position:absolute;" from="24,7778" to="485,7778" strokecolor="#000000" strokeweight="1pt"/>
+
+<v:line from="0,7088" to="531,7088"/>
+<v:line from="531,7088" to="531,7840"/>
+<v:line from="531,7840" to="0,7840"/>
+<v:line from="0,7840" to="0,7088"/>
+
+</PAGE>
+ 
+<!-- page 15 --> 
+<PAGE>
+<A id="svgcats_vml_p15" class="to_tree" style="margin-top:7845px;" onClick="selectTreeElem( '15' );">←</A>
+<A href="#svgcats_vml_p16" class="to_next_page" style="margin-top:7845px;">▼</A>
+<A href="#svgcats_vml_p14" class="to_prev_page" style="margin-top:7845px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7856px; width:606px; height:585px;" fillcolor="white"/>
+<DIV id="text15_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7873px; line-height:15px; white-space:nowrap">
+<A name="RunMergeUpdate">
+RunMergeUpdate</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:7905px; width:544px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text15_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:7912px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RunMergeUpdate( NewPath as string, Pathes as array of string, Opt as Merge_Option )</DIV>
+<DIV id="text15_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:7942px; line-height:15px; white-space:nowrap">
+同じ名前のファイルの内容を、すべて同じになるようにコピーします。</DIV>
+<DIV id="text15_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:7970px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text15_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:7970px; line-height:15px; white-space:nowrap">
+NewPath</DIV>
+<DIV id="text15_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:7989px; line-height:15px; white-space:nowrap">
+Pathes</DIV>
+<DIV id="text15_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:172px; margin-top:7970px; line-height:15px; white-space:nowrap">
+コピーする内容が書かれたファイル</DIV>
+<DIV id="text15_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:172px; margin-top:7989px; line-height:15px; white-space:nowrap">
+内容を変更するファイルが格納されたフォルダのパス</DIV>
+<DIV id="text15_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:8008px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text15_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:179px; margin-top:8008px; line-height:15px; white-space:nowrap">
+<A href="#Merge_Option">
+→ Merge_Option</A></DIV>
+<DIV id="text15_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:8066px; line-height:15px; white-space:nowrap">
+Opt.m_SyncPathes には、Empty か、Pathes に追加するフォルダのパスが格納された配列を<BR/>
+指定します。</DIV>
+<DIV id="text15_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:283px; margin-top:8008px; line-height:15px; white-space:nowrap">
+および、下記</DIV>
+<DIV id="text15_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:35px; margin-top:8044px; line-height:15px; white-space:nowrap">
+Opt 引数</DIV>
+<DIV id="text15_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:35px; margin-top:8121px; line-height:15px; white-space:nowrap">
+操作方法</DIV>
+<DIV id="text15_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:116px; margin-top:8121px; line-height:15px; white-space:nowrap">
+<A href="#step_fin">
+→ マージ・ステップ Fin</A></DIV>
+<DIV id="text15_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:194px; margin-top:7873px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text15_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:35px; margin-top:8200px; line-height:15px; white-space:nowrap">
+内部フロー</DIV>
+<DIV id="text15_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:66px; margin-top:8254px; line-height:13px; white-space:nowrap">
+RunMergeUpdate</DIV>
+<DIV id="text15_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:77px; margin-top:8277px; line-height:13px; white-space:nowrap">
+RunMergeUpdateSub</DIV>
+<DIV id="text15_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:98px; margin-top:8299px; line-height:13px; white-space:nowrap">
+'//=== Compare file with New file</DIV>
+<DIV id="text15_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:113px; margin-top:8318px; line-height:13px; white-space:nowrap">
+b_equal( i ) = fc_r( NewPath, Pathes( i ), Empty )</DIV>
+<DIV id="text15_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:98px; margin-top:8344px; line-height:13px; white-space:nowrap">
+i = input( "以上のファイルを更新しますか [Y/N]" )</DIV>
+<DIV id="text15_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:113px; margin-top:8375px; line-height:13px; white-space:nowrap">
+If not b_equal( i ) Then</DIV>
+<DIV id="text15_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:128px; margin-top:8395px; line-height:13px; white-space:nowrap">
+copy NewPath, Pathes(i)</DIV>
+<DIV id="text15_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:170px; margin-top:8254px; line-height:13px; white-space:nowrap">
+new_path, Pathes, Opt</DIV>
+<DIV id="text15_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:8233px; line-height:13px; white-space:nowrap">
+RunMergePrompt</DIV>
+<DIV id="text15_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:153px; margin-top:8233px; line-height:13px; white-space:nowrap">
+Pathes, Opt</DIV>
+<v:line style="position:absolute;" from="28,8175" to="565,8175" strokecolor="#000000" strokeweight="1pt"/>
+
+<v:line from="0,7856" to="606,7856"/>
+<v:line from="606,7856" to="606,8441"/>
+<v:line from="606,8441" to="0,8441"/>
+<v:line from="0,8441" to="0,7856"/>
+
+</PAGE>
+ 
+<!-- page 16 --> 
+<PAGE>
+<A id="svgcats_vml_p16" class="to_tree" style="margin-top:8446px;" onClick="selectTreeElem( '16' );">←</A>
+<A href="replicmp_02.html#svgcats_vml_p17" class="to_next_page" style="margin-top:8446px;">▼</A>
+<A href="#svgcats_vml_p15" class="to_prev_page" style="margin-top:8446px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8457px; width:608px; height:1871px;" fillcolor="white"/>
+<DIV id="text16_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8474px; line-height:15px; white-space:nowrap">
+<A name="PartCmp">
+PartCmp</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:8981px; width:334px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:8988px; line-height:13px; white-space:nowrap">
+cscript PartCmp.vbs C:\file1.txt C:\file2.txt [start]</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:8512px; width:490px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:8519px; line-height:13px; white-space:nowrap">
+cscript PartCmp.vbs&nbsp; [/S][/B:...][/D][/E:...]&nbsp; part_file&nbsp; whole_file&nbsp; start_tag</DIV>
+<DIV id="text16_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:27px; margin-top:10209px; line-height:15px; white-space:nowrap">
+65536行目までに start_tag が無いとき、置き換えるテキストが 50行を超えるとき、1行が 4096<BR/>
+文字を超える場合は、比較を行いません。</DIV>
+<DIV id="text16_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8549px; line-height:15px; white-space:nowrap">
+テキストファイルの一部が同じかどうか比較します。</DIV>
+<DIV id="text16_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8582px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text16_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8670px; line-height:15px; white-space:nowrap">
+part_file</DIV>
+<DIV id="text16_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8689px; line-height:15px; white-space:nowrap">
+whole_file</DIV>
+<DIV id="text16_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8670px; line-height:15px; white-space:nowrap">
+whole_file の一部と比較する内容が書かれたファイルのパス</DIV>
+<DIV id="text16_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8689px; line-height:15px; white-space:nowrap">
+part_file と比較する内容が一部にあるファイルのパス。ワイルドカード可</DIV>
+<DIV id="text16_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8708px; line-height:15px; white-space:nowrap">
+start_tag</DIV>
+<DIV id="text16_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8708px; line-height:15px; white-space:nowrap">
+whole_file の中の比較するテキストの最初の行に含まれるテキスト</DIV>
+<DIV id="text16_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:8961px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text16_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:9028px; line-height:13px; white-space:nowrap">
+C:\file1.txt</DIV>
+<DIV id="text16_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:330px; margin-top:9028px; line-height:13px; white-space:nowrap">
+C:\file2.txt</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:9044px; width:46px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:9050px; line-height:15px; white-space:nowrap">
+start<BR/>
+and<BR/>
+end</DIV>
+<v:rect style="position:absolute; margin-left:331px; margin-top:9044px; width:94px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:339px; margin-top:9050px; line-height:15px; white-space:nowrap">
+replacing<BR/>
+---[start]---<BR/>
+delete1<BR/>
+delete2<BR/>
+---[end]----<BR/>
+after text</DIV>
+<v:rect style="position:absolute; margin-left:174px; margin-top:9044px; width:94px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:182px; margin-top:9050px; line-height:15px; white-space:nowrap">
+---[start]---<BR/>
+delete1<BR/>
+delete2</DIV>
+<v:line style="position:absolute;" from="318,9095" to="278,9082" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="278,9082" to="290,9090" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="278,9082" to="293,9081" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="100,9074" to="162,9074" strokecolor="#000000" strokeweight="1pt"/>
+<v:shape style="position:absolute; margin-left:100px; margin-top:9069px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 0,500 l 1000,1000, 1000,0 x e"/>
+<v:shape style="position:absolute; margin-left:152px; margin-top:9069px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<DIV id="text16_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:119px; margin-top:9056px; line-height:15px; white-space:nowrap">
+比較</DIV>
+<DIV id="text16_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8727px; line-height:15px; white-space:nowrap">
+エラーレベル</DIV>
+<DIV id="text16_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8727px; line-height:15px; white-space:nowrap">
+21=同じ、0=start_tag が whole_file にない、2=異なる</DIV>
+<DIV id="text16_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8582px; line-height:15px; white-space:nowrap">
+/S</DIV>
+<DIV id="text16_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8582px; line-height:15px; white-space:nowrap">
+サブフォルダの whole_file も比較する</DIV>
+<DIV id="text16_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:9158px; line-height:15px; white-space:nowrap">
+<A name="samp2">
+サンプル２： /S オプション</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:9177px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:9184px; line-height:13px; white-space:nowrap">
+cscript PartCmp.vbs /S C:\file1.txt C:\folder\*.txt [start]</DIV>
+<DIV id="text16_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:9209px; line-height:15px; white-space:nowrap">
+C:\folder フォルダとそのサブフォルダにある *.txt ファイルについて、そのファイルの<BR/>
+[start] を含む行から C:\file1.txt を比較します。<BR/>
+*.txt ファイルに [start] を含む行が無いときは、比較を行いません。<BR/>
+1つも比較しなかったときだけ、エラーレベルが 0 になります。<BR/>
+C:\file1.txt と異なる行が見つかったら、それ以上は比較を行わず、エラーレベルが 2<BR/>
+になります。<BR/>
+異なる行が見つからなかったら、エラーレベルが 21 になります。<BR/>
+比較した結果を、次のように標準出力へ出力します。</DIV>
+<DIV id="text16_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8601px; line-height:15px; white-space:nowrap">
+/B:var=path</DIV>
+<DIV id="text16_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8601px; line-height:15px; white-space:nowrap">
+バッチファイルに結果を返す</DIV>
+<DIV id="text16_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:400px; margin-top:8582px; line-height:15px; white-space:nowrap">
+<A href="#samp2">
+→ サンプル２</A></DIV>
+<DIV id="text16_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:9429px; line-height:15px; white-space:nowrap">
+<A name="samp3">
+サンプル３： /B オプション</A></DIV>
+<DIV id="text16_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:354px; margin-top:8601px; line-height:15px; white-space:nowrap">
+<A href="#samp3">
+→ サンプル３</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:9450px; width:466px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:9457px; line-height:13px; white-space:nowrap">
+cscript PartCmp.vbs /S /B:out=_out.bat C:\file1.txt C:\folder\*.txt [start]</DIV>
+<DIV id="text16_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:9483px; line-height:15px; white-space:nowrap">
+/B オプションは、違いがあったファイルのパスを環境変数に設定するバッチファイルを<BR/>
+出力します。 違いが無かったらバッチファイルを出力しません。<BR/>
+これは、バッチファイルに結果を返すために使います。</DIV>
+<DIV id="text16_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:9541px; line-height:15px; white-space:nowrap">
+_out.bat の例： 違いファイルがあったとき</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:9563px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:9570px; line-height:13px; white-space:nowrap">
+set out=C:\folder\file4.txt</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:9629px; width:352px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:9635px; line-height:15px; white-space:nowrap">
+call _out.bat &amp; del _out.bat<BR/>
+if not "%out%"==""&nbsp; explorer /select, "%out%" &amp; set out=</DIV>
+<DIV id="text16_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:299px; margin-top:9541px; line-height:15px; white-space:nowrap">
+_out.bat の例： 違いファイルがなかったとき</DIV>
+<v:rect style="position:absolute; margin-left:310px; margin-top:9563px; width:64px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:318px; margin-top:9570px; line-height:13px; white-space:nowrap">
+set out=</DIV>
+<DIV id="text16_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:9609px; line-height:15px; white-space:nowrap">
+PartCmp.vbs を実行した後で、_out.bat を利用するコマンドの例：</DIV>
+<DIV id="text16_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8620px; line-height:15px; white-space:nowrap">
+/D</DIV>
+<DIV id="text16_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8620px; line-height:15px; white-space:nowrap">
+一致するファイルと一致しないファイルを一覧する</DIV>
+<DIV id="text16_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:9709px; line-height:15px; white-space:nowrap">
+<A name="samp4">
+サンプル４： /D オプション</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:9727px; width:412px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:9734px; line-height:13px; white-space:nowrap">
+cscript PartCmp.vbs /S /D C:\samples\*.txt C:\folder\*.txt [start]</DIV>
+<DIV id="text16_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:457px; margin-top:8620px; line-height:15px; white-space:nowrap">
+<A href="#samp4">
+→ サンプル４</A></DIV>
+<DIV id="text16_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:9755px; line-height:15px; white-space:nowrap">
+/D オプションは、part_file に指定したワイルドカードに一致する複数のファイルのうち、<BR/>
+どの part_file が、現在調査している whole_file と一致したかを調べます。<BR/>
+また、違いがあっても中止せず、C:\folder 全体を比較します。</DIV>
+<DIV id="text16_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9827px; line-height:13px; white-space:nowrap">
+C:\samples\part1.txt</DIV>
+<DIV id="text16_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:385px; margin-top:9827px; line-height:13px; white-space:nowrap">
+C:\folder\file2.txt</DIV>
+<v:rect style="position:absolute; margin-left:51px; margin-top:9843px; width:46px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_50" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:9849px; line-height:15px; white-space:nowrap">
+start<BR/>
+and<BR/>
+end</DIV>
+<v:rect style="position:absolute; margin-left:386px; margin-top:9843px; width:94px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_51" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:394px; margin-top:9849px; line-height:15px; white-space:nowrap">
+replacing<BR/>
+---[start]---<BR/>
+delete1<BR/>
+delete2<BR/>
+---[end]----<BR/>
+after text</DIV>
+<v:rect style="position:absolute; margin-left:229px; margin-top:9843px; width:94px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_52" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:237px; margin-top:9849px; line-height:15px; white-space:nowrap">
+---[start]---<BR/>
+delete1<BR/>
+delete2</DIV>
+<v:line style="position:absolute;" from="373,9894" to="333,9881" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="333,9881" to="345,9889" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="333,9881" to="348,9880" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="105,9873" to="216,9873" strokecolor="#000000" strokeweight="1pt"/>
+<v:shape style="position:absolute; margin-left:105px; margin-top:9868px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 0,500 l 1000,1000, 1000,0 x e"/>
+<v:shape style="position:absolute; margin-left:206px; margin-top:9868px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<DIV id="text16_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:147px; margin-top:9855px; line-height:15px; white-space:nowrap">
+比較</DIV>
+<DIV id="text16_56" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9913px; line-height:13px; white-space:nowrap">
+C:\samples\part2.txt</DIV>
+<DIV id="text16_57" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:9943px; line-height:15px; white-space:nowrap">
+比較</DIV>
+<v:line style="position:absolute;" from="157,9961" to="214,9961" strokecolor="#000000" strokeweight="1pt"/>
+<v:shape style="position:absolute; margin-left:157px; margin-top:9956px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 0,500 l 1000,1000, 1000,0 x e"/>
+<v:shape style="position:absolute; margin-left:204px; margin-top:9956px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<v:rect style="position:absolute; margin-left:51px; margin-top:9931px; width:94px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_59" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:9937px; line-height:15px; white-space:nowrap">
+---[start]---<BR/>
+delete1<BR/>
+delete2<BR/>
+---[end]----</DIV>
+<DIV id="text16_60" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:10023px; line-height:13px; white-space:nowrap">
+PartCmp の出力</DIV>
+<v:rect style="position:absolute; margin-left:229px; margin-top:9931px; width:94px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_61" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:237px; margin-top:9937px; line-height:15px; white-space:nowrap">
+---[start]---<BR/>
+delete1<BR/>
+delete2<BR/>
+---[end]----</DIV>
+<v:line style="position:absolute;" from="371,9927" to="333,9946" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="333,9946" to="348,9945" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:line style="position:absolute;" from="333,9946" to="343,9935" strokecolor="#8080FF" strokeweight="2pt"/>
+<v:rect style="position:absolute; margin-left:51px; margin-top:10040px; width:190px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_63" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:10046px; line-height:15px; white-space:nowrap">
+Same as part1.txt are 0 files<BR/>
+<BR/>
+Same as part2.txt are 2 files<BR/>
+C:\samples\file2.txt<BR/>
+C:\samples\file4.txt<BR/>
+<BR/>
+Others are 1 files<BR/>
+C:\samples\file1.txt</DIV>
+<DIV id="text16_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:262px; margin-top:10119px; line-height:15px; white-space:nowrap">
+Others は、どの part_file にも<BR/>
+一致していないファイルで、<BR/>
+start_tag と一致したものです。</DIV>
+<DIV id="text16_65" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:8639px; line-height:15px; white-space:nowrap">
+/E:path</DIV>
+<DIV id="text16_66" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:8639px; line-height:15px; white-space:nowrap">
+whole_file で比較しないフォルダのパス</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:9338px; width:166px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text16_67" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:9344px; line-height:15px; white-space:nowrap">
+Same: C:\folder\file1.txt<BR/>
+Same: C:\folder\file2.txt<BR/>
+Diff: C:\folder\file3.txt</DIV>
+<DIV id="text16_68" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:134px; margin-top:8474px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text16_69" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:9158px; line-height:15px; white-space:nowrap">
+サブフォルダの whole_file も比較する</DIV>
+<DIV id="text16_70" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:9429px; line-height:15px; white-space:nowrap">
+バッチファイルに結果を返す</DIV>
+<DIV id="text16_71" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:8830px; line-height:15px; white-space:nowrap">
+whole_file の中の、start_tag に指定したキーワード（キーフレーズ）が見つかった行から、<BR/>
+part_file の内容と比較します。 すべてのファイルが同じであれば、エラーレベル＝21 になります。</DIV>
+<DIV id="text16_72" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:25px; margin-top:8776px; line-height:15px; white-space:nowrap">
+フォルダーの中にあるテキスト・ファイルの中の、あるタグから始まる複数行が、正しい内容と<BR/>
+同じになっているかチェックするときに使います。</DIV>
+<DIV id="text16_73" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:8896px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text16_74" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:8896px; line-height:15px; white-space:nowrap">
+→ PartRep フォルダ</DIV>
+<DIV id="text16_75" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:10257px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text16_76" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:10257px; line-height:15px; white-space:nowrap">
+<A href="replicmp_02.html#PartCmp_compareFiles">
+→ PartCmp_compareFiles</A></DIV>
+<DIV id="text16_77" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:10280px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_16.html#SearchStringTemplate">
+→ SearchStringTemplate</A></DIV>
+
+<v:line from="0,8457" to="608,8457"/>
+<v:line from="608,8457" to="608,10328"/>
+<v:line from="608,10328" to="0,10328"/>
+<v:line from="0,10328" to="0,8457"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10328px;">
+<A id="svgcats_vml_p16" class="to_tree" onClick="selectTreeElem( '16' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10328px;">
+<A id="page_group_bottom" href="replicmp_02.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

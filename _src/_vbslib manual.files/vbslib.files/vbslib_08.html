@@ -1,0 +1,1442 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_08.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_08.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 145 --> 
+<PAGE>
+<A id="svgcats_vml_p145" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '145' );">←</A>
+<A href="#svgcats_vml_p146" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_07.html#svgcats_vml_p144" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_07.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:560px; height:439px;" fillcolor="white"/>
+<DIV id="text145_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="ArrayClassIterator">
+ArrayClassIterator クラス</A></DIV>
+<DIV id="text145_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:94px; margin-top:50px; line-height:15px; white-space:nowrap">
+の要素を順番にたどっていくクラスです。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:112px; width:244px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text145_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:118px; line-height:15px; white-space:nowrap">
+Dim&nbsp; a : Set a = new ArrayClass<BR/>
+Dim&nbsp; iter : Set iter = a.NewIterator()<BR/>
+While iter.HasNext()<BR/>
+&nbsp; echo&nbsp; iter.GetNext()<BR/>
+WEnd</DIV>
+<DIV id="text145_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:86px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text145_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:50px; line-height:15px; white-space:nowrap">
+<A href="vbslib_07.html#ArrayClass">
+ArrayClass</A></DIV>
+<DIV id="text145_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:256px; line-height:15px; white-space:nowrap">
+メンバー</DIV>
+<DIV id="text145_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:41px; margin-top:287px; line-height:13px; white-space:nowrap">
+<A href="#ArrayClassIterator_GetNext">
+.GetNext</A></DIV>
+<DIV id="text145_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:41px; margin-top:311px; line-height:13px; white-space:nowrap">
+<A href="#ArrayClassIterator_HasNext">
+.HasNext</A></DIV>
+<DIV id="text145_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:368px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text145_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:368px; line-height:15px; white-space:nowrap">
+→ イテレーター (JavaScript 1.7)</DIV>
+<DIV id="text145_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:167px; margin-top:285px; line-height:15px; white-space:nowrap">
+次の要素を返す。 次回の呼び出しでは、その次の要素を返す。</DIV>
+<DIV id="text145_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:167px; margin-top:309px; line-height:15px; white-space:nowrap">
+次の要素があるかどうか</DIV>
+<DIV id="text145_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:222px; line-height:15px; white-space:nowrap">
+<A href="vbslib_07.html#ArrayClass_NewIterator">
+→ NewIterator (ArrayClass)</A></DIV>
+<DIV id="text145_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:222px; line-height:15px; white-space:nowrap">
+取得</DIV>
+<DIV id="text145_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:212px; margin-top:17px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text145_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:41px; margin-top:335px; line-height:13px; white-space:nowrap">
+<A href="#ArrayClassIterator_GetNextOrSentinel">
+.GetNextOrSentinel</A></DIV>
+<DIV id="text145_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:167px; margin-top:333px; line-height:15px; white-space:nowrap">
+次の要素を返す。 次の要素が無いときは、番兵を返す。</DIV>
+<DIV id="text145_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:391px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text145_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:391px; line-height:15px; white-space:nowrap">
+→ T_Arr_Target # [T_ArrIter]</DIV>
+
+<v:line from="0,0" to="560,0"/>
+<v:line from="560,0" to="560,439"/>
+<v:line from="560,439" to="0,439"/>
+<v:line from="0,439" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 146 --> 
+<PAGE>
+<A id="svgcats_vml_p146" class="to_tree" style="margin-top:444px;" onClick="selectTreeElem( '146' );">←</A>
+<A href="#svgcats_vml_p147" class="to_next_page" style="margin-top:444px;">▼</A>
+<A href="#svgcats_vml_p145" class="to_prev_page" style="margin-top:444px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:455px; width:583px; height:270px;" fillcolor="white"/>
+<DIV id="text146_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:472px; line-height:15px; white-space:nowrap">
+<A name="ArrayClassIterator_GetNext">
+GetNext (ArrayClassIterator)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:502px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text146_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:509px; line-height:13px; white-space:nowrap">
+Function&nbsp; ArrayClassIterator::GetNext() as variant</DIV>
+<DIV id="text146_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:539px; line-height:15px; white-space:nowrap">
+次の要素を返す。 次回の呼び出しでは、その次の要素を返す。</DIV>
+<DIV id="text146_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:647px; line-height:15px; white-space:nowrap">
+Java2 の Iterator パターン、JavaScript 1.7 のイテレーターでは、next に相当します。<BR/>
+Next は、VB言語の予約語であることと、Me に副作用があるため、プロパティではなくメソッド<BR/>
+であり、メソッドは動詞で始まる方が読みやすいため、GetNext に変更しています。</DIV>
+<DIV id="text146_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:235px; margin-top:472px; line-height:15px; white-space:nowrap">
+<A href="#ArrayClassIterator">
+→ ArrayClassIterator クラス</A></DIV>
+<DIV id="text146_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:625px; line-height:15px; white-space:nowrap">
+補足</DIV>
+<DIV id="text146_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:567px; line-height:15px; white-space:nowrap">
+次の要素が無いときは、エラーになります。 エラーにしたくないときは、</DIV>
+<DIV id="text146_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:420px; margin-top:567px; line-height:15px; white-space:nowrap">
+<A href="#ArrayClassIterator_GetNextOrSentinel">
+GetNextOrSentinel</A></DIV>
+<DIV id="text146_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:584px; line-height:15px; white-space:nowrap">
+を使ってください。</DIV>
+
+<v:line from="0,455" to="583,455"/>
+<v:line from="583,455" to="583,725"/>
+<v:line from="583,725" to="0,725"/>
+<v:line from="0,725" to="0,455"/>
+
+</PAGE>
+ 
+<!-- page 147 --> 
+<PAGE>
+<A id="svgcats_vml_p147" class="to_tree" style="margin-top:730px;" onClick="selectTreeElem( '147' );">←</A>
+<A href="#svgcats_vml_p148" class="to_next_page" style="margin-top:730px;">▼</A>
+<A href="#svgcats_vml_p146" class="to_prev_page" style="margin-top:730px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:741px; width:431px; height:132px;" fillcolor="white"/>
+<DIV id="text147_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:758px; line-height:15px; white-space:nowrap">
+<A name="ArrayClassIterator_HasNext">
+HasNext (ArrayClassIterator)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:788px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text147_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:795px; line-height:13px; white-space:nowrap">
+Function&nbsp; ArrayClassIterator::HasNext() as boolean</DIV>
+<DIV id="text147_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:825px; line-height:15px; white-space:nowrap">
+次の要素があるかどうかを返す。</DIV>
+<DIV id="text147_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:235px; margin-top:758px; line-height:15px; white-space:nowrap">
+<A href="#ArrayClassIterator">
+→ ArrayClassIterator クラス</A></DIV>
+
+<v:line from="0,741" to="431,741"/>
+<v:line from="431,741" to="431,873"/>
+<v:line from="431,873" to="0,873"/>
+<v:line from="0,873" to="0,741"/>
+
+</PAGE>
+ 
+<!-- page 148 --> 
+<PAGE>
+<A id="svgcats_vml_p148" class="to_tree" style="margin-top:878px;" onClick="selectTreeElem( '148' );">←</A>
+<A href="#svgcats_vml_p149" class="to_next_page" style="margin-top:878px;">▼</A>
+<A href="#svgcats_vml_p147" class="to_prev_page" style="margin-top:878px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:889px; width:559px; height:457px;" fillcolor="white"/>
+<DIV id="text148_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:906px; line-height:15px; white-space:nowrap">
+<A name="ArrayClassIterator_GetNextOrSentinel">
+GetNextOrSentinel (ArrayClassIterator)</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1034px; width:424px; height:280px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text148_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1040px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; f, line, a, elem, iter<BR/>
+&nbsp; Set a = new ArrayClass : a.Add&nbsp; new Elem<BR/>
+&nbsp; Set iter = a.NewIterator<BR/>
+&nbsp; Set sentinel = new Elem<BR/>
+&nbsp; Set elem = iter.GetNextOrSentinel( sentinel )<BR/>
+<BR/>
+&nbsp; Set f = OpenForRead( path )<BR/>
+&nbsp; Do Until&nbsp; f.AtEndOfStream<BR/>
+&nbsp; &nbsp; line = f.ReadLine()<BR/>
+&nbsp; &nbsp; If elem.IsMatch( line ) Then&nbsp; '// ここで番兵が使われることがある<BR/>
+&nbsp; &nbsp; &nbsp; ... <BR/>
+&nbsp; &nbsp; &nbsp; elem = iter.GetNextOrSentinel( sentinel )<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '// GetNext ではここでエラーになってしまうことがある<BR/>
+&nbsp; &nbsp; End If<BR/>
+&nbsp; Loop<BR/>
+&nbsp; f = Empty<BR/>
+&nbsp; elem = Empty<BR/>
+&nbsp; iter = Empty</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:936px; width:502px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text148_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:943px; line-height:13px; white-space:nowrap">
+Function&nbsp; ArrayClassIterator::GetNextOrSentinel( Sentinel as variant ) as variant</DIV>
+<DIV id="text148_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:973px; line-height:15px; white-space:nowrap">
+次の要素を返す。 ただし、次の要素が無いときは、Sentinel 引数（番兵）を返す。</DIV>
+<DIV id="text148_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1011px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text148_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:161px; margin-top:1101px; line-height:13px; white-space:nowrap">
+GetNextOrSentinel</DIV>
+<DIV id="text148_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:161px; margin-top:1206px; line-height:13px; white-space:nowrap">
+GetNextOrSentinel</DIV>
+<DIV id="text148_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:292px; margin-top:906px; line-height:15px; white-space:nowrap">
+<A href="#ArrayClassIterator">
+→ ArrayClassIterator クラス</A></DIV>
+
+<v:line from="0,889" to="559,889"/>
+<v:line from="559,889" to="559,1346"/>
+<v:line from="559,1346" to="0,1346"/>
+<v:line from="0,1346" to="0,889"/>
+
+</PAGE>
+ 
+<!-- page 149 --> 
+<PAGE>
+<A id="svgcats_vml_p149" class="to_tree" style="margin-top:1351px;" onClick="selectTreeElem( '149' );">←</A>
+<A href="#svgcats_vml_p150" class="to_next_page" style="margin-top:1351px;">▼</A>
+<A href="#svgcats_vml_p148" class="to_prev_page" style="margin-top:1351px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1362px; width:452px; height:645px;" fillcolor="white"/>
+<DIV id="text149_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1379px; line-height:15px; white-space:nowrap">
+<A name="ArrayDictionary">
+ArrayDictionary クラス</A></DIV>
+<DIV id="text149_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:70px; margin-top:1411px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_07.html#dic">
+Dictionary</A></DIV>
+<DIV id="text149_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1411px; line-height:15px; white-space:nowrap">
+標準の</DIV>
+<DIV id="text149_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:131px; margin-top:1411px; line-height:15px; white-space:nowrap">
+の Item を、配列にしたクラスです。</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:1484px; width:346px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text149_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:1490px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; dic<BR/>
+<BR/>
+&nbsp; Set dic = new ArrayDictionary<BR/>
+&nbsp; dic.Add&nbsp; "key1", "item11"<BR/>
+&nbsp; dic.Add&nbsp; "key1", "item12"<BR/>
+&nbsp; dic.Add&nbsp; "key1", "item13"<BR/>
+&nbsp; dic.Add&nbsp; "key2", "item21"<BR/>
+&nbsp; dic.Echo<BR/>
+<BR/>
+&nbsp; Dim&nbsp; i,j<BR/>
+&nbsp; For Each j in dic.Dic.Items() : For Each i in j.Items<BR/>
+&nbsp; &nbsp; WScript.Echo&nbsp; i<BR/>
+&nbsp; Next : Next</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:1723px; width:52px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text149_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:1729px; line-height:15px; white-space:nowrap">
+item11<BR/>
+item12<BR/>
+item13<BR/>
+item21</DIV>
+<DIV id="text149_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:20px; margin-top:1703px; line-height:15px; white-space:nowrap">
+上記スクリプトの出力</DIV>
+<DIV id="text149_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1462px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text149_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:1843px; line-height:13px; white-space:nowrap">
+<A href="#ArrayDictionary_m_Dic">
+Dic</A></DIV>
+<DIV id="text149_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1841px; line-height:15px; white-space:nowrap">
+VBScript 標準の Dictionary （プロパティ）</DIV>
+<DIV id="text149_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1815px; line-height:15px; white-space:nowrap">
+メンバ</DIV>
+<DIV id="text149_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:1884px; line-height:13px; white-space:nowrap">
+<A href="#ArrayDictionary_Add">
+Add</A></DIV>
+<DIV id="text149_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1883px; line-height:15px; white-space:nowrap">
+キーに要素を登録する。キーは重複可能</DIV>
+<DIV id="text149_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:1863px; line-height:13px; white-space:nowrap">
+<A href="#ArrayDictionary_ToEmpty">
+ToEmpty</A></DIV>
+<DIV id="text149_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1862px; line-height:15px; white-space:nowrap">
+すべての要素を削除します</DIV>
+<DIV id="text149_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:1923px; line-height:13px; white-space:nowrap">
+<A href="#ArrayDictionary_Echo">
+Echo</A></DIV>
+<DIV id="text149_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1921px; line-height:15px; white-space:nowrap">
+すべての要素を表示する</DIV>
+<DIV id="text149_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:1903px; line-height:13px; white-space:nowrap">
+<A href="#ArrayDictionary_Count">
+Count</A></DIV>
+<DIV id="text149_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:99px; margin-top:1902px; line-height:15px; white-space:nowrap">
+要素の数</DIV>
+<DIV id="text149_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1428px; line-height:15px; white-space:nowrap">
+１つのキーに対して、複数のアイテムを関連付けするときに使います。</DIV>
+<DIV id="text149_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:243px; margin-top:1379px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text149_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:1959px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text149_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:1959px; line-height:15px; white-space:nowrap">
+→ T_Arr_Target.vbs [T_ArrayDic1]</DIV>
+
+<v:line from="0,1362" to="452,1362"/>
+<v:line from="452,1362" to="452,2007"/>
+<v:line from="452,2007" to="0,2007"/>
+<v:line from="0,2007" to="0,1362"/>
+
+</PAGE>
+ 
+<!-- page 150 --> 
+<PAGE>
+<A id="svgcats_vml_p150" class="to_tree" style="margin-top:2012px;" onClick="selectTreeElem( '150' );">←</A>
+<A href="#svgcats_vml_p151" class="to_next_page" style="margin-top:2012px;">▼</A>
+<A href="#svgcats_vml_p149" class="to_prev_page" style="margin-top:2012px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2023px; width:394px; height:162px;" fillcolor="white"/>
+<DIV id="text150_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2040px; line-height:15px; white-space:nowrap">
+<A name="ArrayDictionary_m_Dic">
+Dic (ArrayDictionary)</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:2068px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text150_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:2075px; line-height:13px; white-space:nowrap">
+Dim&nbsp; ArrayDictionary::Dic&nbsp; as Dictionary of variant</DIV>
+<DIV id="text150_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:2102px; line-height:15px; white-space:nowrap">
+ArrayDictionary クラスがラップしている辞書です。</DIV>
+<DIV id="text150_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:2137px; line-height:15px; white-space:nowrap">
+要素(Item)は、オブジェクトでもそれ以外でも格納します。</DIV>
+<DIV id="text150_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:243px; margin-top:2040px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,2023" to="394,2023"/>
+<v:line from="394,2023" to="394,2185"/>
+<v:line from="394,2185" to="0,2185"/>
+<v:line from="0,2185" to="0,2023"/>
+
+</PAGE>
+ 
+<!-- page 151 --> 
+<PAGE>
+<A id="svgcats_vml_p151" class="to_tree" style="margin-top:2190px;" onClick="selectTreeElem( '151' );">←</A>
+<A href="#svgcats_vml_p152" class="to_next_page" style="margin-top:2190px;">▼</A>
+<A href="#svgcats_vml_p150" class="to_prev_page" style="margin-top:2190px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2201px; width:359px; height:129px;" fillcolor="white"/>
+<DIV id="text151_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2218px; line-height:15px; white-space:nowrap">
+<A name="ArrayDictionary_ToEmpty">
+ToEmpty (ArrayDictionary)</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:2246px; width:202px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text151_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:2253px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ArrayDictionary::ToEmpty()</DIV>
+<DIV id="text151_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:2282px; line-height:15px; white-space:nowrap">
+辞書に要素を空にします。 要素数は 0 になります。</DIV>
+<DIV id="text151_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:243px; margin-top:2218px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,2201" to="359,2201"/>
+<v:line from="359,2201" to="359,2330"/>
+<v:line from="359,2330" to="0,2330"/>
+<v:line from="0,2330" to="0,2201"/>
+
+</PAGE>
+ 
+<!-- page 152 --> 
+<PAGE>
+<A id="svgcats_vml_p152" class="to_tree" style="margin-top:2335px;" onClick="selectTreeElem( '152' );">←</A>
+<A href="#svgcats_vml_p153" class="to_next_page" style="margin-top:2335px;">▼</A>
+<A href="#svgcats_vml_p151" class="to_prev_page" style="margin-top:2335px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2346px; width:487px; height:176px;" fillcolor="white"/>
+<DIV id="text152_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2363px; line-height:15px; white-space:nowrap">
+<A name="ArrayDictionary_Add">
+Add (ArrayDictionary)</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:2391px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text152_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:2398px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ArrayDictionary::Add( Key as string, Item as variant )</DIV>
+<DIV id="text152_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:2427px; line-height:15px; white-space:nowrap">
+辞書に要素を追加します。</DIV>
+<DIV id="text152_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:2454px; line-height:15px; white-space:nowrap">
+<A name="ArrayClass_Add">
+【引数】</A></DIV>
+<DIV id="text152_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:2454px; line-height:15px; white-space:nowrap">
+<A name="ArrayClass_Add">
+Key</A></DIV>
+<DIV id="text152_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:2454px; line-height:15px; white-space:nowrap">
+<A name="ArrayClass_Add">
+要素に関連付けるキー文字列</A></DIV>
+<DIV id="text152_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:2474px; line-height:15px; white-space:nowrap">
+Item</DIV>
+<DIV id="text152_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:2474px; line-height:15px; white-space:nowrap">
+<A name="ArrayClass_Add">
+辞書に追加する要素（オブジェクト、またはそれ以外）</A></DIV>
+<DIV id="text152_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:243px; margin-top:2363px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,2346" to="487,2346"/>
+<v:line from="487,2346" to="487,2522"/>
+<v:line from="487,2522" to="0,2522"/>
+<v:line from="0,2522" to="0,2346"/>
+
+</PAGE>
+ 
+<!-- page 153 --> 
+<PAGE>
+<A id="svgcats_vml_p153" class="to_tree" style="margin-top:2527px;" onClick="selectTreeElem( '153' );">←</A>
+<A href="#svgcats_vml_p154" class="to_next_page" style="margin-top:2527px;">▼</A>
+<A href="#svgcats_vml_p152" class="to_prev_page" style="margin-top:2527px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2538px; width:406px; height:207px;" fillcolor="white"/>
+<DIV id="text153_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2555px; line-height:15px; white-space:nowrap">
+<A name="ArrayDictionary_Count">
+Count (ArrayDictionary)</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:2583px; width:286px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text153_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:2590px; line-height:13px; white-space:nowrap">
+Function&nbsp; ArrayDictionary::Count() as integer</DIV>
+<DIV id="text153_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:2619px; line-height:15px; white-space:nowrap">
+辞書の要素数を返します。</DIV>
+<DIV id="text153_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:2646px; line-height:15px; white-space:nowrap">
+<A name="ArrayClass_Add">
+【引数】</A></DIV>
+<DIV id="text153_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:2646px; line-height:15px; white-space:nowrap">
+<A name="ArrayClass_Add">
+返り値</A></DIV>
+<DIV id="text153_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:2646px; line-height:15px; white-space:nowrap">
+<A name="ArrayClass_Add">
+辞書の要素数</A></DIV>
+<DIV id="text153_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:2682px; line-height:15px; white-space:nowrap">
+１つのキーに複数の要素が関連付けされることがあるので、<BR/>
+要素数はキーの数と一致しないことがあります。</DIV>
+<DIV id="text153_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:243px; margin-top:2555px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,2538" to="406,2538"/>
+<v:line from="406,2538" to="406,2745"/>
+<v:line from="406,2745" to="0,2745"/>
+<v:line from="0,2745" to="0,2538"/>
+
+</PAGE>
+ 
+<!-- page 154 --> 
+<PAGE>
+<A id="svgcats_vml_p154" class="to_tree" style="margin-top:2750px;" onClick="selectTreeElem( '154' );">←</A>
+<A href="#svgcats_vml_p155" class="to_next_page" style="margin-top:2750px;">▼</A>
+<A href="#svgcats_vml_p153" class="to_prev_page" style="margin-top:2750px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2761px; width:276px; height:129px;" fillcolor="white"/>
+<DIV id="text154_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2778px; line-height:15px; white-space:nowrap">
+<A name="ArrayDictionary_Echo">
+Echo (ArrayDictionary)</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:2806px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text154_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:2813px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ArrayDictionary::Echo()</DIV>
+<DIV id="text154_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:2842px; line-height:15px; white-space:nowrap">
+辞書のすべての要素を表示します。</DIV>
+<DIV id="text154_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:2778px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,2761" to="276,2761"/>
+<v:line from="276,2761" to="276,2890"/>
+<v:line from="276,2890" to="0,2890"/>
+<v:line from="0,2890" to="0,2761"/>
+
+</PAGE>
+ 
+<!-- page 155 --> 
+<PAGE>
+<A id="svgcats_vml_p155" class="to_tree" style="margin-top:2895px;" onClick="selectTreeElem( '155' );">←</A>
+<A href="#svgcats_vml_p156" class="to_next_page" style="margin-top:2895px;">▼</A>
+<A href="#svgcats_vml_p154" class="to_prev_page" style="margin-top:2895px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2906px; width:139px; height:80px;" fillcolor="white"/>
+<DIV id="text155_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2923px; line-height:15px; white-space:nowrap">
+配列 （Array）</DIV>
+
+<v:line from="0,2906" to="139,2906"/>
+<v:line from="139,2906" to="139,2986"/>
+<v:line from="139,2986" to="0,2986"/>
+<v:line from="0,2986" to="0,2906"/>
+
+</PAGE>
+ 
+<!-- page 156 --> 
+<PAGE>
+<A id="svgcats_vml_p156" class="to_tree" style="margin-top:2991px;" onClick="selectTreeElem( '156' );">←</A>
+<A href="#svgcats_vml_p157" class="to_next_page" style="margin-top:2991px;">▼</A>
+<A href="#svgcats_vml_p155" class="to_prev_page" style="margin-top:2991px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3002px; width:501px; height:519px;" fillcolor="white"/>
+<DIV id="text156_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3019px; line-height:15px; white-space:nowrap">
+<A name="AddArrElem">
+AddArrElem</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:3045px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text156_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:3052px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AddArrElem( Dst, Src )</DIV>
+<DIV id="text156_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:3085px; line-height:15px; white-space:nowrap">
+配列の要素を追加コピーします。</DIV>
+<DIV id="text156_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:3113px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text156_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:3113px; line-height:15px; white-space:nowrap">
+Dst</DIV>
+<DIV id="text156_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:3132px; line-height:15px; white-space:nowrap">
+Arr</DIV>
+<DIV id="text156_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:3113px; line-height:15px; white-space:nowrap">
+コピー先配列。 この配列の末尾に追加</DIV>
+<DIV id="text156_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:3132px; line-height:15px; white-space:nowrap">
+コピー元の要素が入った配列、またはコピー元の単体。</DIV>
+<DIV id="text156_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:3159px; line-height:15px; white-space:nowrap">
+これまで入っていた要素の後に追加します。</DIV>
+<DIV id="text156_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:3454px; line-height:15px; white-space:nowrap">
+→ AddElems (ArrayClass)</DIV>
+<DIV id="text156_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:3194px; line-height:15px; white-space:nowrap">
+Dst には、Me.Property 形式ではなく、Property 形式にしてください。（下記）</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:3217px; width:268px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text156_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:3224px; line-height:13px; white-space:nowrap">
+&nbsp; AddArrElem&nbsp; Me.SampleArray, Array( 1,2 )</DIV>
+<DIV id="text156_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:339px; margin-top:3222px; line-height:15px; white-space:nowrap">
+×：追加されない</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:3249px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text156_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:3256px; line-height:13px; white-space:nowrap">
+&nbsp; AddArrElem&nbsp; SampleArray, Array( 1,2 )</DIV>
+<DIV id="text156_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:339px; margin-top:3254px; line-height:15px; white-space:nowrap">
+○：追加される</DIV>
+<DIV id="text156_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:238px; margin-top:3454px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_01.html#callby">
+→ 値渡しと参照渡し</A></DIV>
+<DIV id="text156_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:144px; margin-top:3224px; line-height:13px; white-space:nowrap">
+Me.</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:3323px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text156_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:3330px; line-height:13px; white-space:nowrap">
+&nbsp; AddArrElem&nbsp; arr1, arr2</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:3354px; width:196px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text156_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:3361px; line-height:13px; white-space:nowrap">
+&nbsp; AddArrElem&nbsp; arr1, new ClassA</DIV>
+<DIV id="text156_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3454px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text156_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3428px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text156_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3299px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text156_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:3428px; line-height:15px; white-space:nowrap">
+→ T_Arr.vbs</DIV>
+<DIV id="text156_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:3428px; line-height:15px; white-space:nowrap">
+T_Arr1</DIV>
+<DIV id="text156_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3402px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text156_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:3402px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text156_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:3473px; line-height:15px; white-space:nowrap">
+<A href="#AddArrElemEx">
+→ AddArrElemEx</A></DIV>
+
+<v:line from="0,3002" to="501,3002"/>
+<v:line from="501,3002" to="501,3521"/>
+<v:line from="501,3521" to="0,3521"/>
+<v:line from="0,3521" to="0,3002"/>
+
+</PAGE>
+ 
+<!-- page 157 --> 
+<PAGE>
+<A id="svgcats_vml_p157" class="to_tree" style="margin-top:3526px;" onClick="selectTreeElem( '157' );">←</A>
+<A href="#svgcats_vml_p158" class="to_next_page" style="margin-top:3526px;">▼</A>
+<A href="#svgcats_vml_p156" class="to_prev_page" style="margin-top:3526px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3537px; width:554px; height:255px;" fillcolor="white"/>
+<DIV id="text157_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3554px; line-height:15px; white-space:nowrap">
+<A name="AddArrElemEx">
+AddArrElemEx</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:3580px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text157_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:3587px; line-height:13px; white-space:nowrap">
+Function&nbsp; AddArrElemEx( Dst, Src, IsReturn ) as Dst or Empty</DIV>
+<DIV id="text157_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:3620px; line-height:15px; white-space:nowrap">
+配列の要素を追加コピーします。（機能拡張版）</DIV>
+<DIV id="text157_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:3648px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text157_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:3648px; line-height:15px; white-space:nowrap">
+Dst</DIV>
+<DIV id="text157_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:3667px; line-height:15px; white-space:nowrap">
+Arr</DIV>
+<DIV id="text157_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:3648px; line-height:15px; white-space:nowrap">
+コピー先配列。 この配列の末尾に追加</DIV>
+<DIV id="text157_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:3667px; line-height:15px; white-space:nowrap">
+コピー元の要素が入った配列、またはコピー元の単体。</DIV>
+<DIV id="text157_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:3686px; line-height:15px; white-space:nowrap">
+IsReturn</DIV>
+<DIV id="text157_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:3686px; line-height:15px; white-space:nowrap">
+True = 返り値は追加コピーした内容、False = 返り値は Empty</DIV>
+<DIV id="text157_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3716px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text157_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:70px; margin-top:3716px; line-height:15px; white-space:nowrap">
+<A href="#AddArrElem">
+→ AddArrElem</A></DIV>
+<DIV id="text157_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3744px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text157_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:3744px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,3537" to="554,3537"/>
+<v:line from="554,3537" to="554,3792"/>
+<v:line from="554,3792" to="0,3792"/>
+<v:line from="0,3792" to="0,3537"/>
+
+</PAGE>
+ 
+<!-- page 158 --> 
+<PAGE>
+<A id="svgcats_vml_p158" class="to_tree" style="margin-top:3797px;" onClick="selectTreeElem( '158' );">←</A>
+<A href="#svgcats_vml_p159" class="to_next_page" style="margin-top:3797px;">▼</A>
+<A href="#svgcats_vml_p157" class="to_prev_page" style="margin-top:3797px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3808px; width:573px; height:340px;" fillcolor="white"/>
+<DIV id="text158_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3825px; line-height:15px; white-space:nowrap">
+<A name="FlatArray">
+FlatArray</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:3996px; width:496px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text158_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:4002px; line-height:15px; white-space:nowrap">
+input_array = Array( "a", "b", Array( "ca", "cb" ), "d", Array( "ea", "eb" ) )<BR/>
+FlatArray&nbsp; out_array, input_array<BR/>
+Assert&nbsp; IsSameArray( out_array, Array( "a", "b", "ca", "cb", "d", "ea", "eb" ) )</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3855px; width:388px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text158_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3862px; line-height:13px; white-space:nowrap">
+Sub&nbsp; FlatArray( out_FlatArray as array, NestedArray as array )</DIV>
+<DIV id="text158_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3892px; line-height:15px; white-space:nowrap">
+配列の中に配列がネストして入っているとき、フラットにします。</DIV>
+<DIV id="text158_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3918px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text158_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3918px; line-height:15px; white-space:nowrap">
+out_FlatArray</DIV>
+<DIV id="text158_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3937px; line-height:15px; white-space:nowrap">
+NestedArray</DIV>
+<DIV id="text158_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:3918px; line-height:15px; white-space:nowrap">
+（出力） フラットにした配列</DIV>
+<DIV id="text158_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:3937px; line-height:15px; white-space:nowrap">
+配列がネストして入っている配列</DIV>
+<DIV id="text158_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3973px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text158_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4100px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text158_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:4100px; line-height:15px; white-space:nowrap">
+→ T_Arr.vbs</DIV>
+<DIV id="text158_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:4100px; line-height:15px; white-space:nowrap">
+T_FlatArray</DIV>
+<DIV id="text158_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4074px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text158_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:4074px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,3808" to="573,3808"/>
+<v:line from="573,3808" to="573,4148"/>
+<v:line from="573,4148" to="0,4148"/>
+<v:line from="0,4148" to="0,3808"/>
+
+</PAGE>
+ 
+<!-- page 159 --> 
+<PAGE>
+<A id="svgcats_vml_p159" class="to_tree" style="margin-top:4153px;" onClick="selectTreeElem( '159' );">←</A>
+<A href="#svgcats_vml_p160" class="to_next_page" style="margin-top:4153px;">▼</A>
+<A href="#svgcats_vml_p158" class="to_prev_page" style="margin-top:4153px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4164px; width:573px; height:334px;" fillcolor="white"/>
+<DIV id="text159_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4181px; line-height:15px; white-space:nowrap">
+<A name="CopyArr">
+CopyArr</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:4207px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text159_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:4214px; line-height:13px; white-space:nowrap">
+Sub&nbsp; CopyArr( Dst, Src )</DIV>
+<DIV id="text159_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:4325px; line-height:15px; white-space:nowrap">
+配列の要素をコピーします。</DIV>
+<DIV id="text159_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:4353px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text159_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:4353px; line-height:15px; white-space:nowrap">
+Dst</DIV>
+<DIV id="text159_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:4372px; line-height:15px; white-space:nowrap">
+Arr</DIV>
+<DIV id="text159_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:4353px; line-height:15px; white-space:nowrap">
+コピー先</DIV>
+<DIV id="text159_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:4372px; line-height:15px; white-space:nowrap">
+コピー元</DIV>
+<DIV id="text159_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:125px; margin-top:4181px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text159_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:4409px; line-height:15px; white-space:nowrap">
+Arr が配列ではないときは、Dst(0) に Src をコピーします。</DIV>
+<DIV id="text159_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:4435px; line-height:15px; white-space:nowrap">
+Dst に ArrayClass::Items を指定してもコピーした内容は ArrayClass に格納されません。<BR/>
+ArrayClass::Copy を使ってください。</DIV>
+<DIV id="text159_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:32px; margin-top:4252px; line-height:15px; white-space:nowrap">
+廃止されました。</DIV>
+<DIV id="text159_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:4270px; line-height:15px; white-space:nowrap">
+Dim&nbsp; arr() とすると arr = Array はできませんが、 Dim arr とすると arr = Array ができます。</DIV>
+
+<v:line from="0,4164" to="573,4164"/>
+<v:line from="573,4164" to="573,4498"/>
+<v:line from="573,4498" to="0,4498"/>
+<v:line from="0,4498" to="0,4164"/>
+
+</PAGE>
+ 
+<!-- page 160 --> 
+<PAGE>
+<A id="svgcats_vml_p160" class="to_tree" style="margin-top:4503px;" onClick="selectTreeElem( '160' );">←</A>
+<A href="#svgcats_vml_p161" class="to_next_page" style="margin-top:4503px;">▼</A>
+<A href="#svgcats_vml_p159" class="to_prev_page" style="margin-top:4503px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4514px; width:636px; height:529px;" fillcolor="white"/>
+<DIV id="text160_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4531px; line-height:15px; white-space:nowrap">
+<A name="SearchInSimpleArray">
+SearchInSimpleArray</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:4561px; width:538px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text160_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:4567px; line-height:15px; white-space:nowrap">
+Function&nbsp; SearchInSimpleArray( InData as variant, InArray as array of variant,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OutBaseNumOrArray as array of variant, DefaultOut as variant ) as variant</DIV>
+<DIV id="text160_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4612px; line-height:15px; white-space:nowrap">
+配列を検索して、別の配列の内容を返します。</DIV>
+<DIV id="text160_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4638px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text160_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4638px; line-height:15px; white-space:nowrap">
+InData</DIV>
+<DIV id="text160_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4657px; line-height:15px; white-space:nowrap">
+InArray</DIV>
+<DIV id="text160_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:230px; margin-top:4638px; line-height:15px; white-space:nowrap">
+配列の要素と比較する値。 数値、文字列など = で判定できるもの</DIV>
+<DIV id="text160_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:230px; margin-top:4657px; line-height:15px; white-space:nowrap">
+InData を比較する値を要素に持つ配列</DIV>
+<DIV id="text160_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:230px; margin-top:4714px; line-height:15px; white-space:nowrap">
+OutBaseNumOrArray に指定した配列の要素の１つなど</DIV>
+<DIV id="text160_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4714px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text160_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:230px; margin-top:4695px; line-height:15px; white-space:nowrap">
+InData が InArray に見つからなかったときに出力する値</DIV>
+<DIV id="text160_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:230px; margin-top:4676px; line-height:15px; white-space:nowrap">
+出力する値を要素に持つ配列。 または、出力の最小数値</DIV>
+<DIV id="text160_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4695px; line-height:15px; white-space:nowrap">
+DefaultOut</DIV>
+<DIV id="text160_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4676px; line-height:15px; white-space:nowrap">
+OutBaseNumOrArray</DIV>
+<DIV id="text160_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:4531px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:4774px; width:250px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text160_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:4780px; line-height:15px; white-space:nowrap">
+num = SearchInSimpleArray( "SymbolB", _<BR/>
+&nbsp; &nbsp; Array( "SymbolA", "SymbolB" ), _<BR/>
+&nbsp; &nbsp; Array( 1, 2 ), _<BR/>
+&nbsp; &nbsp; Empty )<BR/>
+'// num = 2</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:4906px; width:490px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text160_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:4912px; line-height:15px; white-space:nowrap">
+num = SearchInSimpleArray( "SymbolB", Array( "SymbolA", "SymbolB" ), 5, Empty )<BR/>
+'// num = 6</DIV>
+<DIV id="text160_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:4995px; line-height:15px; white-space:nowrap">
+<A href="vbslib_07.html#LookUpDic_ArrayClass">
+→ LookUpDic (ArrayClass)</A></DIV>
+<DIV id="text160_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4995px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text160_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:4951px; line-height:15px; white-space:nowrap">
+出力の最小数値が 5 で、2番目の配列要素にヒットしたので、5 + ( 2 -1 ) = 6 を返します。</DIV>
+<DIV id="text160_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4754px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text160_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4884px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,4514" to="636,4514"/>
+<v:line from="636,4514" to="636,5043"/>
+<v:line from="636,5043" to="0,5043"/>
+<v:line from="0,5043" to="0,4514"/>
+
+</PAGE>
+ 
+<!-- page 161 --> 
+<PAGE>
+<A id="svgcats_vml_p161" class="to_tree" style="margin-top:5048px;" onClick="selectTreeElem( '161' );">←</A>
+<A href="#svgcats_vml_p162" class="to_next_page" style="margin-top:5048px;">▼</A>
+<A href="#svgcats_vml_p160" class="to_prev_page" style="margin-top:5048px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5059px; width:508px; height:301px;" fillcolor="white"/>
+<DIV id="text161_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5076px; line-height:15px; white-space:nowrap">
+<A name="IsSameArray">
+IsSameArray</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:5102px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text161_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:5109px; line-height:13px; white-space:nowrap">
+Function&nbsp; IsSameArray( Array1, Array2 ) as boolean</DIV>
+<DIV id="text161_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5142px; line-height:15px; white-space:nowrap">
+配列のすべての要素が等しいか判定します。</DIV>
+<DIV id="text161_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5162px; line-height:15px; white-space:nowrap">
+各要素は = で判定します。</DIV>
+<DIV id="text161_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:147px; margin-top:5076px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text161_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:5287px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text161_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5266px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text161_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:5287px; line-height:15px; white-space:nowrap">
+→ T_Arr.vbs</DIV>
+<DIV id="text161_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:5287px; line-height:15px; white-space:nowrap">
+T_IsSameArray</DIV>
+<DIV id="text161_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:5266px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text161_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5225px; line-height:15px; white-space:nowrap">
+Array1 = Empty, Array2 = Empty のときは、True を返します。</DIV>
+<DIV id="text161_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5201px; line-height:15px; white-space:nowrap">
+Array1, Array2 は、Empty, 配列型、ArrayClass 型のいずれかを指定できます。</DIV>
+<DIV id="text161_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:5312px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text161_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:84px; margin-top:5312px; line-height:15px; white-space:nowrap">
+<A href="#IsSameArrayOutOfOrder">
+→ IsSameArrayOutOfOrder</A></DIV>
+
+<v:line from="0,5059" to="508,5059"/>
+<v:line from="508,5059" to="508,5360"/>
+<v:line from="508,5360" to="0,5360"/>
+<v:line from="0,5360" to="0,5059"/>
+
+</PAGE>
+ 
+<!-- page 162 --> 
+<PAGE>
+<A id="svgcats_vml_p162" class="to_tree" style="margin-top:5365px;" onClick="selectTreeElem( '162' );">←</A>
+<A href="#svgcats_vml_p163" class="to_next_page" style="margin-top:5365px;">▼</A>
+<A href="#svgcats_vml_p161" class="to_prev_page" style="margin-top:5365px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5376px; width:594px; height:341px;" fillcolor="white"/>
+<DIV id="text162_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5393px; line-height:15px; white-space:nowrap">
+<A name="IsSameArrayOutOfOrder">
+IsSameArrayOutOfOrder</A></DIV>
+<DIV id="text162_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:5642px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text162_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5621px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text162_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:5642px; line-height:15px; white-space:nowrap">
+→ T_Arr.vbs</DIV>
+<DIV id="text162_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:5642px; line-height:15px; white-space:nowrap">
+T_IsSameArrayOutOfOrder</DIV>
+<DIV id="text162_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:5621px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:5419px; width:538px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text162_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:5426px; line-height:13px; white-space:nowrap">
+Function&nbsp; IsSameArrayOutOfOrder( Array1 as array, Array2 as array, Option_ ) as boolean</DIV>
+<DIV id="text162_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5459px; line-height:15px; white-space:nowrap">
+配列のすべての要素が等しいか判定します。 ただし、順番が異なっていても等しいとします。</DIV>
+<DIV id="text162_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:5479px; line-height:15px; white-space:nowrap">
+各要素は = で判定します。</DIV>
+<DIV id="text162_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5523px; line-height:15px; white-space:nowrap">
+Option_ 引数</DIV>
+<DIV id="text162_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:137px; margin-top:5523px; line-height:15px; white-space:nowrap">
+Empty または、下記の論理和 (or) が指定できます。</DIV>
+<DIV id="text162_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:48px; margin-top:5557px; line-height:13px; white-space:nowrap">
+c.StopIsNotSame</DIV>
+<DIV id="text162_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:5579px; line-height:15px; white-space:nowrap">
+c は、g_VBS_Lib です。</DIV>
+<DIV id="text162_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:5555px; line-height:15px; white-space:nowrap">
+違った要素を見つけた瞬間に、デバッガーで停止します</DIV>
+<DIV id="text162_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:84px; margin-top:5669px; line-height:15px; white-space:nowrap">
+<A href="#IsSameArray">
+→ IsSameArray</A></DIV>
+<DIV id="text162_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:5669px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,5376" to="594,5376"/>
+<v:line from="594,5376" to="594,5717"/>
+<v:line from="594,5717" to="0,5717"/>
+<v:line from="0,5717" to="0,5376"/>
+
+</PAGE>
+ 
+<!-- page 163 --> 
+<PAGE>
+<A id="svgcats_vml_p163" class="to_tree" style="margin-top:5722px;" onClick="selectTreeElem( '163' );">←</A>
+<A href="#svgcats_vml_p164" class="to_next_page" style="margin-top:5722px;">▼</A>
+<A href="#svgcats_vml_p162" class="to_prev_page" style="margin-top:5722px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5733px; width:581px; height:209px;" fillcolor="white"/>
+<DIV id="text163_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5750px; line-height:15px; white-space:nowrap">
+<A name="ReverseObjectArray">
+ReverseObjectArray</A></DIV>
+<DIV id="text163_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:192px; margin-top:5750px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:5776px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text163_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:5783px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ReverseObjectArray( in_out_Array, out_Array )</DIV>
+<DIV id="text163_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5815px; line-height:15px; white-space:nowrap">
+配列を内容（オブジェクトのみ）を逆順にします。</DIV>
+<DIV id="text163_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5841px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text163_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5841px; line-height:15px; white-space:nowrap">
+in_out_Array</DIV>
+<DIV id="text163_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5860px; line-height:15px; white-space:nowrap">
+out_Array</DIV>
+<DIV id="text163_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:5841px; line-height:15px; white-space:nowrap">
+配列。逆順にする前の内容</DIV>
+<DIV id="text163_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:5860px; line-height:15px; white-space:nowrap">
+（出力） 逆順の配列の内容</DIV>
+<DIV id="text163_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5894px; line-height:15px; white-space:nowrap">
+配列の要素が、オブジェクト以外が入っていたり、Empty になっているとエラーになります。</DIV>
+
+<v:line from="0,5733" to="581,5733"/>
+<v:line from="581,5733" to="581,5942"/>
+<v:line from="581,5942" to="0,5942"/>
+<v:line from="0,5942" to="0,5733"/>
+
+</PAGE>
+ 
+<!-- page 164 --> 
+<PAGE>
+<A id="svgcats_vml_p164" class="to_tree" style="margin-top:5947px;" onClick="selectTreeElem( '164' );">←</A>
+<A href="#svgcats_vml_p165" class="to_next_page" style="margin-top:5947px;">▼</A>
+<A href="#svgcats_vml_p163" class="to_prev_page" style="margin-top:5947px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5958px; width:470px; height:210px;" fillcolor="white"/>
+<DIV id="text164_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5975px; line-height:15px; white-space:nowrap">
+<A name="RemoveObjectArray">
+RemoveObjectArray</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6005px; width:334px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text164_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6012px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RemoveObjectArray( in_out_Array, ElementObject )</DIV>
+<DIV id="text164_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6042px; line-height:15px; white-space:nowrap">
+オブジェクトが格納された配列から、指定したオブジェクトを除外します。</DIV>
+<DIV id="text164_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6068px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text164_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6068px; line-height:15px; white-space:nowrap">
+in_out_Array</DIV>
+<DIV id="text164_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6087px; line-height:15px; white-space:nowrap">
+ElementObject</DIV>
+<DIV id="text164_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:6068px; line-height:15px; white-space:nowrap">
+オブジェクトが格納された配列</DIV>
+<DIV id="text164_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:6087px; line-height:15px; white-space:nowrap">
+除外するオブジェクト</DIV>
+<DIV id="text164_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6120px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text164_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:6120px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,5958" to="470,5958"/>
+<v:line from="470,5958" to="470,6168"/>
+<v:line from="470,6168" to="0,6168"/>
+<v:line from="0,6168" to="0,5958"/>
+
+</PAGE>
+ 
+<!-- page 165 --> 
+<PAGE>
+<A id="svgcats_vml_p165" class="to_tree" style="margin-top:6173px;" onClick="selectTreeElem( '165' );">←</A>
+<A href="#svgcats_vml_p166" class="to_next_page" style="margin-top:6173px;">▼</A>
+<A href="#svgcats_vml_p164" class="to_prev_page" style="margin-top:6173px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6184px; width:584px; height:539px;" fillcolor="white"/>
+<DIV id="text165_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6201px; line-height:15px; white-space:nowrap">
+<A name="RemoveObjectsByNames">
+RemoveObjectsByNames</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6231px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text165_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6238px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RemoveObjectsByNames( in_out_Array, Names as variant )</DIV>
+<DIV id="text165_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6268px; line-height:15px; white-space:nowrap">
+オブジェクトが格納された配列から、Name プロパティがマッチするオブジェクトを除外します。</DIV>
+<DIV id="text165_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6294px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text165_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6294px; line-height:15px; white-space:nowrap">
+in_out_Array</DIV>
+<DIV id="text165_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6313px; line-height:15px; white-space:nowrap">
+Names</DIV>
+<DIV id="text165_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:6294px; line-height:15px; white-space:nowrap">
+Name プロパティがあるオブジェクトが格納された配列</DIV>
+<DIV id="text165_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:6313px; line-height:15px; white-space:nowrap">
+Name プロパティと比較するもの</DIV>
+<DIV id="text165_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6654px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text165_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6350px; line-height:15px; white-space:nowrap">
+Names が文字列のとき</DIV>
+<DIV id="text165_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:6374px; line-height:15px; white-space:nowrap">
+Name プロパティと単純に比較します。</DIV>
+<DIV id="text165_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6411px; line-height:15px; white-space:nowrap">
+Names が RegExp 型のとき</DIV>
+<DIV id="text165_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:52px; margin-top:6462px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_07.html#RegExp">
+→ 正規表現 (VBScript.RegExp)</A></DIV>
+<DIV id="text165_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:6437px; line-height:15px; white-space:nowrap">
+Name プロパティと正規表現で比較します。</DIV>
+<DIV id="text165_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6572px; line-height:15px; white-space:nowrap">
+Names が配列型のとき</DIV>
+<DIV id="text165_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6508px; line-height:15px; white-space:nowrap">
+Names がオブジェクトのとき</DIV>
+<DIV id="text165_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:6532px; line-height:15px; white-space:nowrap">
+Name プロパティと Name プロパティを比較します。</DIV>
+<DIV id="text165_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:6596px; line-height:15px; white-space:nowrap">
+配列の要素のそれぞれについて、１つでのマッチしたら除外します。<BR/>
+要素は、文字列、RegExp、Name プロパティを持つオブジェクトを混在できます。</DIV>
+<DIV id="text165_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6675px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text165_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:85px; margin-top:6675px; line-height:15px; white-space:nowrap">
+→ T_Arr.vbs</DIV>
+<DIV id="text165_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:174px; margin-top:6675px; line-height:15px; white-space:nowrap">
+T_RemoveObjectsByNames</DIV>
+<DIV id="text165_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:85px; margin-top:6654px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,6184" to="584,6184"/>
+<v:line from="584,6184" to="584,6723"/>
+<v:line from="584,6723" to="0,6723"/>
+<v:line from="0,6723" to="0,6184"/>
+
+</PAGE>
+ 
+<!-- page 166 --> 
+<PAGE>
+<A id="svgcats_vml_p166" class="to_tree" style="margin-top:6728px;" onClick="selectTreeElem( '166' );">←</A>
+<A href="#svgcats_vml_p167" class="to_next_page" style="margin-top:6728px;">▼</A>
+<A href="#svgcats_vml_p165" class="to_prev_page" style="margin-top:6728px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6739px; width:513px; height:362px;" fillcolor="white"/>
+<DIV id="text166_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6756px; line-height:15px; white-space:nowrap">
+<A name="ArrayToNameOnlyClassArray">
+ArrayToNameOnlyClassArray</A></DIV>
+<DIV id="text166_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:305px; margin-top:6868px; line-height:15px; white-space:nowrap">
+<A href="vbslib_13.html#NameOnlyClass">
+→ NameOnlyClass</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6786px; width:430px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text166_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6793px; line-height:13px; white-space:nowrap">
+Function&nbsp; ArrayToNameOnlyClassArray( aArray as array of not object );</DIV>
+<DIV id="text166_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6823px; line-height:15px; white-space:nowrap">
+オブジェクトではない要素を持つ配列を、NameOnlyClass の配列に変換します。</DIV>
+<DIV id="text166_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6849px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text166_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6849px; line-height:15px; white-space:nowrap">
+aArray</DIV>
+<DIV id="text166_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6868px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text166_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:162px; margin-top:6849px; line-height:15px; white-space:nowrap">
+オブジェクトではない要素を持つ配列</DIV>
+<DIV id="text166_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:162px; margin-top:6868px; line-height:15px; white-space:nowrap">
+NameOnlyClass の配列</DIV>
+<DIV id="text166_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:7008px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#QuickSort">
+→ QuickSort</A></DIV>
+<DIV id="text166_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:161px; margin-top:7008px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#ShakerSort">
+→ ShakerSort</A></DIV>
+<DIV id="text166_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:7008px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text166_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6903px; line-height:15px; white-space:nowrap">
+ソートできる配列にします。</DIV>
+<DIV id="text166_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6936px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:6958px; width:358px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text166_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:6965px; line-height:13px; white-space:nowrap">
+arr = ArrayToNameOnlyClassArray( Array( "a", "b", "c" ) )</DIV>
+<DIV id="text166_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:252px; margin-top:6756px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text166_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:7029px; line-height:15px; white-space:nowrap">
+<A href="#NameOnlyClassArrayToArray">
+→ NameOnlyClassArrayToArray</A></DIV>
+<DIV id="text166_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:7053px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text166_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:79px; margin-top:7053px; line-height:15px; white-space:nowrap">
+→ T_ShakerSort.vbs</DIV>
+<DIV id="text166_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:202px; margin-top:7053px; line-height:15px; white-space:nowrap">
+T_SortByPath</DIV>
+
+<v:line from="0,6739" to="513,6739"/>
+<v:line from="513,6739" to="513,7101"/>
+<v:line from="513,7101" to="0,7101"/>
+<v:line from="0,7101" to="0,6739"/>
+
+</PAGE>
+ 
+<!-- page 167 --> 
+<PAGE>
+<A id="svgcats_vml_p167" class="to_tree" style="margin-top:7106px;" onClick="selectTreeElem( '167' );">←</A>
+<A href="#svgcats_vml_p168" class="to_next_page" style="margin-top:7106px;">▼</A>
+<A href="#svgcats_vml_p166" class="to_prev_page" style="margin-top:7106px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7117px; width:570px; height:268px;" fillcolor="white"/>
+<DIV id="text167_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7134px; line-height:15px; white-space:nowrap">
+<A name="NameOnlyClassArrayToArray">
+NameOnlyClassArrayToArray</A></DIV>
+<DIV id="text167_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:408px; margin-top:7227px; line-height:15px; white-space:nowrap">
+<A href="vbslib_13.html#NameOnlyClass">
+→ NameOnlyClass</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7164px; width:406px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text167_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7171px; line-height:13px; white-space:nowrap">
+Function&nbsp; NameOnlyClassArrayToArray( aArray as array of object );</DIV>
+<DIV id="text167_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7201px; line-height:15px; white-space:nowrap">
+Name プロパティを持つオブジェクトの配列を、Name プロパティの値の配列に変換します。</DIV>
+<DIV id="text167_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7227px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text167_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7227px; line-height:15px; white-space:nowrap">
+aArray</DIV>
+<DIV id="text167_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7246px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text167_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:162px; margin-top:7227px; line-height:15px; white-space:nowrap">
+Name プロパティを持つオブジェクトの配列</DIV>
+<DIV id="text167_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:162px; margin-top:7246px; line-height:15px; white-space:nowrap">
+Name プロパティの値の配列</DIV>
+<DIV id="text167_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:7314px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text167_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7281px; line-height:15px; white-space:nowrap">
+ソートできる配列から戻します。</DIV>
+<DIV id="text167_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:252px; margin-top:7134px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text167_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:7314px; line-height:15px; white-space:nowrap">
+<A href="#ArrayToNameOnlyClassArray">
+→ ArrayToNameOnlyClassArray</A></DIV>
+<DIV id="text167_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:25px; margin-top:7337px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text167_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:79px; margin-top:7337px; line-height:15px; white-space:nowrap">
+→ T_ShakerSort.vbs</DIV>
+<DIV id="text167_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:202px; margin-top:7337px; line-height:15px; white-space:nowrap">
+T_SortByPath</DIV>
+
+<v:line from="0,7117" to="570,7117"/>
+<v:line from="570,7117" to="570,7385"/>
+<v:line from="570,7385" to="0,7385"/>
+<v:line from="0,7385" to="0,7117"/>
+
+</PAGE>
+ 
+<!-- page 168 --> 
+<PAGE>
+<A id="svgcats_vml_p168" class="to_tree" style="margin-top:7390px;" onClick="selectTreeElem( '168' );">←</A>
+<A href="#svgcats_vml_p169" class="to_next_page" style="margin-top:7390px;">▼</A>
+<A href="#svgcats_vml_p167" class="to_prev_page" style="margin-top:7390px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7401px; width:382px; height:157px;" fillcolor="white"/>
+<DIV id="text168_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7418px; line-height:15px; white-space:nowrap">
+その他</DIV>
+<DIV id="text168_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:7458px; line-height:15px; white-space:nowrap">
+<A href="vbslib_24.html#ArrayFromCSV">
+→ (CSV) ArrayFromCSV, ArrayFromCSV_Int</A></DIV>
+<DIV id="text168_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:7484px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#DicToArr">
+→ DicToArr</A></DIV>
+<DIV id="text168_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:7510px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Dic_addFromArray">
+→ Dic_addFromArray</A></DIV>
+<DIV id="text168_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:135px; margin-top:7484px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#DicKeyToArr">
+→ DicKeyToArr</A></DIV>
+<DIV id="text168_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:250px; margin-top:7484px; line-height:15px; white-space:nowrap">
+<A href="vbslib_10.html#DicItemToArr">
+→ DicItemToArr</A></DIV>
+
+<v:line from="0,7401" to="382,7401"/>
+<v:line from="382,7401" to="382,7558"/>
+<v:line from="382,7558" to="0,7558"/>
+<v:line from="0,7558" to="0,7401"/>
+
+</PAGE>
+ 
+<!-- page 169 --> 
+<PAGE>
+<A id="svgcats_vml_p169" class="to_tree" style="margin-top:7563px;" onClick="selectTreeElem( '169' );">←</A>
+<A href="vbslib_09.html#svgcats_vml_p170" class="to_next_page" style="margin-top:7563px;">▼</A>
+<A href="#svgcats_vml_p168" class="to_prev_page" style="margin-top:7563px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7574px; width:642px; height:3378px;" fillcolor="white"/>
+<v:rect style="position:absolute; margin-left:76px; margin-top:9222px; width:268px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_1" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:9228px; line-height:15px; white-space:nowrap">
+g("${RootPath}") = "${${Target}/RootPath}"<BR/>
+g("${TargetA/RootPath}") = "C:\FolderA"<BR/>
+g("${TargetB/RootPath}") = "C:\FolderB"<BR/>
+<BR/>
+g("${Target}") = "TargetA"<BR/>
+Assert&nbsp; g("${RootPath}") = "C:\FolderA"<BR/>
+g("${Target}") = "TargetB"<BR/>
+Assert&nbsp; g("${RootPath}") = "C:\FolderB"</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:9016px; width:250px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:9022px; line-height:15px; white-space:nowrap">
+g("${RootPath}") = "C:\FolderA"<BR/>
+Assert&nbsp; g("${RootPath}") = "C:\FolderA"</DIV>
+<DIV id="text169_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8955px; line-height:15px; white-space:nowrap">
+<A name="DictionaryEx_IndirectRef">
+既存の変数の値を、別の変数によって間接参照させる</A></DIV>
+<DIV id="text169_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7591px; line-height:15px; white-space:nowrap">
+<A name="LazyDictionaryClass">
+${ } 変数, LazyDictionaryClass</A></DIV>
+<DIV id="text169_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:8988px; line-height:15px; white-space:nowrap">
+元々、下記のように使われていた変数 ${RootPath} があるとします。</DIV>
+<DIV id="text169_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:9081px; line-height:15px; white-space:nowrap">
+変数の値を、別の変数の値によって動的に変えたい場合は、下記のどちらの記述もできます。</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:9106px; width:250px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:9112px; line-height:15px; white-space:nowrap">
+g("${RootPath}") = "C:\Folder${Target}"<BR/>
+<BR/>
+g("${Target}") = "A"<BR/>
+Assert&nbsp; g("${RootPath}") = "C:\FolderA"<BR/>
+g("${Target}") = "B"<BR/>
+Assert&nbsp; g("${RootPath}") = "C:\FolderB"</DIV>
+<DIV id="text169_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10415px; line-height:15px; white-space:nowrap">
+<A name="DictionaryEx_Escape">
+参照記号 ${ } のエスケープ</A></DIV>
+<v:rect style="position:absolute; margin-left:79px; margin-top:10472px; width:322px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:87px; margin-top:10478px; line-height:15px; white-space:nowrap">
+g("$\{") = "${"&nbsp; &nbsp;'// $\ は $ に置き換わります<BR/>
+g("$\\") = "$\"<BR/>
+g("$\}") = "$}"<BR/>
+g("$A")&nbsp; = "$A"&nbsp; &nbsp;'// $ の後に { がないと、そのまま</DIV>
+<DIV id="text169_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:10553px; line-height:15px; white-space:nowrap">
+（メモ） このエスケープにより、単純に "${" を検索すれば、それが展開すべき変数かどうかが<BR/>
+分かります。</DIV>
+<DIV id="text169_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7624px; line-height:15px; white-space:nowrap">
+辞書の値に、辞書のキーへの参照を入れて、遅延評価する辞書です。<BR/>
+LazyDictionaryClass のオブジェクトは名前空間に相当し、キーは変数名に相当します。</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:7664px; width:250px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:7670px; line-height:15px; white-space:nowrap">
+Set g = new LazyDictionaryClass<BR/>
+g("${RootPath}") = "C:\Folder${Target}"<BR/>
+g("${Target}") = "A"<BR/>
+<BR/>
+Assert&nbsp; g("${RootPath}") = "C:\FolderA"</DIV>
+<DIV id="text169_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7845px; line-height:15px; white-space:nowrap">
+キーは、${ ～ } 形式（例： ${A}）にしてください。 $～ 形式（例： $A）は、エラーになります。<BR/>
+キーの ${ ～ } の中に "$", "{", "}" は使えませんが、他の記号、Unicode文字（日本語など）<BR/>
+は使えます。</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:9434px; width:346px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:9440px; line-height:15px; white-space:nowrap">
+g("${RootPath( TargetA )}") = "C:\FolderA"<BR/>
+g("${RootPath( TargetB )}") = "C:\FolderB"<BR/>
+<BR/>
+target = "TargetA"<BR/>
+Assert&nbsp; g("${RootPath( "+ target +" )}") = "C:\FolderA"</DIV>
+<DIV id="text169_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:9377px; line-height:15px; white-space:nowrap">
+単純な変換関数であれば、関数をデータに置き換えることもできます。<BR/>
+下記の RootPath が、関数の代わりです。<BR/>
+キーが存在しなければ、エラーになります。</DIV>
+<DIV id="text169_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8220px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text169_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:8198px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text169_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8198px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text169_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9811px; line-height:15px; white-space:nowrap">
+<A name="DictionaryEx_Array">
+配列を値にする</A></DIV>
+<v:rect style="position:absolute; margin-left:79px; margin-top:9888px; width:454px; height:220px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:87px; margin-top:9894px; line-height:15px; white-space:nowrap">
+Set g = new LazyDictionaryClass<BR/>
+<BR/>
+g("${Array1}") = Array( "${Var}/1", "${Var}/2" )<BR/>
+g("${Array2}") = Array( "${Array1}", "${Var}/3", "${Var}/4", "${Var}/5" )<BR/>
+g("${Var}") = "x"<BR/>
+array1 = g("${Array1}")<BR/>
+array2 = g("${Array2}")<BR/>
+<BR/>
+Assert&nbsp; IsSameArray( array1, Array( "x/1", "x/2" ) )<BR/>
+Assert&nbsp; IsSameArray( array2, Array( "x/1", "x/2", "x/3", "x/4", "x/5" ) )<BR/>
+<BR/>
+For Each&nbsp; value&nbsp; In g("${Array2}")<BR/>
+&nbsp; &nbsp; echo&nbsp; value<BR/>
+Next</DIV>
+<DIV id="text169_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8242px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text169_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:8242px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#DictionaryClass">
+→ DictionaryClass</A></DIV>
+<DIV id="text169_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9559px; line-height:15px; white-space:nowrap">
+<A name="DictionaryEx_NotString">
+文字列以外の値の参照</A></DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:9615px; width:232px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:9621px; line-height:15px; white-space:nowrap">
+g("${Var}") = True<BR/>
+Assert&nbsp; g("${Var}") = True<BR/>
+Assert&nbsp; g("Var=${Var}") = "Var=True"</DIV>
+<DIV id="text169_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:9590px; line-height:15px; white-space:nowrap">
+式を参照すると、文字列になります。</DIV>
+<DIV id="text169_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7906px; line-height:15px; white-space:nowrap">
+キーの展開は参照時（ g("${Var}") を Get するとき）に行われる（遅延評価である）ため、<BR/>
+キーを含むアイテム（値）を設定するときに、そのキーが定義されていなくても構いません。 <BR/>
+例：上記 ${Target}。 つまり、連続して設定するときは、設定する順番を問いません。 <BR/>
+参照時にキーが存在しないときは、エラーになります。 簡単な文字列変換関数なら、<BR/>
+辞書のデータに置き換えることができます。</DIV>
+<DIV id="text169_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:8259px; line-height:15px; white-space:nowrap">
+→ 関数型プログラミング</DIV>
+<DIV id="text169_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8046px; line-height:15px; white-space:nowrap">
+<A href="#DictionaryEx_IndirectRef">
+→ 既存の変数の値を、別の変数によって間接参照させる</A></DIV>
+<DIV id="text169_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8066px; line-height:15px; white-space:nowrap">
+<A href="#DictionaryEx_NotString">
+→ 文字列以外の値の参照</A></DIV>
+<DIV id="text169_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8086px; line-height:15px; white-space:nowrap">
+<A href="#DictionaryEx_Array">
+→ 配列を値にする</A></DIV>
+<DIV id="text169_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8106px; line-height:15px; white-space:nowrap">
+<A href="#DictionaryEx_Escape">
+→ 参照記号 ${ } のエスケープ</A></DIV>
+<v:rect style="position:absolute; margin-left:79px; margin-top:10159px; width:514px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:87px; margin-top:10165px; line-height:15px; white-space:nowrap">
+Set g = new LazyDictionaryClass<BR/>
+<BR/>
+g("${Workspace/Lib}")&nbsp; &nbsp; = "FolderA"<BR/>
+g("${Workspace/Sample}") = "FolderB" <BR/>
+<BR/>
+values1 = g.Each_( "${Workspace/${i}}", "${i}", Array( "Lib", "Sample" ) )<BR/>
+Assert&nbsp; IsSameArray( values1, Array( "FolderA", "FolderB" ) )<BR/>
+<BR/>
+formulas = g.EachFormula( "${Workspace/${i}}", "${i}", Array( "Lib", "Sample" ) )<BR/>
+Assert&nbsp; IsSameArray( formulas, Array( "${Workspace/Lib}", "${Workspace/Sample}" ) )<BR/>
+<BR/>
+values2 = g( formulas )<BR/>
+Assert&nbsp; IsSameArray( values2, values1 )</DIV>
+<DIV id="text169_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:10123px; line-height:15px; white-space:nowrap">
+Each_ や EachFormula を使えば、配列の要素をループ変数のように扱って変換できます。<BR/>
+また、辞書を参照するときに、配列を指定することもできます。</DIV>
+<DIV id="text169_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:9847px; line-height:15px; white-space:nowrap">
+値（ = の右）に配列を指定することができます。<BR/>
+また、配列の要素に、配列を値を持つ変数への参照を指定すると、ネストしないで展開されます。</DIV>
+<DIV id="text169_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:10450px; line-height:15px; white-space:nowrap">
+$\{ と書くと、${ という文字列データができます。</DIV>
+<DIV id="text169_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:8220px; line-height:15px; white-space:nowrap">
+→ T_LazyDictionary.vbs</DIV>
+<DIV id="text169_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:9695px; line-height:15px; white-space:nowrap">
+オブジェクトの設定と参照ができます。</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:9719px; width:226px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:9725px; line-height:15px; white-space:nowrap">
+Set g("${Var}") = new NameOnlyClass<BR/>
+echo&nbsp; g("${Var}").Name</DIV>
+<DIV id="text169_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10616px; line-height:15px; white-space:nowrap">
+<A name="str_spell_miss_lz">
+文字列のスペルミス対策、${&gt;&nbsp; }</A></DIV>
+<DIV id="text169_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:44px; margin-top:10644px; line-height:15px; white-space:nowrap">
+キーが存在しないときに自動的にキーを追加しないため、文字列のスペルミスを防ぐことができます。<BR/>
+ただし、キーとアイテムが異なることが一般的である辞書型では、アイテムを調べなければ<BR/>
+文字列を知ることができないため、開発効率が落ちます。<BR/>
+そこで、キーの先頭が "&gt;" から、アイテムと同じであるようなルールにするとよいでしょう。</DIV>
+<v:rect style="position:absolute; margin-left:83px; margin-top:10717px; width:202px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:91px; margin-top:10723px; line-height:15px; white-space:nowrap">
+Set g = new LazyDictionaryClass<BR/>
+g("${&gt;Spell}") = "Spell"</DIV>
+<DIV id="text169_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8126px; line-height:15px; white-space:nowrap">
+<A href="#str_spell_miss_lz">
+→ 文字列のスペルミス対策、${&gt;&nbsp; }</A></DIV>
+<DIV id="text169_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8341px; line-height:15px; white-space:nowrap">
+<A name="LazyDictionaryShow">
+アイテムを一覧表示する</A></DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:8410px; width:202px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_44" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:8416px; line-height:15px; white-space:nowrap">
+Set g = new LazyDictionaryClass<BR/>
+g("${Var1}") = "Value1"<BR/>
+g("${Var2}") = "${Var1}-2"<BR/>
+<BR/>
+g.Echo</DIV>
+<DIV id="text169_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:96px; margin-top:8477px; line-height:13px; white-space:nowrap">
+Echo</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:8532px; width:220px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_46" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:8538px; line-height:15px; white-space:nowrap">
+&lt;LazyDictionaryClass&gt;<BR/>
+${Var1} = "Value1"<BR/>
+${Var2} = "${Var1}-2" = "Value1-2"<BR/>
+&lt;/LazyDictionaryClass&gt;</DIV>
+<DIV id="text169_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8370px; line-height:15px; white-space:nowrap">
+Echo メソッドを呼び出すと、アイテムのキーと展開前の値と展開後の値が書かれたテキスト <BR/>
+エディターが開きます。 内容は、xml プロパティと同じです。</DIV>
+<DIV id="text169_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8512px; line-height:15px; white-space:nowrap">
+テキスト エディターで開く内容：</DIV>
+<DIV id="text169_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8006px; line-height:15px; white-space:nowrap">
+<A href="#LazyDictionaryShow">
+→ アイテムを一覧表示する</A></DIV>
+<DIV id="text169_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10792px; line-height:15px; white-space:nowrap">
+<A name="lazy_explanatory_variable">
+説明変数の活用</A></DIV>
+<v:rect style="position:absolute; margin-left:83px; margin-top:10863px; width:406px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_51" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:91px; margin-top:10870px; line-height:13px; white-space:nowrap">
+patch_path = g("${Repository_workspace}\Sample_Test_patch\patch")</DIV>
+<DIV id="text169_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:10823px; line-height:15px; white-space:nowrap">
+辞書を参照するコードが長くなるときは、役割を説明する説明変数をローカルで（関数内のスコープ<BR/>
+をもつ変数を）活用するとよいでしょう</DIV>
+<DIV id="text169_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:85px; margin-top:10904px; line-height:15px; white-space:nowrap">
+→ 説明変数</DIV>
+<DIV id="text169_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:47px; margin-top:10904px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text169_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8146px; line-height:15px; white-space:nowrap">
+<A href="#lazy_explanatory_variable">
+→ 説明変数の活用</A></DIV>
+<DIV id="text169_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:8276px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#DicItemOfItem">
+→ DicItemOfItem</A></DIV>
+<DIV id="text169_57" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8652px; line-height:15px; white-space:nowrap">
+<A name="LazyDictionaryDebug">
+デバッグ・モード</A></DIV>
+<v:rect style="position:absolute; margin-left:75px; margin-top:8723px; width:226px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_58" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:83px; margin-top:8729px; line-height:15px; white-space:nowrap">
+g.DebugMode = True&nbsp; '// [TODO] 追加<BR/>
+g("${Target}") = "B"<BR/>
+echo&nbsp; g("${RootPath}")</DIV>
+<DIV id="text169_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8683px; line-height:15px; white-space:nowrap">
+下記のように、デバッグ・モードをオンにすると、設定した内容を echo 表示したり、参照時にキーを<BR/>
+１つずつ展開する様子を echo 表示します。</DIV>
+<v:rect style="position:absolute; margin-left:75px; margin-top:8807px; width:388px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_60" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:83px; margin-top:8813px; line-height:15px; white-space:nowrap">
+&lt;DictionaryEx operation="Set" key="${Target}"&gt;B&lt;/DictionaryEx&gt;<BR/>
+&lt;DictionaryEx operation="Get" key="${RootPath}"&gt;<BR/>
+&lt;Expand count="1"&gt;C:\Folder${Target}&lt;/Expand&gt;<BR/>
+&lt;Expand count="2"&gt;C:\FolderB&lt;/Expand&gt;<BR/>
+&lt;/DictionaryEx&gt;</DIV>
+<DIV id="text169_61" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8787px; line-height:15px; white-space:nowrap">
+echo 表示の内容：</DIV>
+<DIV id="text169_62" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:8026px; line-height:15px; white-space:nowrap">
+<A href="#LazyDictionaryDebug">
+→ デバッグ・モード</A></DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:7786px; width:388px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text169_63" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:7792px; line-height:15px; white-space:nowrap">
+Set g = new LazyDictionaryClass<BR/>
+Assert&nbsp; g("${USERPROFILE}\Desktop") = "C:\Users\user1\Desktop"</DIV>
+<DIV id="text169_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7766px; line-height:15px; white-space:nowrap">
+OSの環境変数を参照することもできます。</DIV>
+
+<v:line from="0,7574" to="642,7574"/>
+<v:line from="642,7574" to="642,10952"/>
+<v:line from="642,10952" to="0,10952"/>
+<v:line from="0,10952" to="0,7574"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10952px;">
+<A id="svgcats_vml_p169" class="to_tree" onClick="selectTreeElem( '169' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10952px;">
+<A id="page_group_bottom" href="vbslib_09.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

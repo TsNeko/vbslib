@@ -1,0 +1,120 @@
+<HTML><HEAD>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+ <!-- frameset.dtd can not show the pages in frame -->
+<!-- saved from url=(0014)about:internet -->
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<TITLE>vbslib_test2</TITLE>
+<SCRIPT language="JavaScript">
+//<![CDATA[
+function  onload()
+{
+  main.onload = main_onload;
+
+  if ( Cookie_get( "search2" ) == "" &&
+       ( self.location.search == "" || self.location.search == "?" ) ) {
+    return;
+  }
+  else {
+    frame_load( parent.main, get_param( "f2" ), get_param( "sub2" ) );
+    frame_load( parent.tree, get_param( "f1" ), get_param( "sub1" ) );
+    parent.tree.focus();
+    Cookie_clear( "search2" );
+    return;
+  }
+}
+
+function  main_onload()
+{
+  if ( self.main.document.getElementById( "svgcats_vml_p1" ) == null ) {
+    alert( "リンク先が見つかりません。もし .zip ファイルの中を開いたのであれば、"+
+           "解凍してから再度開いてください。" );
+  }
+}
+
+function  frame_load( frame, url_main, sub ) {
+  if ( sub == "" )  frame.location.replace = url_main;
+  else              frame.location.href = url_main + "#" + sub;
+  // IE,FF) location.replace can not use "#sub".
+  // IE) location.hash and location.href remains in history.
+}
+
+function  get_param( name )
+{
+  params = self.location.search;
+  i1 = params.indexOf( name );
+  if ( i1 != -1 ) {
+    i2 = params.indexOf( "&", i1 );  if ( i2 == -1 )  i2 = params.length;
+    return  params.substring( i1 + name.length + 1, i2 );
+  }
+  params = Cookie_get( "search2" )
+  i1 = params.indexOf( name );     if ( i1 == -1 )  return "";
+  i2 = params.indexOf( "&", i1 );  if ( i2 == -1 )  i2 = params.length;
+  return  params.substring( i1 + name.length + 1, i2 );
+}
+
+function  Cookie_get( Key )
+{
+  all_cookie = " " + self.document.cookie + ";";
+  all_cookie_len = all_cookie.length;
+  i_line = 0;
+  while ( i_line < all_cookie_len ) {
+    i_end_of_line  = all_cookie.indexOf( ";", i_line );
+    line = all_cookie.substring( i_line + 1, i_end_of_line );  // +1 is space after ";"
+    i_equal  = line.indexOf( "=" );
+    if ( line.substring( 0, i_equal ) == Key ) {
+      return  unescape( line.substring( i_equal + 1, i_end_of_line - i_line - 1 ) );
+    }
+    i_line = i_end_of_line + 1;
+  }
+  return  "";
+}
+
+function  Cookie_set( Key, Value )
+{
+  line = Key + "=" + escape( Value ) + "; ";
+  line += "expires=Tue, 31-Dec-2030 23:59:59; ";  // infinite
+  self.document.cookie = line;
+}
+
+function  Cookie_clear( Key )
+{
+  self.document.cookie = Key + "=" + "xx; expires=Tue, 1-Jan-1980 00:00:00;";
+}
+//]]>
+</SCRIPT>
+</HEAD>
+
+
+<SCRIPT language="JavaScript">
+<!--
+  document.write( '<FRAMESET cols="25%,*" border="6">\n' );
+  document.write( '<FRAMESET rows="25,*"><FRAME src="menu.html" name="menu">\n' );
+  document.write( '<FRAME name="tree" src="vbslib_test2.files/vbslib_test2_tree.html"/>\n' );
+  document.write( '</FRAMESET>\n' );
+  document.write( '<FRAME name="main" src="vbslib_test2.files/vbslib_test2_01.html"/>\n' );
+  document.write( '\n' );
+  document.write( '<NOFRAMES>\n' );
+  document.write( '<BODY>フレーム対応のブラウザが必要です。</BODY>\n' );
+  document.write( '</NOFRAMES>\n' );
+  document.write( '</FRAMESET>\n' );
+  onload();
+//-->
+</SCRIPT>
+
+<NOSCRIPT>
+<FRAMESET cols="25%,*" border="6">
+<FRAMESET rows="25,*"><FRAME src="menu.html" name="menu">
+<FRAME name="tree" src="vbslib_test2.files/vbslib_test2_tree.html"/>
+</FRAMESET>
+<FRAME name="main" src="vbslib_test2.files/vbslib_test2_01.html"/>
+
+<NOFRAMES>
+<BODY>フレーム対応のブラウザが必要です。</BODY>
+</NOFRAMES>
+</FRAMESET>
+
+</NOSCRIPT>
+
+</HTML>
+ 

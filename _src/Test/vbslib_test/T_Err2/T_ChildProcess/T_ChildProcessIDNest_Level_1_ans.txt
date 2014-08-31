@@ -1,0 +1,9 @@
+>CreateFile  "T_ChildProcessIDNest_Work.txt", "31"
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo T_ChildProcessIDNest_SubSub.vbs
+
+WSH のデバッガーがインストールされていれば、スクリプト・ファイルへのショートカットを作成、プロパティ - リンク先に、下記の /g_debug オプションを追加、ショートカットから起動すると、問題がある場所で停止します。
+----------------------------------------------------------------------
+"T_ChildProcessIDNest_Sub.vbs" /g_debug:1;1
+----------------------------------------------------------------------
+<ERROR err_number='500' err_description='この変数は宣言されていません。'/>

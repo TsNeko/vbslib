@@ -1,0 +1,108 @@
+>copy  "Folder2\*", "Folder2_work"
+>del  "ArgsLog.txt"
+>SetVar  "Setting_getDiffCmdLine", "DiffCUI"
+>SetVar  "Setting_getEditorCmdLine", "ArgsLog"
+Comparing Base, Update1 and Update2
+ 1. NotSame.txt : Base≠FolderA, Base≠FolderB, FolderA≠FolderB
+ 2. NotSameNo0.txt : Base に存在しません, FolderA≠FolderB
+ 3. NotSameNo1.txt : FolderA に存在しません, Base≠FolderB
+ 4. NotSameNo2.txt : FolderB に存在しません, Base≠FolderA
+ 5. Only0.txt : Base のみに存在します
+ 6. Only1.txt : FolderA のみに存在します
+ 7. Only2.txt : FolderB のみに存在します
+ 8. Same01.txt : Base＝FolderA, Base≠FolderB, FolderA≠FolderB
+ 9. Same01No2.txt : FolderB に存在しません, 同じ内容
+ 10. Same02.txt : Base≠FolderA, Base＝FolderB, FolderA≠FolderB
+ 11. Same02No1.txt : FolderA に存在しません, 同じ内容
+ 12. Same12.txt : Base≠FolderA, Base≠FolderB, FolderA＝FolderB
+ 13. Same12No0.txt : Base に存在しません, 同じ内容
+ 14. SameAll.txt : 同じ内容
+ 15. NotExist.txt : すべてのフォルダーに存在しません
+ 99. 戻る
+ファイルの番号を入力してください >1
+
+NotSame.txt
+-------------------------------------------------------------------------------
+>start  \?InCurrentProcessFunc\DiffCUI_InCurrentProcess "%FullPath(.)%\Folder0\NotSame.txt" "%FullPath(.)%\Folder1\NotSame.txt" "%FullPath(.)%\Folder2_work\NotSame.txt"
+-------------------------------------------------------------------------------
+ 1. 差分を調べて、結果をテキスト・エディターで開く
+ 4. Folder0/NotSame.txt のファイルを開く
+ 5. Folder1/NotSame.txt のファイルを開く
+ 6. Folder2_work/NotSame.txt のファイルを開く
+ **. コピーする（コピー元(4以上)×10＋コピー先(4以上)
+     例：45 ＝ Folder0/NotSame.txt → Folder1/NotSame.txt
+ 99. 戻る
+操作の番号を入力してください >1
+-------------------------------------------------------------------------------
+比較するファイルの 1つ目を選んでください。
+ 4. Folder0/NotSame.txt のファイル
+ 5. Folder1/NotSame.txt のファイル
+ 6. Folder2_work/NotSame.txt のファイル
+番号を入力してください >4
+比較するファイルの 2つ目を選んでください。
+ 4. Folder0/NotSame.txt のファイル
+ 5. Folder1/NotSame.txt のファイル
+ 6. Folder2_work/NotSame.txt のファイル
+番号を入力してください >5
+>current dir = "%FullPath(.)%"
+>RunProg  fc /N "%FullPath(.)%\Folder0\NotSame.txt" "%FullPath(.)%\Folder1\NotSame.txt" > "%RegExp(.*)%"
+%MultiLine%
+>start  "%FullPath(..\scriptlib)%\vbslib\ArgsLog.exe"  EditorForTest.exe "%RegExp(.*)%"
+-------------------------------------------------------------------------------
+ 1. 差分を調べて、結果をテキスト・エディターで開く
+ 4. Folder0/NotSame.txt のファイルを開く
+ 5. Folder1/NotSame.txt のファイルを開く
+ 6. Folder2_work/NotSame.txt のファイルを開く
+ **. コピーする（コピー元(4以上)×10＋コピー先(4以上)
+     例：45 ＝ Folder0/NotSame.txt → Folder1/NotSame.txt
+ 99. 戻る
+操作の番号を入力してください >4
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\scriptlib)%\vbslib\ArgsLog.exe"  EditorForTest.exe "%FullPath(.)%\Folder0\NotSame.txt"
+-------------------------------------------------------------------------------
+ 1. 差分を調べて、結果をテキスト・エディターで開く
+ 4. Folder0/NotSame.txt のファイルを開く
+ 5. Folder1/NotSame.txt のファイルを開く
+ 6. Folder2_work/NotSame.txt のファイルを開く
+ **. コピーする（コピー元(4以上)×10＋コピー先(4以上)
+     例：45 ＝ Folder0/NotSame.txt → Folder1/NotSame.txt
+ 99. 戻る
+操作の番号を入力してください >46
+-------------------------------------------------------------------------------
+コピー元： Folder0/NotSame.txt : %FullPath(.)%\Folder0\NotSame.txt
+コピー先： Folder2_work/NotSame.txt : %FullPath(.)%\Folder2_work\NotSame.txt
+上書きコピーしてよろしいですか？[Y/N]y
+>copy_ren  "%FullPath(.)%\Folder0\NotSame.txt", "%FullPath(.)%\Folder2_work\NotSame.txt"
+-------------------------------------------------------------------------------
+ 1. 差分を調べて、結果をテキスト・エディターで開く
+ 4. Folder0/NotSame.txt のファイルを開く
+ 5. Folder1/NotSame.txt のファイルを開く
+ 6. Folder2_work/NotSame.txt のファイルを開く
+ **. コピーする（コピー元(4以上)×10＋コピー先(4以上)
+     例：45 ＝ Folder0/NotSame.txt → Folder1/NotSame.txt
+ 99. 戻る
+操作の番号を入力してください >99
+-------------------------------------------------------------------------------
+Comparing Base, Update1 and Update2
+ 1. NotSame.txt : Base≠FolderA, Base＝FolderB, FolderA≠FolderB
+ 2. NotSameNo0.txt : Base に存在しません, FolderA≠FolderB
+ 3. NotSameNo1.txt : FolderA に存在しません, Base≠FolderB
+ 4. NotSameNo2.txt : FolderB に存在しません, Base≠FolderA
+ 5. Only0.txt : Base のみに存在します
+ 6. Only1.txt : FolderA のみに存在します
+ 7. Only2.txt : FolderB のみに存在します
+ 8. Same01.txt : Base＝FolderA, Base≠FolderB, FolderA≠FolderB
+ 9. Same01No2.txt : FolderB に存在しません, 同じ内容
+ 10. Same02.txt : Base≠FolderA, Base＝FolderB, FolderA≠FolderB
+ 11. Same02No1.txt : FolderA に存在しません, 同じ内容
+ 12. Same12.txt : Base≠FolderA, Base≠FolderB, FolderA＝FolderB
+ 13. Same12No0.txt : Base に存在しません, 同じ内容
+ 14. SameAll.txt : 同じ内容
+ 15. NotExist.txt : すべてのフォルダーに存在しません
+ 99. 戻る
+ファイルの番号を入力してください >99
+>IsSameTextFile  "ArgsLog.txt", "T_SyncFiles3FoldersEdit_log_ans.txt"
+>IsSameTextFile  "Folder0\NotSame.txt", "Folder2_work\NotSame.txt"
+>del  "ArgsLog.txt"
+>del  "Folder2_work"
+Pass.

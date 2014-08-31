@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>VBSメモ</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbs_memo.html?f1=vbs_memo.files/vbs_memo_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbs_memo.files/vbs_memo_08.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbs_memo.files/vbs_memo_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbs_memo.html?f1=vbs_memo.files/vbs_memo_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbs_memo.files/vbs_memo_08.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 118 --> 
+<PAGE>
+<A id="svgcats_vml_p118" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '118' );">←</A>
+<A href="#svgcats_vml_p119" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbs_memo_07.html#svgcats_vml_p117" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbs_memo_07.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:552px; height:633px;" fillcolor="white"/>
+<DIV id="text118_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="RegExp_Execute">
+Execute (RegExp)</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:51px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text118_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:58px; line-height:13px; white-space:nowrap">
+Function&nbsp; RegExp::Execute( s as string ) as Matches</DIV>
+<DIV id="text118_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:85px; line-height:15px; white-space:nowrap">
+正規表現にマッチするかどうかテストし、マッチしたものを返します。</DIV>
+<DIV id="text118_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:110px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text118_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:110px; line-height:15px; white-space:nowrap">
+s</DIV>
+<DIV id="text118_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:159px; margin-top:110px; line-height:15px; white-space:nowrap">
+テストされる文字列</DIV>
+<DIV id="text118_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:102px; margin-top:131px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text118_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:159px; margin-top:131px; line-height:15px; white-space:nowrap">
+マッチしたもの</DIV>
+<DIV id="text118_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:160px; line-height:15px; white-space:nowrap">
+【補足】</DIV>
+<DIV id="text118_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:38px; margin-top:177px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_07.html#regexp_prop">
+RegExp のプロパティ</A></DIV>
+<DIV id="text118_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:161px; margin-top:177px; line-height:15px; white-space:nowrap">
+に検索条件を設定してから呼び出してください。</DIV>
+<DIV id="text118_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:204px; margin-top:21px; line-height:12px; white-space:nowrap">
+<A href="vbs_memo_07.html#RegExp">
+[ 親: 正規表現 (VBScript.RegExp) ]</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:294px; width:448px; height:175px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text118_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:300px; line-height:15px; white-space:nowrap">
+Set re = CreateObject("VBScript.RegExp")<BR/>
+<BR/>
+re.Pattern = "a.b"<BR/>
+re.Global = True<BR/>
+Set matches = re.Execute( "raxbmacb" )<BR/>
+<BR/>
+WScript.echo&nbsp; "Match count = " &amp; matches.Count<BR/>
+For Each match&nbsp; In matches<BR/>
+&nbsp; WScript.echo "FirstIndex = " &amp; match.FirstIndex &amp; _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", Length = " &amp; match.Length &amp; ", Value = " &amp; match.Value<BR/>
+Next</DIV>
+<DIV id="text118_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:28px; margin-top:485px; line-height:15px; white-space:nowrap">
+出力</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:505px; width:250px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text118_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:511px; line-height:15px; white-space:nowrap">
+Match count = 2<BR/>
+FirstIndex = 1, Length = 3, Value = axb<BR/>
+FirstIndex = 5, Length = 3, Value = acb</DIV>
+<DIV id="text118_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:28px; margin-top:270px; line-height:15px; white-space:nowrap">
+正規表現 = "a.b", テストされる文字列 = "raxbmacb", 複数検索する</DIV>
+<DIV id="text118_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:259px; margin-top:131px; line-height:15px; white-space:nowrap">
+<A href="#match">
+→ Matches コレクション</A></DIV>
+<DIV id="text118_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:161px; margin-top:19px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/library/ja/script56/html/vsmthExecute.asp" target="_blank">
+(Web)</A></DIV>
+<DIV id="text118_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:17px; margin-top:245px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text118_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:198px; line-height:15px; white-space:nowrap">
+RegExp::Global = False のときは、Matches::Count は 0 か 1 のどちらかになります。</DIV>
+<DIV id="text118_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:17px; margin-top:585px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text118_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:66px; margin-top:585px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_17.html#GetLineCount">
+→ GetLineCount (vbslib)</A></DIV>
+
+<v:line from="0,0" to="552,0"/>
+<v:line from="552,0" to="552,633"/>
+<v:line from="552,633" to="0,633"/>
+<v:line from="0,633" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 119 --> 
+<PAGE>
+<A id="svgcats_vml_p119" class="to_tree" style="margin-top:638px;" onClick="selectTreeElem( '119' );">←</A>
+<A href="#svgcats_vml_p120" class="to_next_page" style="margin-top:638px;">▼</A>
+<A href="#svgcats_vml_p118" class="to_prev_page" style="margin-top:638px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:649px; width:528px; height:410px;" fillcolor="white"/>
+<DIV id="text119_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:666px; line-height:15px; white-space:nowrap">
+<A name="RegExp_Test">
+Test (RegExp)</A></DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:700px; width:304px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text119_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:707px; line-height:13px; white-space:nowrap">
+Function&nbsp; RegExp::Test( s as string ) as Boolean</DIV>
+<DIV id="text119_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:734px; line-height:15px; white-space:nowrap">
+正規表現にマッチするかどうかテストし、1つでもマッチしたかどうかを返します。</DIV>
+<DIV id="text119_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:759px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text119_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:114px; margin-top:759px; line-height:15px; white-space:nowrap">
+s</DIV>
+<DIV id="text119_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:759px; line-height:15px; white-space:nowrap">
+テストされる文字列</DIV>
+<DIV id="text119_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:809px; line-height:15px; white-space:nowrap">
+【補足】</DIV>
+<DIV id="text119_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:114px; margin-top:780px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text119_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:780px; line-height:15px; white-space:nowrap">
+True=マッチした文字列があった</DIV>
+<DIV id="text119_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:159px; margin-top:666px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/library/ja/script56/html/vsmthTest.asp" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:893px; width:256px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text119_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:899px; line-height:15px; white-space:nowrap">
+Set re = CreateObject("VBScript.RegExp")<BR/>
+<BR/>
+re.Pattern = "^aaa.*bbb.c"<BR/>
+WScript.echo&nbsp; re.Test("aaaxxxbbbyc")</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:1002px; width:28px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text119_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:1009px; line-height:13px; white-space:nowrap">
+-1</DIV>
+<DIV id="text119_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:984px; line-height:15px; white-space:nowrap">
+出力</DIV>
+<DIV id="text119_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:1007px; line-height:15px; white-space:nowrap">
+(True)</DIV>
+<DIV id="text119_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:874px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text119_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:50px; margin-top:826px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_07.html#regexp_prop">
+RegExp のプロパティ</A></DIV>
+<DIV id="text119_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:826px; line-height:15px; white-space:nowrap">
+に検索条件を設定してから呼び出してください。</DIV>
+<DIV id="text119_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:206px; margin-top:670px; line-height:12px; white-space:nowrap">
+<A href="vbs_memo_07.html#RegExp">
+[ 親: 正規表現 (VBScript.RegExp) ]</A></DIV>
+<DIV id="text119_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:1007px; line-height:15px; white-space:nowrap">
+（もし 0 なら False)</DIV>
+
+<v:line from="0,649" to="528,649"/>
+<v:line from="528,649" to="528,1059"/>
+<v:line from="528,1059" to="0,1059"/>
+<v:line from="0,1059" to="0,649"/>
+
+</PAGE>
+ 
+<!-- page 120 --> 
+<PAGE>
+<A id="svgcats_vml_p120" class="to_tree" style="margin-top:1064px;" onClick="selectTreeElem( '120' );">←</A>
+<A href="#svgcats_vml_p121" class="to_next_page" style="margin-top:1064px;">▼</A>
+<A href="#svgcats_vml_p119" class="to_prev_page" style="margin-top:1064px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1075px; width:580px; height:716px;" fillcolor="white"/>
+<DIV id="text120_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1092px; line-height:15px; white-space:nowrap">
+<A name="RegExp_Replace">
+Replace (RegExp)</A></DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:1126px; width:400px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text120_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:1133px; line-height:13px; white-space:nowrap">
+Function&nbsp; RegExp::Replace( s as string, to as string ) as string</DIV>
+<DIV id="text120_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:162px; margin-top:1092px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc392394.aspx" target="_blank">
+(Web)</A></DIV>
+<DIV id="text120_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:1160px; line-height:15px; white-space:nowrap">
+正規表現を使って、文字列の一部を置換します。</DIV>
+<DIV id="text120_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:1185px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text120_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:114px; margin-top:1185px; line-height:15px; white-space:nowrap">
+s</DIV>
+<DIV id="text120_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:114px; margin-top:1204px; line-height:15px; white-space:nowrap">
+to</DIV>
+<DIV id="text120_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:1185px; line-height:15px; white-space:nowrap">
+入力文字列（置換前）</DIV>
+<DIV id="text120_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:1204px; line-height:15px; white-space:nowrap">
+置換後の文字列</DIV>
+<DIV id="text120_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:114px; margin-top:1223px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text120_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:205px; margin-top:1095px; line-height:12px; white-space:nowrap">
+<A href="vbs_memo_07.html#RegExp">
+[ 親: 正規表現 (VBScript.RegExp) ]</A></DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:1343px; width:274px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text120_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:1349px; line-height:15px; white-space:nowrap">
+Set re = CreateObject("VBScript.RegExp")<BR/>
+<BR/>
+re.Pattern = "a.b"<BR/>
+re.Global = True<BR/>
+WScript.echo&nbsp; re.Replace("raxbmacb", "---")</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:1461px; width:64px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text120_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:1468px; line-height:13px; white-space:nowrap">
+r---m---</DIV>
+<DIV id="text120_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:1443px; line-height:15px; white-space:nowrap">
+出力</DIV>
+<DIV id="text120_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:1223px; line-height:15px; white-space:nowrap">
+出力文字列（置換後）</DIV>
+<DIV id="text120_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:1254px; line-height:15px; white-space:nowrap">
+【補足】</DIV>
+<DIV id="text120_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:50px; margin-top:1271px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_07.html#regexp_prop">
+RegExp のプロパティ</A></DIV>
+<DIV id="text120_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:1271px; line-height:15px; white-space:nowrap">
+に検索条件を設定してから呼び出してください。</DIV>
+<DIV id="text120_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1317px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text120_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1521px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:1547px; width:298px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text120_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:1553px; line-height:15px; white-space:nowrap">
+Set re = CreateObject("VBScript.RegExp")<BR/>
+re.Pattern = "%([0-9]+)"<BR/>
+re.Global = True<BR/>
+WScript.echo&nbsp; re.Replace( "%123 %456", "&lt;$1&gt;" )</DIV>
+<DIV id="text120_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:1631px; line-height:15px; white-space:nowrap">
+出力</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:1649px; width:82px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text120_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:1656px; line-height:13px; white-space:nowrap">
+&lt;123&gt; &lt;456&gt;</DIV>
+<DIV id="text120_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:358px; margin-top:1597px; line-height:15px; white-space:nowrap">
+注意： $1 は ${1} ではありません</DIV>
+<DIV id="text120_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:1701px; line-height:15px; white-space:nowrap">
+→ 正規表現を使った置換</DIV>
+<DIV id="text120_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1701px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text120_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:76px; margin-top:1722px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/ms974570.aspx" target="_blank">
+→ 正規表現による Visual Basic Scripting Edition (VBScript) の機能強化 (Web)</A></DIV>
+<DIV id="text120_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:76px; margin-top:1743px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc392394.aspx" target="_blank">
+→ Replace メソッド (Web)</A></DIV>
+
+<v:line from="0,1075" to="580,1075"/>
+<v:line from="580,1075" to="580,1791"/>
+<v:line from="580,1791" to="0,1791"/>
+<v:line from="0,1791" to="0,1075"/>
+
+</PAGE>
+ 
+<!-- page 121 --> 
+<PAGE>
+<A id="svgcats_vml_p121" class="to_tree" style="margin-top:1796px;" onClick="selectTreeElem( '121' );">←</A>
+<A href="#svgcats_vml_p122" class="to_next_page" style="margin-top:1796px;">▼</A>
+<A href="#svgcats_vml_p120" class="to_prev_page" style="margin-top:1796px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1807px; width:609px; height:570px;" fillcolor="white"/>
+<DIV id="text121_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1824px; line-height:15px; white-space:nowrap">
+<A name="RegExp_MultiLine">
+MultiLine (RegExp)</A></DIV>
+<DIV id="text121_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:199px; margin-top:1828px; line-height:12px; white-space:nowrap">
+<A href="vbs_memo_07.html#RegExp">
+[ 親: 正規表現 (VBScript.RegExp) ]</A></DIV>
+<v:rect style="position:absolute; margin-left:30px; margin-top:1855px; width:214px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text121_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:38px; margin-top:1862px; line-height:13px; white-space:nowrap">
+Dim&nbsp; RegExp::MultiLine as boolean</DIV>
+<DIV id="text121_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:1893px; line-height:15px; white-space:nowrap">
+Pattern に、行頭 "^"、行末 "$" が使えるようにします。</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2062px; width:460px; height:175px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text121_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2068px; line-height:15px; white-space:nowrap">
+&nbsp; Set re = CreateObject("VBScript.RegExp")<BR/>
+<BR/>
+&nbsp; re.Pattern = "A.*"+vbCR+"?"+vbLF+"^D"<BR/>
+&nbsp; re.MultiLine = True<BR/>
+&nbsp; Set matches = re.Execute( "ABC"+ vbCRLF +"DEF"+ vbCRLF )<BR/>
+<BR/>
+&nbsp; echo&nbsp; "Match count = " &amp; matches.Count<BR/>
+&nbsp; For Each match&nbsp; In matches<BR/>
+&nbsp; &nbsp; echo "FirstIndex = " &amp; match.FirstIndex &amp; _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", Length = " &amp; match.Length &amp; ", Value = " &amp; match.Value<BR/>
+&nbsp; Next</DIV>
+<DIV id="text121_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1932px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text121_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:1962px; line-height:15px; white-space:nowrap">
+"ABC"+ vbCRLF +"DEF"+ vbCRLF に対して、"A.*"+vbCR+"?"+vbLF+"^D" がマッチするには、<BR/>
+MultiLine を True にする必要があります。 "^" がない "A.*"+vbCR+"?"+vbLF+"D" にマッチ<BR/>
+するには、MultiLine は False でも構いません。<BR/>
+<BR/>
+改行文字は、任意の文字 "." や、行頭 "^" や、行末"$" にマッチしないので、 vbCR+"?"+vbLF<BR/>
+を指定する必要があります。 これは、MultiLine の値がどちらでも、違いはありません。</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2280px; width:250px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text121_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2286px; line-height:15px; white-space:nowrap">
+Match count = 1<BR/>
+FirstIndex = 0, Length = 6, Value = ABC<BR/>
+D</DIV>
+<DIV id="text121_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:2260px; line-height:15px; white-space:nowrap">
+出力</DIV>
+
+<v:line from="0,1807" to="609,1807"/>
+<v:line from="609,1807" to="609,2377"/>
+<v:line from="609,2377" to="0,2377"/>
+<v:line from="0,2377" to="0,1807"/>
+
+</PAGE>
+ 
+<!-- page 122 --> 
+<PAGE>
+<A id="svgcats_vml_p122" class="to_tree" style="margin-top:2382px;" onClick="selectTreeElem( '122' );">←</A>
+<A href="#svgcats_vml_p123" class="to_next_page" style="margin-top:2382px;">▼</A>
+<A href="#svgcats_vml_p121" class="to_prev_page" style="margin-top:2382px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2393px; width:526px; height:636px;" fillcolor="white"/>
+<DIV id="text122_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2410px; line-height:15px; white-space:nowrap">
+<A name="match">
+Match オブジェクト, Matches コレクション</A></DIV>
+<DIV id="text122_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:297px; margin-top:2410px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/library/ja/script56/html/vsobjMatch.asp" target="_blank">
+(Web)</A></DIV>
+<DIV id="text122_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2633px; line-height:15px; white-space:nowrap">
+<A name="regexp_prop">
+Match オブジェクトのプロパティ</A></DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:2661px; width:136px; height:21px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text122_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:2666px; line-height:13px; white-space:nowrap">
+Integer&nbsp; .FirstIndex</DIV>
+<DIV id="text122_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:2664px; line-height:15px; white-space:nowrap">
+マッチした位置、最初=0、2バイト文字も 1 でカウント</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:2694px; width:112px; height:21px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text122_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:2699px; line-height:13px; white-space:nowrap">
+Integer&nbsp; .Length</DIV>
+<DIV id="text122_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:175px; margin-top:2697px; line-height:15px; white-space:nowrap">
+マッチした文字列の文字数、2バイト文字も 1 でカウント</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:2727px; width:100px; height:21px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text122_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:2732px; line-height:13px; white-space:nowrap">
+String&nbsp; .Value</DIV>
+<DIV id="text122_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:162px; margin-top:2730px; line-height:15px; white-space:nowrap">
+マッチした文字列</DIV>
+<DIV id="text122_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:92px; margin-top:2478px; line-height:15px; white-space:nowrap">
+<A href="#RegExp_Execute">
+→ RegExp::Execute</A></DIV>
+<DIV id="text122_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:2478px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text122_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:38px; margin-top:2444px; line-height:15px; white-space:nowrap">
+<A href="#RegExp_Execute">
+RegExp::Execute</A></DIV>
+<DIV id="text122_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:134px; margin-top:2444px; line-height:15px; white-space:nowrap">
+でテストした結果です。</DIV>
+<DIV id="text122_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2782px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:2808px; width:340px; height:190px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text122_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:2814px; line-height:15px; white-space:nowrap">
+&nbsp; Set re = CreateObject("VBScript.RegExp")<BR/>
+<BR/>
+&nbsp; re.Pattern = "&lt;DIV .*&gt;"<BR/>
+&nbsp; re.Global = True<BR/>
+&nbsp; Set matches = re.Execute( text )<BR/>
+<BR/>
+&nbsp; For Each match&nbsp; In matches<BR/>
+&nbsp; &nbsp; attr = sscanf( match.Value, "id=""%s""" )<BR/>
+&nbsp; &nbsp; text = Left( text, match.FirstIndex ) +_<BR/>
+&nbsp; &nbsp; &nbsp; "&lt;DIV id="""+ attr +""" plus=""add""&gt;" +_<BR/>
+&nbsp; &nbsp; &nbsp; Mid( text, match.FirstIndex + match.Length + 1 )<BR/>
+&nbsp; Next</DIV>
+<DIV id="text122_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:150px; margin-top:2965px; line-height:13px; white-space:nowrap">
+match</DIV>
+<DIV id="text122_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:106px; margin-top:2782px; line-height:15px; white-space:nowrap">
+任意の id属性（ワイルドカード）を持つ DIVタグに、plus 属性を加える</DIV>
+<DIV id="text122_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2525px; line-height:15px; white-space:nowrap">
+Matches オブジェクトのプロパティ</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:2555px; width:112px; height:21px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text122_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:2560px; line-height:13px; white-space:nowrap">
+Match&nbsp; ( Index )</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:2582px; width:106px; height:21px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text122_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:2587px; line-height:13px; white-space:nowrap">
+Integer&nbsp; .Count</DIV>
+<DIV id="text122_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:175px; margin-top:2585px; line-height:15px; white-space:nowrap">
+マッチした数</DIV>
+<DIV id="text122_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:175px; margin-top:2558px; line-height:15px; white-space:nowrap">
+Index + 1 番目のマッチした内容</DIV>
+
+<v:line from="0,2393" to="526,2393"/>
+<v:line from="526,2393" to="526,3029"/>
+<v:line from="526,3029" to="0,3029"/>
+<v:line from="0,3029" to="0,2393"/>
+
+</PAGE>
+ 
+<!-- page 123 --> 
+<PAGE>
+<A id="svgcats_vml_p123" class="to_tree" style="margin-top:3034px;" onClick="selectTreeElem( '123' );">←</A>
+<A href="#svgcats_vml_p124" class="to_next_page" style="margin-top:3034px;">▼</A>
+<A href="#svgcats_vml_p122" class="to_prev_page" style="margin-top:3034px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3045px; width:613px; height:703px;" fillcolor="white"/>
+<DIV id="text123_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3062px; line-height:15px; white-space:nowrap">
+<A name="math">
+数値演算、論理演算、ビット演算</A></DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3339px; width:82px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3346px; line-height:13px; white-space:nowrap">
+c = a Mod b</DIV>
+<DIV id="text123_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:143px; margin-top:3344px; line-height:15px; white-space:nowrap">
+剰余。 あまり。 9 Mod 4 = 1, -9 Mod 4 = -1</DIV>
+<A>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3103px; width:40px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text123_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3110px; line-height:13px; white-space:nowrap">
+<A name="and_h">
+&amp;h1F</A></DIV>
+<DIV id="text123_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:90px; margin-top:3108px; line-height:15px; white-space:nowrap">
+16進数の 1F （10進数の値は 31）<BR/>
+&amp;h8000 ～ &amp;hFFFF と、&amp;h80000000 ～ &amp;hFFFFFFFF は、マイナス<BR/>
+-32767～+32767 は、Integer です。 -32768 は Long です。</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3267px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3274px; line-height:13px; white-space:nowrap">
+Const&nbsp; Err_TestSkip = 2</DIV>
+<DIV id="text123_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:3265px; line-height:15px; white-space:nowrap">
+定数。 参照する場所より上に記述する必要がある<BR/>
+Execute されるコードには再度記述が必要</DIV>
+<DIV id="text123_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:373px; margin-top:3297px; line-height:15px; white-space:nowrap">
+→ クラスの定数</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3375px; width:82px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3382px; line-height:13px; white-space:nowrap">
+c = a And b</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3411px; width:76px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3418px; line-height:13px; white-space:nowrap">
+c = a Or b</DIV>
+<DIV id="text123_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:3380px; line-height:15px; white-space:nowrap">
+論理積</DIV>
+<DIV id="text123_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:3416px; line-height:15px; white-space:nowrap">
+論理和、1 にするビット演算</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3303px; width:70px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3310px; line-height:13px; white-space:nowrap">
+c = a \ b</DIV>
+<DIV id="text123_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:143px; margin-top:3308px; line-height:15px; white-space:nowrap">
+商（割った結果を整数にする）</DIV>
+<DIV id="text123_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:3380px; line-height:15px; white-space:nowrap">
+If は、0以外で真になります</DIV>
+<A>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3519px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text123_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3526px; line-height:13px; white-space:nowrap">
+<A name="sqr">
+c = Sqr( a )</A></DIV>
+<DIV id="text123_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:143px; margin-top:3524px; line-height:15px; white-space:nowrap">
+<A name="sqr">
+平方根</A></DIV>
+<DIV id="text123_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:3599px; line-height:15px; white-space:nowrap">
+<A name="sqr" href="http://msdn.microsoft.com/ja-jp/library/cc392480.aspx" target="_blank">
+→ VBScript の関数 (Web)</A></DIV>
+<A>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3555px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text123_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3562px; line-height:13px; white-space:nowrap">
+<A name="sqr">
+c = Int( a )</A></DIV>
+<DIV id="text123_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:254px; margin-top:3560px; line-height:15px; white-space:nowrap">
+<A name="sqr">
+小数切捨て</A></DIV>
+<A>
+<v:rect style="position:absolute; margin-left:135px; margin-top:3555px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text123_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:143px; margin-top:3562px; line-height:13px; white-space:nowrap">
+<A name="sqr">
+c = Fix( a )</A></DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3231px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3238px; line-height:13px; white-space:nowrap">
+hex_str = Hex( 16 )</DIV>
+<DIV id="text123_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:100px; margin-top:3238px; line-height:13px; white-space:nowrap">
+<A href="vbs_memo_09.html#Hex">
+Hex</A></DIV>
+<DIV id="text123_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:334px; margin-top:3560px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/en-us/library/t4dseb50(VS.85).aspx" target="_blank">
+(Web)</A></DIV>
+<DIV id="text123_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:264px; margin-top:3576px; line-height:15px; white-space:nowrap">
+CInt(1.9) = 2, Int(1.9) = 1, Fix(1.9) = 1<BR/>
+CInt(1.9) = -2, Int(-1.9) = -2, Fix(-1.9) = -1</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3447px; width:82px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3454px; line-height:13px; white-space:nowrap">
+c = a Xor b</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3483px; width:106px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text123_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3490px; line-height:13px; white-space:nowrap">
+c = a And Not b</DIV>
+<DIV id="text123_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:3452px; line-height:15px; white-space:nowrap">
+排他的論理和</DIV>
+<DIV id="text123_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:3488px; line-height:15px; white-space:nowrap">
+0 にするビット演算</DIV>
+<DIV id="text123_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:302px; margin-top:3067px; line-height:12px; white-space:nowrap">
+キーワード：</DIV>
+<DIV id="text123_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:364px; margin-top:3067px; line-height:12px; white-space:nowrap">
+<A name="bitfield">
+ビットフィールド、ビット・フラグ</A></DIV>
+<DIV id="text123_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3643px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text123_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:32px; margin-top:3599px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text123_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:3643px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_09.html#CInt">
+→ CInt</A></DIV>
+<DIV id="text123_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:3661px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_09.html#Eval">
+→ Eval</A></DIV>
+<DIV id="text123_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:3679px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_09.html#FormatNumber">
+→ FormatNumber</A></DIV>
+<DIV id="text123_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:3697px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_09.html#Hex">
+→ Hex</A></DIV>
+<DIV id="text123_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:386px; margin-top:3560px; line-height:15px; white-space:nowrap">
+<A href="#cint_fix">
+→ 四捨五入、切り下げ、切り上げ</A></DIV>
+<DIV id="text123_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:125px; margin-top:3157px; line-height:15px; white-space:nowrap">
+<A href="http://support.microsoft.com/kb/161304/ja" target="_blank">
+→ 16 進数値を長整数に変換する方法 (Web)</A></DIV>
+<DIV id="text123_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:90px; margin-top:3157px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<A>
+<v:rect style="position:absolute; margin-left:32px; margin-top:3187px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+</A>
+<DIV id="text123_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:3194px; line-height:13px; white-space:nowrap">
+<A name="CLngHex">
+CLng("&amp;h8000")</A></DIV>
+<DIV id="text123_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:3192px; line-height:15px; white-space:nowrap">
+16進数 &amp;h8000 ～ &amp;hFFFF の正の値を取得するとき。</DIV>
+<DIV id="text123_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:394px; margin-top:3157px; line-height:15px; white-space:nowrap">
+… VBScript では下記 CLng</DIV>
+<DIV id="text123_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:510px; margin-top:3192px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_10.html#CInt2">
+→ CInt2</A></DIV>
+<DIV id="text123_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:481px; margin-top:3192px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text123_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:510px; margin-top:3208px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_27.html#IsBitSet">
+→ IsBitSet</A></DIV>
+
+<v:line from="0,3045" to="613,3045"/>
+<v:line from="613,3045" to="613,3748"/>
+<v:line from="613,3748" to="0,3748"/>
+<v:line from="0,3748" to="0,3045"/>
+
+</PAGE>
+ 
+<!-- page 124 --> 
+<PAGE>
+<A id="svgcats_vml_p124" class="to_tree" style="margin-top:3753px;" onClick="selectTreeElem( '124' );">←</A>
+<A href="#svgcats_vml_p125" class="to_next_page" style="margin-top:3753px;">▼</A>
+<A href="#svgcats_vml_p123" class="to_prev_page" style="margin-top:3753px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3764px; width:629px; height:925px;" fillcolor="white"/>
+<DIV id="text124_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3781px; line-height:15px; white-space:nowrap">
+<A name="cint_fix">
+四捨五入、切り下げ、切り上げ</A></DIV>
+<DIV id="text124_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3822px; line-height:15px; white-space:nowrap">
+切り下げ （マイナスのとき、小数があると大きい値へ。 C99互換）</DIV>
+<DIV id="text124_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3939px; line-height:15px; white-space:nowrap">
+切り下げ （マイナスのとき、小数があると小さい値へ）</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:3991px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:3998px; line-height:13px; white-space:nowrap">
+Int(1.9) = 1</DIV>
+<v:rect style="position:absolute; margin-left:157px; margin-top:3991px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:165px; margin-top:3998px; line-height:13px; white-space:nowrap">
+Int(-1.9) = -2</DIV>
+<DIV id="text124_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:417px; margin-top:3822px; line-height:15px; white-space:nowrap">
+→ 負の割り算、余り、% 演算子</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:3871px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:3878px; line-height:13px; white-space:nowrap">
+Fix(1.9) = 1</DIV>
+<v:rect style="position:absolute; margin-left:157px; margin-top:3871px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:165px; margin-top:3878px; line-height:13px; white-space:nowrap">
+Fix(-1.9) = -1</DIV>
+<DIV id="text124_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4177px; line-height:15px; white-space:nowrap">
+四捨五入（偶数丸め）</DIV>
+<DIV id="text124_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:4177px; line-height:15px; white-space:nowrap">
+→ 偶数丸め、銀行式丸めの四捨五入</DIV>
+<DIV id="text124_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4369px; line-height:15px; white-space:nowrap">
+四捨五入（R丸め、0.5以上なら切り上げ）</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:4416px; width:136px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:4422px; line-height:15px; white-space:nowrap">
+Int( 1.4 + 0.5 ) = 1<BR/>
+Int( 1.5 + 0.5 ) = 2<BR/>
+Int( 1.6 + 0.5 ) = 2<BR/>
+Int( 2.4 + 0.5 ) = 2<BR/>
+Int( 2.5 + 0.5 ) = 3<BR/>
+Int( 2.6 + 0.5 ) = 3</DIV>
+<DIV id="text124_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:3850px; line-height:15px; white-space:nowrap">
+Fix 関数を使う。</DIV>
+<DIV id="text124_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:3969px; line-height:15px; white-space:nowrap">
+Int 関数を使う。</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:4233px; width:136px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:4239px; line-height:15px; white-space:nowrap">
+CInt( 1.4 ) = 1<BR/>
+CInt( 1.5 ) = 2<BR/>
+CInt( 1.6 ) = 2<BR/>
+CInt( 2.4 ) = 2<BR/>
+CInt( 2.5 ) = 2&nbsp; ***<BR/>
+CInt( 2.6 ) = 3</DIV>
+<DIV id="text124_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:4212px; line-height:15px; white-space:nowrap">
+CInt 関数を使う。</DIV>
+<v:rect style="position:absolute; margin-left:205px; margin-top:4233px; width:148px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:213px; margin-top:4239px; line-height:15px; white-space:nowrap">
+CInt( -1.4 ) = -1<BR/>
+CInt( -1.5 ) = -2<BR/>
+CInt( -1.6 ) = -2<BR/>
+CInt( -2.4 ) = -2<BR/>
+CInt( -2.5 ) = -2&nbsp; ***<BR/>
+CInt( -2.6 ) = -3</DIV>
+<v:rect style="position:absolute; margin-left:205px; margin-top:4416px; width:148px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:213px; margin-top:4422px; line-height:15px; white-space:nowrap">
+Int( -1.4 + 0.5 ) = -1<BR/>
+Int( -1.5 + 0.5 ) = -1<BR/>
+Int( -1.6 + 0.5 ) = -2<BR/>
+Int( -2.4 + 0.5 ) = -2<BR/>
+Int( -2.5 + 0.5 ) = -2<BR/>
+Int( -2.6 + 0.5 ) = -3</DIV>
+<DIV id="text124_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:4397px; line-height:15px; white-space:nowrap">
++0.5 してから Int 関数を使う。</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:4557px; width:148px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:4563px; line-height:15px; white-space:nowrap">
+Fix( -1.4 + 0.5 ) =&nbsp; 0<BR/>
+Fix( -1.5 + 0.5 ) = -1<BR/>
+Fix( -1.6 + 0.5 ) = -1<BR/>
+Fix( -2.4 + 0.5 ) = -1<BR/>
+Fix( -2.5 + 0.5 ) = -2<BR/>
+Fix( -2.6 + 0.5 ) = -2</DIV>
+<DIV id="text124_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:4537px; line-height:15px; white-space:nowrap">
+（メモ） Fix 関数を使うと、誤差が大きい。</DIV>
+<DIV id="text124_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4050px; line-height:15px; white-space:nowrap">
+切り上げ</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:4103px; width:124px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:4110px; line-height:13px; white-space:nowrap">
+-Int( -(1.1) ) = 2</DIV>
+<v:rect style="position:absolute; margin-left:205px; margin-top:4103px; width:136px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text124_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:213px; margin-top:4110px; line-height:13px; white-space:nowrap">
+-Int( -(-1.1) ) = -1</DIV>
+<DIV id="text124_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:4078px; line-height:15px; white-space:nowrap">
+マイナスして Int 関数を使い、マイナスする。</DIV>
+
+<v:line from="0,3764" to="629,3764"/>
+<v:line from="629,3764" to="629,4689"/>
+<v:line from="629,4689" to="0,4689"/>
+<v:line from="0,4689" to="0,3764"/>
+
+</PAGE>
+ 
+<!-- page 125 --> 
+<PAGE>
+<A id="svgcats_vml_p125" class="to_tree" style="margin-top:4694px;" onClick="selectTreeElem( '125' );">←</A>
+<A href="#svgcats_vml_p126" class="to_next_page" style="margin-top:4694px;">▼</A>
+<A href="#svgcats_vml_p124" class="to_prev_page" style="margin-top:4694px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4705px; width:587px; height:617px;" fillcolor="white"/>
+<DIV id="text125_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4722px; line-height:15px; white-space:nowrap">
+<A name="timedate">
+日付、時間、性能計測</A></DIV>
+<DIV id="text125_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:4815px; line-height:13px; white-space:nowrap">
+<A href="#CDate">
+CDate 関数</A></DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:5038px; width:514px; height:190px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text125_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:5044px; line-height:15px; white-space:nowrap">
+Sub main()<BR/>
+&nbsp; Dim&nbsp; folder, fnames()<BR/>
+&nbsp; Dim&nbsp; fname, f<BR/>
+&nbsp; Dim&nbsp; key_date<BR/>
+<BR/>
+&nbsp; key_date = CDate( "2008/06/16" )<BR/>
+&nbsp; ExpandWildcard&nbsp; "sub\*", F_File Or F_SubFolder, folder, fnames<BR/>
+&nbsp; For Each fname in fnames<BR/>
+&nbsp; &nbsp; Set&nbsp; f = g_fs.GetFile( folder + "\" + fname )<BR/>
+&nbsp; &nbsp; If f.DateLastModified &gt; key_date Then&nbsp; echo f.Path &amp; " - " &amp; f.DateLastModified<BR/>
+&nbsp; Next<BR/>
+End Sub</DIV>
+<DIV id="text125_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:38px; margin-top:4918px; line-height:15px; white-space:nowrap">
+<A href="#cmp_date">
+日付の比較</A></DIV>
+<DIV id="text125_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:118px; margin-top:4813px; line-height:15px; white-space:nowrap">
+年月日時分秒の文字列を Date 型に変換します</DIV>
+<DIV id="text125_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:38px; margin-top:4761px; line-height:15px; white-space:nowrap">
+<A href="#Date">
+Date 型</A></DIV>
+<DIV id="text125_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:38px; margin-top:4892px; line-height:15px; white-space:nowrap">
+<A href="#timedate_ymdhms">
+日付の各位（年月日時分秒）</A></DIV>
+<DIV id="text125_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:4789px; line-height:13px; white-space:nowrap">
+<A href="#Now">
+Now 関数</A></DIV>
+<DIV id="text125_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:118px; margin-top:4787px; line-height:15px; white-space:nowrap">
+現在の年月日時分秒を返します</DIV>
+<DIV id="text125_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:118px; margin-top:4761px; line-height:15px; white-space:nowrap">
+Date 型の扱いの基本</DIV>
+<DIV id="text125_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:38px; margin-top:4944px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_09.html#date_plus">
+日付の計算</A></DIV>
+<DIV id="text125_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:190px; margin-top:4865px; line-height:15px; white-space:nowrap">
+ミリ秒単位の計測</DIV>
+<DIV id="text125_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:4867px; line-height:13px; white-space:nowrap">
+<A href="#Timer">
+Timer 関数</A></DIV>
+<DIV id="text125_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:4841px; line-height:13px; white-space:nowrap">
+<A href="#FormatDateTime">
+FormatDateTime 関数</A></DIV>
+<DIV id="text125_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:38px; margin-top:4971px; line-height:13px; white-space:nowrap">
+<A href="vbs_memo_14.html#Win32_TimeZone">
+Win32_TimeZone</A></DIV>
+<DIV id="text125_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:161px; margin-top:4969px; line-height:15px; white-space:nowrap">
+タイムゾーン</DIV>
+<DIV id="text125_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:190px; margin-top:4839px; line-height:15px; white-space:nowrap">
+Date型を文字列に変換します</DIV>
+<DIV id="text125_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5268px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text125_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5014px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text125_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:5268px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_05.html#File_DateLastModified">
+→ File::DateLastModified - タイムスタンプ</A></DIV>
+
+<v:line from="0,4705" to="587,4705"/>
+<v:line from="587,4705" to="587,5322"/>
+<v:line from="587,5322" to="0,5322"/>
+<v:line from="0,5322" to="0,4705"/>
+
+</PAGE>
+ 
+<!-- page 126 --> 
+<PAGE>
+<A id="svgcats_vml_p126" class="to_tree" style="margin-top:5327px;" onClick="selectTreeElem( '126' );">←</A>
+<A href="#svgcats_vml_p127" class="to_next_page" style="margin-top:5327px;">▼</A>
+<A href="#svgcats_vml_p125" class="to_prev_page" style="margin-top:5327px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5338px; width:615px; height:753px;" fillcolor="white"/>
+<DIV id="text126_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5355px; line-height:15px; white-space:nowrap">
+<A name="Date">
+Date 型</A></DIV>
+<DIV id="text126_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5579px; line-height:15px; white-space:nowrap">
+文字列型に変換すると、地域に合わせたフォーマットの文字列を返します。</DIV>
+<DIV id="text126_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5614px; line-height:15px; white-space:nowrap">
+日本：</DIV>
+<v:rect style="position:absolute; margin-left:84px; margin-top:5609px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text126_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:92px; margin-top:5616px; line-height:13px; white-space:nowrap">
+2008/06/11 14:28:01</DIV>
+<DIV id="text126_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5549px; line-height:15px; white-space:nowrap">
+文字列型への変換</DIV>
+<DIV id="text126_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:5789px; line-height:15px; white-space:nowrap">
+<A href="#CDate">
+→ CDate 関数</A></DIV>
+<DIV id="text126_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5763px; line-height:15px; white-space:nowrap">
+文字列型から Date クラスへの変換</DIV>
+<DIV id="text126_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5434px; line-height:15px; white-space:nowrap">
+代入は Set 不要</DIV>
+<DIV id="text126_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5461px; line-height:15px; white-space:nowrap">
+Date 型はクラスではないので、Set d = CDate(...) のような Set は不要です。</DIV>
+<DIV id="text126_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:213px; margin-top:5357px; line-height:12px; white-space:nowrap">
+<A href="#timedate">
+[ 親: 日付 ]</A></DIV>
+<DIV id="text126_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5988px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text126_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:5988px; line-height:15px; white-space:nowrap">
+<A href="#timedate_ymdhms">
+→ 日付の各位（年月日時分秒）</A></DIV>
+<DIV id="text126_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:6008px; line-height:15px; white-space:nowrap">
+<A href="#cmp_date">
+→ 日付の比較</A></DIV>
+<DIV id="text126_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:6028px; line-height:15px; white-space:nowrap">
+<A href="vbs_memo_09.html#date_plus">
+→ 日付の計算</A></DIV>
+<v:rect style="position:absolute; margin-left:84px; margin-top:5641px; width:76px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text126_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:92px; margin-top:5648px; line-height:13px; white-space:nowrap">
+2008/06/11</DIV>
+<DIV id="text126_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:177px; margin-top:5648px; line-height:13px; white-space:nowrap">
+= CStr( Date() )</DIV>
+<DIV id="text126_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:242px; margin-top:5616px; line-height:13px; white-space:nowrap">
+= CStr( Now() )</DIV>
+<DIV id="text126_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:168px; margin-top:5680px; line-height:13px; white-space:nowrap">
+= CStr( Time() )</DIV>
+<v:rect style="position:absolute; margin-left:84px; margin-top:5673px; width:64px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text126_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:92px; margin-top:5680px; line-height:13px; white-space:nowrap">
+14:28:01</DIV>
+<v:rect style="position:absolute; margin-left:51px; margin-top:5486px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text126_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:5493px; line-height:13px; white-space:nowrap">
+&nbsp; t = CDate( "2008/06/16" )</DIV>
+<DIV id="text126_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:250px; margin-top:5491px; line-height:15px; white-space:nowrap">
+<A href="#CDate">
+→ CDate 関数</A></DIV>
+<DIV id="text126_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:136px; margin-top:5355px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/3eaydw6e(VS.80).aspx" target="_blank">
+VB(Web)</A></DIV>
+<DIV id="text126_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:40px; margin-top:5386px; line-height:15px; white-space:nowrap">
+西暦 100年 1月 1日～ 9999年 12月31日まで表せます。</DIV>
+<DIV id="text126_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:5869px; line-height:15px; white-space:nowrap">
+Date 型の値のタイムゾーンは、その定義によります。<BR/>
+a = CDate("12:00") のとき、a がローカル・タイムゾーンの日時を格納するという定義であったら、<BR/>
+ローカル・タイムゾーンでの 12:00 になり、<BR/>
+b = CDate("3:00") のとき、b が UTC の日時を格納するという定義であったら、<BR/>
+UTC での 3:00 になります。<BR/>
+Date 型の値に、タイムゾーンの定義を追加したら、世界共通の絶対的な時刻になります。</DIV>
+<DIV id="text126_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5839px; line-height:15px; white-space:nowrap">
+Date 型のタイムゾーン</DIV>
+
+<v:line from="0,5338" to="615,5338"/>
+<v:line from="615,5338" to="615,6091"/>
+<v:line from="615,6091" to="0,6091"/>
+<v:line from="0,6091" to="0,5338"/>
+
+</PAGE>
+ 
+<!-- page 127 --> 
+<PAGE>
+<A id="svgcats_vml_p127" class="to_tree" style="margin-top:6096px;" onClick="selectTreeElem( '127' );">←</A>
+<A href="#svgcats_vml_p128" class="to_next_page" style="margin-top:6096px;">▼</A>
+<A href="#svgcats_vml_p126" class="to_prev_page" style="margin-top:6096px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6107px; width:491px; height:384px;" fillcolor="white"/>
+<DIV id="text127_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6124px; line-height:15px; white-space:nowrap">
+<A name="Now">
+Now 関数</A></DIV>
+<DIV id="text127_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:136px; margin-top:6124px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410280.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6154px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text127_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6161px; line-height:13px; white-space:nowrap">
+Function&nbsp; Now() as Date</DIV>
+<DIV id="text127_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6193px; line-height:15px; white-space:nowrap">
+現在の年月日時分秒を返します。</DIV>
+<DIV id="text127_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6228px; line-height:15px; white-space:nowrap">
+OSに設定している地域＝「日本」なら、CStr( Now() ) は次のようになります。</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:6254px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text127_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:6261px; line-height:13px; white-space:nowrap">
+2007/08/10 12:26:21</DIV>
+<DIV id="text127_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:6363px; line-height:15px; white-space:nowrap">
+<A href="#cmp_date">
+→ 日付の比較</A></DIV>
+<DIV id="text127_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:6383px; line-height:15px; white-space:nowrap">
+<A href="#Date_func">
+→ Date 関数</A></DIV>
+<DIV id="text127_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:6403px; line-height:15px; white-space:nowrap">
+<A href="#Time">
+→ Time 関数</A></DIV>
+<DIV id="text127_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:6423px; line-height:15px; white-space:nowrap">
+<A href="#Timer">
+→ Timer 関数</A></DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:6314px; width:202px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text127_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:6321px; line-height:13px; white-space:nowrap">
+WScript.Echo&nbsp; "Now = " &amp; Now() </DIV>
+<DIV id="text127_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:147px; margin-top:6161px; line-height:13px; white-space:nowrap">
+<A href="#Date">
+Date</A></DIV>
+<DIV id="text127_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6363px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text127_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6292px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text127_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:6443px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib.files\vbslib_12.html#TestableNow">
+→ TestableNow (vbslib)</A></DIV>
+
+<v:line from="0,6107" to="491,6107"/>
+<v:line from="491,6107" to="491,6491"/>
+<v:line from="491,6491" to="0,6491"/>
+<v:line from="0,6491" to="0,6107"/>
+
+</PAGE>
+ 
+<!-- page 128 --> 
+<PAGE>
+<A id="svgcats_vml_p128" class="to_tree" style="margin-top:6496px;" onClick="selectTreeElem( '128' );">←</A>
+<A href="#svgcats_vml_p129" class="to_next_page" style="margin-top:6496px;">▼</A>
+<A href="#svgcats_vml_p127" class="to_prev_page" style="margin-top:6496px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6507px; width:493px; height:246px;" fillcolor="white"/>
+<DIV id="text128_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6524px; line-height:15px; white-space:nowrap">
+<A name="Date_func">
+Date 関数</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6554px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text128_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6561px; line-height:13px; white-space:nowrap">
+Function&nbsp; Date() as Date</DIV>
+<DIV id="text128_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6593px; line-height:15px; white-space:nowrap">
+現在の年月日を返します。</DIV>
+<DIV id="text128_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6628px; line-height:15px; white-space:nowrap">
+OSに設定している地域＝「日本」なら、CStr( Date() ) は次のようになります。</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:6654px; width:76px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text128_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:6661px; line-height:13px; white-space:nowrap">
+2007/08/10</DIV>
+<DIV id="text128_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:139px; margin-top:6524px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410218.aspx" target="_blank">
+(Web)</A></DIV>
+<DIV id="text128_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:196px; margin-top:6526px; line-height:12px; white-space:nowrap">
+<A href="#timedate">
+[ 親: 日付 ]</A></DIV>
+<DIV id="text128_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6705px; line-height:15px; white-space:nowrap">
+時刻は、0:00:00 になります。</DIV>
+
+<v:line from="0,6507" to="493,6507"/>
+<v:line from="493,6507" to="493,6753"/>
+<v:line from="493,6753" to="0,6753"/>
+<v:line from="0,6753" to="0,6507"/>
+
+</PAGE>
+ 
+<!-- page 129 --> 
+<PAGE>
+<A id="svgcats_vml_p129" class="to_tree" style="margin-top:6758px;" onClick="selectTreeElem( '129' );">←</A>
+<A href="#svgcats_vml_p130" class="to_next_page" style="margin-top:6758px;">▼</A>
+<A href="#svgcats_vml_p128" class="to_prev_page" style="margin-top:6758px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6769px; width:494px; height:246px;" fillcolor="white"/>
+<DIV id="text129_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6786px; line-height:15px; white-space:nowrap">
+<A name="Time">
+Time 関数</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6816px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text129_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6823px; line-height:13px; white-space:nowrap">
+Function&nbsp; Time() as Date</DIV>
+<DIV id="text129_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6855px; line-height:15px; white-space:nowrap">
+現在の時分秒を返します。</DIV>
+<DIV id="text129_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6890px; line-height:15px; white-space:nowrap">
+OSに設定している地域＝「日本」なら、CStr( Time() ) は次のようになります。</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:6916px; width:58px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text129_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:6923px; line-height:13px; white-space:nowrap">
+9:15:04</DIV>
+<DIV id="text129_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:196px; margin-top:6788px; line-height:12px; white-space:nowrap">
+<A href="#timedate">
+[ 親: 日付 ]</A></DIV>
+<DIV id="text129_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6967px; line-height:15px; white-space:nowrap">
+年月日は、1899年 12月 30日(土) になります。</DIV>
+
+<v:line from="0,6769" to="494,6769"/>
+<v:line from="494,6769" to="494,7015"/>
+<v:line from="494,7015" to="0,7015"/>
+<v:line from="0,7015" to="0,6769"/>
+
+</PAGE>
+ 
+<!-- page 130 --> 
+<PAGE>
+<A id="svgcats_vml_p130" class="to_tree" style="margin-top:7020px;" onClick="selectTreeElem( '130' );">←</A>
+<A href="#svgcats_vml_p131" class="to_next_page" style="margin-top:7020px;">▼</A>
+<A href="#svgcats_vml_p129" class="to_prev_page" style="margin-top:7020px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7031px; width:427px; height:695px;" fillcolor="white"/>
+<DIV id="text130_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7048px; line-height:15px; white-space:nowrap">
+<A name="Timer">
+Timer 関数</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7078px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text130_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7085px; line-height:13px; white-space:nowrap">
+Function&nbsp; Timer() as Single</DIV>
+<DIV id="text130_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7113px; line-height:15px; white-space:nowrap">
+今日の 0:00 から経過した時間を返します。（単位は秒、小数あり）</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:7165px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text130_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:7172px; line-height:13px; white-space:nowrap">
+WScript.Echo&nbsp; Timer</DIV>
+<DIV id="text130_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7146px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text130_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:192px; margin-top:7146px; line-height:15px; white-space:nowrap">
+出力例：</DIV>
+<v:rect style="position:absolute; margin-left:200px; margin-top:7165px; width:64px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text130_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:208px; margin-top:7172px; line-height:13px; white-space:nowrap">
+46529.59</DIV>
+<DIV id="text130_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:131px; margin-top:7048px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc392341.aspx" target="_blank">
+(Web)</A></DIV>
+<DIV id="text130_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7414px; line-height:15px; white-space:nowrap">
+精度は、約16ミリ秒のようです。(WinXP)</DIV>
+<v:rect style="position:absolute; margin-left:51px; margin-top:7460px; width:316px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text130_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:7466px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; i, t0 : t0 = Timer<BR/>
+&nbsp; For i=1 To 1000<BR/>
+&nbsp; &nbsp; WScript.Echo&nbsp; i &amp; " " &amp; (Timer - t0) &amp; "(sec)"<BR/>
+&nbsp; Next</DIV>
+<DIV id="text130_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:7440px; line-height:15px; white-space:nowrap">
+計測スクリプト：</DIV>
+<v:rect style="position:absolute; margin-left:51px; margin-top:7564px; width:112px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text130_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:59px; margin-top:7570px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; :<BR/>
+56 0(sec)<BR/>
+57 0(sec)<BR/>
+58 0(sec)<BR/>
+59 0.015625(sec)<BR/>
+60 0.015625(sec)<BR/>
+61 0.015625(sec)<BR/>
+&nbsp; &nbsp; :</DIV>
+<DIV id="text130_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:7545px; line-height:15px; white-space:nowrap">
+出力例：</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:7232px; width:298px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text130_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:7238px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; t0, t1<BR/>
+<BR/>
+&nbsp; t0 = Timer()<BR/>
+&nbsp; &nbsp; WScript.Sleep 30<BR/>
+&nbsp; t1 = Timer() - t0<BR/>
+&nbsp; WScript.Echo&nbsp; FormatNumber( t1, 3 ) &amp; "(sec)"</DIV>
+<DIV id="text130_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7212px; line-height:15px; white-space:nowrap">
+サンプル： t0= から t1= の間の時間を表示する</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:7364px; width:76px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text130_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:7371px; line-height:13px; white-space:nowrap">
+0.031(sec)</DIV>
+<DIV id="text130_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:7345px; line-height:15px; white-space:nowrap">
+出力例：</DIV>
+
+<v:line from="0,7031" to="427,7031"/>
+<v:line from="427,7031" to="427,7726"/>
+<v:line from="427,7726" to="0,7726"/>
+<v:line from="0,7726" to="0,7031"/>
+
+</PAGE>
+ 
+<!-- page 131 --> 
+<PAGE>
+<A id="svgcats_vml_p131" class="to_tree" style="margin-top:7731px;" onClick="selectTreeElem( '131' );">←</A>
+<A href="#svgcats_vml_p132" class="to_next_page" style="margin-top:7731px;">▼</A>
+<A href="#svgcats_vml_p130" class="to_prev_page" style="margin-top:7731px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7742px; width:563px; height:635px;" fillcolor="white"/>
+<DIV id="text131_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7759px; line-height:15px; white-space:nowrap">
+<A name="CDate">
+CDate 関数</A></DIV>
+<DIV id="text131_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:150px; margin-top:7759px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410209.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7789px; width:268px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text131_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7796px; line-height:13px; white-space:nowrap">
+Function&nbsp; CDate( Date as variant ) as Date</DIV>
+<DIV id="text131_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7941px; line-height:15px; white-space:nowrap">
+Date が文字列のときの例</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:8152px; width:142px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text131_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:8159px; line-height:13px; white-space:nowrap">
+CDate("July 1, 2008")</DIV>
+<DIV id="text131_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:8157px; line-height:15px; white-space:nowrap">
+アメリカ：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:7979px; width:118px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text131_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:7986px; line-height:13px; white-space:nowrap">
+CDate("2008/7/1")</DIV>
+<DIV id="text131_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:7984px; line-height:15px; white-space:nowrap">
+日本：</DIV>
+<DIV id="text131_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7830px; line-height:15px; white-space:nowrap">
+年月日を Date 型に変換します。</DIV>
+<DIV id="text131_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:196px; margin-top:7761px; line-height:12px; white-space:nowrap">
+<A href="#timedate">
+[ 親: 日付 ]</A></DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:8011px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text131_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:8018px; line-height:13px; white-space:nowrap">
+CDate("2008/7/1 12:29")</DIV>
+<DIV id="text131_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7862px; line-height:15px; white-space:nowrap">
+時分秒が省略されると 0時、0分、0秒のように、各位の値が 0 になります。<BR/>
+年が省略されると、今年になります。<BR/>
+年月日が省略されると、1899年、12月、30日になります。</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:8043px; width:124px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text131_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:8050px; line-height:13px; white-space:nowrap">
+CDate("7/1 12:29")</DIV>
+<DIV id="text131_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:7986px; line-height:13px; white-space:nowrap">
+2008/7/1 0:00:00</DIV>
+<DIV id="text131_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:8018px; line-height:13px; white-space:nowrap">
+2008/7/1 12:29:00</DIV>
+<DIV id="text131_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:8050px; line-height:13px; white-space:nowrap">
+(今年)/7/1 12:29:00</DIV>
+<DIV id="text131_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:277px; margin-top:7952px; line-height:15px; white-space:nowrap">
+格納される値</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:8075px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text131_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:8082px; line-height:13px; white-space:nowrap">
+CDate("12:29")</DIV>
+<DIV id="text131_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:8082px; line-height:13px; white-space:nowrap">
+1899/12/30 12:29:00</DIV>
+<DIV id="text131_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8254px; line-height:15px; white-space:nowrap">
+#7/1 12:00# のように # で囲んだものは、リテラル日時です。<BR/>
+タイムゾーンは、その定義によります。<BR/>
+a = #12:00# のとき、a がローカル・タイムゾーンの日時を格納するという定義であったら、<BR/>
+ローカル・タイムゾーンでの 12:00 になり、<BR/>
+b = #3:00# のとき、b が UTC の日時を格納するという定義であったら、<BR/>
+UTC での 3:00 になります。</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:8107px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text131_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:8114px; line-height:13px; white-space:nowrap">
+CDate("7/1")</DIV>
+<DIV id="text131_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:277px; margin-top:8114px; line-height:13px; white-space:nowrap">
+(今年)/7/1 0:00:00</DIV>
+<DIV id="text131_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:33px; margin-top:8202px; line-height:15px; white-space:nowrap">
+世界共通にするときは注意</DIV>
+<DIV id="text131_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8220px; line-height:15px; white-space:nowrap">
+日付リテラルや時刻リテラルか、DateSerial を使用してください。</DIV>
+
+<v:line from="0,7742" to="563,7742"/>
+<v:line from="563,7742" to="563,8377"/>
+<v:line from="563,8377" to="0,8377"/>
+<v:line from="0,8377" to="0,7742"/>
+
+</PAGE>
+ 
+<!-- page 132 --> 
+<PAGE>
+<A id="svgcats_vml_p132" class="to_tree" style="margin-top:8382px;" onClick="selectTreeElem( '132' );">←</A>
+<A href="#svgcats_vml_p133" class="to_next_page" style="margin-top:8382px;">▼</A>
+<A href="#svgcats_vml_p131" class="to_prev_page" style="margin-top:8382px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8393px; width:559px; height:132px;" fillcolor="white"/>
+<DIV id="text132_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8410px; line-height:15px; white-space:nowrap">
+<A name="DateSerial">
+DateSerial</A></DIV>
+<DIV id="text132_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:117px; margin-top:8410px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410236.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8440px; width:502px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text132_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8447px; line-height:13px; white-space:nowrap">
+Function&nbsp; DateSerial( Year as integer, Month as integer, Day as integer ) as Date</DIV>
+<DIV id="text132_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8477px; line-height:15px; white-space:nowrap">
+年月日から Date 型を返します。</DIV>
+
+<v:line from="0,8393" to="559,8393"/>
+<v:line from="559,8393" to="559,8525"/>
+<v:line from="559,8525" to="0,8525"/>
+<v:line from="0,8525" to="0,8393"/>
+
+</PAGE>
+ 
+<!-- page 133 --> 
+<PAGE>
+<A id="svgcats_vml_p133" class="to_tree" style="margin-top:8530px;" onClick="selectTreeElem( '133' );">←</A>
+<A href="#svgcats_vml_p134" class="to_next_page" style="margin-top:8530px;">▼</A>
+<A href="#svgcats_vml_p132" class="to_prev_page" style="margin-top:8530px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8541px; width:565px; height:331px;" fillcolor="white"/>
+<DIV id="text133_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8558px; line-height:15px; white-space:nowrap">
+<A name="FormatDateTime">
+FormatDateTime</A></DIV>
+<DIV id="text133_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:157px; margin-top:8558px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410230.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8588px; width:508px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text133_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8595px; line-height:13px; white-space:nowrap">
+Function&nbsp; FormatDateTime( aDateTime as Date [, NamedFormat as integer] ) as string</DIV>
+<DIV id="text133_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8625px; line-height:15px; white-space:nowrap">
+Date型を文字列に変換します。</DIV>
+<DIV id="text133_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:8712px; line-height:13px; white-space:nowrap">
+vbGeneralDate</DIV>
+<DIV id="text133_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:8710px; line-height:15px; white-space:nowrap">
+地域の日付か時刻、または両方を表示します。 CStr と同じです。<BR/>
+（デフォルト）</DIV>
+<DIV id="text133_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:8755px; line-height:13px; white-space:nowrap">
+vbLongDate</DIV>
+<DIV id="text133_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:8803px; line-height:13px; white-space:nowrap">
+vbLongTime</DIV>
+<DIV id="text133_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:8779px; line-height:13px; white-space:nowrap">
+vbShortDate</DIV>
+<DIV id="text133_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:39px; margin-top:8827px; line-height:13px; white-space:nowrap">
+vbShortTime</DIV>
+<DIV id="text133_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:8753px; line-height:15px; white-space:nowrap">
+地域の日付（長い形式）</DIV>
+<DIV id="text133_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:8777px; line-height:15px; white-space:nowrap">
+地域の日付（短い形式）</DIV>
+<DIV id="text133_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:8825px; line-height:15px; white-space:nowrap">
+24 時間形式</DIV>
+<DIV id="text133_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:8801px; line-height:15px; white-space:nowrap">
+地域の時刻</DIV>
+<DIV id="text133_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8683px; line-height:15px; white-space:nowrap">
+NamedFormat 引数</DIV>
+<v:rect style="position:absolute; margin-left:309px; margin-top:8825px; width:46px; height:15px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text133_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:317px; margin-top:8827px; line-height:13px; white-space:nowrap">
+12:41</DIV>
+<v:rect style="position:absolute; margin-left:309px; margin-top:8801px; width:64px; height:15px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text133_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:317px; margin-top:8803px; line-height:13px; white-space:nowrap">
+12:41:25</DIV>
+<v:rect style="position:absolute; margin-left:309px; margin-top:8777px; width:76px; height:15px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text133_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:317px; margin-top:8779px; line-height:13px; white-space:nowrap">
+2010/12/03</DIV>
+<v:rect style="position:absolute; margin-left:311px; margin-top:8753px; width:94px; height:15px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text133_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:319px; margin-top:8755px; line-height:13px; white-space:nowrap">
+2010年12月3日</DIV>
+<v:rect style="position:absolute; margin-left:311px; margin-top:8729px; width:130px; height:15px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text133_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:319px; margin-top:8731px; line-height:13px; white-space:nowrap">
+2010/12/03 12:41:25</DIV>
+
+<v:line from="0,8541" to="565,8541"/>
+<v:line from="565,8541" to="565,8872"/>
+<v:line from="565,8872" to="0,8872"/>
+<v:line from="0,8872" to="0,8541"/>
+
+</PAGE>
+ 
+<!-- page 134 --> 
+<PAGE>
+<A id="svgcats_vml_p134" class="to_tree" style="margin-top:8877px;" onClick="selectTreeElem( '134' );">←</A>
+<A href="#svgcats_vml_p135" class="to_next_page" style="margin-top:8877px;">▼</A>
+<A href="#svgcats_vml_p133" class="to_prev_page" style="margin-top:8877px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8888px; width:272px; height:132px;" fillcolor="white"/>
+<DIV id="text134_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8905px; line-height:15px; white-space:nowrap">
+<A name="GetLocale">
+GetLocale</A></DIV>
+<DIV id="text134_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:112px; margin-top:8905px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410233.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8935px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text134_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8942px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetLocale() as integer</DIV>
+<DIV id="text134_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8972px; line-height:15px; white-space:nowrap">
+現在の地域を表す番号を返します。</DIV>
+
+<v:line from="0,8888" to="272,8888"/>
+<v:line from="272,8888" to="272,9020"/>
+<v:line from="272,9020" to="0,9020"/>
+<v:line from="0,9020" to="0,8888"/>
+
+</PAGE>
+ 
+<!-- page 135 --> 
+<PAGE>
+<A id="svgcats_vml_p135" class="to_tree" style="margin-top:9025px;" onClick="selectTreeElem( '135' );">←</A>
+<A href="#svgcats_vml_p136" class="to_next_page" style="margin-top:9025px;">▼</A>
+<A href="#svgcats_vml_p134" class="to_prev_page" style="margin-top:9025px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9036px; width:621px; height:575px;" fillcolor="white"/>
+<DIV id="text135_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9053px; line-height:15px; white-space:nowrap">
+<A name="timedate_ymdhms">
+日付の各位（年月日時分秒）</A></DIV>
+<DIV id="text135_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:327px; margin-top:9141px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410273.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9137px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9144px; line-height:13px; white-space:nowrap">
+Function&nbsp; Month( d as Date ) as integer</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9202px; width:238px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9209px; line-height:13px; white-space:nowrap">
+Function&nbsp; Day( d as Date ) as integer</DIV>
+<DIV id="text135_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:378px; margin-top:9209px; line-height:13px; white-space:nowrap">
+Day("October 19, 1962") = 19</DIV>
+<DIV id="text135_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9142px; line-height:15px; white-space:nowrap">
+月</DIV>
+<DIV id="text135_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9207px; line-height:15px; white-space:nowrap">
+日</DIV>
+<DIV id="text135_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:327px; margin-top:9207px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410225.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9298px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9305px; line-height:13px; white-space:nowrap">
+Function&nbsp; Hour( d as Date ) as integer</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9328px; width:256px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9335px; line-height:13px; white-space:nowrap">
+Function&nbsp; Minute( d as Date ) as integer</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9358px; width:256px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9365px; line-height:13px; white-space:nowrap">
+Function&nbsp; Second( d as Date ) as integer</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9234px; width:262px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9241px; line-height:13px; white-space:nowrap">
+Function&nbsp; Weekday( d as Date ) as integer</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9105px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9112px; line-height:13px; white-space:nowrap">
+Function&nbsp; Year( d as Date ) as integer</DIV>
+<DIV id="text135_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:9451px; line-height:13px; white-space:nowrap">
+vbSunday</DIV>
+<DIV id="text135_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:129px; margin-top:9451px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text135_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:9470px; line-height:13px; white-space:nowrap">
+vbMonday</DIV>
+<DIV id="text135_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:9565px; line-height:13px; white-space:nowrap">
+vbSaturday</DIV>
+<DIV id="text135_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:9489px; line-height:13px; white-space:nowrap">
+vbTuesday</DIV>
+<DIV id="text135_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:9508px; line-height:13px; white-space:nowrap">
+vbWednesday</DIV>
+<DIV id="text135_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:9527px; line-height:13px; white-space:nowrap">
+vbThursday</DIV>
+<DIV id="text135_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:9546px; line-height:13px; white-space:nowrap">
+vbFriday</DIV>
+<DIV id="text135_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:129px; margin-top:9470px; line-height:13px; white-space:nowrap">
+2</DIV>
+<DIV id="text135_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:129px; margin-top:9489px; line-height:13px; white-space:nowrap">
+3</DIV>
+<DIV id="text135_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:129px; margin-top:9508px; line-height:13px; white-space:nowrap">
+4</DIV>
+<DIV id="text135_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:129px; margin-top:9527px; line-height:13px; white-space:nowrap">
+5</DIV>
+<DIV id="text135_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:129px; margin-top:9546px; line-height:13px; white-space:nowrap">
+6</DIV>
+<DIV id="text135_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:129px; margin-top:9565px; line-height:13px; white-space:nowrap">
+7</DIV>
+<DIV id="text135_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:27px; margin-top:9421px; line-height:15px; white-space:nowrap">
+<A name="Weekday">
+Weekday の定数</A></DIV>
+<DIV id="text135_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:272px; margin-top:9241px; line-height:13px; white-space:nowrap">
+<A href="#Weekday">
+integer</A></DIV>
+<DIV id="text135_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9239px; line-height:15px; white-space:nowrap">
+曜</DIV>
+<DIV id="text135_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9110px; line-height:15px; white-space:nowrap">
+年</DIV>
+<DIV id="text135_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:339px; margin-top:9239px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc392347.aspx" target="_blank">
+(Web)</A></DIV>
+<DIV id="text135_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9303px; line-height:15px; white-space:nowrap">
+時</DIV>
+<DIV id="text135_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9333px; line-height:15px; white-space:nowrap">
+分</DIV>
+<DIV id="text135_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:383px; margin-top:9141px; line-height:15px; white-space:nowrap">
+11月なら 11</DIV>
+<DIV id="text135_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:30px; margin-top:9363px; line-height:15px; white-space:nowrap">
+秒</DIV>
+<DIV id="text135_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:349px; margin-top:9303px; line-height:15px; white-space:nowrap">
+0～23</DIV>
+<DIV id="text135_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:373px; margin-top:9271px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc392348.aspx" target="_blank">
+(Web)</A></DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9266px; width:298px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9273px; line-height:13px; white-space:nowrap">
+Function&nbsp; WeekdayName( w as integer ) as string</DIV>
+<DIV id="text135_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:206px; margin-top:9273px; line-height:13px; white-space:nowrap">
+<A href="#Weekday">
+w as integer</A></DIV>
+<DIV id="text135_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9069px; line-height:15px; white-space:nowrap">
+<A name="year">
+(Year, Month, Day, Weekday, WeekdayName, Hour, Minute, Second)</A></DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9169px; width:484px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text135_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9176px; line-height:13px; white-space:nowrap">
+Function&nbsp; MonthName( Month as integer [, IsAbbreviate as boolean ] ) as string</DIV>
+<DIV id="text135_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:551px; margin-top:9174px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/cc410275.aspx" target="_blank">
+(Web)</A></DIV>
+<DIV id="text135_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:395px; margin-top:9239px; line-height:15px; white-space:nowrap">
+1=日、2=月、…、7=土</DIV>
+
+<v:line from="0,9036" to="621,9036"/>
+<v:line from="621,9036" to="621,9611"/>
+<v:line from="621,9611" to="0,9611"/>
+<v:line from="0,9611" to="0,9036"/>
+
+</PAGE>
+ 
+<!-- page 136 --> 
+<PAGE>
+<A id="svgcats_vml_p136" class="to_tree" style="margin-top:9616px;" onClick="selectTreeElem( '136' );">←</A>
+<A href="vbs_memo_09.html#svgcats_vml_p137" class="to_next_page" style="margin-top:9616px;">▼</A>
+<A href="#svgcats_vml_p135" class="to_prev_page" style="margin-top:9616px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9627px; width:510px; height:699px;" fillcolor="white"/>
+<v:rect style="position:absolute; margin-left:58px; margin-top:10078px; width:159px; height:8px;" fillcolor="#CAFFCA" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:170px; margin-top:10264px; width:11px; height:8px;" fillcolor="#CAFFCA" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:271px; margin-top:10264px; width:11px; height:8px;" fillcolor="#CAFFCA" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9644px; line-height:15px; white-space:nowrap">
+<A name="cmp_date">
+日付の比較</A></DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:9704px; width:256px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:9710px; line-height:15px; white-space:nowrap">
+If Now() &gt;= CDate("2008/7/1 13:30") Then<BR/>
+&nbsp; '// 2008/7/1 13:30 以後なら<BR/>
+End If</DIV>
+<DIV id="text136_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9680px; line-height:15px; white-space:nowrap">
+比較するときは、Date 型同士を比較してください。</DIV>
+<DIV id="text136_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:196px; margin-top:9646px; line-height:12px; white-space:nowrap">
+<A href="#timedate">
+[ 親: 日付 ]</A></DIV>
+<DIV id="text136_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9883px; line-height:15px; white-space:nowrap">
+年が省略されると、今年になります。<BR/>
+時分秒が省略されると 0時、0分、0秒になります。<BR/>
+その日の終わりと比較するときは、その日ではなく次の日にするか、<BR/>
+時分（23:59:59） も指定してください。</DIV>
+<DIV id="text136_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:281px; margin-top:10141px; line-height:15px; white-space:nowrap">
+<A href="#Time">
+Time 関数</A></DIV>
+<DIV id="text136_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:10126px; line-height:15px; white-space:nowrap">
+年月日が省略されると、0年、0月、0日になります。<BR/>
+現在の時刻と比較するときは、現在の時刻を</DIV>
+<DIV id="text136_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:342px; margin-top:10141px; line-height:15px; white-space:nowrap">
+で取得してください。</DIV>
+<DIV id="text136_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:157px; margin-top:10059px; line-height:13px; white-space:nowrap">
+7/1</DIV>
+<DIV id="text136_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:260px; margin-top:10059px; line-height:13px; white-space:nowrap">
+7/2</DIV>
+<v:line style="position:absolute;" from="58,10078" to="380,10078" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="380,10078" to="369,10074" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="380,10078" to="369,10082" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="217,10059" to="217,10095" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="115,10059" to="115,10095" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="318,10059" to="318,10095" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:9964px; line-height:15px; white-space:nowrap">
+サンプル： 7/1が〆切のときに、〆切前かどうか</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:9986px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:9993px; line-height:13px; white-space:nowrap">
+If Now() &lt;= CDate("7/1 23:59:59") Then</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:10017px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:10024px; line-height:13px; white-space:nowrap">
+If Now() &lt; CDate("7/2") Then</DIV>
+<DIV id="text136_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:310px; margin-top:9991px; line-height:15px; white-space:nowrap">
+← 厳密には１秒異なるが十分</DIV>
+<DIV id="text136_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:10174px; line-height:15px; white-space:nowrap">
+サンプル： 昼休みかどうか</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:10195px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:10202px; line-height:13px; white-space:nowrap">
+If Time() &gt;= CDate("12:00") and Time() &lt; CDate("13:00") Then</DIV>
+<v:line style="position:absolute;" from="319,10245" to="319,10281" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="116,10245" to="116,10281" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="218,10245" to="218,10281" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="59,10264" to="381,10264" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="381,10264" to="370,10260" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="381,10264" to="370,10268" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:261px; margin-top:10245px; line-height:13px; white-space:nowrap">
+7/2</DIV>
+<DIV id="text136_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:158px; margin-top:10245px; line-height:13px; white-space:nowrap">
+7/1</DIV>
+<DIV id="text136_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:140px; margin-top:10280px; line-height:13px; white-space:nowrap">
+12:00</DIV>
+<DIV id="text136_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:182px; margin-top:10280px; line-height:13px; white-space:nowrap">
+13:00</DIV>
+<DIV id="text136_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:280px; margin-top:10280px; line-height:13px; white-space:nowrap">
+13:00</DIV>
+<DIV id="text136_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:238px; margin-top:10280px; line-height:13px; white-space:nowrap">
+12:00</DIV>
+<DIV id="text136_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:9780px; line-height:15px; white-space:nowrap">
+ただし、等しいかどうかの判定は、浮動小数型のように誤差を考慮してください。</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:9800px; width:394px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text136_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:9806px; line-height:15px; white-space:nowrap">
+If Abs(DateDiff("s", Now(), CDate("2008/7/1 13:30") )) &lt; 1 Then<BR/>
+&nbsp; '// 現在が 2008/7/1 13:30 丁度なら<BR/>
+End If</DIV>
+
+<v:line from="0,9627" to="510,9627"/>
+<v:line from="510,9627" to="510,10326"/>
+<v:line from="510,10326" to="0,10326"/>
+<v:line from="0,10326" to="0,9627"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10326px;">
+<A id="svgcats_vml_p136" class="to_tree" onClick="selectTreeElem( '136' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10326px;">
+<A id="page_group_bottom" href="vbs_memo_09.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

@@ -1,0 +1,1730 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_36.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_36.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 738 --> 
+<PAGE>
+<A id="svgcats_vml_p738" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '738' );">←</A>
+<A href="#svgcats_vml_p739" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_35.html#svgcats_vml_p737" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_35.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:672px; height:914px;" fillcolor="white"/>
+<DIV id="text738_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="GetPercentURL">
+GetPercentURL</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:47px; width:358px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:54px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetPercentURL( UnicodeURL as string ) as string</DIV>
+<DIV id="text738_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:84px; line-height:15px; white-space:nowrap">
+URL に使えない文字があったときに、% 文字を使った URL に変換します。</DIV>
+<DIV id="text738_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:110px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text738_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:110px; line-height:15px; white-space:nowrap">
+UnicodeURL</DIV>
+<DIV id="text738_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:187px; margin-top:110px; line-height:15px; white-space:nowrap">
+URL に使えない文字も含まれた URL</DIV>
+<DIV id="text738_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:129px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text738_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:187px; margin-top:129px; line-height:15px; white-space:nowrap">
+URL に使える文字だけを使った URL</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:210px; width:400px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:217px; line-height:13px; white-space:nowrap">
+url = GetPercentURL( "http://www.sage-p.com/download file.zip" )</DIV>
+<DIV id="text738_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:240px; line-height:13px; white-space:nowrap">
+url は、 "http://www.sage-p.com/download%20file.zip" になります。</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:477px; width:276px; height:71px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:483px; line-height:15px; white-space:nowrap">
+url = httpurl | ftpurl | newsurl |<BR/>
+&nbsp; &nbsp; &nbsp; nntpurl | telneturl | gopherurl |<BR/>
+&nbsp; &nbsp; &nbsp; waisurl | mailtourl | fileurl |<BR/>
+&nbsp; &nbsp; &nbsp; prosperourl | otherurl</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:562px; width:390px; height:26px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="2pt"/>
+<DIV id="text738_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:568px; line-height:15px; white-space:nowrap">
+httpurl = "http://" hostport [ "/" hpath [ "?" search ]]</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:602px; width:357px; height:56px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:608px; line-height:15px; white-space:nowrap">
+hpath&nbsp; &nbsp; = hsegment *[ "/" hsegment ]<BR/>
+hsegment = *[ uchar | ";" | ":" | "@" | "&amp;" | "=" ]<BR/>
+search&nbsp; &nbsp;= *[ uchar | ";" | ":" | "@" | "&amp;" | "=" ]</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:672px; width:196px; height:26px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:678px; line-height:15px; white-space:nowrap">
+uchar = unreserved | escape</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:712px; width:290px; height:41px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:718px; line-height:15px; white-space:nowrap">
+unreserved = alpha | digit | safe | extra<BR/>
+escape&nbsp; &nbsp; &nbsp;= "%" hex hex</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:768px; width:290px; height:41px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="2pt"/>
+<DIV id="text738_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:774px; line-height:15px; white-space:nowrap">
+safe&nbsp; = "$" | "-" | "_" | "." | "+"<BR/>
+extra = "!" | "*" | "'" | "(" | ")" | ","</DIV>
+<DIV id="text738_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:482px; line-height:13px; white-space:nowrap">
+2</DIV>
+<DIV id="text738_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:526px; margin-top:501px; line-height:13px; white-space:nowrap">
+&nbsp;</DIV>
+<DIV id="text738_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:520px; line-height:13px; white-space:nowrap">
+!</DIV>
+<v:line style="position:absolute;" from="450,496" to="640,496" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="469,477" to="469,826" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:501px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text738_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:520px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text738_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:539px; line-height:13px; white-space:nowrap">
+2</DIV>
+<DIV id="text738_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:558px; line-height:13px; white-space:nowrap">
+3</DIV>
+<DIV id="text738_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:577px; line-height:13px; white-space:nowrap">
+4</DIV>
+<DIV id="text738_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:596px; line-height:13px; white-space:nowrap">
+5</DIV>
+<DIV id="text738_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:615px; line-height:13px; white-space:nowrap">
+6</DIV>
+<DIV id="text738_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:634px; line-height:13px; white-space:nowrap">
+7</DIV>
+<DIV id="text738_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:653px; line-height:13px; white-space:nowrap">
+8</DIV>
+<DIV id="text738_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:672px; line-height:13px; white-space:nowrap">
+9</DIV>
+<DIV id="text738_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:691px; line-height:13px; white-space:nowrap">
+A</DIV>
+<DIV id="text738_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:710px; line-height:13px; white-space:nowrap">
+B</DIV>
+<DIV id="text738_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:729px; line-height:13px; white-space:nowrap">
+C</DIV>
+<DIV id="text738_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:748px; line-height:13px; white-space:nowrap">
+D</DIV>
+<DIV id="text738_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:767px; line-height:13px; white-space:nowrap">
+E</DIV>
+<DIV id="text738_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:786px; line-height:13px; white-space:nowrap">
+F</DIV>
+<DIV id="text738_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:507px; margin-top:482px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text738_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:488px; margin-top:482px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text738_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:482px; line-height:13px; white-space:nowrap">
+3</DIV>
+<DIV id="text738_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:482px; line-height:13px; white-space:nowrap">
+4</DIV>
+<DIV id="text738_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:482px; line-height:13px; white-space:nowrap">
+5</DIV>
+<DIV id="text738_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:482px; line-height:13px; white-space:nowrap">
+6</DIV>
+<DIV id="text738_44" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:482px; line-height:13px; white-space:nowrap">
+7</DIV>
+<DIV id="text738_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:526px; margin-top:539px; line-height:13px; white-space:nowrap">
+"</DIV>
+<DIV id="text738_46" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:526px; margin-top:558px; line-height:13px; white-space:nowrap">
+#</DIV>
+<DIV id="text738_47" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:577px; line-height:13px; white-space:nowrap">
+$</DIV>
+<DIV id="text738_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#008000; font-weight: bold; margin-left:526px; margin-top:596px; line-height:13px; white-space:nowrap">
+%</DIV>
+<DIV id="text738_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#8080FF; font-weight: bold; margin-left:526px; margin-top:615px; line-height:13px; white-space:nowrap">
+&amp;</DIV>
+<DIV id="text738_50" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:634px; line-height:13px; white-space:nowrap">
+'</DIV>
+<DIV id="text738_51" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:653px; line-height:13px; white-space:nowrap">
+(</DIV>
+<DIV id="text738_52" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:672px; line-height:13px; white-space:nowrap">
+)</DIV>
+<DIV id="text738_53" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:691px; line-height:13px; white-space:nowrap">
+*</DIV>
+<DIV id="text738_54" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:710px; line-height:13px; white-space:nowrap">
++</DIV>
+<DIV id="text738_55" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:729px; line-height:13px; white-space:nowrap">
+,</DIV>
+<DIV id="text738_56" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:748px; line-height:13px; white-space:nowrap">
+-</DIV>
+<DIV id="text738_57" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:767px; line-height:13px; white-space:nowrap">
+.</DIV>
+<DIV id="text738_58" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#008000; font-weight: bold; margin-left:526px; margin-top:786px; line-height:13px; white-space:nowrap">
+/</DIV>
+<DIV id="text738_59" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:501px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text738_60" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:520px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text738_61" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:672px; line-height:13px; white-space:nowrap">
+9</DIV>
+<DIV id="text738_62" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:653px; line-height:13px; white-space:nowrap">
+8</DIV>
+<DIV id="text738_63" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:634px; line-height:13px; white-space:nowrap">
+7</DIV>
+<DIV id="text738_64" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:615px; line-height:13px; white-space:nowrap">
+6</DIV>
+<DIV id="text738_65" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:596px; line-height:13px; white-space:nowrap">
+5</DIV>
+<DIV id="text738_66" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:577px; line-height:13px; white-space:nowrap">
+4</DIV>
+<DIV id="text738_67" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:558px; line-height:13px; white-space:nowrap">
+3</DIV>
+<DIV id="text738_68" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:539px; line-height:13px; white-space:nowrap">
+2</DIV>
+<DIV id="text738_69" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#8080FF; font-weight: bold; margin-left:545px; margin-top:691px; line-height:13px; white-space:nowrap">
+:</DIV>
+<DIV id="text738_70" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#8080FF; font-weight: bold; margin-left:545px; margin-top:710px; line-height:13px; white-space:nowrap">
+;</DIV>
+<DIV id="text738_71" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:545px; margin-top:729px; line-height:13px; white-space:nowrap">
+&lt;</DIV>
+<DIV id="text738_72" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#8080FF; font-weight: bold; margin-left:545px; margin-top:748px; line-height:13px; white-space:nowrap">
+=</DIV>
+<DIV id="text738_73" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:545px; margin-top:767px; line-height:13px; white-space:nowrap">
+&gt;</DIV>
+<DIV id="text738_74" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#008000; font-weight: bold; margin-left:545px; margin-top:786px; line-height:13px; white-space:nowrap">
+?</DIV>
+<DIV id="text738_75" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#8080FF; font-weight: bold; margin-left:564px; margin-top:501px; line-height:13px; white-space:nowrap">
+@</DIV>
+<DIV id="text738_76" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:520px; line-height:13px; white-space:nowrap">
+A</DIV>
+<DIV id="text738_77" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:539px; line-height:13px; white-space:nowrap">
+B</DIV>
+<DIV id="text738_78" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:558px; line-height:13px; white-space:nowrap">
+C</DIV>
+<DIV id="text738_79" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:577px; line-height:13px; white-space:nowrap">
+D</DIV>
+<DIV id="text738_80" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:596px; line-height:13px; white-space:nowrap">
+E</DIV>
+<DIV id="text738_81" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:615px; line-height:13px; white-space:nowrap">
+F</DIV>
+<DIV id="text738_82" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:634px; line-height:13px; white-space:nowrap">
+G</DIV>
+<DIV id="text738_83" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:653px; line-height:13px; white-space:nowrap">
+H</DIV>
+<DIV id="text738_84" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:672px; line-height:13px; white-space:nowrap">
+I</DIV>
+<DIV id="text738_85" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:691px; line-height:13px; white-space:nowrap">
+J</DIV>
+<DIV id="text738_86" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:710px; line-height:13px; white-space:nowrap">
+K</DIV>
+<DIV id="text738_87" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:729px; line-height:13px; white-space:nowrap">
+L</DIV>
+<DIV id="text738_88" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:748px; line-height:13px; white-space:nowrap">
+M</DIV>
+<DIV id="text738_89" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:767px; line-height:13px; white-space:nowrap">
+N</DIV>
+<DIV id="text738_90" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:786px; line-height:13px; white-space:nowrap">
+O</DIV>
+<DIV id="text738_91" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:501px; line-height:13px; white-space:nowrap">
+P</DIV>
+<DIV id="text738_92" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:520px; line-height:13px; white-space:nowrap">
+Q</DIV>
+<DIV id="text738_93" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:539px; line-height:13px; white-space:nowrap">
+R</DIV>
+<DIV id="text738_94" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:558px; line-height:13px; white-space:nowrap">
+S</DIV>
+<DIV id="text738_95" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:577px; line-height:13px; white-space:nowrap">
+T</DIV>
+<DIV id="text738_96" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:596px; line-height:13px; white-space:nowrap">
+U</DIV>
+<DIV id="text738_97" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:615px; line-height:13px; white-space:nowrap">
+V</DIV>
+<DIV id="text738_98" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:634px; line-height:13px; white-space:nowrap">
+W</DIV>
+<DIV id="text738_99" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:653px; line-height:13px; white-space:nowrap">
+X</DIV>
+<DIV id="text738_100" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:672px; line-height:13px; white-space:nowrap">
+Y</DIV>
+<DIV id="text738_101" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:691px; line-height:13px; white-space:nowrap">
+Z</DIV>
+<DIV id="text738_102" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:583px; margin-top:710px; line-height:13px; white-space:nowrap">
+[</DIV>
+<DIV id="text738_103" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:583px; margin-top:729px; line-height:13px; white-space:nowrap">
+\</DIV>
+<DIV id="text738_104" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:583px; margin-top:748px; line-height:13px; white-space:nowrap">
+]</DIV>
+<DIV id="text738_105" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:583px; margin-top:767px; line-height:13px; white-space:nowrap">
+^</DIV>
+<DIV id="text738_106" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:786px; line-height:13px; white-space:nowrap">
+_</DIV>
+<DIV id="text738_107" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:602px; margin-top:501px; line-height:13px; white-space:nowrap">
+`</DIV>
+<DIV id="text738_108" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:520px; line-height:13px; white-space:nowrap">
+a</DIV>
+<DIV id="text738_109" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:539px; line-height:13px; white-space:nowrap">
+b</DIV>
+<DIV id="text738_110" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:558px; line-height:13px; white-space:nowrap">
+c</DIV>
+<DIV id="text738_111" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:577px; line-height:13px; white-space:nowrap">
+d</DIV>
+<DIV id="text738_112" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:596px; line-height:13px; white-space:nowrap">
+e</DIV>
+<DIV id="text738_113" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:615px; line-height:13px; white-space:nowrap">
+f</DIV>
+<DIV id="text738_114" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:634px; line-height:13px; white-space:nowrap">
+g</DIV>
+<DIV id="text738_115" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:653px; line-height:13px; white-space:nowrap">
+h</DIV>
+<DIV id="text738_116" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:672px; line-height:13px; white-space:nowrap">
+i</DIV>
+<DIV id="text738_117" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:691px; line-height:13px; white-space:nowrap">
+j</DIV>
+<DIV id="text738_118" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:710px; line-height:13px; white-space:nowrap">
+k</DIV>
+<DIV id="text738_119" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:729px; line-height:13px; white-space:nowrap">
+l</DIV>
+<DIV id="text738_120" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:748px; line-height:13px; white-space:nowrap">
+m</DIV>
+<DIV id="text738_121" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:767px; line-height:13px; white-space:nowrap">
+n</DIV>
+<DIV id="text738_122" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:786px; line-height:13px; white-space:nowrap">
+o</DIV>
+<DIV id="text738_123" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:501px; line-height:13px; white-space:nowrap">
+p</DIV>
+<DIV id="text738_124" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:520px; line-height:13px; white-space:nowrap">
+q</DIV>
+<DIV id="text738_125" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:539px; line-height:13px; white-space:nowrap">
+r</DIV>
+<DIV id="text738_126" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:558px; line-height:13px; white-space:nowrap">
+s</DIV>
+<DIV id="text738_127" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:577px; line-height:13px; white-space:nowrap">
+t</DIV>
+<DIV id="text738_128" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:596px; line-height:13px; white-space:nowrap">
+u</DIV>
+<DIV id="text738_129" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:615px; line-height:13px; white-space:nowrap">
+v</DIV>
+<DIV id="text738_130" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:634px; line-height:13px; white-space:nowrap">
+w</DIV>
+<DIV id="text738_131" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:653px; line-height:13px; white-space:nowrap">
+x</DIV>
+<DIV id="text738_132" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:672px; line-height:13px; white-space:nowrap">
+y</DIV>
+<DIV id="text738_133" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:691px; line-height:13px; white-space:nowrap">
+z</DIV>
+<DIV id="text738_134" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:621px; margin-top:710px; line-height:13px; white-space:nowrap">
+{</DIV>
+<DIV id="text738_135" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:621px; margin-top:729px; line-height:13px; white-space:nowrap">
+|</DIV>
+<DIV id="text738_136" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:621px; margin-top:748px; line-height:13px; white-space:nowrap">
+}</DIV>
+<DIV id="text738_137" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:621px; margin-top:767px; line-height:13px; white-space:nowrap">
+~</DIV>
+<DIV id="text738_138" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:488px; margin-top:748px; line-height:13px; white-space:nowrap">
+CR</DIV>
+<DIV id="text738_139" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:488px; margin-top:691px; line-height:13px; white-space:nowrap">
+LF</DIV>
+<v:line style="position:absolute;" from="449,806" to="639,806" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_141" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:602px; margin-top:813px; line-height:13px; white-space:nowrap">
+6</DIV>
+<DIV id="text738_142" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:583px; margin-top:813px; line-height:13px; white-space:nowrap">
+5</DIV>
+<DIV id="text738_143" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:564px; margin-top:813px; line-height:13px; white-space:nowrap">
+4</DIV>
+<DIV id="text738_144" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:545px; margin-top:813px; line-height:13px; white-space:nowrap">
+3</DIV>
+<DIV id="text738_145" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:488px; margin-top:813px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text738_146" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:507px; margin-top:813px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text738_147" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:526px; margin-top:813px; line-height:13px; white-space:nowrap">
+2</DIV>
+<DIV id="text738_148" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:621px; margin-top:813px; line-height:13px; white-space:nowrap">
+7</DIV>
+<DIV id="text738_149" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#8080FF; font-weight: bold; margin-left:545px; margin-top:342px; line-height:13px; white-space:nowrap">
+hsegment</DIV>
+<DIV id="text738_150" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:450px; margin-top:342px; line-height:13px; white-space:nowrap">
+uchar(-escape)</DIV>
+<DIV id="text738_151" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#008000; font-weight: bold; margin-left:611px; margin-top:342px; line-height:13px; white-space:nowrap">
+/?%</DIV>
+<DIV id="text738_152" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:521px; margin-top:501px; line-height:13px; white-space:nowrap">
+spc</DIV>
+<DIV id="text738_153" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:21px; margin-top:339px; line-height:15px; white-space:nowrap">
+<A name="rfc1739">
+URLに使える文字 rfc1738-ja</A></DIV>
+<DIV id="text738_154" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:60px; margin-top:833px; line-height:15px; white-space:nowrap">
+<A href="http://www.gbiv.com/protocols/uri/rfc/rfc3986.html" target="_blank">
+→ Uniform Resource Identifier (URI): Generic Syntax (Web)</A></DIV>
+<DIV id="text738_155" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:833px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text738_156" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:275px; line-height:15px; white-space:nowrap">
+標準仕様 rfc1738-ja （下記）では、~ 文字は %7E に置き換わりますが、置き換わらない方がデファクト・<BR/>
+スタンダードなので、GetPercentURL では ~ のままになります。</DIV>
+<DIV id="text738_157" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:221px; margin-top:339px; line-height:15px; white-space:nowrap">
+RFC 2396, RFC 3986 </DIV>
+<DIV id="text738_158" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:367px; line-height:15px; white-space:nowrap">
+Windows では、互換性のため、\（バックスラッシュ）を / に置き換えるとよいでしょう。</DIV>
+<DIV id="text738_159" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:60px; margin-top:866px; line-height:15px; white-space:nowrap">
+<A href="%vbslib_n_new%\_src\vbslib_n.svg#ConvertCharCodeInHref">
+→ ConvertCharCodeInHref</A></DIV>
+<DIV id="text738_160" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:866px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:402px; width:437px; height:41px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text738_161" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:408px; line-height:15px; white-space:nowrap">
+fooooooo://example.com:8042/over/there?name=ferret#nosefragment<BR/>
+(scheme)&nbsp; &nbsp;(&nbsp; authority&nbsp; &nbsp;)(&nbsp; path&nbsp; &nbsp;) (&nbsp; query&nbsp; ) ( fragment )</DIV>
+<DIV id="text738_162" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:197px; margin-top:447px; line-height:15px; white-space:nowrap">
+<A href="http://tools.ietf.org/html/rfc3986" target="_blank">
+→ RFC 3986 - 3. Syntax Components (Web)</A></DIV>
+<DIV id="text738_163" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:159px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text738_164" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:186px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text738_165" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:159px; line-height:15px; white-space:nowrap">
+→ Network.vbs</DIV>
+
+<v:line from="0,0" to="672,0"/>
+<v:line from="672,0" to="672,914"/>
+<v:line from="672,914" to="0,914"/>
+<v:line from="0,914" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 739 --> 
+<PAGE>
+<A id="svgcats_vml_p739" class="to_tree" style="margin-top:919px;" onClick="selectTreeElem( '739' );">←</A>
+<A href="#svgcats_vml_p740" class="to_next_page" style="margin-top:919px;">▼</A>
+<A href="#svgcats_vml_p738" class="to_prev_page" style="margin-top:919px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:930px; width:637px; height:586px;" fillcolor="white"/>
+<DIV id="text739_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:947px; line-height:15px; white-space:nowrap">
+<A name="LockByFileMutex">
+LockByFileMutex</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:977px; width:580px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text739_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:984px; line-height:13px; white-space:nowrap">
+Function&nbsp; LockByFileMutex( UNC_FilePath as string, TimeOut_msec as integer ) as FileMutexClass</DIV>
+<DIV id="text739_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1014px; line-height:15px; white-space:nowrap">
+ファイル・サーバーに対する排他制御を開始します。</DIV>
+<DIV id="text739_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1040px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text739_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1040px; line-height:15px; white-space:nowrap">
+UNC_FilePath</DIV>
+<DIV id="text739_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:1040px; line-height:15px; white-space:nowrap">
+排他制御を管理するファイルのパス</DIV>
+<DIV id="text739_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1059px; line-height:15px; white-space:nowrap">
+TimeOut_msec</DIV>
+<DIV id="text739_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:1059px; line-height:15px; white-space:nowrap">
+タイムアウト（ミリ秒）、または、c.Forever</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:1355px; width:520px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text739_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:1361px; line-height:15px; white-space:nowrap">
+Set c = g_VBS_Lib<BR/>
+Set mutex = LockByFileMutex( "\\PC01\Folder\_Mutex.txt", c.Forever )&nbsp; '// ロック開始<BR/>
+&nbsp; ...<BR/>
+mutex = Empty&nbsp; '// ロック終了</DIV>
+<DIV id="text739_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1441px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text739_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1331px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text739_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1235px; line-height:15px; white-space:nowrap">
+<A name="FileMutexClass">
+FileMutexClass</A></DIV>
+<DIV id="text739_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:1259px; line-height:15px; white-space:nowrap">
+LockByFileMutex 関数の返り値です。<BR/>
+FileMutexClass のオブジェクトが削除されると、ロック状態を解除します。<BR/>
+Close メソッド（引数なし）を呼び出しても解除できます。</DIV>
+<DIV id="text739_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1112px; line-height:15px; white-space:nowrap">
+UNC_FilePath に、ファイル・サーバー、または、ローカルのファイルのパスを指定<BR/>
+してください。</DIV>
+<DIV id="text739_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1158px; line-height:15px; white-space:nowrap">
+指定したファイルには、ロックしているユーザー名 %USERDOMAIN%\%USERNAME% <BR/>
+（例：PC01\User1）が上書きされ、書き込み禁止、読み込み許可状態になります。 <BR/>
+ロック状態を解除したら、ファイルを削除します。</DIV>
+<DIV id="text739_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:1467px; line-height:15px; white-space:nowrap">
+→ T_FileMutex_Manually.vbs</DIV>
+<DIV id="text739_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1467px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text739_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:1441px; line-height:15px; white-space:nowrap">
+→ Network.vbs</DIV>
+<DIV id="text739_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:423px; margin-top:1078px; line-height:15px; white-space:nowrap">
+<A href="#FileMutexClass">
+→ FileMutexClass</A></DIV>
+<DIV id="text739_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:1078px; line-height:15px; white-space:nowrap">
+ロック状態を保持しているオブジェクト</DIV>
+<DIV id="text739_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1078px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+
+<v:line from="0,930" to="637,930"/>
+<v:line from="637,930" to="637,1516"/>
+<v:line from="637,1516" to="0,1516"/>
+<v:line from="0,1516" to="0,930"/>
+
+</PAGE>
+ 
+<!-- page 740 --> 
+<PAGE>
+<A id="svgcats_vml_p740" class="to_tree" style="margin-top:1521px;" onClick="selectTreeElem( '740' );">←</A>
+<A href="#svgcats_vml_p741" class="to_next_page" style="margin-top:1521px;">▼</A>
+<A href="#svgcats_vml_p739" class="to_prev_page" style="margin-top:1521px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1532px; width:578px; height:219px;" fillcolor="white"/>
+<DIV id="text740_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1549px; line-height:15px; white-space:nowrap">
+<A name="CheckWSHNetwork">
+CheckWSHNetwork</A></DIV>
+<DIV id="text740_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:1549px; line-height:15px; white-space:nowrap">
+→ CheckWSHNetwork フォルダ</DIV>
+<DIV id="text740_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1587px; line-height:15px; white-space:nowrap">
+WSH (wscript.exe, cscript.exe) に、ファイアウォールがネットワークアクセスを許可しているか<BR/>
+どうかをチェックするスクリプトです。</DIV>
+<DIV id="text740_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1668px; line-height:15px; white-space:nowrap">
+cscript.exe または wscript.exe に、ネットワークアクセスを許可すると危険かもしれませんが、<BR/>
+Windows7 のファイアウォールは、WSH によるネットワークアクセスをブロックしないで<BR/>
+実行できます。 （ダウンロードサーバーのドメインで識別するのかもしれません？）</DIV>
+<DIV id="text740_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1635px; line-height:15px; white-space:nowrap">
+CheckWSHNetwork.vbs をダブルクリックすると起動します。</DIV>
+
+<v:line from="0,1532" to="578,1532"/>
+<v:line from="578,1532" to="578,1751"/>
+<v:line from="578,1751" to="0,1751"/>
+<v:line from="0,1751" to="0,1532"/>
+
+</PAGE>
+ 
+<!-- page 741 --> 
+<PAGE>
+<A id="svgcats_vml_p741" class="to_tree" style="margin-top:1756px;" onClick="selectTreeElem( '741' );">←</A>
+<A href="#svgcats_vml_p742" class="to_next_page" style="margin-top:1756px;">▼</A>
+<A href="#svgcats_vml_p740" class="to_prev_page" style="margin-top:1756px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1767px; width:562px; height:898px;" fillcolor="white"/>
+<v:image src="741/image01.png"
+   style="position:absolute; margin-left:91px; margin-top:2113px; width:18px; height:18px;"/>
+<v:image src="741/image02.png"
+   style="position:absolute; margin-left:48px; margin-top:2013px; width:18px; height:15px;"/>
+<v:image src="741/image03.png"
+   style="position:absolute; margin-left:49px; margin-top:2072px; width:18px; height:15px;"/>
+<v:image src="741/image04.png"
+   style="position:absolute; margin-left:113px; margin-top:2158px; width:18px; height:18px;"/>
+<v:image src="741/image05.png"
+   style="position:absolute; margin-left:70px; margin-top:2039px; width:18px; height:18px;"/>
+<v:image src="741/image06.png"
+   style="position:absolute; margin-left:91px; margin-top:2182px; width:18px; height:18px;"/>
+<v:image src="741/image07.png"
+   style="position:absolute; margin-left:91px; margin-top:2137px; width:18px; height:15px;"/>
+<v:image src="741/image08.png"
+   style="position:absolute; margin-left:74px; margin-top:2092px; width:18px; height:15px;"/>
+<DIV id="text741_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1784px; line-height:15px; white-space:nowrap">
+<A name="vbs_inc">
+vbs_inc, vbslib include （vbslib のコア・システム）</A></DIV>
+<DIV id="text741_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:113px; margin-top:2114px; line-height:15px; white-space:nowrap">
+vbs_inc.vbs</DIV>
+<DIV id="text741_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:135px; margin-top:2159px; line-height:15px; white-space:nowrap">
+<A name="vbs_inc_setting" href="vbslib_04.html#vbs_inc_setting_2">
+vbs_inc_setting.vbs</A></DIV>
+<DIV id="text741_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:2072px; line-height:15px; white-space:nowrap">
+scriptlib</DIV>
+<DIV id="text741_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:2012px; line-height:15px; white-space:nowrap">
+main</DIV>
+<DIV id="text741_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:113px; margin-top:2183px; line-height:15px; white-space:nowrap">
+sample_lib</DIV>
+<DIV id="text741_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:2041px; line-height:15px; white-space:nowrap">
+sample</DIV>
+<v:line style="position:absolute;" from="200,2051" to="163,2114" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="163,2114" to="172,2107" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="163,2114" to="165,2103" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="289,2122" to="238,2156" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="238,2156" to="249,2154" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="238,2156" to="245,2147" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="271,2191" to="191,2191" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="191,2191" to="202,2195" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="191,2191" to="202,2187" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="192,2122" to="289,2122" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="152,2050" to="200,2050" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text741_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:296px; margin-top:2114px; line-height:15px; white-space:nowrap">
+vbs_inc ライブラリ本体</DIV>
+<DIV id="text741_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:296px; margin-top:2137px; line-height:15px; white-space:nowrap">
+設定フォルダ</DIV>
+<DIV id="text741_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:296px; margin-top:2183px; line-height:15px; white-space:nowrap">
+インクルードするライブラリのサンプル</DIV>
+<DIV id="text741_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:221px; margin-top:2041px; line-height:15px; white-space:nowrap">
+<A name="vbslib_include_f">
+メイン・スクリプト （vbslib includeを含む）</A></DIV>
+<v:line style="position:absolute;" from="289,2122" to="271,2191" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="155,2223" to="178,2223" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="178,2223" to="167,2219" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="178,2223" to="167,2227" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text741_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:186px; margin-top:2218px; line-height:12px; white-space:nowrap">
+は、インクルードの方向</DIV>
+<DIV id="text741_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1833px; line-height:15px; white-space:nowrap">
+scriptlib フォルダの中の vbs_inc.vbs ファイルの中にあり、内部的に使われます。</DIV>
+<DIV id="text741_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2373px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_vbslib_path">
+→ g_vbslib_path</A></DIV>
+<DIV id="text741_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2553px; line-height:15px; white-space:nowrap">
+<A href="#g_fs">
+→ g_fs</A></DIV>
+<DIV id="text741_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2573px; line-height:15px; white-space:nowrap">
+<A href="#g_sh">
+→ g_sh</A></DIV>
+<DIV id="text741_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2575px; line-height:13px; white-space:nowrap">
+g_sh = WScript.CreateObject("WScript.Shell")</DIV>
+<DIV id="text741_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2555px; line-height:13px; white-space:nowrap">
+g_fs = CreateObject( "Scripting.FileSystemObject" )</DIV>
+<DIV id="text741_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2375px; line-height:13px; white-space:nowrap">
+vbs_inc.vbs のフル・パス</DIV>
+<DIV id="text741_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2617px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_InitializeModule">
+→ グローバル変数の初期化、g_InitializeModule</A></DIV>
+<DIV id="text741_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2333px; line-height:15px; white-space:nowrap">
+<A href="#g_debug">
+→ g_debug</A></DIV>
+<DIV id="text741_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2335px; line-height:13px; white-space:nowrap">
+デバッガに接続しているかどうか（するかどうか）</DIV>
+<DIV id="text741_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:49px; margin-top:2433px; line-height:15px; white-space:nowrap">
+→ g_IncludePathes</DIV>
+<DIV id="text741_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2435px; line-height:13px; white-space:nowrap">
+インクルードする VBS ファイルのパスの配列</DIV>
+<DIV id="text741_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2453px; line-height:15px; white-space:nowrap">
+<A href="#g_CommandPrompt">
+→ g_CommandPrompt</A></DIV>
+<DIV id="text741_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2455px; line-height:13px; white-space:nowrap">
+コマンドプロンプトで実行するかどうか</DIV>
+<DIV id="text741_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2393px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_vbslib_folder">
+→ g_vbslib_folder</A></DIV>
+<DIV id="text741_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2395px; line-height:13px; white-space:nowrap">
+scriptlib フォルダのフル・パス。末尾に \ が付く</DIV>
+<DIV id="text741_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:113px; margin-top:2137px; line-height:15px; white-space:nowrap">
+<A href="vbslib_04.html#setting_vbs">
+setting</A></DIV>
+<DIV id="text741_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:296px; margin-top:2160px; line-height:15px; white-space:nowrap">
+vbs_inc の設定</DIV>
+<DIV id="text741_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:386px; margin-top:2163px; line-height:12px; white-space:nowrap">
+<A href="vbslib_04.html#Setting_getIncludePathes">
+→ Setting_getIncludePathes</A></DIV>
+<DIV id="text741_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:222px; margin-top:1953px; line-height:15px; white-space:nowrap">
+<A href="vbslib_04.html#Setting_getIncludePathes">
+Setting_getIncludePathes 関数</A></DIV>
+<DIV id="text741_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:395px; margin-top:1953px; line-height:15px; white-space:nowrap">
+に書かれた .vbs ファ</DIV>
+<DIV id="text741_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:2300px; line-height:15px; white-space:nowrap">
+vbs_inc は、次のグローバル変数を定義しています。</DIV>
+<DIV id="text741_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:378px; margin-top:2203px; line-height:12px; white-space:nowrap">
+<A href="#lib">
+→ ライブラリ.vbs のルール</A></DIV>
+<DIV id="text741_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:401px; margin-top:1786px; line-height:12px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_01.html#vbs_inc_test">
+[ テスト ]</A></DIV>
+<DIV id="text741_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2533px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_admin">
+→ g_admin</A></DIV>
+<DIV id="text741_53" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2535px; line-height:13px; white-space:nowrap">
+起動時に管理者へログインするのかしないのか</DIV>
+<DIV id="text741_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1816px; line-height:15px; white-space:nowrap">
+複数の VBScript ファイルをインクルードするライブラリです。</DIV>
+<DIV id="text741_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2513px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_is_cscript_exe">
+→ g_is_cscript_exe</A></DIV>
+<DIV id="text741_56" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2515px; line-height:13px; white-space:nowrap">
+コマンドライン(cscript.exe)で実行しているかどうか</DIV>
+<DIV id="text741_57" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2493px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_cut_old">
+→ g_cut_old</A></DIV>
+<DIV id="text741_58" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2495px; line-height:13px; white-space:nowrap">
+古い関数でブレークするようにします。</DIV>
+<DIV id="text741_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2473px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_Vers">
+→ g_Vers</A></DIV>
+<DIV id="text741_60" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2475px; line-height:13px; white-space:nowrap">
+バージョン番号の集合です。</DIV>
+<DIV id="text741_61" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2413px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_vbslib_ver_folder">
+→ g_vbslib_ver_folder</A></DIV>
+<DIV id="text741_62" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2415px; line-height:13px; white-space:nowrap">
+vbs_inc.vbs があるフォルダのフル・パス。末尾に \ が付く</DIV>
+<DIV id="text741_63" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:49px; margin-top:2353px; line-height:15px; white-space:nowrap">
+<A href="#g_debug_params">
+→ g_debug_params</A></DIV>
+<DIV id="text741_64" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:192px; margin-top:2355px; line-height:13px; white-space:nowrap">
+デバッガに接続するときのコマンドライン・パラメータ</DIV>
+<DIV id="text741_65" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:82px; margin-top:2245px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#vbs_inc_flow">
+→ vbs_inc/setting の処理フロー</A></DIV>
+<DIV id="text741_66" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#408080; margin-left:49px; margin-top:2245px; line-height:12px; white-space:nowrap">
+参考</DIV>
+<DIV id="text741_67" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:261px; margin-top:2245px; line-height:12px; white-space:nowrap">
+<A href="vbslib_37.html#fin">
+→ 正常終了時の動作</A></DIV>
+<DIV id="text741_68" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:1868px; line-height:15px; white-space:nowrap">
+<A href="#main">
+Main 関数</A></DIV>
+<DIV id="text741_69" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:1868px; line-height:15px; white-space:nowrap">
+があるスクリプト・ファイルに、vbs_inc をインクルードするコード（vbslib include</DIV>
+<DIV id="text741_70" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:196px; margin-top:1885px; line-height:15px; white-space:nowrap">
+<A href="vbslib_01.html#vbslib_prompt">
+Short Hand Prompt</A></DIV>
+<DIV id="text741_71" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:308px; margin-top:1885px; line-height:15px; white-space:nowrap">
+を使って新規作成できるスクリプトなど</DIV>
+<DIV id="text741_72" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:2092px; line-height:15px; white-space:nowrap">
+vbslib</DIV>
+<DIV id="text741_73" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:392px; margin-top:2059px; line-height:15px; white-space:nowrap">
+<A href="#main">
+→ Main 関数</A></DIV>
+<DIV id="text741_74" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1885px; line-height:15px; white-space:nowrap">
+）が必要です。 そのコードは、</DIV>
+<DIV id="text741_75" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1902px; line-height:15px; white-space:nowrap">
+に入っているので参考にしてください。</DIV>
+<DIV id="text741_76" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1936px; line-height:15px; white-space:nowrap">
+vbslib include は、scriptlib\setting フォルダーの中にある .vbs ファイル（通常、</DIV>
+<DIV id="text741_77" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1953px; line-height:15px; white-space:nowrap">
+vbs_inc_setting.vbs） に書かれた</DIV>
+<DIV id="text741_78" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1970px; line-height:15px; white-space:nowrap">
+イルをロードします。</DIV>
+<DIV id="text741_79" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:434px; margin-top:2114px; line-height:15px; white-space:nowrap">
+<A href="#vbs_inc_vbs">
+→ vbs_inc.vbs</A></DIV>
+
+<v:line from="0,1767" to="562,1767"/>
+<v:line from="562,1767" to="562,2665"/>
+<v:line from="562,2665" to="0,2665"/>
+<v:line from="0,2665" to="0,1767"/>
+
+</PAGE>
+ 
+<!-- page 742 --> 
+<PAGE>
+<A id="svgcats_vml_p742" class="to_tree" style="margin-top:2670px;" onClick="selectTreeElem( '742' );">←</A>
+<A href="#svgcats_vml_p743" class="to_next_page" style="margin-top:2670px;">▼</A>
+<A href="#svgcats_vml_p741" class="to_prev_page" style="margin-top:2670px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2681px; width:571px; height:453px;" fillcolor="white"/>
+<DIV id="text742_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2698px; line-height:15px; white-space:nowrap">
+<A name="vbs_inc_vbs">
+vbs_inc.vbs</A></DIV>
+<DIV id="text742_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2728px; line-height:15px; white-space:nowrap">
+vbs_inc.vbs には、インクルードする vbslib のバージョンや、vbslib が入っているフォルダーを<BR/>
+選択して、vbslib をインクルードするスクリプトが書かれています。</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:3046px; width:382px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text742_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:3052px; line-height:15px; white-space:nowrap">
+g_vbslib_folder = g_fs.GetParentFolderName( g_vbslib_folder )<BR/>
+g_vbslib_folder = g_vbslib_folder + "\src\samples\scriptlib\"<BR/>
+g_vbslib_path = g_vbslib_folder +"vbs_inc.vbs"</DIV>
+<DIV id="text742_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2979px; line-height:15px; white-space:nowrap">
+vbslib が入っているフォルダーを変更するときは、上記の変数の設定（再設定）だけでなく、</DIV>
+<DIV id="text742_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:2996px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_vbslib_path">
+g_vbslib_path 変数</A></DIV>
+<DIV id="text742_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:128px; margin-top:2996px; line-height:15px; white-space:nowrap">
+も再設定してください。</DIV>
+<DIV id="text742_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2803px; line-height:15px; white-space:nowrap">
+インクルードする前に、次の変数に値を代入しておいてください。</DIV>
+<DIV id="text742_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:111px; margin-top:2773px; line-height:15px; white-space:nowrap">
+<A href="#main">
+メイン.vbs</A></DIV>
+<DIV id="text742_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:175px; margin-top:2773px; line-height:15px; white-space:nowrap">
+からインクルードされます。</DIV>
+<DIV id="text742_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2773px; line-height:15px; white-space:nowrap">
+vbs_inc.vbs は、</DIV>
+<DIV id="text742_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:63px; margin-top:2835px; line-height:13px; white-space:nowrap">
+<A href="vbslib_37.html#g_vbslib_path">
+g_vbslib_path 変数</A></DIV>
+<DIV id="text742_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:63px; margin-top:2859px; line-height:13px; white-space:nowrap">
+<A href="vbslib_37.html#g_Vers">
+g_Vers.Item("vbslib")</A></DIV>
+<DIV id="text742_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2891px; line-height:15px; white-space:nowrap">
+vbs_inc.vbs の中で次の変数を設定（再設定）してください。</DIV>
+<DIV id="text742_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:63px; margin-top:2943px; line-height:13px; white-space:nowrap">
+<A href="vbslib_37.html#g_Vers">
+g_Vers.Item("vbslib")</A></DIV>
+<DIV id="text742_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:63px; margin-top:2918px; line-height:13px; white-space:nowrap">
+<A href="vbslib_37.html#g_vbslib_folder">
+g_vbslib_folder 変数</A></DIV>
+<DIV id="text742_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3025px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,2681" to="571,2681"/>
+<v:line from="571,2681" to="571,3134"/>
+<v:line from="571,3134" to="0,3134"/>
+<v:line from="0,3134" to="0,2681"/>
+
+</PAGE>
+ 
+<!-- page 743 --> 
+<PAGE>
+<A id="svgcats_vml_p743" class="to_tree" style="margin-top:3139px;" onClick="selectTreeElem( '743' );">←</A>
+<A href="#svgcats_vml_p744" class="to_next_page" style="margin-top:3139px;">▼</A>
+<A href="#svgcats_vml_p742" class="to_prev_page" style="margin-top:3139px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3150px; width:498px; height:506px;" fillcolor="white"/>
+<DIV id="text743_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3167px; line-height:15px; white-space:nowrap">
+<A name="lib">
+メイン.vbs のグローバル変数</A></DIV>
+<DIV id="text743_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:3203px; line-height:15px; white-space:nowrap">
+メイン・スクリプトのグローバル変数は、start of lib include ～ end of lib include<BR/>
+の間にある、設定値を格納する場所で Dim/New してください。</DIV>
+<v:rect style="position:absolute; margin-left:68px; margin-top:3480px; width:340px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text743_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:76px; margin-top:3486px; line-height:15px; white-space:nowrap">
+Dim&nbsp; g_Test<BR/>
+<BR/>
+Function&nbsp; InitializeModule<BR/>
+&nbsp; Set&nbsp; g_Test = New TestScript<BR/>
+End Function<BR/>
+Dim&nbsp; g_InitializeModule<BR/>
+Set&nbsp; g_InitializeModule = GetRef( "InitializeModule" )</DIV>
+<v:rect style="position:absolute; margin-left:68px; margin-top:3257px; width:364px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text743_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:76px; margin-top:3263px; line-height:15px; white-space:nowrap">
+'--- start of vbslib include -----------------------------<BR/>
+：<BR/>
+&nbsp; '--- start of parameters for vbslib include -------<BR/>
+&nbsp; &nbsp;：<BR/>
+&nbsp; g_CommandPrompt = 1<BR/>
+&nbsp; Dim&nbsp; g_ObjectA : Set g_ObjectA = New ObjectA<BR/>
+&nbsp; '--- end of parameters for vbslib include --------------<BR/>
+：<BR/>
+'--- end of vbslib include -------------------------------</DIV>
+<DIV id="text743_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:3423px; line-height:15px; white-space:nowrap">
+ライブラリ・スクリプトのグローバル変数は、グローバル領域で Dim して、<BR/>
+InitializeModule 関数の中で初期化します。<BR/>
+g_InitializeModule に InitializeModule 関数のリファレンスを設定します。</DIV>
+<DIV id="text743_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:76px; margin-top:3263px; line-height:15px; white-space:nowrap">
+'--- start of vbslib include -----------------------------<BR/>
+：<BR/>
+&nbsp; '--- start of parameters for vbslib include -------</DIV>
+<DIV id="text743_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:76px; margin-top:3353px; line-height:15px; white-space:nowrap">
+&nbsp; '--- end of parameters for vbslib include --------------<BR/>
+：<BR/>
+'--- end of vbslib include -------------------------------</DIV>
+<DIV id="text743_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:32px; margin-top:3608px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_InitializeModule">
+→ グローバル変数の初期化、後始末、g_InitializeModule、g_FinalizeModule</A></DIV>
+
+<v:line from="0,3150" to="498,3150"/>
+<v:line from="498,3150" to="498,3656"/>
+<v:line from="498,3656" to="0,3656"/>
+<v:line from="0,3656" to="0,3150"/>
+
+</PAGE>
+ 
+<!-- page 744 --> 
+<PAGE>
+<A id="svgcats_vml_p744" class="to_tree" style="margin-top:3661px;" onClick="selectTreeElem( '744' );">←</A>
+<A href="#svgcats_vml_p745" class="to_next_page" style="margin-top:3661px;">▼</A>
+<A href="#svgcats_vml_p743" class="to_prev_page" style="margin-top:3661px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3672px; width:594px; height:542px;" fillcolor="white"/>
+<v:rect style="position:absolute; margin-left:57px; margin-top:4031px; width:256px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text744_1" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:4038px; line-height:13px; white-space:nowrap">
+&nbsp; AppKey.SetWritableMode&nbsp; F_IgnoreIfWarn</DIV>
+<DIV id="text744_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:119px; margin-top:4038px; line-height:13px; white-space:nowrap">
+<A href="vbslib_17.html#SetWritableMode">
+SetWritableMode</A></DIV>
+<DIV id="text744_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4008px; line-height:15px; white-space:nowrap">
+[WARNING] Out of Writable の警告が大量に出るときは、main2 の最初に次を記述してください。</DIV>
+<DIV id="text744_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:3855px; line-height:15px; white-space:nowrap">
+main 関数を</DIV>
+<DIV id="text744_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:128px; margin-top:3855px; line-height:15px; white-space:nowrap">
+<A href="#main2">
+main2</A></DIV>
+<DIV id="text744_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:167px; margin-top:3855px; line-height:15px; white-space:nowrap">
+に置き換える。 元の main 関数は、コメントアウトする。</DIV>
+<DIV id="text744_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3694px; line-height:15px; white-space:nowrap">
+<A name="upgrade">
+vbslib_updater - vbslib をバージョンアップする</A></DIV>
+<DIV id="text744_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:56px; margin-top:3819px; line-height:15px; white-space:nowrap">
+<A href="vbslib_01.html#vbslib_head">
+vbslib ヘッダ</A></DIV>
+<DIV id="text744_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:130px; margin-top:3819px; line-height:15px; white-space:nowrap">
+にあるファイルをベースに vbslib フォルダを vbslib ヘッダに作成する。</DIV>
+<DIV id="text744_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:3873px; line-height:15px; white-space:nowrap">
+g_IncludeType を、コメントアウトする。</DIV>
+<DIV id="text744_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:198px; margin-top:3772px; line-height:15px; white-space:nowrap">
+vbslib_updater</DIV>
+<DIV id="text744_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3791px; line-height:15px; white-space:nowrap">
+下記の作業を自動的に行います。 ただし、手動で修正が必要な場合もあります。</DIV>
+<DIV id="text744_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3960px; line-height:15px; white-space:nowrap">
+一部の関数は、廃止されても移植性のために残してあるものがあります。 <BR/>
+True に設定して、廃止される関数を呼び出すとブレークするので、見つけやすくなります。</DIV>
+<DIV id="text744_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3772px; line-height:15px; white-space:nowrap">
+バージョンアップを補助する</DIV>
+<DIV id="text744_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:285px; margin-top:3772px; line-height:15px; white-space:nowrap">
+というツールを提供しています。</DIV>
+<DIV id="text744_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:265px; margin-top:3837px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_Vers">
+g_Vers</A></DIV>
+<DIV id="text744_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:308px; margin-top:3837px; line-height:15px; white-space:nowrap">
+を追加し vbslib のバージョンを 3.0 に設定する。</DIV>
+<DIV id="text744_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:3837px; line-height:15px; white-space:nowrap">
+vbslib ヘッダがある *.vbs ファイルに</DIV>
+<DIV id="text744_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:445px; margin-top:3960px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_cut_old">
+g_cut_old</A></DIV>
+<DIV id="text744_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:504px; margin-top:3960px; line-height:15px; white-space:nowrap">
+を</DIV>
+<DIV id="text744_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3735px; line-height:15px; white-space:nowrap">
+vbslib_updater ツール</DIV>
+<DIV id="text744_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3927px; line-height:15px; white-space:nowrap">
+アプリケーション・スクリプトの修正</DIV>
+<DIV id="text744_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4092px; line-height:15px; white-space:nowrap">
+scriptlib フォルダの ver2 と ver3 の共存</DIV>
+<DIV id="text744_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:4125px; line-height:15px; white-space:nowrap">
+ver2 の scriptlib フォルダの vbs_inc.vbs を vbs_inc_200.vbs に改名し、<BR/>
+ver3 の scriptlib フォルダを ver2 の scriptlib フォルダにコピーすると、<BR/>
+上書きすることなく、ver2 と ver3 を共存できます。</DIV>
+
+<v:line from="0,3672" to="594,3672"/>
+<v:line from="594,3672" to="594,4214"/>
+<v:line from="594,4214" to="0,4214"/>
+<v:line from="0,4214" to="0,3672"/>
+
+</PAGE>
+ 
+<!-- page 745 --> 
+<PAGE>
+<A id="svgcats_vml_p745" class="to_tree" style="margin-top:4219px;" onClick="selectTreeElem( '745' );">←</A>
+<A href="#svgcats_vml_p746" class="to_next_page" style="margin-top:4219px;">▼</A>
+<A href="#svgcats_vml_p744" class="to_prev_page" style="margin-top:4219px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4230px; width:528px; height:896px;" fillcolor="white"/>
+<DIV id="text745_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4247px; line-height:15px; white-space:nowrap">
+<A name="main">
+Main&nbsp; （メイン.vbs）</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:4312px; width:334px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text745_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:4319px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Main( Opt as dictionary, AppKey as AppKeyClass )</DIV>
+<DIV id="text745_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4355px; line-height:15px; white-space:nowrap">
+vbslib を使うスクリプトは、Main から内容を記述します。</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:4638px; width:370px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text745_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:4644px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main()<BR/>
+&nbsp; echo "Hello, world!"<BR/>
+End Sub<BR/>
+<BR/>
+'--- start of vbslib include ------------------------------<BR/>
+&nbsp; ：&nbsp; &nbsp;（vbslib をインクルードして main を呼び出すコード）<BR/>
+&nbsp; ：&nbsp; &nbsp;（既存のメイン・スクリプトを参照してください）</DIV>
+<DIV id="text745_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4452px; line-height:15px; white-space:nowrap">
+ユーザ定義関数です。<BR/>
+引数はあってもなくてもかまいませんが、ファイルに出力するスクリプトは、</DIV>
+<DIV id="text745_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:4520px; line-height:15px; white-space:nowrap">
+Main 関数が呼ばれるときのカレント・フォルダーは、スクリプトがあるフォルダー<BR/>
+になります。 WSH を起動したときのカレント・フォルダー（作業フォルダー）は、</DIV>
+<DIV id="text745_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:114px; margin-top:4550px; line-height:15px; white-space:nowrap">
+に入っています。</DIV>
+<DIV id="text745_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:4550px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_start_in_path">
+g_start_in_path</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:4279px; width:82px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text745_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:4286px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Main()</DIV>
+<DIV id="text745_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5022px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text745_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:5022px; line-height:15px; white-space:nowrap">
+→ T_NewMain1 フォルダ</DIV>
+<DIV id="text745_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:5042px; line-height:15px; white-space:nowrap">
+→ T_NewMain2 フォルダ</DIV>
+<DIV id="text745_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:239px; margin-top:5022px; line-height:15px; white-space:nowrap">
+vbslib_inc のみの環境</DIV>
+<DIV id="text745_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:239px; margin-top:5042px; line-height:15px; white-space:nowrap">
+vbslib がある環境</DIV>
+<DIV id="text745_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:163px; margin-top:4482px; line-height:15px; white-space:nowrap">
+<A href="vbslib_17.html#AppKeyClass_NewWritable">
+NewWritable メソッド</A></DIV>
+<DIV id="text745_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:285px; margin-top:4482px; line-height:15px; white-space:nowrap">
+を呼ぶ必要があります。</DIV>
+<DIV id="text745_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:4482px; line-height:15px; white-space:nowrap">
+AppKey 引数を使った</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:4820px; width:370px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text745_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:4826px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; Dim w_:Set w_=AppKey.NewWritable( "." ).Enable()<BR/>
+<BR/>
+&nbsp; echo "Hello, world!"<BR/>
+End Sub<BR/>
+<BR/>
+'--- start of vbslib include ------------------------------<BR/>
+&nbsp; ：&nbsp; &nbsp;（vbslib をインクルードして main を呼び出すコード）<BR/>
+&nbsp; ：&nbsp; &nbsp;（既存のメイン・スクリプトを参照してください）</DIV>
+<DIV id="text745_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:185px; margin-top:4842px; line-height:13px; white-space:nowrap">
+<A href="vbslib_17.html#AppKeyClass_NewWritable">
+NewWritable</A></DIV>
+<DIV id="text745_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:257px; margin-top:4780px; text-align: center; line-height:15px; white-space:nowrap">
+にファイルを出力できるようにする</DIV>
+<DIV id="text745_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:143px; margin-top:4780px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#path_syntax">
+カレント・フォルダー</A></DIV>
+<DIV id="text745_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:269px; margin-top:4800px; line-height:15px; white-space:nowrap">
+↓</DIV>
+<DIV id="text745_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:4619px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text745_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:4799px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text745_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:4580px; line-height:15px; white-space:nowrap">
+main2 関数が定義されているときは呼ばれません。</DIV>
+<DIV id="text745_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:131px; margin-top:4917px; line-height:13px; white-space:nowrap">
+<A href="#vbs_inc">
+vbslib include</A></DIV>
+<DIV id="text745_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:131px; margin-top:4705px; line-height:13px; white-space:nowrap">
+<A href="#vbs_inc">
+vbslib include</A></DIV>
+<DIV id="text745_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#800000; margin-left:31px; margin-top:4389px; line-height:15px; white-space:nowrap">
+Main 関数を定義しているスクリプト・ファイルの中に、<BR/>
+（vbslib をインクルードして Main を呼び出すコード）が必要です。<BR/>
+その内容は、既存のメイン・スクリプト（vbslib Prompt.vbs など）を参照してください。</DIV>
+<DIV id="text745_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:327px; margin-top:4389px; line-height:15px; white-space:nowrap">
+<A href="#vbs_inc">
+vbslib include</A></DIV>
+<DIV id="text745_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#800000; margin-left:414px; margin-top:4389px; line-height:15px; white-space:nowrap">
+のコード</DIV>
+<DIV id="text745_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5078px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text745_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:5078px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_12.html#GetMainSetting">
+→ GetMainSetting 関数 (vbsool)</A></DIV>
+<DIV id="text745_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4986px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text745_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:4986px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#vbs_inc_flow">
+→ 処理フロー （vbs_inc/setting）</A></DIV>
+<DIV id="text745_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:278px; margin-top:4986px; line-height:15px; white-space:nowrap">
+Main 関数の外側の動き</DIV>
+
+<v:line from="0,4230" to="528,4230"/>
+<v:line from="528,4230" to="528,5126"/>
+<v:line from="528,5126" to="0,5126"/>
+<v:line from="0,5126" to="0,4230"/>
+
+</PAGE>
+ 
+<!-- page 746 --> 
+<PAGE>
+<A id="svgcats_vml_p746" class="to_tree" style="margin-top:5131px;" onClick="selectTreeElem( '746' );">←</A>
+<A href="#svgcats_vml_p747" class="to_next_page" style="margin-top:5131px;">▼</A>
+<A href="#svgcats_vml_p745" class="to_prev_page" style="margin-top:5131px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5142px; width:609px; height:453px;" fillcolor="white"/>
+<DIV id="text746_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5159px; line-height:15px; white-space:nowrap">
+<A name="main2">
+main2</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:5187px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text746_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:5194px; line-height:13px; white-space:nowrap">
+Sub&nbsp; main2( Opt as dictionary, AppKey as AppKeyClass )</DIV>
+<DIV id="text746_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:5219px; line-height:15px; white-space:nowrap">
+vbslib を使うスクリプトは、main2 から内容を記述します。</DIV>
+<DIV id="text746_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:5455px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:5476px; width:316px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text746_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:5482px; line-height:15px; white-space:nowrap">
+Sub&nbsp; main2( Opt, AppKey )<BR/>
+&nbsp; Dim w_:Set w_=AppKey.NewWritable( "." ).Enable()<BR/>
+<BR/>
+&nbsp; echo "Hello, world!"<BR/>
+End Sub</DIV>
+<DIV id="text746_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:5287px; line-height:15px; white-space:nowrap">
+ユーザ定義関数です。<BR/>
+<BR/>
+ファイルを出力するスクリプトは、出力するフォルダを、下記サンプルの NewWritable の引数に<BR/>
+指定することで、出力して良いかユーザに確認しなくなります。 ただし、Windows フォルダや<BR/>
+Program Files フォルダなどは必ず確認します。</DIV>
+<DIV id="text746_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:185px; margin-top:5498px; line-height:13px; white-space:nowrap">
+<A href="vbslib_17.html#AppKeyClass_NewWritable">
+NewWritable</A></DIV>
+<DIV id="text746_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:321px; margin-top:5444px; text-align: center; line-height:15px; white-space:nowrap">
+にファイルを出力できるようにする</DIV>
+<DIV id="text746_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:207px; margin-top:5444px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#path_syntax">
+カレント・フォルダー</A></DIV>
+<DIV id="text746_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:5378px; line-height:15px; white-space:nowrap">
+main 関数が呼ばれるときのカレント・フォルダーは、スクリプトがあるフォルダーになります。 <BR/>
+WSH を起動したときのカレント・フォルダー（作業フォルダー）は、</DIV>
+<DIV id="text746_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:474px; margin-top:5393px; line-height:15px; white-space:nowrap">
+に入っています。</DIV>
+<DIV id="text746_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:388px; margin-top:5393px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_start_in_path">
+g_start_in_path</A></DIV>
+<DIV id="text746_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:269px; margin-top:5459px; line-height:15px; white-space:nowrap">
+↓</DIV>
+<DIV id="text746_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:31px; margin-top:5256px; line-height:15px; white-space:nowrap">
+廃止予定です。 main を使ってください。</DIV>
+
+<v:line from="0,5142" to="609,5142"/>
+<v:line from="609,5142" to="609,5595"/>
+<v:line from="609,5595" to="0,5595"/>
+<v:line from="0,5595" to="0,5142"/>
+
+</PAGE>
+ 
+<!-- page 747 --> 
+<PAGE>
+<A id="svgcats_vml_p747" class="to_tree" style="margin-top:5600px;" onClick="selectTreeElem( '747' );">←</A>
+<A href="#svgcats_vml_p748" class="to_next_page" style="margin-top:5600px;">▼</A>
+<A href="#svgcats_vml_p746" class="to_prev_page" style="margin-top:5600px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5611px; width:378px; height:211px;" fillcolor="white"/>
+<DIV id="text747_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5628px; line-height:15px; white-space:nowrap">
+<A name="SetupVbslibParameters">
+SetupVbslibParameters</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5658px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text747_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5665px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetupVbslibParameters()</DIV>
+<DIV id="text747_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5695px; line-height:15px; white-space:nowrap">
+vbslib include の設定をします。</DIV>
+<DIV id="text747_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5723px; line-height:15px; white-space:nowrap">
+ユーザー定義関数です。</DIV>
+<DIV id="text747_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:50px; margin-top:5774px; line-height:15px; white-space:nowrap">
+<A href="#g_debug">
+→ g_debug</A></DIV>
+<DIV id="text747_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:231px; margin-top:5774px; line-height:15px; white-space:nowrap">
+<A href="#g_debug_process">
+→ g_debug_process</A></DIV>
+<DIV id="text747_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:127px; margin-top:5774px; line-height:15px; white-space:nowrap">
+<A href="#g_debug_tree">
+→ g_debug_tree</A></DIV>
+<DIV id="text747_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5751px; line-height:15px; white-space:nowrap">
+次の変数を設定できます。</DIV>
+
+<v:line from="0,5611" to="378,5611"/>
+<v:line from="378,5611" to="378,5822"/>
+<v:line from="378,5822" to="0,5822"/>
+<v:line from="0,5822" to="0,5611"/>
+
+</PAGE>
+ 
+<!-- page 748 --> 
+<PAGE>
+<A id="svgcats_vml_p748" class="to_tree" style="margin-top:5827px;" onClick="selectTreeElem( '748' );">←</A>
+<A href="#svgcats_vml_p749" class="to_next_page" style="margin-top:5827px;">▼</A>
+<A href="#svgcats_vml_p747" class="to_prev_page" style="margin-top:5827px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5838px; width:479px; height:216px;" fillcolor="white"/>
+<DIV id="text748_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5855px; line-height:15px; white-space:nowrap">
+<A name="g_fs">
+g_fs</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:5887px; width:262px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text748_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:5894px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_fs&nbsp; as&nbsp; Scripting.FileSystemObject</DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:5997px; width:418px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text748_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:6004px; line-height:13px; white-space:nowrap">
+Dim g_fs : Set&nbsp; g_fs = CreateObject( "Scripting.FileSystemObject" )</DIV>
+<DIV id="text748_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:5923px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#FileSystemObject">
+FileSystemObject</A></DIV>
+<DIV id="text748_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:110px; margin-top:5855px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text748_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:22px; margin-top:5976px; line-height:15px; white-space:nowrap">
+実装コード：</DIV>
+<DIV id="text748_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:143px; margin-top:5923px; line-height:15px; white-space:nowrap">
+を参照するグローバル変数です。</DIV>
+
+<v:line from="0,5838" to="479,5838"/>
+<v:line from="479,5838" to="479,6054"/>
+<v:line from="479,6054" to="0,6054"/>
+<v:line from="0,6054" to="0,5838"/>
+
+</PAGE>
+ 
+<!-- page 749 --> 
+<PAGE>
+<A id="svgcats_vml_p749" class="to_tree" style="margin-top:6059px;" onClick="selectTreeElem( '749' );">←</A>
+<A href="#svgcats_vml_p750" class="to_next_page" style="margin-top:6059px;">▼</A>
+<A href="#svgcats_vml_p748" class="to_prev_page" style="margin-top:6059px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6070px; width:467px; height:203px;" fillcolor="white"/>
+<DIV id="text749_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6087px; line-height:15px; white-space:nowrap">
+<A name="g_sh">
+g_sh</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:6119px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text749_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:6126px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_sh&nbsp; as&nbsp; WScript.Shell</DIV>
+<DIV id="text749_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:6183px; line-height:13px; white-space:nowrap">
+vbs_inc.vbs をインクルードした後に使えます。</DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:6215px; width:388px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text749_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:6222px; line-height:13px; white-space:nowrap">
+Dim g_sh : Set&nbsp; g_sh = WScript.CreateObject( "WScript.Shell" )</DIV>
+<DIV id="text749_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:6157px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_01.html#WScript_Shell">
+→ WScript.Shell オブジェクト (WshShell オブジェクト)</A></DIV>
+<DIV id="text749_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:110px; margin-top:6087px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,6070" to="467,6070"/>
+<v:line from="467,6070" to="467,6273"/>
+<v:line from="467,6273" to="0,6273"/>
+<v:line from="0,6273" to="0,6070"/>
+
+</PAGE>
+ 
+<!-- page 750 --> 
+<PAGE>
+<A id="svgcats_vml_p750" class="to_tree" style="margin-top:6278px;" onClick="selectTreeElem( '750' );">←</A>
+<A href="#svgcats_vml_p751" class="to_next_page" style="margin-top:6278px;">▼</A>
+<A href="#svgcats_vml_p749" class="to_prev_page" style="margin-top:6278px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6289px; width:183px; height:80px;" fillcolor="white"/>
+<DIV id="text750_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6306px; line-height:15px; white-space:nowrap">
+<A name="debug_g">
+動作モード、デバッグ</A></DIV>
+
+<v:line from="0,6289" to="183,6289"/>
+<v:line from="183,6289" to="183,6369"/>
+<v:line from="183,6369" to="0,6369"/>
+<v:line from="0,6369" to="0,6289"/>
+
+</PAGE>
+ 
+<!-- page 751 --> 
+<PAGE>
+<A id="svgcats_vml_p751" class="to_tree" style="margin-top:6374px;" onClick="selectTreeElem( '751' );">←</A>
+<A href="#svgcats_vml_p752" class="to_next_page" style="margin-top:6374px;">▼</A>
+<A href="#svgcats_vml_p750" class="to_prev_page" style="margin-top:6374px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6385px; width:581px; height:418px;" fillcolor="white"/>
+<DIV id="text751_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6402px; line-height:15px; white-space:nowrap">
+<A name="g_debug">
+g_debug</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:6430px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text751_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:6437px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_debug&nbsp; as integer</DIV>
+<DIV id="text751_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:6469px; line-height:15px; white-space:nowrap">
+デバッガに接続しているかどうか（するかどうか）。 何番目のエラーでブレークするか。</DIV>
+<DIV id="text751_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:63px; margin-top:6644px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#debug">
+→ g_debug - デバッグを開始する</A></DIV>
+<DIV id="text751_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:126px; margin-top:6402px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text751_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:406px; margin-top:6488px; line-height:15px; white-space:nowrap">
+にユーザが記述します。</DIV>
+<DIV id="text751_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:6488px; line-height:15px; white-space:nowrap">
+g_debug は、</DIV>
+<DIV id="text751_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:6517px; line-height:15px; white-space:nowrap">
+0 = デバッガに接続しない<BR/>
+1 = デバッガに接続する、BreakErrID = 1<BR/>
+1.5 = デバッガに接続する、BreakErrID = 1.5<BR/>
+2 = デバッガに接続する、BreakErrID = 2<BR/>
+：<BR/>
+-1 = デバッガに接続しないが、</DIV>
+<DIV id="text751_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:63px; margin-top:6664px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#Err2_BreakErrID">
+→ Err2::BreakErrID</A></DIV>
+<DIV id="text751_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6644px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text751_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:6717px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_ErrInfo">
+→ [T_ErrInfo] ユーザへのエラー通知とデバッガ接続</A></DIV>
+<DIV id="text751_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6717px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text751_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:6736px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_Err2">
+→ [T_Err2] Err2 オブジェクトとデバッガーのテスト</A></DIV>
+<DIV id="text751_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:45px; margin-top:6608px; line-height:15px; white-space:nowrap">
+99 など大きい数 = デバッガに接続する（エラーが発生しないとき）</DIV>
+<DIV id="text751_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:222px; margin-top:6592px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#SetupDebugTools">
+SetupDebugTools</A></DIV>
+<DIV id="text751_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:321px; margin-top:6592px; line-height:15px; white-space:nowrap">
+を呼び出す。</DIV>
+<DIV id="text751_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:63px; margin-top:6684px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#err_break">
+→ エラーが発生した瞬間のスクリプト内部の様子を調べる</A></DIV>
+<DIV id="text751_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:6755px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_01.html#T_StartFromOther">
+→ [T_StartFromOther] スクリプトが無いフォルダーから起動したとき</A></DIV>
+<DIV id="text751_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:266px; margin-top:6488px; line-height:15px; white-space:nowrap">
+<A href="#SetupVbslibParameters">
+SetupVbslibParameters</A></DIV>
+<DIV id="text751_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:212px; margin-top:6488px; line-height:15px; white-space:nowrap">
+もしくは、</DIV>
+<DIV id="text751_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:99px; margin-top:6488px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#g_debug_cmd">
+/g_debug オプション</A></DIV>
+
+<v:line from="0,6385" to="581,6385"/>
+<v:line from="581,6385" to="581,6803"/>
+<v:line from="581,6803" to="0,6803"/>
+<v:line from="0,6803" to="0,6385"/>
+
+</PAGE>
+ 
+<!-- page 752 --> 
+<PAGE>
+<A id="svgcats_vml_p752" class="to_tree" style="margin-top:6808px;" onClick="selectTreeElem( '752' );">←</A>
+<A href="#svgcats_vml_p753" class="to_next_page" style="margin-top:6808px;">▼</A>
+<A href="#svgcats_vml_p751" class="to_prev_page" style="margin-top:6808px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6819px; width:612px; height:350px;" fillcolor="white"/>
+<DIV id="text752_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6836px; line-height:15px; white-space:nowrap">
+<A name="g_debug_tree">
+g_debug_tree</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:6867px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text752_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:6874px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_debug_tree&nbsp; as Array of integer</DIV>
+<DIV id="text752_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:6902px; line-height:15px; white-space:nowrap">
+エラーが発生した場所の詳細情報。 ブレークするために使われる情報です。</DIV>
+<DIV id="text752_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:7012px; line-height:15px; white-space:nowrap">
+プログラムを On Error Resume Next ～ On Error Goto 0 のブロックのツリー構造として<BR/>
+見たときの情報になっています。 ユーザーは、エラーが発生したときに表示される<BR/>
+g_debug_tree に設定する値をそのままお使いください。 表示されなかったときは、設定<BR/>
+する必要はありません。</DIV>
+<DIV id="text752_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7121px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text752_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:7121px; line-height:15px; white-space:nowrap">
+→ T_Err2_Tree フォルダ</DIV>
+<DIV id="text752_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:164px; margin-top:6836px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text752_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:6949px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:6968px; width:214px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text752_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:6975px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_debug_tree = Array( 1, 2 )</DIV>
+<DIV id="text752_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:63px; margin-top:7096px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#debug">
+→ g_debug - デバッグを開始する</A></DIV>
+<DIV id="text752_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7096px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text752_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:437px; margin-top:6919px; line-height:15px; white-space:nowrap">
+にユーザが記述します。</DIV>
+<DIV id="text752_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:6919px; line-height:15px; white-space:nowrap">
+g_debug_tree は、</DIV>
+<DIV id="text752_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:297px; margin-top:6919px; line-height:15px; white-space:nowrap">
+<A href="#SetupVbslibParameters">
+SetupVbslibParameters</A></DIV>
+<DIV id="text752_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:243px; margin-top:6919px; line-height:15px; white-space:nowrap">
+もしくは、</DIV>
+<DIV id="text752_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:130px; margin-top:6919px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#g_debug_cmd">
+/g_debug オプション</A></DIV>
+
+<v:line from="0,6819" to="612,6819"/>
+<v:line from="612,6819" to="612,7169"/>
+<v:line from="612,7169" to="0,7169"/>
+<v:line from="0,7169" to="0,6819"/>
+
+</PAGE>
+ 
+<!-- page 753 --> 
+<PAGE>
+<A id="svgcats_vml_p753" class="to_tree" style="margin-top:7174px;" onClick="selectTreeElem( '753' );">←</A>
+<A href="#svgcats_vml_p754" class="to_next_page" style="margin-top:7174px;">▼</A>
+<A href="#svgcats_vml_p752" class="to_prev_page" style="margin-top:7174px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7185px; width:649px; height:830px;" fillcolor="white"/>
+<DIV id="text753_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7202px; line-height:15px; white-space:nowrap">
+<A name="g_debug_process">
+g_debug_process</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:7230px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text753_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:7237px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_debug_process&nbsp; as integer</DIV>
+<DIV id="text753_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:7269px; line-height:15px; white-space:nowrap">
+何回目の子プロセスを起動したときにデバッガに接続するかどうか</DIV>
+<DIV id="text753_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:7313px; line-height:15px; white-space:nowrap">
+0 = メイン・プロセスをデバッガに接続する（g_debug&gt;0 のとき）<BR/>
+1 = １回目にメイン・プロセスが起動した子プロセスをデバッガに接続する<BR/>
+2 = ２回目にメイン・プロセスが起動した子プロセスをデバッガに接続する<BR/>
+：</DIV>
+<DIV id="text753_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7579px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text753_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:7579px; line-height:15px; white-space:nowrap">
+→ T_ChildProcessIDNest_Manually.vbs # Array</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:7491px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text753_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:7498px; line-height:13px; white-space:nowrap">
+g_debug_process = Array(3,1)</DIV>
+<DIV id="text753_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:7467px; line-height:15px; white-space:nowrap">
+孫プロセスを起動したときにデバッガに接続することもできます。</DIV>
+<DIV id="text753_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:7522px; line-height:15px; white-space:nowrap">
+3回目に起動した子プロセスから１回目に呼び出す孫プロセス</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:7416px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text753_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:7423px; line-height:13px; white-space:nowrap">
+g_debug_process = 1</DIV>
+<DIV id="text753_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7397px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text753_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:7559px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#debug">
+→ g_debug - デバッグを開始する</A></DIV>
+<DIV id="text753_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7559px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text753_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:457px; margin-top:7286px; line-height:15px; white-space:nowrap">
+にユーザが記述します。</DIV>
+<DIV id="text753_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:7286px; line-height:15px; white-space:nowrap">
+g_debug_process は、</DIV>
+<DIV id="text753_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:317px; margin-top:7286px; line-height:15px; white-space:nowrap">
+<A href="#SetupVbslibParameters">
+SetupVbslibParameters</A></DIV>
+<DIV id="text753_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:263px; margin-top:7286px; line-height:15px; white-space:nowrap">
+もしくは、</DIV>
+<DIV id="text753_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:150px; margin-top:7286px; line-height:15px; white-space:nowrap">
+<A href="vbslib_39.html#g_debug_cmd">
+/g_debug オプション</A></DIV>
+<DIV id="text753_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7659px; line-height:15px; white-space:nowrap">
+コールツリー</DIV>
+<DIV id="text753_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:76px; margin-top:7706px; line-height:13px; white-space:nowrap">
+'// g_debug_process</DIV>
+<DIV id="text753_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:286px; margin-top:7706px; line-height:13px; white-space:nowrap">
+// "/g_debug" オプションを g_debug_process 変数へ</DIV>
+<DIV id="text753_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:7704px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text753_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:7935px; line-height:13px; white-space:nowrap">
+CallFinalizeInModules</DIV>
+<DIV id="text753_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:200px; margin-top:7933px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text753_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:7688px; line-height:13px; white-space:nowrap">
+ChangeScriptMode</DIV>
+<DIV id="text753_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:82px; margin-top:7954px; line-height:13px; white-space:nowrap">
+If g_debug_process &gt; 0 Then</DIV>
+<DIV id="text753_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:108px; margin-top:7970px; line-height:13px; white-space:nowrap">
+WScript.Echo&nbsp; "&lt;WARNING msg=""g_debug_process &gt; 0 です。</DIV>
+<DIV id="text753_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:157px; margin-top:7741px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text753_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:7743px; line-height:13px; white-space:nowrap">
+InitializeModule</DIV>
+<DIV id="text753_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:76px; margin-top:7760px; line-height:15px; white-space:nowrap">
+If IsNumeric( g_debug_process ) Then<BR/>
+&nbsp; &nbsp; g_Err2.Break_ChildProcess_CallID.Add&nbsp; g_debug_process<BR/>
+ElseIf IsArray( g_debug_process ) Then<BR/>
+&nbsp; &nbsp; g_Err2.Break_ChildProcess_CallID.Copy&nbsp; g_debug_process</DIV>
+<DIV id="text753_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:241px; margin-top:7743px; line-height:13px; white-space:nowrap">
+// g_Err2.Break_ChildProcess_CallID へ</DIV>
+<DIV id="text753_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:290px; margin-top:7954px; line-height:13px; white-space:nowrap">
+// デバッグ モードから戻すように警告する</DIV>
+<DIV id="text753_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:7840px; line-height:13px; white-space:nowrap">
+RunProg</DIV>
+<DIV id="text753_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:108px; margin-top:7838px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text753_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:108px; margin-top:7897px; line-height:13px; white-space:nowrap">
+cmdline = "cscript //x "+ </DIV>
+<DIV id="text753_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:76px; margin-top:7879px; line-height:13px; white-space:nowrap">
+If g_InterProcess.ProcessCallID(i) + 1 = g_Err2.Break_ChildProcess_CallID(i) Then</DIV>
+<DIV id="text753_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:76px; margin-top:7861px; line-height:13px; white-space:nowrap">
+'// Break in ChildProcess by "g_debug_process"</DIV>
+<DIV id="text753_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:296px; margin-top:7897px; line-height:13px; white-space:nowrap">
+// デバッガーと接続して起動する</DIV>
+<DIV id="text753_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:7599px; line-height:15px; white-space:nowrap">
+→ T_ChildProcessIDNest_Manually2.vbs</DIV>
+
+<v:line from="0,7185" to="649,7185"/>
+<v:line from="649,7185" to="649,8015"/>
+<v:line from="649,8015" to="0,8015"/>
+<v:line from="0,8015" to="0,7185"/>
+
+</PAGE>
+ 
+<!-- page 754 --> 
+<PAGE>
+<A id="svgcats_vml_p754" class="to_tree" style="margin-top:8020px;" onClick="selectTreeElem( '754' );">←</A>
+<A href="#svgcats_vml_p755" class="to_next_page" style="margin-top:8020px;">▼</A>
+<A href="#svgcats_vml_p753" class="to_prev_page" style="margin-top:8020px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8031px; width:202px; height:146px;" fillcolor="white"/>
+<DIV id="text754_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8048px; line-height:15px; white-space:nowrap">
+<A name="g_is_debug">
+g_is_debug</A></DIV>
+<DIV id="text754_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:8078px; line-height:15px; white-space:nowrap">
+False = 接続していない<BR/>
+True = 接続している</DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:8120px; width:124px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text754_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:8127px; line-height:13px; white-space:nowrap">
+If g_is_debug Then</DIV>
+
+<v:line from="0,8031" to="202,8031"/>
+<v:line from="202,8031" to="202,8177"/>
+<v:line from="202,8177" to="0,8177"/>
+<v:line from="0,8177" to="0,8031"/>
+
+</PAGE>
+ 
+<!-- page 755 --> 
+<PAGE>
+<A id="svgcats_vml_p755" class="to_tree" style="margin-top:8182px;" onClick="selectTreeElem( '755' );">←</A>
+<A href="#svgcats_vml_p756" class="to_next_page" style="margin-top:8182px;">▼</A>
+<A href="#svgcats_vml_p754" class="to_prev_page" style="margin-top:8182px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8193px; width:514px; height:311px;" fillcolor="white"/>
+<DIV id="text755_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:19px; margin-top:8210px; line-height:15px; white-space:nowrap">
+<A name="g_debug_params">
+g_debug_params</A></DIV>
+<v:rect style="position:absolute; margin-left:24px; margin-top:8238px; width:202px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text755_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:32px; margin-top:8245px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_debug_params&nbsp; as integer</DIV>
+<DIV id="text755_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:8277px; line-height:15px; white-space:nowrap">
+デバッガに接続するときのコマンドライン・パラメータ</DIV>
+<DIV id="text755_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:8307px; line-height:15px; white-space:nowrap">
+通常、.vbs ファイルをダブルクリックすると、コマンドライン・パラメータは何も設定<BR/>
+されませんが、g_debug_param に代入すると設定されます。<BR/>
+g_debug = -1 または 1以上に設定しないと、g_debug_params は無効になります。</DIV>
+<DIV id="text755_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:8378px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:8399px; width:346px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text755_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:8405px; line-height:15px; white-space:nowrap">
+&nbsp; '--- start of parameters for vbslib include ---------<BR/>
+Dim g_debug_params : g_debug_params = "test.txt"</DIV>
+<DIV id="text755_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:163px; margin-top:8210px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text755_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:8456px; line-height:15px; white-space:nowrap">
+→ T_DebugParam フォルダ</DIV>
+<DIV id="text755_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:32px; margin-top:8456px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+
+<v:line from="0,8193" to="514,8193"/>
+<v:line from="514,8193" to="514,8504"/>
+<v:line from="514,8504" to="0,8504"/>
+<v:line from="0,8504" to="0,8193"/>
+
+</PAGE>
+ 
+<!-- page 756 --> 
+<PAGE>
+<A id="svgcats_vml_p756" class="to_tree" style="margin-top:8509px;" onClick="selectTreeElem( '756' );">←</A>
+<A href="#svgcats_vml_p757" class="to_next_page" style="margin-top:8509px;">▼</A>
+<A href="#svgcats_vml_p755" class="to_prev_page" style="margin-top:8509px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8520px; width:504px; height:171px;" fillcolor="white"/>
+<DIV id="text756_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8537px; line-height:15px; white-space:nowrap">
+<A name="g_debug_or_test">
+g_debug_or_test</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:8565px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text756_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:8572px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_debug_or_test&nbsp; as integer</DIV>
+<DIV id="text756_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:8601px; line-height:15px; white-space:nowrap">
+デバッグ時、またはデバッグ時のテストかどうか。</DIV>
+<DIV id="text756_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:8628px; line-height:15px; white-space:nowrap">
+自動テストを行うことができるデバッグ機能は、g_debug ではなく g_debug_or_test<BR/>
+値が True のときに行います。</DIV>
+<DIV id="text756_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:173px; margin-top:8537px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,8520" to="504,8520"/>
+<v:line from="504,8520" to="504,8691"/>
+<v:line from="504,8691" to="0,8691"/>
+<v:line from="0,8691" to="0,8520"/>
+
+</PAGE>
+ 
+<!-- page 757 --> 
+<PAGE>
+<A id="svgcats_vml_p757" class="to_tree" style="margin-top:8696px;" onClick="selectTreeElem( '757' );">←</A>
+<A href="#svgcats_vml_p758" class="to_next_page" style="margin-top:8696px;">▼</A>
+<A href="#svgcats_vml_p756" class="to_prev_page" style="margin-top:8696px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8707px; width:631px; height:638px;" fillcolor="white"/>
+<DIV id="text757_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8724px; line-height:15px; white-space:nowrap">
+<A name="g_CommandPrompt">
+g_CommandPrompt</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:8752px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text757_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:8759px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_CommandPrompt&nbsp; as integer</DIV>
+<DIV id="text757_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:8791px; line-height:15px; white-space:nowrap">
+コマンドプロンプトを表示するかどうか</DIV>
+<DIV id="text757_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:8821px; line-height:15px; white-space:nowrap">
+0= コマンドプロンプトなし。メッセージは標準ダイアログで表示。<BR/>
+1= コマンドプロンプトあり。終了するとすぐに閉じる。 エラーが発生したときは閉じない。<BR/>
+2= コマンドプロンプトあり。終了しても閉じない。<BR/>
++4=コマンドプロンプトを最小化ウィンドウで表示。</DIV>
+<DIV id="text757_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:303px; margin-top:8925px; line-height:15px; white-space:nowrap">
+にユーザが記述します。</DIV>
+<DIV id="text757_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:8925px; line-height:15px; white-space:nowrap">
+g_CommandPrompt は、</DIV>
+<DIV id="text757_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:8896px; line-height:15px; white-space:nowrap">
++4 は、他のオプションと複合するオプションです。</DIV>
+<DIV id="text757_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:9210px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text757_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:9227px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_ErrInfo">
+→ [T_ErrInfo] ユーザへのエラー通知とデバッガ接続</A></DIV>
+<DIV id="text757_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:9210px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_01.html#T_CommandPrompt">
+→ [T_CommandPrompt] プロンプトを開く、閉じるテスト</A></DIV>
+<DIV id="text757_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:8960px; line-height:15px; white-space:nowrap">
+コマンドプロンプトなしのときは、wscript.exe で実行します。</DIV>
+<DIV id="text757_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:167px; margin-top:8926px; line-height:15px; white-space:nowrap">
+<A href="#SetupVbslibParameters">
+SetupVbslibParameters</A></DIV>
+<DIV id="text757_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:31px; margin-top:9023px; line-height:15px; white-space:nowrap">
+<A href="#ChangeScriptMode">
+→ ChangeScriptMode</A></DIV>
+<DIV id="text757_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:9261px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_is_cscript_exe">
+→ g_is_cscript_exe</A></DIV>
+<DIV id="text757_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:9261px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text757_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:9055px; line-height:15px; white-space:nowrap">
+コマンドプロンプトから cscript.exe 経由でスクリプトを起動したときは、同じウィンドウで実行します。<BR/>
+ただし、64ビットのコマンドプロンプトから起動したとき、</DIV>
+<DIV id="text757_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:337px; margin-top:9070px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#g_is64bitWSH">
+g_is64bitWSH</A></DIV>
+<DIV id="text757_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:417px; margin-top:9070px; line-height:15px; white-space:nowrap">
+が False（デフォルト）なら、</DIV>
+<DIV id="text757_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:9086px; line-height:15px; white-space:nowrap">
+32ビットのコマンド・プロンプト（cmd.exe）である、新しいウィンドウで実行します。</DIV>
+<DIV id="text757_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:8991px; line-height:15px; white-space:nowrap">
+コマンドプロンプトありのときは、vbs ファイルをダブルクリックした瞬間はwscript.exe で実行しますが、<BR/>
+メインのスクリプトは、コマンド・プロンプト（cmd.exe）の上の cscript.exe で実行します。</DIV>
+<DIV id="text757_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:9147px; line-height:15px; white-space:nowrap">
+64ビット cmd.exe</DIV>
+<DIV id="text757_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:9119px; line-height:15px; white-space:nowrap">
+64ビットWindows</DIV>
+<DIV id="text757_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:376px; margin-top:9119px; line-height:15px; white-space:nowrap">
+32ビットWindows</DIV>
+<v:line style="position:absolute;" from="30,9137" to="586,9137" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text757_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:9168px; line-height:15px; white-space:nowrap">
+32ビット cmd.exe</DIV>
+<DIV id="text757_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:169px; margin-top:9149px; line-height:13px; white-space:nowrap">
+%windir%\System32\cmd.exe</DIV>
+<DIV id="text757_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:169px; margin-top:9170px; line-height:13px; white-space:nowrap">
+%windir%\SysWOW64\cmd.exe</DIV>
+<DIV id="text757_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:376px; margin-top:9170px; line-height:13px; white-space:nowrap">
+%windir%\System32\cmd.exe</DIV>
+<DIV id="text757_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:376px; margin-top:9149px; line-height:13px; white-space:nowrap">
+-</DIV>
+<DIV id="text757_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:9279px; line-height:15px; white-space:nowrap">
+<A href="..\dos_batch.files\dos_batch_01.html#cmd">
+→ コマンドプロンプト、コンソール (cmd.exe)</A></DIV>
+<DIV id="text757_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:8724px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text757_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:9297px; line-height:15px; white-space:nowrap">
+<A href="#close_option">
+→ /close オプション</A></DIV>
+
+<v:line from="0,8707" to="631,8707"/>
+<v:line from="631,8707" to="631,9345"/>
+<v:line from="631,9345" to="0,9345"/>
+<v:line from="0,9345" to="0,8707"/>
+
+</PAGE>
+ 
+<!-- page 758 --> 
+<PAGE>
+<A id="svgcats_vml_p758" class="to_tree" style="margin-top:9350px;" onClick="selectTreeElem( '758' );">←</A>
+<A href="#svgcats_vml_p759" class="to_next_page" style="margin-top:9350px;">▼</A>
+<A href="#svgcats_vml_p757" class="to_prev_page" style="margin-top:9350px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9361px; width:579px; height:172px;" fillcolor="white"/>
+<DIV id="text758_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9378px; line-height:15px; white-space:nowrap">
+<A name="close_option">
+/close オプション</A></DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:9406px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text758_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:9413px; line-height:13px; white-space:nowrap">
+Sample.vbs /close:0</DIV>
+<DIV id="text758_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:9445px; line-height:15px; white-space:nowrap">
+g_CommandPrompt = 1 のときでも、コマンドプロンプトが正常終了してもすぐに閉じなくする。</DIV>
+<DIV id="text758_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:9378px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text758_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9485px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text758_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:9485px; line-height:15px; white-space:nowrap">
+<A href="#g_CommandPrompt">
+→ g_CommandPrompt</A></DIV>
+
+<v:line from="0,9361" to="579,9361"/>
+<v:line from="579,9361" to="579,9533"/>
+<v:line from="579,9533" to="0,9533"/>
+<v:line from="0,9533" to="0,9361"/>
+
+</PAGE>
+ 
+<!-- page 759 --> 
+<PAGE>
+<A id="svgcats_vml_p759" class="to_tree" style="margin-top:9538px;" onClick="selectTreeElem( '759' );">←</A>
+<A href="vbslib_37.html#svgcats_vml_p760" class="to_next_page" style="margin-top:9538px;">▼</A>
+<A href="#svgcats_vml_p758" class="to_prev_page" style="margin-top:9538px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9549px; width:576px; height:508px;" fillcolor="white"/>
+<DIV id="text759_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9566px; line-height:15px; white-space:nowrap">
+<A name="ChangeScriptMode">
+ChangeScriptMode</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9596px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text759_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9603px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ChangeScriptMode();</DIV>
+<DIV id="text759_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9633px; line-height:15px; white-space:nowrap">
+必要に応じて、子プロセスでスクリプトを実行します。</DIV>
+<DIV id="text759_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9954px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text759_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:9973px; line-height:15px; white-space:nowrap">
+→ vbslib_mini.vbs</DIV>
+<DIV id="text759_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:9954px; line-height:15px; white-space:nowrap">
+→ vbs_inc_sub.vbs</DIV>
+<DIV id="text759_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9913px; line-height:15px; white-space:nowrap">
+vbslib_mini.vbs ファイルを使うときは、明示的に呼び出してください。</DIV>
+<DIV id="text759_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:9973px; line-height:15px; white-space:nowrap">
+→ sample without vbslib.vbs</DIV>
+<DIV id="text759_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10001px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text759_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:80px; margin-top:10001px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_03.html#must_cscript">
+→ 常に cscript.exe で実行する （コマンドプロンプトを出す）</A></DIV>
+<DIV id="text759_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9663px; line-height:15px; white-space:nowrap">
+子プロセスを起動する理由は、次のものがあります。</DIV>
+<DIV id="text759_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:54px; margin-top:9697px; line-height:15px; white-space:nowrap">
+・コマンドプロンプトのウィンドウを開くために、wscript.exe から cscript.exe を起動する</DIV>
+<DIV id="text759_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:54px; margin-top:9751px; line-height:15px; white-space:nowrap">
+・デバッガーに接続するために、//x オプションをつけて cscript.exe または cscript.exe <BR/>
+　を起動する</DIV>
+<DIV id="text759_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:9716px; line-height:15px; white-space:nowrap">
+<A href="#g_CommandPrompt">
+→ g_CommandPrompt</A></DIV>
+<DIV id="text759_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:54px; margin-top:9798px; line-height:15px; white-space:nowrap">
+・管理者として実行するために、runas コマンド経由で wscript.exe または cscript.exe<BR/>
+　を起動する</DIV>
+<DIV id="text759_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:54px; margin-top:9843px; line-height:15px; white-space:nowrap">
+・64ビットのコマンドプロンプトから起動したときに、32ビットの wscript.exe または <BR/>
+　cscript.exe を起動する。 この場合は、新しいウィンドウが開きます。</DIV>
+<DIV id="text759_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9897px; line-height:15px; white-space:nowrap">
+ChangeScriptMode 関数は、vbslib を使うときに、自動的に呼ばれます。</DIV>
+
+<v:line from="0,9549" to="576,9549"/>
+<v:line from="576,9549" to="576,10057"/>
+<v:line from="576,10057" to="0,10057"/>
+<v:line from="0,10057" to="0,9549"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10057px;">
+<A id="svgcats_vml_p759" class="to_tree" onClick="selectTreeElem( '759' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10057px;">
+<A id="page_group_bottom" href="vbslib_37.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

@@ -1,0 +1,29 @@
+>del  "ArgsLog.txt"
+>SetVar  "Setting_getDiffCmdLine", "ArgsLog"
+>SetVar  "Setting_getEditorCmdLine", "ArgsLog"
+Comparing Base, Update1 and Update2
+ 1. NotSame.txt : Base≠FolderA, Base≠FolderB, FolderA≠FolderB
+ 2. Only0.txt : This is FileLabel
+ 99. 戻る
+ファイルの番号を入力してください >1
+
+NotSame.txt
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\scriptlib)%\vbslib\ArgsLog.exe"  DiffForTest.exe "%FullPath(.)%\Folder0\NotSame.txt" "%FullPath(.)%\Folder1\NotSame.txt" "%FullPath(.)%\Folder2\NotSame.txt"
+Comparing Base, Update1 and Update2
+ 1. NotSame.txt : Base≠FolderA, Base≠FolderB, FolderA≠FolderB
+ 2. Only0.txt : This is FileLabel
+ 99. 戻る
+ファイルの番号を入力してください >2
+
+Only0.txt
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\scriptlib)%\vbslib\ArgsLog.exe"  DiffForTest.exe "%FullPath(.)%\Folder0\Only0.txt" "%FullPath(.)%\Folder1\Same01.txt" "%FullPath(.)%\Folder2\Same02.txt"
+Comparing Base, Update1 and Update2
+ 1. NotSame.txt : Base≠FolderA, Base≠FolderB, FolderA≠FolderB
+ 2. Only0.txt : This is FileLabel
+ 99. 戻る
+ファイルの番号を入力してください >99
+>IsSameTextFile  "ArgsLog.txt", "T_SyncFilesMultiStepPathWithLabel_log_ans.txt"
+>del  "ArgsLog.txt"
+Pass.

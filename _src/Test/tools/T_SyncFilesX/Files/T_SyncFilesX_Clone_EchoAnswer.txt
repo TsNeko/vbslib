@@ -1,0 +1,240 @@
+>SetVar  "Setting_getDiffCmdLine", "ArgsLog"
+%FullPath(..)%\FilesA\Project - Synced\SyncFilesX_Clone.xml
+
+同期するファイルの一覧：
+  中央の記号の意味: [=]同じ [!]異なる [ ]両方不在
+  左右の記号の意味: [*]変更 [+]追加 [-]削除 [.]不変 [ ]不在
+  左はベース、右はワーク
+
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. +!. CopyAndModifyToBase.txt
+2. .!+ CopyAndModifyToWork.txt
+3. +=. CopyToBase.txt
+4. .=+ CopyToWork.txt
+5. -!. DeleteBaseFromBoth.txt
+6. -   DeleteBaseFromOnly.txt
+7. - - DeleteBoth.txt
+8. .!- DeleteWorkFromBoth.txt
+9.   - DeleteWorkFromOnly.txt
+10. +!  NewBase.txt
+11. +!+ NewNotSame.txt
+12. +=+ NewSame.txt
+13.  !+ NewWork.txt
+14. .!. NotSyncNotSame.txt
+15. .=. NoUpdate_Same.txt
+16. .!. NoUpdateAlmostSame.txt
+17. .!  NoUpdateBaseOnly.txt
+18.  !. NoUpdateWorkOnly.txt
+19. *!* SubForWork
+20. *!. UpdateBase.txt
+21. *!* UpdateBoth.txt
+22. *=* UpdateSame.txt
+23. .!* UpdateWork.txt
+
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. +!. CopyAndModifyToBase.txt
+2. .!+ CopyAndModifyToWork.txt
+3. +=. CopyToBase.txt
+4. .=+ CopyToWork.txt
+5. -!. DeleteBaseFromBoth.txt
+6. -   DeleteBaseFromOnly.txt
+7. - - DeleteBoth.txt
+8. .!- DeleteWorkFromBoth.txt
+9.   - DeleteWorkFromOnly.txt
+10. +!  NewBase.txt
+11. +!+ NewNotSame.txt
+12. +=+ NewSame.txt
+13.  !+ NewWork.txt
+14. *!* SubForWork\
+15. *!. UpdateBase.txt
+16. *!* UpdateBoth.txt
+17. *=* UpdateSame.txt
+18. .!* UpdateWork.txt
+
+91. 再スキャンする
+92. ルート・フォルダーを開く
+98. ベースとワークが同じファイルをすべてコミットする
+99. 終了
+番号 >14
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase"
+ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork"
+ベース・フォルダーとワーク・フォルダーが「同じ内容」になるべきとのことです
+手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: SubForBase (*変更)
+★ワーク（WORK）: SubForWork (*変更)
+
+1. Diff で開く：同期するフォルダー (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. フォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が異なります。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\FilesA\Project\Work\SubForWork", "%FullPath(..)%\FilesA\Project - Synced\Work\SubForWork"
+>copy_ren  "%FullPath(..)%\FilesA\Project\Base\SubForBase", "%FullPath(..)%\FilesA\Project - Synced\Base\SubForBase"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase"
+ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork"
+ベース・フォルダーとワーク・フォルダーが「同じ内容」になるべきとのことです
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: SubForBase (.不変)
+★ワーク（WORK）: SubForWork (.不変)
+
+1. Diff で開く：同期するフォルダー (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. フォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. +!. CopyAndModifyToBase.txt
+2. .!+ CopyAndModifyToWork.txt
+3. +=. CopyToBase.txt
+4. .=+ CopyToWork.txt
+5. -!. DeleteBaseFromBoth.txt
+6. -   DeleteBaseFromOnly.txt
+7. - - DeleteBoth.txt
+8. .!- DeleteWorkFromBoth.txt
+9.   - DeleteWorkFromOnly.txt
+10. +!  NewBase.txt
+11. +!+ NewNotSame.txt
+12. +=+ NewSame.txt
+13.  !+ NewWork.txt
+14. *!. UpdateBase.txt
+15. *!* UpdateBoth.txt
+16. *=* UpdateSame.txt
+17. .!* UpdateWork.txt
+
+91. 再スキャンする
+92. ルート・フォルダーを開く
+98. ベースとワークが同じファイルをすべてコミットする
+99. 終了
+番号 >97
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. +!. CopyAndModifyToBase.txt
+2. .!+ CopyAndModifyToWork.txt
+3. +=. CopyToBase.txt
+4. .=+ CopyToWork.txt
+5. -!. DeleteBaseFromBoth.txt
+6. -   DeleteBaseFromOnly.txt
+7. - - DeleteBoth.txt
+8. .!- DeleteWorkFromBoth.txt
+9.   - DeleteWorkFromOnly.txt
+10. +!  NewBase.txt
+11. +!+ NewNotSame.txt
+12. +=+ NewSame.txt
+13.  !+ NewWork.txt
+14. .!. NotSyncNotSame.txt
+15. .=. NoUpdate_Same.txt
+16. .!. NoUpdateAlmostSame.txt
+17. .!  NoUpdateBaseOnly.txt
+18.  !. NoUpdateWorkOnly.txt
+19. .!. SubForWork\
+20. *!. UpdateBase.txt
+21. *!* UpdateBoth.txt
+22. *=* UpdateSame.txt
+23. .!* UpdateWork.txt
+
+91. 再スキャンする
+92. ルート・フォルダーを開く
+98. ベースとワークが同じファイルをすべてコミットする
+99. 終了
+番号 >19
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase"
+ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork"
+ベース・フォルダーとワーク・フォルダーが「同じ内容」になるべきとのことです
+手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: SubForBase (.不変)
+★ワーク（WORK）: SubForWork (.不変)
+
+1. Diff で開く：同期するフォルダー (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. フォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. +!. CopyAndModifyToBase.txt
+2. .!+ CopyAndModifyToWork.txt
+3. +=. CopyToBase.txt
+4. .=+ CopyToWork.txt
+5. -!. DeleteBaseFromBoth.txt
+6. -   DeleteBaseFromOnly.txt
+7. - - DeleteBoth.txt
+8. .!- DeleteWorkFromBoth.txt
+9.   - DeleteWorkFromOnly.txt
+10. +!  NewBase.txt
+11. +!+ NewNotSame.txt
+12. +=+ NewSame.txt
+13.  !+ NewWork.txt
+14. .!. NotSyncNotSame.txt
+15. .=. NoUpdate_Same.txt
+16. .!. NoUpdateAlmostSame.txt
+17. .!  NoUpdateBaseOnly.txt
+18.  !. NoUpdateWorkOnly.txt
+19. .!. SubForWork\
+20. *!. UpdateBase.txt
+21. *!* UpdateBoth.txt
+22. *=* UpdateSame.txt
+23. .!* UpdateWork.txt
+
+91. 再スキャンする
+92. ルート・フォルダーを開く
+98. ベースとワークが同じファイルをすべてコミットする
+99. 終了
+番号 >99
+Pass.

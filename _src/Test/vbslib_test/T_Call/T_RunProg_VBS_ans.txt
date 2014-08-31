@@ -1,0 +1,57 @@
+>del  "out2a.txt"
+>del  "out2b.txt"
+>del  "out"
+>del  "out2d.txt"
+>del  "out2e.txt"
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo out2.vbs
+out2b
+
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo out2.vbs
+out2b
+
+Start of nul
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo out2.vbs > "nul"
+
+End of nul
+Start of NotEchoStartCommand
+out2b
+
+End of NotEchoStartCommand
+Start of EchoOff
+End of EchoOff
+Start of EchoOff and redirect
+End of EchoOff and redirect
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo out2.vbs > "out2b.txt"
+out2b
+
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo out2.vbs > "out\out2c.txt"
+out2b
+
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo out2.vbs > "out2d.txt"
+out2b
+
+>current dir = "%FullPath(.)%"
+>RunProg  cscript.exe //nologo out2.vbs > "out2d.txt"
+out2b
+
+>del  "out2a.txt"
+>del  "out2b.txt"
+>del  "out"
+>del  "out2d.txt"
+>del  "out2e.txt"
+>current dir = "%FullPath(.)%"
+>RunProg  cscript //nologo  NotFound.vbs
+入力エラー: スクリプト ファイル "%FullPath(.)%\NotFound.vbs" が見つかりません。
+
+>current dir = "%FullPath(.)%"
+>RunProg  cscript //nologo  compile_err.vbs
+
+Pass.
+%FullPath(.)%\compile_err.vbs(4, 6) Microsoft VBScript コンパイル エラー: 名前が二重に定義されています。
+
