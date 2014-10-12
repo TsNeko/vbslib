@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_41.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_41.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 841 --> 
+<PAGE>
+<A id="svgcats_vml_p841" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '841' );">←</A>
+<A href="#svgcats_vml_p842" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_40.html#svgcats_vml_p840" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_40.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:574px; height:844px;" fillcolor="white"/>
+<DIV id="text841_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="TryStart">
+TryStart</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:47px; width:268px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text841_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:54px; line-height:13px; white-space:nowrap">
+Function&nbsp; TryStart( e as Err2 ) as boolean</DIV>
+<DIV id="text841_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:80px; line-height:15px; white-space:nowrap">
+Try ブロックの開始に記述します。<BR/>
+On Error Resume Next を呼び出すべきかどうかを判定します。</DIV>
+<DIV id="text841_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:152px; margin-top:17px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text841_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:85px; margin-top:121px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#err2_coding">
+→ Err2 のコーディング例 (TryStart, TryEnd)</A></DIV>
+<DIV id="text841_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:39px; margin-top:121px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text841_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:177px; line-height:15px; white-space:nowrap">
+<A name="TryStartErr">
+"エラーが発生しているときに TryStart は呼べません。" エラーについて</A></DIV>
+<DIV id="text841_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:412px; line-height:15px; white-space:nowrap">
+ほとんどの場合、１つ目のエラーを対処することで、２つ目のエラーは発生しなくなるため、<BR/>
+２つ目のエラーが発生して、１つ目のエラーの情報が上書きされて消えてしまうことが<BR/>
+ないようにすることが重要です。</DIV>
+<DIV id="text841_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:95px; margin-top:260px; line-height:15px; white-space:nowrap">
+エラーが発生(1)</DIV>
+<DIV id="text841_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:313px; line-height:15px; white-space:nowrap">
+TryStart</DIV>
+<DIV id="text841_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:348px; line-height:15px; white-space:nowrap">
+TryEnd</DIV>
+<v:line style="position:absolute;" from="46,240" to="46,361" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="46,361" to="50,350" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="46,361" to="42,350" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text841_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:95px; margin-top:330px; line-height:15px; white-space:nowrap">
+エラーが発生(2)</DIV>
+<DIV id="text841_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:330px; line-height:15px; white-space:nowrap">
+← このエラーが前のエラーの情報を消してしまう</DIV>
+<DIV id="text841_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:217px; line-height:15px; white-space:nowrap">
+処理</DIV>
+<DIV id="text841_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:277px; line-height:15px; white-space:nowrap">
+TryEnd</DIV>
+<DIV id="text841_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:242px; line-height:15px; white-space:nowrap">
+TryStart</DIV>
+<DIV id="text841_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:164px; margin-top:294px; line-height:15px; white-space:nowrap">
+← </DIV>
+<DIV id="text841_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:37px; margin-top:388px; line-height:15px; white-space:nowrap">
+エラーにしている理由</DIV>
+<DIV id="text841_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:37px; margin-top:480px; line-height:15px; white-space:nowrap">
+対処方法</DIV>
+<DIV id="text841_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:513px; line-height:15px; white-space:nowrap">
+エラーメッセージに表示されているように、g_debug 変数などの値を設定し、エラーが<BR/>
+発生している場所、つまり、TryStart の中の Stop 命令でブレークさせます。</DIV>
+<DIV id="text841_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:513px; line-height:15px; white-space:nowrap">
+1.</DIV>
+<DIV id="text841_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:560px; line-height:15px; white-space:nowrap">
+Err.Number が 0 以外なら、Err.Description の値を、e.num が 0 以外なら e.desc の<BR/>
+Err2::desc の値を表示させて、１つ前のエラーの内容を確認します。</DIV>
+<DIV id="text841_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:560px; line-height:15px; white-space:nowrap">
+2.</DIV>
+<DIV id="text841_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:664px; line-height:15px; white-space:nowrap">
+なお、多くの場合、TryStart を使わない On Error Resume Next によって、そこで<BR/>
+発生したエラーでブレークすることができなくなっています。</DIV>
+<DIV id="text841_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:607px; line-height:15px; white-space:nowrap">
+コールスタックを上にたどっていき、On Error Resume Next が無いか探します。 <BR/>
+あったら、おそらく、そこで１つ前のエラーが発生しているので、そのエラーを発生<BR/>
+させなくするか、クリアすることで対処してください。</DIV>
+<DIV id="text841_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:607px; line-height:15px; white-space:nowrap">
+3.</DIV>
+<DIV id="text841_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; margin-left:36px; margin-top:727px; line-height:15px; white-space:nowrap">
+VBScript の不具合に対する対処</DIV>
+<DIV id="text841_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:754px; line-height:15px; white-space:nowrap">
+Class_Initialize か Class_Terminate で発生したエラーは、VBScript は投げられま<BR/>
+せん（エラーによる中断をしません）。</DIV>
+<DIV id="text841_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:55px; margin-top:796px; line-height:15px; white-space:nowrap">
+<A href="#ErrCheck">
+ErrCheck</A></DIV>
+<DIV id="text841_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:298px; margin-top:796px; line-height:15px; white-space:nowrap">
+を呼び出してください。</DIV>
+<DIV id="text841_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:162px; margin-top:796px; line-height:15px; white-space:nowrap">
+<A href="#ErrorCheckInTerminate">
+ErrorCheckInTerminate</A></DIV>
+<DIV id="text841_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:118px; margin-top:796px; line-height:15px; white-space:nowrap">
+または</DIV>
+<DIV id="text841_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:259px; margin-top:294px; line-height:15px; white-space:nowrap">
+していない</DIV>
+<DIV id="text841_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:191px; margin-top:294px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#Err2_Clear">
+Err2::Clear </A></DIV>
+
+<v:line from="0,0" to="574,0"/>
+<v:line from="574,0" to="574,844"/>
+<v:line from="574,844" to="0,844"/>
+<v:line from="0,844" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 842 --> 
+<PAGE>
+<A id="svgcats_vml_p842" class="to_tree" style="margin-top:849px;" onClick="selectTreeElem( '842' );">←</A>
+<A href="#svgcats_vml_p843" class="to_next_page" style="margin-top:849px;">▼</A>
+<A href="#svgcats_vml_p841" class="to_prev_page" style="margin-top:849px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:860px; width:394px; height:169px;" fillcolor="white"/>
+<DIV id="text842_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:877px; line-height:15px; white-space:nowrap">
+<A name="TryEnd">
+TryEnd</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:907px; width:190px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text842_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:914px; line-height:13px; white-space:nowrap">
+Function&nbsp; TryEnd() as boolean</DIV>
+<DIV id="text842_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:940px; line-height:15px; white-space:nowrap">
+Try ブロックの終了に記述します。<BR/>
+On Error GoTo 0 を呼び出すべきかどうかを判定します。</DIV>
+<DIV id="text842_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:85px; margin-top:981px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#err2_coding">
+→ Err2 のコーディング例 (TryStart, TryEnd)</A></DIV>
+<DIV id="text842_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:39px; margin-top:981px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text842_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:152px; margin-top:877px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,860" to="394,860"/>
+<v:line from="394,860" to="394,1029"/>
+<v:line from="394,1029" to="0,1029"/>
+<v:line from="0,1029" to="0,860"/>
+
+</PAGE>
+ 
+<!-- page 843 --> 
+<PAGE>
+<A id="svgcats_vml_p843" class="to_tree" style="margin-top:1034px;" onClick="selectTreeElem( '843' );">←</A>
+<A href="#svgcats_vml_p844" class="to_next_page" style="margin-top:1034px;">▼</A>
+<A href="#svgcats_vml_p842" class="to_prev_page" style="margin-top:1034px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1045px; width:370px; height:171px;" fillcolor="white"/>
+<DIV id="text843_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1062px; line-height:15px; white-space:nowrap">
+<A name="Trying">
+Trying</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:1092px; width:190px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text843_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:1099px; line-height:13px; white-space:nowrap">
+Function&nbsp; Trying() as boolean</DIV>
+<DIV id="text843_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:1125px; line-height:15px; white-space:nowrap">
+Try ブロックの中で記述します。<BR/>
+エラーが発生していたら False を返します。</DIV>
+<DIV id="text843_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:85px; margin-top:1168px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#err2_coding">
+→ Err2 のコーディング例 (TryStart, TryEnd)</A></DIV>
+<DIV id="text843_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:39px; margin-top:1168px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text843_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:152px; margin-top:1062px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,1045" to="370,1045"/>
+<v:line from="370,1045" to="370,1216"/>
+<v:line from="370,1216" to="0,1216"/>
+<v:line from="0,1216" to="0,1045"/>
+
+</PAGE>
+ 
+<!-- page 844 --> 
+<PAGE>
+<A id="svgcats_vml_p844" class="to_tree" style="margin-top:1221px;" onClick="selectTreeElem( '844' );">←</A>
+<A href="#svgcats_vml_p845" class="to_next_page" style="margin-top:1221px;">▼</A>
+<A href="#svgcats_vml_p843" class="to_prev_page" style="margin-top:1221px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1232px; width:598px; height:331px;" fillcolor="white"/>
+<DIV id="text844_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1249px; line-height:15px; white-space:nowrap">
+<A name="ErrCheck">
+ErrCheck</A></DIV>
+<DIV id="text844_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:152px; margin-top:1249px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:23px; margin-top:1279px; width:106px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text844_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:31px; margin-top:1286px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ErrCheck()</DIV>
+<DIV id="text844_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1316px; line-height:15px; white-space:nowrap">
+これまでの処理で、エラーがあったかどうかをチェックして、エラーがあったら発生させます。</DIV>
+<DIV id="text844_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1353px; line-height:15px; white-space:nowrap">
+クラスの Class_Initialize メソッドの中でエラーが発生しても、VBScript は、続きを実行してしまい、<BR/>
+エラーを見つけるのが困難になります。 new でオブジェクトを生成したら、本関数を呼び出して<BR/>
+ください。</DIV>
+<DIV id="text844_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1409px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:1430px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text844_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:1437px; line-height:13px; white-space:nowrap">
+Set&nbsp; obj = new ClassA : ErrCheck</DIV>
+<DIV id="text844_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:67px; margin-top:1488px; line-height:15px; white-space:nowrap">
+→ テスト [T_ErrOnNew] コンストラクタで発生したエラーを検出</DIV>
+<DIV id="text844_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:217px; margin-top:1251px; line-height:12px; white-space:nowrap">
+キーワード：</DIV>
+<DIV id="text844_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:278px; margin-top:1251px; line-height:12px; white-space:nowrap">
+<A name="new">
+new の注意点</A></DIV>
+<DIV id="text844_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:1488px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text844_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:1515px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text844_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:1515px; line-height:15px; white-space:nowrap">
+<A href="#ErrorCheckInTerminate">
+→ ErrorCheckInTerminate</A></DIV>
+
+<v:line from="0,1232" to="598,1232"/>
+<v:line from="598,1232" to="598,1563"/>
+<v:line from="598,1563" to="0,1563"/>
+<v:line from="0,1563" to="0,1232"/>
+
+</PAGE>
+ 
+<!-- page 845 --> 
+<PAGE>
+<A id="svgcats_vml_p845" class="to_tree" style="margin-top:1568px;" onClick="selectTreeElem( '845' );">←</A>
+<A href="#svgcats_vml_p846" class="to_next_page" style="margin-top:1568px;">▼</A>
+<A href="#svgcats_vml_p844" class="to_prev_page" style="margin-top:1568px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1579px; width:598px; height:815px;" fillcolor="white"/>
+<DIV id="text845_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1596px; line-height:15px; white-space:nowrap">
+<A name="ErrorCheckInTerminate">
+ErrorCheckInTerminate</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:1626px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text845_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:1633px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ErrorCheckInTerminate( ErrNumAtStart as integer )</DIV>
+<DIV id="text845_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:1659px; line-height:15px; white-space:nowrap">
+クラスの Class_Terminate の中で発生したエラーを表示します。</DIV>
+<DIV id="text845_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:1721px; line-height:15px; white-space:nowrap">
+エラーが発生していたら、Err オブジェクトの内容を echo 出力して Stop または pause します。<BR/>
+エラーが発生していなかったら（Err.Number = 0 なら）、何もしません。<BR/>
+Class_Terminate の中でエラーを発生させることはできないので、ErrorCheckInTerminateも<BR/>
+エラーを発生させません。</DIV>
+<DIV id="text845_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:1852px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_10.html#Class_Terminate_err">
+→ Class_Terminate の中のエラー</A></DIV>
+<v:rect style="position:absolute; margin-left:55px; margin-top:1906px; width:478px; height:190px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text845_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:63px; margin-top:1912px; line-height:15px; white-space:nowrap">
+Private Sub&nbsp; Class_Terminate()<BR/>
+&nbsp; Dim&nbsp; en,ed : en = Err.Number : ed = Err.Description<BR/>
+&nbsp; On Error Resume Next&nbsp; '// This clears error<BR/>
+<BR/>
+&nbsp; If en=0 or en=21 Then<BR/>
+&nbsp; Else<BR/>
+&nbsp; &nbsp; del&nbsp; Me.TmpDstPath<BR/>
+&nbsp; End If<BR/>
+<BR/>
+&nbsp; ErrorCheckInTerminate&nbsp; en<BR/>
+&nbsp; On Error GoTo 0 : If en &lt;&gt; 0 Then&nbsp; Err.Raise en,,ed&nbsp; '// This sets en again<BR/>
+End Sub</DIV>
+<DIV id="text845_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:1886px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text845_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:194px; margin-top:1596px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text845_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:39px; margin-top:1852px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text845_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:1683px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text845_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:103px; margin-top:1683px; line-height:15px; white-space:nowrap">
+ErrNumAtStart</DIV>
+<DIV id="text845_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:206px; margin-top:1683px; line-height:15px; white-space:nowrap">
+Class_Terminate に入った直後のエラーコード</DIV>
+<DIV id="text845_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:75px; margin-top:2048px; line-height:13px; white-space:nowrap">
+ErrorCheckInTerminate</DIV>
+<DIV id="text845_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:2343px; line-height:15px; white-space:nowrap">
+→ T_Finish.vbs # ErrorCheckInTerminate</DIV>
+<DIV id="text845_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:2343px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<v:rect style="position:absolute; margin-left:55px; margin-top:2237px; width:364px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text845_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:63px; margin-top:2243px; line-height:15px; white-space:nowrap">
+&nbsp; On Error Resume Next&nbsp; '// This clears error<BR/>
+If g_count_up(0)=0 Then&nbsp; Stop<BR/>
+echo "g_count(0)=" &amp; g_count(0) '// watch-&gt; g_count [TODO]<BR/>
+If g_count(0) = 99 Then&nbsp; On Error GoTo 0</DIV>
+<DIV id="text845_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2127px; line-height:15px; white-space:nowrap">
+エラーが発生したときに対処法</DIV>
+<DIV id="text845_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:2153px; line-height:15px; white-space:nowrap">
+Class_Terminate の中で発生したエラーでブレークさせる方法を説明します。<BR/>
+On Error Resume Next の後に、下記のコードを記述してください。<BR/>
+一度実行したら、最後の行の 99 を g_count(0) の値に変更して再度実行してください。</DIV>
+<DIV id="text845_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:147px; margin-top:2259px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text845_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:147px; margin-top:2274px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text845_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:237px; margin-top:2274px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text845_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:129px; margin-top:2289px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text845_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:159px; margin-top:2289px; line-height:13px; white-space:nowrap">
+99</DIV>
+<DIV id="text845_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:2208px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#g_count">
+→ g_count, g_count_up</A></DIV>
+<DIV id="text845_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:39px; margin-top:2208px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text845_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:39px; margin-top:1798px; line-height:15px; white-space:nowrap">
+なるべく、Class_Terminate の中では、複雑な処理をしないで、<BR/>
+エラーが発生したことを示すフラグを立てて、後で処理してください。</DIV>
+
+<v:line from="0,1579" to="598,1579"/>
+<v:line from="598,1579" to="598,2394"/>
+<v:line from="598,2394" to="0,2394"/>
+<v:line from="0,2394" to="0,1579"/>
+
+</PAGE>
+ 
+<!-- page 846 --> 
+<PAGE>
+<A id="svgcats_vml_p846" class="to_tree" style="margin-top:2399px;" onClick="selectTreeElem( '846' );">←</A>
+<A href="#svgcats_vml_p847" class="to_next_page" style="margin-top:2399px;">▼</A>
+<A href="#svgcats_vml_p845" class="to_prev_page" style="margin-top:2399px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2410px; width:565px; height:243px;" fillcolor="white"/>
+<DIV id="text846_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2427px; line-height:15px; white-space:nowrap">
+<A name="NotCallFinish">
+NotCallFinish</A></DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:2457px; width:136px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text846_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:2464px; line-height:13px; white-space:nowrap">
+Sub&nbsp; NotCallFinish()</DIV>
+<DIV id="text846_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:2490px; line-height:15px; white-space:nowrap">
+Finish が呼ばれないで、クラスの Class_Terminate が呼ばれたときにエラー表示します。</DIV>
+<DIV id="text846_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:2514px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text846_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:2514px; line-height:15px; white-space:nowrap">
+→ Class_Terminate の中のエラー</DIV>
+<v:rect style="position:absolute; margin-left:55px; margin-top:2566px; width:334px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text846_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:63px; margin-top:2572px; line-height:15px; white-space:nowrap">
+Private Sub&nbsp; Class_Terminate()<BR/>
+&nbsp; If en = 0 and not Me.IsFinished Then&nbsp; NotCallFinish<BR/>
+End Sub</DIV>
+<DIV id="text846_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:39px; margin-top:2546px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text846_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:163px; margin-top:2427px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,2410" to="565,2410"/>
+<v:line from="565,2410" to="565,2653"/>
+<v:line from="565,2653" to="0,2653"/>
+<v:line from="0,2653" to="0,2410"/>
+
+</PAGE>
+ 
+<!-- page 847 --> 
+<PAGE>
+<A id="svgcats_vml_p847" class="to_tree" style="margin-top:2658px;" onClick="selectTreeElem( '847' );">←</A>
+<A href="#svgcats_vml_p848" class="to_next_page" style="margin-top:2658px;">▼</A>
+<A href="#svgcats_vml_p846" class="to_prev_page" style="margin-top:2658px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2669px; width:729px; height:987px;" fillcolor="white"/>
+<DIV id="text847_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2686px; line-height:15px; white-space:nowrap">
+<A name="FinObj">
+FinObj クラス (Finallyブロック)</A></DIV>
+<DIV id="text847_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2721px; line-height:15px; white-space:nowrap">
+FinObj クラスを使うと、Finally ブロックに似た記述をすることができます。</DIV>
+<DIV id="text847_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2749px; line-height:15px; white-space:nowrap">
+エラーが発生しても、続きを実行したり、キャッチしたりしませんが、Finally ブロックは実行します。<BR/>
+VBA の On ErroroGoto (Label) に相当する機能です。 WSH の VBScript では Goto は 0 しかできません。</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:2871px; width:658px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text847_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:2877px; line-height:15px; white-space:nowrap">
+Sub&nbsp; FuncA( Path )<BR/>
+&nbsp; &nbsp; Set fin = new FinObj : fin.SetFunc "FuncA_Finally"<BR/>
+<BR/>
+&nbsp; &nbsp; ren&nbsp; Path, "a.txt" : fin.SetVar "Path", Path&nbsp; '// 戻すときのデータを記録<BR/>
+&nbsp; &nbsp; &nbsp; :<BR/>
+&nbsp; &nbsp; fin.SetVar "Path", Empty&nbsp; '// 正常時は戻さないならデータを削除<BR/>
+End Sub<BR/>
+&nbsp;Sub&nbsp; FuncA_Finally( Vars )&nbsp; '// Finally ブロックに相当<BR/>
+&nbsp; &nbsp; en = Err.Number : ed = Err.Description : On Error Resume Next&nbsp; '// This clears error<BR/>
+<BR/>
+&nbsp; &nbsp; path = Vars.Item("Path")&nbsp; '// 戻すデータを取得<BR/>
+&nbsp; &nbsp; If not IsEmpty( path ) Then&nbsp; ren&nbsp; "a.txt", path&nbsp; '// 戻す処理<BR/>
+<BR/>
+&nbsp; &nbsp; ErrorCheckInTerminate&nbsp; en : On Error GoTo 0 : If en &lt;&gt; 0 Then&nbsp; Err.Raise en,,ed&nbsp; '// This sets en again<BR/>
+End Sub</DIV>
+<DIV id="text847_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:287px; margin-top:2893px; line-height:13px; white-space:nowrap">
+FuncA_Finally</DIV>
+<DIV id="text847_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:269px; margin-top:2923px; line-height:13px; white-space:nowrap">
+Path</DIV>
+<DIV id="text847_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:83px; margin-top:2983px; line-height:13px; white-space:nowrap">
+FuncA_Finally</DIV>
+<DIV id="text847_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:179px; margin-top:3028px; line-height:13px; white-space:nowrap">
+Path</DIV>
+<DIV id="text847_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:71px; margin-top:2923px; line-height:13px; white-space:nowrap">
+ren&nbsp; Path, "a.txt"</DIV>
+<DIV id="text847_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:233px; margin-top:3058px; line-height:13px; white-space:nowrap">
+ren&nbsp; "a.txt", path</DIV>
+<DIV id="text847_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2847px; line-height:15px; white-space:nowrap">
+記述例： 関数の場合</DIV>
+<DIV id="text847_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:27px; margin-top:3589px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text847_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:3589px; line-height:15px; white-space:nowrap">
+→ Class_Terminate （デストラクタ）</DIV>
+<DIV id="text847_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:277px; margin-top:2686px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:line style="position:absolute;" from="278,2907" to="147,2979" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="271,2935" to="189,3024" strokecolor="#FF9F11" strokeweight="1pt"/>
+<DIV id="text847_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:27px; margin-top:3343px; line-height:15px; white-space:nowrap">
+ローカル変数のデストラクタが動く順番に依存しないようにしてください。</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:3425px; width:394px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text847_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:3431px; line-height:15px; white-space:nowrap">
+Sub&nbsp; FuncA( Path )<BR/>
+&nbsp; Dim&nbsp; fin : Set fin = new FinObj : fin.SetFunc "FuncA_Finally"<BR/>
+&nbsp; Dim&nbsp; ds_:Set ds_= New CurDirStack<BR/>
+&nbsp; fin.SetVar "CurDir", g_fs.CurrentDirectory <BR/>
+&nbsp; &nbsp; :<BR/>
+End Sub :&nbsp; Sub&nbsp; FuncA_Finally( Vars )<BR/>
+&nbsp; del&nbsp; Vars.Item("CurDir") + "\_temporary_folder"<BR/>
+End Sub</DIV>
+<DIV id="text847_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:3367px; line-height:15px; white-space:nowrap">
+たとえば、下記のように、デストラクタでカレント・フォルダが変わるとき、FuncA_Finally が<BR/>
+呼ばれるタイミングが、カレント・フォルダが変わる前か後かどうか不定なので、Finally <BR/>
+ブロックで相対パスを指定することはできません。 </DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:3146px; width:514px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text847_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:3152px; line-height:15px; white-space:nowrap">
+Class&nbsp; ClassA<BR/>
+Public Sub&nbsp; FuncA( Path )<BR/>
+&nbsp; &nbsp; Set fin = new FinObj : fin.SetFunc "FuncA_Finally"<BR/>
+&nbsp; &nbsp; &nbsp; :<BR/>
+End Sub : Public Sub&nbsp; FuncA_Finally( Vars )&nbsp; '// Finally ブロックに相当<BR/>
+&nbsp; &nbsp; &nbsp; :<BR/>
+End Sub<BR/>
+End Class<BR/>
+<BR/>
+Sub&nbsp; ClassA_FuncA_Finally( Vars ) : Vars.Item("Me").FuncA_Finally( Vars ) : End Sub</DIV>
+<DIV id="text847_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:3126px; line-height:15px; white-space:nowrap">
+記述例： メソッドの場合</DIV>
+<DIV id="text847_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:62px; margin-top:3608px; line-height:15px; white-space:nowrap">
+<A href="#ErrorCheckInTerminate">
+→ ErrorCheckInTerminate</A></DIV>
+<DIV id="text847_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2799px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text847_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:2799px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_15.html#err">
+→ エラー処理, On Error</A></DIV>
+
+<v:line from="0,2669" to="729,2669"/>
+<v:line from="729,2669" to="729,3656"/>
+<v:line from="729,3656" to="0,3656"/>
+<v:line from="0,3656" to="0,2669"/>
+
+</PAGE>
+ 
+<!-- page 848 --> 
+<PAGE>
+<A id="svgcats_vml_p848" class="to_tree" style="margin-top:3661px;" onClick="selectTreeElem( '848' );">←</A>
+<A href="#svgcats_vml_p849" class="to_next_page" style="margin-top:3661px;">▼</A>
+<A href="#svgcats_vml_p847" class="to_prev_page" style="margin-top:3661px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3672px; width:516px; height:502px;" fillcolor="white"/>
+<DIV id="text848_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3689px; line-height:15px; white-space:nowrap">
+<A name="Err2_flow">
+処理フロー (Err2)</A></DIV>
+<DIV id="text848_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:45px; margin-top:3770px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#E_NotClear_flow">
+→ エラーが Err2.Clear または再 Raise されないで終了したときの処理フロー</A></DIV>
+<DIV id="text848_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3994px; line-height:15px; white-space:nowrap">
+<A name="Err2_flow_err">
+エラーが発生して終了するとき</A></DIV>
+<DIV id="text848_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:45px; margin-top:3748px; line-height:15px; white-space:nowrap">
+<A href="#Err2_flow_err">
+→ エラーが発生して終了するとき</A></DIV>
+<DIV id="text848_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3857px; line-height:15px; white-space:nowrap">
+<A name="Err2_flow_no_err">
+正常終了するとき</A></DIV>
+<DIV id="text848_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:45px; margin-top:3726px; line-height:15px; white-space:nowrap">
+<A href="#Err2_flow_no_err">
+→ 正常終了するとき</A></DIV>
+<DIV id="text848_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:45px; margin-top:3886px; line-height:13px; white-space:nowrap">
+<A href="vbslib_38.html#vbs_inc_flow">
+VBScript global code</A></DIV>
+<DIV id="text848_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:3905px; line-height:13px; white-space:nowrap">
+ResumePop</DIV>
+<DIV id="text848_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:83px; margin-top:3924px; line-height:13px; white-space:nowrap">
+CallFinalizeInModules</DIV>
+<DIV id="text848_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:75px; margin-top:4045px; line-height:13px; white-space:nowrap">
+:</DIV>
+<DIV id="text848_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:4064px; line-height:13px; white-space:nowrap">
+Err.Raise</DIV>
+<DIV id="text848_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:4087px; line-height:13px; white-space:nowrap">
+g_FinalizeInModulesCaller.Class_Terminate</DIV>
+<DIV id="text848_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:4109px; line-height:13px; white-space:nowrap">
+CallFinalizeInModules</DIV>
+<DIV id="text848_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:210px; margin-top:4109px; line-height:13px; white-space:nowrap">
+1</DIV>
+<DIV id="text848_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:272px; margin-top:4128px; line-height:13px; white-space:nowrap">
+(= g_FinalizeModules(i))</DIV>
+<DIV id="text848_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:87px; margin-top:4128px; line-height:13px; white-space:nowrap">
+FinalizeModule (vbslib.vbs)</DIV>
+<DIV id="text848_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:227px; margin-top:3924px; line-height:13px; white-space:nowrap">
+0</DIV>
+<DIV id="text848_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:289px; margin-top:3943px; line-height:13px; white-space:nowrap">
+(= g_FinalizeModules(i))</DIV>
+<DIV id="text848_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:104px; margin-top:3943px; line-height:13px; white-space:nowrap">
+FinalizeModule (vbslib.vbs)</DIV>
+<DIV id="text848_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#808080; margin-left:272px; margin-top:3924px; line-height:13px; white-space:nowrap">
+On Error Goto 0 していないときは 1</DIV>
+<DIV id="text848_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:171px; margin-top:3886px; line-height:13px; white-space:nowrap">
+(メインvbs の vbslib include)</DIV>
+<DIV id="text848_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:175px; margin-top:4026px; line-height:13px; white-space:nowrap">
+(メインvbs の vbslib include)</DIV>
+<DIV id="text848_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:49px; margin-top:4026px; line-height:13px; white-space:nowrap">
+<A href="vbslib_38.html#vbs_inc_flow">
+VBScript global code</A></DIV>
+<DIV id="text848_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:83px; margin-top:3800px; line-height:15px; white-space:nowrap">
+<A href="vbslib_38.html#vbs_inc_flow">
+→ 処理フロー （vbs_inc/setting）</A></DIV>
+<DIV id="text848_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:42px; margin-top:3800px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,3672" to="516,3672"/>
+<v:line from="516,3672" to="516,4174"/>
+<v:line from="516,4174" to="0,4174"/>
+<v:line from="0,4174" to="0,3672"/>
+
+</PAGE>
+ 
+<!-- page 849 --> 
+<PAGE>
+<A id="svgcats_vml_p849" class="to_tree" style="margin-top:4179px;" onClick="selectTreeElem( '849' );">←</A>
+<A href="#svgcats_vml_p850" class="to_next_page" style="margin-top:4179px;">▼</A>
+<A href="#svgcats_vml_p848" class="to_prev_page" style="margin-top:4179px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4190px; width:527px; height:493px;" fillcolor="white"/>
+<DIV id="text849_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4207px; line-height:15px; white-space:nowrap">
+<A name="trouble">
+困ったときは？ （デバッグ）</A></DIV>
+<DIV id="text849_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; font-weight: bold; margin-left:41px; margin-top:4304px; line-height:15px; white-space:nowrap">
+<A href="#debug">
+→ デバッグを開始する</A></DIV>
+<DIV id="text849_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4242px; line-height:15px; white-space:nowrap">
+エラーメッセージを見ても分からないときは、スクリプトの開発者に質問してください。<BR/>
+あなたが開発者であるときは、デバッグモードで動かしてみてください。</DIV>
+<DIV id="text849_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:98px; margin-top:4615px; line-height:15px; white-space:nowrap">
+<A href="http://www.sage-p.com/" target="_blank">
+ソフトウェアデザイン館 Sage Plaisir 21&nbsp; http://www.sage-p.com/</A></DIV>
+<DIV id="text849_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:27px; margin-top:4615px; line-height:15px; white-space:nowrap">
+サポート</DIV>
+<DIV id="text849_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4574px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#upgrade">
+→ vbslib2 から vbslib3 へ移植するには</A></DIV>
+<DIV id="text849_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4346px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#errmsg_xml">
+→ エラーメッセージの標準書式</A></DIV>
+<DIV id="text849_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:4635px; line-height:15px; white-space:nowrap">
+ホームページにあるサポート掲示板かメールアドレスへ</DIV>
+<DIV id="text849_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4536px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#ErrCode">
+→ エラーコード</A></DIV>
+<DIV id="text849_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4555px; line-height:15px; white-space:nowrap">
+<A href="vbslib_06.html#input_long">
+→ 長い文字を入力するときの注意</A></DIV>
+<DIV id="text849_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4367px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#g_count">
+→ g_count, g_count_up</A></DIV>
+<DIV id="text849_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:180px; margin-top:4367px; line-height:15px; white-space:nowrap">
+… スルーカウンタ</DIV>
+<DIV id="text849_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4388px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#cond_break">
+→ 条件ブレーク</A></DIV>
+<DIV id="text849_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4409px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#path_break">
+→ ファイル出力を開始するタイミングでブレークする</A></DIV>
+<DIV id="text849_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4430px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#SetupDebugTools">
+→ SetupDebugTools</A></DIV>
+<DIV id="text849_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4451px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#watch">
+→ ウォッチ (WS, WD, WX)</A></DIV>
+<DIV id="text849_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:180px; margin-top:4430px; line-height:15px; white-space:nowrap">
+… デバッグ機能の設定場所</DIV>
+<DIV id="text849_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:4493px; line-height:15px; white-space:nowrap">
+→ g_debug_params</DIV>
+<DIV id="text849_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:167px; margin-top:4493px; line-height:15px; white-space:nowrap">
+… 起動時のパラメーターを指定する</DIV>
+<DIV id="text849_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:41px; margin-top:4472px; line-height:15px; white-space:nowrap">
+<A href="vbslib_35.html#measure_duration">
+→ 性能計測</A></DIV>
+
+<v:line from="0,4190" to="527,4190"/>
+<v:line from="527,4190" to="527,4683"/>
+<v:line from="527,4683" to="0,4683"/>
+<v:line from="0,4683" to="0,4190"/>
+
+</PAGE>
+ 
+<!-- page 850 --> 
+<PAGE>
+<A id="svgcats_vml_p850" class="to_tree" style="margin-top:4688px;" onClick="selectTreeElem( '850' );">←</A>
+<A href="vbslib_42.html#svgcats_vml_p851" class="to_next_page" style="margin-top:4688px;">▼</A>
+<A href="#svgcats_vml_p849" class="to_prev_page" style="margin-top:4688px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4699px; width:602px; height:5291px;" fillcolor="white"/>
+<v:image src="850/image01.png"
+   style="position:absolute; margin-left:85px; margin-top:6978px; width:434px; height:93px;"/>
+<v:image src="850/image02.png"
+   style="position:absolute; margin-left:74px; margin-top:7516px; width:376px; height:103px;"/>
+<v:image src="850/image03.jpg"
+   style="position:absolute; margin-left:69px; margin-top:4915px; width:460px; height:311px;"/>
+<DIV id="text850_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4716px; line-height:15px; white-space:nowrap">
+<A name="debug">
+g_debug - デバッグを開始する (vbslib)</A></DIV>
+<DIV id="text850_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:9644px; line-height:15px; white-space:nowrap">
+debugger.bat</DIV>
+<DIV id="text850_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:9644px; line-height:15px; white-space:nowrap">
+Test.vbs ファイルをデバッガにアタッチします</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:9670px; width:142px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:9676px; line-height:15px; white-space:nowrap">
+@wscript //x Test.vbs<BR/>
+@pause</DIV>
+<DIV id="text850_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:407px; margin-top:7202px; line-height:15px; white-space:nowrap">
+<A href="vbslib_38.html#g_debug">
+g_debug</A></DIV>
+<DIV id="text850_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:292px; margin-top:9598px; line-height:15px; white-space:nowrap">
+モジュールの一部が動きますが、</DIV>
+<DIV id="text850_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9614px; line-height:15px; white-space:nowrap">
+そこをデバッグするときは、下記のバッチファイルを実行してください。</DIV>
+<DIV id="text850_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:59px; margin-top:9718px; line-height:15px; white-space:nowrap">
+デバッグを中止するときは、kill_wscript.bat を実行してください。</DIV>
+<DIV id="text850_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7740px; line-height:15px; white-space:nowrap">
+デバッグを中止するときは、コマンドプロンプトを閉じてください。<BR/>
+コマンドプロンプトが表示されていないときは、kill_wscript.bat を実行してください。</DIV>
+<v:rect style="position:absolute; margin-left:61px; margin-top:9037px; width:424px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:9043px; line-height:15px; white-space:nowrap">
+C:\home\sample.vbs(34, 3)<BR/>
+Microsoft VBScript 実行時エラー: この変数は宣言されていません。: 'e'</DIV>
+<DIV id="text850_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8941px; line-height:15px; white-space:nowrap">
+デバッガが無くても、g_debug=1 にすれば、エラーメッセージが詳しくなることがあります。</DIV>
+<v:rect style="position:absolute; margin-left:61px; margin-top:8984px; width:274px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:8991px; line-height:13px; white-space:nowrap">
+[ERROR](500) この変数は宣言されていません。</DIV>
+<DIV id="text850_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:8965px; line-height:15px; white-space:nowrap">
+g_debug=0</DIV>
+<DIV id="text850_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:9018px; line-height:15px; white-space:nowrap">
+g_debug=1</DIV>
+<DIV id="text850_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9345px; line-height:15px; white-space:nowrap">
+g_debug=1 にすると、詳しい動作内容が表示されたり、エラーが発生したらブレーク<BR/>
+したりするなど、若干動きが異なります。 この動きをさせないで、デバッガに接続する<BR/>
+には、g_debug=0 にして、下記のバッチファイルを実行してください。</DIV>
+<DIV id="text850_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:246px; margin-top:9598px; line-height:15px; white-space:nowrap">
+<A href="vbslib_37.html#vbs_inc">
+vbs_inc</A></DIV>
+<DIV id="text850_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9598px; line-height:15px; white-space:nowrap">
+内部で、デバッガに接続するまでに、</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:9429px; width:208px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:9435px; line-height:15px; white-space:nowrap">
+@cscript //x Test.vbs /g_debug:0<BR/>
+@pause</DIV>
+<DIV id="text850_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:149px; margin-top:9406px; line-height:15px; white-space:nowrap">
+Test.vbs ファイルをデバッガにアタッチします</DIV>
+<DIV id="text850_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:9406px; line-height:15px; white-space:nowrap">
+debugger.bat</DIV>
+<DIV id="text850_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7710px; line-height:15px; white-space:nowrap">
+<A name="exit_debugger">
+デバッガを終了する</A></DIV>
+<DIV id="text850_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9317px; line-height:15px; white-space:nowrap">
+<A name="debugger_no_debug_mode">
+デバッグモードにしないでデバッガに接続</A></DIV>
+<DIV id="text850_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:275px; margin-top:9434px; line-height:15px; white-space:nowrap">
+wscript ではないことに注意</DIV>
+<DIV id="text850_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:308px; margin-top:9454px; line-height:12px; white-space:nowrap">
+<A href="vbslib_38.html#g_CommandPrompt">
+g_CommandPrompt</A></DIV>
+<DIV id="text850_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:396px; margin-top:9454px; line-height:12px; white-space:nowrap">
+=0 なら wscript にしてください</DIV>
+<DIV id="text850_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:275px; margin-top:9454px; line-height:12px; white-space:nowrap">
+ただし、</DIV>
+<DIV id="text850_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9569px; line-height:15px; white-space:nowrap">
+<A name="debug_head">
+vbslib include や、vbs_inc モジュールのデバッグ</A></DIV>
+<DIV id="text850_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:9674px; line-height:15px; white-space:nowrap">
+wscript であることに注意</DIV>
+<DIV id="text850_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8903px; line-height:15px; white-space:nowrap">
+<A name="g_debug_no_debugger">
+デバッガが無いときの g_debug</A></DIV>
+<DIV id="text850_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:9082px; line-height:15px; white-space:nowrap">
+ただし、行番号が出るのは、文法エラーのみです。</DIV>
+<DIV id="text850_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7855px; line-height:15px; white-space:nowrap">
+コールスタック（デバッグ | ウィンドウ | 呼び出し履歴）を見れば、全体から見てどの部分で<BR/>
+止まっているかが分かります。 開いているソースのフル・パスは、１行目に自動的に挿入<BR/>
+されています。 一部のオブジェクト（静的オブジェクト）は、DefineInfo.FullPath プロパティに、<BR/>
+クラスを定義しているソースのフル・パスが入っています。DefineInfo プロパティが無くても、<BR/>
+メソッドにステップインしたときのソースの１行目から分かります。</DIV>
+<DIV id="text850_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5520px; line-height:15px; white-space:nowrap">
+<A href="#exit_debugger">
+→ デバッガを終了する</A></DIV>
+<DIV id="text850_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5586px; line-height:15px; white-space:nowrap">
+<A href="#g_debug_no_debugger">
+→ デバッガが無いときの g_debug</A></DIV>
+<DIV id="text850_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5607px; line-height:15px; white-space:nowrap">
+<A href="#debugger_no_debug_mode">
+→ デバッグモードにしないでデバッガに接続</A></DIV>
+<DIV id="text850_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5628px; line-height:15px; white-space:nowrap">
+<A href="#debug_head">
+→ vbslib include や、vbs_inc モジュールのデバッグ</A></DIV>
+<DIV id="text850_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7826px; line-height:15px; white-space:nowrap">
+<A name="src_path">
+デバッガで開いているソースの場所を知る</A></DIV>
+<DIV id="text850_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5565px; line-height:15px; white-space:nowrap">
+<A href="#src_path">
+→ デバッガで開いているソースの場所を知る</A></DIV>
+<v:rect style="position:absolute; margin-left:61px; margin-top:8152px; width:484px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:8158px; line-height:15px; white-space:nowrap">
+'// g_SrcPath="C:\Folder\vbslib\Sample.vbs"&nbsp; &nbsp;... デバッグ時に自動的に付きます<BR/>
+Dim&nbsp; g_SrcPath<BR/>
+<BR/>
+Class&nbsp; Sample_vbs : Public FullPath : End Class<BR/>
+Dim&nbsp; g_Sample_vbs<BR/>
+Set&nbsp; g_Sample_vbs =_<BR/>
+&nbsp; &nbsp;new Sample_vbs<BR/>
+With g_Sample_vbs<BR/>
+&nbsp; .FullPath = g_SrcPath<BR/>
+End With<BR/>
+<BR/>
+Class&nbsp; ClassA<BR/>
+&nbsp; Public Property Get&nbsp; DefineInfo() : Set DefineInfo = g_Sample_vbs<BR/>
+&nbsp; &nbsp; &nbsp;End Property<BR/>
+End Class</DIV>
+<DIV id="text850_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7941px; line-height:15px; white-space:nowrap">
+メイン・スクリプトのパスは、WScript.ScriptFullName プロパティの値を見れば<BR/>
+分かりますが、インクルードしたスクリプトのパスは、通常分かりません。<BR/>
+しかし、g_debug=1 でデバッガに接続したときに表示される vbslib のソースは、<BR/>
+１行目にフル・パスが記述されたコメントが付きます。 （ただし、Visual Studio 2012 では、<BR/>
+すべてのファイルが１つのウィンドウにまとめられてしまうため、"g_SrcPath=" で上方向<BR/>
+に検索してください。）<BR/>
+<BR/>
+また、ソースの先頭に下記のような記述があり、<BR/>
+g_SrcPath の値を代入した g_～_vbs.DefinePath 変数の値に、インクルードしたスクリプト<BR/>
+のパスが入っています。 Visual Studio では、この変数を選択してウォッチ・ウィンドウへ<BR/>
+ドロップし、値（パス、" "付きでも可）をコピーして、 ファイル・オープンで開けます。</DIV>
+<DIV id="text850_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8428px; line-height:15px; white-space:nowrap">
+もし、g_～_vbs.DefinePath 変数が無くても、最後の call_vbs, call_vbs_d が呼び出している<BR/>
+関数を定義しているスクリプトのパスなら、g_SrcPath の値から知ることができます。<BR/>
+最後以外は、コールスタックを目的の call_vbs, call_vbs_d に切り替えて、 path 引数<BR/>
+の値を調べることで分かります。<BR/>
+また、下記の式の値が True なら、最後の call_vbs, call_vbs_d が、メイン・スクリプト<BR/>
+の関数を呼び出していると判断できます。</DIV>
+<v:rect style="position:absolute; margin-left:61px; margin-top:8530px; width:220px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_44" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:8537px; line-height:13px; white-space:nowrap">
+g_SrcPath = WScript.ScriptFullName</DIV>
+<DIV id="text850_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; font-weight: bold; margin-left:42px; margin-top:5868px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_14.html#debug">
+→ エラー、デバッグ (VBScript)</A></DIV>
+<DIV id="text850_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5735px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#path_break">
+→ ファイル出力を開始するタイミングでブレークする</A></DIV>
+<DIV id="text850_47" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:99px; margin-top:8174px; line-height:13px; white-space:nowrap">
+<A href="vbslib_38.html#g_SrcPath">
+g_SrcPath</A></DIV>
+<DIV id="text850_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:8132px; line-height:15px; white-space:nowrap">
+.vbs ファイルの先頭</DIV>
+<DIV id="text850_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8578px; line-height:15px; white-space:nowrap">
+vbs ファイルが、main 関数を持ち、include もされる場合、上記の実装では、二重定義<BR/>
+エラーになります。 下記のように実装してください。</DIV>
+<v:rect style="position:absolute; margin-left:61px; margin-top:8621px; width:412px; height:220px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_50" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:69px; margin-top:8627px; line-height:15px; white-space:nowrap">
+Dim&nbsp; g_Sample_vbs<BR/>
+If&nbsp; IsEmpty( g_Sample_vbs ) Then&nbsp; Declare_g_Sample_vbs<BR/>
+Sub&nbsp; Declare_g_Sample_vbs<BR/>
+&nbsp; ExecuteGlobal&nbsp; "Class&nbsp; Sample_vbs : Public FullPath : End Class"<BR/>
+&nbsp; Set&nbsp; g_Sample_vbs =_<BR/>
+&nbsp; &nbsp; &nbsp;new Sample_vbs<BR/>
+&nbsp; With g_Sample_vbs<BR/>
+&nbsp; &nbsp; .FullPath = g_SrcPath<BR/>
+&nbsp; End With<BR/>
+End Sub<BR/>
+<BR/>
+Sub main2( Opt, AppKey )<BR/>
+&nbsp; g_SrcPath = WScript.ScriptFullName : Declare_g_Sample_vbs<BR/>
+&nbsp; &nbsp; &nbsp;:</DIV>
+<DIV id="text850_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5754px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#cond_break">
+→ 条件ブレーク</A></DIV>
+<DIV id="text850_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5773px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#g_count">
+→ g_count, g_count_up</A></DIV>
+<DIV id="text850_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5457px; line-height:15px; white-space:nowrap">
+<A href="#g_debug_cmd">
+→ コマンドラインやショートカットからデバッガーに接続する</A></DIV>
+<DIV id="text850_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5811px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_02.html#msgboxes">
+→ メッセージボックス (VBScript)</A></DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:9495px; width:70px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_55" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:9502px; line-height:13px; white-space:nowrap">
+g_debug=0</DIV>
+<DIV id="text850_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:9478px; line-height:15px; white-space:nowrap">
+main.vbs</DIV>
+<DIV id="text850_57" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5697px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#SetupDebugTools">
+→ SetupDebugTools</A></DIV>
+<DIV id="text850_58" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5792px; line-height:15px; white-space:nowrap">
+<A href="vbslib_29.html#SkipToSection">
+→ SkipToSection</A></DIV>
+<DIV id="text850_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9770px; line-height:15px; white-space:nowrap">
+<A name="g_is_compile_debug">
+インクルードしたファイルにコンパイルエラーが発生したときのデバッグ (g_is_compile_debug)</A></DIV>
+<DIV id="text850_60" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9796px; line-height:15px; white-space:nowrap">
+インクルードしたファイルがコンパイルエラーしたときは、g_is_compile_debug = 1 として<BR/>
+起動すると、コンパイルエラーがあった vbs ファイルがある行を開きます。 ただし、</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:9871px; width:478px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_61" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:9877px; line-height:15px; white-space:nowrap">
+&nbsp; '--- start of parameters for vbslib include -------------------------------<BR/>
+&nbsp; g_debug = 0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '// release:0, debug:99, -1:call SetupDebugTools<BR/>
+Dim g_is_compile_debug : g_is_compile_debug = 1</DIV>
+<DIV id="text850_62" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:9826px; line-height:15px; white-space:nowrap">
+<A href="vbslib_05.html#Setting_getEditorCmdLine">
+Setting_getEditorCmdLine</A></DIV>
+<DIV id="text850_63" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:186px; margin-top:9826px; line-height:15px; white-space:nowrap">
+に、行番号を指定して開くことができるテキストエディタが</DIV>
+<DIV id="text850_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9841px; line-height:15px; white-space:nowrap">
+すでに登録してある必要があります。</DIV>
+<DIV id="text850_65" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5649px; line-height:15px; white-space:nowrap">
+<A href="#g_is_compile_debug">
+→ コンパイルエラーが発生したときのデバッグ (g_is_compile_debug)</A></DIV>
+<DIV id="text850_66" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:9942px; line-height:15px; white-space:nowrap">
+→ T_CompileDebug フォルダ</DIV>
+<DIV id="text850_67" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:37px; margin-top:9942px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text850_68" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5849px; line-height:15px; white-space:nowrap">
+<A href="vbslib_38.html#debug_g">
+→ 動作モード、デバッグ関係のグローバル変数</A></DIV>
+<DIV id="text850_69" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:8393px; line-height:15px; white-space:nowrap">
+簡易版</DIV>
+<DIV id="text850_70" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:134px; margin-top:8393px; line-height:15px; white-space:nowrap">
+<A href="vbslib_13.html#get_DefineInfoObject">
+→ get_DefineInfoObject</A></DIV>
+<DIV id="text850_71" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6487px; line-height:15px; white-space:nowrap">
+エラーが発生したら、エラーが発生した瞬間でブレーク（一時停止）するために必要な、</DIV>
+<DIV id="text850_72" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:6888px; line-height:15px; white-space:nowrap">
+デバッガにアタッチして、１つ目のエラーでブレークする</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:6883px; width:82px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_73" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:6890px; line-height:13px; white-space:nowrap">
+g_debug = 1</DIV>
+<DIV id="text850_74" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:7097px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text850_75" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9153px; line-height:15px; white-space:nowrap">
+<A name="stopchild">
+子プロセスでブレーク(Stop)する</A></DIV>
+<DIV id="text850_76" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9181px; line-height:15px; white-space:nowrap">
+ブレークしたい場所に Stop 命令を記述してデバッガーに接続しても、RunProg 関数など<BR/>
+で起動した子プロセスが Stop 命令を実行したときは、ブレークしません。</DIV>
+<DIV id="text850_77" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5716px; line-height:15px; white-space:nowrap">
+<A href="#stopchild">
+→ 子プロセスでブレーク(Stop)する</A></DIV>
+<DIV id="text850_78" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7202px; line-height:15px; white-space:nowrap">
+<A name="debugger">
+ソース・ファイルの中の任意の場所でブレーク（一時停止）する</A></DIV>
+<DIV id="text850_79" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5499px; line-height:15px; white-space:nowrap">
+<A href="#debugger">
+→ ソース・ファイルの中の任意の場所でブレーク（一時停止）する</A></DIV>
+<DIV id="text850_80" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6454px; line-height:15px; white-space:nowrap">
+<A name="err_break">
+エラーが発生した瞬間のスクリプト内部の様子を調べる</A></DIV>
+<DIV id="text850_81" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5478px; line-height:15px; white-space:nowrap">
+<A href="#err_break">
+→ エラーが発生した瞬間のスクリプト内部の様子を調べる</A></DIV>
+<v:rect style="position:absolute; margin-left:63px; margin-top:6555px; width:496px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_82" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:71px; margin-top:6561px; line-height:15px; white-space:nowrap">
+WSH のデバッガーがインストールされていれば、スクリプト・ファイルへのショートカッ<BR/>
+トを作成、プロパティ - リンク先に、下記の /g_debug オプションを追加、ショートカ<BR/>
+ットから起動すると、問題がある場所で停止します。<BR/>
+----------------------------------------------------------------------<BR/>
+"T_Sample.vbs" /g_debug:1<BR/>
+----------------------------------------------------------------------<BR/>
+&lt;ERROR msg="変数が定義されていません" key="${Var1}+${Var2}"/&gt;</DIV>
+<DIV id="text850_83" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:6535px; line-height:15px; white-space:nowrap">
+表示されるエラーメッセージの例</DIV>
+<DIV id="text850_84" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:61px; margin-top:6862px; line-height:15px; white-space:nowrap">
+Sample.vbs</DIV>
+<DIV id="text850_85" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:7119px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text850_86" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:7119px; line-height:15px; white-space:nowrap">
+→ テストが Fail したとき</DIV>
+<DIV id="text850_87" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6935px; line-height:15px; white-space:nowrap">
+多くの場合、vbslib の内部関数の中でブレークしてしまうので、自分が扱っているスクリプトが<BR/>
+見つかるまで、コールスタック（デバッグ | ウィンドウ | 呼び出し履歴）を開いて、探してください。</DIV>
+<v:line style="position:absolute;" from="64,7043" to="64,6999" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="64,6999" to="60,7010" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="64,6999" to="68,7010" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_89" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:6978px; line-height:15px; white-space:nowrap">
+深い</DIV>
+<DIV id="text850_90" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:7049px; line-height:15px; white-space:nowrap">
+浅い</DIV>
+<DIV id="text850_91" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6817px; line-height:15px; white-space:nowrap">
+もう１つは、メイン・スクリプトの</DIV>
+<DIV id="text850_92" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:352px; margin-top:6817px; line-height:15px; white-space:nowrap">
+の中にある g_debug = 0 を編集して</DIV>
+<DIV id="text850_93" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6726px; line-height:15px; white-space:nowrap">
+１つは、*.vbs ファイルのショートカットを作成して、右クリック [ プロパティ ] の [ リンク先 ] <BR/>
+に、/g_debug:1 オプションを設定してください。</DIV>
+<v:rect style="position:absolute; margin-left:123px; margin-top:6771px; width:166px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_94" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:131px; margin-top:6778px; line-height:13px; white-space:nowrap">
+...\sample.vbs /g_debug:1</DIV>
+<DIV id="text850_95" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:61px; margin-top:6776px; line-height:15px; white-space:nowrap">
+リンク先：</DIV>
+<DIV id="text850_96" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:317px; margin-top:6776px; line-height:15px; white-space:nowrap">
+１つ目のエラーでブレークする</DIV>
+<DIV id="text850_97" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:6502px; line-height:15px; white-space:nowrap">
+<A href="vbslib_38.html#g_debug">
+g_debug</A></DIV>
+<DIV id="text850_98" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:86px; margin-top:6502px; line-height:15px; white-space:nowrap">
+などに設定すべき値が自動的に表示されます。</DIV>
+<DIV id="text850_99" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4846px; line-height:15px; white-space:nowrap">
+デバッガーは、Visual Studio Standard 以上、または MS-Office 付属の</DIV>
+<DIV id="text850_100" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7237px; line-height:15px; white-space:nowrap">
+ブレークしたいソースの場所に、Stop:OrError を記述して実行してください。</DIV>
+<DIV id="text850_101" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:278px; margin-top:7646px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#g_count">
+→ g_count, g_count_up</A></DIV>
+<DIV id="text850_102" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:7646px; line-height:15px; white-space:nowrap">
+２回目以降でブレークする方法</DIV>
+<DIV id="text850_103" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:429px; margin-top:7646px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#cond_break">
+→ 条件ブレーク</A></DIV>
+<DIV id="text850_104" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:37px; margin-top:7646px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text850_105" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6833px; line-height:15px; white-space:nowrap">
+ください。 編集したら、スクリプトを再度実行してください。</DIV>
+<DIV id="text850_106" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:82px; margin-top:7137px; line-height:15px; white-space:nowrap">
+<A href="vbslib_42.html#err_debug">
+→ エラー処理のデバッグ</A></DIV>
+<DIV id="text850_107" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:448px; margin-top:4846px; line-height:15px; white-space:nowrap">
+Microsoft Script</DIV>
+<DIV id="text850_108" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:4862px; line-height:15px; white-space:nowrap">
+Editor</DIV>
+<DIV id="text850_109" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:92px; margin-top:4862px; line-height:15px; white-space:nowrap">
+&nbsp;に含まれています。 無料の</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:7343px; width:496px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_110" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:7349px; line-height:15px; white-space:nowrap">
+下記のファイルをテキストエディタで開いて次のように変数の値を修正すると、デバッガ<BR/>
+に接続して問題がある場所で停止します。<BR/>
+"sample.vbs"<BR/>
+----------------------------------------------------------------------<BR/>
+g_debug = 1<BR/>
+----------------------------------------------------------------------<BR/>
+&lt;ERROR err_number='1' err_description='Stop:OrError'/&gt;</DIV>
+<DIV id="text850_111" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7485px; line-height:15px; white-space:nowrap">
+その状態で実行すると、Stop:OrError を記述した場所でブレークします。</DIV>
+<DIV id="text850_112" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7304px; line-height:15px; white-space:nowrap">
+g_debug などの変数に設定すべき値が書かれたコードが表示されます。 このコードを、<BR/>
+メイン.vbs の最後にある SetupVbslibParameters 関数の最後に記述してください。</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:7261px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_113" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:7268px; line-height:13px; white-space:nowrap">
+Stop:OrError</DIV>
+<DIV id="text850_114" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:6817px; line-height:15px; white-space:nowrap">
+SetupVbslibParameters</DIV>
+<DIV id="text850_115" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5962px; line-height:15px; white-space:nowrap">
+<A name="g_debug_cmd">
+コマンドラインやショートカットからデバッガーに接続する (/g_debug)</A></DIV>
+<DIV id="text850_116" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6164px; line-height:15px; white-space:nowrap">
+として起動するだけで、デバッガーに接続します。 <BR/>
+/g_debug:1 にすると、１つ目のエラーでブレークします。</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:6038px; width:196px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_117" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:6045px; line-height:13px; white-space:nowrap">
+cscript sample.vbs /g_debug:99</DIV>
+<DIV id="text850_118" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6019px; line-height:15px; white-space:nowrap">
+コマンドライン：</DIV>
+<DIV id="text850_119" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6107px; line-height:15px; white-space:nowrap">
+リンク先：</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:6125px; width:220px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_120" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:6132px; line-height:13px; white-space:nowrap">
+"C:\Folder\sample.vbs" /g_debug:99</DIV>
+<DIV id="text850_121" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:241px; margin-top:5992px; line-height:15px; white-space:nowrap">
+<A href="#debug">
+WSH のデバッガー</A></DIV>
+<DIV id="text850_122" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:352px; margin-top:5992px; line-height:15px; white-space:nowrap">
+がインストールしてある環境では、</DIV>
+<DIV id="text850_123" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:42px; margin-top:6341px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text850_124" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:96px; margin-top:6341px; line-height:15px; white-space:nowrap">
+<A href="#debug">
+→ デバッグを開始する, g_debug (vbslib)</A></DIV>
+<DIV id="text850_125" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:4862px; line-height:15px; white-space:nowrap">
+scd10jp.exe</DIV>
+<DIV id="text850_126" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:328px; margin-top:4862px; line-height:15px; white-space:nowrap">
+も使えます。</DIV>
+<DIV id="text850_127" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:42px; margin-top:6363px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text850_128" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:6363px; line-height:15px; white-space:nowrap">
+→ T_Err2_Debug1_WithDebugger</DIV>
+<DIV id="text850_129" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:294px; margin-top:6363px; line-height:15px; white-space:nowrap">
+→ T_Err2_Tree</DIV>
+<DIV id="text850_130" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:7097px; line-height:15px; white-space:nowrap">
+→ [T_ErrInfo] ユーザへのエラー通知とデバッガ接続</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:6206px; width:238px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_131" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:6213px; line-height:13px; white-space:nowrap">
+"C:\Folder\sample.vbs" /g_debug:2,1;1</DIV>
+<DIV id="text850_132" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6239px; line-height:15px; white-space:nowrap">
+のような複雑な記述もできます。 記述すべき値はエラーメッセージに表示されます。</DIV>
+<DIV id="text850_133" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:70px; margin-top:6261px; line-height:15px; white-space:nowrap">
+<A href="#err_break">
+→ エラーが発生した瞬間のスクリプト内部の様子を調べる</A></DIV>
+<DIV id="text850_134" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6695px; line-height:15px; white-space:nowrap">
+エラーが発生した瞬間でブレークさせるには、２つの方法があります。</DIV>
+<DIV id="text850_135" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:127px; margin-top:6286px; line-height:15px; white-space:nowrap">
+g_debug</DIV>
+<DIV id="text850_136" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:456px; margin-top:6286px; line-height:15px; white-space:nowrap">
+g_debug_process</DIV>
+<DIV id="text850_137" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:267px; margin-top:6286px; line-height:15px; white-space:nowrap">
+g_debug_tree</DIV>
+<DIV id="text850_138" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6286px; line-height:15px; white-space:nowrap">
+コロンの次は、</DIV>
+<DIV id="text850_139" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:174px; margin-top:6286px; line-height:15px; white-space:nowrap">
+、コンマの次は、</DIV>
+<DIV id="text850_140" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:343px; margin-top:6286px; line-height:15px; white-space:nowrap">
+、セミコロンの次は、</DIV>
+<DIV id="text850_141" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6304px; line-height:15px; white-space:nowrap">
+に設定されます。</DIV>
+<DIV id="text850_142" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:9224px; line-height:15px; white-space:nowrap">
+その代り、Stop:OrError と記述すると、ブレークするために必要な方法が表示されます。</DIV>
+<DIV id="text850_143" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:37px; margin-top:9246px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text850_144" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:9246px; line-height:15px; white-space:nowrap">
+→ OrError</DIV>
+<DIV id="text850_145" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:6385px; line-height:15px; white-space:nowrap">
+→ T_ChildProcessIDNest_Manually2.vbs</DIV>
+<DIV id="text850_146" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:6077px; line-height:15px; white-space:nowrap">
+または、ショートカットを作成して、ショートカットを右クリック [ プロパティ ] の、</DIV>
+<DIV id="text850_147" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:5992px; line-height:15px; white-space:nowrap">
+vbslib を使用しているスクリプトは、</DIV>
+<DIV id="text850_148" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4749px; line-height:15px; white-space:nowrap">
+デバッガーとは、スクリプトの実行を一時的に止めて、変数の値を確認することなどができる<BR/>
+ツールです。 正しい値で処理されているところと、誤った値で処理されているところを<BR/>
+挟み込んでいくようにして、問題がある場所を見つける作業を支援します。</DIV>
+<DIV id="text850_149" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:53px; margin-top:4885px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_14.html#debugger">
+→ デバッガー （Visual Studio など）</A></DIV>
+<DIV id="text850_150" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4816px; line-height:15px; white-space:nowrap">
+インストール</DIV>
+<DIV id="text850_151" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:254px; margin-top:5314px; line-height:15px; white-space:nowrap">
+<A href="#g_debug_cmd">
+→ コマンドラインやショートカットからデバッガーに接続する</A></DIV>
+<DIV id="text850_152" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:5283px; line-height:15px; white-space:nowrap">
+デバッガーの起動の仕方</DIV>
+<DIV id="text850_153" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:5368px; line-height:15px; white-space:nowrap">
+Mircrosoft 製のデバッガーは、すべて同じ手順でデバッガーを起動できます。</DIV>
+<DIV id="text850_154" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:5314px; line-height:15px; white-space:nowrap">
+vbslib を使っているスクリプトの場合：</DIV>
+<DIV id="text850_155" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:5341px; line-height:15px; white-space:nowrap">
+vbslib を使わない場合：</DIV>
+<DIV id="text850_156" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:195px; margin-top:5341px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_14.html#debugger">
+→ デバッガー （Visual Studio など）</A></DIV>
+<DIV id="text850_157" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:5432px; line-height:15px; white-space:nowrap">
+その他の手順</DIV>
+<DIV id="text850_158" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:119px; margin-top:5231px; line-height:15px; white-space:nowrap">
+Visual Studio 2008 Professtional で、VBScript (WSH) をデバッグ</DIV>
+
+<v:line from="0,4699" to="602,4699"/>
+<v:line from="602,4699" to="602,9990"/>
+<v:line from="602,9990" to="0,9990"/>
+<v:line from="0,9990" to="0,4699"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:9990px;">
+<A id="svgcats_vml_p850" class="to_tree" onClick="selectTreeElem( '850' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:9990px;">
+<A id="page_group_bottom" href="vbslib_42.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 
