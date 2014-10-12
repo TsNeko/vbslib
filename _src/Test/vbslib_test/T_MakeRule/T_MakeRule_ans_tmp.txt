@@ -1,12 +1,10 @@
   ((( [T_MakeRule0] )))
 >make
->cd  "%FullPath(.)%"
 
 make command for "Work0\File1_only.txt"
 >CreateFile  "Work0\File1_only.txt", ""
 >del  "Work0\File1_only.txt"
 >make
->cd  "%FullPath(.)%"
 
 make command for "Work0\File1_only.txt"
 >CreateFile  "Work0\File1_only.txt", ""
@@ -14,51 +12,42 @@ make command for "Work0\File1_only.txt"
 Pass.
   ((( [T_MakeRule1] )))
 >make
->cd  "%FullPath(.)%"
 
 make command for "Files1\File1_old.txt"
 Files1\File1_old.txt
 Pass.
   ((( [T_MakeRule2A] )))
 >make
->cd  "%FullPath(.)%"
 
 make command for "Files2\File11_old.txt"
-Files2\File11_old.txt priority=1
->cd  "%FullPath(.)%"
+Files2\File11_old.txt, priority=1, sources=Files2\File111_new.txt
 
 make command for "Files2\File1_old.txt"
-Files2\File1_old.txt priority=1
+Files2\File1_old.txt, priority=1, sources=Files2\File11_old.txt
 Pass.
   ((( [T_MakeRule2B] )))
 >make
->cd  "%FullPath(.)%"
 
 make command for "Files2\File11_old.txt"
-Files2\File11_old.txt priority=1
->cd  "%FullPath(.)%"
+Files2\File11_old.txt, priority=1, sources=Files2\File111_new.txt
 
 make command for "Files2\File1_old.txt"
-Files2\File1_old.txt priority=1
+Files2\File1_old.txt, priority=1, sources=Files2\File11_old.txt
 Pass.
   ((( [T_MakeRule2C] )))
 >make
->cd  "%FullPath(.)%"
 
 make command for "Files2\File11_old.txt"
-Files2\File11_old.txt priority=1
->cd  "%FullPath(.)%"
+Files2\File11_old.txt, priority=1, sources=Files2\File111_new.txt
 
 make command for "Files2\File1_old.txt"
-Files2\File1_old.txt priority=1
->cd  "%FullPath(.)%"
+Files2\File1_old.txt, priority=1, sources=Files2\File11_old.txt
 
 make command for "Files2\File2_nothing.txt"
-Files2\File2_nothing.txt priority=1
+Files2\File2_nothing.txt, priority=1, sources=Files2\File1_old.txt
 Pass.
   ((( [T_MakeRule3A] )))
 >make
->cd  "%FullPath(.)%"
 
 make command for "Files3\File1_old.txt"
 newest>
@@ -77,15 +66,12 @@ Pass.
   ((( [T_MakeRule3B] )))
 >copy  "Files3\*", "Files3_Work"
 >make
->cd  "%FullPath(.)%"
 
 make command for "Files3_Work\File22_old.txt"
 >copy_ren  "Files3_Work\File221_new.txt", "Files3_Work\File22_old.txt"
->cd  "%FullPath(.)%"
 
 make command for "Files3_Work\File23_old.txt"
 >copy_ren  "Files3_Work\File231_newest.txt", "Files3_Work\File23_old.txt"
->cd  "%FullPath(.)%"
 
 make command for "Files3_Work\File2_old.txt"
 newest>
@@ -103,16 +89,57 @@ Files3_Work\File23_old.txt = True
 Pass.
   ((( [T_MakeRule4] )))
 >make
->cd  "%FullPath(.)%"
 
 make command for "Files4\File21_old.txt"
-Files4\File21_old.txt priority=1
->cd  "%FullPath(.)%"
+Files4\File21_old.txt, priority=1, sources=Files4\File211_new.txt
 
 make command for "Files4\File1_old.txt"
-Files4\File1_old.txt priority=2
->cd  "%FullPath(.)%"
+Files4\File1_old.txt, priority=2, sources=Files4\File12_new.txt
 
 make command for "Files4\File2_old.txt"
-Files4\File2_old.txt priority=2
+Files4\File2_old.txt, priority=2, sources=Files4\File21_old.txt
+Pass.
+  ((( [T_MakeRuleImplicit1] )))
+>make
+
+make command for "Files5\Target\1.obj"
+Files5\Target\1.obj, priority=1, sources=Files5\Source\1.c
+
+make command for "Files5\Target\2.obj"
+Files5\Target\2.obj, priority=1, sources=Files5\Source\2.c
+
+make command for "Files5\Target\sub\1.obj"
+Files5\Target\sub\1.obj, priority=1, sources=Files5\Source\sub\1.c
+
+make command for "Files5\Target\sub\2.obj"
+Files5\Target\sub\2.obj, priority=1, sources=Files5\Source\sub\2.c
+
+make command for "Files5\Target\3.obj"
+Files5\Target\3.obj, priority=1, sources=Files5\Source\3.cpp
+
+make command for "Files5\Target\4.obj"
+Files5\Target\4.obj, priority=1, sources=Files5\Source\4.cpp
+
+make command for "Files5\Target\sub\3.obj"
+Files5\Target\sub\3.obj, priority=1, sources=Files5\Source\sub\3.cpp
+
+make command for "Files5\Target\sub\4.obj"
+Files5\Target\sub\4.obj, priority=1, sources=Files5\Source\sub\4.cpp
+-------------------------------------------------------------------------------
+>pushd  "Files5"
+%FullPath(.)%\Files5>
+>make
+
+make command for "Target\sub\1.obj"
+Target\sub\1.obj, priority=1, sources=Source\sub\1.c
+
+make command for "Target\sub\2.obj"
+Target\sub\2.obj, priority=1, sources=Source\sub\2.c
+
+make command for "Target\sub\3.obj"
+Target\sub\3.obj, priority=1, sources=Source\sub\3.cpp
+
+make command for "Target\sub\4.obj"
+Target\sub\4.obj, priority=1, sources=Source\sub\4.cpp
+>popd
 Pass.

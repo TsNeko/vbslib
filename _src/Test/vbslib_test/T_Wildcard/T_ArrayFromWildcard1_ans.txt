@@ -32,7 +32,8 @@ ArrayFromWildcard  data\*.txt
 %FullPath(data)%\fo1\t1.txt
 %FullPath(data)%\t1.txt
 -------------------------------------------------------------------------------
-ArrayFromWildcard  data\fo*\
+ArrayFromWildcard  data\f*\
+%FullPath(data)%\fe
 %FullPath(data)%\fo1
 %FullPath(data)%\fo1\fo1
 %FullPath(data)%\fo1\fo11.ex
@@ -68,6 +69,19 @@ ArrayFromWildcard  data\fo1
 %FullPath(data)%\fo1\t1\t1.txt
 %FullPath(data)%\fo1\t1.txt
 -------------------------------------------------------------------------------
+ArrayFromWildcard  data\fo1\
+%FullPath(data)%\fo1
+-------------------------------------------------------------------------------
+ArrayFromWildcard  data\*\fo1\
+%FullPath(data)%\fo1
+%FullPath(data)%\fo1\fo1
+-------------------------------------------------------------------------------
+ArrayFromWildcard  data\*\fo11.ex\
+%FullPath(data)%\fo1\fo11.ex
+-------------------------------------------------------------------------------
+ArrayFromWildcard  data\fo11.ex
+<ERROR msg="Not found" path="data\fo11.ex"/>
+-------------------------------------------------------------------------------
 ArrayFromWildcard  data\nothing.txt
 <ERROR msg="Not found" path="data\nothing.txt"/>
 -------------------------------------------------------------------------------
@@ -83,6 +97,8 @@ ArrayFromWildcard  data\f1.txt
 ArrayFromWildcard  data\f1.txt
 %FullPath(data)%\f1.txt
 -------------------------------------------------------------------------------
+ArrayFromWildcard  data\*.hta
+-------------------------------------------------------------------------------
 ArrayFromWildcard  data\*\f1.txt
 %FullPath(data)%\f1.txt
 %FullPath(data)%\fe\f1.txt
@@ -91,7 +107,11 @@ ArrayFromWildcard  data\*\f1.txt
 %FullPath(data)%\fo1\fo11.ex\f1.txt
 %FullPath(data)%\fo1\t1\f1.txt
 -------------------------------------------------------------------------------
-ArrayFromWildcard  data\*\fo1
+ArrayFromWildcard  data\NotFound
+<ERROR msg="Not found" path="data\NotFound"/>
+-------------------------------------------------------------------------------
+ArrayFromWildcard  data\.\NotFound
+<ERROR msg="Not found" path="data\.\NotFound"/>
 -------------------------------------------------------------------------------
 ArrayFromWildcard  data\fo1\
 %FullPath(data)%\fo1

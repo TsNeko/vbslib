@@ -15,9 +15,10 @@
 /*=================================================================*/
  
 /***********************************************************************
-  <<< [errnum_t] >>> 
+* Type: errnum_t
+*    エラーコード、エラー番号
 ************************************************************************/
-typedef  int  errnum_t;  /* 0=no error */
+typedef  int  errnum_t;  /* [errnum_t] 0=no error */
 
 #ifndef  NO_ERROR  /* same as windows.h */
 	enum { NO_ERROR = 0 };  /* NO_ERROR symbol is for magic code warning only */
@@ -139,6 +140,8 @@ typedef  int             int_fast8_t;
 typedef  unsigned int    uint_fast32_t;
 typedef  unsigned int    uint_fast16_t;
 typedef  unsigned int    uint_fast8_t;
+
+#define  INT_FAST32_MAX  INT_MAX
 
 
  
@@ -701,6 +704,8 @@ TCHAR*  StrT_chrs( const TCHAR* s, const TCHAR* keys );
 TCHAR*  StrT_rstr( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* Keyword,
 	void* NullConfig );
 TCHAR*  StrT_skip( const TCHAR* s, const TCHAR* keys );
+TCHAR*  StrT_rskip( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* Keys,
+	void* NullConfig );
 bool    StrT_isCIdentifier( TCHAR Character );
 TCHAR*  StrT_searchOverOfCIdentifier( const TCHAR* Text );
 int  StrT_cmp_part( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
@@ -1358,7 +1363,7 @@ enum { F_Unicode = 1,  F_Append = 2 };
 int  FileT_copy( const TCHAR* SrcPath, const TCHAR* DstPath );
 int  FileT_mkdir( const TCHAR* Path );
 int  FileT_del( const TCHAR* Path );
-int  FileT_writePart( FILE* File, TCHAR* Start, TCHAR* Over );
+int  FileT_writePart( FILE* File, const TCHAR* Start, TCHAR* Over );
 
 
  

@@ -451,15 +451,15 @@ errnum_t  Parse_PP_Directive_Step1( const TCHAR* Text, Set2* DirectivePointerArr
 		/* Set "Over" */
 		p = directive_0.DirectiveName_Over;
 		for (;;) {
-			p = _tcschr( p, _T('\n') );
-			if ( p == NULL ) {
+			const TCHAR*  p2 = _tcschr( p, _T('\n') );
+			if ( p2 == NULL ) {
 				p = _tcschr( p, _T('\0') );
 				break;
-			} else if ( *( p - 1 ) == _T('\\') ) {
-				p += 1;
+			} else if ( *( p2 - 1 ) == _T('\\') ) {
+				p = p2 + 1;
 				continue;
 			} else {
-				p += 1;
+				p = p2 + 1;
 				break;
 			}
 		}
@@ -1594,7 +1594,7 @@ fin:
 /***********************************************************************
   <<< [FileT_writePart] >>> 
 ************************************************************************/
-errnum_t  FileT_writePart( FILE* File, TCHAR* Start, TCHAR* Over )
+errnum_t  FileT_writePart( FILE* File, const TCHAR* Start, TCHAR* Over )
 {
 	errnum_t  e;
 	TCHAR     back_char;
@@ -2660,14 +2660,6 @@ void  IfErrThenBreak()
 }
 
 
-//[MergeError]
-errnum_t  MergeError( errnum_t e, errnum_t ee )
-{
-	if ( e == 0 ) { return  ee; }
-	else          { /* ErrorLog_add( ee ); */ return  e; }
-}
-
-
 //[PushErr]
 void  PushErr( ErrStackAreaClass* ErrStackArea )
 {
@@ -2725,6 +2717,15 @@ void  PopErr(  ErrStackAreaClass* ErrStackArea )
 
 
 #endif // ENABLE_ERROR_BREAK_IN_ERROR_CLASS
+
+
+//[MergeError]
+errnum_t  MergeError( errnum_t e, errnum_t ee )
+{
+	if ( e == 0 ) { return  ee; }
+	else          { /* ErrorLog_add( ee ); */ return  e; }
+}
+
 
  
 /***********************************************************************
@@ -2997,15 +2998,36 @@ TCHAR*  StrT_rstr( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* K
 /***********************************************************************
   <<< [StrT_skip] >>> 
 ************************************************************************/
-TCHAR*  StrT_skip( const TCHAR* s, const TCHAR* keys )
+TCHAR*  StrT_skip( const TCHAR* String, const TCHAR* Keys )
 {
-	if ( *keys == _T('\0') )  return  (TCHAR*) s;
+	if ( *Keys == _T('\0') ) { return  (TCHAR*) String; }
 
-	for ( ; *s != _T('\0'); s++ ) {
-		if ( _tcschr( keys, *s ) == NULL )
+	for ( ; *String != _T('\0'); String += 1 ) {
+		if ( _tcschr( Keys, *String ) == NULL )
 			break;
 	}
-	return  (TCHAR*) s;
+	return  (TCHAR*) String;
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrT_rskip] >>> 
+************************************************************************/
+TCHAR*  StrT_rskip( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* Keys,
+	void* NullConfig )
+{
+	const TCHAR*  pointer;
+
+	UNREFERENCED_VARIABLE( NullConfig );
+
+	if ( *Keys == _T('\0') ) { return  (TCHAR*) SearchStart; }
+
+	for ( pointer = SearchStart;  pointer >= String;  pointer -= 1 ) {
+		if ( _tcschr( Keys, *pointer ) == NULL )
+			{ return  (TCHAR*) pointer; }
+	}
+	return  NULL;
 }
 
 
@@ -3568,12 +3590,12 @@ errnum_t  StrT_getExistSymbols( unsigned* out, bool bCase, const TCHAR* Str, con
 {
 	errnum_t  e;
 	int       i;
-	TCHAR** syms = NULL;
 	bool*   syms_exists = NULL;
 	bool    b_nosym = false;
 	TCHAR*  sym = NULL;
 	size_t  sym_size = ( _tcslen( Symbols ) + 1 ) * sizeof(TCHAR);
 	int     n_sym = 0;
+	const TCHAR** syms = NULL;
 	const TCHAR*  p;
 
 	UNREFERENCED_VARIABLE( bCase );
@@ -3588,8 +3610,8 @@ errnum_t  StrT_getExistSymbols( unsigned* out, bool bCase, const TCHAR* Str, con
 		if ( sym[0] != _T('\0') )  n_sym ++;
 	} while ( p != NULL );
 
-	syms = (TCHAR**) malloc( n_sym * sizeof(TCHAR*) ); IF(syms==NULL)goto err_fm;
-	memset( syms, 0, n_sym * sizeof(TCHAR*) );
+	syms = (const TCHAR**) malloc( n_sym * sizeof(TCHAR*) ); IF(syms==NULL)goto err_fm;
+	memset( (TCHAR**) syms, 0, n_sym * sizeof(TCHAR*) );
 	syms_exists = (bool*) malloc( n_sym * sizeof(bool) ); IF(syms_exists==NULL)goto err_fm;
 	memset( syms_exists, 0, n_sym * sizeof(bool) );
 
@@ -3634,12 +3656,12 @@ errnum_t  StrT_getExistSymbols( unsigned* out, bool bCase, const TCHAR* Str, con
 fin:
 	if ( syms != NULL ) {
 		for ( i = 0; i < n_sym; i++ ) {
-			if ( syms[i] != NULL )  free( syms[i] );
+			e= HeapMemory_free( &syms[i], e );
 		}
-		free( syms );
+		free( (TCHAR**) syms );
 	}
-	if ( syms_exists != NULL )  free( syms_exists );
-	if ( sym != NULL )  free( sym );
+	e= HeapMemory_free( &syms_exists, e );
+	e= HeapMemory_free( &sym, e );
 	return  e;
 err_fm: e= E_FEW_MEMORY; goto fin;
 }
@@ -4112,7 +4134,7 @@ errnum_t  StrT_getFullPath_part( TCHAR* out_FullPath, size_t FullPathSize, TCHAR
 
 			p = parent_position - 1;
 			for (;;) {
-				IF( p < OutStart ) goto err;  /* "../" are too many */
+				IF( p < OutStart ) {goto err;}  /* "../" are too many */
 				if ( *p == separator )  { break; }
 				p -= 1;
 			}
@@ -4139,7 +4161,7 @@ errnum_t  StrT_getFullPath_part( TCHAR* out_FullPath, size_t FullPathSize, TCHAR
 
 			p = null_position - 4;
 			for (;;) {
-				IF( p < OutStart ) goto err;  /* "../" are too many */
+				IF( p < OutStart ) {goto err;}  /* "../" are too many */
 				if ( *p == separator )  { break; }
 				p -= 1;
 			}
@@ -4251,7 +4273,7 @@ errnum_t  StrT_getParentFullPath_part( TCHAR* Str, size_t StrSize, TCHAR* StrSta
 	errnum_t  e;
 	TCHAR*  p;
 
-	IF_D( StrStart < Str ||  (char*) StrStart >= (char*)Str + StrSize )goto err;
+	IF_D( StrStart < Str ||  (char*) StrStart >= (char*)Str + StrSize ){goto err;}
 
 	if ( StepPath[0] == _T('\0') ) {
 		*StrStart = _T('\0');
@@ -4336,7 +4358,7 @@ errnum_t  StrT_getStepPath( TCHAR* out_StepPath, size_t StepPathSize,
 	/* Set "base_pointer" */
 	if ( BasePath == NULL ) {
 		base_pointer = _tgetcwd( base_path_2, _countof(base_path_2) );
-		IF( base_pointer == NULL ) goto err;
+		IF( base_pointer == NULL ) {goto err;}
 	}
 	else {
 		base_pointer = BasePath;
@@ -4742,7 +4764,7 @@ errnum_t  Strs_freeLast( Strs* self, TCHAR* AllocStr )
 	}
 
 	// [ NULL     | ... ]
-	IF( last_str != AllocStr ) goto err;
+	IF( last_str != AllocStr ) {goto err;}
 
 	// [ FirstStr | NULL    | TCHAR[] | ... ]
 	if ( prev_of_last_str == NULL ) {
@@ -5295,7 +5317,7 @@ fin:
 #ifdef _DEBUG
 void  Set2_setDebug( Set2* m, void* PointerOfDebugArray )
 {
-	m->PointerOfDebugArray = PointerOfDebugArray;
+	m->PointerOfDebugArray = (void**) PointerOfDebugArray;
 	*m->PointerOfDebugArray = m->First;
 }
 #endif
