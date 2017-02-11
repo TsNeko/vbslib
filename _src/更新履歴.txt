@@ -1,0 +1,51 @@
+Title: 更新履歴 5.91→5.92
+
+[F] は、g_is_vbslib_for_fast_user = True のとき。
+
+vbslib.vbs
+	変更: LazyDictionaryClass::Formula
+		XML の Variable タグに FullPathType があるとき、
+		フル パスに変換した name を返す → name をそのまま返す。
+	修正: LazyDictionaryClass::AddDictionary
+		XML の Variable タグに FullPathType があるとき、
+		キーがフル パスに変わってしまう不具合を修正。
+	追加: LazyDictionaryClass::Type_
+	修正: XML の LocalVariable タグ
+		LocalVariable タグの name が Variable タグの name が同じとき、
+		スコープが異なるのに、重複定義エラーになる不具合を修正。
+	修正: NumStringCompare
+		数字部分が整数型のオーバーフローになるほど大きいときに、
+		エラーになる不具合を修正。
+	修正: OrError
+		エラーが発生中のときに、g_debug に設定すべき値が正しく表示されない
+		不具合を修正。
+	[F] 追加: g_VBS_Lib.NotFound
+
+vbslib_mini.vbs
+	追加: Assert, Error, include, LazyDictionaryClass, LoadVariableInXML, LetSet
+	追加: GetFullPath の "..."
+
+ToolsLib.vbs
+	変更: MakeFolderMD5List の空のフォルダーのタイムスタンプ
+		更新日時 → 固定値 get_ToolsLibConsts().EmptyFolderTimeStamp
+	変更: CheckFolderMD5List の g_VBS_Lib.TimeStamp
+		空のフォルダーのタイムスタンプを変更する → しない。
+	追加: get_ToolsLibConsts().EmptyFolderTimeStamp
+	変更: GetReadOnlyList
+		リードオンリーがないとき、Empty を返す → 0を返す。
+	追加: MakeRuleSetOfRevisionFolderClass::xml
+	[F] 追加: EnumerateToLeafPathDictionaryByFullSetFile
+
+SyncFilesMenuLib.vbs
+	修正: SyncFilesT_Class::SaveHTML
+		設定ファイルの先頭に <?xml ?>" があるとき、
+		HTML の文法エラーになる不具合を修正。
+	修正: SyncFilesT 設定ファイルのタグ名のスペルミス
+		commited → committed
+
+ModuleAssort2
+	修正: 多くの修正。
+	追加: モジュールごとの keyword_substitution
+	追加: AssortOne
+	追加: 最初にプロジェクト名も入力できる機能
+

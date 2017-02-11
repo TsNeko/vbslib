@@ -108,6 +108,41 @@ ExpandWildcard  data\Fo1  (c.Folder or c.SubFolder)
 fo1
 fo1\fo1
 -------------------------------------------------------------------------------
+ExpandWildcard  data\*  (c.File or c.SubFolder or c.EmptyFolder)
+%FullPath(data)%
+f1.txt
+f2.txt
+f3.svg
+t1.txt
+fe\f1.txt
+fe\f2.txt
+fe\f3.svg
+fe\t1.txt
+fo1\f1.txt
+fo1\f2.txt
+fo1\f3.svg
+fo1\t1.txt
+fo2\
+fo1\fo1\f1.txt
+fo1\fo11.ex\f1.txt
+fo1\fo11.ex\f2.txt
+fo1\fo11.ex\f3.svg
+fo1\fo11.ex\t1.txt
+fo1\t1\f1.txt
+fo1\t1\f2.txt
+fo1\t1\f3.svg
+fo1\t1\t1.txt
+>pushd  "data\fo2"
+%FullPath(data\fo2)%>
+-------------------------------------------------------------------------------
+ExpandWildcard  *  (c.File or c.SubFolder or c.EmptyFolder)
+%FullPath(data\fo2)%
+.\
+-------------------------------------------------------------------------------
+ExpandWildcard  *.ext  (c.File or c.SubFolder or c.EmptyFolder)
+%FullPath(data\fo2)%
+>popd
+-------------------------------------------------------------------------------
 ExpandWildcard  data\f1.txt  (c.File or c.SubFolder)
 %FullPath(data)%
 f1.txt

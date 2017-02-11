@@ -1,8 +1,14 @@
 ﻿  ((( vbslib folder )))
 
-'// vbslib - VBScript ShortHand Library  ver4.91  Oct.13, 2014
-'// vbslib is provided under 3-clause BSD license.
-'// Copyright (C) 2007-2014 Sofrware Design Gallery "Sage Plaisir 21" All Rights Reserved.
+'***********************************************************************
+'* VBScript ShortHand Library (vbslib)
+'* vbslib is provided under 3-clause BSD license.
+'* Copyright (C) Sofrware Design Gallery "Sage Plaisir 21" All Rights Reserved.
+'*
+'* - $Version: vbslib 5.92 $
+'* - $ModuleRevision: {vbslib}\Public\592 $
+'* - $Date: 2016-12-30T20:13:44+09:00 $
+'***********************************************************************
 
 Sofrware Design Gallery "Sage Plaisir 21"  http://www.sage-p.com/
 vbslib Home Page  http://www.sage-p.com/vbslib/vbslib.htm

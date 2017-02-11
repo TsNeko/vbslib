@@ -44,6 +44,7 @@ enum { E_UNKNOWN            = E_CATEGORY_COMMON | 0x04 }; /* 1028 */
 enum { E_IN_ERROR           = E_CATEGORY_COMMON | 0x05 }; /* 1029 */
 enum { E_IN_FINALLY         = E_CATEGORY_COMMON | 0x06 }; /* 1030 */
 enum { E_INVALID_VALUE      = E_CATEGORY_COMMON | 0x07 }; /* 1031 */
+enum { E_UNKNOWN_DATA_TYPE  = E_CATEGORY_COMMON | 0x08 }; /* 1032 */
 enum { E_NOT_IMPLEMENT_YET  = E_CATEGORY_COMMON | 0x09 }; /* 1033 */
 enum { E_ORIGINAL           = E_CATEGORY_COMMON | 0x0A }; /* 1034 */
 enum { E_LIMITATION         = E_CATEGORY_COMMON | 0x0F }; /* 1039 */
@@ -64,6 +65,7 @@ enum { E_DEBUG_BREAK        = E_CATEGORY_COMMON | 0xDB }; /* 1243 */
 enum { E_EXIT_TEST          = E_CATEGORY_COMMON | 0xE7 }; /* 1255 */
 enum { E_FIFO_OVER          = E_CATEGORY_COMMON | 0xF0 }; /* 1264 */
 
+enum { NOT_FOUND_INDEX = -1 };
 
  
 /*=================================================================*/
@@ -113,9 +115,23 @@ enum { E_FIFO_OVER          = E_CATEGORY_COMMON | 0xF0 }; /* 1264 */
  
 #include  <direct.h> 
  
+#include  <malloc.h> 
+ 
+#include  <io.h> 
+ 
+#include  <fcntl.h> 
+ 
+#include  <tlhelp32.h> 
+ 
 /*=================================================================*/
 /* <<< [CRT_plus_1/CRT_plus_1.h] >>> */ 
 /*=================================================================*/
+ 
+#if  __cplusplus
+ extern "C" {  /* Start of C Symbol */ 
+#endif
+
+
  
 /***********************************************************************
   <<< [C99Type] >>> 
@@ -128,6 +144,7 @@ typedef  unsigned int    uint_t;     /* MISRA-C:1998 No.13 */  /* This is not C9
 typedef  unsigned int    uint32_t;   /* For 32bit compiler */
 typedef  unsigned short  uint16_t;
 typedef  unsigned char   uint8_t;
+typedef  unsigned char   byte_t;     /* This is not C99 */
 typedef  float           float32_t;  /* This is not C99 */
 typedef  double          float64_t;  /* This is not C99 */
 typedef  unsigned int    bool_t;     /* MISRA-C:1998 No.13 */  /* This is not C99 */
@@ -142,6 +159,13 @@ typedef  unsigned int    uint_fast16_t;
 typedef  unsigned int    uint_fast8_t;
 
 #define  INT_FAST32_MAX  INT_MAX
+
+
+ 
+/***********************************************************************
+  <<< [INVALID_ARRAY_INDEX] >>> 
+************************************************************************/
+enum { INVALID_ARRAY_INDEX = -1 };
 
 
  
@@ -197,6 +221,21 @@ typedef  uint32_t      BitField32;
  #define  BOOL_DEFINED
  #endif
 #endif
+
+
+ 
+/***********************************************************************
+  <<< (malloc_redirected) >>> 
+************************************************************************/
+#define  malloc   malloc_redirected
+#define  realloc  realloc_redirected
+#define  calloc   calloc_redirected
+void*  malloc_redirected( size_t  in_Size );
+void*  realloc_redirected( void*  in_Address,  size_t  in_Size );
+void*  calloc_redirected( size_t  in_Count,  size_t  in_Size );
+void*  malloc_no_redirected( size_t  in_Size );
+void*  realloc_no_redirected( void*  in_Address,  size_t  in_Size );
+void*  calloc_no_redirected( size_t  in_Count,  size_t  in_Size );
 
 
  
@@ -305,6 +344,17 @@ struct _PrintXML_VTableClass {
 
  
 /***********************************************************************
+  <<< [SizedStruct] >>> 
+************************************************************************/
+typedef struct _SizedStruct  SizedStruct;
+struct _SizedStruct {
+	size_t  ThisStructSize;
+	int     OthersData;
+};
+
+
+ 
+/***********************************************************************
   <<< [NameOnlyClass] >>> 
 ************************************************************************/
 typedef struct _NameOnlyClass  NameOnlyClass;
@@ -351,6 +401,59 @@ struct _NameAndNumClass {
 int  ttoi_ex( const TCHAR* string,  bit_flags_fast32_t options );
 
 
+ 
+/***********************************************************************
+  <<< [PointerType_plus] >>> 
+************************************************************************/
+inline void  PointerType_plus( const void* in_out_Element, int PlusMinusByte )
+{
+	*(int8_t**) in_out_Element = *(int8_t**) in_out_Element + PlusMinusByte;
+}
+
+
+ 
+/***********************************************************************
+  <<< [PointerType_diff] >>> 
+************************************************************************/
+inline ptrdiff_t  PointerType_diff( const void* PointerA, const void* PointerB )
+{
+	return  (uintptr_t) PointerA - (uintptr_t) PointerB;
+}
+
+
+ 
+/**************************************************************************
+ <<< [JOIN_SYMBOL] >>> 
+***************************************************************************/
+#define JOIN_SYMBOL(x, y)  JOIN_SYMBOL_AGAIN(x, y)
+#define JOIN_SYMBOL_AGAIN(x, y) x##y
+	/* CERT secure coding standard PRE05-C */
+
+
+ 
+/**************************************************************************
+ <<< [static_assert] >>> 
+***************************************************************************/
+#define  static_assert( ConstantExpression, StringLiteral ) \
+	__pragma(warning(push)) \
+	__pragma(warning(disable:4127)) \
+	do { typedef char JOIN_SYMBOL( AssertionFailed_, __LINE__ )[(ConstantExpression) ? 1 : -1]; } while(0) \
+	__pragma(warning(pop))
+
+#define  static_assert_global( ConstantExpression, StringLiteral ) \
+	__pragma(warning(push)) \
+	__pragma(warning(disable:4127)) \
+	typedef char JOIN_SYMBOL( AssertionFailed_, __LINE__ )[(ConstantExpression) ? 1 : -1] \
+	__pragma(warning(pop))
+
+	/* CERT secure coding standard DCL03-C */
+	/* If "ConstantExpression" is false, illegal array size error will be raised. */
+
+
+ 
+#if  __cplusplus
+ }  /* End of C Symbol */ 
+#endif
  
 /*=================================================================*/
 /* <<< [Error4_Inline/Error4_Inline.h] >>> */ 
@@ -440,33 +543,6 @@ extern PrintfCounterClass  g_PrintfCounter;
 
 
  
-/***********************************************************************
-  <<< [printf_to_debugger] >>> 
-************************************************************************/
-void   printf_to_debugger( const char* fmt, ... );
-void  wprintf_to_debugger( const wchar_t* fmt, ... );
-
-#ifndef   USE_printf_to
- #ifdef __linux__
-  #define  USE_printf_to  USE_printf_to_stdout
- #else
-  #define  USE_printf_to  USE_printf_to_debugger
- #endif
-#endif
-
-#if  USE_printf_to == USE_printf_to_debugger
- #define  printf   printf_to_debugger
- #define  wprintf  wprintf_to_debugger
-
- #undef    _tprintf
- #if UNICODE
-  #define  _tprintf  wprintf_to_debugger
- #else
-  #define  _tprintf  printf_to_debugger
- #endif
-#endif
-
- 
 errnum_t  vsprintf_r( char* s, size_t s_size, const char* format, va_list va ); 
  
 errnum_t  vswprintf_r( wchar_t* s, size_t s_size, const wchar_t* format, va_list va ); 
@@ -485,9 +561,33 @@ errnum_t  stcpy_part_r( TCHAR* s, size_t s_size, TCHAR* s_start, TCHAR** p_s_las
 errnum_t  stprintf_part_r( TCHAR* s, size_t s_size, TCHAR* s_start, TCHAR** p_s_last,
                       const TCHAR* format, ... );
  
+errnum_t  ftcopy_part_r( FILE* OutputStream, const TCHAR* Str, const TCHAR* StrOver );
+ 
+errnum_t  OpenConsole( bool  in_OpenIfNoConsole,  bool*  out_IsExistOrNewConsole );
+
+ 
 #if  __cplusplus
  }    /* End of C Symbol */ 
 #endif
+
+ 
+/*=================================================================*/
+/* <<< [StrT_typedef/StrT_typedef.h] >>> */ 
+/*=================================================================*/
+ 
+/***********************************************************************
+  <<< [NewStringsEnum] >>> 
+************************************************************************/
+typedef enum  _NewStringsEnum  NewStringsEnum;
+enum  _NewStringsEnum {
+	NewStringsEnum_NewPointersAndLinkCharacters = 0x06,
+	NewStringsEnum_NewPointersAndNewCharacters  = 0x03,
+	NewStringsEnum_LinkCharacters               = 0x04,
+	NewStringsEnum_NewPointers                  = 0x02,
+	NewStringsEnum_NewCharacters                = 0x01,
+	NewStringsEnum_NoAllocate                   = 0x00
+};
+
 
  
 /*=================================================================*/
@@ -501,6 +601,15 @@ errnum_t  stprintf_part_r( TCHAR* s, size_t s_size, TCHAR* s_start, TCHAR** p_s_
  extern "C" {  /* Start of C Symbol */
 #endif
 
+ 
+/******************************************************************
+  <<< Set4_typedef >>> 
+*******************************************************************/
+
+typedef struct _Set4      Set4;
+typedef struct _Set4Iter  Set4Iter;
+
+typedef  int  (*FuncType_create_in_set4)( void** pm, Set4* Set );
  
 /***********************************************************************
   <<< [Set2] >>> 
@@ -525,14 +634,17 @@ struct _Set2_IteratorClass {
 };
 
 #define  Set2_initConst( m )  ( (m)->First = NULL, (m)->Next = NULL )
-int  Set2_init( Set2* m, int FirstSize );
-int  Set2_finish( Set2* m, int e );
+errnum_t  Set2_init( Set2* m, int FirstSize );
+errnum_t  Set2_finish( Set2* m, errnum_t e );
 #define  Set2_isInited( m )  ( (m)->First != NULL )
+
+#define  Set2_allocate( m, pp ) \
+	Set2_alloc_imp( m, (void*)(pp), sizeof(**(pp)) )
 
 #define  Set2_alloc( m, pp, type ) \
 	Set2_alloc_imp( m, (void*)(pp), sizeof(type) )
 
-int  Set2_alloc_imp( Set2* m, void* pm, size_t size );
+errnum_t  Set2_alloc_imp( Set2* m, void* pm, size_t size );
 
 #define  Set2_push( m, pp, type ) \
 	Set2_alloc_imp( m, (void*)(pp), sizeof(type) )
@@ -540,7 +652,11 @@ int  Set2_alloc_imp( Set2* m, void* pm, size_t size );
 #define  Set2_pop( m, pp, type ) \
 	Set2_pop_imp( m, (void*)(pp), sizeof(type) )
 
-int  Set2_pop_imp( Set2* m, void* pp, size_t size );
+errnum_t  Set2_pop_imp( Set2* m, void* pp, size_t size );
+
+#define  Set2_free( m, pp, e ) \
+	Set2_free_imp( m, pp, sizeof(**(pp)), e )
+errnum_t  Set2_free_imp( Set2* self,  void* in_PointerOfPointer,  size_t  in_Size_ofElement,  errnum_t  e );
 
 #define  Set2_freeLast( m, p, type, e ) \
 	( ((char*)(m)->Next - sizeof(type) == (char*)(p)) ? \
@@ -556,11 +672,11 @@ int  Set2_pop_imp( Set2* m, void* pp, size_t size );
 
 #define  Set2_expandIfOverByOffset( m, Size ) \
 	Set2_expandIfOverByAddr( m, (char*)(m)->First + (Size) )
-int  Set2_expandIfOverByAddr_imp( Set2* m, void* OverAddrBasedOnNowFirst );
+errnum_t  Set2_expandIfOverByAddr_imp( Set2* m, void* OverAddrBasedOnNowFirst );
 
 #define  Set2_allocMulti( m, out_pElem, ElemType, nElem ) \
 	Set2_allocMulti_sub( m, (void*)(out_pElem), sizeof(ElemType) * (nElem) )
-int  Set2_allocMulti_sub( Set2* m, void* out_pElem, size_t ElemsSize );
+errnum_t  Set2_allocMulti_sub( Set2* m, void* out_pElem, size_t ElemsSize );
 
 #define  Set2_forEach( self, Item, Item_Over, Type ) \
 	*(Item) = (Type*)( (self)->First ),  *(Item_Over) = (Type*)( (self)->Next ); \
@@ -599,22 +715,438 @@ inline void  Set2_forEach2_3( Set2* self, Set2_IteratorClass* Iterator,  void* o
 }
 
 
+#define  Set2_getArray( self, out_Array, out_Count ) \
+	( ( *(void**)(out_Array) = (self)->First, \
+	*(out_Count) = ( (byte_t*) (self)->Next - (byte_t*) (self)->First ) / sizeof(**(out_Array))), 0 )
+
+#define  Set2_refer( m, iElem, out_pElem ) \
+	Set2_ref_imp( m, iElem, out_pElem, sizeof(**(out_pElem)) )
+
 #define  Set2_ref( m, iElem, out_pElem, ElemType ) \
 	Set2_ref_imp( m, iElem, out_pElem, sizeof(ElemType) )
 
-int  Set2_ref_imp( Set2* m, int iElem, void* out_pElem, size_t ElemSize );
+errnum_t  Set2_ref_imp( Set2* m, int iElem, void* out_pElem, size_t ElemSize );
+
+#define  Set2_isEmpty( m ) \
+	( (m)->Next == (m)->First )
 
 #define  Set2_getCount( m, Type ) \
-	( (Type*)(m)->Next - (Type*)(m)->First )
+	( ( (byte_t*)(m)->Next - (byte_t*)(m)->First ) / sizeof(Type) )
+
+#define  Set2_getCountMax( m, Type ) \
+	( ( (byte_t*)(m)->Over - (byte_t*)(m)->First ) / sizeof(Type) )
 
 #define  Set2_checkPtrInArr( m, p ) \
 	( (m)->First <= (p) && (p) < (m)->Over ? 0 : E_NOT_FOUND_SYMBOL )
 
-int  Set2_separate( Set2* m, int NextSize, void** allocate_Array );
+errnum_t  Set2_separate( Set2* m, int NextSize, void** allocate_Array );
 
 #ifdef _DEBUG
 void  Set2_setDebug( Set2* m, void* PointerOfDebugArray );
 #endif
+
+ 
+/***********************************************************************
+  <<< [Set2a] >>> 
+************************************************************************/
+typedef  struct _Set2  Set2a;
+
+void  Set2a_initConst( Set2a* m, void* ArrInStack );
+int   Set2a_init( Set2a* m, void* ArrInStack, size_t ArrInStack_Size );
+int   Set2a_finish( Set2a* m, void* ArrInStack, int e );
+int   Set2a_toEmpty( Set2a* m );
+//int Set2a_alloc( Set2a* m, void* ArrInStack, ClassA** out_p, Type ClassA );
+int   Set2a_expandIfOverByAddr( Set2a* m, void* OverAddrBasedOnNowFirst );
+
+
+
+// for inside
+
+#define  Set2a_initConst( m, ArrInStack ) \
+	( (m)->First = (ArrInStack) )
+
+#define  Set2a_finish( m, ArrInStack, e ) \
+	( (m)->First == (ArrInStack) ? (e) : ( free( (m)->First ), (e) ) )
+
+#define  Set2a_toEmpty( m ) \
+	Set2_toEmpty( m )
+
+#define  Set2a_alloc( m, ArrInStack, out_Pointer, ClassA ) \
+	( (void*)( (ClassA*)((m)->Next) + 1 ) <= (m)->Over ? \
+		( *(out_Pointer) = (ClassA*)(m)->Next,  (m)->Next = (ClassA*)((m)->Next) + 1, 0 ) : \
+		Set2a_alloc_imp( m, ArrInStack, out_Pointer, sizeof(ClassA) ) )
+
+int  Set2a_alloc_imp( Set2a* m, void* ArrInStack, void* out_Pointer, size_t ElemSize );
+
+#define  Set2a_expandIfOverByAddr( m, ArrInStack, OverAddrBasedOnNowFirst ) \
+	( (void*)(OverAddrBasedOnNowFirst) <= (m)->Over ? 0 : \
+		Set2a_expandIfOverByAddr_imp( m, ArrInStack, OverAddrBasedOnNowFirst ) )
+
+int  Set2a_expandIfOverByAddr_imp( Set2a* m, void* ArrInStack, void* OverAddrBasedOnNowFirst );
+
+
+ 
+/******************************************************************
+  <<< [Set4] >>> 
+*******************************************************************/
+struct _Set4 {
+	byte_t*   FirstBlock;
+	byte_t*   CurrentBlockFirst;
+	byte_t*   CurrentBlockNext;
+	union {
+		byte_t*   CurrentBlockOver;
+		byte_t**  NextBlock;
+	} u;
+	size_t    HeapSize;
+	size_t    ElementSize;
+};
+
+struct _Set4Iter {
+	void*  p;
+	void*  Over;
+};
+
+/* errnum_t  Set4_init( Set4* self, Type, int FirstHeapSize ); */
+/* errnum_t  Set4_allocate( Set4* self, Type** out_ElementPointer ); */
+/* errnum_t  Set4_free( Set4* self, Type** in_out_ElementPointer ); */
+/* Type*     Set4_ref( Set4* self, int i, Type ); */
+
+
+/* Private */
+errnum_t  Set4_init_imp( Set4* self,  size_t in_ElementSize,  size_t FirstHeapSize );
+errnum_t  Set4_finish2_imp2( Set4* self );
+errnum_t  Set4_finish2_imp( Set4* self,  errnum_t  e,  size_t in_ElementSize,  FinalizeFuncType  in_Type_Finalize );
+errnum_t  Set4_alloc_imp( Set4* self,  void* out_ElementPointer,  size_t in_ElementSize );
+errnum_t  Set4_free_imp( Set4* self,  void* in_out_ElementPointer,  size_t in_ElementSize,  errnum_t e );
+void*     Set4_ref_imp( Set4* self, int i, int size );
+int       Set4_getCount_imp( Set4* self, int size );
+void      Set4_forEach_imp2( Set4* self, Set4Iter* p, int size );
+
+
+ 
+/**************************************************************************
+  <<< [ListClass] Linked List >>> 
+***************************************************************************/
+typedef struct  _ListClass          ListClass;
+typedef struct  _ListElementClass   ListElementClass;
+typedef struct  _ListIteratorClass  ListIteratorClass;
+
+/*[ListElementClass]*/
+struct  _ListElementClass {  /* This struct can be menbers of Data */
+	void*              Data;  /* Element Data */
+	ListClass*         List;  /* NULL = Not in a list */
+	ListElementClass*  Next;
+	ListElementClass*  Previous;
+};
+
+struct  _ListClass {
+	void*              Data;  /* List owner. ListClass does not set this */
+	ListElementClass   Terminator;
+	int                Count;
+};
+
+/*[ListIteratorClass]*/
+struct  _ListIteratorClass {
+	ListElementClass*  Element;
+	ListElementClass   ModifiedElement;
+};
+
+       void      ListClass_initConst( ListClass* self );
+inline errnum_t  ListClass_add( ListClass* self, ListElementClass* Element ); /* addFirst */
+       errnum_t  ListClass_addAtIndex( ListClass* self, int Index, ListElementClass* Element );
+inline errnum_t  ListClass_addFirst( ListClass* self, ListElementClass* Element );
+inline errnum_t  ListClass_addLast( ListClass* self, ListElementClass* Element );
+inline int       ListClass_getCount( ListClass* self );
+inline errnum_t  ListClass_getData( ListClass* self, int Index, void* out_Data );
+       errnum_t  ListClass_get( ListClass* self, int Index, ListElementClass** out_Element );
+       errnum_t  ListClass_set( ListClass* self, int Index, ListElementClass* Element );
+       errnum_t  ListClass_replace( ListClass* self, ListElementClass* RemovingElement, ListElementClass* AddingElement );
+inline errnum_t  ListClass_getFirstData( ListClass* self, void* out_Data );
+inline errnum_t  ListClass_getLastData( ListClass* self, void* out_Data );
+inline errnum_t  ListClass_getFirst( ListClass* self, ListElementClass** out_Element );
+inline errnum_t  ListClass_getLast( ListClass* self, ListElementClass** out_Element );
+       int       ListClass_getIndexOfData( ListClass* self, void* Data );
+       int       ListClass_getIndexOf( ListClass* self, ListElementClass* Element );
+       int       ListClass_getLastIndexOfData( ListClass* self, void* Data );
+       errnum_t  ListClass_getArray( ListClass* self, void* DataArray, size_t DataArraySize );
+       errnum_t  ListClass_removeByIndex( ListClass* self, int Index );
+       errnum_t  ListClass_remove( ListClass* self, ListElementClass* Element );
+inline errnum_t  ListClass_removeFirst( ListClass* self );
+inline errnum_t  ListClass_removeLast( ListClass* self );
+       errnum_t  ListClass_clear( ListClass* self );
+inline errnum_t  ListClass_push( ListClass* self, ListElementClass* Element );
+inline void*     ListClass_popData( ListClass* self );
+inline ListElementClass*  ListClass_pop( ListClass* self );
+inline errnum_t  ListClass_enqueue( ListClass* self, ListElementClass* Element );
+inline void*     ListClass_dequeueData( ListClass* self );
+inline ListElementClass*  ListClass_dequeue( ListClass* self );
+inline errnum_t  ListClass_getListIterator( ListClass* self, ListIteratorClass* out_Iterator );
+inline errnum_t  ListClass_getDescendingListIterator( ListClass* self, ListIteratorClass* out_Iterator );
+
+inline void  ListElementClass_initConst( ListElementClass* self, void* Data );
+
+void*     ListIteratorClass_getNext( ListIteratorClass* self );
+void*     ListIteratorClass_getPrevious( ListIteratorClass* self );
+errnum_t  ListIteratorClass_replace( ListIteratorClass* self, ListElementClass* AddingElement );
+errnum_t  ListIteratorClass_remove( ListIteratorClass* self );
+
+
+
+/* Implements of ListClass */
+errnum_t  ListClass_addAt_Sub( ListElementClass* AddingElement, ListElementClass* Target );
+
+
+/*[ListClass_add]*/
+inline errnum_t  ListClass_add( ListClass* self, ListElementClass* Element )
+{
+	return  ListClass_addFirst( self, Element );
+}
+
+
+/*[ListClass_addFirst]*/
+inline errnum_t  ListClass_addFirst( ListClass* self, ListElementClass* Element )
+{
+	return  ListClass_addAt_Sub( Element, self->Terminator.Next );
+}
+
+
+/*[ListClass_addLast]*/
+inline errnum_t  ListClass_addLast( ListClass* self, ListElementClass* Element )
+{
+	return  ListClass_addAt_Sub( Element, &self->Terminator );
+}
+
+
+/*[ListClass_getCount]*/
+inline int  ListClass_getCount( ListClass* self )
+{
+	return  self->Count;
+}
+
+
+/*[ListClass_getData]*/
+inline errnum_t  ListClass_getData( ListClass* self, int Index, void* out_Data )
+{
+	errnum_t  e;
+	ListElementClass*  target;
+
+	e= ListClass_get( self, Index, &target );
+	if ( e == 0 )
+		{ *(void**) out_Data = target->Data; }
+	return  e;
+}
+
+
+/*[ListClass_getFirstData]*/
+inline errnum_t  ListClass_getFirstData( ListClass* self, void* out_Data )
+{
+	if ( self->Count == 0 ) {
+		return  E_NOT_FOUND_SYMBOL;
+	}
+	else {
+		*(void**) out_Data = self->Terminator.Next->Data;
+		return  0;
+	}
+}
+
+
+/*[ListClass_getLastData]*/
+inline errnum_t  ListClass_getLastData( ListClass* self, void* out_Data )
+{
+	if ( self->Count == 0 ) {
+		return  E_NOT_FOUND_SYMBOL;
+	}
+	else {
+		*(void**) out_Data = self->Terminator.Previous->Data;
+		return  0;
+	}
+}
+
+
+/*[ListClass_getFirst]*/
+inline errnum_t  ListClass_getFirst( ListClass* self, ListElementClass** out_Element )
+{
+	if ( self->Count == 0 ) {
+		return  E_NOT_FOUND_SYMBOL;
+	}
+	else {
+		*out_Element = self->Terminator.Next;
+		return  0;
+	}
+}
+
+
+/*[ListClass_getLast]*/
+inline errnum_t  ListClass_getLast( ListClass* self, ListElementClass** out_Element )
+{
+	if ( self->Count == 0 ) {
+		return  E_NOT_FOUND_SYMBOL;
+	}
+	else {
+		*out_Element = self->Terminator.Previous;
+		return  0;
+	}
+}
+
+
+/*[ListClass_isExistData]*/
+inline bool  ListClass_isExistData( ListClass* self, void* Data )
+{
+	return  ( ListClass_getIndexOfData( self, Data ) != INVALID_ARRAY_INDEX );
+}
+
+
+/*[ListClass_removeFirst]*/
+inline errnum_t  ListClass_removeFirst( ListClass* self )
+{
+	if ( self->Count == 0 ) {
+		return  E_NOT_FOUND_SYMBOL;
+	}
+	else {
+		return  ListClass_remove( self, self->Terminator.Next );
+	}
+}
+
+
+/*[ListClass_removeLast]*/
+inline errnum_t  ListClass_removeLast( ListClass* self )
+{
+	if ( self->Count == 0 ) {
+		return  E_NOT_FOUND_SYMBOL;
+	}
+	else {
+		return  ListClass_remove( self, self->Terminator.Previous );
+	}
+}
+
+
+/*[ListClass_push]*/
+inline errnum_t  ListClass_push( ListClass* self, ListElementClass* Element )
+{
+	return  ListClass_addFirst( self, Element );
+}
+
+
+/*[ListClass_popData]*/
+inline void*  ListClass_popData( ListClass* self )
+{
+	if ( self->Count == 0 ) {
+		return  NULL;
+	}
+	else {
+		ListElementClass*  element = self->Terminator.Next;
+
+		ListClass_remove( self, element );
+		return  element->Data;
+	}
+}
+
+
+/*[ListClass_pop]*/
+inline ListElementClass*  ListClass_pop( ListClass* self )
+{
+	if ( self->Count == 0 ) {
+		return  NULL;
+	}
+	else {
+		ListElementClass*  element = self->Terminator.Next;
+
+		ListClass_remove( self, element );
+		return  element;
+	}
+}
+
+
+/*[ListClass_enqueue]*/
+inline errnum_t  ListClass_enqueue( ListClass* self, ListElementClass* Element )
+{
+	return  ListClass_addLast( self, Element );
+}
+
+
+/*[ListClass_dequeueData]*/
+inline void*  ListClass_dequeueData( ListClass* self )
+{
+	return  ListClass_popData( self );
+}
+
+
+/*[ListClass_dequeue]*/
+inline ListElementClass*  ListClass_dequeue( ListClass* self )
+{
+	return  ListClass_pop( self );
+}
+
+
+/*[ListClass_getListIterator]*/
+inline errnum_t  ListClass_getListIterator( ListClass* self, ListIteratorClass* out_Iterator )
+{
+	out_Iterator->Element = &self->Terminator;
+	out_Iterator->ModifiedElement.List = NULL;
+	return  0;
+}
+
+
+/*[ListClass_getDescendingListIterator]*/
+inline errnum_t  ListClass_getDescendingListIterator( ListClass* self, ListIteratorClass* out_Iterator )
+{
+	out_Iterator->Element = &self->Terminator;
+	out_Iterator->ModifiedElement.List = NULL;
+	return  0;
+}
+
+
+/*[ListElementClass_initConst]*/
+inline void  ListElementClass_initConst( ListElementClass* self, void* Data )
+{
+	self->Data = Data;
+	self->List = NULL;
+
+	#ifndef NDEBUG
+		self->Next     = NULL;
+		self->Previous = NULL;
+	#endif
+}
+
+
+ 
+/***********************************************************************
+  <<< [ListClass_forEach] >>> 
+************************************************************************/
+#define  ListClass_forEach( self, iterator, out_Element ) \
+	ListClass_forEach_1( self, iterator, out_Element ); \
+	ListClass_forEach_2( self, iterator, out_Element ); \
+	ListClass_forEach_3( self, iterator, out_Element )
+
+
+inline void  ListClass_forEach_1( ListClass* self, ListIteratorClass* iterator,  void* out_Element )
+{
+	ListClass_getListIterator( self, iterator );
+	*(void**) out_Element = ListIteratorClass_getNext( iterator );
+}
+
+
+inline bool  ListClass_forEach_2( ListClass* self,  ListIteratorClass* iterator,  void* out_Element )
+{
+	UNREFERENCED_VARIABLE_2( self, iterator );
+	return  ( *(void**) out_Element != NULL );
+}
+
+
+inline void  ListClass_forEach_3( ListClass* self, ListIteratorClass* iterator,  void* out_Element )
+{
+	UNREFERENCED_VARIABLE( self );
+	*(void**) out_Element = ListIteratorClass_getNext( iterator );
+}
+
+
+ 
+/**************************************************************************
+  <<< [ListClass:ClassID] >>> 
+***************************************************************************/
+errnum_t  ListClass_finalizeWithVTable( ListClass* self, bool IsFreeElements, errnum_t e );
+errnum_t  ListClass_printXML( ListClass* self, FILE* OutputStream );
+
 
  
 /***********************************************************************
@@ -647,6 +1179,324 @@ errnum_t  Variant_SuperClass_overwrite( Variant_SuperClass* self,
 ************************************************************************/
 typedef struct _VariantClass  VariantClass;
  
+struct _VariantClass {
+	Variant_SuperClass*  Object;
+	ListElementClass     ListElement;
+};
+
+
+ 
+/***********************************************************************
+  <<< [VariantListClass] >>>
+************************************************************************/
+typedef struct _VariantListIteratorClass  VariantListIteratorClass;
+typedef struct _Variant_SuperClass        Variant_SuperClass;
+typedef struct _VariantListIteratorClass  VariantListIteratorClass;
+
+typedef struct _VariantListClass  VariantListClass;
+struct _VariantListClass {
+	ListClass /*<VariantClass>*/  List;
+};
+
+void      VariantListClass_initConst( VariantListClass* self );
+/*        VariantListClass_initialize is not exist */
+errnum_t  VariantListClass_finalize( VariantListClass* self, errnum_t e );
+
+errnum_t  VariantListClass_createElement( VariantListClass* self,
+	void* /*<Variant_SuperClass**>*/ out_ElementObject,
+	const ClassID_Class* ClassID,  void* Parameter );
+
+errnum_t  VariantListClass_destroyElement( VariantListClass* self,
+	void* /*<Variant_SuperClass**>*/  in_out_ElementObject,  errnum_t e );
+
+errnum_t  VariantListClass_getListIterator( VariantListClass* self,
+	VariantListIteratorClass* out_Iterator );
+
+
+ 
+/***********************************************************************
+  <<< [VariantListIteratorClass] >>>
+************************************************************************/
+typedef struct _VariantListIteratorClass  VariantListIteratorClass;
+struct _VariantListIteratorClass {
+	ListIteratorClass  Iterator;
+};
+Variant_SuperClass*  VariantListIteratorClass_getNext( VariantListIteratorClass* self );
+
+
+/*[VariantListClass_getListIterator]*/
+inline errnum_t  VariantListClass_getListIterator( VariantListClass* self,
+	VariantListIteratorClass* out_Iterator )
+{
+	return  ListClass_getListIterator( &self->List, &out_Iterator->Iterator );
+}
+
+
+ 
+/***********************************************************************
+  <<< [VariantListClass_forEach] >>>
+************************************************************************/
+#define  VariantListClass_forEach( self, Iterator, out_Pointer ) \
+	VariantListClass_forEach_Sub1( self, Iterator, out_Pointer ); \
+	*(out_Pointer) != NULL; \
+	VariantListClass_forEach_Sub3( Iterator, out_Pointer )
+
+inline void  VariantListClass_forEach_Sub1( VariantListClass* self,
+	VariantListIteratorClass* Iterator, void* out_Pointer )
+{
+	VariantListClass_getListIterator( self, Iterator );
+	*(void**) out_Pointer = VariantListIteratorClass_getNext( Iterator );
+}
+
+inline void  VariantListClass_forEach_Sub3( \
+	VariantListIteratorClass* Iterator, void* out_Pointer )
+{
+	*(void**) out_Pointer = VariantListIteratorClass_getNext( Iterator );
+}
+
+
+ 
+/***********************************************************************
+  <<< [PArray] >>> 
+************************************************************************/
+typedef  errnum_t (* CompareFuncType )( const void* ppLeft, const void* ppRight, const void* Param,
+	int* out_Result );
+
+int  PArray_setFromArray( void* PointerArray, size_t PointerArraySize, void* out_ppRight,
+	void* SrcArray, size_t SrcArraySize, size_t SrcArrayElemSize );
+
+
+ 
+errnum_t  PArray_doShakerSort( const void* PointerArray,  size_t PointerArraySize,
+	const void* ppLeft,  const void* ppRight,  CompareFuncType Compare,  const void* Param );
+
+
+ 
+errnum_t  PArray_doBinarySearch( const void* PointerArray, size_t PointerArraySize,
+	const void* Key, CompareFuncType Compare, const void* Param,
+	int* out_FoundOrLeftIndex, int* out_CompareResult );
+
+
+ 
+/***********************************************************************
+  <<< [DictionaryAA_Class] Dictionary using AA tree >>> 
+************************************************************************/
+typedef struct _DictionaryAA_Class      DictionaryAA_Class;
+typedef struct _DictionaryAA_NodeClass  DictionaryAA_NodeClass;
+
+struct _DictionaryAA_Class {
+	DictionaryAA_NodeClass*  Root;
+};
+
+
+/*[DictionaryAA_TraverseFuncType]*/
+typedef errnum_t (* DictionaryAA_TraverseFuncType )(
+	DictionaryAA_NodeClass* Node, void* UserParameter );
+
+void      DictionaryAA_Class_initConst( DictionaryAA_Class* self );
+errnum_t  DictionaryAA_Class_finalize( DictionaryAA_Class* self, errnum_t e );
+errnum_t  DictionaryAA_Class_finalize2( DictionaryAA_Class* self,  errnum_t  e,
+	bool  in_IsFreeItem,  FinalizeFuncType  in_Type_Finalize );
+/*errnum_t  DictionaryAA_Class_freeAllKeysHeap( DictionaryAA_Class* self, errnum_t e );*/
+
+errnum_t  DictionaryAA_Class_insert( DictionaryAA_Class* self, const TCHAR* Key,
+	DictionaryAA_NodeClass** out_Node );
+errnum_t  DictionaryAA_Class_remove( DictionaryAA_Class* self, const TCHAR* Key );
+errnum_t  DictionaryAA_Class_search( DictionaryAA_Class* self, const TCHAR* Key,
+	DictionaryAA_NodeClass** out_Node );
+bool      DictionaryAA_Class_isExist( DictionaryAA_Class* self, const TCHAR* Key );
+errnum_t  DictionaryAA_Class_traverse( DictionaryAA_Class* self,
+	DictionaryAA_TraverseFuncType  Function,  void*  UserParameter );
+errnum_t  DictionaryAA_Class_toEmpty( DictionaryAA_Class* self );
+errnum_t  DictionaryAA_Class_getArray( DictionaryAA_Class* self,
+	TCHAR***  in_out_Strings,  int*  in_out_StringCount,  NewStringsEnum  in_HowToAllocate );
+errnum_t  DictionaryAA_Class_print( DictionaryAA_Class* self, FILE* OutputStream );
+
+
+/*[DictionaryAA_Class_forEach]*/
+#define  DictionaryAA_Class_forEach( in_out_Iterator, out_Node ) \
+	*(out_Node) = DictionaryAA_IteratorClass_getNext( in_out_Iterator ); \
+	*(out_Node) != NULL; \
+	*(out_Node) = DictionaryAA_IteratorClass_getNext( in_out_Iterator )
+
+
+ 
+/***********************************************************************
+  <<< [DictionaryAA_NodeClass] >>> 
+************************************************************************/
+struct _DictionaryAA_NodeClass {
+	void*                    Item;  /* User defined */
+
+	const TCHAR*             Key;   /* This is had by DictionaryAA_Class */
+	int                      Height;
+	DictionaryAA_NodeClass*  Left;
+	DictionaryAA_NodeClass*  Right;
+};
+
+extern  DictionaryAA_NodeClass  g_DictionaryAA_NullNode;
+
+
+ 
+/***********************************************************************
+  <<< [DictionaryAA_IteratorClass] >>> 
+************************************************************************/
+typedef struct _DictionaryAA_IteratorClass  DictionaryAA_IteratorClass;
+struct _DictionaryAA_IteratorClass {
+	Set2 /*<DictionaryAA_NodeClass*>*/  Nodes;
+	DictionaryAA_NodeClass**            NextNode;
+};
+
+void      DictionaryAA_IteratorClass_initConst( DictionaryAA_IteratorClass* self );
+errnum_t  DictionaryAA_IteratorClass_initialize( DictionaryAA_IteratorClass* self,
+	DictionaryAA_Class* Collection );
+errnum_t  DictionaryAA_IteratorClass_finalize( DictionaryAA_IteratorClass* self, errnum_t e );
+
+DictionaryAA_NodeClass*  DictionaryAA_IteratorClass_getNext(
+	DictionaryAA_IteratorClass* self );
+
+
+/*[DictionaryAA_IteratorClass_initConst]*/
+inline void  DictionaryAA_IteratorClass_initConst( DictionaryAA_IteratorClass* self )
+{
+	Set2_initConst( &self->Nodes );
+}
+
+
+/*[DictionaryAA_IteratorClass_finalize]*/
+inline errnum_t  DictionaryAA_IteratorClass_finalize( DictionaryAA_IteratorClass* self, errnum_t e )
+{
+	return  Set2_finish( &self->Nodes, e );
+}
+
+
+ 
+/*-------------------------------------------------------------------------*/
+/* <<<< ### (Set4) Class >>>> */ 
+/*-------------------------------------------------------------------------*/
+
+
+ 
+/****************************************************************
+  <<< [Set4_initConst] >>> 
+*****************************************************************/
+#define  Set4_initConst( self ) \
+	( (self)->FirstBlock = NULL )
+
+ 
+/****************************************************************
+  <<< [Set4_init] >>> 
+*****************************************************************/
+#define  Set4_init( self, type, HeapSize ) \
+	Set4_init_imp( self, sizeof(type), HeapSize )
+
+
+ 
+/****************************************************************
+  <<< [Set4_finish] >>> 
+*****************************************************************/
+#define  Set4_finish( self, e, type, in_Type_Finalize ) \
+	( (in_Type_Finalize) == NULL ?  Set4_finish2_imp2( self ), e : \
+		( Set4_finish2_imp( self, e, sizeof(type), in_Type_Finalize ), Set4_finish2_imp2( self ), e ) )
+
+
+ 
+/****************************************************************
+  <<< [Set4_allocate] >>> 
+*****************************************************************/
+#define  Set4_allocate( self, out_ElementPointer ) \
+	Set4_alloc_imp( self, out_ElementPointer, sizeof(**(out_ElementPointer)) )
+
+
+ 
+/****************************************************************
+  <<< [Set4_alloc] >>> 
+*****************************************************************/
+#if 0
+#define  Set4_alloc( self, pp, type ) \
+	Set4_alloc_imp( self, pp, sizeof(type) )
+#endif
+
+
+ 
+/****************************************************************
+  <<< [Set4_free] >>> 
+*****************************************************************/
+#define  Set4_free( self, in_out_ElementPointer, e ) \
+	Set4_free_imp( self, in_out_ElementPointer, sizeof(**(in_out_ElementPointer)), e )
+
+
+ 
+/****************************************************************
+  <<< [Set4_toEmpty] >>> 
+*****************************************************************/
+#define  Set4_toEmpty( self, type, type_finish ) \
+	( Set4_finish2( self, type, type_finish ), \
+		(self)->FirstBlock = NULL, \
+		(self)->Next = (self)->CurrentBlockOver = &(self)->FirstBlock )
+
+
+ 
+/****************************************************************
+  <<< [Set4_ref] >>> 
+*****************************************************************/
+#define  Set4_ref( self, i, type ) \
+	( (type*) Set4_ref_imp( self, i, sizeof(type) ) )
+
+
+ 
+/****************************************************************
+  <<< [Set4_getCount] >>> 
+*****************************************************************/
+#define Set4_getCount( self, type ) \
+	 Set4_getCount_imp( self, sizeof(type) )
+
+#if 0
+#define Set4_getN( self, type ) \
+	 Set4_getCount_imp( self, sizeof(type) )
+#endif
+
+
+ 
+/****************************************************************
+  <<< [Set4_forEach] >>> 
+*****************************************************************/
+#define  Set4_forEach( self, iter, ptr ) \
+	(iter)->p = NULL, Set4_forEach_imp2( self, iter, sizeof(**(ptr)) ); \
+	*(void**)(ptr) = (iter)->p, (iter)->p != NULL; \
+	Set4_forEach_imp2( self, iter, sizeof(**(ptr)) )
+
+#if 0
+#define  Set4_forEach( self, iter, ptr, type ) \
+	(iter)->p = NULL, Set4_forEach_imp2( self, iter, sizeof(type) ); \
+	*(ptr) = (type*)(iter)->p, (iter)->p != NULL; \
+	Set4_forEach_imp2( self, iter, sizeof(type) )
+#endif
+
+#define  Set4_forEach_imp( self, ptr, size ) \
+	(ptr)->p = NULL, Set4_forEach_imp2( self, ptr, size ); \
+	(ptr)->p != NULL; \
+	Set4_forEach_imp2( self, ptr, size )
+
+
+ 
+/****************************************************************
+  <<< [Set4Iter_init] >>> 
+*****************************************************************/
+#define  Set4Iter_init( self, Set, pptr, type ) \
+	( (self)->p = NULL, Set4_forEach_imp2( Set, self, sizeof(type) ), \
+		*(pptr) = (type*)((self)->p), ( (self)->p == NULL ? E_NO_NEXT : 0 ) )
+
+
+ 
+/****************************************************************
+  <<< [Set4Iter_next] >>> 
+*****************************************************************/
+#define  Set4Iter_next( self, Set, pptr, type ) \
+	( Set4_forEach_imp2( Set, self, sizeof(type) ), \
+		*(pptr) = (type*)((self)->p), ( (self)->p == NULL ? E_NO_NEXT : 0 ) )
+
+
+ 
 #ifdef  __cplusplus
  }  /* End of C Symbol */ 
 #endif
@@ -666,6 +1516,54 @@ typedef struct _VariantClass  VariantClass;
 #else
 	#define  NDEBUG_ERROR  ___cut_NDEBUG_ERROR
 #endif
+
+ 
+/**************************************************************************
+  <<< [DebugTools] >>> 
+***************************************************************************/
+#ifndef  NDEBUG
+	#define  DEBUGTOOLS_USES  1
+#else
+	#define  DEBUGTOOLS_USES  0
+#endif
+
+
+#if  DEBUGTOOLS_USES
+typedef struct _DebugTools  DebugTools;
+struct _DebugTools {
+	int     m_BreakID;
+	int     m_DisableBreakExceptID_plus1;
+	int     m_ReturnValueOnBreak_minus1;
+	TCHAR*  m_BreakByFName;
+};
+int  Debug_setReturnValueOnBreak( int ID );
+int  Debug_disableBreak( int iExceptID );
+int  Debug_setBreakByFName( const TCHAR* Path );
+int  Debug_onOpen( const TCHAR* Path );
+#endif
+
+ 
+/***********************************************************************
+  <<< [HeapLogClass] >>> 
+************************************************************************/
+void  HeapLogClass_log( void*  in_Address,  size_t  in_Size );
+int   HeapLogClass_getID( const void*  in_Address );
+void  HeapLogClass_printID( const void*  in_Address );
+void  HeapLogClass_addWatch( int  in_IndexNum,  int  in_AllocatedID,  ptrdiff_t  in_Offset,
+	uint32_t  in_BreakValue,  bool  in_IsPrintf );
+void  HeapLogClass_watch( int  in_IndexNum );
+void* HeapLogClass_getWatchingAddress( int  in_IndexNum );
+void  HeapLogClass_finalize(void);
+
+enum { HeapLogClass_NotAllocatedID = -1 };
+
+
+ 
+/**************************************************************************
+ <<< [g_DebugVar] >>> 
+***************************************************************************/
+extern int  g_DebugVar[10];
+
 
  
 /*[dll_global_g_DebugBreakCount]*/
@@ -700,15 +1598,20 @@ int      GetDebugBreakCount(void);
 
 errnum_t  StrT_cpy( TCHAR* Dst, size_t DstSize, const TCHAR* Src );
 errnum_t  StrT_cat( TCHAR* Dst, size_t DstSize, const TCHAR* Src );
+TCHAR*  StrT_chr( const TCHAR* String, TCHAR Key );
 TCHAR*  StrT_chrs( const TCHAR* s, const TCHAR* keys );
 TCHAR*  StrT_rstr( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* Keyword,
 	void* NullConfig );
+TCHAR*  StrT_chrNext( const TCHAR* in_Start, TCHAR in_KeyCharactor );
 TCHAR*  StrT_skip( const TCHAR* s, const TCHAR* keys );
 TCHAR*  StrT_rskip( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* Keys,
 	void* NullConfig );
 bool    StrT_isCIdentifier( TCHAR Character );
 TCHAR*  StrT_searchOverOfCIdentifier( const TCHAR* Text );
+TCHAR*  StrT_searchOverOfIdiom( const TCHAR* Text );
 int  StrT_cmp_part( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
+	const TCHAR* StringB );
+int  StrT_cmp_i_part( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
 	const TCHAR* StringB );
 int  StrT_cmp_part2( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
 	const TCHAR* StringB_Start, const TCHAR* StringB_Over );
@@ -723,6 +1626,14 @@ inline errnum_t  StrT_cat( TCHAR* Dst, size_t DstSize, const TCHAR* Src )
 }
 
 
+ 
+int  StrT_searchPartStringIndex( const TCHAR* in_String, const TCHAR* in_StringOver,
+	const TCHAR** in_StringsArray,  uint_fast32_t in_StringsArrayLength,
+	int in_DefaultIndex );
+ 
+int  StrT_searchPartStringIndexI( const TCHAR* in_String, const TCHAR* in_StringOver,
+	const TCHAR** in_StringsArray,  uint_fast32_t in_StringsArrayLength,
+	int in_DefaultIndex );
  
 errnum_t  StrT_convStrToId( const TCHAR* str, const TCHAR** strs, const int* ids, int n, int default_id ); 
 errnum_t  StrT_convStrLeftToId( const TCHAR* Str, const TCHAR** Strs, const size_t* Lens, const int* Ids,
@@ -751,17 +1662,47 @@ errnum_t  MallocAndCopyStringByLength( const TCHAR** out_NewString, const TCHAR*
 	#define  MallocAndCopyString_char  MallocAndCopyString
 #endif
 
+errnum_t  StrHS_insert( TCHAR**  in_out_WholeString,
+	int  in_TargetIndexInWholeString,  int*  out_NextWholeInWholeString,
+	const TCHAR*  in_InsertString );
+errnum_t  StrHS_printf( TCHAR**  in_out_String,  const TCHAR*  in_Format,  ... );
+errnum_t  StrHS_printfV( TCHAR**  in_out_String,  const TCHAR*  in_Format,  va_list  in_VaList );
+errnum_t  StrHS_printfPart( TCHAR**  in_out_String,
+	int  in_IndexInString,  int*  out_NextIndexInString,
+	const TCHAR*  in_Format,  ... );
+errnum_t  StrHS_printfPartV( TCHAR**  in_out_String,
+	int  in_IndexInString,  int*  out_NextIndexInString,
+	const TCHAR*  in_Format,  va_list  in_VaList );
+
+
  
 /***********************************************************************
   <<< [StrT_Edit] >>> 
 ************************************************************************/
+errnum_t  StrT_cutPart( TCHAR*  in_out_String,  TCHAR*  in_StartOfCut,  TCHAR*  in_OverOfCut );
 errnum_t  StrT_trim( TCHAR* out_Str, size_t out_Str_Size, const TCHAR* in_Str );
 errnum_t  StrT_cutLastOf( TCHAR* in_out_Str, TCHAR Charactor );
 errnum_t  StrT_cutLineComment( TCHAR* out_Str, size_t out_Str_Size, const TCHAR* in_Str, const TCHAR* CommentSign );
+errnum_t  StrT_insert( TCHAR*  in_out_WholeString,  size_t  in_MaxSize_of_WholeString,
+	TCHAR*  in_out_Target_in_WholeString,  TCHAR**  out_NextTarget_in_WholeString,
+	const TCHAR*  in_InsertString );
 errnum_t  StrT_meltCmdLine( TCHAR* out_Str, size_t out_Str_Size, const TCHAR** pLine );
 errnum_t  StrT_getExistSymbols( unsigned* out, bool bCase, const TCHAR* Str, const TCHAR* Symbols, ... );
 errnum_t  StrT_replace1( TCHAR* in_out_String, TCHAR FromCharacter, TCHAR ToCharacter,
 	unsigned Opt );
+
+
+ 
+/***********************************************************************
+  <<< [StrT_Edit2] >>> 
+************************************************************************/
+errnum_t  StrT_replace( TCHAR* Out, size_t OutSize, const TCHAR* In,
+                   const TCHAR* FromStr, const TCHAR* ToStr, unsigned Opt );
+errnum_t  StrT_changeToXML_Attribute( TCHAR* out_Str, size_t StrSize, const TCHAR* InputStr );
+errnum_t  StrT_resumeFromXML_Attribute( TCHAR* out_Str, size_t out_Str_Size, const TCHAR* XML_Attr );
+errnum_t  StrT_changeToXML_Text( TCHAR* out_Str, size_t StrSize, const TCHAR* InputStr );
+
+enum { STR_1TIME = 1 };
 
 
  
@@ -786,6 +1727,7 @@ enum { StrT_LocalPathMaxSize = 4096 };
 enum { MAX_LOCAL_PATH = 4096 };
 TCHAR*  StrT_refFName( const TCHAR* s );
 TCHAR*  StrT_refExt( const TCHAR* s );
+void  StrT_cutFragmentInPath( TCHAR* in_out_Path );
 bool  StrT_isFullPath( const TCHAR* s );
 
 errnum_t  StrT_getFullPath_part( TCHAR* Str, size_t StrSize, TCHAR* StrStart,
@@ -799,6 +1741,7 @@ errnum_t  StrT_getBaseName_part( TCHAR* Str, size_t StrSize, TCHAR* StrStart,
 	TCHAR** out_StrLast, const TCHAR* SrcPath );
 errnum_t  StrT_addLastOfFileName( TCHAR* out_Path, size_t PathSize,
                              const TCHAR* BasePath, const TCHAR* AddName );
+errnum_t  StrT_encodeToValidPath( TCHAR* out_Path,  size_t in_OutPathSize,  const TCHAR* in_Path,  bool  in_IsName );
 
 inline errnum_t  StrT_getFullPath( TCHAR* out_FullPath, size_t FullPathSize,
 	const TCHAR* StepPath, const TCHAR* BasePath )
@@ -825,11 +1768,11 @@ inline errnum_t  StrT_getBaseName( TCHAR* Str, size_t StrSize, const TCHAR* SrcP
 ***************************************************************************/
 typedef  struct _Strs  Strs;
 struct _Strs {
-	char*   MemoryAddress;   /* first memory = [ TCHAR* FirstStr | elem[] ],  other memory = [ elem[] ] */
-	char*   MemoryOver;
-	char*   NextElem;        /* elem = [ TCHAR* NextStr | TCHAR[] ] */
-	TCHAR** PointerToNextStrInPrevElem;  /* first = &FirstStr,  other = &NextStr */
-	TCHAR** Prev_PointerToNextStrInPrevElem;
+	byte_t*  MemoryAddress;   /* first memory = [ TCHAR* FirstStr | elem[] ],  other memory = [ elem[] ] */
+	byte_t*  MemoryOver;
+	byte_t*  NextElem;        /* elem = [ TCHAR* NextStr | TCHAR[] ] */
+	TCHAR**  PointerToNextStrInPrevElem;  /* first = &FirstStr,  other = &NextStr */
+	TCHAR**  Prev_PointerToNextStrInPrevElem;
 
 	Strs*   FirstOfStrs;
 	Strs*   NextStrs;
@@ -864,11 +1807,13 @@ TCHAR*  Strx_getNext( Strs* m, TCHAR* Str );
 	( *( (TCHAR**)(p) - 1 ) )
 
 #define  Strs_getFreeAddr( m )  ( (TCHAR*)( (m)->NextElem + sizeof(TCHAR*) ) )
-#define  Strs_getFreeSize( m )  ( (m)->MemoryOver - (char*)(m)->NextElem - sizeof(TCHAR*) )
+#define  Strs_getFreeSize( m )  ( (m)->MemoryOver - (byte_t*)(m)->NextElem - sizeof(TCHAR*) )
 #define  Strs_getFreeCount( m ) ( Strs_getFreeSize( m ) / sizeof(TCHAR) )
 #define  Strs_expandCount( m, c )  ( Strs_expandSize( (m), (c) * sizeof(TCHAR) ) )
 errnum_t  Strs_expandSize( Strs* m, size_t FreeSize );
 errnum_t  Strs_commit( Strs* m, TCHAR* StrOver );
+errnum_t  Strs_allocateArray( Strs* self,  TCHAR*** out_PointerArray,  int* out_Count );
+
 
  
 /***********************************************************************
@@ -941,6 +1886,159 @@ inline void  StrArr_forEach_3( StrArrIterator* Iterator, const TCHAR** out_Strin
 errnum_t  StrT_meltCSV( TCHAR* out_Str, size_t out_Str_Size, const TCHAR** pCSV );
 errnum_t  StrArr_parseCSV( StrArr* m, const TCHAR* CSVLine );
 errnum_t  StrT_parseCSV_f( const TCHAR* StringOfCSV, bit_flags32_t* out_ReadFlags, const TCHAR* Types, ... );
+
+
+ 
+/***********************************************************************
+  <<< [StrFile] Read Class >>> 
+************************************************************************/
+ 
+typedef struct _StrFile  StrFile;
+struct _StrFile {
+	void*   Buffer;
+	size_t  BufferSize;
+	bool    IsBufferInHeap;
+	bool    IsTextMode;
+	int     OffsetToHeapBlockFirst;
+	int     CharSize;
+	void*   Pointer;  // (void*)0xFFFFFFFF = EOF
+};
+
+#define   StrFile   StrFile_BlackBox
+ 
+typedef struct _StrFile_BlackBox  StrFile;
+struct _StrFile_BlackBox {
+	uint8_t  BlackBox[24];
+};
+ 
+#undef   StrFile
+static_assert_global( sizeof(StrFile) == sizeof(StrFile_BlackBox), "" );
+ 
+enum {
+	STR_FILE_READ = 0,
+
+	STR_FILE_CHAR  = 0x00,
+	STR_FILE_WCHAR = 0x10,
+#ifdef _UNICODE
+	STR_FILE_TCHAR = 0x10,
+#else
+	STR_FILE_TCHAR = 0x00,
+#endif
+
+	STR_FILE_TEXT   = 0x00,
+	STR_FILE_BINARY = 0x01,
+};
+
+void      StrFile_initConst( StrFile* self );
+errnum_t  StrFile_init_fromStr( StrFile* self, TCHAR* LinkStr );
+errnum_t  StrFile_init_fromSizedStructInStream( StrFile* self, HANDLE* Stream );
+errnum_t  StrFile_init_withBuf( StrFile* self, void* LinkBuffer, size_t LinkBufferSize, int Flags );
+errnum_t  StrFile_finish( StrFile* self, errnum_t e );
+errnum_t  StrFile_isInited( StrFile* self );
+
+errnum_t  StrFile_readLine( StrFile* self, TCHAR* out_Line, size_t LineSize );
+bool      StrFile_isAtEndOfStream( StrFile* self );
+
+
+ 
+/***********************************************************************
+  <<< [StrFile] Write Class >>> 
+************************************************************************/
+
+errnum_t  StrFile_init_toHeap( StrFile* self, int Flags );
+errnum_t  StrFile_write( StrFile* self, const TCHAR* Text );
+errnum_t  StrFile_writeBinary( StrFile* self, const void* Data, size_t DataSize );
+errnum_t  StrFile_expandIfOver( StrFile* self, size_t DataSize );
+errnum_t  StrFile_peekWrittenString( StrFile* self, TCHAR** out_String );
+errnum_t  StrFile_peekWrittenStringW( StrFile* self, wchar_t** out_String );
+errnum_t  StrFile_peekWrittenStringA( StrFile* self, char** out_String );
+errnum_t  StrFile_pickupSizedStruct( StrFile* m, SizedStruct** out_Struct );
+errnum_t  StrFile_moveSizedStructToStream( StrFile* self, HANDLE Stream );
+errnum_t  StrFile_setPointer( StrFile* self, int OffsetOfPointer );
+errnum_t  StrFile_getPointer( StrFile* self, int* out_OffsetOfPointer );
+
+
+#ifdef _UNICODE
+#define  StrFile_peekWrittenString  StrFile_peekWrittenStringW
+#else
+#define  StrFile_peekWrittenString  StrFile_peekWrittenStringA
+#endif
+
+
+ 
+/***********************************************************************
+  <<< [SearchStringByBM_Class] >>> 
+************************************************************************/
+typedef struct _SearchStringByBM_Class  SearchStringByBM_Class;
+struct _SearchStringByBM_Class {
+	const TCHAR*  TextString;
+	int           TextStringLength;
+	const TCHAR*  Keyword;
+	int           KeywordLastIndex;
+	int           KeywordLastPosition;  /* Index of TextString */
+	int*          SkipArray;
+	TCHAR         SkipArray_MinCharacter;
+	TCHAR         SkipArray_MaxCharacter;
+};
+
+void      SearchStringByBM_Class_initConst( SearchStringByBM_Class* self );
+errnum_t  SearchStringByBM_Class_initialize( SearchStringByBM_Class* self,
+	const TCHAR* TextString,  const TCHAR* Keyword );
+errnum_t  SearchStringByBM_Class_initializeFromPart( SearchStringByBM_Class* self,
+	const TCHAR* TextString,  size_t TextString_Length,  const TCHAR* Keyword );
+errnum_t  SearchStringByBM_Class_finalize( SearchStringByBM_Class* self, errnum_t e );
+errnum_t  SearchStringByBM_Class_search( SearchStringByBM_Class* self, int* out_KeywordIndex );
+
+
+enum { SearchString_NotFound = -1 };  /*[SearchString_NotFound]*/
+
+
+ 
+/***********************************************************************
+  <<< [SearchStringByAC_Class] >>> 
+************************************************************************/
+enum { SearchStringByAC_Fail = 0 };                   /*[SearchStringByAC_Fail]*/
+enum { SearchStringByAC_RootState = 0 };              /*[SearchStringByAC_RootState]*/
+#if 0
+enum { SearchStringByAC_MaxCharacterCode = 0xFFFF };  /*[SearchStringByAC_MaxCharacterCode]*/
+#else
+enum { SearchStringByAC_MaxCharacterCode = 0xFF };  /*[SearchStringByAC_MaxCharacterCode]*/
+#endif
+typedef int16_t (* AC_GotoFunctionType )[ SearchStringByAC_MaxCharacterCode + 1 ];
+	/* Array of next_state[state][character] */
+
+typedef struct _SearchStringByAC_Class  SearchStringByAC_Class;
+struct _SearchStringByAC_Class {
+	int            StateNum;
+	const TCHAR*   TextString;
+	unsigned       TextStringLength;
+	int            TextStringIndex;
+	const TCHAR**  FoundKeywords;
+	int            FoundKeywordsCount;
+	int            FoundKeywordIndex;
+
+	Set2            GoToFunction;  /* <AC_GotoFunctionType> Next state[ state ][ character ] */
+	int*            FailureFunction;    /* Next state[ state ] */
+	const TCHAR***  OutputFunction;     /* TCHAR*  OutputFunction.Keyword[ state ][ count ] */
+	int*            OutputCount;        /* int     OutputFunction.Count[ state ] */
+	int16_t         StateCount;         /* newstate + 1 */
+};
+
+void      SearchStringByAC_Class_initConst( SearchStringByAC_Class* self );
+errnum_t  SearchStringByAC_Class_initialize( SearchStringByAC_Class* self,
+	const TCHAR* TextString, const TCHAR** KeywordArray, size_t KeywordArrayCount );
+errnum_t  SearchStringByAC_Class_initializeFromPart( SearchStringByAC_Class* self,
+	const TCHAR* TextString,  size_t TextString_Length,
+	const TCHAR** KeywordArray,  size_t KeywordArrayCount );
+errnum_t  SearchStringByAC_Class_finalize( SearchStringByAC_Class* self, errnum_t e );
+errnum_t  SearchStringByAC_Class_search( SearchStringByAC_Class* self,
+	int* out_TextStringIndex, TCHAR** out_Keyword );
+errnum_t  SearchStringByAC_Class_setTextString( SearchStringByAC_Class* self,
+	const TCHAR* TextString );
+errnum_t  SearchStringByAC_Class_setTextStringFromPart( SearchStringByAC_Class* self,
+	const TCHAR* TextString,  size_t TextString_Length );
+inline  const TCHAR*  SearchStringByAC_Class_getTextString( SearchStringByAC_Class* self )
+	{ return  self->TextString; }
 
 
  
@@ -1073,6 +2171,12 @@ errnum_t  VTableDefine_overwrite( VTableDefine* aVTable, size_t aVTable_ByteSize
  
 #endif
 
+#ifndef  NDEBUG
+	#define  ERR2_ENABLE_ERROR_LOG  1
+#else
+	#define  ERR2_ENABLE_ERROR_LOG  0
+#endif
+
 /*[dll_global_g_Error]*/
 #ifndef  dll_global_g_Error
 	#define  dll_global_g_Error
@@ -1166,6 +2270,14 @@ void  Error4_printf( const TCHAR* format, ... );
 void  Error4_getErrStr( int ErrNum, TCHAR* out_ErrStr, size_t ErrStrSize );
 void  Error4_clear( int err_num );
 errnum_t  SaveWindowsLastError(void);
+
+
+ 
+/***********************************************************************
+  <<< [stdio] >>> 
+************************************************************************/
+void  Error4_showToStdErr( int err_num );
+void  Error4_showToStdIO( FILE* out, int err_num );
 
 
  
@@ -1307,6 +2419,67 @@ Error4_VariablesClass*  Get_Error4_Variables(void);
 #endif
  
 /*=================================================================*/
+/* <<< [Expat/Expat_incude.h] >>> */ 
+/*=================================================================*/
+ 
+#ifndef  __EXPAT_H
+#define  __EXPAT_H
+
+#define  XML_STATIC   /* [SETTING] define or not define. if not define, deploy libexpat(w).dll */
+
+
+// reference: README.txt : * Special note about MS VC++ and runtime libraries
+#if _UNICODE
+  #define  XML_UNICODE_WCHAR_T
+  #if defined(XML_STATIC)
+    #if _MT
+      #if _DLL  // Visual C++ /MD option, MSVCP**.DLL
+        #pragma comment(lib, "libexpatwMD.lib")  // not supplied
+      #else  // Visual C++ /MT option
+
+        #pragma comment(lib, "libexpatwMT.lib")
+
+        #ifndef NDEBUG
+          #pragma comment(linker,"/NODEFAULTLIB:LIBCMT" )
+        #endif
+      #endif
+    #else
+      #pragma comment(lib, "libexpatwML.lib")   // not supplied
+    #endif
+  #else  // DLL version
+
+    #pragma comment(lib, "libexpatw.lib")  // libexpatw.dll, including multi thread static runtime library
+
+  #endif
+#else
+  #if defined(XML_STATIC)
+    #if _MT
+      #if _DLL  // Visual C++ /MD option, MSVCP**.DLL
+        #pragma comment(lib, "libexpatMD.lib")  // not supplied
+      #else  // Visual C++ /MT option
+
+        #pragma comment(lib, "libexpatMT.lib")
+
+        #ifndef NDEBUG
+          # pragma comment(linker,"/NODEFAULTLIB:LIBCMT" )
+        #endif
+      #endif
+    #else
+      #pragma comment(lib, "libexpatML.lib")   // not supplied
+    #endif
+  #else  // DLL version
+
+    #pragma comment(lib, "libexpat.lib")  // libexpat.dll, including multi thread static runtime library
+
+  #endif
+#endif
+
+#include  <expat.h> 
+
+
+#endif
+ 
+/*=================================================================*/
 /* <<< [FileT/FileT.h] >>> */ 
 /*=================================================================*/
  
@@ -1356,7 +2529,7 @@ errnum_t  FileT_readAll( FILE* File, TCHAR** out_Text, size_t* out_TextLength );
 /***********************************************************************
   <<< [FileT_Write] >>> 
 ************************************************************************/
-int  FileT_openForWrite( FILE** out_pFile, const TCHAR* Path, int Flags );
+int  FileT_openForWrite( FILE** out_pFile, const TCHAR* Path,  bit_flags_fast32_t  Flags );
 
 enum { F_Unicode = 1,  F_Append = 2 };
 
@@ -1364,6 +2537,91 @@ int  FileT_copy( const TCHAR* SrcPath, const TCHAR* DstPath );
 int  FileT_mkdir( const TCHAR* Path );
 int  FileT_del( const TCHAR* Path );
 int  FileT_writePart( FILE* File, const TCHAR* Start, TCHAR* Over );
+
+
+ 
+/***********************************************************************
+  <<< [FileT_WinAPI] >>> 
+************************************************************************/
+int  FileT_readSizedStruct_WinAPI( HANDLE* Stream, void** out_SizedStruct );
+int  FileT_writeSizedStruct_WinAPI( HANDLE* Stream, SizedStruct* OutputSizedStruct );
+
+
+ 
+/***********************************************************************
+  <<< [FileFormatEnum] >>> 
+************************************************************************/
+typedef enum {
+	FILE_FORMAT_NOT_EXIST = 0,  /* File does not exist */
+	FILE_FORMAT_NO_BOM    = 1,
+	FILE_FORMAT_UNICODE   = 2,
+	FILE_FORMAT_UTF_8     = 3,
+} FileFormatEnum;
+
+
+ 
+/***********************************************************************
+* Function: FileT_readUnicodeFileBOM
+************************************************************************/
+errnum_t  FileT_readUnicodeFileBOM( const TCHAR* Path, FileFormatEnum* out_Format );
+
+
+ 
+/***********************************************************************
+* Function: FileT_cutFFFE
+************************************************************************/
+errnum_t  FileT_cutFFFE( const TCHAR* in_InputPath,  const TCHAR*  in_OutputPath,  bool  in_IsAppend );
+
+
+ 
+/***********************************************************************
+  <<< [ParseXML2] >>>
+************************************************************************/
+typedef struct _ParseXML2_ConfigClass  ParseXML2_ConfigClass;
+typedef struct _ParseXML2_StatusClass  ParseXML2_StatusClass;
+typedef errnum_t  (* ParseXML2_CallbackType )( ParseXML2_StatusClass* Status );
+
+struct _ParseXML2_ConfigClass {
+	BitField                Flags;   /* F_ParseXML2_Delegate | F_ParseXML2_OnStartElement ... */
+	void*                   Delegate;       /* Flags|= F_ParseXML2_Delegate,       if enabled */
+	ParseXML2_CallbackType  OnStartElement; /* Flags|= F_ParseXML2_OnStartElement, if enabled */
+	ParseXML2_CallbackType  OnEndElement;   /* Flags|= F_ParseXML2_OnEndElement,   if enabled */
+	ParseXML2_CallbackType  OnText;         /* Flags|= F_ParseXML2_OnText,         if enabled */
+};
+enum {
+	F_ParseXML2_Delegate       = 0x0001,
+	F_ParseXML2_OnStartElement = 0x0004,
+	F_ParseXML2_OnEndElement   = 0x0008,
+	F_ParseXML2_OnText         = 0x0010,
+};
+
+struct _ParseXML2_StatusClass {
+	void*   Delegate;
+	int     LineNum;
+	int     Depth;                 /* Root XML element is 0 */
+	int     PreviousCallbackType;  /* e.g.) F_ParseXML2_OnStartElement. Initial value is 0 */
+
+	TCHAR*  XPath;
+	TCHAR*  TagName;
+	union {
+		struct {
+			const XML_Char**  Attributes;  /* for ParseXML2_StatusClass_getAttribute */
+		} OnStartElement;
+
+		struct {  /* for ParseXML2_StatusClass_mallocCopyText */
+			const TCHAR*  Text;  /* not NULL terminated */
+			int           TextLength;
+		} OnText;
+	} u;
+};
+
+errnum_t  ParseXML2( const TCHAR* XML_Path, ParseXML2_ConfigClass* in_out_Config );
+errnum_t  ParseXML2_StatusClass_getAttribute( ParseXML2_StatusClass* self,
+	const TCHAR* AttributeName, TCHAR** out_AttribyteValue );
+errnum_t  ParseXML2_StatusClass_mallocCopyText( ParseXML2_StatusClass* self,
+	TCHAR** out_Text );
+
+enum { E_XML_PARSER = 0x3101 };
 
 
  
@@ -1378,9 +2636,12 @@ typedef void*  AppKey;
 typedef struct _Writables  Writables;
 
 errnum_t  AppKey_newWritable( AppKey** in_out_m,  Writables** out_Writable,  ... );
+errnum_t  AppKey_newWritable_byArray( AppKey** in_out_m,  Writables** out_Writable,
+	TCHAR**  in_Paths,  int  in_PathCount );
 void      AppKey_initGlobal_const(void);
 errnum_t  AppKey_finishGlobal( errnum_t e );
 errnum_t  AppKey_addNewWritableFolder( const TCHAR* Path );
+errnum_t  AppKey_addWritableFolder( AppKey* m, const TCHAR* Path );
 errnum_t  AppKey_checkWritable( const TCHAR* Path );
 
 
@@ -1391,8 +2652,8 @@ struct _Writables {
 
 errnum_t   Writables_delete( Writables* m, errnum_t e );
 
-errnum_t   Writables_add( Writables* m, AppKey* Key, TCHAR* Path );
-errnum_t   Writables_remove( Writables* m, TCHAR* Path );
+errnum_t   Writables_add( Writables* m, AppKey* Key, const TCHAR* Path );
+errnum_t   Writables_remove( Writables* m, const TCHAR* Path );
 
 errnum_t   Writables_enable( Writables* m );
 errnum_t   Writables_disable( Writables* m, errnum_t e );
@@ -1404,6 +2665,23 @@ extern  Writables  g_CurrentWritables;
 #if  __cplusplus
  }  /* End of C Symbol */ 
 #endif
+ 
+/*=================================================================*/
+/* <<< [IniFile2/IniFile2.h] >>> */ 
+/*=================================================================*/
+ 
+#if  __cplusplus
+ extern "C" {  /* Start of C Symbol */ 
+#endif
+ 
+bool  IniStr_isLeft( const TCHAR* line, const TCHAR* symbol ); 
+ 
+TCHAR*  IniStr_refRight( const TCHAR* line, bool bTrimRight ); 
+ 
+#if  __cplusplus
+ }    /* End of C Symbol */ 
+#endif
+
  
 /*=================================================================*/
 /* <<< [Locale/Locale.h] >>> */ 
@@ -1421,6 +2699,31 @@ extern  Writables  g_CurrentWritables;
 extern char*  g_LocaleSymbol;
 int  Locale_init(void);
 int  Locale_isInited(void);
+
+
+ 
+/***********************************************************************
+  <<< [FileTime] >>> 
+************************************************************************/
+
+#define  FILETIME_addDays( pAnsTime, pBaseTime, plus ) \
+  ( *(ULONGLONG*)(pAnsTime) = *(ULONGLONG*)(pBaseTime) \
+          + (plus) * ((LONGLONG)(24*60*60)*(1000*1000*10)) )
+
+#define  FILETIME_addHours( pAnsTime, pBaseTime, plus ) \
+  ( *(ULONGLONG*)(pAnsTime) = *(ULONGLONG*)(pBaseTime) \
+          + (plus) * ((LONGLONG)(60*60)*(1000*1000*10)) )
+
+#define  FILETIME_addMinutes( pAnsTime, pBaseTime, plus ) \
+  ( *(ULONGLONG*)(pAnsTime) = *(ULONGLONG*)(pBaseTime) \
+          + (plus) * ((LONGLONG)(60)*(1000*1000*10)) )
+
+#define  FILETIME_addSeconds( pAnsTime, pBaseTime, plus ) \
+  ( *(ULONGLONG*)(pAnsTime) = *(ULONGLONG*)(pBaseTime) \
+          + (plus) * ((LONGLONG)(1000*1000*10)) )
+
+#define  FILETIME_sub( pLeftTime, pRightTime ) \
+  ( *(ULONGLONG*)(pLeftTime) - *(ULONGLONG*)(pRightTime) )
 
 
  
@@ -1485,6 +2788,81 @@ errnum_t  ParsedRanges_write_by_Cut(
 
  
 /***********************************************************************
+  <<< [LineNumberIndexClass] >>> 
+************************************************************************/
+typedef struct _LineNumberIndexClass  LineNumberIndexClass;
+struct _LineNumberIndexClass {
+	Set2  /*<const TCHAR*>*/  LeftsOfLine;
+};
+
+void      LineNumberIndexClass_initConst( LineNumberIndexClass* self );
+errnum_t  LineNumberIndexClass_initialize( LineNumberIndexClass* self, const TCHAR* Text );
+errnum_t  LineNumberIndexClass_finalize( LineNumberIndexClass* self, errnum_t e );
+errnum_t  LineNumberIndexClass_searchLineNumber( LineNumberIndexClass* self, const TCHAR* Position,
+	int* out_LineNumber );
+int  LineNumberIndexClass_getCountOfLines( LineNumberIndexClass* self );
+
+
+ 
+/***********************************************************************
+  <<< [SyntaxSubNodeClass] >>> 
+************************************************************************/
+typedef struct _SyntaxSubNodeClass_IDClass  SyntaxSubNodeClass_IDClass;
+typedef struct _SyntaxNodeClass             SyntaxNodeClass;
+
+
+typedef struct _SyntaxSubNodeClass  SyntaxSubNodeClass;
+struct _SyntaxSubNodeClass {
+
+	/* <Inherit parent="ParsedRangeClass"> */
+	const ClassID_Class*         ClassID;
+	const FinalizerVTableClass*  FinalizerVTable;
+	const TCHAR*                 Start;
+	const TCHAR*                 Over;
+	/* </Inherit> */
+
+	const PrintXML_VTableClass*  PrintXML_VTable;
+	SyntaxNodeClass*             Parent;
+	ListElementClass             SubNodeListElement;  /* for ".Parent" */
+};
+
+extern const ClassID_Class  g_SyntaxSubNodeClass_ID;
+errnum_t  SyntaxSubNodeClass_printXML( SyntaxSubNodeClass* self, FILE* OutputStream );
+
+
+ 
+/***********************************************************************
+  <<< [SyntaxNodeClass] >>> 
+************************************************************************/
+typedef struct _SyntaxNodeClass_IDClass  SyntaxNodeClass_IDClass;
+
+typedef struct _SyntaxNodeClass  SyntaxNodeClass;
+struct _SyntaxNodeClass {
+
+	/* <Inherit parent="SyntaxSubNodeClass"> */
+	const ClassID_Class*         ClassID;
+	const FinalizerVTableClass*  FinalizerVTable;
+	const TCHAR*                 Start;
+	const TCHAR*                 Over;
+	const PrintXML_VTableClass*  PrintXML_VTable;
+	SyntaxNodeClass*             Parent;
+	ListElementClass             SubNodeListElement;  /* for ".Parent" */
+	/* </Inherit> */
+
+	ListClass                    SubNodeList;
+	ListElementClass             ListElement;  /* Next and previous in source file */
+};
+
+errnum_t  Delete_SyntaxNodeList( ListClass* /*<SyntaxNodeClass*>*/ NodeList, errnum_t e );
+
+extern const ClassID_Class  g_SyntaxNodeClass_ID;
+void      SyntaxNodeClass_initConst( SyntaxNodeClass* self );
+errnum_t  SyntaxNodeClass_printXML( SyntaxNodeClass* self, FILE* OutputStream );
+errnum_t  SyntaxNodeClass_addSubNode( SyntaxNodeClass* self, SyntaxSubNodeClass* SubNode );
+
+
+ 
+/***********************************************************************
   <<< [PP_DirectiveClass] >>> 
 ************************************************************************/
 
@@ -1526,6 +2904,12 @@ errnum_t  ParsedRanges_getCut_by_PP_Directive(
 	Set2* /*<ParsedRangeClass>*/    CutRanges,
 	Set2* /*<PP_DirectiveClass*>*/  DirectivePointerArray,
 	const TCHAR* Symbol,  bool IsCutDefine );
+
+
+ 
+errnum_t  CutPreprocessorDirectives_from_C_LanguageToken(
+	ListClass* /*<C_LanguageTokenClass*>*/ TokenList,
+	Set2* /*<PP_DirectiveClass*>*/ Directives );
 
 
  
@@ -1703,6 +3087,269 @@ extern const ClassID_Class  g_PP_SharpIfndefClass_ID;
 
 
  
+/***********************************************************************
+  <<< [C_LanguageTokenEnum] >>> 
+************************************************************************/
+typedef enum _C_LanguageTokenEnum  C_LanguageTokenEnum;
+enum _C_LanguageTokenEnum {
+	gc_TokenOfOther       = 0,
+	gc_TokenOfNumber      = 0xA1,
+	gc_TokenOfCIdentifier = 0xA2,
+	gc_TokenOfString      = 0xA3,
+	gc_TokenOfChar        = 0xA4,
+
+	gc_TokenOf_28         = '(',
+	gc_TokenOf_29         = ')',
+	gc_TokenOf_7B         = '{',
+	gc_TokenOf_7D         = '}',
+	gc_TokenOf_5B         = '[',
+	gc_TokenOf_5D         = ']',
+	gc_TokenOf_3A         = ':',
+	gc_TokenOf_3B         = ';',
+	gc_TokenOf_2A         = '*',
+	gc_TokenOf_0A         = '\n',
+	gc_TokenOf_3D         = '=',
+	gc_TokenOf_2E         = '.',
+	gc_TokenOf_26         = '&',
+	gc_TokenOf_2B         = '+',
+	gc_TokenOf_2D         = '-',
+	gc_TokenOf_7E         = '~',
+	gc_TokenOf_21         = '!',
+	gc_TokenOf_2F         = '/',
+	gc_TokenOf_25         = '%',
+	gc_TokenOf_3E         = '>',
+	gc_TokenOf_3C         = '<',
+	gc_TokenOf_5E         = '^',
+	gc_TokenOf_7C         = '|',
+	gc_TokenOf_3F         = '?',
+	gc_TokenOf_2C         = ',',
+	gc_TokenOf_2A2F       = TwoChar8( '/', '*' ),
+	gc_TokenOf_2F2A       = TwoChar8( '*', '/' ),
+	gc_TokenOf_2F2F       = TwoChar8( '/', '/' ),
+	gc_TokenOf_3E2D       = TwoChar8( '-', '>' ),
+	gc_TokenOf_2B2B       = TwoChar8( '+', '+' ),
+	gc_TokenOf_2D2D       = TwoChar8( '-', '-' ),
+	gc_TokenOf_3C3C       = TwoChar8( '<', '<' ),
+	gc_TokenOf_3E3E       = TwoChar8( '>', '>' ),
+	gc_TokenOf_3D3E       = TwoChar8( '>', '=' ),
+	gc_TokenOf_3D3C       = TwoChar8( '<', '=' ),
+	gc_TokenOf_3D3D       = TwoChar8( '=', '=' ),
+	gc_TokenOf_3D21       = TwoChar8( '!', '=' ),
+	gc_TokenOf_2626       = TwoChar8( '&', '&' ),
+	gc_TokenOf_7C7C       = TwoChar8( '|', '|' ),
+	gc_TokenOf_3D2B       = TwoChar8( '+', '=' ),
+	gc_TokenOf_3D2D       = TwoChar8( '-', '=' ),
+	gc_TokenOf_3D2A       = TwoChar8( '*', '=' ),
+	gc_TokenOf_3D2F       = TwoChar8( '/', '=' ),
+	gc_TokenOf_3D25       = TwoChar8( '%', '=' ),
+	/* <<= */
+	/* >>= */
+	gc_TokenOf_3D26       = TwoChar8( '&', '=' ),
+	gc_TokenOf_3D7C       = TwoChar8( '|', '=' ),
+	gc_TokenOf_3D5E       = TwoChar8( '^', '=' ),
+};
+
+TCHAR*  C_LanguageTokenEnum_convertToStr( C_LanguageTokenEnum Value );
+
+
+ 
+/***********************************************************************
+  <<< [C_LanguageTokenClass] >>> 
+************************************************************************/
+typedef struct _C_LanguageTokenClass_IDClass  C_LanguageTokenClass_IDClass;
+
+typedef struct _C_LanguageTokenClass  C_LanguageTokenClass;
+struct _C_LanguageTokenClass {
+
+	/* <Inherit parent="SyntaxSubNodeClass"> */
+	const ClassID_Class*         ClassID;
+	const FinalizerVTableClass*  FinalizerVTable;
+	const TCHAR*                 Start;
+	const TCHAR*                 Over;
+	const PrintXML_VTableClass*  PrintXML_VTable;
+	SyntaxNodeClass*             Parent;
+	ListElementClass             SubNodeListElement;  /* for ".Parent" */
+	/* </Inherit> */
+
+	C_LanguageTokenEnum          TokenType;
+	ListElementClass             ListElement;  /* Next and previous in source file */
+	SyntaxNodeClass*             ParentBlock;
+};
+
+extern const ClassID_Class  g_C_LanguageTokenClass_ID;
+void      C_LanguageTokenClass_initConst( C_LanguageTokenClass* self );
+errnum_t  C_LanguageTokenClass_printXML( C_LanguageTokenClass* self, FILE* OutputStream );
+
+
+ 
+/***********************************************************************
+  <<< [NaturalDocsDefinitionClass] >>> 
+************************************************************************/
+typedef struct _NaturalDocsDefinitionClass  NaturalDocsDefinitionClass;
+struct _NaturalDocsDefinitionClass {
+	const TCHAR*  Name;  /* Has */
+	const TCHAR*  NameStart;
+	const TCHAR*  NameOver;
+
+	const TCHAR*  Brief;  /* Has */
+	const TCHAR*  BriefStart;
+	const TCHAR*  BriefOver;
+};
+
+void      NaturalDocsDefinitionClass_initConst( NaturalDocsDefinitionClass* self );
+errnum_t  NaturalDocsDefinitionClass_finalize( NaturalDocsDefinitionClass* self,  errnum_t e );
+
+
+ 
+/***********************************************************************
+  <<< [NaturalDocsDescriptionTypeEnum] >>> 
+************************************************************************/
+typedef enum _NaturalDocsDescriptionTypeEnum  NaturalDocsDescriptionTypeEnum;
+enum _NaturalDocsDescriptionTypeEnum {
+	NaturalDocsDescriptionType_Unknown,
+	NaturalDocsDescriptionType_SubTitle,
+	NaturalDocsDescriptionType_Paragraph,
+	NaturalDocsDescriptionType_Code,
+	NaturalDocsDescriptionType_DefinitionList,
+
+	NaturalDocsDescriptionType_Count
+};
+
+const TCHAR*  NaturalDocsDescriptionTypeEnum_to_String( int in,  const TCHAR* in_OutOfRange );
+
+
+ 
+/***********************************************************************
+  <<< [NaturalDocsDescriptionClass] >>> 
+************************************************************************/
+typedef struct _NaturalDocsDescriptionClass  NaturalDocsDescriptionClass;
+struct _NaturalDocsDescriptionClass {
+	NaturalDocsDescriptionTypeEnum  Type;
+
+	const TCHAR*  Start;
+	const TCHAR*  Over;
+
+	union {
+		void*                        Unknown;
+		NaturalDocsDefinitionClass*  Definition;
+	} u;
+};
+
+void      NaturalDocsDescriptionClass_initConst( NaturalDocsDescriptionClass* self );
+errnum_t  NaturalDocsDescriptionClass_finalize( NaturalDocsDescriptionClass* self,  errnum_t e );
+
+
+ 
+/***********************************************************************
+  <<< [NaturalDocsParserConfigClass] >>> 
+************************************************************************/
+typedef struct _NaturalDocsParserConfigClass  NaturalDocsParserConfigClass;
+struct _NaturalDocsParserConfigClass {
+	bit_flags_fast32_t  Flags;  /*<NaturalDocsParserConfigEnum>*/
+	TCHAR**             AdditionalKeywords;
+	int                 AdditionalKeywordsLength;
+	int                 AdditionalKeywordsEndsScopesFirstIndex;
+	int                 AdditionalKeywordsEndsScopesLength;
+};
+typedef enum _NaturalDocsParserConfigEnum  NaturalDocsParserConfigEnum;
+enum _NaturalDocsParserConfigEnum {
+	NaturalDocsParserConfig_AdditionalKeywords       = 0x0001,
+	NaturalDocsParserConfig_AdditionalKeywordsLength = 0x0002,
+	NaturalDocsParserConfig_AdditionalKeywordsEndsScopesFirstIndex = 0x0004,
+	NaturalDocsParserConfig_AdditionalKeywordsEndsScopesLength     = 0x0008,
+};
+
+
+ 
+/***********************************************************************
+  <<< [NaturalDocsHeaderClass] >>> 
+************************************************************************/
+typedef struct _NaturalDocsHeaderClass  NaturalDocsHeaderClass;
+struct _NaturalDocsHeaderClass {
+	const TCHAR*  Keyword;  /* Has */
+	const TCHAR*  KeywordStart;
+	const TCHAR*  KeywordOver;
+
+	const TCHAR*  Name;     /* Has */
+	const TCHAR*  NameStart;
+	const TCHAR*  NameOver;
+
+	const TCHAR*  BriefNoIndent;
+	const TCHAR*  Brief;    /* Has */
+	const TCHAR*  BriefStart;
+	const TCHAR*  BriefOver;
+
+	const TCHAR*  ArgumentsLabel;
+	Set2          Arguments;  /*<NaturalDocsDefinitionClass>*/ /* Has */
+
+	const TCHAR*  ReturnValueLabel;
+	const TCHAR*  ReturnValue; /* Has */
+	const TCHAR*  ReturnValueStart;
+	const TCHAR*  ReturnValueOver;
+
+	const TCHAR*  Descriptions; /* Has */
+	const TCHAR*  DescriptionsStart;
+	const TCHAR*  DescriptionsOver;
+
+	Set2          DescriptionItems;  /*<NaturalDocsDescriptionClass>*/ /* Has */
+};
+
+void      NaturalDocsHeaderClass_initConst( NaturalDocsHeaderClass* self );
+errnum_t  NaturalDocsHeaderClass_finalize( NaturalDocsHeaderClass* self,  errnum_t e );
+
+errnum_t  ParseNaturalDocsComment( const TCHAR* in_SourceStart, const TCHAR* in_SourceOver,
+	NaturalDocsHeaderClass** out_NaturalDocsHeader,  NaturalDocsParserConfigClass* config );
+
+
+ 
+/***********************************************************************
+  <<< [NaturalCommentClass] >>> 
+************************************************************************/
+typedef struct _NaturalCommentClass  NaturalCommentClass;
+struct _NaturalCommentClass {
+
+	/* <Inherit parent="SyntaxNodeClass"> */
+	const ClassID_Class*         ClassID;
+	const FinalizerVTableClass*  FinalizerVTable;
+	const TCHAR*                 Start;
+	const TCHAR*                 Over;
+	const PrintXML_VTableClass*  PrintXML_VTable;
+	SyntaxNodeClass*             Parent;
+	ListElementClass             SubNodeListElement;  /* for ".Parent" */
+	ListClass                    SubNodeList;
+	ListElementClass             ListElement;  /* Next and previous in source file */
+	/* </Inherit> */
+
+	int   StartLineNum;
+	int   LastLineNum;
+	NaturalDocsHeaderClass*  NaturalDocsHeader;
+	NaturalCommentClass*     ParentComment;
+};
+
+extern const ClassID_Class  g_NaturalCommentClass_ID;
+void      NaturalCommentClass_initConst( NaturalCommentClass* self );
+errnum_t  NaturalCommentClass_finalize( NaturalCommentClass* self, errnum_t e );
+errnum_t  NaturalCommentClass_printXML( NaturalCommentClass* self, FILE* OutputStream );
+
+
+errnum_t  MakeNaturalComments_C_Language( ListClass* /*<C_LanguageTokenClass*>*/ TokenList,
+	LineNumberIndexClass*  LineNumbers,
+	ListClass* /*<NaturalCommentClass*>*/ TopSyntaxNodeList,
+	NaturalDocsParserConfigClass* config );
+
+
+ 
+/***********************************************************************
+  <<< [Parse_C_Language] >>> 
+************************************************************************/
+errnum_t  LexicalAnalize_C_Language( const TCHAR* Text,
+	ListClass* /*<C_LanguageTokenClass*>*/ TokenList );
+errnum_t  CutComment_C_LanguageToken( ListClass* /*<C_LanguageTokenClass*>*/ TokenList );
+errnum_t  Delete_C_LanguageToken( ListClass* /*<C_LanguageTokenClass*>*/ TokenList, errnum_t e );
+ 
+errnum_t  CutCommentC_1( const TCHAR*  in_InputPath,  const TCHAR*  in_OutputPath );
+errnum_t  CopyWithoutComment_C_Language( ListClass*  in_Tokens,  TCHAR*  in_Text,  FILE*  in_OutStream );
+ 
 /*=================================================================*/
 /* <<< [PlatformSDK_plus/PlatformSDK_plus.h] >>> */ 
 /*=================================================================*/
@@ -1723,6 +3370,8 @@ bool GetCommandLineExist( const TCHAR* Name, bool bCase );
 	#define  GetCommandLineNamedC8  GetCommandLineNamed
 #endif
 
+ 
+errnum_t  GetProcessInformation( DWORD  in_ProcessID,  PROCESSENTRY32*  out_Info );
  
 /* [CloseHandleInFin] */ 
 #if ENABLE_ERROR_BREAK_IN_ERROR_CLASS

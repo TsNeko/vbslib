@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<ThreeWayMerge>
+
+<ThreeWayMergeSet
+    left_name ="左"
+    right_name="右"
+    base_path ="00_Base"
+    left_path ="01_Left"
+    right_path="02_Right"
+    merged_path="03_Merged">
+
+<File  base_path="0_ModifyBoth.txt"   left_path="1_ModifyBoth.txt"   right_path="2_ModifyBoth.txt"   merged_path="3_ModifyBoth.txt"/>
+<File  base_path="0_ModifyLeft.txt"   left_path="1_ModifyLeft.txt"   right_path="2_ModifyLeft.txt"   merged_path="3_ModifyLeft.txt"/>
+<File  base_path="0_ModifyRight.txt"  left_path="1_ModifyRight.txt"  right_path="2_ModifyRight.txt"  merged_path="3_ModifyRight.txt"/>
+<File  base_path="0_Stay.txt"         left_path="1_Stay.txt"         right_path="2_Stay.txt"         merged_path="3_Stay.txt"/>
+<File                                 left_path="1_AddLeft.txt"                                      merged_path="3_AddLeft.txt"/>
+<File                                                                right_path="2_AddRight.txt"     merged_path="3_AddRight.txt"/>
+<File                                 left_path="1_AddBoth.txt"      right_path="2_AddBoth.txt"      merged_path="3_AddBoth.txt"/>
+<File                                 left_path="1_AddBothEqual.txt" right_path="2_AddBothEqual.txt" merged_path="3_AddBothEqual.txt"/>
+<File                                 left_path="1_AddBothLF.txt"    right_path="2_AddBothLF.txt"    merged_path="3_AddBothLF.txt"/>
+<File  base_path="0_DeleteByLeft.txt"                                right_path="2_DeleteByLeft.txt" merged_path="3_DeleteByLeft.txt"/>
+<File  base_path="0_DeleteByRight.txt"  left_path="1_DeleteByRight.txt"                              merged_path="3_DeleteByRight.txt"/>
+<Folder  base_path="0"                left_path="1"                  right_path="2"                  merged_path="3"/>
+
+</ThreeWayMergeSet>
+
+
+======================================================================
+Embedded Merge Rules
+
+<IsAutoMergeEx>True</IsAutoMergeEx>
+<IsOutEach>True</IsOutEach>
+<SingletonKeywords>Single</SingletonKeywords>
+<SingletonKeywords>#include</SingletonKeywords>
+<UniqueLineKeywords>Unique</UniqueLineKeywords>
+
+<BreakStepNum></BreakStepNum>
+
+
+======================================================================
+Copied from "Merge.replace.xml".
+
+<ReplaceTemplate  before="#Before1"  after="#After1"/>
+<ReplaceTemplate  before="#Before2"  after="#After2"/>
+<ReplaceTemplate  before="#Before3"  after="#After3"/>
+<ReplaceTemplate  before="#Before4"  after="#After4"/>
+<ReplaceTemplate  before="#Before5_AddBoth"    after="#After5_AddBoth"/>
+<ReplaceTemplate  before="#Before5_AddBothLF"  after="#After5_AddBothLF"/>
+
+
+<Text id="Before1"><![CDATA[
+----------------------------------------------------------------------------
+<<<<<<< Left.txt
+Both
+LLL
+||||||| Base.txt
+8
+9
+=======
+Both
+RRR
+>>>>>>> Right.txt
+----------------------------------------------------------------------------
+]]></Text>
+
+
+<Text id="After1"><![CDATA[
+----------------------------------------------------------------------------
+Both
+LLL
+RRR
+----------------------------------------------------------------------------
+]]></Text>
+この置き換えは行われます。
+
+
+<Text id="Before2"><![CDATA[
+----------------------------------------------------------------------------
+<<<<<<< Left.txt
+||||||| Base.txt
+Both
+LLL
+=======
+LLL
+>>>>>>> Right.txt
+${Middle}
+<<<<<<< Left.txt
+RRR
+||||||| Base.txt
+${Base}
+=======
+>>>>>>> Right.txt
+----------------------------------------------------------------------------
+]]></Text>
+
+
+<Text id="After2"><![CDATA[
+----------------------------------------------------------------------------
+Both
+LLL
+${Base}
+----------------------------------------------------------------------------
+]]></Text>
+
+
+<Text id="Before3"><![CDATA[
+----------------------------------------------------------------------------
+<<<<<<< Left.txt
+Single B
+||||||| Base.txt
+Single A
+=======
+Single C
+>>>>>>> Right.txt
+----------------------------------------------------------------------------
+]]></Text>
+
+
+<Text id="After3"><![CDATA[
+----------------------------------------------------------------------------
+Single ABC
+----------------------------------------------------------------------------
+]]></Text>
+シングルトン キーワードの処理が先に行われるため、この置き換えは行われません。
+
+
+<Text id="Before4"><![CDATA[
+----------------------------------------------------------------------------
+<<<<<<< Left.txt
+${Left}
+||||||| Base.txt
+５
+=======
+${Right}
+>>>>>>> Right.txt
+----------------------------------------------------------------------------
+]]></Text>
+
+
+<Text id="After4"><![CDATA[
+----------------------------------------------------------------------------
+
+${Left}
+
+${Right}
+
+----------------------------------------------------------------------------
+]]></Text>
+
+
+<Text id="Before5_AddBoth"><![CDATA[
+----------------------------------------------------------------------------
+/* AddLeft2 */
+
+/* AddRight2 */
+----------------------------------------------------------------------------
+]]></Text>
+<Text id="After5_AddBoth"><![CDATA[
+----------------------------------------------------------------------------
+/* AddLeft2/AddRight2 */
+----------------------------------------------------------------------------
+]]></Text>
+
+
+<Text id="Before5_AddBothLF"  cut_indent="yes"><![CDATA[
+----------------------------------------------------------------------------
+/* AddLeft2 */\n
+\n
+/* AddRight2 */\n
+----------------------------------------------------------------------------
+]]></Text>
+<Text id="After5_AddBothLF"  cut_indent="yes"><![CDATA[
+----------------------------------------------------------------------------
+/* AddLeft2/AddRight2 */\n
+----------------------------------------------------------------------------
+]]></Text>
+
+
+</ThreeWayMerge>

@@ -7,7 +7,7 @@
 1. T_Target.vbs のファイル名を、テストシンボルに変更します。
 2. Test.vbs の RunProg で呼び出す T_Target.vbs を、1. のファイル名に変更します。
 3. T_Target.vbs の Main 関数にある T_Test1 を改名します。
-4. T_Target.vbs の T_Test1 関数を改名し、テストプログラムを記述します。
+4. T_Target.vbs の T_Test1 関数（定義）を改名し、テストプログラムを記述します。
 5. T_Target.vbs をダブルクリックすると１つのテストを実行します。
 6. Test.vbs をダブルクリックすると通しでテストを実行します。
 

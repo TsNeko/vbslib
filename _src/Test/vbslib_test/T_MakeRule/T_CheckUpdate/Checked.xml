@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CheckUpdate>
+
+<Variable  name="${B}"  value="ModuleB"/>
+
+<SetA>
+	<Checked  base="ModuleA">01</Checked>
+	<Checked  base="ModuleA">02</Checked>
+</SetA>
+
+<SetB>
+	<Checked  base="ModuleB\TargetA">01</Checked>
+	<Checked  base="ModuleB\TargetB">01-01</Checked>
+	<Checked  base="ModuleB\TargetB">01-02, 01-03</Checked>
+	<Checked  base="${B}\TargetB">02-${:CSV,%02d,01,02}</Checked>
+</SetB>
+
+</CheckUpdate>

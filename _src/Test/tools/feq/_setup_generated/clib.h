@@ -44,6 +44,7 @@ enum { E_UNKNOWN            = E_CATEGORY_COMMON | 0x04 }; /* 1028 */
 enum { E_IN_ERROR           = E_CATEGORY_COMMON | 0x05 }; /* 1029 */
 enum { E_IN_FINALLY         = E_CATEGORY_COMMON | 0x06 }; /* 1030 */
 enum { E_INVALID_VALUE      = E_CATEGORY_COMMON | 0x07 }; /* 1031 */
+enum { E_UNKNOWN_DATA_TYPE  = E_CATEGORY_COMMON | 0x08 }; /* 1032 */
 enum { E_NOT_IMPLEMENT_YET  = E_CATEGORY_COMMON | 0x09 }; /* 1033 */
 enum { E_ORIGINAL           = E_CATEGORY_COMMON | 0x0A }; /* 1034 */
 enum { E_LIMITATION         = E_CATEGORY_COMMON | 0x0F }; /* 1039 */
@@ -64,6 +65,7 @@ enum { E_DEBUG_BREAK        = E_CATEGORY_COMMON | 0xDB }; /* 1243 */
 enum { E_EXIT_TEST          = E_CATEGORY_COMMON | 0xE7 }; /* 1255 */
 enum { E_FIFO_OVER          = E_CATEGORY_COMMON | 0xF0 }; /* 1264 */
 
+enum { NOT_FOUND_INDEX = -1 };
 
  
 /*=================================================================*/
@@ -109,6 +111,8 @@ enum { E_FIFO_OVER          = E_CATEGORY_COMMON | 0xF0 }; /* 1264 */
  
 #include  <direct.h> 
  
+#include  <malloc.h> 
+ 
 /*=================================================================*/
 /* <<< [CRT_plus_1/CRT_plus_1.h] >>> */ 
 /*=================================================================*/
@@ -124,6 +128,7 @@ typedef  unsigned int    uint_t;     /* MISRA-C:1998 No.13 */  /* This is not C9
 typedef  unsigned int    uint32_t;   /* For 32bit compiler */
 typedef  unsigned short  uint16_t;
 typedef  unsigned char   uint8_t;
+typedef  unsigned char   byte_t;     /* This is not C99 */
 typedef  float           float32_t;  /* This is not C99 */
 typedef  double          float64_t;  /* This is not C99 */
 typedef  unsigned int    bool_t;     /* MISRA-C:1998 No.13 */  /* This is not C99 */
@@ -241,6 +246,26 @@ typedef  errnum_t (*FinalizeFuncType)( void* self, errnum_t e );  /*[FinalizeFun
  <<< [ttoi_ex] >>> 
 ***************************************************************************/
 int  ttoi_ex( const TCHAR* string,  bit_flags_fast32_t options );
+
+
+ 
+/***********************************************************************
+  <<< [PointerType_plus] >>> 
+************************************************************************/
+inline void  PointerType_plus( const void* in_out_Element, int PlusMinusByte )
+{
+	*(int8_t**) in_out_Element = *(int8_t**) in_out_Element + PlusMinusByte;
+}
+
+
+ 
+/***********************************************************************
+  <<< [PointerType_diff] >>> 
+************************************************************************/
+inline ptrdiff_t  PointerType_diff( const void* PointerA, const void* PointerB )
+{
+	return  (uintptr_t) PointerA - (uintptr_t) PointerB;
+}
 
 
  
@@ -364,14 +389,17 @@ struct _Set2_IteratorClass {
 };
 
 #define  Set2_initConst( m )  ( (m)->First = NULL, (m)->Next = NULL )
-int  Set2_init( Set2* m, int FirstSize );
-int  Set2_finish( Set2* m, int e );
+errnum_t  Set2_init( Set2* m, int FirstSize );
+errnum_t  Set2_finish( Set2* m, errnum_t e );
 #define  Set2_isInited( m )  ( (m)->First != NULL )
+
+#define  Set2_allocate( m, pp ) \
+	Set2_alloc_imp( m, (void*)(pp), sizeof(**(pp)) )
 
 #define  Set2_alloc( m, pp, type ) \
 	Set2_alloc_imp( m, (void*)(pp), sizeof(type) )
 
-int  Set2_alloc_imp( Set2* m, void* pm, size_t size );
+errnum_t  Set2_alloc_imp( Set2* m, void* pm, size_t size );
 
 #define  Set2_push( m, pp, type ) \
 	Set2_alloc_imp( m, (void*)(pp), sizeof(type) )
@@ -379,7 +407,11 @@ int  Set2_alloc_imp( Set2* m, void* pm, size_t size );
 #define  Set2_pop( m, pp, type ) \
 	Set2_pop_imp( m, (void*)(pp), sizeof(type) )
 
-int  Set2_pop_imp( Set2* m, void* pp, size_t size );
+errnum_t  Set2_pop_imp( Set2* m, void* pp, size_t size );
+
+#define  Set2_free( m, pp, e ) \
+	Set2_free_imp( m, pp, sizeof(**(pp)), e )
+errnum_t  Set2_free_imp( Set2* self,  void* in_PointerOfPointer,  size_t  in_Size_ofElement,  errnum_t  e );
 
 #define  Set2_freeLast( m, p, type, e ) \
 	( ((char*)(m)->Next - sizeof(type) == (char*)(p)) ? \
@@ -395,11 +427,11 @@ int  Set2_pop_imp( Set2* m, void* pp, size_t size );
 
 #define  Set2_expandIfOverByOffset( m, Size ) \
 	Set2_expandIfOverByAddr( m, (char*)(m)->First + (Size) )
-int  Set2_expandIfOverByAddr_imp( Set2* m, void* OverAddrBasedOnNowFirst );
+errnum_t  Set2_expandIfOverByAddr_imp( Set2* m, void* OverAddrBasedOnNowFirst );
 
 #define  Set2_allocMulti( m, out_pElem, ElemType, nElem ) \
 	Set2_allocMulti_sub( m, (void*)(out_pElem), sizeof(ElemType) * (nElem) )
-int  Set2_allocMulti_sub( Set2* m, void* out_pElem, size_t ElemsSize );
+errnum_t  Set2_allocMulti_sub( Set2* m, void* out_pElem, size_t ElemsSize );
 
 #define  Set2_forEach( self, Item, Item_Over, Type ) \
 	*(Item) = (Type*)( (self)->First ),  *(Item_Over) = (Type*)( (self)->Next ); \
@@ -438,18 +470,31 @@ inline void  Set2_forEach2_3( Set2* self, Set2_IteratorClass* Iterator,  void* o
 }
 
 
+#define  Set2_getArray( self, out_Array, out_Count ) \
+	( ( *(void**)(out_Array) = (self)->First, \
+	*(out_Count) = ( (byte_t*) (self)->Next - (byte_t*) (self)->First ) / sizeof(**(out_Array))), 0 )
+
+#define  Set2_refer( m, iElem, out_pElem ) \
+	Set2_ref_imp( m, iElem, out_pElem, sizeof(**(out_pElem)) )
+
 #define  Set2_ref( m, iElem, out_pElem, ElemType ) \
 	Set2_ref_imp( m, iElem, out_pElem, sizeof(ElemType) )
 
-int  Set2_ref_imp( Set2* m, int iElem, void* out_pElem, size_t ElemSize );
+errnum_t  Set2_ref_imp( Set2* m, int iElem, void* out_pElem, size_t ElemSize );
+
+#define  Set2_isEmpty( m ) \
+	( (m)->Next == (m)->First )
 
 #define  Set2_getCount( m, Type ) \
-	( (Type*)(m)->Next - (Type*)(m)->First )
+	( ( (byte_t*)(m)->Next - (byte_t*)(m)->First ) / sizeof(Type) )
+
+#define  Set2_getCountMax( m, Type ) \
+	( ( (byte_t*)(m)->Over - (byte_t*)(m)->First ) / sizeof(Type) )
 
 #define  Set2_checkPtrInArr( m, p ) \
 	( (m)->First <= (p) && (p) < (m)->Over ? 0 : E_NOT_FOUND_SYMBOL )
 
-int  Set2_separate( Set2* m, int NextSize, void** allocate_Array );
+errnum_t  Set2_separate( Set2* m, int NextSize, void** allocate_Array );
 
 #ifdef _DEBUG
 void  Set2_setDebug( Set2* m, void* PointerOfDebugArray );
@@ -509,15 +554,20 @@ int      GetDebugBreakCount(void);
 
 errnum_t  StrT_cpy( TCHAR* Dst, size_t DstSize, const TCHAR* Src );
 errnum_t  StrT_cat( TCHAR* Dst, size_t DstSize, const TCHAR* Src );
+TCHAR*  StrT_chr( const TCHAR* String, TCHAR Key );
 TCHAR*  StrT_chrs( const TCHAR* s, const TCHAR* keys );
 TCHAR*  StrT_rstr( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* Keyword,
 	void* NullConfig );
+TCHAR*  StrT_chrNext( const TCHAR* in_Start, TCHAR in_KeyCharactor );
 TCHAR*  StrT_skip( const TCHAR* s, const TCHAR* keys );
 TCHAR*  StrT_rskip( const TCHAR* String, const TCHAR* SearchStart, const TCHAR* Keys,
 	void* NullConfig );
 bool    StrT_isCIdentifier( TCHAR Character );
 TCHAR*  StrT_searchOverOfCIdentifier( const TCHAR* Text );
+TCHAR*  StrT_searchOverOfIdiom( const TCHAR* Text );
 int  StrT_cmp_part( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
+	const TCHAR* StringB );
+int  StrT_cmp_i_part( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
 	const TCHAR* StringB );
 int  StrT_cmp_part2( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
 	const TCHAR* StringB_Start, const TCHAR* StringB_Over );
@@ -552,13 +602,30 @@ errnum_t  MallocAndCopyStringByLength( const TCHAR** out_NewString, const TCHAR*
 	#define  MallocAndCopyString_char  MallocAndCopyString
 #endif
 
+errnum_t  StrHS_insert( TCHAR**  in_out_WholeString,
+	int  in_TargetIndexInWholeString,  int*  out_NextWholeInWholeString,
+	const TCHAR*  in_InsertString );
+errnum_t  StrHS_printf( TCHAR**  in_out_String,  const TCHAR*  in_Format,  ... );
+errnum_t  StrHS_printfV( TCHAR**  in_out_String,  const TCHAR*  in_Format,  va_list  in_VaList );
+errnum_t  StrHS_printfPart( TCHAR**  in_out_String,
+	int  in_IndexInString,  int*  out_NextIndexInString,
+	const TCHAR*  in_Format,  ... );
+errnum_t  StrHS_printfPartV( TCHAR**  in_out_String,
+	int  in_IndexInString,  int*  out_NextIndexInString,
+	const TCHAR*  in_Format,  va_list  in_VaList );
+
+
  
 /***********************************************************************
   <<< [StrT_Edit] >>> 
 ************************************************************************/
+errnum_t  StrT_cutPart( TCHAR*  in_out_String,  TCHAR*  in_StartOfCut,  TCHAR*  in_OverOfCut );
 errnum_t  StrT_trim( TCHAR* out_Str, size_t out_Str_Size, const TCHAR* in_Str );
 errnum_t  StrT_cutLastOf( TCHAR* in_out_Str, TCHAR Charactor );
 errnum_t  StrT_cutLineComment( TCHAR* out_Str, size_t out_Str_Size, const TCHAR* in_Str, const TCHAR* CommentSign );
+errnum_t  StrT_insert( TCHAR*  in_out_WholeString,  size_t  in_MaxSize_of_WholeString,
+	TCHAR*  in_out_Target_in_WholeString,  TCHAR**  out_NextTarget_in_WholeString,
+	const TCHAR*  in_InsertString );
 errnum_t  StrT_meltCmdLine( TCHAR* out_Str, size_t out_Str_Size, const TCHAR** pLine );
 errnum_t  StrT_getExistSymbols( unsigned* out, bool bCase, const TCHAR* Str, const TCHAR* Symbols, ... );
 errnum_t  StrT_replace1( TCHAR* in_out_String, TCHAR FromCharacter, TCHAR ToCharacter,
@@ -587,6 +654,7 @@ enum { StrT_LocalPathMaxSize = 4096 };
 enum { MAX_LOCAL_PATH = 4096 };
 TCHAR*  StrT_refFName( const TCHAR* s );
 TCHAR*  StrT_refExt( const TCHAR* s );
+void  StrT_cutFragmentInPath( TCHAR* in_out_Path );
 bool  StrT_isFullPath( const TCHAR* s );
 
 errnum_t  StrT_getFullPath_part( TCHAR* Str, size_t StrSize, TCHAR* StrStart,
@@ -600,6 +668,7 @@ errnum_t  StrT_getBaseName_part( TCHAR* Str, size_t StrSize, TCHAR* StrStart,
 	TCHAR** out_StrLast, const TCHAR* SrcPath );
 errnum_t  StrT_addLastOfFileName( TCHAR* out_Path, size_t PathSize,
                              const TCHAR* BasePath, const TCHAR* AddName );
+errnum_t  StrT_encodeToValidPath( TCHAR* out_Path,  size_t in_OutPathSize,  const TCHAR* in_Path,  bool  in_IsName );
 
 inline errnum_t  StrT_getFullPath( TCHAR* out_FullPath, size_t FullPathSize,
 	const TCHAR* StepPath, const TCHAR* BasePath )
@@ -626,11 +695,11 @@ inline errnum_t  StrT_getBaseName( TCHAR* Str, size_t StrSize, const TCHAR* SrcP
 ***************************************************************************/
 typedef  struct _Strs  Strs;
 struct _Strs {
-	char*   MemoryAddress;   /* first memory = [ TCHAR* FirstStr | elem[] ],  other memory = [ elem[] ] */
-	char*   MemoryOver;
-	char*   NextElem;        /* elem = [ TCHAR* NextStr | TCHAR[] ] */
-	TCHAR** PointerToNextStrInPrevElem;  /* first = &FirstStr,  other = &NextStr */
-	TCHAR** Prev_PointerToNextStrInPrevElem;
+	byte_t*  MemoryAddress;   /* first memory = [ TCHAR* FirstStr | elem[] ],  other memory = [ elem[] ] */
+	byte_t*  MemoryOver;
+	byte_t*  NextElem;        /* elem = [ TCHAR* NextStr | TCHAR[] ] */
+	TCHAR**  PointerToNextStrInPrevElem;  /* first = &FirstStr,  other = &NextStr */
+	TCHAR**  Prev_PointerToNextStrInPrevElem;
 
 	Strs*   FirstOfStrs;
 	Strs*   NextStrs;
@@ -665,11 +734,13 @@ TCHAR*  Strx_getNext( Strs* m, TCHAR* Str );
 	( *( (TCHAR**)(p) - 1 ) )
 
 #define  Strs_getFreeAddr( m )  ( (TCHAR*)( (m)->NextElem + sizeof(TCHAR*) ) )
-#define  Strs_getFreeSize( m )  ( (m)->MemoryOver - (char*)(m)->NextElem - sizeof(TCHAR*) )
+#define  Strs_getFreeSize( m )  ( (m)->MemoryOver - (byte_t*)(m)->NextElem - sizeof(TCHAR*) )
 #define  Strs_getFreeCount( m ) ( Strs_getFreeSize( m ) / sizeof(TCHAR) )
 #define  Strs_expandCount( m, c )  ( Strs_expandSize( (m), (c) * sizeof(TCHAR) ) )
 errnum_t  Strs_expandSize( Strs* m, size_t FreeSize );
 errnum_t  Strs_commit( Strs* m, TCHAR* StrOver );
+errnum_t  Strs_allocateArray( Strs* self,  TCHAR*** out_PointerArray,  int* out_Count );
+
 
  
 /***********************************************************************
@@ -845,6 +916,12 @@ inline errnum_t  FreeMemory( const void* in_out_MemoryAddress, errnum_t e )
  
 #endif
 
+#ifndef  NDEBUG
+	#define  ERR2_ENABLE_ERROR_LOG  1
+#else
+	#define  ERR2_ENABLE_ERROR_LOG  0
+#endif
+
 /*[dll_global_g_Error]*/
 #ifndef  dll_global_g_Error
 	#define  dll_global_g_Error
@@ -945,6 +1022,7 @@ errnum_t  SaveWindowsLastError(void);
   <<< [stdio] >>> 
 ************************************************************************/
 void  Error4_showToStdErr( int err_num );
+void  Error4_showToStdIO( FILE* out, int err_num );
 
 
  
@@ -1131,6 +1209,22 @@ enum { FileT_Folder = FILE_ATTRIBUTE_DIRECTORY };
 int  FileT_openForRead( FILE** out_pFile, const TCHAR* path );
 // int  FileT_close( FILE* File, int e );
 errnum_t  FileT_closeAndNULL( FILE** in_out_File, errnum_t e );
+
+
+ 
+/***********************************************************************
+* Class: ViewOfFileClass
+************************************************************************/
+typedef struct _ViewOfFileClass  ViewOfFileClass;
+struct _ViewOfFileClass {
+	byte_t* Data;
+	size_t  Size;
+	HANDLE  File;
+	HANDLE  Memory;
+};
+void      ViewOfFileClass_initConst( ViewOfFileClass* self );
+errnum_t  ViewOfFileClass_initializeFromBinaryFile( ViewOfFileClass* self,  const TCHAR* Path );
+errnum_t  ViewOfFileClass_finalize( ViewOfFileClass* self,  errnum_t e );
 
 
  

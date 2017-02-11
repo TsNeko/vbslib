@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Section: Step1
+Output: ${Files}\Step2\01 <= Work
+Input:  ${Files}\Step3A\02 => Work
+Input:  ${Files}\Step3B\03 => Work
+Current Directory: %FullPath(..)%
+Command: cmd /C CommandA.bat 2 /R2:"03" /I2:"Step3B\Work"
+
+-------------------------------------------------------------------------------
+Section: Step2
+Output: ${Files}\Step1\01 <= Work
+Input:  ${Files}\Step2\01 => Work
+Current Directory: %FullPath(..\_WorkD)%
+Command: cmd /C ..\CommandA.bat 1 /R0:"01" /R1:"01" /O0:"..\Step1\Work" /I1:"..\Step2\Work" %FullPath(..)% > _log.txt
+

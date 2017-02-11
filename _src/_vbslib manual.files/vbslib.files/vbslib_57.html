@@ -1,0 +1,1586 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_57.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_57.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 1078 --> 
+<PAGE>
+<A id="svgcats_vml_p1078" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '1078' );">←</A>
+<A href="#svgcats_vml_p1079" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_56.html#svgcats_vml_p1077" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_56.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:502px; height:529px;" fillcolor="white"/>
+<DIV id="text1078_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="RegEnumValues">
+RegEnumValues</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:52px; width:454px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1078_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:59px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegEnumValues( Path as string, out_Values as array of RegValueName )</DIV>
+<DIV id="text1078_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:89px; line-height:15px; white-space:nowrap">
+指定のレジストリ・キーに入っている値を列挙します。</DIV>
+<DIV id="text1078_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:115px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1078_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:115px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text1078_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:134px; line-height:15px; white-space:nowrap">
+out_Values</DIV>
+<DIV id="text1078_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:115px; line-height:15px; white-space:nowrap">
+レジストリのキーのパス</DIV>
+<DIV id="text1078_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:134px; line-height:15px; white-space:nowrap">
+（出力） 値と型名の配列</DIV>
+<DIV id="text1078_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:165px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:163px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1078_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:167px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:394px; width:166px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1078_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:400px; line-height:15px; white-space:nowrap">
+Class&nbsp; RegValueName<BR/>
+&nbsp; Public&nbsp; Name&nbsp; as string<BR/>
+&nbsp; Public&nbsp; Type_ as string<BR/>
+End Class</DIV>
+<DIV id="text1078_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:18px; margin-top:371px; line-height:15px; white-space:nowrap">
+<A name="RegValueName">
+RegValueName クラス</A></DIV>
+<DIV id="text1078_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:390px; margin-top:59px; line-height:13px; white-space:nowrap">
+<A href="#RegValueName">
+RegValueName</A></DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:229px; width:430px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1078_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:235px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; values<BR/>
+<BR/>
+&nbsp; RegEnumValues&nbsp; "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\" + _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"CurrentVersion\Setup", values&nbsp; '// Set "values"</DIV>
+<DIV id="text1078_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:28px; margin-top:210px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1078_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:329px; margin-top:134px; line-height:15px; white-space:nowrap">
+<A href="#RegValueName">
+→ RegValueName クラス</A></DIV>
+<DIV id="text1078_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:180px; margin-top:22px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1078_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:338px; margin-top:20px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1078_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:318px; line-height:15px; white-space:nowrap">
+Path の末尾に \ があってもなくても、キー（フォルダーのようなもの）を指定した<BR/>
+ことになります。</DIV>
+<DIV id="text1078_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:486px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1078_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:486px; line-height:15px; white-space:nowrap">
+→ T_Reg.vbs</DIV>
+<DIV id="text1078_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:486px; line-height:15px; white-space:nowrap">
+T_Reg1</DIV>
+
+<v:line from="0,0" to="502,0"/>
+<v:line from="502,0" to="502,529"/>
+<v:line from="502,529" to="0,529"/>
+<v:line from="0,529" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 1079 --> 
+<PAGE>
+<A id="svgcats_vml_p1079" class="to_tree" style="margin-top:534px;" onClick="selectTreeElem( '1079' );">←</A>
+<A href="#svgcats_vml_p1080" class="to_next_page" style="margin-top:534px;">▼</A>
+<A href="#svgcats_vml_p1078" class="to_prev_page" style="margin-top:534px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:545px; width:476px; height:311px;" fillcolor="white"/>
+<DIV id="text1079_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:562px; line-height:15px; white-space:nowrap">
+<A name="RegExists">
+RegExists</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:597px; width:226px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1079_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:604px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegExists( RegPath as string )</DIV>
+<DIV id="text1079_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:634px; line-height:15px; white-space:nowrap">
+指定のレジストリ・キーか値が存在するかどうかを判定します。</DIV>
+<DIV id="text1079_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:660px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1079_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:660px; line-height:15px; white-space:nowrap">
+RegPath</DIV>
+<DIV id="text1079_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:660px; line-height:15px; white-space:nowrap">
+レジストリのキーのパス</DIV>
+<DIV id="text1079_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:747px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:745px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1079_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:749px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:799px; width:400px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1079_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:806px; line-height:13px; white-space:nowrap">
+&nbsp; If RegExists( "HKEY_CURRENT_USER\Software\_Test\" ) Then&nbsp; Fail</DIV>
+<DIV id="text1079_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:780px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1079_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:693px; line-height:15px; white-space:nowrap">
+Path の末尾が \ のときは、キーがあるかどうかを判定します。<BR/>
+Path の末尾が \ ではないときは、値があるかどうかを判定します。</DIV>
+<DIV id="text1079_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:301px; margin-top:562px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1079_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:142px; margin-top:566px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+
+<v:line from="0,545" to="476,545"/>
+<v:line from="476,545" to="476,856"/>
+<v:line from="476,856" to="0,856"/>
+<v:line from="0,856" to="0,545"/>
+
+</PAGE>
+ 
+<!-- page 1080 --> 
+<PAGE>
+<A id="svgcats_vml_p1080" class="to_tree" style="margin-top:861px;" onClick="selectTreeElem( '1080' );">←</A>
+<A href="#svgcats_vml_p1081" class="to_next_page" style="margin-top:861px;">▼</A>
+<A href="#svgcats_vml_p1079" class="to_prev_page" style="margin-top:861px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:872px; width:461px; height:234px;" fillcolor="white"/>
+<DIV id="text1080_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:889px; line-height:15px; white-space:nowrap">
+<A name="IsRegEmptyKey">
+IsRegEmptyKey</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:924px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1080_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:931px; line-height:13px; white-space:nowrap">
+Sub&nbsp; IsRegEmptyKey( RegPath as string )</DIV>
+<DIV id="text1080_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:961px; line-height:15px; white-space:nowrap">
+指定のレジストリ キーに、値もサブのキーもないかどうかを返します。</DIV>
+<DIV id="text1080_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:989px; line-height:15px; white-space:nowrap">
+指定のレジストリ キーがないときは、False を返します。</DIV>
+<DIV id="text1080_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:86px; margin-top:1029px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1080_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1029px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1080_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1058px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1080_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:1058px; line-height:15px; white-space:nowrap">
+→ T_Reg.vbs</DIV>
+<DIV id="text1080_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:1058px; line-height:15px; white-space:nowrap">
+T_Reg1</DIV>
+
+<v:line from="0,872" to="461,872"/>
+<v:line from="461,872" to="461,1106"/>
+<v:line from="461,1106" to="0,1106"/>
+<v:line from="0,1106" to="0,872"/>
+
+</PAGE>
+ 
+<!-- page 1081 --> 
+<PAGE>
+<A id="svgcats_vml_p1081" class="to_tree" style="margin-top:1111px;" onClick="selectTreeElem( '1081' );">←</A>
+<A href="#svgcats_vml_p1082" class="to_next_page" style="margin-top:1111px;">▼</A>
+<A href="#svgcats_vml_p1080" class="to_prev_page" style="margin-top:1111px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1122px; width:529px; height:276px;" fillcolor="white"/>
+<DIV id="text1081_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1139px; line-height:15px; white-space:nowrap">
+<A name="RegRead">
+RegRead</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:1169px; width:292px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1081_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:1176px; line-height:13px; white-space:nowrap">
+Function&nbsp; RegRead( Path as string ) as variant</DIV>
+<DIV id="text1081_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:1290px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_02.html#Shell_RegRead">
+RegRead (Shell)</A></DIV>
+<DIV id="text1081_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:131px; margin-top:1290px; line-height:15px; white-space:nowrap">
+との違いは、キーが見つからないときにエラーになるのではなく、</DIV>
+<DIV id="text1081_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:1306px; line-height:15px; white-space:nowrap">
+Empty を返すところです。</DIV>
+<DIV id="text1081_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:1210px; line-height:15px; white-space:nowrap">
+レジストリからリードします。</DIV>
+<DIV id="text1081_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:1238px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1081_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:1258px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text1081_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:1258px; line-height:15px; white-space:nowrap">
+値、または Empty</DIV>
+<DIV id="text1081_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:1239px; line-height:15px; white-space:nowrap">
+リードする場所。 キーへのパス＋値の名前</DIV>
+<DIV id="text1081_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:1239px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text1081_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:305px; margin-top:1141px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1081_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:142px; margin-top:1143px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1081_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:1322px; line-height:15px; white-space:nowrap">
+Path の最後に \ があると、キーの (規定) をリードします。</DIV>
+<DIV id="text1081_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:1350px; line-height:15px; white-space:nowrap">
+<A href="#RegReadEx">
+→ RegReadEx</A></DIV>
+<DIV id="text1081_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:1350px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,1122" to="529,1122"/>
+<v:line from="529,1122" to="529,1398"/>
+<v:line from="529,1398" to="0,1398"/>
+<v:line from="0,1398" to="0,1122"/>
+
+</PAGE>
+ 
+<!-- page 1082 --> 
+<PAGE>
+<A id="svgcats_vml_p1082" class="to_tree" style="margin-top:1403px;" onClick="selectTreeElem( '1082' );">←</A>
+<A href="#svgcats_vml_p1083" class="to_next_page" style="margin-top:1403px;">▼</A>
+<A href="#svgcats_vml_p1081" class="to_prev_page" style="margin-top:1403px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1414px; width:644px; height:283px;" fillcolor="white"/>
+<DIV id="text1082_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1431px; line-height:15px; white-space:nowrap">
+<A name="RegReadEx">
+RegReadEx</A></DIV>
+<DIV id="text1082_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:305px; margin-top:1433px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1082_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:142px; margin-top:1435px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:1461px; width:454px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1082_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:1468px; line-height:13px; white-space:nowrap">
+Function&nbsp; RegReadEx( Path as string, RegistryType as integer ) as variant</DIV>
+<DIV id="text1082_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:1502px; line-height:15px; white-space:nowrap">
+レジストリからリードします。 32/64 ビット用レジストリ対応。</DIV>
+<DIV id="text1082_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:1530px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1082_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:1550px; line-height:15px; white-space:nowrap">
+RegistryType</DIV>
+<DIV id="text1082_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:200px; margin-top:1550px; line-height:15px; white-space:nowrap">
+64=64ビット用レジストリ、32=32ビット用レジストリ</DIV>
+<DIV id="text1082_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:200px; margin-top:1531px; line-height:15px; white-space:nowrap">
+リードする場所。 キーへのパス＋値の名前</DIV>
+<DIV id="text1082_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:1531px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text1082_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:200px; margin-top:1569px; line-height:15px; white-space:nowrap">
+値、または Empty</DIV>
+<DIV id="text1082_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:1569px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:1625px; width:568px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1082_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:1631px; line-height:15px; white-space:nowrap">
+echo&nbsp; RegReadEx( "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\"+_<BR/>
+&nbsp; &nbsp; "doxygen_is1\InstallLocation", 64 )</DIV>
+<DIV id="text1082_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1604px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,1414" to="644,1414"/>
+<v:line from="644,1414" to="644,1697"/>
+<v:line from="644,1697" to="0,1697"/>
+<v:line from="0,1697" to="0,1414"/>
+
+</PAGE>
+ 
+<!-- page 1083 --> 
+<PAGE>
+<A id="svgcats_vml_p1083" class="to_tree" style="margin-top:1702px;" onClick="selectTreeElem( '1083' );">←</A>
+<A href="#svgcats_vml_p1084" class="to_next_page" style="margin-top:1702px;">▼</A>
+<A href="#svgcats_vml_p1082" class="to_prev_page" style="margin-top:1702px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1713px; width:520px; height:390px;" fillcolor="white"/>
+<DIV id="text1083_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1730px; line-height:15px; white-space:nowrap">
+<A name="RegExport">
+RegExport</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:1765px; width:460px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1083_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:1772px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegExport( RegPath as string, OutFilePath as string, Opt as variant )</DIV>
+<DIV id="text1083_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:1802px; line-height:15px; white-space:nowrap">
+指定のレジストリ・キーに入っている値を .reg ファイルに出力します。</DIV>
+<DIV id="text1083_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:1828px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1083_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:1828px; line-height:15px; white-space:nowrap">
+RegPath</DIV>
+<DIV id="text1083_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:1847px; line-height:15px; white-space:nowrap">
+OutFilePath</DIV>
+<DIV id="text1083_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:1828px; line-height:15px; white-space:nowrap">
+レジストリのキーのパス</DIV>
+<DIV id="text1083_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:1847px; line-height:15px; white-space:nowrap">
+出力ファイルパス</DIV>
+<DIV id="text1083_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:1915px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:1913px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1083_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:1917px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1083_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:1866px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text1083_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:1866px; line-height:15px; white-space:nowrap">
+オプション。 Empty か F_SubFolder</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:1997px; width:364px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1083_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:2003px; line-height:15px; white-space:nowrap">
+&nbsp; RegExport&nbsp; "HKEY_CURRENT_USER\Control Panel\Keyboard", _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"keyboard.reg", F_SubFolder</DIV>
+<DIV id="text1083_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:1978px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1083_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:142px; margin-top:1734px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1083_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:291px; margin-top:1731px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1083_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:2055px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1083_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:2055px; line-height:15px; white-space:nowrap">
+→ T_Reg.vbs # T_RegExport</DIV>
+<DIV id="text1083_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:1949px; line-height:15px; white-space:nowrap">
+対応しているキーの型は、REG_SZ のみです。</DIV>
+
+<v:line from="0,1713" to="520,1713"/>
+<v:line from="520,1713" to="520,2103"/>
+<v:line from="520,2103" to="0,2103"/>
+<v:line from="0,2103" to="0,1713"/>
+
+</PAGE>
+ 
+<!-- page 1084 --> 
+<PAGE>
+<A id="svgcats_vml_p1084" class="to_tree" style="margin-top:2108px;" onClick="selectTreeElem( '1084' );">←</A>
+<A href="#svgcats_vml_p1085" class="to_next_page" style="margin-top:2108px;">▼</A>
+<A href="#svgcats_vml_p1083" class="to_prev_page" style="margin-top:2108px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2119px; width:574px; height:428px;" fillcolor="white"/>
+<DIV id="text1084_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2136px; line-height:15px; white-space:nowrap">
+<A name="RegWrite">
+RegWrite</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:2166px; width:520px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1084_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:2173px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegWrite( Path as string, Value as string or integer, Type as string or Empty )</DIV>
+<DIV id="text1084_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:2207px; line-height:15px; white-space:nowrap">
+レジストリにライトします。</DIV>
+<DIV id="text1084_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2235px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1084_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:2255px; line-height:15px; white-space:nowrap">
+Value</DIV>
+<DIV id="text1084_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:2274px; line-height:15px; white-space:nowrap">
+Type</DIV>
+<DIV id="text1084_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:160px; margin-top:2255px; line-height:15px; white-space:nowrap">
+値、または Empty（=値を消す）</DIV>
+<DIV id="text1084_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:160px; margin-top:2274px; line-height:15px; white-space:nowrap">
+値のタイプ, "REG_SZ", "REG_DWORD" など、または Empty(*1)</DIV>
+<DIV id="text1084_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:160px; margin-top:2236px; line-height:15px; white-space:nowrap">
+ライトする場所。 キーへのパス＋値の名前</DIV>
+<DIV id="text1084_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:2236px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text1084_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:2355px; line-height:15px; white-space:nowrap">
+Path によっては管理者権限が必要です</DIV>
+<DIV id="text1084_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:2469px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:2490px; width:358px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1084_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:2497px; line-height:13px; white-space:nowrap">
+&nbsp; RegWrite&nbsp; "HKEY_CLASSES_ROOT\.ext\", "ExtSample", Empty</DIV>
+<DIV id="text1084_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:296px; margin-top:2137px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1084_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:142px; margin-top:2140px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1084_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2314px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:2312px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1084_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:2316px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1084_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:2372px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_02.html#Shell_RegWrite">
+RegWrite (Shell)</A></DIV>
+<DIV id="text1084_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:132px; margin-top:2372px; line-height:15px; white-space:nowrap">
+との違いは、エラーメッセージの内容です。</DIV>
+<DIV id="text1084_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:2389px; line-height:15px; white-space:nowrap">
+Path の最後に \ があると、キーの (規定) に設定します。</DIV>
+<DIV id="text1084_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:2418px; line-height:15px; white-space:nowrap">
+(*1) Type = Empty のときは、 Value の型によって自動的に型を判定します。</DIV>
+
+<v:line from="0,2119" to="574,2119"/>
+<v:line from="574,2119" to="574,2547"/>
+<v:line from="574,2547" to="0,2547"/>
+<v:line from="0,2547" to="0,2119"/>
+
+</PAGE>
+ 
+<!-- page 1085 --> 
+<PAGE>
+<A id="svgcats_vml_p1085" class="to_tree" style="margin-top:2552px;" onClick="selectTreeElem( '1085' );">←</A>
+<A href="#svgcats_vml_p1086" class="to_next_page" style="margin-top:2552px;">▼</A>
+<A href="#svgcats_vml_p1084" class="to_prev_page" style="margin-top:2552px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2563px; width:555px; height:414px;" fillcolor="white"/>
+<DIV id="text1085_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2580px; line-height:15px; white-space:nowrap">
+<A name="RegDelete">
+RegDelete</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2610px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1085_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2617px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegDelete( Path as string )</DIV>
+<DIV id="text1085_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2647px; line-height:15px; white-space:nowrap">
+レジストリの値、またはキーを削除します。</DIV>
+<DIV id="text1085_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2675px; line-height:15px; white-space:nowrap">
+Path の末尾が "\" のときは、キー（フォルダーのようなもの）を削除します。<BR/>
+サブ・キーや値があるときでも、削除できます。<BR/>
+<BR/>
+値の名前に "\" を含むときは、<BR/>
+ただし、RegDelete でキーを削除するときは、そのキー（またはサブ・キー）が<BR/>
+持つ値の名前に "\" を含んでいても正しく処理します。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:2798px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1085_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:2805px; line-height:13px; white-space:nowrap">
+&nbsp; RegDelete&nbsp; "HKEY_CLASSES_ROOT\.svg\"</DIV>
+<DIV id="text1085_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2778px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1085_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:296px; margin-top:2581px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1085_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:142px; margin-top:2584px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1085_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:211px; margin-top:2720px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_16.html#StdRegProv_DeleteValue">
+StdRegProv::DeleteValue</A></DIV>
+<DIV id="text1085_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:359px; margin-top:2720px; line-height:15px; white-space:nowrap">
+を使ってください。</DIV>
+<DIV id="text1085_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:2894px; line-height:15px; white-space:nowrap">
+→ T_Reg_Manually.vbs # T_FileAssocOpen</DIV>
+<DIV id="text1085_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:101px; margin-top:2915px; line-height:15px; white-space:nowrap">
+最後の T_FileAssocProg2.exe アンインストールで、値の名前に "\" を含む<BR/>
+値を持つキーを削除しています。</DIV>
+<DIV id="text1085_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2854px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1085_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:2874px; line-height:15px; white-space:nowrap">
+→ T_Reg_Manually.vbs # T_RegWriteRead</DIV>
+<DIV id="text1085_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:2854px; line-height:15px; white-space:nowrap">
+→ T_Reg.vbs</DIV>
+<DIV id="text1085_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:2854px; line-height:15px; white-space:nowrap">
+T_Reg1</DIV>
+
+<v:line from="0,2563" to="555,2563"/>
+<v:line from="555,2563" to="555,2977"/>
+<v:line from="555,2977" to="0,2977"/>
+<v:line from="0,2977" to="0,2563"/>
+
+</PAGE>
+ 
+<!-- page 1086 --> 
+<PAGE>
+<A id="svgcats_vml_p1086" class="to_tree" style="margin-top:2982px;" onClick="selectTreeElem( '1086' );">←</A>
+<A href="#svgcats_vml_p1087" class="to_next_page" style="margin-top:2982px;">▼</A>
+<A href="#svgcats_vml_p1085" class="to_prev_page" style="margin-top:2982px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2993px; width:538px; height:509px;" fillcolor="white"/>
+<DIV id="text1086_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3010px; line-height:15px; white-space:nowrap">
+<A name="OpenForRegFile">
+OpenForRegFile</A></DIV>
+<DIV id="text1086_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3075px; line-height:15px; white-space:nowrap">
+レジストリファイル（*.reg）を編集します。</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:3170px; width:388px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1086_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:3176px; line-height:15px; white-space:nowrap">
+Dim&nbsp; f : Set f = OpenForRegFile( "Sample.reg" )<BR/>
+If IsEmpty( f.RegRead( "HKEY_CLASSES_ROOT\.ext\" ) ) Then _<BR/>
+&nbsp; f.RegWrite&nbsp; "HKEY_CLASSES_ROOT\.ext\", "ExtSample", "REG_SZ"<BR/>
+f = Empty&nbsp; '// Write</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:3040px; width:400px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1086_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:3047px; line-height:13px; white-space:nowrap">
+Function&nbsp; OpenForRegFile( RegFilePath as string ) as EditRegFile</DIV>
+<DIV id="text1086_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3099px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1086_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3099px; line-height:15px; white-space:nowrap">
+RegFilePath</DIV>
+<DIV id="text1086_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3118px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text1086_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:192px; margin-top:3099px; line-height:15px; white-space:nowrap">
+レジストリファイルのパス</DIV>
+<DIV id="text1086_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:192px; margin-top:3118px; line-height:15px; white-space:nowrap">
+EditRegFile オブジェクト</DIV>
+<DIV id="text1086_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3149px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1086_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3262px; line-height:15px; white-space:nowrap">
+ランダムアクセスに対応しています。 OpenForRead や OpenForWrite のように<BR/>
+シーケンシャル（ファイルの先頭から順番）にアクセスする必要はありませんし、<BR/>
+変更しないキーまで Write する必要はありません。<BR/>
+<BR/>
+存在しないキーを新規に Write したときは、シーケンシャル（RegWriteした順番）<BR/>
+にファイルに記述されます。 Empty の値を Write すると、そのキーは削除されます。<BR/>
+<BR/>
+元々書かれていたコメントは保持されます。</DIV>
+<DIV id="text1086_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:35px; margin-top:3407px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1086_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:3407px; line-height:15px; white-space:nowrap">
+→ T_Reg.vbs # T_RegFile</DIV>
+<DIV id="text1086_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:3010px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1086_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:3436px; line-height:15px; white-space:nowrap">
+<A href="vbslib_61.html#OpenForEnvVarsFile">
+→ OpenForEnvVarsFile</A></DIV>
+<DIV id="text1086_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:35px; margin-top:3436px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1086_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:251px; margin-top:3177px; line-height:13px; white-space:nowrap">
+Sample.reg</DIV>
+<DIV id="text1086_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:137px; margin-top:3207px; line-height:13px; white-space:nowrap">
+HKEY_CLASSES_ROOT\.ext\</DIV>
+<DIV id="text1086_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:299px; margin-top:3207px; line-height:13px; white-space:nowrap">
+ExtSample</DIV>
+<DIV id="text1086_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:3454px; line-height:15px; white-space:nowrap">
+<A href="vbslib_43.html#ini">
+→ .ini ファイル</A></DIV>
+
+<v:line from="0,2993" to="538,2993"/>
+<v:line from="538,2993" to="538,3502"/>
+<v:line from="538,3502" to="0,3502"/>
+<v:line from="0,3502" to="0,2993"/>
+
+</PAGE>
+ 
+<!-- page 1087 --> 
+<PAGE>
+<A id="svgcats_vml_p1087" class="to_tree" style="margin-top:3507px;" onClick="selectTreeElem( '1087' );">←</A>
+<A href="#svgcats_vml_p1088" class="to_next_page" style="margin-top:3507px;">▼</A>
+<A href="#svgcats_vml_p1086" class="to_prev_page" style="margin-top:3507px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3518px; width:497px; height:214px;" fillcolor="white"/>
+<DIV id="text1087_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3535px; line-height:15px; white-space:nowrap">
+<A name="EditRegFile">
+EditRegFile クラス</A></DIV>
+<DIV id="text1087_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:32px; margin-top:3566px; line-height:15px; white-space:nowrap">
+レジストリファイル（*.reg）を編集します。 OpenForRegFile から取得できます。</DIV>
+<DIV id="text1087_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3613px; line-height:15px; white-space:nowrap">
+メソッド</DIV>
+<DIV id="text1087_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:40px; margin-top:3642px; line-height:13px; white-space:nowrap">
+<A href="#RegRead">
+.RegRead</A></DIV>
+<DIV id="text1087_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:40px; margin-top:3664px; line-height:13px; white-space:nowrap">
+<A href="#RegWrite">
+.RegWrite</A></DIV>
+<DIV id="text1087_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:129px; margin-top:3640px; line-height:15px; white-space:nowrap">
+レジストリファイルからリードします。</DIV>
+<DIV id="text1087_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:129px; margin-top:3662px; line-height:15px; white-space:nowrap">
+レジストリファイルにライトします。</DIV>
+<DIV id="text1087_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:40px; margin-top:3686px; line-height:13px; white-space:nowrap">
+<A href="#Close_EditRegFile">
+.Close</A></DIV>
+<DIV id="text1087_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:129px; margin-top:3684px; line-height:15px; white-space:nowrap">
+レジストリファイルを閉じます。 アクセスを終了します。</DIV>
+<DIV id="text1087_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:3535px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,3518" to="497,3518"/>
+<v:line from="497,3518" to="497,3732"/>
+<v:line from="497,3732" to="0,3732"/>
+<v:line from="0,3732" to="0,3518"/>
+
+</PAGE>
+ 
+<!-- page 1088 --> 
+<PAGE>
+<A id="svgcats_vml_p1088" class="to_tree" style="margin-top:3737px;" onClick="selectTreeElem( '1088' );">←</A>
+<A href="#svgcats_vml_p1089" class="to_next_page" style="margin-top:3737px;">▼</A>
+<A href="#svgcats_vml_p1087" class="to_prev_page" style="margin-top:3737px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3748px; width:576px; height:173px;" fillcolor="white"/>
+<DIV id="text1088_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3765px; line-height:15px; white-space:nowrap">
+<A name="Close_EditRegFile">
+Close (EditRegFile)</A></DIV>
+<DIV id="text1088_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3831px; line-height:15px; white-space:nowrap">
+レジストリファイルを閉じます。 アクセスを終了します。</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:3795px; width:166px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1088_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:3802px; line-height:13px; white-space:nowrap">
+Sub&nbsp; EditRegFile::Close()</DIV>
+<DIV id="text1088_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:3858px; line-height:15px; white-space:nowrap">
+デストラクタによっても自動的にファイルを閉じます。<BR/>
+閉じる前にエラーが発生してデストラクタが呼ばれたら、Write した内容は反映されません。</DIV>
+<DIV id="text1088_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:3765px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,3748" to="576,3748"/>
+<v:line from="576,3748" to="576,3921"/>
+<v:line from="576,3921" to="0,3921"/>
+<v:line from="0,3921" to="0,3748"/>
+
+</PAGE>
+ 
+<!-- page 1089 --> 
+<PAGE>
+<A id="svgcats_vml_p1089" class="to_tree" style="margin-top:3926px;" onClick="selectTreeElem( '1089' );">←</A>
+<A href="#svgcats_vml_p1090" class="to_next_page" style="margin-top:3926px;">▼</A>
+<A href="#svgcats_vml_p1088" class="to_prev_page" style="margin-top:3926px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3937px; width:634px; height:905px;" fillcolor="white"/>
+<v:image src="1089/image01.jpg"
+   style="position:absolute; margin-left:99px; margin-top:4258px; width:128px; height:136px;"/>
+<DIV id="text1089_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3954px; line-height:15px; white-space:nowrap">
+<A name="InstallRegistryFileOpen">
+InstallRegistryFileOpen</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3984px; width:568px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1089_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3991px; line-height:13px; white-space:nowrap">
+Sub&nbsp; InstallRegistryFileOpen( Extension as string, ExePath as string, IsDefault as boolean )</DIV>
+<DIV id="text1089_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4021px; line-height:15px; white-space:nowrap">
+ファイルをダブルクリックしたときに開くプログラムを設定します。（現在のユーザーのみ）</DIV>
+<DIV id="text1089_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4047px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1089_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4047px; line-height:15px; white-space:nowrap">
+Extension</DIV>
+<DIV id="text1089_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4066px; line-height:15px; white-space:nowrap">
+ExePath</DIV>
+<DIV id="text1089_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4047px; line-height:15px; white-space:nowrap">
+拡張子</DIV>
+<DIV id="text1089_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4066px; line-height:15px; white-space:nowrap">
+プログラムの exe ファイルのパス。相対パス可。</DIV>
+<DIV id="text1089_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4085px; line-height:15px; white-space:nowrap">
+IsDefault</DIV>
+<DIV id="text1089_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4085px; line-height:15px; white-space:nowrap">
+True = ダブルクリックしたときに開く、 False = プログラムの選択に登録する</DIV>
+<DIV id="text1089_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4115px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:4113px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1089_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:4117px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1089_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:393px; margin-top:3953px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1089_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:223px; margin-top:3956px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1089_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4140px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4160px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1089_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4167px; line-height:13px; white-space:nowrap">
+InstallRegistryFileOpen&nbsp; ".svg", "Snap Note.exe", True</DIV>
+<DIV id="text1089_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:4750px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1089_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:4750px; line-height:15px; white-space:nowrap">
+<A href="#UninstallRegistryFileOpen">
+→ UninstallRegistryFileOpen</A></DIV>
+<DIV id="text1089_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:4772px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileVerb">
+→ InstallRegistryFileVerb</A></DIV>
+<DIV id="text1089_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:4772px; line-height:15px; white-space:nowrap">
+ファイルの右クリック・メニュー</DIV>
+<DIV id="text1089_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:4750px; line-height:15px; white-space:nowrap">
+ダブルクリックしたときの設定解除</DIV>
+<DIV id="text1089_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:4718px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1089_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:4718px; line-height:15px; white-space:nowrap">
+→ T_Reg_Manually.vbs # [T_FileAssocOpen]</DIV>
+<DIV id="text1089_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:4659px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1089_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:4659px; line-height:15px; white-space:nowrap">
+→ ファイルをダブルクリックしたときのコマンド</DIV>
+<DIV id="text1089_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:4794px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileOpenCommand">
+→ InstallRegistryFileOpenCommand</A></DIV>
+<DIV id="text1089_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:4794px; line-height:15px; white-space:nowrap">
+コマンドラインを指定して開くプログラムを設定する</DIV>
+<DIV id="text1089_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:63px; margin-top:4490px; line-height:15px; white-space:nowrap">
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\<BR/>
+&nbsp; &nbsp; FileExts\.&lt;拡張子&gt;\UserChoice\Hash</DIV>
+<DIV id="text1089_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4412px; line-height:15px; white-space:nowrap">
+下記 Hash キーがあるときは、レジストリーの設定を直接設定しただけでは、「この種類の<BR/>
+ファイル (.&lt;拡張子&gt;)を開くには、どのアプリを使いますか？」が常に表示されるようになります。<BR/>
+セキュリティーの機能の可能性があります。 少なくとも、マクロソフト製品が使う拡張子は、<BR/>
+Hash キーができます。 </DIV>
+<DIV id="text1089_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4215px; line-height:15px; white-space:nowrap">
+Windows8 では、関連する設定に矛盾があると、「この種類のファイル (.&lt;拡張子&gt;)<BR/>
+を開くには、どのアプリを使いますか？」が常に表示されます。</DIV>
+<DIV id="text1089_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:4677px; line-height:15px; white-space:nowrap">
+→ 既定のプログラムの選択、プログラムから開く</DIV>
+<DIV id="text1089_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4601px; line-height:15px; white-space:nowrap">
+マクロソフト製品（または、Windows インストーラーでインストールしたプログラム？）が使わない<BR/>
+拡張子には Hash キーができず、レジストリーの設定だけで関連付けすることができます。</DIV>
+<DIV id="text1089_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:420px; margin-top:4539px; line-height:15px; white-space:nowrap">
+<A href="#UninstallRegistryFileOpen">
+UninstallRegistryFileOpen</A></DIV>
+<DIV id="text1089_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4554px; line-height:15px; white-space:nowrap">
+などで、レジストリーの設定を元に戻してから、ファイルを右クリック [ プログラムから開く &gt;<BR/>
+既定のプログラムの選択 ] を選んでください。</DIV>
+<DIV id="text1089_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4539px; line-height:15px; white-space:nowrap">
+ダブルクリックしたときに開くプログラムを変更できるように戻すには、</DIV>
+
+<v:line from="0,3937" to="634,3937"/>
+<v:line from="634,3937" to="634,4842"/>
+<v:line from="634,4842" to="0,4842"/>
+<v:line from="0,4842" to="0,3937"/>
+
+</PAGE>
+ 
+<!-- page 1090 --> 
+<PAGE>
+<A id="svgcats_vml_p1090" class="to_tree" style="margin-top:4847px;" onClick="selectTreeElem( '1090' );">←</A>
+<A href="#svgcats_vml_p1091" class="to_next_page" style="margin-top:4847px;">▼</A>
+<A href="#svgcats_vml_p1089" class="to_prev_page" style="margin-top:4847px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4858px; width:585px; height:344px;" fillcolor="white"/>
+<DIV id="text1090_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4875px; line-height:15px; white-space:nowrap">
+<A name="UninstallRegistryFileOpen">
+UninstallRegistryFileOpen</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:4905px; width:448px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1090_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:4912px; line-height:13px; white-space:nowrap">
+Sub&nbsp; UninstallRegistryFileOpen( Extension as string, ExePath as string )</DIV>
+<DIV id="text1090_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4942px; line-height:15px; white-space:nowrap">
+ファイルをダブルクリックしたときに開くプログラムを設定解除します。（現在のユーザーのみ）</DIV>
+<DIV id="text1090_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4968px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1090_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4968px; line-height:15px; white-space:nowrap">
+Extension</DIV>
+<DIV id="text1090_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4987px; line-height:15px; white-space:nowrap">
+ExePath</DIV>
+<DIV id="text1090_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4968px; line-height:15px; white-space:nowrap">
+拡張子</DIV>
+<DIV id="text1090_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4987px; line-height:15px; white-space:nowrap">
+プログラムの exe ファイルのパス。相対パス可。</DIV>
+<DIV id="text1090_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5018px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:5016px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1090_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:5020px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1090_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:393px; margin-top:4874px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1090_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:223px; margin-top:4877px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1090_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5047px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:5067px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1090_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:5074px; line-height:13px; white-space:nowrap">
+UninstallRegistryFileOpen&nbsp; ".svg", "Snap Note.exe"</DIV>
+<DIV id="text1090_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:5152px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1090_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:5152px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileOpen">
+→ InstallRegistryFileOpen</A></DIV>
+<DIV id="text1090_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:247px; margin-top:5152px; line-height:15px; white-space:nowrap">
+ダブルクリックしたときの設定</DIV>
+<DIV id="text1090_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:5126px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1090_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:5126px; line-height:15px; white-space:nowrap">
+→ T_Reg_Manually.vbs # [T_FileAssocOpen]</DIV>
+
+<v:line from="0,4858" to="585,4858"/>
+<v:line from="585,4858" to="585,5202"/>
+<v:line from="585,5202" to="0,5202"/>
+<v:line from="0,5202" to="0,4858"/>
+
+</PAGE>
+ 
+<!-- page 1091 --> 
+<PAGE>
+<A id="svgcats_vml_p1091" class="to_tree" style="margin-top:5207px;" onClick="selectTreeElem( '1091' );">←</A>
+<A href="#svgcats_vml_p1092" class="to_next_page" style="margin-top:5207px;">▼</A>
+<A href="#svgcats_vml_p1090" class="to_prev_page" style="margin-top:5207px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5218px; width:679px; height:551px;" fillcolor="white"/>
+<DIV id="text1091_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5235px; line-height:15px; white-space:nowrap">
+<A name="InstallRegistryFileOpenCommand">
+InstallRegistryFileOpenCommand</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5265px; width:418px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1091_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5271px; line-height:15px; white-space:nowrap">
+Sub&nbsp; InstallRegistryFileOpenCommand( Extension as string,<BR/>
+&nbsp; &nbsp; ProgID as string, CommandLine as string, IsDefault as boolean )</DIV>
+<DIV id="text1091_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5316px; line-height:15px; white-space:nowrap">
+ファイルをダブルクリックしたときに開くプログラムを設定します。（現在のユーザーのみ）</DIV>
+<DIV id="text1091_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5342px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1091_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5342px; line-height:15px; white-space:nowrap">
+Extension</DIV>
+<DIV id="text1091_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5361px; line-height:15px; white-space:nowrap">
+ProgID</DIV>
+<DIV id="text1091_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:5342px; line-height:15px; white-space:nowrap">
+拡張子</DIV>
+<DIV id="text1091_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:5361px; line-height:15px; white-space:nowrap">
+プログラムの識別子</DIV>
+<DIV id="text1091_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5399px; line-height:15px; white-space:nowrap">
+IsDefault</DIV>
+<DIV id="text1091_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:5399px; line-height:15px; white-space:nowrap">
+True = ダブルクリックしたときに開く、 False = プログラムの選択に登録する</DIV>
+<DIV id="text1091_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5433px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:5431px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1091_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:5435px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:5486px; width:550px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1091_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:5493px; line-height:13px; white-space:nowrap">
+InstallRegistryFileOpenCommand&nbsp; ".svg", "Snap Note.exe", """Snap Note.exe"" ""%1""", True</DIV>
+<DIV id="text1091_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:5703px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1091_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:5671px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1091_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:5639px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1091_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:5639px; line-height:15px; white-space:nowrap">
+→ ファイルをダブルクリックしたときのコマンド</DIV>
+<DIV id="text1091_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:5380px; line-height:15px; white-space:nowrap">
+コマンドライン</DIV>
+<DIV id="text1091_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5380px; line-height:15px; white-space:nowrap">
+CommandLine</DIV>
+<DIV id="text1091_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:453px; margin-top:5234px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1091_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:283px; margin-top:5237px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1091_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:5703px; line-height:15px; white-space:nowrap">
+<A href="#UninstallRegistryFileOpenCommand">
+→ UninstallRegistryFileOpenCommand</A></DIV>
+<DIV id="text1091_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:5671px; line-height:15px; white-space:nowrap">
+→ T_Reg_Manually.vbs # T_FileAssocOpen_OS_Exe</DIV>
+<DIV id="text1091_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:5466px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1091_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:5528px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:5548px; width:604px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1091_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:5554px; line-height:15px; white-space:nowrap">
+prompt_vbs = SearchParent( "vbslib Prompt.vbs" )<BR/>
+command_line = """%windir%\System32\cmd.exe"" /K (""%windir%\System32\cscript.exe"" //nologo """+_<BR/>
+&nbsp; &nbsp; prompt_vbs +""" TranslateTest ""%1"" """")"<BR/>
+InstallRegistryFileOpenCommand&nbsp; "trans", "TranslateTest", command_line, True</DIV>
+<DIV id="text1091_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:5721px; line-height:15px; white-space:nowrap">
+<A href="vbslib_51.html#GetCScriptGUI_CommandLine">
+→ GetCScriptGUI_CommandLine</A></DIV>
+
+<v:line from="0,5218" to="679,5218"/>
+<v:line from="679,5218" to="679,5769"/>
+<v:line from="679,5769" to="0,5769"/>
+<v:line from="0,5769" to="0,5218"/>
+
+</PAGE>
+ 
+<!-- page 1092 --> 
+<PAGE>
+<A id="svgcats_vml_p1092" class="to_tree" style="margin-top:5774px;" onClick="selectTreeElem( '1092' );">←</A>
+<A href="#svgcats_vml_p1093" class="to_next_page" style="margin-top:5774px;">▼</A>
+<A href="#svgcats_vml_p1091" class="to_prev_page" style="margin-top:5774px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5785px; width:585px; height:333px;" fillcolor="white"/>
+<DIV id="text1092_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5802px; line-height:15px; white-space:nowrap">
+<A name="UninstallRegistryFileOpenCommand">
+UninstallRegistryFileOpenCommand</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5832px; width:484px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1092_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5839px; line-height:13px; white-space:nowrap">
+Sub&nbsp; UninstallRegistryFileOpenCommand( Extension as string, ProgID as string )</DIV>
+<DIV id="text1092_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5869px; line-height:15px; white-space:nowrap">
+ファイルをダブルクリックしたときに開くプログラムを設定解除します。（現在のユーザーのみ）</DIV>
+<DIV id="text1092_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5895px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1092_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5895px; line-height:15px; white-space:nowrap">
+Extension</DIV>
+<DIV id="text1092_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5914px; line-height:15px; white-space:nowrap">
+ProgID</DIV>
+<DIV id="text1092_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5895px; line-height:15px; white-space:nowrap">
+拡張子</DIV>
+<DIV id="text1092_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5914px; line-height:15px; white-space:nowrap">
+プログラムの識別子</DIV>
+<DIV id="text1092_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5945px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:5943px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1092_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:5947px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1092_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5974px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:5994px; width:358px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1092_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:6001px; line-height:13px; white-space:nowrap">
+UninstallRegistryFileOpenCommand&nbsp; ".svg", "Snap Note.exe"</DIV>
+<DIV id="text1092_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:6070px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1092_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:70px; margin-top:6070px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileOpenCommand">
+→ InstallRegistryFileOpenCommand</A></DIV>
+<DIV id="text1092_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:6043px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1092_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:6043px; line-height:15px; white-space:nowrap">
+→ T_Reg_Manually.vbs # T_FileAssocOpen_OS_Exe</DIV>
+
+<v:line from="0,5785" to="585,5785"/>
+<v:line from="585,5785" to="585,6118"/>
+<v:line from="585,6118" to="0,6118"/>
+<v:line from="0,6118" to="0,5785"/>
+
+</PAGE>
+ 
+<!-- page 1093 --> 
+<PAGE>
+<A id="svgcats_vml_p1093" class="to_tree" style="margin-top:6123px;" onClick="selectTreeElem( '1093' );">←</A>
+<A href="#svgcats_vml_p1094" class="to_next_page" style="margin-top:6123px;">▼</A>
+<A href="#svgcats_vml_p1092" class="to_prev_page" style="margin-top:6123px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6134px; width:505px; height:495px;" fillcolor="white"/>
+<DIV id="text1093_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6151px; line-height:15px; white-space:nowrap">
+<A name="RegWriteOpenExt">
+RegWriteOpenExt</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:6236px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1093_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:6243px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegWriteOpenExt( Ext, KeyName, Explain, Command, Opt )</DIV>
+<DIV id="text1093_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:6277px; line-height:15px; white-space:nowrap">
+指定の拡張子の [開く(&amp;O)] メニューのコマンドを登録します。</DIV>
+<DIV id="text1093_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:6558px; line-height:15px; white-space:nowrap">
+管理者権限が必要です</DIV>
+<DIV id="text1093_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6305px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1093_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:6325px; line-height:15px; white-space:nowrap">
+KeyName</DIV>
+<DIV id="text1093_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:6344px; line-height:15px; white-space:nowrap">
+Explain</DIV>
+<DIV id="text1093_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:6325px; line-height:15px; white-space:nowrap">
+レジストリのキーの名前（英語）</DIV>
+<DIV id="text1093_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:6344px; line-height:15px; white-space:nowrap">
+タイプの説明に表示される内容</DIV>
+<DIV id="text1093_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:6363px; line-height:15px; white-space:nowrap">
+Command</DIV>
+<DIV id="text1093_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:6363px; line-height:15px; white-space:nowrap">
+実行するコマンドライン</DIV>
+<DIV id="text1093_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:6382px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text1093_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:6382px; line-height:15px; white-space:nowrap">
+通常 Empty</DIV>
+<DIV id="text1093_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:6306px; line-height:15px; white-space:nowrap">
+拡張子。先頭はピリオド。例：.ext</DIV>
+<DIV id="text1093_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:6306px; line-height:15px; white-space:nowrap">
+Ext</DIV>
+<DIV id="text1093_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:368px; margin-top:6150px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1093_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:198px; margin-top:6153px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1093_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6521px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:6519px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1093_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:6523px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1093_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:6582px; line-height:15px; white-space:nowrap">
+今まで関連付けられていた情報は失われます。</DIV>
+<DIV id="text1093_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6421px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:6443px; width:352px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1093_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:6449px; line-height:15px; white-space:nowrap">
+&nbsp; RegWriteOpenExt&nbsp; ".c", "cfile", "C Language source", _<BR/>
+&nbsp; &nbsp; "C:\Windows\Notepad.exe ""%1""", Empty</DIV>
+<DIV id="text1093_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:112px; margin-top:6421px; line-height:15px; white-space:nowrap">
+.c ファイルをメモ帳で開くようにします。</DIV>
+<DIV id="text1093_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:36px; margin-top:6189px; line-height:15px; white-space:nowrap">
+廃止されました。 代わりは……</DIV>
+<DIV id="text1093_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:228px; margin-top:6189px; line-height:15px; white-space:nowrap">
+→ InstallRegistryOfFileOpen</DIV>
+
+<v:line from="0,6134" to="505,6134"/>
+<v:line from="505,6134" to="505,6629"/>
+<v:line from="505,6629" to="0,6629"/>
+<v:line from="0,6629" to="0,6134"/>
+
+</PAGE>
+ 
+<!-- page 1094 --> 
+<PAGE>
+<A id="svgcats_vml_p1094" class="to_tree" style="margin-top:6634px;" onClick="selectTreeElem( '1094' );">←</A>
+<A href="#svgcats_vml_p1095" class="to_next_page" style="margin-top:6634px;">▼</A>
+<A href="#svgcats_vml_p1093" class="to_prev_page" style="margin-top:6634px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6645px; width:632px; height:607px;" fillcolor="white"/>
+<DIV id="text1094_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6662px; line-height:15px; white-space:nowrap">
+<A name="InstallRegistryFileVerb">
+InstallRegistryFileVerb</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6692px; width:508px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1094_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6698px; line-height:15px; white-space:nowrap">
+Sub&nbsp; InstallRegistryFileVerb( ProgID as string, Verb as string, Caption as string,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CommandLine as string )</DIV>
+<DIV id="text1094_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6746px; line-height:15px; white-space:nowrap">
+ファイルの右クリック・メニューの１つの項目を追加します。（現在のユーザーのみ）</DIV>
+<DIV id="text1094_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6772px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1094_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6772px; line-height:15px; white-space:nowrap">
+ProgID</DIV>
+<DIV id="text1094_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6791px; line-height:15px; white-space:nowrap">
+Verb</DIV>
+<DIV id="text1094_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:6772px; line-height:15px; white-space:nowrap">
+"*"、または RegReadExtProgID の返り値 (*1)</DIV>
+<DIV id="text1094_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:6791px; line-height:15px; white-space:nowrap">
+メニュー項目の識別子（英語）</DIV>
+<DIV id="text1094_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6810px; line-height:15px; white-space:nowrap">
+Caption</DIV>
+<DIV id="text1094_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:6810px; line-height:15px; white-space:nowrap">
+右クリック・メニューに表示する文字列。(*2)</DIV>
+<DIV id="text1094_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6864px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:6862px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1094_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:6866px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1094_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:393px; margin-top:6661px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1094_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:223px; margin-top:6664px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1094_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7042px; line-height:15px; white-space:nowrap">
+(*2)</DIV>
+<DIV id="text1094_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:7042px; line-height:15px; white-space:nowrap">
+&amp; の次の文字は、右クリック・メニューを表示している状態で押すと選択できるキーボード<BR/>
+のキーになります。</DIV>
+<DIV id="text1094_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6829px; line-height:15px; white-space:nowrap">
+CommandLine</DIV>
+<DIV id="text1094_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:6829px; line-height:15px; white-space:nowrap">
+コマンドライン。 %1 は、ファイルのパスに置き換わります。</DIV>
+<DIV id="text1094_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:6973px; line-height:15px; white-space:nowrap">
+<A href="#RegReadExtProgID">
+RegReadExtProgID</A></DIV>
+<DIV id="text1094_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6973px; line-height:15px; white-space:nowrap">
+(*1)</DIV>
+<DIV id="text1094_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:176px; margin-top:6973px; line-height:15px; white-space:nowrap">
+で、拡張子と現在関連付けられている ProgID を取得できます。</DIV>
+<DIV id="text1094_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6890px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:6910px; width:490px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1094_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:6916px; line-height:15px; white-space:nowrap">
+InstallRegistryFileVerb&nbsp; RegReadExtProgID( "svg" ), "edit", "Snap Note (&amp;Z)", _<BR/>
+&nbsp; """"+ GetFullPath( "Snap Note.exe", Empty ) +""" ""%1"""</DIV>
+<DIV id="text1094_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:7164px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1094_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7164px; line-height:15px; white-space:nowrap">
+<A href="#UninstallRegistryFileVerb">
+→ UninstallRegistryFileVerb</A></DIV>
+<DIV id="text1094_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7184px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileOpen">
+→ InstallRegistryFileOpen</A></DIV>
+<DIV id="text1094_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7204px; line-height:15px; white-space:nowrap">
+<A href="#RegReadExtProgID">
+→ RegReadExtProgID</A></DIV>
+<DIV id="text1094_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:249px; margin-top:7164px; line-height:15px; white-space:nowrap">
+右クリック・メニューの削除</DIV>
+<DIV id="text1094_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:249px; margin-top:7184px; line-height:15px; white-space:nowrap">
+ダブルクリックしたときの設定</DIV>
+<DIV id="text1094_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:249px; margin-top:7204px; line-height:15px; white-space:nowrap">
+拡張子と関連付けられている ProgID の取得</DIV>
+<DIV id="text1094_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:7130px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1094_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:7130px; line-height:15px; white-space:nowrap">
+→ T_Reg_Manually.vbs # [T_FileAssocVerb]</DIV>
+<DIV id="text1094_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:7096px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1094_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:7096px; line-height:15px; white-space:nowrap">
+→ 右クリックして表示されるメニュー （特定の拡張子のファイル）</DIV>
+<DIV id="text1094_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:6992px; line-height:15px; white-space:nowrap">
+フォルダーに対する設定をするときは、ProgID="Folder" を指定してください。<BR/>
+すべてのファイルやフォルダーに対する設定をするときは、ProgID="*" を指定してください。</DIV>
+
+<v:line from="0,6645" to="632,6645"/>
+<v:line from="632,6645" to="632,7252"/>
+<v:line from="632,7252" to="0,7252"/>
+<v:line from="0,7252" to="0,6645"/>
+
+</PAGE>
+ 
+<!-- page 1095 --> 
+<PAGE>
+<A id="svgcats_vml_p1095" class="to_tree" style="margin-top:7257px;" onClick="selectTreeElem( '1095' );">←</A>
+<A href="#svgcats_vml_p1096" class="to_next_page" style="margin-top:7257px;">▼</A>
+<A href="#svgcats_vml_p1094" class="to_prev_page" style="margin-top:7257px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7268px; width:571px; height:352px;" fillcolor="white"/>
+<DIV id="text1095_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7285px; line-height:15px; white-space:nowrap">
+<A name="UninstallRegistryFileVerb">
+UninstallRegistryFileVerb</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7315px; width:412px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1095_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7322px; line-height:13px; white-space:nowrap">
+Sub&nbsp; UninstallRegistryFileVerb( ProgID as string, Verb as string )</DIV>
+<DIV id="text1095_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7355px; line-height:15px; white-space:nowrap">
+ファイルの右クリック・メニューの１つの項目を削除します。（現在のユーザーのみ）</DIV>
+<DIV id="text1095_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:393px; margin-top:7284px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1095_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:223px; margin-top:7287px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1095_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7381px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1095_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7381px; line-height:15px; white-space:nowrap">
+ProgID</DIV>
+<DIV id="text1095_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7400px; line-height:15px; white-space:nowrap">
+Verb</DIV>
+<DIV id="text1095_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:7381px; line-height:15px; white-space:nowrap">
+"*"、または RegReadExtProgID の返り値 (*1)</DIV>
+<DIV id="text1095_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:7400px; line-height:15px; white-space:nowrap">
+メニュー項目の識別子（英語）</DIV>
+<DIV id="text1095_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7440px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:7438px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1095_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:7442px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1095_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7535px; line-height:15px; white-space:nowrap">
+<A href="#RegReadExtProgID">
+RegReadExtProgID</A></DIV>
+<DIV id="text1095_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7535px; line-height:15px; white-space:nowrap">
+(*1)</DIV>
+<DIV id="text1095_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:7535px; line-height:15px; white-space:nowrap">
+で、拡張子と現在関連付けられている ProgID を取得できます。</DIV>
+<DIV id="text1095_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7468px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:7488px; width:364px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1095_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:7495px; line-height:13px; white-space:nowrap">
+InstallRegistryFileVerb&nbsp; RegReadExtProgID( "svg" ), "edit"</DIV>
+<DIV id="text1095_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:7572px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1095_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7572px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileVerb">
+→ InstallRegistryFileVerb</A></DIV>
+<DIV id="text1095_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:241px; margin-top:7572px; line-height:15px; white-space:nowrap">
+右クリック・メニューの追加</DIV>
+
+<v:line from="0,7268" to="571,7268"/>
+<v:line from="571,7268" to="571,7620"/>
+<v:line from="571,7620" to="0,7620"/>
+<v:line from="0,7620" to="0,7268"/>
+
+</PAGE>
+ 
+<!-- page 1096 --> 
+<PAGE>
+<A id="svgcats_vml_p1096" class="to_tree" style="margin-top:7625px;" onClick="selectTreeElem( '1096' );">←</A>
+<A href="#svgcats_vml_p1097" class="to_next_page" style="margin-top:7625px;">▼</A>
+<A href="#svgcats_vml_p1095" class="to_prev_page" style="margin-top:7625px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7636px; width:581px; height:532px;" fillcolor="white"/>
+<DIV id="text1096_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7653px; line-height:15px; white-space:nowrap">
+<A name="RegWriteAsterExt">
+RegWriteAsterExt</A></DIV>
+<v:rect style="position:absolute; margin-left:22px; margin-top:7746px; width:346px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1096_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:30px; margin-top:7753px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegWriteAsterExt( KeyName, Caption, Command, Opt )</DIV>
+<DIV id="text1096_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7787px; line-height:15px; white-space:nowrap">
+すべてのファイルに対するコンテキストメニューを追加登録します。</DIV>
+<DIV id="text1096_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7939px; line-height:15px; white-space:nowrap">
+管理者権限が必要です</DIV>
+<DIV id="text1096_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7815px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1096_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:7815px; line-height:15px; white-space:nowrap">
+KeyName</DIV>
+<DIV id="text1096_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:7834px; line-height:15px; white-space:nowrap">
+Caption</DIV>
+<DIV id="text1096_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:7815px; line-height:15px; white-space:nowrap">
+レジストリのキーの名前（英語）</DIV>
+<DIV id="text1096_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:7834px; line-height:15px; white-space:nowrap">
+コンテキストメニューに表示される内容</DIV>
+<DIV id="text1096_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:7853px; line-height:15px; white-space:nowrap">
+Command</DIV>
+<DIV id="text1096_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:7853px; line-height:15px; white-space:nowrap">
+実行するコマンドライン</DIV>
+<DIV id="text1096_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:7872px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text1096_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:7872px; line-height:15px; white-space:nowrap">
+通常 Empty</DIV>
+<DIV id="text1096_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:355px; margin-top:7652px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1096_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:185px; margin-top:7655px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1096_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7909px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:91px; margin-top:7907px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1096_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:99px; margin-top:7911px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<DIV id="text1096_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7969px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:7991px; width:484px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1096_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:7997px; line-height:15px; white-space:nowrap">
+&nbsp; '--- start of parameters for vbslib include -------------------------------<BR/>
+&nbsp; g_admin = 1<BR/>
+&nbsp; &nbsp; &nbsp;:<BR/>
+&nbsp; '--- end of parameters for vbslib include ---------------------------------<BR/>
+<BR/>
+Sub main()<BR/>
+&nbsp; Dim&nbsp; prog : prog = GetFullPath( "bz", Empty )<BR/>
+&nbsp; RegWriteAsterExt&nbsp; "bz", "bz (binary editor)", prog + "\bz.exe ""%1""", Empty<BR/>
+End Sub</DIV>
+<DIV id="text1096_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:36px; margin-top:7691px; line-height:15px; white-space:nowrap">
+廃止されました。 代わりは……</DIV>
+<DIV id="text1096_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:231px; margin-top:7691px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileVerb">
+→ InstallRegistryFileVerb</A></DIV>
+
+<v:line from="0,7636" to="581,7636"/>
+<v:line from="581,7636" to="581,8168"/>
+<v:line from="581,8168" to="0,8168"/>
+<v:line from="0,8168" to="0,7636"/>
+
+</PAGE>
+ 
+<!-- page 1097 --> 
+<PAGE>
+<A id="svgcats_vml_p1097" class="to_tree" style="margin-top:8173px;" onClick="selectTreeElem( '1097' );">←</A>
+<A href="#svgcats_vml_p1098" class="to_next_page" style="margin-top:8173px;">▼</A>
+<A href="#svgcats_vml_p1096" class="to_prev_page" style="margin-top:8173px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8184px; width:494px; height:215px;" fillcolor="white"/>
+<DIV id="text1097_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8201px; line-height:15px; white-space:nowrap">
+<A name="RegReadExtProgID">
+RegReadExtProgID</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8231px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1097_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8238px; line-height:13px; white-space:nowrap">
+Function&nbsp; RegReadExtProgID( Extension as string ) as string</DIV>
+<DIV id="text1097_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8271px; line-height:15px; white-space:nowrap">
+拡張子と現在関連付けられている ProgID を取得します。（現在のユーザー）</DIV>
+<DIV id="text1097_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:393px; margin-top:8200px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1097_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:223px; margin-top:8203px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1097_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:8350px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1097_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:8350px; line-height:15px; white-space:nowrap">
+<A href="#InstallRegistryFileVerb">
+→ InstallRegistryFileVerb</A></DIV>
+<DIV id="text1097_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:249px; margin-top:8350px; line-height:15px; white-space:nowrap">
+右クリック・メニューの追加</DIV>
+<DIV id="text1097_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8302px; line-height:15px; white-space:nowrap">
+フォルダーに対応する ProgID は、"Folder" です。</DIV>
+
+<v:line from="0,8184" to="494,8184"/>
+<v:line from="494,8184" to="494,8399"/>
+<v:line from="494,8399" to="0,8399"/>
+<v:line from="0,8399" to="0,8184"/>
+
+</PAGE>
+ 
+<!-- page 1098 --> 
+<PAGE>
+<A id="svgcats_vml_p1098" class="to_tree" style="margin-top:8404px;" onClick="selectTreeElem( '1098' );">←</A>
+<A href="#svgcats_vml_p1099" class="to_next_page" style="margin-top:8404px;">▼</A>
+<A href="#svgcats_vml_p1097" class="to_prev_page" style="margin-top:8404px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8415px; width:584px; height:519px;" fillcolor="white"/>
+<DIV id="text1098_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8432px; line-height:15px; white-space:nowrap">
+<A name="MsiModify">
+MsiModify</A></DIV>
+<DIV id="text1098_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:142px; margin-top:8432px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8462px; width:418px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1098_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8468px; line-height:15px; white-space:nowrap">
+Sub&nbsp; MsiModify( MsiPath as string, TableName as string,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; KeyColumnName as string, ValueColumnNum as integer,<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Key as string, NewValue as string )</DIV>
+<DIV id="text1098_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8531px; line-height:15px; white-space:nowrap">
+Windows 用のインストール・パッケージ（.msi）のデータベースを修正します。</DIV>
+<DIV id="text1098_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8557px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1098_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8557px; line-height:15px; white-space:nowrap">
+MsiPath</DIV>
+<DIV id="text1098_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8576px; line-height:15px; white-space:nowrap">
+TableName</DIV>
+<DIV id="text1098_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:8557px; line-height:15px; white-space:nowrap">
+インストール・パッケージ（.msi）のファイルのパス</DIV>
+<DIV id="text1098_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:8576px; line-height:15px; white-space:nowrap">
+データベースのテーブル名</DIV>
+<DIV id="text1098_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8595px; line-height:15px; white-space:nowrap">
+KeyColumnName</DIV>
+<DIV id="text1098_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:8595px; line-height:15px; white-space:nowrap">
+キーがある列の名前</DIV>
+<DIV id="text1098_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8652px; line-height:15px; white-space:nowrap">
+NewValue</DIV>
+<DIV id="text1098_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8633px; line-height:15px; white-space:nowrap">
+Key</DIV>
+<DIV id="text1098_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8614px; line-height:15px; white-space:nowrap">
+ValueColumnNum</DIV>
+<DIV id="text1098_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:8614px; line-height:15px; white-space:nowrap">
+値がある列の番号（最初＝１）</DIV>
+<DIV id="text1098_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:8633px; line-height:15px; white-space:nowrap">
+キーの名前</DIV>
+<DIV id="text1098_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:8652px; line-height:15px; white-space:nowrap">
+新しい値</DIV>
+<DIV id="text1098_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:66px; margin-top:8886px; line-height:15px; white-space:nowrap">
+→ Orca ツール、msi ファイルのデータベースの修正</DIV>
+<DIV id="text1098_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8886px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1098_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8687px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:38px; margin-top:8712px; width:514px; height:145px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1098_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:46px; margin-top:8718px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; Dim&nbsp; msi_path : msi_path = "sample.msi"<BR/>
+&nbsp; Dim&nbsp; new_values : Set new_values = Dict(Array( "Utilities", "INSTALLDIR" ))<BR/>
+&nbsp; Dim&nbsp; key<BR/>
+<BR/>
+&nbsp; For Each key&nbsp; In new_values.Keys<BR/>
+&nbsp; &nbsp; MsiModify&nbsp; msi_path, "Directory", "Directory", 2,&nbsp; key,&nbsp; new_values.Item( key )<BR/>
+&nbsp; Next<BR/>
+End Sub</DIV>
+
+<v:line from="0,8415" to="584,8415"/>
+<v:line from="584,8415" to="584,8934"/>
+<v:line from="584,8934" to="0,8934"/>
+<v:line from="0,8934" to="0,8415"/>
+
+</PAGE>
+ 
+<!-- page 1099 --> 
+<PAGE>
+<A id="svgcats_vml_p1099" class="to_tree" style="margin-top:8939px;" onClick="selectTreeElem( '1099' );">←</A>
+<A href="#svgcats_vml_p1100" class="to_next_page" style="margin-top:8939px;">▼</A>
+<A href="#svgcats_vml_p1098" class="to_prev_page" style="margin-top:8939px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8950px; width:582px; height:229px;" fillcolor="white"/>
+<DIV id="text1099_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8967px; line-height:15px; white-space:nowrap">
+<A name="get_WMI">
+get_WMI</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8997px; width:460px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1099_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9004px; line-height:13px; white-space:nowrap">
+Function&nbsp; get_WMI( ComputerName as string, ClassName as string ) as Object</DIV>
+<DIV id="text1099_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9034px; line-height:15px; white-space:nowrap">
+WMI オブジェクトを返します。</DIV>
+<DIV id="text1099_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9060px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1099_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9060px; line-height:15px; white-space:nowrap">
+ComputerName</DIV>
+<DIV id="text1099_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9079px; line-height:15px; white-space:nowrap">
+ClassName</DIV>
+<DIV id="text1099_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:9060px; line-height:15px; white-space:nowrap">
+コンピューター名。 Empty = ログオンしているコンピューター</DIV>
+<DIV id="text1099_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:9079px; line-height:15px; white-space:nowrap">
+WMI のクラス名</DIV>
+<DIV id="text1099_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9098px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text1099_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:213px; margin-top:9098px; line-height:15px; white-space:nowrap">
+エラーコード、正常=0</DIV>
+<DIV id="text1099_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:9131px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_16.html#WMI">
+→ WMI (Windows Management Instrumentation)</A></DIV>
+<DIV id="text1099_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9131px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1099_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:338px; margin-top:8966px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1099_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:168px; margin-top:8969px; line-height:12px; white-space:nowrap">
+<A href="vbslib_56.html#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+
+<v:line from="0,8950" to="582,8950"/>
+<v:line from="582,8950" to="582,9179"/>
+<v:line from="582,9179" to="0,9179"/>
+<v:line from="0,9179" to="0,8950"/>
+
+</PAGE>
+ 
+<!-- page 1100 --> 
+<PAGE>
+<A id="svgcats_vml_p1100" class="to_tree" style="margin-top:9184px;" onClick="selectTreeElem( '1100' );">←</A>
+<A href="#svgcats_vml_p1101" class="to_next_page" style="margin-top:9184px;">▼</A>
+<A href="#svgcats_vml_p1099" class="to_prev_page" style="margin-top:9184px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9195px; width:493px; height:310px;" fillcolor="white"/>
+<DIV id="text1100_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9212px; line-height:15px; white-space:nowrap">
+<A name="GetPythonInstallPath">
+GetPythonInstallPath</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9242px; width:268px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1100_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9249px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetPythonInstallPath() as string</DIV>
+<DIV id="text1100_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9279px; line-height:15px; white-space:nowrap">
+Python がインストールされているフォルダーのパスを返します。</DIV>
+<DIV id="text1100_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9313px; line-height:15px; white-space:nowrap">
+レジストリーの情報と、</DIV>
+<DIV id="text1100_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:159px; margin-top:9313px; line-height:15px; white-space:nowrap">
+<A href="#SetTargetPythonVersion">
+SetTargetPythonVersion</A></DIV>
+<DIV id="text1100_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:307px; margin-top:9313px; line-height:15px; white-space:nowrap">
+の設定を元にしています。</DIV>
+<DIV id="text1100_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9347px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1100_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:9347px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1100_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9385px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:9413px; width:382px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1100_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:9419px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; python_exe = GetPythonInstallPath() +"\python.exe"<BR/>
+&nbsp; &nbsp; script_path = "C:\sample.py"<BR/>
+&nbsp; &nbsp; RunProg&nbsp; """"+ python_exe +""" """+ script_path +"""", ""</DIV>
+
+<v:line from="0,9195" to="493,9195"/>
+<v:line from="493,9195" to="493,9505"/>
+<v:line from="493,9505" to="0,9505"/>
+<v:line from="0,9505" to="0,9195"/>
+
+</PAGE>
+ 
+<!-- page 1101 --> 
+<PAGE>
+<A id="svgcats_vml_p1101" class="to_tree" style="margin-top:9510px;" onClick="selectTreeElem( '1101' );">←</A>
+<A href="#svgcats_vml_p1102" class="to_next_page" style="margin-top:9510px;">▼</A>
+<A href="#svgcats_vml_p1100" class="to_prev_page" style="margin-top:9510px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9521px; width:490px; height:259px;" fillcolor="white"/>
+<DIV id="text1101_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9538px; line-height:15px; white-space:nowrap">
+<A name="SetTargetPythonVersion">
+SetTargetPythonVersion</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9568px; width:418px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1101_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9575px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetTargetPythonVersion( MinVer as integer, MaxVer as integer )</DIV>
+<DIV id="text1101_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9605px; line-height:15px; white-space:nowrap">
+Python に関する機能の対象となるバージョンの範囲を設定します。</DIV>
+<DIV id="text1101_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9631px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1101_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9631px; line-height:15px; white-space:nowrap">
+MinVer</DIV>
+<DIV id="text1101_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9650px; line-height:15px; white-space:nowrap">
+MaxVer</DIV>
+<DIV id="text1101_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:9631px; line-height:15px; white-space:nowrap">
+最小バージョン、または、Empty</DIV>
+<DIV id="text1101_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:9650px; line-height:15px; white-space:nowrap">
+最大バージョン、または、Empty</DIV>
+<DIV id="text1101_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:157px; margin-top:9685px; line-height:15px; white-space:nowrap">
+<A href="#GetPythonInstallPath">
+GetPythonInstallPath</A></DIV>
+<DIV id="text1101_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:308px; margin-top:9685px; line-height:15px; white-space:nowrap">
+<A href="#IsInstallPython">
+IsInstallPython</A></DIV>
+<DIV id="text1101_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:285px; margin-top:9685px; line-height:15px; white-space:nowrap">
+や</DIV>
+<DIV id="text1101_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:399px; margin-top:9685px; line-height:15px; white-space:nowrap">
+の動きが</DIV>
+<DIV id="text1101_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9685px; line-height:15px; white-space:nowrap">
+本関数を呼び出すと、</DIV>
+<DIV id="text1101_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9702px; line-height:15px; white-space:nowrap">
+変わります。</DIV>
+<DIV id="text1101_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9732px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1101_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:9732px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,9521" to="490,9521"/>
+<v:line from="490,9521" to="490,9780"/>
+<v:line from="490,9780" to="0,9780"/>
+<v:line from="0,9780" to="0,9521"/>
+
+</PAGE>
+ 
+<!-- page 1102 --> 
+<PAGE>
+<A id="svgcats_vml_p1102" class="to_tree" style="margin-top:9785px;" onClick="selectTreeElem( '1102' );">←</A>
+<A href="#svgcats_vml_p1103" class="to_next_page" style="margin-top:9785px;">▼</A>
+<A href="#svgcats_vml_p1101" class="to_prev_page" style="margin-top:9785px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9796px; width:375px; height:166px;" fillcolor="white"/>
+<DIV id="text1102_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9813px; line-height:15px; white-space:nowrap">
+<A name="IsInstallPython">
+IsInstallPython</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9843px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1102_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9850px; line-height:13px; white-space:nowrap">
+Function&nbsp; IsInstallPython() as boolean</DIV>
+<DIV id="text1102_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9880px; line-height:15px; white-space:nowrap">
+Python がインストールされているかどうかを返します。</DIV>
+<DIV id="text1102_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9914px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1102_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:9914px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,9796" to="375,9796"/>
+<v:line from="375,9796" to="375,9962"/>
+<v:line from="375,9962" to="0,9962"/>
+<v:line from="0,9962" to="0,9796"/>
+
+</PAGE>
+ 
+<!-- page 1103 --> 
+<PAGE>
+<A id="svgcats_vml_p1103" class="to_tree" style="margin-top:9967px;" onClick="selectTreeElem( '1103' );">←</A>
+<A href="vbslib_58.html#svgcats_vml_p1104" class="to_next_page" style="margin-top:9967px;">▼</A>
+<A href="#svgcats_vml_p1102" class="to_prev_page" style="margin-top:9967px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9978px; width:613px; height:483px;" fillcolor="white"/>
+<DIV id="text1103_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9995px; line-height:15px; white-space:nowrap">
+<A name="GetPerlVersion">
+GetPerlVersion</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:10025px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1103_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:10032px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetPerlVersion( Options as Empty ) as string</DIV>
+<DIV id="text1103_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10062px; line-height:15px; white-space:nowrap">
+Perl がインストールされているか確認し、ActivePerl のバージョンを返します。</DIV>
+<DIV id="text1103_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10088px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1103_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:10088px; line-height:15px; white-space:nowrap">
+Options</DIV>
+<DIV id="text1103_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:10107px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text1103_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:10088px; line-height:15px; white-space:nowrap">
+Empty を指定してください</DIV>
+<DIV id="text1103_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:10107px; line-height:15px; white-space:nowrap">
+スクリプト・エンジン名と、バージョン番号。 例："5.16.3"</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:10234px; width:514px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1103_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:10240px; line-height:15px; white-space:nowrap">
+&lt;ERROR err_number='0x80070002' err_description='Perl が見つからないか Perl に Path <BR/>
+が通っていません。Strawberry Perl や ActivePerl などをインストールしてください。'/&gt;</DIV>
+<DIV id="text1103_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10204px; line-height:15px; white-space:nowrap">
+Perl がインストールされていないと、下記のようなエラーになります。</DIV>
+<DIV id="text1103_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10340px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1103_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:109px; margin-top:10340px; line-height:15px; white-space:nowrap">
+Perl が使えるかどうかをチェックする</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:10363px; width:142px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1103_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:10370px; line-height:13px; white-space:nowrap">
+GetPerlVersion&nbsp; Empty</DIV>
+<DIV id="text1103_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10413px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1103_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:10413px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1103_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10302px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1103_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10142px; line-height:15px; white-space:nowrap">
+内部で</DIV>
+<DIV id="text1103_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:10142px; line-height:15px; white-space:nowrap">
+によって Perl スクリプトのホスト(.exe) のパスを検索します。</DIV>
+<DIV id="text1103_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:83px; margin-top:10142px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_getPerlPath">
+Setting_getPerlPath</A></DIV>
+<DIV id="text1103_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10166px; line-height:15px; white-space:nowrap">
+また、本関数の内部で、現在実行中のプロセスの環境変数 PATH に、Perl の exe ファイルがある<BR/>
+フォルダーを追加します。</DIV>
+<DIV id="text1103_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:10302px; line-height:15px; white-space:nowrap">
+→ ActivePerl</DIV>
+<DIV id="text1103_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:10302px; line-height:15px; white-space:nowrap">
+→ Strawberry Perl</DIV>
+
+<v:line from="0,9978" to="613,9978"/>
+<v:line from="613,9978" to="613,10461"/>
+<v:line from="613,10461" to="0,10461"/>
+<v:line from="0,10461" to="0,9978"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10461px;">
+<A id="svgcats_vml_p1103" class="to_tree" onClick="selectTreeElem( '1103' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10461px;">
+<A id="page_group_bottom" href="vbslib_58.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

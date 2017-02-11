@@ -1,422 +1,1415 @@
-<?xml version="1.0" encoding="Shift_JIS"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Translate>
-
-<File>vbslib.vbs</File>
-
-<T><JP></JP>
-   <EN></EN></T>
-
-<T><JP>Perl ‚ªŒ©‚Â‚©‚ç‚È‚¢‚© Perl ‚É Path ‚ª’Ê‚Á‚Ä‚¢‚Ü‚¹‚ñB</JP>
-   <EN>Not found perl or not set path to perl.</EN></T>
-<T><JP>ActivePerl ‚È‚Ç‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Install ActivePerl or others.</EN></T>
-
-<T><JP>ƒ^ƒCƒ€ƒXƒ^ƒ“ƒv‚ğƒŠ[ƒh‚·‚é</JP>
-   <EN>Scan timestamp</EN></T>
-<T><JP>ƒ^ƒCƒ€ƒXƒ^ƒ“ƒv‚ğ”äŠr‚·‚é</JP>
-   <EN>Compare timestamp</EN></T>
-<T><JP>ƒRƒ}ƒ“ƒh‚ğÀs‚·‚é‡”Ô‚ğˆË‘¶ŠÖŒW‚É‡‚¤‚æ‚¤‚É’²®‚·‚é</JP>
-   <EN>Resolve dependency</EN></T>
-
-<T><JP>Ascii •¶šˆÈŠO‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªw’è‚³‚ê‚Ü‚µ‚½B-u ƒIƒvƒVƒ‡ƒ“‚ğg‚Á‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>The file path has not ascii character. Use -u option.</EN></T>
-<T><JP>ƒƒCƒ‹ƒhƒJ[ƒh‚ª‚È‚¢‚Æ‚«Are ‚É string Œ^‚ğ‘ã“ü, re2=Empty</JP>
-   <EN></EN></T>
-<T><JP>* ‚ª‚PŒÂ‚Ì‚Æ‚«</JP>
-   <EN></EN></T>
-<T><JP>* ‚ª‚Q‚Â‚Ì‚Æ‚«‚©A? ‚ª‚ ‚é‚Æ‚«</JP>
-   <EN></EN></T>
-<T><JP>ƒXƒNƒŠƒvƒg‚ğI—¹‚µ‚Ü‚·‚©H</JP>
-   <EN>Exit this script?</EN></T>
-<T><JP>ƒ†[ƒU[‚É‚æ‚éƒLƒƒƒ“ƒZƒ‹</JP>
-   <EN>User cancel</EN></T>
-<T><JP>ƒfƒoƒbƒK[‚ğg‚Á‚ÄŒÄ‚Ño‚µŒ³‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Check caller function using debugger.</EN></T>
-<T><JP>‘O‚ÌƒGƒ‰[‚ğÄ“x“Š‚°‚éB</JP>
-   <EN>Re-throw previous error.</EN></T>
-<T><JP>SetupVbslibParameters ŠÖ”‚Ì’†‚É "g_debug" = 1 (=Me.Num) or (=Me.Num+0.5) ‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Write "g_debug" = 1 (=Me.Num) or (=Me.Num+0.5) in SetupVbslibParameters function.</EN></T>
-
-<T><JP>‚±‚ÌŠÖ”‚ğƒNƒ‰ƒX‚ÌŠO‚É’u‚¢‚Ä‚¢‚é‚Ì‚ÍA</JP>
-   <EN>This is out of class because </EN></T>
-<T><JP>ŠÖ”‚ğŒÄ‚Ño‚¹‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Å‚·B</JP>
-   <EN>function can be called.</EN></T>
-<T><JP>‘±s‚·‚é‚É‚Í Enter ƒL[‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢ . . .</JP>
-   <EN>Press Enter key to continue ...</EN></T>
-<T><JP>ƒEƒBƒ“ƒhƒEEƒ^ƒCƒgƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found window title</EN></T>
-<T><JP>w’è‚µ‚½–¼‘O‚ÌŠÂ‹«•Ï”‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>not found var symbol</EN></T>
-<T><JP>‰º‹L‚Ìƒtƒ@ƒCƒ‹‚ğƒeƒLƒXƒgƒGƒfƒBƒ^‚ÅŠJ‚¢‚ÄŸ‚Ì‚æ‚¤‚É•Ï”‚Ì’l‚ğC³‚·‚é‚ÆAƒfƒoƒbƒK‚ÉÚ‘±‚µ‚Ä–â‘è‚ª‚ ‚éêŠ‚Å’â~‚µ‚Ü‚·B</JP>
-   <EN>If you open following file using text editor and modify value of variable, it stops at problem point connected debugger.</EN></T>
-<T><JP>ƒpƒX‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Input Path</EN></T>
-<T><JP>”Ô†‚Ü‚½‚ÍƒRƒ}ƒ“ƒh</JP>
-   <EN>Number or command</EN></T>
-<T><JP>InputCommand ‚ğg‚¤‚Æ‚«‚ÍAset_input ‚Ü‚½‚Í SetAutoKeysFromMainArg ‚ğŒÄ‚Ño‚³‚È‚¢‚Å‚­‚¾‚³‚¢</JP>
-   <EN>If InputCommand was used, do not call set_input or SetAutoKeysFromMainArg</EN></T>
-<T><JP>ŠÖ”‚ª‚ ‚è‚Ü‚¹‚ñ</JP>
-   <EN>function is not found</EN></T>
-<T><JP>ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚â InputBox ‚Å‚ÍA254•¶šˆÈã‚Í“ü‚è‚Ü‚¹‚ñB</JP>
-   <EN>Command prompt or InputBox can not input over 254 characters.</EN></T>
-<T><JP>ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚Å‚ÍA‰p•¶šˆÈŠO‚Ìê‡A128•¶šˆÈã‚Í“ü‚è‚Ü‚¹‚ñB</JP>
-   <EN>Command prompt can not input over 128 characters in not English.</EN></T>
-<T><JP>‚à‚¤ˆê“x“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B</JP><EN>Input again</EN></T>
-<T><JP>’¼‘O‚Ìƒ_ƒCƒAƒƒOEƒEƒBƒ“ƒhƒE‚É•\¦‚µ‚½ƒpƒX‚Éƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚·B</JP>
-   <EN>File is be output at the path displayed at previous dialog window.</EN></T>
-<T><JP>‚Í‚¢Bƒtƒ@ƒCƒ‹o—Í‚ğ‹–‰Â‚µ‚Ü‚·</JP>
-   <EN>Yes. Enable to output file</EN></T>
-<T><JP>ˆÈŒãA‚·‚×‚Ä‚Í‚¢</JP>
-   <EN>Yes all. Enable to output all files</EN></T>
-<T><JP>‚¢‚¢‚¦BƒvƒƒOƒ‰ƒ€‚ğI—¹‚µ‚Ü‚·</JP>
-   <EN>No. Program is finished</EN></T>
-<T><JP>ƒpƒX‚ğ‚à‚¤ˆê“x•\¦‚µ‚Ü‚·</JP>
-   <EN>Path is shown again</EN></T>
-<T><JP>ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚É•\¦‚µ‚½ƒpƒX‚Éƒtƒ@ƒCƒ‹‚ğo—Í‚µ‚Ü‚·B</JP>
-   <EN>File is output at the path displayed at command prompt.</EN></T>
-<T><JP>‚Ì‘æ2ˆø”‚Íƒtƒ‹EƒpƒX‚É‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>'s 2nd argument must be full path</EN></T>
-<T><JP>zŠÂQÆ‚µ‚Ä‚¢‚Ü‚·</JP>
-   <EN>Mutual reference</EN></T>
-<T><JP>ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒeƒLƒXƒg‚ª‚ ‚è‚Ü‚¹‚ñ</JP>
-   <EN>There is not any text in clipboard</EN></T>
-<T><JP>¡•Â‚¶‚½ƒXƒNƒŠƒvƒg‚ğÀs‚µ‚Ü‚·B</JP>
-   <EN>Closed script will be run.</EN></T>
-
-
-
-<T><JP>ŒŸõƒL[ƒ[ƒh‚ª‚ ‚è‚Ü‚¹‚ñB</JP>
-   <EN>No search keyword.</EN></T>
-<T><JP>ƒtƒHƒ‹ƒ_[‚Å‚Í‚ ‚è‚Ü‚¹‚ñ</JP>
-   <EN>It is not folder.</EN></T>
-<T><JP>ƒoƒbƒNƒAƒbƒv‚Ìƒtƒ@ƒCƒ‹–¼‚ªì‚ê‚Ü‚¹‚ñBF</JP>
-   <EN>Back up file name can not be made.</EN></T>
-<T><JP>ƒoƒbƒNƒAƒbƒvƒRƒs[‚É¸”s‚µ‚Ü‚µ‚½B</JP>
-   <EN>Back up copy was failed.</EN></T>
-<T><JP>ƒoƒbƒNƒAƒbƒvŒ³F</JP>
-   <EN>back up from:</EN></T>
-<T><JP>ƒoƒbƒNƒAƒbƒvæF</JP>
-   <EN>back up to:</EN></T>
-<T><JP>ã‘‚«ƒRƒs[‚É¸”s‚µ‚Ü‚µ‚½BƒSƒ~” ‚É“ü‚ê‚½Œ³‚Ìƒtƒ@ƒCƒ‹‚ğ•œŠˆ‚³‚¹‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Overwrite copy was failed. Resume old file thrown to trash box.</EN></T>
-<T><JP>XV‚Í¬Œ÷‚µ‚Ü‚µ‚½‚ªAˆêƒtƒ@ƒCƒ‹‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½B</JP>
-   <EN>Update was succesed. But deleting temporary file was failed.</EN></T>
-<T><JP>XVÏ‚İƒtƒ@ƒCƒ‹F</JP>
-   <EN>updated file:</EN></T>
-<T><JP>ˆêƒtƒ@ƒCƒ‹F</JP>
-   <EN>temporary file:</EN></T>
-<T><JP>ƒSƒ~” ‚ÖˆÚ“®‚Å‚«‚Ü‚¹‚ñ</JP>
-   <EN>Fail to move to trash box</EN></T>
-<T><JP>íœ‚µ‚Ä‚æ‚ë‚µ‚¢‚Å‚·‚©H</JP>
-   <EN>Are you delete ?</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éêŠ‚ÉƒtƒHƒ‹ƒ_[‚ğì¬‚µ‚æ‚¤‚Æ‚µ‚Ü‚µ‚½</JP>
-   <EN>It is not able to make folder at file exists</EN></T>
-<T><JP>%MultiLine% ‚ÌŸ‚Ìs next_line ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN></EN></T>
-<T><JP>//=== ³‹K•\Œ»‚ğ’u‚«Š·‚¦‚é</JP>
-   <EN>//</EN></T>
-<T><JP>//=== findstr ‚ğ‹N“®‚·‚é</JP>
-   <EN>//</EN></T>
-<T><JP>findstr ‚Ìo—Í‚ğ GrepFound ƒNƒ‰ƒX‚Ìƒƒ“ƒo[•Ï”‚É•ª”z‚·‚é</JP>
-   <EN>//</EN></T>
-<T><JP>ƒAƒNƒZƒX‚ª‹‘”Û‚³‚ê‚Ü‚µ‚½B</JP>
-   <EN>Access denied</EN></T>
-<T><JP>ReadLine, WriteLine ‚Ì––”ö‚É‰üs•¶š‚ª•t‚«‚Ü‚·</JP>
-   <EN>//</EN></T>
-<T><JP>E_NoObjectProvider(=3251) ‚ÌƒGƒ‰[‚É‚È‚é‚Æ‚«‚ÍA</JP>
-   <EN>//</EN></T>
-<T><JP>ŠÂ‹«•Ï”‚Ì’l‚ğƒ`ƒFƒbƒN‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>//</EN></T>
-<T><JP>‚±‚ê‚Ííœ‚µ‚Ä‚à‚æ‚¢ˆêƒtƒHƒ‹ƒ_‚ÌƒpƒX‚Å‚·‚©H</JP>
-   <EN>Is this </EN></T>
-<T><JP>‚Ì‚Æ‚«‚ÍAre=re2=Empty</JP>
-   <EN>//</EN></T>
-<T><JP>ƒƒCƒ‹ƒhƒJ[ƒh‚Ì”»’è‚É StrMatchKey ‚ğg‚¤‚Æ‚«Are ‚É‘ã“ü</JP>
-   <EN>//</EN></T>
-<T><JP>‚ª 0ŒÂA‚Ü‚½‚Í‚PŒÂ‚Ì‚Æ‚«</JP>
-   <EN>//</EN></T>
-<T><JP>ƒƒCƒ‹ƒhƒJ[ƒh‚Ì”»’è‚É RegExp ‚ğg‚¤‚Æ‚«Are, re2 ‚É‘ã“ü</JP>
-   <EN>//</EN></T>
-<T><JP>ƒ‹[ƒg—v‘f‚ª•¡”‚ ‚é‚Æ‚«</JP>
-   <EN>If multi root element</EN></T>
-<T><JP>Unicode ‚Å‚È‚¢‚©A³‚µ‚¢ XML Œ`®‚É‚È‚Á‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>This is not Unicode or not regular XML format</EN></T>
-<T><JP>ƒ†[ƒU[‚ÉŠm”F‚ğ‚Æ‚é</JP>
-   <EN>Confirm to user</EN></T>
-<T><JP>XVƒtƒ@ƒCƒ‹F</JP>
-   <EN>Update file:</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚Ìã‹L‘®«‚ğ•ÏX‚µ‚Ü‚·B</JP>
-   <EN>file's attribute will be modified</EN></T>
-<T><JP>ƒIƒuƒWƒFƒNƒg‚ğC³‚·‚é</JP>
-   <EN>object is modified</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚É•Û‘¶‚·‚é</JP>
-   <EN>Save to file</EN></T>
-<T><JP>XML ‚Ìƒ‹[ƒgEƒ^ƒO‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>XML Root tag is not found</EN></T>
-<T><JP>ƒ‹[ƒgEƒm[ƒh‚Í•ÏX‚Å‚«‚Ü‚¹‚ñ</JP>
-   <EN>Root node can not be modified</EN></T>
-<T><JP>‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB</JP>
-   <EN>is not specified.</EN></T>
-<T><JP>name: TargetLocation ‚Ì # ‚æ‚èŒã‚ë</JP>
-   <EN>//</EN></T>
-<T><JP>ƒŠƒ“ƒNæ‚ªŒ©‚Â‚©‚ç‚È‚¢‚Æ‚«‚ÍƒGƒ‰[‚É‚·‚é</JP>
-   <EN>//</EN></T>
-<T><JP>ƒŠƒ“ƒNæ‚Ì–¼‘O‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢‚© # ‚ª‹Lq‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>Link target name is not specified or # is not written</EN></T>
-<T><JP>node: id‘®«‚© name‘®«‚ª name ‚Éˆê’v‚·‚é XML ƒ^ƒO</JP>
-   <EN>//</EN></T>
-<T><JP>ƒŠƒ“ƒNæ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Link target is not found</EN></T>
-<T><JP>zŠÂQÆ‚µ‚Ä‚¢‚½‚çƒGƒ‰[‚É‚·‚é</JP>
-   <EN>Raise error, when mutual link</EN></T>
-<T><JP>ƒŠƒ“ƒN‚ªzŠÂ‚µ‚Ä‚¢‚é‚½‚ßˆ—‚ªŠ®—¹‚Å‚«‚Ü‚¹‚ñ</JP>
-   <EN>Operation can not be completed because mutual link</EN></T>
-<T><JP>ƒŠƒ“ƒN‚ÌƒiƒrƒQ[ƒVƒ‡ƒ“‚ğŠJn‚µ‚½‚Æ‚«‚ÍAMe.StartNavigation ‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>When link navigation was started, Call Me.StartNavigation.</EN></T>
-<T><JP>"SetupCallViaFile ‚ğŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢B"</JP>
-   <EN>"Call SetupCallViaFile."</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹–¼‚ª•¶š—ñŒ^‚É‚È‚Á‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>File name is not string type</EN></T>
-<T><JP>•Ï”‚ğQÆ‚µ‚Ä‚¢‚È‚¢’l‚ğo—Í‚·‚é</JP>
-   <EN>Output value not referencing the variable</EN></T>
-<T><JP>•Ï”‚ğQÆ‚µ‚Ä‚¢‚é’l‚ğo—Í‚·‚é</JP>
-   <EN>Output value referencing the variable</EN></T>
-<T><JP>ŒvZ‚·‚é</JP>
-   <EN>calculate</EN></T>
-<T><JP>DefineInfoObject ‚ªd•¡’è‹`‚³‚ê‚Ä‚¢‚Ü‚·</JP>
-   <EN>DefineInfoObject is double defined</EN></T>
-<T><JP>2‰ñ–Ú‚Ì ExecuteGlobal ‚Å‚ÍƒGƒ‰[‚ªo‚Ü‚¹‚ñ‚Å‚µ‚½B</JP>
-   <EN>Second ExecuteGlobal does not raise any error.</EN></T>
-<T><JP>2‰ñ include ‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B</JP>
-   <EN>It may be double include.</EN></T>
-<T><JP>Ÿ‚ÌƒR[ƒh‚ğ main ŠÖ”‚É‹Lq‚µ‚ÄÄÀs‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Write following code in main function and restart</EN></T>
-<T><JP>•Â‚¶‚é % ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>End of % is not found</EN></T>
-<T><JP>’l‚ª”z—ñ‚È‚Ì‚Å•¶š—ñ‚É•ÏŠ·‚Å‚«‚Ü‚¹‚ñ</JP>
-   <EN>Array value can not be cast to string</EN></T>
-<T><JP>"Àsƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚ç‚È‚¢‚©Aƒ_ƒuƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“"</JP>
-   <EN>"Execute file is not found or Not close by double quotation"</EN></T>
-<T><JP>"‚ÅˆÍ‚Ü‚ê‚Ä‚¢‚Ü‚¹‚ñ"</JP>
-   <EN>""</EN></T>
-<T><JP>pause ‚Ì‚İ‘Î‰</JP>
-   <EN>Support only pause</EN></T>
-<T><JP>‘±s‚·‚é‚É‚Í‰½‚©ƒL[‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Press any key to continue</EN></T>
-<T><JP>‘±s‚·‚é‚É‚Í</JP>
-   <EN>Press any</EN></T>
-<T><JP>‘—óMƒtƒ@ƒCƒ‹‚ª‚Å‚«‚éƒtƒHƒ‹ƒ_‚ÌƒpƒX</JP>
-   <EN>Folder path creating communication files</EN></T>
-<T><JP>ƒ‹[ƒg XML —v‘f</JP>
-   <EN>Root XML element</EN></T>
-<T><JP>cscript ‚ÅƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½</JP>
-   <EN>Error was raised in cscript</EN></T>
-<T><JP>ƒTƒuEƒvƒƒZƒX‚Å”­¶‚µ‚½ƒGƒ‰[‚ğAƒƒCƒ“EƒvƒƒZƒX‚Å‚à“Š‚°‚é</JP>
-   <EN>Error raised from sub process is raised from main process</EN></T>
-<T><JP>" 1. ·•ª‚ğ’²‚×‚ÄAŒ‹‰Ê‚ğƒeƒLƒXƒgEƒGƒfƒBƒ^[‚ÅŠJ‚­"</JP>
-   <EN>" 1. Open difference information by using text editor"</EN></T>
-<T><JP>". " &amp; FileLabels( file_num ) &amp; " ‚Ìƒtƒ@ƒCƒ‹‚ğŠJ‚­"</JP>
-   <EN>". Open file : " &amp; FileLabels( file_num )</EN></T>
-<T><JP>" ‚Ìƒtƒ@ƒCƒ‹‚ÍA‘¶İ‚µ‚Ü‚¹‚ñ"</JP>
-   <EN>" file is not found"</EN></T>
-<T><JP>" **. ƒRƒs[‚·‚éiƒRƒs[Œ³(4ˆÈã)~10{ƒRƒs[æ(4ˆÈã)"</JP>
-   <EN>" **. copy (source(4 and over) x 10 + destination(4 and over)"</EN></T>
-<T><JP>"     —áF45  "+ FileLabels( 0 ) +" ¨ "</JP>
-   <EN>"     e.g.: 45 = "+ FileLabels( 0 ) +" -> "</EN></T>
-<T><JP>‘€ì‚Ì”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Input operation number</EN></T>
-<T><JP>"”äŠr‚·‚éƒtƒ@ƒCƒ‹‚Ì " &amp; compare_num &amp; "‚Â–Ú‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢B"</JP>
-   <EN>"Select comparing No." &amp; compare_num &amp; " file"</EN></T>
-<T><JP>”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Input number</EN></T>
-<T><JP>ƒRƒs[Œ³F</JP>
-   <EN>Source:</EN></T>
-<T><JP>ƒRƒs[æF</JP>
-   <EN>Destination:</EN></T>
-<T><JP>ã‘‚«ƒRƒs[‚µ‚Ä‚æ‚ë‚µ‚¢‚Å‚·‚©H</JP>
-   <EN>Do you overwrite copy?</EN></T>
-<T><JP>“¯‚¶–¼‘O‚ÌƒIƒuƒWƒFƒNƒg‚ª‚ ‚è‚Ü‚·</JP>
-   <EN>Same name object is found</EN></T>
-<T><JP>I—¹ƒ^ƒO‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found EndOfFromText</EN></T>
-<T><JP>"* ‚ğ•¡”w’è‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñ"</JP>
-   <EN>"Multi * can not be set"</EN></T>
-<T><JP>’PˆÊ‚ª‚¨‚©‚µ‚¢</JP>
-   <EN>Bad unit</EN></T>
-<T><JP>DateTime ‚É W3CDTF ‚ğw’è‚µ‚½‚Æ‚«‚Í FromTZD ‚ğ Empty ‚É‚·‚é‚©AFromTZD ‚ğ DateTime ‚Ì TZD ‚É‡‚í‚¹‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>If DateTime was set W3CDTF, Set FromTZD to Empty or TZD of DateTime</EN></T>
-<T><JP>“dŒ¹‚ğØ‚è‚Ü‚·iƒVƒƒƒbƒgƒ_ƒEƒ“j</JP>
-   <EN>Shutdown</EN></T>
-<T><JP>“dŒ¹‚ğØ‚Á‚Ä‚¢‚Ü‚·iƒVƒƒƒbƒgƒ_ƒEƒ“j</JP>
-   <EN>Shutdown...</EN></T>
-<T><JP>Ä‹N“®‚µ‚Ü‚·</JP>
-   <EN>Reboot</EN></T>
-<T><JP>Ä‹N“®‚µ‚Ä‚¢‚Ü‚·</JP>
-   <EN>Rebooting</EN></T>
-<T><JP>“dŒ¹‚ğØ‚è‚Ü‚·iƒnƒCƒoƒl[ƒVƒ‡ƒ“j</JP>
-   <EN>Hibernate</EN></T>
-<T><JP>“dŒ¹‚ğØ‚Á‚Ä‚¢‚Ü‚·iƒnƒCƒoƒl[ƒVƒ‡ƒ“j</JP>
-   <EN>Hibernating...</EN></T>
-<T><JP>ƒXƒŠ[ƒv‚µ‚Ü‚·</JP>
-   <EN>Sleep</EN></T>
-<T><JP>ƒXƒŠ[ƒv‚É“ü‚Á‚Ä‚¢‚Ü‚·</JP>
-   <EN>Sleepling...</EN></T>
-<T><JP>ƒXƒ^ƒ“ƒoƒCó‘Ô‚É‚µ‚Ü‚·</JP>
-   <EN>Standby</EN></T>
-<T><JP>ƒXƒ^ƒ“ƒoƒCó‘Ô‚É‚µ‚Ä‚¢‚Ü‚·</JP>
-   <EN>Standbying...</EN></T>
-<T><JP>CountDownTimeSec &amp; "•bŒã‚ÉA"</JP>
-   <EN>"After "&amp; CountDownTimeSec &amp;"second, "</EN></T>
-<T><JP>ƒ†[ƒU[‚É‚æ‚èƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½</JP>
-   <EN>User cancel</EN></T>
-<T><JP>w’è‚µ‚½ƒpƒX‚ªƒŒƒWƒXƒgƒŠ‚É‚ ‚è‚Ü‚¹‚ñ</JP>
-   <EN>There is not specified path in registry</EN></T>
-<T><JP>ƒƒ‚FƒAƒ“ƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚à key +"\Modules\" ‚Íc‚Á‚Ä‚¢‚Ü‚·</JP>
-   <EN>memo: key +"\Modules\" is remained unless Python was uninstalled</EN></T>
-<T><JP>Python ‚ªƒŒƒWƒXƒgƒŠ‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB</JP>
-   <EN>Python is not registed in registry</EN></T>
-<T><JP>‘å•¶š¬•¶š‚ªˆÙ‚È‚è‚Ü‚·</JP>
-   <EN>Not same upper lower case</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚Ü‚½‚ÍƒtƒHƒ‹ƒ_[‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñB</JP>
-   <EN>Not found file or folder.</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚Ü‚½‚ÍƒtƒHƒ‹ƒ_[‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found file or folder</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found file</EN></T>
-<T><JP>ƒtƒHƒ‹ƒ_[‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found folder</EN></T>
-<T><JP>’l‚ª‘z’èŠO‚Å‚·</JP>
-   <EN>Value is not expected</EN></T>
-<T><JP>ƒGƒ‰[ˆ—‚Ì“r’†‚ÅI—¹‚µ‚Ü‚µ‚½BErr2.Clear ‚Ü‚½‚ÍÄ Raise ‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Script finished before Err2.Clear or Raise the error</EN></T>
-<T><JP>g_debug &gt; 0 ‚Ì‚Æ‚«iOn Error Resume Next ‚µ‚Ä‚¢‚È‚¢‚Æ‚«j‚ÍA</JP>
-   <EN>When g_debug &gt; 0 (not called On Error Resume Next),</EN></T>
-<T><JP>‚±‚±‚Å•W€ƒGƒ‰[o—ÍiƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒgEƒEƒBƒ“ƒhƒE‚È‚Çj‚É</JP>
-   <EN>Error message was output at standard error output (e.g. Command Prompt)</EN></T>
-<T><JP>ƒGƒ‰[ƒƒbƒZ[ƒW‚ªo—Í‚³‚ê‚Ü‚·B vbslib ‚Ì Pass ŠÖ”‚Ì‚Æ‚«‚Å‚àA</JP>
-   <EN>When Pass function of vbslib was called,</EN></T>
-<T><JP>ERROR: Pass. ‚Ì‚æ‚¤‚Éo—Í‚³‚ê‚Ü‚·B</JP>
-   <EN>ERROR: Pass. : Like this was output.</EN></T>
-<T><JP>‚±‚±‚ÅA‚P‚Â‘O‚ÌƒGƒ‰[‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Check before error here.</EN></T>
-<T><JP>ƒGƒ‰[‚ª”­¶‚µ‚Ä‚¢‚é‚Æ‚«‚É TryStart ‚ÍŒÄ‚×‚Ü‚¹‚ñB</JP>
-   <EN>TryStart can not be called, when error was raised.</EN></T>
-<T><JP>TryStart ‚ÌƒhƒLƒ…ƒƒ“ƒg‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Look at the document of TryStart</EN></T>
-<T><JP>ƒR[ƒ‹ƒXƒ^ƒbƒNiŒÄ‚Ño‚µ—š—ğjƒEƒBƒ“ƒhƒE‚©‚çAŒÄ‚Ño‚µŒ³‚ÌŠÖ”‚ğŒ©‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Look at caller function in call stack window</EN></T>
-<T><JP>‚±‚±‚Ì TryEnd ‚æ‚è“à•”‚Ì TryEnd ‚ÅƒLƒƒƒbƒ`‚µ‚½ƒGƒ‰[‚ÍA“à•”‚Å g_Err2.Clear ‚·‚é‚©AÄ“xƒGƒ‰[‚ğ”­¶‚³‚¹‚é•K—v‚ª‚ ‚è‚Ü‚·</JP>
-   <EN>Error catched by TryEnd inside here TryEnd must call g_Err2.Clear inside or must raise again</EN></T>
-<T><JP>SkipSection::Start ‚Æ SkipSection::End_ ‚Ì‘Î‰ŠÖŒW‚ª‚¨‚©‚µ‚¢</JP>
-   <EN>It is not match SkipSection::Start and SkipSection::End_</EN></T>
-<T><JP>ƒZƒNƒVƒ‡ƒ“‚ª‚P‚Â‚àÀs‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>No section is not executed</EN></T>
-<T><JP>SkipSection::End_ ‚É‘Î‰‚·‚é Start ‚ª–³‚¢‚©AEnd_ ‚ğŒÄ‚Ño‚·ˆÊ’u‚ª End If ‚Ì’¼‘O‚Å‚Í‚ ‚è‚Ü‚¹‚ñ</JP>
-   <EN>Start corresponding SkipSection::End_ is not called or there is not End If before End_</EN></T>
-<T><JP>SetStartSectionTree ‚Åİ’è‚µ‚½ƒZƒNƒVƒ‡ƒ“‚ªI—¹‚µ‚Ü‚µ‚½</JP>
-   <EN>The section set by SetStartSectionTree was finished.</EN></T>
-
-<T><JP>íœ‚ÌŠm”FƒƒbƒZ[ƒW‚ğ•\¦‚·‚é‚Æ‚«Aƒ†[ƒU[‚Ì“ü—Í‚ª•K—v‚É‚È‚é‚½‚ß‹p‰º</JP>
-   <EN>This script is not used, because it is necessary to request to input with user.</EN></T>
-
-<T><JP>ã‘‚«ƒRƒs[‚É¸”s‚µ‚Ü‚µ‚½B</JP>
-   <EN>Filed to overwrite copy</EN></T>
-<T><JP>WSH ‚ÌƒfƒoƒbƒK[‚ªƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚ê‚ÎAƒXƒNƒŠƒvƒgEƒtƒ@ƒCƒ‹‚Ö‚ÌƒVƒ‡[ƒgƒJƒbƒg‚ğì¬AƒvƒƒpƒeƒB - ƒŠƒ“ƒNæ‚ÉA‰º‹L‚Ì /g_debug ƒIƒvƒVƒ‡ƒ“‚ğ’Ç‰ÁAƒVƒ‡[ƒgƒJƒbƒg‚©‚ç‹N“®‚·‚é‚ÆA–â‘è‚ª‚ ‚éêŠ‚Å’â~‚µ‚Ü‚·B</JP>
-   <EN></EN></T>
-<T><JP>ƒSƒ~” ‚É“ü‚ê‚½Œ³‚Ìƒtƒ@ƒCƒ‹‚ğ•œŠˆ‚³‚¹‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Restore source file thrown to trash box</EN></T>
-<T><JP>Œ³‚Ìƒtƒ@ƒCƒ‹‚Í‰º‹L‚É‚ ‚è‚Ü‚·B</JP>
-   <EN>Source file is exist at following place.</EN></T>
-<T><JP>Œ³‚Ìƒtƒ@ƒCƒ‹F</JP>
-   <EN>Source file:</EN></T>
-<T><JP>XV‚Í¬Œ÷‚µ‚Ü‚µ‚½‚ªAŸ‚Ìƒtƒ@ƒCƒ‹‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½B</JP>
-   <EN>Updating was successed, but following files was failed to delete.</EN></T>
-<T><JP>XVÏ‚İƒtƒ@ƒCƒ‹F</JP>
-   <EN>Updated file:</EN></T>
-<T><JP>ƒoƒbƒNƒAƒbƒvEƒtƒ@ƒCƒ‹F</JP>
-   <EN>Back up file:</EN></T>
-<T><JP>—¼•û‚Æ‚àŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found both</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚Ì“à—e‚ªˆÙ‚È‚è‚Ü‚·</JP>
-   <EN>File contents are not same</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚ÆƒtƒHƒ‹ƒ_[‚Ìˆá‚¢‚ª‚ ‚è‚Ü‚·</JP>
-   <EN>Different between file and folder</EN></T>
-<T><JP>•Ğ•û‚ÌƒtƒHƒ‹ƒ_[‚É‚µ‚©‘¶İ‚µ‚Ü‚¹‚ñ</JP>
-   <EN>There is only in one side folder</EN></T>
-<T><JP>* ‚ª‚Q‚Â‚Ì‚Æ‚«‚ÆA? ‚ª‚ ‚é‚Æ‚«</JP>
-   <EN>two * and ?</EN></T>
-<T><JP>"file_name" ‚ÌÅŒã‚Ì "\..*" ‚ğƒJƒbƒg‚µ‚Ä "$" ‚ğ’Ç‰Á‚·‚é</JP>
-   <EN>Cut last "\..*" in "file_name" and add "$"</EN></T>
-<T><JP>ƒL[‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found the key</EN></T>
-<T><JP>•Â‚¶‚é )% ‚ª</JP>
-   <EN>Closing )% is </EN></T>
-<T><JP>element ‚ÍAout_FlatArray ‚ÆNestedArray ‚ª“¯‚¶”z—ñ‚Å</JP>
-   <EN></EN></T>
-<T><JP>left_index = right_index ‚Ì‚Æ‚«‚É”­¶‚·‚éƒGƒ‰[‚ğ‰ñ”ğ‚·‚é‚½‚ß</JP>
-   <EN></EN></T>
-<T><JP>’l‚Ì ${ ‚É‘Î‰‚·‚é } ‚ª‚ ‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found ""}"" of ""${"" of value</EN></T>
-<T><JP>•Ï”‚ª’è‹`‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>Not found the variable</EN></T>
-<T><JP>zŠÂQÆ‚µ‚Ä‚¢‚é‚©‚à‚µ‚ê‚Ü‚¹‚ñ</JP>
-   <EN>May be circular reference</EN></T>
-<T><JP>ƒL[–¼‚ÍA${ ‚©‚çn‚Ü‚èA} ‚ÅI‚í‚é‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Key name must be start from ""${"" and end to ""}""</EN></T>
-<T><JP>’u‚«Š·‚¦‚é‘ÎÛ‚ÉAƒeƒ“ƒvƒŒ[ƒg‚Ì“à—e‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>There is not template contexts at the replacing target</EN></T>
-<T><JP>ƒL[ƒ[ƒh‚Ì‡”Ô‚ğ•Ï‚¦‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Change the order of keyword</EN></T>
-<T><JP>ƒeƒ“ƒvƒŒ[ƒg‚Ì’†‚ÉƒL[ƒ[ƒh‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found keyword in the template</EN></T>
-<T><JP>‘O•ûŒŸõ‚·‚éB Å‚à’Z‚¢ƒ}ƒbƒ`‚ğƒXƒLƒƒƒ“‚·‚é‚½‚ß</JP>
-   <EN>Searches forword for scanning the shortest matched</EN></T>
-<T><JP>w’è‚µ‚½ŠÂ‹«•Ï”‚Í‘¶İ‚µ‚Ü‚¹‚ñ</JP>
-   <EN>There is not the environment</EN></T>
-<T><JP>ƒGƒ‰[‚ª”­¶‚µ‚½êŠ‚ğ’m‚é‚É‚ÍACopyAndClear ‚·‚é‘O‚É Raise ‚µ‚Ä‚­‚¾‚³‚¢B</JP>
-   <EN>Raise before CopyAndClear for founding the place rasing the error</EN></T>
-<T><JP>ƒZƒNƒVƒ‡ƒ“‚ª‚P‚Â‚àÀs‚³‚ê‚Ä‚¢‚È‚¢‚© Pass ‚µ‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>Not execute any section or not pass</EN></T>
-<T><JP>ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Ü‚¹‚ñ</JP>
-   <EN>Cannot open file</EN></T>
-<T><JP>‚»‚Ì‚Ü‚Ü</JP>
-   <EN></EN></T>
-<T><JP>ƒŠ[ƒhƒIƒ“ƒŠ[‚Å‚·</JP>
-   <EN>This is read only</EN></T>
-<T><JP>OpenForWrite ‚Íg‚¦‚Ü‚¹‚ñB g_AppKey ‚ª‚È‚¢‚½‚ß</JP>
-   <EN>Can not use OpenForWrite. Because no g_AppKey</EN></T>
-<T><JP>grep ‚Ìƒpƒ‰ƒ[ƒ^[‚ª­‚È‚¢‚Å‚·B</JP>
-   <EN>Few grep parameters</EN></T>
-<T><JP>ŒŸõƒL[ƒ[ƒh‚É‰üs‚ª‚ ‚è‚Ü‚·B -u ƒIƒvƒVƒ‡ƒ“‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>There is a return character in the keyword. Use -u option</EN></T>
-<T><JP></JP>
-   <EN></EN></T>
-
-<T><JP>‚Ps‚É•¡”ƒqƒbƒg‚µ‚½‚Æ‚«‚É•¡”ì‚ç‚È‚¢‚æ‚¤‚É‚·‚é</JP>
-   <EN>When hit one line, not make multi</EN></T>
-
-
-<!-- ’Z‚¢ƒL[ƒ[ƒh -->
-
-
-<T><JP>‘Î‰‚µ‚Ä‚¢‚Ü‚¹‚ñ</JP>
-   <EN>Not supported</EN></T>
-<T><JP>‚Ìƒtƒ@ƒCƒ‹</JP>
-   <EN>file</EN></T>
-<T><JP>—áF</JP>
-   <EN>e.g.:</EN></T>
-<T><JP>–ß‚é</JP>
-   <EN>return</EN></T>
-<T><JP>Œ©‚Â‚©‚è‚Ü‚¹‚ñ</JP>
-   <EN>Not found</EN></T>
-<T><JP>ƒtƒHƒ‹ƒ_[F</JP>
-   <EN>folder:</EN></T>
-<T><JP>‘‚«‚İ‚Å‚«‚Ü‚¹‚ñB</JP>
-   <EN>Write access denied.</EN></T>
-<T><JP>Äs‚µ‚Ä‚¢‚Ü‚·</JP>
-   <EN>Retrying</EN></T>
-<T><JP>“ü—Í‚µ‚Ä‚­‚¾‚³‚¢</JP>
-   <EN>Input, please</EN></T>
-<T><JP>"B"</JP>
-   <EN>"."</EN></T>
+	<File>vbslib.vbs</File>
+	<T><JP></JP>
+		<EN></EN>
+	</T>
+	<T><JP></JP>
+		<EN></EN>
+	</T>
+	<T><JP></JP>
+		<EN></EN>
+	</T>
+	<T><JP></JP>
+		<EN></EN>
+	</T>
+	<T><JP cut_indent="yes" indent="1*	"><![CDATA[
+	echo  "ãªãŠã€PC å…¨ä½“ã®è¨­å®šã‚’ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã«å¤‰æ›´ã‚’åŠ ãˆã‚‹ã¨ãã¯è­¦å‘Šã•ã‚Œã¾ã™ã®ã§ã€"+ _
+		"è­¦å‘Šå†…å®¹ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚"
+	]]></JP><EN cut_indent="yes" indent="1*	"><![CDATA[
+	echo  "But, you will get a warning, when setting file of while PC was changed, "+ _
+		"therefore check a content of the warning."
+	]]></EN>
+		<Line>0</Line>
+		<File>(NotFoundFile)</File>
+	</T>
+	<T><JP>ç¶šè¡Œã™ã‚‹ã«ã¯ Enter ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãã ã•ã„ . . .</JP>
+		<EN>Press Enter key to continue ...</EN>
+		<Line>123</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä¸‹è¨˜ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã§é–‹ã„ã¦æ¬¡ã®ã‚ˆã†ã«å¤‰æ•°ã®å€¤ã‚’ä¿®æ­£ã™ã‚‹ã¨ã€ãƒ‡ãƒãƒƒã‚¬ã«æ¥ç¶šã—ã¦å•é¡ŒãŒã‚ã‚‹å ´æ‰€ã§åœæ­¢ã—ã¾ã™ã€‚</JP>
+		<EN>If you open following file using text editor and modify value of variable, it stops at problem point connected debugger.</EN>
+		<Line>125</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>WSH ã®ãƒ‡ãƒãƒƒã‚¬ãƒ¼ãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚Œã°ã€ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ»ãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚’ä½œæˆã€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ - ãƒªãƒ³ã‚¯å…ˆã«ã€ä¸‹è¨˜ã® /g_debug ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¿½åŠ ã€ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ã€å•é¡ŒãŒã‚ã‚‹å ´æ‰€ã§åœæ­¢ã—ã¾ã™ã€‚</JP>
+		<EN></EN>
+		<Line>126</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>xml_sub ã®å†…éƒ¨ã§ã‚¨ãƒ©ãƒ¼ãŒå‡ºãŸã¨ãã¯ã€GetEchoStr ã®å¤–ã‹ã‚‰ xml_sub ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Call "xml_sub" out of "GetEchoStr", if error was raised from "xml_sub".</EN>
+		<Line>436</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’çµ‚äº†ã—ã¾ã™ã‹ï¼Ÿ</JP>
+		<EN>Exit this script?</EN>
+		<Line>474</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«ã‚ˆã‚‹ã‚­ãƒ£ãƒ³ã‚»ãƒ«</JP>
+		<EN>User cancel</EN>
+		<Line>480</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>a ã¨ Enter : ä»Šå¾Œã¯æ­¢ã‚ãªã„</JP>
+		<EN>a and Emter : Not stop from now</EN>
+		<Line>601</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>åˆ¥ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‹ã‚‰ã®å…¥åŠ›ã‚’å¾…ã£ã¦ã„ã¾ã™ . . .</JP>
+		<EN>Waiting to input from other window ...</EN>
+		<Line>605</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ‘ã‚¹ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„</JP>
+		<EN>Input Path</EN>
+		<Line>680</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found</EN>
+		<Line>700</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç•ªå·ã¾ãŸã¯ã‚³ãƒãƒ³ãƒ‰</JP>
+		<EN>Number or command</EN>
+		<Line>717</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>InputCommand ã‚’ä½¿ã†ã¨ãã¯ã€set_input ã¾ãŸã¯ SetAutoKeysFromMainArg ã‚’å‘¼ã³å‡ºã•ãªã„ã§ãã ã•ã„</JP>
+		<EN>If InputCommand was used, do not call set_input or SetAutoKeysFromMainArg</EN>
+		<Line>736</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é–¢æ•°ãŒã‚ã‚Šã¾ã›ã‚“</JP>
+		<EN>function is not found</EN>
+		<Line>804</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>in_Key +" ã¯ã€"+ in_NumName +"ã§ã™ã‹ã€‚ãã‚Œã¨ã‚‚ã‚³ãƒãƒ³ãƒ‰ã§ã™ã‹ã€‚</JP>
+		<EN>in_Key +" is "+ in_NumName +" or command?</EN>
+		<Line>868</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Enter ã®ã¿ :</JP>
+		<EN>Enter only :</EN>
+		<Line>869</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒãƒ³ãƒ‰</JP>
+		<EN>Command</EN>
+		<Line>870</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç•ªå·ã¾ãŸã¯ã‚³ãƒãƒ³ãƒ‰å</JP>
+		<EN>Number or command name</EN>
+		<Line>906</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¤–éƒ¨ãƒ—ãƒ­ã‚°ãƒ©ãƒ è¨­å®š</JP>
+		<EN>External program setting</EN>
+		<Line>933</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä»¥ä¸‹ã®ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã¨ã‚µãƒ– ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‹ã‚‰èµ·å‹•ã—ãŸã‚¹ã‚¯ãƒªãƒ—ãƒˆã«å¯¾ã™ã‚‹è¨­å®šã§ã™ã€‚</JP>
+		<EN>Setting of script starting from the following folder and sub folder.</EN>
+		<Line>935</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’å…¥ã‚Œã‚‹ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã®ä¸€è¦§</JP>
+		<EN>List of folders including setting files</EN>
+		<Line>938</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’é–‹ããƒ—ãƒ­ã‚°ãƒ©ãƒ ã®è¨­å®šã¨ãƒ†ã‚¹ãƒˆ</JP>
+		<EN>Setting and test of program opening folder</EN>
+		<Line>939</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããƒ—ãƒ­ã‚°ãƒ©ãƒ ã®è¨­å®šã¨ãƒ†ã‚¹ãƒˆ</JP>
+		<EN>Setting and test of program opening text file</EN>
+		<Line>940</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¯”è¼ƒã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®è¨­å®šã¨ãƒ†ã‚¹ãƒˆ</JP>
+		<EN>Setting and test of program comparing text file</EN>
+		<Line>941</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’æ¯”è¼ƒã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®è¨­å®šã¨ãƒ†ã‚¹ãƒˆ</JP>
+		<EN>Setting and test of program comparing folder</EN>
+		<Line>942</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¨­å®šçµ‚äº†</JP>
+		<EN>End of setting</EN>
+		<Line>943</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’é–‹ããƒ„ãƒ¼ãƒ«</JP>
+		<EN>Tool of opening folder</EN>
+		<Line>984</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’é–‹ããƒ†ã‚¹ãƒˆ</JP>
+		<EN>Test of opening folder</EN>
+		<Line>989</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ã‚­ã‚¹ãƒˆ ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããƒ„ãƒ¼ãƒ«</JP>
+		<EN>Tool of opening text file</EN>
+		<Line>1020</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ã‚­ã‚¹ãƒˆ ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããƒ†ã‚¹ãƒˆ</JP>
+		<EN>Test of opening text file</EN>
+		<Line>1025</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>10è¡Œç›®ã‚’é–‹ããƒ†ã‚¹ãƒˆ</JP>
+		<EN>Test of opening line 10</EN>
+		<Line>1026</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ Setting_getEditorCmdLine ã‚’æ¤œç´¢ã—ã¦é–‹ããƒ†ã‚¹ãƒˆ</JP>
+		<EN>Test of searching and opening keyword ""Setting_getEditorCmdLine""</EN>
+		<Line>1027</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ã‚­ã‚¹ãƒˆ ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¯”è¼ƒã™ã‚‹ Diff ãƒ„ãƒ¼ãƒ«</JP>
+		<EN>Diff tool which comparing text file</EN>
+		<Line>1071</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ã‚­ã‚¹ãƒˆ ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¯”è¼ƒã™ã‚‹ãƒ†ã‚¹ãƒˆ</JP>
+		<EN>Test of comparing text file</EN>
+		<Line>1076</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>3è¡Œç›®ã¨ 5è¡Œç›®ã‚’é–‹ããƒ†ã‚¹ãƒˆ</JP>
+		<EN>Test of opening line 3 and line 5</EN>
+		<Line>1077</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’æ¯”è¼ƒã™ã‚‹ Diff ãƒ„ãƒ¼ãƒ«</JP>
+		<EN>Diff tool which comparing folder</EN>
+		<Line>1119</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’æ¯”è¼ƒã™ã‚‹ãƒ†ã‚¹ãƒˆ</JP>
+		<EN>Test of comparing folder</EN>
+		<Line>1124</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ¬¡ã®ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã®ä¸­ã«ã‚ã‚‹è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šé–¢æ•°ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Write a setting function in setting file in the following folder.</EN>
+		<Line>1216</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>vbslib ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®šï¼ˆå¤‰æ›´ã—ãªã„ã§ãã ã•ã„ï¼‰ï¼š</JP>
+		<EN>vbslib default setting (don't modify it) :</EN>
+		<Line>1218</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ï¼š</JP>
+		<EN> :</EN>
+		<Line>1221</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>PC å…¨ä½“ã®è¨­å®š</JP>
+		<EN>Setting of whole of PC</EN>
+		<Line>1221</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>USB ãƒ¡ãƒ¢ãƒªãƒ¼ã«å…¥ã£ã¦ã„ã‚‹ PC å…¨ä½“ã®è¨­å®š</JP>
+		<EN>Setting of whole of PC in the USB memory</EN>
+		<Line>1224</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç’°å¢ƒå¤‰æ•° %myhome_mem% ã¯è¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚</JP>
+		<EN>Not set environment variable %myhome_mem%.</EN>
+		<Line>1227</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã”ã¨ã®è¨­å®šï¼š</JP>
+		<EN>Setting of each folders :</EN>
+		<Line>1229</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ï¼ˆã‚¹ã‚¯ãƒªãƒ—ãƒˆå†…éƒ¨ã§ include ã—ãŸè¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ï¼‰</JP>
+		<EN>(Setting file included from inside of script)</EN>
+		<Line>1232</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ•°å­—ãŒå¤§ãã„ã»ã©å„ªå…ˆã•ã‚Œã¾ã™ã€‚</JP>
+		<EN>The big number, the prior</EN>
+		<Line>1234</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¨­å®šã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’æ¬¡ã‹ã‚‰é¸ã‚“ã§ãã ã•ã„ã€‚</JP>
+		<EN>Select a folder setting </EN>
+		<Line>1263</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP cut_indent="yes" indent="1*	"><![CDATA[
+	echo  "ãªãŠã€PC å…¨ä½“ã®è¨­å®šã‚’ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã«å¤‰æ›´ã‚’åŠ ãˆã‚‹ã¨ãã¯è­¦å‘Šã•ã‚Œã¾ã™ã®ã§ã€"+ _
+		"è­¦å‘Šå†…å®¹ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚ è¡Œé ­ã® * ãŒã‚ã‚‹è¨­å®šã¯ã€è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šé–¢æ•°ãŒå­˜åœ¨ã—ã¾ã™ã€‚"
+	]]></JP><EN cut_indent="yes" indent="1*	"><![CDATA[
+	echo  "But, you will get a warning, when setting file of while PC was changed, "+ _
+		"therefore check a content of the warning. Setting with * at left of line shows existing setting function."
+	]]></EN>
+		<Line>1264</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã”ã¨ã®è¨­å®š</JP>
+		<EN>Setting of each folders</EN>
+		<Line>1278</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Enter ã®ã¿ï¼š</JP>
+		<EN>Enter only : </EN>
+		<Line>1283</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æˆ»ã‚‹</JP>
+		<EN>return</EN>
+		<Line>1283</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç•ªå·ã¾ãŸã¯ [] ã®ä¸­ã®åå‰</JP>
+		<EN>Number or name in []</EN>
+		<Line>1285</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Me.Description +" ã®è¨­å®šï¼ˆ"+ Me.SettingFunctionName +" é–¢æ•°ï¼‰"</JP>
+		<EN>"Setting of "+ Me.Description +" ("+ Me.SettingFunctionName +" function)"</EN>
+		<Line>1327</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç¾åœ¨ã®è¨­å®šã¯ã€ä»¥ä¸‹ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚ã‚Šã¾ã™ã€‚ ä¸‹ã®ã»ã†ã«ã‚ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãŒå„ªå…ˆã•ã‚Œã¾ã™ã€‚</JP>
+		<EN>There is current serting in following files. The more bottom file, the prior.</EN>
+		<Line>1329</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¨­å®šã¯è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚</JP>
+		<EN>Not found setting</EN>
+		<Line>1337</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¨­å®šã™ã‚‹ [Set]</JP>
+		<EN>Set</EN>
+		<Line>1341</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ã‚¹ãƒˆã™ã‚‹ [Test]</JP>
+		<EN>Test</EN>
+		<Line>1342</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>åŒã˜ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã«è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã¨ãã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å…¥ã‚Œãªã„ã§ãã ã•ã„ã€‚</JP>
+		<EN>Don't put setting file and default file in the same folder.</EN>
+		<Line>1362</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®è¨­å®šã¯ã€vbslib ã®æä¾›è€…ä»¥å¤–ã¯ã€ç·¨é›†ã—ãªã„ã§ãã ã•ã„ã€‚</JP>
+		<EN>Don't edit default setting by not privoder of vbslib.</EN>
+		<Line>1368</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ–°è¦ä½œæˆã—ã¾ã—ãŸã€‚</JP>
+		<EN>Created.</EN>
+		<Line>1382</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆã‚¹ã‚¯ãƒªãƒ—ãƒˆï¼‰ã‚’é–‹ãã¾ã™ã€‚ ç·¨é›†ã—ãŸã‚‰ä¿å­˜ã—ã¦ãƒ†ã‚¹ãƒˆã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Setting file (script) is being opened. Please save and test after editing.</EN>
+		<Line>1386</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>GetExistPathInSetting ã® verbose è¡¨ç¤º</JP>
+		<EN>Shows verbose of GetExistPathInSetting</EN>
+		<Line>1475</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ»ã‚¿ã‚¤ãƒˆãƒ«ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found window title</EN>
+		<Line>1489</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚„ InputBox ã§ã¯ã€254æ–‡å­—ä»¥ä¸Šã¯å…¥ã‚Šã¾ã›ã‚“ã€‚</JP>
+		<EN>Command prompt or InputBox can not input over 254 characters.</EN>
+		<Line>1639</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã§ã¯ã€è‹±æ–‡å­—ä»¥å¤–ã®å ´åˆã€128æ–‡å­—ä»¥ä¸Šã¯å…¥ã‚Šã¾ã›ã‚“ã€‚</JP>
+		<EN>Command prompt can not input over 128 characters in not English.</EN>
+		<Line>1640</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚‚ã†ä¸€åº¦å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚</JP><EN>Input again</EN>
+		<Line>1641</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ãƒ†ã‚­ã‚¹ãƒˆãŒã‚ã‚Šã¾ã›ã‚“</JP>
+		<EN>There is not any text in clipboard</EN>
+		<Line>1696</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä»Šé–‰ã˜ãŸã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’å®Ÿè¡Œã—ã¾ã™ã€‚</JP>
+		<EN>Closed script will be run.</EN>
+		<Line>1736</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ï¼š</JP>
+		<EN>folder:</EN>
+		<Line>1737</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç›´å‰ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«è¡¨ç¤ºã—ãŸ Requested ã‚¿ã‚°ã®ä¸­ã®ãƒ‘ã‚¹ã«ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚</JP>
+		<EN>This will output a file at a path written in Requested tag in the previous window.</EN>
+		<Line>1970</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã«è¡¨ç¤ºã—ãŸ Requested ã‚¿ã‚°ã®ä¸­ã®ãƒ‘ã‚¹ã«ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚</JP>
+		<EN>This will output a file at a path written in Requested tag in the command prompt.</EN>
+		<Line>1973</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç¢ºèªã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Check it, please.</EN>
+		<Line>1975</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã¯ã„ã€‚ãã®ãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›ã‚’è¨±å¯ã—ã¾ã™</JP>
+		<EN>Yes. Enable to the output file</EN>
+		<Line>1976</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä»¥å¾Œã€ã©ã‚“ãªãƒ‘ã‚¹ã§ã‚‚è¨±å¯</JP>
+		<EN>Yes all. Enable to output any files</EN>
+		<Line>1976</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã„ã„ãˆã€‚ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã—ã¾ã™</JP>
+		<EN>No. Program is finished</EN>
+		<Line>1977</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ‘ã‚¹ã‚’ã‚‚ã†ä¸€åº¦è¡¨ç¤ºã—ã¾ã™</JP>
+		<EN>Path is shown again</EN>
+		<Line>1977</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚·ã‚¹ãƒ†ãƒ ãŒå£Šã‚ŒãŸã‚Šã€ãƒ‡ãƒ¼ã‚¿ãŒå¤±ã‚ã‚Œã‚‹å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚ ã‚ˆã‚ã—ã„ã§ã™ã‹ã€‚</JP>
+		<EN>A system may be broken and data may be lost. All OK?</EN>
+		<Line>1983</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä»¥ä¸‹ã®æ›¸ãè¾¼ã¿ã¯é€”ä¸­ã¾ã§ã®å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚</JP>
+		<EN>The following files may be written until middle of range</EN>
+		<Line>2122</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ›¸ãè¾¼ã¿ã§ãã¾ã›ã‚“ã€‚</JP>
+		<EN>Write access denied.</EN>
+		<Line>2439</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒªãƒ¼ãƒ‰ã‚ªãƒ³ãƒªãƒ¼ã§ã™</JP>
+		<EN>This is read only</EN>
+		<Line>2466</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å†è©¦è¡Œã—ã¦ã„ã¾ã™</JP>
+		<EN>Retrying</EN>
+		<Line>2476</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã¨ã—ã¦ã‚¢ã‚¯ã‚»ã‚¹ã§ãã¾ã›ã‚“</JP>
+		<EN>Cannot access as a folder.</EN>
+		<Line>2625</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã¾ãŸã¯ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚</JP>
+		<EN>Not found file or folder.</EN>
+		<Line>2731</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å€‹ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã—ãŸã€‚</JP>
+		<EN> files copied.</EN>
+		<Line>3792</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å€‹ã®ãƒªãƒ³ã‚¯å…ˆãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚</JP>
+		<EN> links target was not found.</EN>
+		<Line>3794</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã®ãƒ•ã‚¡ã‚¤ãƒ«åãŒä½œã‚Œã¾ã›ã‚“ã€‚ï¼š</JP>
+		<EN>Back up file name can not be made.</EN>
+		<Line>3861</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚³ãƒ”ãƒ¼ã«å¤±æ•—ã—ã¾ã—ãŸã€‚</JP>
+		<EN>Back up copy was failed.</EN>
+		<Line>3867</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å…ƒï¼š</JP>
+		<EN>back up from:</EN>
+		<Line>3868</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å…ˆï¼š</JP>
+		<EN>back up to:</EN>
+		<Line>3869</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¿…è¦ãªã‚‰ã‚´ãƒŸç®±ã«å…¥ã‚ŒãŸã‚³ãƒ”ãƒ¼å…ˆã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ— ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¾©æ´»ã•ã›ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Restore back up file that is copy destination and is thrown to trash box, if needed.</EN>
+		<Line>3903</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä¸Šæ›¸ãã‚³ãƒ”ãƒ¼ã«å¤±æ•—ã—ã¾ã—ãŸã€‚</JP>
+		<EN>Filed to overwrite copy</EN>
+		<Line>3908</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒ”ãƒ¼å…ƒï¼š</JP>
+		<EN>Source:</EN>
+		<Line>3909</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒ”ãƒ¼å…ˆï¼š</JP>
+		<EN>Destination:</EN>
+		<Line>3910</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒ”ãƒ¼å…ˆã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ— ãƒ•ã‚¡ã‚¤ãƒ«ï¼š</JP>
+		<EN>Destination back up file:</EN>
+		<Line>3911</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ï¼š</JP>
+		<EN>temporary file:</EN>
+		<Line>3919</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«ï¼š</JP>
+		<EN>Back up file:</EN>
+		<Line>3922</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ›´æ–°ã¯æˆåŠŸã—ã¾ã—ãŸãŒã€æ¬¡ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸã€‚</JP>
+		<EN>Updating was successed, but following files was failed to delete.</EN>
+		<Line>3925</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ›´æ–°æ¸ˆã¿ãƒ•ã‚¡ã‚¤ãƒ«ï¼š</JP>
+		<EN>updated file:</EN>
+		<Line>3926</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å‰Šé™¤ã®ç¢ºèªãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã™ã‚‹ã¨ãã€ãƒ¦ãƒ¼ã‚¶ãƒ¼ã®å…¥åŠ›ãŒå¿…è¦ã«ãªã‚‹ãŸã‚å´ä¸‹</JP>
+		<EN>This script is not used, because it is necessary to request to input with user.</EN>
+		<Line>4008</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚´ãƒŸç®±ã¸ç§»å‹•ã§ãã¾ã›ã‚“</JP>
+		<EN>Fail to move to trash box</EN>
+		<Line>4017</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å‰Šé™¤ã—ã¦ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ</JP>
+		<EN>Are you delete ?</EN>
+		<Line>4083</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´æ‰€ã«ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’ä½œæˆã—ã‚ˆã†ã¨ã—ã¾ã—ãŸ</JP>
+		<EN>It is not able to make folder at file exists</EN>
+		<Line>4193</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found file</EN>
+		<Line>4357</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found folder</EN>
+		<Line>4361</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>file2 ã®å…¨ä½“ã¯ file1 ã®é€”ä¸­ã¾ã§ã¨åŒã˜ã§ã™</JP>
+		<EN>Whole of file2 is same as until part of file1</EN>
+		<Line>4578</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>file1 ã®å…¨ä½“ã¯ file2 ã®é€”ä¸­ã¾ã§ã¨åŒã˜ã§ã™</JP>
+		<EN>Whole of file1 is same as until part of file2</EN>
+		<Line>4647</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>%MultiLine% ã®æ¬¡ã®è¡Œ(next_line)ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found next line text of %MultiLine%</EN>
+		<Line>4653</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã¾ã›ã‚“</JP>
+		<EN>Cannot open file</EN>
+		<Line>4826</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ãŒç•°ãªã‚Šã¾ã™</JP>
+		<EN>File contents are not same</EN>
+		<Line>4914</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã¨ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã®é•ã„ãŒã‚ã‚Šã¾ã™</JP>
+		<EN>Different between file and folder</EN>
+		<Line>4921</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä¸¡æ–¹ã¨ã‚‚è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found both</EN>
+		<Line>4956</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç‰‡æ–¹ã®ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã«ã—ã‹å­˜åœ¨ã—ã¾ã›ã‚“</JP>
+		<EN>There is only in one side folder</EN>
+		<Line>5099</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>//=== æ­£è¦è¡¨ç¾ã‚’ç½®ãæ›ãˆã‚‹</JP>
+		<EN>//</EN>
+		<Line>5215</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>grep ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ãŒå°‘ãªã„ã§ã™ã€‚</JP>
+		<EN>Few grep parameters</EN>
+		<Line>5234</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ¤œç´¢ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒã‚ã‚Šã¾ã›ã‚“ã€‚</JP>
+		<EN>No search keyword.</EN>
+		<Line>5297</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ¤œç´¢ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«æ”¹è¡ŒãŒã‚ã‚Šã¾ã™ã€‚ -u ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’æŒ‡å®šã—ã¦ãã ã•ã„</JP>
+		<EN>There is a return character in the keyword. Use -u option</EN>
+		<Line>5298</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Ascii æ–‡å­—ä»¥å¤–ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæŒ‡å®šã•ã‚Œã¾ã—ãŸã€‚-u ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ä½¿ã£ã¦ãã ã•ã„ã€‚</JP>
+		<EN>The file path has not ascii character. Use -u option.</EN>
+		<Line>5319</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>//=== findstr ã‚’èµ·å‹•ã™ã‚‹</JP>
+		<EN>//</EN>
+		<Line>5349</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>findstr ã®å‡ºåŠ›ã‚’ GrepFound ã‚¯ãƒ©ã‚¹ã®ãƒ¡ãƒ³ãƒãƒ¼å¤‰æ•°ã«åˆ†é…ã™ã‚‹</JP>
+		<EN>//</EN>
+		<Line>5380</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ï¼‘è¡Œã«è¤‡æ•°ãƒ’ãƒƒãƒˆã—ãŸã¨ãã«è¤‡æ•°ä½œã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹</JP>
+		<EN>When hit one line, not make multi</EN>
+		<Line>5581</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ‘ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚</JP>
+		<EN>Not specified a path.</EN>
+		<Line>6193</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¢ã‚¯ã‚»ã‚¹ãŒæ‹’å¦ã•ã‚Œã¾ã—ãŸã€‚</JP>
+		<EN>Access denied</EN>
+		<Line>6213</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ReadLine, WriteLine ã®æœ«å°¾ã«æ”¹è¡Œæ–‡å­—ãŒä»˜ãã¾ã™</JP>
+		<EN>//</EN>
+		<Line>6221</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>E_NoObjectProvider(=3251) ã®ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹ã¨ãã¯ã€</JP>
+		<EN>//</EN>
+		<Line>6291</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç’°å¢ƒå¤‰æ•°ã®å€¤ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¦ãã ã•ã„</JP>
+		<EN>//</EN>
+		<Line>6292</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã“ã‚Œã¯å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã„ä¸€æ™‚ãƒ•ã‚©ãƒ«ãƒ€ã®ãƒ‘ã‚¹ã§ã™ã‹ï¼Ÿ</JP>
+		<EN>Is this </EN>
+		<Line>6579</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã®è§£æã« exe ãƒ•ã‚¡ã‚¤ãƒ«ãŒå¿…è¦ã§ã™ã€‚</JP>
+		<EN>It is necessary to get exe file for analyzing character code.</EN>
+		<Line>6706</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã®ç¬¬2å¼•æ•°ã¯ãƒ•ãƒ«ãƒ»ãƒ‘ã‚¹ã«ã—ã¦ãã ã•ã„</JP>
+		<EN>'s 2nd argument must be full path</EN>
+		<Line>7080</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã®ç¬¬3å¼•æ•°ã¯ãƒ•ãƒ«ãƒ»ãƒ‘ã‚¹ã«ã—ã¦ãã ã•ã„</JP>
+		<EN>'s 3rd argument must be full path</EN>
+		<Line>7656</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ‰ãƒ©ã‚¤ãƒ–åã‚„ URL ã®ã‚¹ã‚­ãƒ¼ãƒ ï¼ˆãƒ—ãƒ­ãƒˆã‚³ãƒ«ï¼‰ã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹</JP>
+		<EN>Skip "Drive:" letter and scheme of URL ("Protocol:") at left end.</EN>
+		<Line>7800</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã®åˆ¤å®šã« RegExp ã‚’ä½¿ã†ã¨ãã€re, re2 ã«ä»£å…¥</JP>
+		<EN>//</EN>
+		<Line>8427</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>* ãŒï¼’ã¤ã®ã¨ãã‹ã€? ãŒã‚ã‚‹ã¨ã</JP>
+		<EN></EN>
+		<Line>8428</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"file_name" ã®æœ€å¾Œã® "\..*" ã‚’ã‚«ãƒƒãƒˆã—ã¦ "$" ã‚’è¿½åŠ ã™ã‚‹</JP>
+		<EN>Cut last "\..*" in "file_name" and add "$"</EN>
+		<Line>8461</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ãŒãªã„ã¨ãã€re ã« string å‹ã‚’ä»£å…¥, re2=Nothing</JP>
+		<EN>Set string type to "re", if no wildcard, re2=Nothing</EN>
+		<Line>8617</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã®åˆ¤å®šã« StrMatchKey ã‚’ä½¿ã†ã¨ãã€re ã«ä»£å…¥</JP>
+		<EN>//</EN>
+		<Line>8624</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>* ãŒï¼‘å€‹ã®ã¨ã</JP>
+		<EN></EN>
+		<Line>8625</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãã®ã¾ã¾</JP>
+		<EN></EN>
+		<Line>8630</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚­ãƒ¼ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found the key</EN>
+		<Line>9214</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é€†é †</JP>
+		<EN>Reverse order</EN>
+		<Line>9374</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>'// æ·±ã„ãƒ‘ã‚¹ã‹ã‚‰å‡¦ç†ã—ã¾ã™ã€‚ å…ˆã«ãƒãƒƒãƒã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã¨ã‚¢ã‚¤ãƒ†ãƒ ã®é–¢é€£ã‚’å„ªå…ˆã—ã¾ã™ã€‚</JP>
+		<EN>'//</EN>
+		<Line>9375</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>'// ã‚½ãƒ¼ãƒˆã€Œãƒ•ã‚¡ã‚¤ãƒ« ï¼ ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ ï¼ \ ã‚ã‚Š * ï¼ \ ãªã— * ï¼ˆæ‹¡å¼µå­ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼‰ã€</JP>
+		<EN>'//</EN>
+		<Line>9376</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>'// ã‚½ãƒ¼ãƒˆã€Œãƒ•ã‚¡ã‚¤ãƒ« ï¼ \ ã‚ã‚Š * ï¼ \ ãªã— * ï¼ˆæ‹¡å¼µå­ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼‰ ï¼ ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã€</JP>
+		<EN>'//</EN>
+		<Line>9378</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ«ãƒ¼ãƒˆè¦ç´ ãŒè¤‡æ•°ã‚ã‚‹ã¨ã</JP>
+		<EN>If multi root element</EN>
+		<Line>11028</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Unicode ã§ãªã„ã‹ã€æ­£ã—ã„ XML å½¢å¼ã«ãªã£ã¦ã„ã¾ã›ã‚“</JP>
+		<EN>This is not Unicode or not regular XML format</EN>
+		<Line>11033</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«ç¢ºèªã‚’ã¨ã‚‹</JP>
+		<EN>Confirm to user</EN>
+		<Line>11135</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ›´æ–°ãƒ•ã‚¡ã‚¤ãƒ«ï¼š</JP>
+		<EN>Update file:</EN>
+		<Line>11150</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸Šè¨˜å±æ€§ã‚’å¤‰æ›´ã—ã¾ã™ã€‚</JP>
+		<EN>file's attribute will be modified</EN>
+		<Line>11151</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä¿®æ­£ã™ã‚‹</JP>
+		<EN>object is modified</EN>
+		<Line>11160</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã™ã‚‹</JP>
+		<EN>Save to file</EN>
+		<Line>11168</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>XML ã®ãƒ«ãƒ¼ãƒˆãƒ»ã‚¿ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>XML Root tag is not found</EN>
+		<Line>11247</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¯¾å¿œã—ã¦ã„ã‚‹ XPath ã¯ã€//Tag[n] ãŸã ã— n=1ä»¥ä¸Šã‹ last() ã®ã¿ã§ã™</JP>
+		<EN>Supported XPath is ""//Tag[n]"" but n=1 and over or ""last()"" only</EN>
+		<Line>11345</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é–‹å§‹ã‚¿ã‚°ã¨çµ‚äº†ã‚¿ã‚°ãŒå¯¾å¿œã—ã¦ã„ã¾ã›ã‚“</JP>
+		<EN>Not found corresponding start and end tag</EN>
+		<Line>11441</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>AttributeName ã®å‰ã« @ã‚’ä»˜ã‘ã¦ãã ã•ã„</JP>
+		<EN>Please write @ before AttributeName</EN>
+		<Line>11587</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ«ãƒ¼ãƒˆãƒ»ãƒãƒ¼ãƒ‰ã¯å¤‰æ›´ã§ãã¾ã›ã‚“</JP>
+		<EN>Root node can not be modified</EN>
+		<Line>11672</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>header = GetEchoStr( in_FilePath ) +" ã®ä¸­ã® "</JP>
+		<EN>in_path = " in """+ GetEchoStr( in_FilePath ) +""""</EN>
+		<Line>11994</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>header + GetEchoStr( in_XPath ) +" ã®å€¤ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“"</JP>
+		<EN>"Bad value in """+ GetEchoStr( in_XPath ) +""""+ in_path</EN>
+		<Line>11996</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚</JP>
+		<EN>is not specified.</EN>
+		<Line>12637</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>in_TargetLocation ã® # ã‚ˆã‚Šå¾Œã‚</JP>
+		<EN>in_TargetLocation after #</EN>
+		<Line>12643</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒªãƒ³ã‚¯å…ˆãŒè¦‹ã¤ã‹ã‚‰ãªã„ã¨ãã¯ã‚¨ãƒ©ãƒ¼ã«ã™ã‚‹</JP>
+		<EN>//</EN>
+		<Line>12672</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒªãƒ³ã‚¯å…ˆã®åå‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„ã‹ # ãŒè¨˜è¿°ã•ã‚Œã¦ã„ã¾ã›ã‚“</JP>
+		<EN>Link target name is not specified or # is not written</EN>
+		<Line>12673</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>node: idå±æ€§ã‹ nameå±æ€§ãŒ name ã«ä¸€è‡´ã™ã‚‹ XML ã‚¿ã‚°</JP>
+		<EN>//</EN>
+		<Line>12679</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒªãƒ³ã‚¯å…ˆãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Link target is not found</EN>
+		<Line>12686</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¾ªç’°å‚ç…§ã—ã¦ã„ãŸã‚‰ã‚¨ãƒ©ãƒ¼ã«ã™ã‚‹</JP>
+		<EN>Raise error, when mutual link</EN>
+		<Line>12690</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒªãƒ³ã‚¯ãŒå¾ªç’°ã—ã¦ã„ã‚‹ãŸã‚å‡¦ç†ãŒå®Œäº†ã§ãã¾ã›ã‚“</JP>
+		<EN>Operation can not be completed because mutual link</EN>
+		<Line>12693</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒªãƒ³ã‚¯ã®ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ãŸã¨ãã¯ã€Me.StartNavigation ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>When link navigation was started, Call Me.StartNavigation.</EN>
+		<Line>12706</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"SetupCallViaFile ã‚’å‘¼ã³å‡ºã—ã¦ãã ã•ã„ã€‚"</JP>
+		<EN>"Call SetupCallViaFile."</EN>
+		<Line>12772</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ–‡å­—åˆ—å‹ã«ãªã£ã¦ã„ã¾ã›ã‚“</JP>
+		<EN>File name is not string type</EN>
+		<Line>12858</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—ã‚’ãƒªãƒ¼ãƒ‰ã™ã‚‹</JP>
+		<EN>Scan timestamp</EN>
+		<Line>13068</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—ã‚’æ¯”è¼ƒã™ã‚‹</JP>
+		<EN>Compare timestamp</EN>
+		<Line>13078</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹é †ç•ªã‚’ä¾å­˜é–¢ä¿‚ã«åˆã†ã‚ˆã†ã«èª¿æ•´ã™ã‚‹</JP>
+		<EN>Resolve dependency</EN>
+		<Line>13115</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¤‰æ•°ã‚’å‚ç…§ã—ã¦ã„ãªã„å€¤ã‚’å‡ºåŠ›ã™ã‚‹</JP>
+		<EN>Output value not referencing the variable</EN>
+		<Line>13458</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¤‰æ•°ã‚’å‚ç…§ã—ã¦ã„ã‚‹å€¤ã‚’å‡ºåŠ›ã™ã‚‹</JP>
+		<EN>Output value referencing the variable</EN>
+		<Line>13471</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¾ªç’°å‚ç…§ã—ã¦ã„ã¾ã™</JP>
+		<EN>Mutual reference</EN>
+		<Line>13488</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¨ˆç®—ã™ã‚‹</JP>
+		<EN>calculate</EN>
+		<Line>13494</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>DefineInfoObject ãŒé‡è¤‡å®šç¾©ã•ã‚Œã¦ã„ã¾ã™</JP>
+		<EN>DefineInfoObject is double defined</EN>
+		<Line>14023</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>2å›ç›®ã® ExecuteGlobal ã§ã¯ã‚¨ãƒ©ãƒ¼ãŒå‡ºã¾ã›ã‚“ã§ã—ãŸã€‚</JP>
+		<EN>Second ExecuteGlobal does not raise any error.</EN>
+		<Line>14173</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ¬¡ã®ã‚³ãƒ¼ãƒ‰ã‚’ main é–¢æ•°ã«è¨˜è¿°ã—ã¦å†å®Ÿè¡Œã—ã¦ãã ã•ã„</JP>
+		<EN>Write following code in main function and restart</EN>
+		<Line>14174</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>2å› include ã—ã¦ã„ã‚‹å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚</JP>
+		<EN>It may be double include.</EN>
+		<Line>14273</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é–‰ã˜ã‚‹ % ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>End of % is not found</EN>
+		<Line>14440</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é–‰ã˜ã‚‹ )% ãŒ</JP>
+		<EN>Closing )% is </EN>
+		<Line>14454</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æŒ‡å®šã—ãŸåå‰ã®ç’°å¢ƒå¤‰æ•°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>not found var symbol</EN>
+		<Line>14466</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å€¤ãŒé…åˆ—ãªã®ã§æ–‡å­—åˆ—ã«å¤‰æ›ã§ãã¾ã›ã‚“</JP>
+		<EN>Array value can not be cast to string</EN>
+		<Line>14472</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"å®Ÿè¡Œãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚‰ãªã„ã‹ã€ãƒ€ãƒ–ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³"</JP>
+		<EN>"Execute file is not found or Not close by double quotation"</EN>
+		<Line>14608</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"ã§å›²ã¾ã‚Œã¦ã„ã¾ã›ã‚“"</JP>
+		<EN>""</EN>
+		<Line>14609</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>pause ã®ã¿å¯¾å¿œ</JP>
+		<EN>Support only pause</EN>
+		<Line>14902</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç¶šè¡Œã™ã‚‹ã«ã¯</JP>
+		<EN>Press any</EN>
+		<Line>14903</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç¶šè¡Œã™ã‚‹ã«ã¯ä½•ã‹ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãã ã•ã„</JP>
+		<EN>Press any key to continue</EN>
+		<Line>14905</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä¾‹ï¼š</JP>
+		<EN>e.g.:</EN>
+		<Line>15482</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é€å—ä¿¡ãƒ•ã‚¡ã‚¤ãƒ«ãŒã§ãã‚‹ãƒ•ã‚©ãƒ«ãƒ€ã®ãƒ‘ã‚¹</JP>
+		<EN>Folder path creating communication files</EN>
+		<Line>15484</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ«ãƒ¼ãƒˆ XML è¦ç´ </JP>
+		<EN>Root XML element</EN>
+		<Line>15485</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>cscript ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ</JP>
+		<EN>Error was raised in cscript</EN>
+		<Line>15514</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>OpenForWrite ã¯ä½¿ãˆã¾ã›ã‚“ã€‚ g_AppKey ãŒãªã„ãŸã‚</JP>
+		<EN>Can not use OpenForWrite. Because no g_AppKey</EN>
+		<Line>15591</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚µãƒ–ãƒ»ãƒ—ãƒ­ã‚»ã‚¹ã§ç™ºç”Ÿã—ãŸã‚¨ãƒ©ãƒ¼ã‚’ã€ãƒ¡ã‚¤ãƒ³ãƒ»ãƒ—ãƒ­ã‚»ã‚¹ã§ã‚‚æŠ•ã’ã‚‹</JP>
+		<EN>Error raised from sub process is raised from main process</EN>
+		<Line>15674</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ‰ãƒ©ã‚¤ãƒ–ãŒå­˜åœ¨ã—ã¾ã›ã‚“</JP>
+		<EN>Not found specified drive</EN>
+		<Line>15716</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>""""+ folder_or_file_path +""" ãŒè¡¨ç¤ºã§ãã¾ã›ã‚“ã€‚"</JP>
+		<EN>"Cannot show """+ folder_or_file_path +""""</EN>
+		<Line>15729</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚«ãƒ¬ãƒ³ãƒˆ</JP>
+		<EN>Current</EN>
+		<Line>15731</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¡¨ç¤ºã—ãªã„ã§ç¶šãã‚’å®Ÿè¡Œã™ã‚‹</JP>
+		<EN>Continue without showing</EN>
+		<Line>15732</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>è¦ªãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹</JP>
+		<EN>Show parent folder</EN>
+		<Line>15733</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’ä½œã‚‹</JP>
+		<EN>Make a folder</EN>
+		<Line>15734</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã“ã“ã§ã‚¨ãƒ©ãƒ¼ã‚’ç™ºç”Ÿã•ã›ã‚‹</JP>
+		<EN>Raise an error now</EN>
+		<Line>15737</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç•ªå·</JP>
+		<EN>Number</EN>
+		<Line>15739</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>" 1. å·®åˆ†ã‚’èª¿ã¹ã¦ã€çµæœã‚’ãƒ†ã‚­ã‚¹ãƒˆãƒ»ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼ã§é–‹ã"</JP>
+		<EN>" 1. Open difference information by using text editor"</EN>
+		<Line>16129</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>". " &amp; FileLabels( file_num ) &amp; " ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã"</JP>
+		<EN>". Open file : " &amp; FileLabels( file_num )</EN>
+		<Line>16133</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>" ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ã€å­˜åœ¨ã—ã¾ã›ã‚“"</JP>
+		<EN>" file is not found"</EN>
+		<Line>16137</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>" **. ã‚³ãƒ”ãƒ¼ã™ã‚‹ï¼ˆã‚³ãƒ”ãƒ¼å…ƒ(4ä»¥ä¸Š)Ã—10ï¼‹ã‚³ãƒ”ãƒ¼å…ˆ(4ä»¥ä¸Š)"</JP>
+		<EN>" **. copy (source(4 and over) x 10 + destination(4 and over)"</EN>
+		<Line>16140</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"     ä¾‹ï¼š45 ï¼ "+ FileLabels( 0 ) +" â†’ "</JP>
+		<EN>"     e.g.: 45 = "+ FileLabels( 0 ) +" -&gt; "</EN>
+		<Line>16141</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æ“ä½œã®ç•ªå·ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„</JP>
+		<EN>Input operation number</EN>
+		<Line>16145</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"æ¯”è¼ƒã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã® " &amp; compare_num &amp; "ã¤ç›®ã‚’é¸ã‚“ã§ãã ã•ã„ã€‚"</JP>
+		<EN>"Select comparing No." &amp; compare_num &amp; " file"</EN>
+		<Line>16167</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>FileLabels( file_num ) &amp; " ã®ãƒ•ã‚¡ã‚¤ãƒ«"</JP>
+		<EN>FileLabels( file_num ) &amp; " file"</EN>
+		<Line>16170</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç•ªå·ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„</JP>
+		<EN>Input number</EN>
+		<Line>16173</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ä¸Šæ›¸ãã‚³ãƒ”ãƒ¼ã—ã¦ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ</JP>
+		<EN>Do you overwrite copy?</EN>
+		<Line>16209</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>åŒã˜åå‰ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã‚ã‚Šã¾ã™</JP>
+		<EN>Same name object is found</EN>
+		<Line>16603</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã™ã§ã«ç™»éŒ²æ¸ˆã¿ã§ã™</JP>
+		<EN>Already added it</EN>
+		<Line>16749</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>element ã¯ã€out_FlatArray ã¨NestedArray ãŒåŒã˜é…åˆ—ã§</JP>
+		<EN></EN>
+		<Line>16852</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>left_index = right_index ã®ã¨ãã«ç™ºç”Ÿã™ã‚‹ã‚¨ãƒ©ãƒ¼ã‚’å›é¿ã™ã‚‹ãŸã‚</JP>
+		<EN></EN>
+		<Line>16853</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å€¤ã® ${ ã«å¯¾å¿œã™ã‚‹ } ãŒã‚ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found ""}"" of ""${"" of value</EN>
+		<Line>16950</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¤‰æ•°ãŒå®šç¾©ã•ã‚Œã¦ã„ã¾ã›ã‚“</JP>
+		<EN>Not found the variable</EN>
+		<Line>16967</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¾ªç’°å‚ç…§ã—ã¦ã„ã‚‹ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“</JP>
+		<EN>May be circular reference</EN>
+		<Line>17003</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚­ãƒ¼åã¯ã€${ ã‹ã‚‰å§‹ã¾ã‚Šã€} ã§çµ‚ã‚ã‚‹ã‚ˆã†ã«ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Key name must be start from ""${"" and end to ""}""</EN>
+		<Line>17195</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã™ã§ã«å®šç¾©ã•ã‚Œã¦ã„ã¾ã™ã€‚</JP>
+		<EN>Already defined</EN>
+		<Line>17278</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã™ã§ã«åˆ¥ã® LifeGroup ã«æ‰€å±ã—ã¦ã„ã‚‹ã‚ˆã†ã§ã™</JP>
+		<EN>Already in other LifeGroup</EN>
+		<Line>17649</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ç›¸äº’å‚ç…§ã—ã¦ã„ã‚‹ãŸã‚ã€DestroyerClass ã®ç®¡ç†ä¸‹ã«ç½®ãå¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚</JP>
+		<EN>This object must be in DestroyerClass, because this object refers mutually.</EN>
+		<Line>17746</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¸¸ã«ãƒã‚¤ãƒŠã‚¹ã®å€¤ã‚’è¿”ã™ã‚ˆã†ã§ã™</JP>
+		<EN>It may be always returned minus value</EN>
+		<Line>18811</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Null ã®æ¯”è¼ƒã¯ã§ãã¾ã›ã‚“</JP>
+		<EN>Null can not be compared</EN>
+		<Line>18813</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¸¸ã«ãƒ—ãƒ©ã‚¹ã®å€¤ã‚’è¿”ã™ã‚ˆã†ã§ã™</JP>
+		<EN>It may be always returned plus value</EN>
+		<Line>18823</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç½®ãæ›ãˆã‚‹å¯¾è±¡ã«ã€ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®å†…å®¹ãŒå«ã¾ã‚Œã¦ã„ã¾ã›ã‚“</JP>
+		<EN>There is not template contexts at the replacing target</EN>
+		<Line>19603</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®é †ç•ªã‚’å¤‰ãˆã¦ãã ã•ã„</JP>
+		<EN>Change the order of keyword</EN>
+		<Line>19619</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®ä¸­ã«ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found keyword in the template</EN>
+		<Line>19623</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å‰æ–¹æ¤œç´¢ã™ã‚‹ã€‚ æœ€ã‚‚çŸ­ã„ãƒãƒƒãƒã‚’ã‚¹ã‚­ãƒ£ãƒ³ã™ã‚‹ãŸã‚</JP>
+		<EN>Searches forword for scanning the shortest matched</EN>
+		<Line>19671</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>çµ‚äº†ã‚¿ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found EndOfFromText</EN>
+		<Line>20162</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>AdjacentIndexes ã®èª¿æ•´ãŒã§ãã¦ã„ã¾ã›ã‚“</JP>
+		<EN>Not adjust AdjacentIndexes</EN>
+		<Line>21111</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¯¾å¿œã—ã¦ã„ã¾ã›ã‚“</JP>
+		<EN>Not supported</EN>
+		<Line>21529</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"* ã‚’è¤‡æ•°æŒ‡å®šã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“"</JP>
+		<EN>"Multi * can not be set"</EN>
+		<Line>21565</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å˜ä½ãŒãŠã‹ã—ã„</JP>
+		<EN>Bad unit</EN>
+		<Line>22023</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>DateTime ã« W3CDTF ã‚’æŒ‡å®šã—ãŸã¨ãã¯ FromTZD ã‚’ Empty ã«ã™ã‚‹ã‹ã€FromTZD ã‚’ DateTime ã® TZD ã«åˆã‚ã›ã¦ãã ã•ã„</JP>
+		<EN>If DateTime was set W3CDTF, Set FromTZD to Empty or TZD of DateTime</EN>
+		<Line>22159</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é›»æºã‚’åˆ‡ã‚Šã¾ã™ï¼ˆã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ï¼‰</JP>
+		<EN>Shutdown</EN>
+		<Line>22485</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é›»æºã‚’åˆ‡ã£ã¦ã„ã¾ã™ï¼ˆã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ï¼‰</JP>
+		<EN>Shutdown...</EN>
+		<Line>22486</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å†èµ·å‹•ã—ã¾ã™</JP>
+		<EN>Reboot</EN>
+		<Line>22489</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å†èµ·å‹•ã—ã¦ã„ã¾ã™</JP>
+		<EN>Rebooting</EN>
+		<Line>22490</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é›»æºã‚’åˆ‡ã‚Šã¾ã™ï¼ˆãƒã‚¤ãƒãƒãƒ¼ã‚·ãƒ§ãƒ³ï¼‰</JP>
+		<EN>Hibernate</EN>
+		<Line>22491</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>é›»æºã‚’åˆ‡ã£ã¦ã„ã¾ã™ï¼ˆãƒã‚¤ãƒãƒãƒ¼ã‚·ãƒ§ãƒ³ï¼‰</JP>
+		<EN>Hibernating...</EN>
+		<Line>22492</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¹ãƒªãƒ¼ãƒ—ã—ã¾ã™</JP>
+		<EN>Sleep</EN>
+		<Line>22493</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¹ãƒªãƒ¼ãƒ—ã«å…¥ã£ã¦ã„ã¾ã™</JP>
+		<EN>Sleepling...</EN>
+		<Line>22494</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¹ã‚¿ãƒ³ãƒã‚¤çŠ¶æ…‹ã«ã—ã¾ã™</JP>
+		<EN>Standby</EN>
+		<Line>22495</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¹ã‚¿ãƒ³ãƒã‚¤çŠ¶æ…‹ã«ã—ã¦ã„ã¾ã™</JP>
+		<EN>Standbying...</EN>
+		<Line>22496</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>"ã€‚"</JP>
+		<EN>"."</EN>
+		<Line>22508</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>CountDownTimeSec &amp; "ç§’å¾Œã«ã€"</JP>
+		<EN>"After "&amp; CountDownTimeSec &amp;"second, "</EN>
+		<Line>22508</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«ã‚ˆã‚Šã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸ</JP>
+		<EN>User cancel</EN>
+		<Line>22517</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æŒ‡å®šã—ãŸãƒ‘ã‚¹ãŒãƒ¬ã‚¸ã‚¹ãƒˆãƒªã«ã‚ã‚Šã¾ã›ã‚“</JP>
+		<EN>There is not specified path in registry</EN>
+		<Line>22657</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>æŒ‡å®šã—ãŸç’°å¢ƒå¤‰æ•°ã¯å­˜åœ¨ã—ã¾ã›ã‚“</JP>
+		<EN>There is not the environment</EN>
+		<Line>22924</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ¡ãƒ¢ï¼šã‚¢ãƒ³ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ã‚‚ key +"\Modules\" ã¯æ®‹ã£ã¦ã„ã¾ã™</JP>
+		<EN>memo: key +"\Modules\" is remained unless Python was uninstalled</EN>
+		<Line>22972</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Python ãŒãƒ¬ã‚¸ã‚¹ãƒˆãƒªã«ç™»éŒ²ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚</JP>
+		<EN>Python is not registed in registry</EN>
+		<Line>22976</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Perl ãŒè¦‹ã¤ã‹ã‚‰ãªã„ã‹ Perl ã« Path ãŒé€šã£ã¦ã„ã¾ã›ã‚“ã€‚</JP>
+		<EN>Not found perl or not set path to perl.</EN>
+		<Line>23033</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>Strawberry Perl ã‚„ Active Perl ãªã©ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Install Strawberry Perl, ActivePerl or others.</EN>
+		<Line>23034</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å¤§æ–‡å­—å°æ–‡å­—ãŒç•°ãªã‚Šã¾ã™</JP>
+		<EN>Not same upper lower case</EN>
+		<Line>23135</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ã‚¡ã‚¤ãƒ«ã¾ãŸã¯ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found file or folder</EN>
+		<Line>23139</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ç‰‡æ–¹ã¾ãŸã¯ä¸¡æ–¹ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¾ãŸã¯ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</JP>
+		<EN>Not found one side or both sides file or folder</EN>
+		<Line>23183</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ•ãƒ« ãƒ‘ã‚¹ã‚’è¨­å®šã—ã¦ãã ã•ã„ã€‚å¯èƒ½ãªã‚‰ãƒ•ãƒ« ãƒ‘ã‚¹ã®å…ˆé ­ã¯å¤‰æ•°ã«ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Please set full path. Please set variable at left end of full path, if possible.</EN>
+		<Line>23198</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å‹ãƒã‚§ãƒƒã‚¯ã«å¤±æ•—ã—ã¾ã—ãŸã€‚</JP>
+		<EN>Failed to check type</EN>
+		<Line>23260</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å€¤ãŒæƒ³å®šå¤–ã§ã™</JP>
+		<EN>Value is not expected</EN>
+		<Line>23272</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¨ãƒ©ãƒ¼å‡¦ç†ã®é€”ä¸­ã§çµ‚äº†ã—ã¾ã—ãŸã€‚Err2.Clear ã¾ãŸã¯å† Raise ã—ã¦ãã ã•ã„</JP>
+		<EN>Script finished before Err2.Clear or Raise the error</EN>
+		<Line>23319</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´æ‰€ã‚’çŸ¥ã‚‹ã«ã¯ã€CopyAndClear ã™ã‚‹å‰ã« Raise ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Raise before CopyAndClear for founding the place rasing the error</EN>
+		<Line>23405</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>'// ã‚¨ãƒ©ãƒ¼ã¯ç™ºç”Ÿã—ã¦ã„ã¾ã›ã‚“ã€‚</JP>
+		<EN>'// No error</EN>
+		<Line>23438</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ãƒ‡ãƒãƒƒã‚¬ãƒ¼ã‚’ä½¿ã£ã¦å‘¼ã³å‡ºã—å…ƒã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Check caller function using debugger.</EN>
+		<Line>23439</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>å‰ã®ã‚¨ãƒ©ãƒ¼ã‚’å†åº¦æŠ•ã’ã‚‹ã€‚</JP>
+		<EN>Re-throw previous error.</EN>
+		<Line>23441</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>SetupVbslibParameters é–¢æ•°ã®ä¸­ã« "g_debug" = 1 (=Me.Num) or (=Me.Num+0.5) ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Write "g_debug" = 1 (=Me.Num) or (=Me.Num+0.5) in SetupVbslibParameters function.</EN>
+		<Line>23443</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>g_debug &gt; 0 ã®ã¨ãï¼ˆOn Error Resume Next ã—ã¦ã„ãªã„ã¨ãï¼‰ã¯ã€</JP>
+		<EN>When g_debug &gt; 0 (not called On Error Resume Next),</EN>
+		<Line>23509</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã“ã“ã§æ¨™æº–ã‚¨ãƒ©ãƒ¼å‡ºåŠ›ï¼ˆã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆãƒ»ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãªã©ï¼‰ã«</JP>
+		<EN>Error message was output at standard error output (e.g. Command Prompt)</EN>
+		<Line>23510</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå‡ºåŠ›ã•ã‚Œã¾ã™ã€‚ vbslib ã® Pass é–¢æ•°ã®ã¨ãã§ã‚‚ã€</JP>
+		<EN>When Pass function of vbslib was called,</EN>
+		<Line>23511</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ERROR: Pass. ã®ã‚ˆã†ã«å‡ºåŠ›ã•ã‚Œã¾ã™ã€‚</JP>
+		<EN>ERROR: Pass. : Like this was output.</EN>
+		<Line>23512</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã“ã“ã§ã€ï¼‘ã¤å‰ã®ã‚¨ãƒ©ãƒ¼ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Check before error here.</EN>
+		<Line>23588</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¦ã„ã‚‹ã¨ãã« TryStart ã¯å‘¼ã¹ã¾ã›ã‚“ã€‚</JP>
+		<EN>TryStart can not be called, when error was raised.</EN>
+		<Line>23589</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>TryStart ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚</JP>
+		<EN>Look at the document of TryStart</EN>
+		<Line>23590</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã“ã“ã® TryEnd ã‚ˆã‚Šå†…éƒ¨ã® TryEnd ã§ã‚­ãƒ£ãƒƒãƒã—ãŸã‚¨ãƒ©ãƒ¼ã¯ã€å†…éƒ¨ã§ g_Err2.Clear ã™ã‚‹ã‹ã€å†åº¦ã‚¨ãƒ©ãƒ¼ã‚’ç™ºç”Ÿã•ã›ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™</JP>
+		<EN>Error catched by TryEnd inside here TryEnd must call g_Err2.Clear inside or must raise again</EN>
+		<Line>23664</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>SkipSection::Start ã¨ SkipSection::End_ ã®å¯¾å¿œé–¢ä¿‚ãŒãŠã‹ã—ã„</JP>
+		<EN>It is not match SkipSection::Start and SkipSection::End_</EN>
+		<Line>24002</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>ã‚»ã‚¯ã‚·ãƒ§ãƒ³ãŒï¼‘ã¤ã‚‚å®Ÿè¡Œã•ã‚Œã¦ã„ãªã„ã‹ Pass ã—ã¦ã„ã¾ã›ã‚“</JP>
+		<EN>Not execute any section or not pass</EN>
+		<Line>24005</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>SkipSection::End_ ã«å¯¾å¿œã™ã‚‹ Start ãŒç„¡ã„ã‹ã€End_ ã‚’å‘¼ã³å‡ºã™ä½ç½®ãŒ End If ã®ç›´å‰ã§ã¯ã‚ã‚Šã¾ã›ã‚“</JP>
+		<EN>Start corresponding SkipSection::End_ is not called or there is not End If before End_</EN>
+		<Line>24067</Line>
+		<File>vbslib.vbs</File>
+	</T>
+	<T><JP>SetStartSectionTree ã§è¨­å®šã—ãŸã‚»ã‚¯ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ã¾ã—ãŸ</JP>
+		<EN>The section set by SetStartSectionTree was finished.</EN>
+		<Line>24074</Line>
+		<File>vbslib.vbs</File>
+	</T>
 </Translate>

@@ -1,0 +1,147 @@
+----
+>grep -r define grep_target\sub\*
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -r -l define grep_target\sub\*
+grep_target\sub\grep_target1.txt
+
+>grep -u -r define grep_target\sub\*
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -u -r -l define grep_target\sub\*
+grep_target\sub\grep_target1.txt
+
+----
+>grep -r define grep_target\sub\*
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -r -l define grep_target\sub\*
+grep_target\sub\grep_target1.txt
+
+>grep -u -r define grep_target\sub\*
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -u -r -l define grep_target\sub\*
+grep_target\sub\grep_target1.txt
+
+----2
+If not -u option, any file list order is OK.
+>grep -r "define" grep_target
+grep_target\grep_target1.txt:2:  define string
+grep_target\grep_target3.txt:2:  define string
+grep_target\grep_target3.txt:4:  define C:\File.txt
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -r -l "define" grep_target
+grep_target\grep_target1.txt
+grep_target\grep_target3.txt
+grep_target\sub\grep_target1.txt
+
+>grep -r -L "define" grep_target_not
+grep_target_not\grep_target2.txt
+grep_target_not\grep_target2same.txt
+grep_target_not\sub\grep_target2.txt
+grep_target_not\sub\grep_target2same.txt
+
+>grep -r -c "define" grep_target_not
+grep_target_not\grep_target1.txt:2:  define string
+grep_target_not\grep_target2.txt:0:
+grep_target_not\grep_target2same.txt:0:
+grep_target_not\sub\grep_target1.txt:2:  define string
+grep_target_not\sub\grep_target2.txt:0:
+grep_target_not\sub\grep_target2same.txt:0:
+
+>grep -u -r "define" grep_target
+grep_target\grep_target1.txt:2:  define string
+grep_target\grep_target3.txt:2:  define string
+grep_target\grep_target3.txt:4:  define C:\File.txt
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -u -r -l "define" grep_target
+grep_target\grep_target1.txt
+grep_target\grep_target3.txt
+grep_target\sub\grep_target1.txt
+
+>grep -u -r -L "define" grep_target_not
+grep_target_not\grep_target2.txt
+grep_target_not\grep_target2same.txt
+grep_target_not\sub\grep_target2.txt
+grep_target_not\sub\grep_target2same.txt
+
+>grep -u -r -c "define" grep_target_not
+grep_target_not\grep_target1.txt:2:  define string
+grep_target_not\grep_target2.txt:0:
+grep_target_not\grep_target2same.txt:0:
+grep_target_not\sub\grep_target1.txt:2:  define string
+grep_target_not\sub\grep_target2.txt:0:
+grep_target_not\sub\grep_target2same.txt:0:
+
+----2
+If not -u option, any file list order is OK.
+>grep -r "define" grep_target
+grep_target\grep_target1.txt:2:  define string
+grep_target\grep_target3.txt:2:  define string
+grep_target\grep_target3.txt:4:  define C:\File.txt
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -r -l "define" grep_target
+grep_target\grep_target1.txt
+grep_target\grep_target3.txt
+grep_target\sub\grep_target1.txt
+
+>grep -r -L "define" grep_target_not
+grep_target_not\grep_target2.txt
+grep_target_not\grep_target2same.txt
+grep_target_not\sub\grep_target2.txt
+grep_target_not\sub\grep_target2same.txt
+
+>grep -r -c "define" grep_target_not
+grep_target_not\grep_target1.txt:2:  define string
+grep_target_not\grep_target2.txt:0:
+grep_target_not\grep_target2same.txt:0:
+grep_target_not\sub\grep_target1.txt:2:  define string
+grep_target_not\sub\grep_target2.txt:0:
+grep_target_not\sub\grep_target2same.txt:0:
+
+>grep -u -r "define" grep_target
+grep_target\grep_target1.txt:2:  define string
+grep_target\grep_target3.txt:2:  define string
+grep_target\grep_target3.txt:4:  define C:\File.txt
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -u -r -l "define" grep_target
+grep_target\grep_target1.txt
+grep_target\grep_target3.txt
+grep_target\sub\grep_target1.txt
+
+>grep -u -r -L "define" grep_target_not
+grep_target_not\grep_target2.txt
+grep_target_not\grep_target2same.txt
+grep_target_not\sub\grep_target2.txt
+grep_target_not\sub\grep_target2same.txt
+
+>grep -u -r -c "define" grep_target_not
+grep_target_not\grep_target1.txt:2:  define string
+grep_target_not\grep_target2.txt:0:
+grep_target_not\grep_target2same.txt:0:
+grep_target_not\sub\grep_target1.txt:2:  define string
+grep_target_not\sub\grep_target2.txt:0:
+grep_target_not\sub\grep_target2same.txt:0:
+
+---- start
+>grep -r define grep_target\sub\* > "_out2.txt"
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -r -l define grep_target\sub\* > "_out2.txt"
+grep_target\sub\grep_target1.txt
+
+>grep -u -r define grep_target\sub\* > "_out2.txt"
+grep_target\sub\grep_target1.txt:2:  define string
+
+>grep -u -r -l define grep_target\sub\* > "_out2.txt"
+grep_target\sub\grep_target1.txt
+
+---- end
+---- start
+---- end
+>del  "_out2.txt"

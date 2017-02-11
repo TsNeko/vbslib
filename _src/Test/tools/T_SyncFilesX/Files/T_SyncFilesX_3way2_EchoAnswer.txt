@@ -1,0 +1,76 @@
+%FullPath(..)%\_work\SyncFilesX_3way2.xml
+
+同期するファイルの一覧：
+  中央の記号の意味: [=]同じ [!]異なる [ ]両方不在
+  左右の記号の意味: [*]変更 [+]追加 [-]削除 [.]不変 [ ]不在
+  左はベース、右はワーク
+
+■左（Lef）: "01_Left"
+■右（Rig）: "02_Right"
+1. - - M\DeleteBaseFromOnly.txt
+2. .!- M\DeleteBoth.txt
+3. .=. M\NoUpdate_Same.txt
+4. *!. M\NoUpdateAlmostSame.txt
+5. .!* M\UpdateBase.txt
+6. -!* M\UpdateBothSame_ForBase.txt
+7. .=. M\UpdateWork.txt
+8. *!* Merged.txt
+9. +!  M\DeleteWorkFromOnly.txt
+10. +!  M\UpdateBothSame_ForWork.txt
+
+>Merge
+-------------------------------------------------------------------------------
+■前: "00_Base"
+■左（Lef）: "01_Left"
+■右（Rig）: "02_Right"
+■後: "03_Merged"
+1. .!-  M\DeleteBoth.txt
+2. -!*  M\UpdateBothSame_ForBase.txt
+3. *!*  Merged.txt
+左右両方あるファイルの数＝ 5/10 (50%%)
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ 右と後が同じファイルをすべてコミットする [AutoCommit]
+99. 終了
+番号 >3
+-------------------------------------------------------------------------------
+前："%FullPath(..)%\_work\00_Base\Base.txt"
+左："%FullPath(..)%\_work\01_Left\Left.txt"
+右："%FullPath(..)%\_work\02_Right\Right.txt"
+後："%FullPath(..)%\_work\03_Merged\Merged.txt"
+-------------------------------------------------------------------------------
+前：Base.txt
+左（Lef）：Left.txt
+右（Rig）：Right.txt
+後（未）：Merged.txt
+
+1.  Diff で開く：[ 左 / 後 / 右 ]
+11. Diff で開く：[ 左 / 後 ]      (!異なる)
+12. Diff で開く：     [ 後 / 右 ] (!異なる)
+2.  Diff で開く：[ 左 / 前 / 右 ] 左右=(!異なる)
+21. Diff で開く：[ 左 / 前 ]      (*変更)
+22. Diff で開く：     [ 前 / 右 ] (*変更)
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+■前: "00_Base"
+■左（Lef）: "01_Left"
+■右（Rig）: "02_Right"
+■後: "03_Merged"
+1. .!-  M\DeleteBoth.txt
+2. -!*  M\UpdateBothSame_ForBase.txt
+3. *!*  Merged.txt
+左右両方あるファイルの数＝ 5/10 (50%%)
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ 右と後が同じファイルをすべてコミットする [AutoCommit]
+99. 終了
+番号 >99
+Pass.

@@ -1,0 +1,59 @@
+<TestOfLocalVariable>
+<Variable  name="${GlobalA}"  value="GA"/>
+<Variable  name="${SameName}"  value="G"/>
+<Variable  name="${Path}"  value="G-Full"  type="FullPathType"/>
+<LocalVariable  name="${Local0A}"  value="L0A"/>
+<LocalVariable  name="${SameName}"  value="L0"/>
+<Tree>
+	<LocalVariable  name="${Local1A}"  value="L1A"/>
+	<LocalVariable  name="${SameName}"  value="L1"/>
+	<Tree>
+		<LocalVariable  name="${Local2A}"  value="L2A"/>
+		<LocalVariable  name="${Local2B}"  value="L2B"/>
+	</Tree>
+	<Tree>
+		<LocalVariable  name="${Local2C}"  value="L2C"/>
+		<Tree>
+			<LocalVariable  name="${Local3A}"  value="L3A"/>
+			<LocalVariable  name="${SameName}"  value="L3"/>
+		</Tree>
+
+		<Current/>
+
+		<LocalVariable  name="${Local2D}"  value="L2D"/>
+		<LocalVariable  name="${SameName}"  value="L2"/>
+	</Tree>
+	<Tree>
+		<LocalVariable  name="${Local2E}"  value="L2E"/>
+		<LocalVariable  name="${Local2F}"  value="L2F"/>
+	</Tree>
+	<LocalVariable  name="${Local1B}"  value="L1B"/>
+</Tree>
+<Tree>
+	<LocalVariable  name="${Local1C}"  value="L1C"/>
+</Tree>
+<LocalVariable  name="${Local0B}"  value="L0B"/>
+<Variable  name="${GlobalB}"  value="GB"/>
+
+
+<Example>
+	<Tree>
+		<LocalVariable  name="${Var1}"  value="AA"/>
+		<ProjectA  path="${Var1}.txt"/>
+	</Tree>
+	<Tree>
+		<ProjectB  path="${Var1}.txt"/>
+		<LocalVariable  name="${Var1}"  value="BB"/>
+	</Tree>
+	<Tree>
+		<ProjectC  path="${Var1}.txt"/>
+	</Tree>
+	<LocalVariable  name="${Var1}"  value="CC"/>
+</Example>
+
+<Tree>
+	<ProjectD  path="${ProjectRoot}\ProjectD.txt"/>
+</Tree>
+<LocalVariable  name="${ProjectRoot}"  value="ProjectD"  type="FullPathType"/>
+
+</TestOfLocalVariable>

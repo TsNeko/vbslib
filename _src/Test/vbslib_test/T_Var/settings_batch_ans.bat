@@ -3,12 +3,12 @@ set FIRST=11
 set    SpaceAfter  =space?  
 
 @echo off
-echo FIRST=%FIRST%
-echo UpperLowerCase=%UpperLowerCase%
-echo UPPERLOWERCASE=%UPPERLOWERCASE%
-echo SpaceAfter =(%SpaceAfter  %)
+echo FIRST=%%FIRST%%
+echo UpperLowerCase=%%UpperLowerCase%%
+echo UPPERLOWERCASE=%%UPPERLOWERCASE%%
+echo SpaceAfter =(%%SpaceAfter  %%)
 
 set FIRST=2
-echo FIRST=%FIRST%
+echo FIRST=%%FIRST%%
 
 pause

@@ -35,59 +35,70 @@
 25.   - SubForWork\DeleteWorkFromOnly.txt
 26.  !* SubForWork\UpdateBothSame_ForWork.txt
 27. *!. UpdateBase.txt
-28. *!* UpdateBoth.txt
-29. *=* UpdateSame.txt
-30. .!* UpdateWork.txt
+28. *!. UpdateBaseAlmostSame.txt
+29. *=. UpdateBaseAlmostSameToSame.txt
+30. *!* UpdateBoth.txt
+31. *!* UpdateBothAlmostSame.txt
+32. *=* UpdateSame.txt
+33. .!* UpdateWork.txt
+34. .!* UpdateWorkAlmostSame.txt
+35. .=* UpdateWorkAlmostSameToSame.txt
 
 -------------------------------------------------------------------------------
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. +!. CopyAndModifyToBase.txt
-2. .!+ CopyAndModifyToWork.txt
-3. +=. CopyToBase.txt
-4. .=+ CopyToWork.txt
-5. -!. DeleteBaseFromBoth.txt
-6. -   DeleteBaseFromOnly.txt
-7. - - DeleteBoth.txt
-8. .!- DeleteWorkFromBoth.txt
-9.   - DeleteWorkFromOnly.txt
-10. +!  NewBase.txt
-11. +!+ NewNotSame.txt
-12. +=+ NewSame.txt
-13.  !+ NewWork.txt
-14. -   SubForWork\DeleteBaseFromOnly.txt
-15. - - SubForWork\DeleteBoth.txt
-16.   - SubForWork\DeleteWorkFromOnly.txt
-17. *!. SubForWork\UpdateBase.txt
-18. *!  SubForWork\UpdateBothSame_ForBase.txt
-19.  !* SubForWork\UpdateBothSame_ForWork.txt
-20. .!* SubForWork\UpdateWork.txt
-21. *!. UpdateBase.txt
-22. *!* UpdateBoth.txt
-23. *=* UpdateSame.txt
-24. .!* UpdateWork.txt
+1. +!.  CopyAndModifyToBase.txt
+2. .!+  CopyAndModifyToWork.txt
+3. +=.  CopyToBase.txt
+4. .=+  CopyToWork.txt
+5. -!.  DeleteBaseFromBoth.txt
+6. -    DeleteBaseFromOnly.txt
+7. - -  DeleteBoth.txt
+8. .!-  DeleteWorkFromBoth.txt
+9.   -  DeleteWorkFromOnly.txt
+10. +!   NewBase.txt
+11. +!+  NewNotSame.txt
+12. +=+  NewSame.txt
+13.  !+  NewWork.txt
+14. -    SubForWork\DeleteBaseFromOnly.txt
+15. - -  SubForWork\DeleteBoth.txt
+16.   -  SubForWork\DeleteWorkFromOnly.txt
+17. *!.  SubForWork\UpdateBase.txt
+18. *!   SubForWork\UpdateBothSame_ForBase.txt
+19.  !*  SubForWork\UpdateBothSame_ForWork.txt
+20. .!*  SubForWork\UpdateWork.txt
+21. *!.  UpdateBase.txt
+22. *!.  UpdateBaseAlmostSame.txt
+23. *=.  UpdateBaseAlmostSameToSame.txt
+24. *!*  UpdateBoth.txt
+25. *!*  UpdateBothAlmostSame.txt
+26. *=*  UpdateSame.txt
+27. .!*  UpdateWork.txt
+28. .!*  UpdateWorkAlmostSame.txt
+29. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyAndModifyToBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyAndModifyToBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyAndModifyToBase.txt (+新規)
 ★ワーク（WORK）: CopyAndModifyToBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (+新規) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -96,6 +107,7 @@
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >copy_ren  "%FullPath(..)%\FilesA\Project\Work\CopyAndModifyToBase.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\CopyAndModifyToBase.txt"
@@ -104,14 +116,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyAndModifyToBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyAndModifyToBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyAndModifyToBase.txt (.不変)
 ★ワーク（WORK）: CopyAndModifyToBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -125,50 +137,56 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. .!+ CopyAndModifyToWork.txt
-2. +=. CopyToBase.txt
-3. .=+ CopyToWork.txt
-4. -!. DeleteBaseFromBoth.txt
-5. -   DeleteBaseFromOnly.txt
-6. - - DeleteBoth.txt
-7. .!- DeleteWorkFromBoth.txt
-8.   - DeleteWorkFromOnly.txt
-9. +!  NewBase.txt
-10. +!+ NewNotSame.txt
-11. +=+ NewSame.txt
-12.  !+ NewWork.txt
-13. -   SubForWork\DeleteBaseFromOnly.txt
-14. - - SubForWork\DeleteBoth.txt
-15.   - SubForWork\DeleteWorkFromOnly.txt
-16. *!. SubForWork\UpdateBase.txt
-17. *!  SubForWork\UpdateBothSame_ForBase.txt
-18.  !* SubForWork\UpdateBothSame_ForWork.txt
-19. .!* SubForWork\UpdateWork.txt
-20. *!. UpdateBase.txt
-21. *!* UpdateBoth.txt
-22. *=* UpdateSame.txt
-23. .!* UpdateWork.txt
+1. .!+  CopyAndModifyToWork.txt
+2. +=.  CopyToBase.txt
+3. .=+  CopyToWork.txt
+4. -!.  DeleteBaseFromBoth.txt
+5. -    DeleteBaseFromOnly.txt
+6. - -  DeleteBoth.txt
+7. .!-  DeleteWorkFromBoth.txt
+8.   -  DeleteWorkFromOnly.txt
+9. +!   NewBase.txt
+10. +!+  NewNotSame.txt
+11. +=+  NewSame.txt
+12.  !+  NewWork.txt
+13. -    SubForWork\DeleteBaseFromOnly.txt
+14. - -  SubForWork\DeleteBoth.txt
+15.   -  SubForWork\DeleteWorkFromOnly.txt
+16. *!.  SubForWork\UpdateBase.txt
+17. *!   SubForWork\UpdateBothSame_ForBase.txt
+18.  !*  SubForWork\UpdateBothSame_ForWork.txt
+19. .!*  SubForWork\UpdateWork.txt
+20. *!.  UpdateBase.txt
+21. *!.  UpdateBaseAlmostSame.txt
+22. *=.  UpdateBaseAlmostSameToSame.txt
+23. *!*  UpdateBoth.txt
+24. *!*  UpdateBothAlmostSame.txt
+25. *=*  UpdateSame.txt
+26. .!*  UpdateWork.txt
+27. .!*  UpdateWorkAlmostSame.txt
+28. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyAndModifyToWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyAndModifyToWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyAndModifyToWork.txt (.不変)
 ★ワーク（WORK）: CopyAndModifyToWork.txt (+新規)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (+新規) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -177,6 +195,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >copy_ren  "%FullPath(..)%\FilesA\Project\Work\CopyAndModifyToWork.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\CopyAndModifyToWork.txt"
@@ -185,14 +204,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyAndModifyToWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyAndModifyToWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyAndModifyToWork.txt (.不変)
 ★ワーク（WORK）: CopyAndModifyToWork.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -206,49 +225,55 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. +=. CopyToBase.txt
-2. .=+ CopyToWork.txt
-3. -!. DeleteBaseFromBoth.txt
-4. -   DeleteBaseFromOnly.txt
-5. - - DeleteBoth.txt
-6. .!- DeleteWorkFromBoth.txt
-7.   - DeleteWorkFromOnly.txt
-8. +!  NewBase.txt
-9. +!+ NewNotSame.txt
-10. +=+ NewSame.txt
-11.  !+ NewWork.txt
-12. -   SubForWork\DeleteBaseFromOnly.txt
-13. - - SubForWork\DeleteBoth.txt
-14.   - SubForWork\DeleteWorkFromOnly.txt
-15. *!. SubForWork\UpdateBase.txt
-16. *!  SubForWork\UpdateBothSame_ForBase.txt
-17.  !* SubForWork\UpdateBothSame_ForWork.txt
-18. .!* SubForWork\UpdateWork.txt
-19. *!. UpdateBase.txt
-20. *!* UpdateBoth.txt
-21. *=* UpdateSame.txt
-22. .!* UpdateWork.txt
+1. +=.  CopyToBase.txt
+2. .=+  CopyToWork.txt
+3. -!.  DeleteBaseFromBoth.txt
+4. -    DeleteBaseFromOnly.txt
+5. - -  DeleteBoth.txt
+6. .!-  DeleteWorkFromBoth.txt
+7.   -  DeleteWorkFromOnly.txt
+8. +!   NewBase.txt
+9. +!+  NewNotSame.txt
+10. +=+  NewSame.txt
+11.  !+  NewWork.txt
+12. -    SubForWork\DeleteBaseFromOnly.txt
+13. - -  SubForWork\DeleteBoth.txt
+14.   -  SubForWork\DeleteWorkFromOnly.txt
+15. *!.  SubForWork\UpdateBase.txt
+16. *!   SubForWork\UpdateBothSame_ForBase.txt
+17.  !*  SubForWork\UpdateBothSame_ForWork.txt
+18. .!*  SubForWork\UpdateWork.txt
+19. *!.  UpdateBase.txt
+20. *!.  UpdateBaseAlmostSame.txt
+21. *=.  UpdateBaseAlmostSameToSame.txt
+22. *!*  UpdateBoth.txt
+23. *!*  UpdateBothAlmostSame.txt
+24. *=*  UpdateSame.txt
+25. .!*  UpdateWork.txt
+26. .!*  UpdateWorkAlmostSame.txt
+27. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyToBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyToBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyToBase.txt (+新規)
 ★ワーク（WORK）: CopyToBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (+新規) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -257,6 +282,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 
 ★[WARNING] ベースとワークで内容が異なっていたのが同じになりました。
@@ -269,14 +295,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyToBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyToBase.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
+ベース ファイルとワーク ファイルは「同じ内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyToBase.txt (.不変)
 ★ワーク（WORK）: CopyToBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -290,48 +316,54 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. .=+ CopyToWork.txt
-2. -!. DeleteBaseFromBoth.txt
-3. -   DeleteBaseFromOnly.txt
-4. - - DeleteBoth.txt
-5. .!- DeleteWorkFromBoth.txt
-6.   - DeleteWorkFromOnly.txt
-7. +!  NewBase.txt
-8. +!+ NewNotSame.txt
-9. +=+ NewSame.txt
-10.  !+ NewWork.txt
-11. -   SubForWork\DeleteBaseFromOnly.txt
-12. - - SubForWork\DeleteBoth.txt
-13.   - SubForWork\DeleteWorkFromOnly.txt
-14. *!. SubForWork\UpdateBase.txt
-15. *!  SubForWork\UpdateBothSame_ForBase.txt
-16.  !* SubForWork\UpdateBothSame_ForWork.txt
-17. .!* SubForWork\UpdateWork.txt
-18. *!. UpdateBase.txt
-19. *!* UpdateBoth.txt
-20. *=* UpdateSame.txt
-21. .!* UpdateWork.txt
+1. .=+  CopyToWork.txt
+2. -!.  DeleteBaseFromBoth.txt
+3. -    DeleteBaseFromOnly.txt
+4. - -  DeleteBoth.txt
+5. .!-  DeleteWorkFromBoth.txt
+6.   -  DeleteWorkFromOnly.txt
+7. +!   NewBase.txt
+8. +!+  NewNotSame.txt
+9. +=+  NewSame.txt
+10.  !+  NewWork.txt
+11. -    SubForWork\DeleteBaseFromOnly.txt
+12. - -  SubForWork\DeleteBoth.txt
+13.   -  SubForWork\DeleteWorkFromOnly.txt
+14. *!.  SubForWork\UpdateBase.txt
+15. *!   SubForWork\UpdateBothSame_ForBase.txt
+16.  !*  SubForWork\UpdateBothSame_ForWork.txt
+17. .!*  SubForWork\UpdateWork.txt
+18. *!.  UpdateBase.txt
+19. *!.  UpdateBaseAlmostSame.txt
+20. *=.  UpdateBaseAlmostSameToSame.txt
+21. *!*  UpdateBoth.txt
+22. *!*  UpdateBothAlmostSame.txt
+23. *=*  UpdateSame.txt
+24. .!*  UpdateWork.txt
+25. .!*  UpdateWorkAlmostSame.txt
+26. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyToWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyToWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyToWork.txt (.不変)
 ★ワーク（WORK）: CopyToWork.txt (+新規)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (+新規) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -340,6 +372,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 
 ★[WARNING] ベースとワークで内容が異なっていたのが同じになりました。
@@ -352,14 +385,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\CopyToWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\CopyToWork.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
+ベース ファイルとワーク ファイルは「同じ内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: CopyToWork.txt (.不変)
 ★ワーク（WORK）: CopyToWork.txt (.不変)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -373,47 +406,53 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. -!. DeleteBaseFromBoth.txt
-2. -   DeleteBaseFromOnly.txt
-3. - - DeleteBoth.txt
-4. .!- DeleteWorkFromBoth.txt
-5.   - DeleteWorkFromOnly.txt
-6. +!  NewBase.txt
-7. +!+ NewNotSame.txt
-8. +=+ NewSame.txt
-9.  !+ NewWork.txt
-10. -   SubForWork\DeleteBaseFromOnly.txt
-11. - - SubForWork\DeleteBoth.txt
-12.   - SubForWork\DeleteWorkFromOnly.txt
-13. *!. SubForWork\UpdateBase.txt
-14. *!  SubForWork\UpdateBothSame_ForBase.txt
-15.  !* SubForWork\UpdateBothSame_ForWork.txt
-16. .!* SubForWork\UpdateWork.txt
-17. *!. UpdateBase.txt
-18. *!* UpdateBoth.txt
-19. *=* UpdateSame.txt
-20. .!* UpdateWork.txt
+1. -!.  DeleteBaseFromBoth.txt
+2. -    DeleteBaseFromOnly.txt
+3. - -  DeleteBoth.txt
+4. .!-  DeleteWorkFromBoth.txt
+5.   -  DeleteWorkFromOnly.txt
+6. +!   NewBase.txt
+7. +!+  NewNotSame.txt
+8. +=+  NewSame.txt
+9.  !+  NewWork.txt
+10. -    SubForWork\DeleteBaseFromOnly.txt
+11. - -  SubForWork\DeleteBoth.txt
+12.   -  SubForWork\DeleteWorkFromOnly.txt
+13. *!.  SubForWork\UpdateBase.txt
+14. *!   SubForWork\UpdateBothSame_ForBase.txt
+15.  !*  SubForWork\UpdateBothSame_ForWork.txt
+16. .!*  SubForWork\UpdateWork.txt
+17. *!.  UpdateBase.txt
+18. *!.  UpdateBaseAlmostSame.txt
+19. *=.  UpdateBaseAlmostSameToSame.txt
+20. *!*  UpdateBoth.txt
+21. *!*  UpdateBothAlmostSame.txt
+22. *=*  UpdateSame.txt
+23. .!*  UpdateWork.txt
+24. .!*  UpdateWorkAlmostSame.txt
+25. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\DeleteBaseFromBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\DeleteBaseFromBoth.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: DeleteBaseFromBoth.txt (-削除)
 ★ワーク（WORK）: DeleteBaseFromBoth.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (-削除) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -422,6 +461,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 
 ★[WARNING] ベースとワークで内容が同じだったのが異なるようになりました。
@@ -434,14 +474,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\DeleteBaseFromBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\DeleteBaseFromBoth.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: DeleteBaseFromBoth.txt ( なし)
 ★ワーク（WORK）: DeleteBaseFromBoth.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -455,46 +495,52 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. -   DeleteBaseFromOnly.txt
-2. - - DeleteBoth.txt
-3. .!- DeleteWorkFromBoth.txt
-4.   - DeleteWorkFromOnly.txt
-5. +!  NewBase.txt
-6. +!+ NewNotSame.txt
-7. +=+ NewSame.txt
-8.  !+ NewWork.txt
-9. -   SubForWork\DeleteBaseFromOnly.txt
-10. - - SubForWork\DeleteBoth.txt
-11.   - SubForWork\DeleteWorkFromOnly.txt
-12. *!. SubForWork\UpdateBase.txt
-13. *!  SubForWork\UpdateBothSame_ForBase.txt
-14.  !* SubForWork\UpdateBothSame_ForWork.txt
-15. .!* SubForWork\UpdateWork.txt
-16. *!. UpdateBase.txt
-17. *!* UpdateBoth.txt
-18. *=* UpdateSame.txt
-19. .!* UpdateWork.txt
+1. -    DeleteBaseFromOnly.txt
+2. - -  DeleteBoth.txt
+3. .!-  DeleteWorkFromBoth.txt
+4.   -  DeleteWorkFromOnly.txt
+5. +!   NewBase.txt
+6. +!+  NewNotSame.txt
+7. +=+  NewSame.txt
+8.  !+  NewWork.txt
+9. -    SubForWork\DeleteBaseFromOnly.txt
+10. - -  SubForWork\DeleteBoth.txt
+11.   -  SubForWork\DeleteWorkFromOnly.txt
+12. *!.  SubForWork\UpdateBase.txt
+13. *!   SubForWork\UpdateBothSame_ForBase.txt
+14.  !*  SubForWork\UpdateBothSame_ForWork.txt
+15. .!*  SubForWork\UpdateWork.txt
+16. *!.  UpdateBase.txt
+17. *!.  UpdateBaseAlmostSame.txt
+18. *=.  UpdateBaseAlmostSameToSame.txt
+19. *!*  UpdateBoth.txt
+20. *!*  UpdateBothAlmostSame.txt
+21. *=*  UpdateSame.txt
+22. .!*  UpdateWork.txt
+23. .!*  UpdateWorkAlmostSame.txt
+24. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\DeleteBaseFromOnly.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\DeleteBaseFromOnly.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: DeleteBaseFromOnly.txt (-削除)
 ★ワーク（WORK）: DeleteBaseFromOnly.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (-削除) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -503,6 +549,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >del  "%FullPath(..)%\FilesA\Project - Synced\Work\DeleteBaseFromOnly.txt"
@@ -518,7 +565,7 @@ Enterのみ: 再スキャンする
 ★ワーク（WORK）: DeleteBaseFromOnly.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -532,45 +579,51 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. - - DeleteBoth.txt
-2. .!- DeleteWorkFromBoth.txt
-3.   - DeleteWorkFromOnly.txt
-4. +!  NewBase.txt
-5. +!+ NewNotSame.txt
-6. +=+ NewSame.txt
-7.  !+ NewWork.txt
-8. -   SubForWork\DeleteBaseFromOnly.txt
-9. - - SubForWork\DeleteBoth.txt
-10.   - SubForWork\DeleteWorkFromOnly.txt
-11. *!. SubForWork\UpdateBase.txt
-12. *!  SubForWork\UpdateBothSame_ForBase.txt
-13.  !* SubForWork\UpdateBothSame_ForWork.txt
-14. .!* SubForWork\UpdateWork.txt
-15. *!. UpdateBase.txt
-16. *!* UpdateBoth.txt
-17. *=* UpdateSame.txt
-18. .!* UpdateWork.txt
+1. - -  DeleteBoth.txt
+2. .!-  DeleteWorkFromBoth.txt
+3.   -  DeleteWorkFromOnly.txt
+4. +!   NewBase.txt
+5. +!+  NewNotSame.txt
+6. +=+  NewSame.txt
+7.  !+  NewWork.txt
+8. -    SubForWork\DeleteBaseFromOnly.txt
+9. - -  SubForWork\DeleteBoth.txt
+10.   -  SubForWork\DeleteWorkFromOnly.txt
+11. *!.  SubForWork\UpdateBase.txt
+12. *!   SubForWork\UpdateBothSame_ForBase.txt
+13.  !*  SubForWork\UpdateBothSame_ForWork.txt
+14. .!*  SubForWork\UpdateWork.txt
+15. *!.  UpdateBase.txt
+16. *!.  UpdateBaseAlmostSame.txt
+17. *=.  UpdateBaseAlmostSameToSame.txt
+18. *!*  UpdateBoth.txt
+19. *!*  UpdateBothAlmostSame.txt
+20. *=*  UpdateSame.txt
+21. .!*  UpdateWork.txt
+22. .!*  UpdateWorkAlmostSame.txt
+23. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\DeleteBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\DeleteBoth.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: DeleteBoth.txt (-削除)
 ★ワーク（WORK）: DeleteBoth.txt (-削除)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (-削除) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (-削除) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -579,6 +632,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >del  "%FullPath(..)%\FilesA\Project - Synced\Work\DeleteBoth.txt"
@@ -594,7 +648,7 @@ Enterのみ: 再スキャンする
 ★ワーク（WORK）: DeleteBoth.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -608,44 +662,50 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. .!- DeleteWorkFromBoth.txt
-2.   - DeleteWorkFromOnly.txt
-3. +!  NewBase.txt
-4. +!+ NewNotSame.txt
-5. +=+ NewSame.txt
-6.  !+ NewWork.txt
-7. -   SubForWork\DeleteBaseFromOnly.txt
-8. - - SubForWork\DeleteBoth.txt
-9.   - SubForWork\DeleteWorkFromOnly.txt
-10. *!. SubForWork\UpdateBase.txt
-11. *!  SubForWork\UpdateBothSame_ForBase.txt
-12.  !* SubForWork\UpdateBothSame_ForWork.txt
-13. .!* SubForWork\UpdateWork.txt
-14. *!. UpdateBase.txt
-15. *!* UpdateBoth.txt
-16. *=* UpdateSame.txt
-17. .!* UpdateWork.txt
+1. .!-  DeleteWorkFromBoth.txt
+2.   -  DeleteWorkFromOnly.txt
+3. +!   NewBase.txt
+4. +!+  NewNotSame.txt
+5. +=+  NewSame.txt
+6.  !+  NewWork.txt
+7. -    SubForWork\DeleteBaseFromOnly.txt
+8. - -  SubForWork\DeleteBoth.txt
+9.   -  SubForWork\DeleteWorkFromOnly.txt
+10. *!.  SubForWork\UpdateBase.txt
+11. *!   SubForWork\UpdateBothSame_ForBase.txt
+12.  !*  SubForWork\UpdateBothSame_ForWork.txt
+13. .!*  SubForWork\UpdateWork.txt
+14. *!.  UpdateBase.txt
+15. *!.  UpdateBaseAlmostSame.txt
+16. *=.  UpdateBaseAlmostSameToSame.txt
+17. *!*  UpdateBoth.txt
+18. *!*  UpdateBothAlmostSame.txt
+19. *=*  UpdateSame.txt
+20. .!*  UpdateWork.txt
+21. .!*  UpdateWorkAlmostSame.txt
+22. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\DeleteWorkFromBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\DeleteWorkFromBoth.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: DeleteWorkFromBoth.txt (.不変)
 ★ワーク（WORK）: DeleteWorkFromBoth.txt (-削除)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (-削除) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -654,6 +714,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 
 ★[WARNING] ベースとワークで内容が同じだったのが異なるようになりました。
@@ -666,14 +727,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\DeleteWorkFromBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\DeleteWorkFromBoth.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: DeleteWorkFromBoth.txt (.不変)
 ★ワーク（WORK）: DeleteWorkFromBoth.txt ( なし)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -687,43 +748,49 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1.   - DeleteWorkFromOnly.txt
-2. +!  NewBase.txt
-3. +!+ NewNotSame.txt
-4. +=+ NewSame.txt
-5.  !+ NewWork.txt
-6. -   SubForWork\DeleteBaseFromOnly.txt
-7. - - SubForWork\DeleteBoth.txt
-8.   - SubForWork\DeleteWorkFromOnly.txt
-9. *!. SubForWork\UpdateBase.txt
-10. *!  SubForWork\UpdateBothSame_ForBase.txt
-11.  !* SubForWork\UpdateBothSame_ForWork.txt
-12. .!* SubForWork\UpdateWork.txt
-13. *!. UpdateBase.txt
-14. *!* UpdateBoth.txt
-15. *=* UpdateSame.txt
-16. .!* UpdateWork.txt
+1.   -  DeleteWorkFromOnly.txt
+2. +!   NewBase.txt
+3. +!+  NewNotSame.txt
+4. +=+  NewSame.txt
+5.  !+  NewWork.txt
+6. -    SubForWork\DeleteBaseFromOnly.txt
+7. - -  SubForWork\DeleteBoth.txt
+8.   -  SubForWork\DeleteWorkFromOnly.txt
+9. *!.  SubForWork\UpdateBase.txt
+10. *!   SubForWork\UpdateBothSame_ForBase.txt
+11.  !*  SubForWork\UpdateBothSame_ForWork.txt
+12. .!*  SubForWork\UpdateWork.txt
+13. *!.  UpdateBase.txt
+14. *!.  UpdateBaseAlmostSame.txt
+15. *=.  UpdateBaseAlmostSameToSame.txt
+16. *!*  UpdateBoth.txt
+17. *!*  UpdateBothAlmostSame.txt
+18. *=*  UpdateSame.txt
+19. .!*  UpdateWork.txt
+20. .!*  UpdateWorkAlmostSame.txt
+21. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\DeleteWorkFromOnly.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\DeleteWorkFromOnly.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: DeleteWorkFromOnly.txt ( なし)
 ★ワーク（WORK）: DeleteWorkFromOnly.txt (-削除)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (-削除) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -732,6 +799,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >del  "%FullPath(..)%\FilesA\Project - Synced\Work\DeleteWorkFromOnly.txt"
@@ -747,7 +815,7 @@ Enterのみ: 再スキャンする
 ★ワーク（WORK）: DeleteWorkFromOnly.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -761,42 +829,48 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. +!  NewBase.txt
-2. +!+ NewNotSame.txt
-3. +=+ NewSame.txt
-4.  !+ NewWork.txt
-5. -   SubForWork\DeleteBaseFromOnly.txt
-6. - - SubForWork\DeleteBoth.txt
-7.   - SubForWork\DeleteWorkFromOnly.txt
-8. *!. SubForWork\UpdateBase.txt
-9. *!  SubForWork\UpdateBothSame_ForBase.txt
-10.  !* SubForWork\UpdateBothSame_ForWork.txt
-11. .!* SubForWork\UpdateWork.txt
-12. *!. UpdateBase.txt
-13. *!* UpdateBoth.txt
-14. *=* UpdateSame.txt
-15. .!* UpdateWork.txt
+1. +!   NewBase.txt
+2. +!+  NewNotSame.txt
+3. +=+  NewSame.txt
+4.  !+  NewWork.txt
+5. -    SubForWork\DeleteBaseFromOnly.txt
+6. - -  SubForWork\DeleteBoth.txt
+7.   -  SubForWork\DeleteWorkFromOnly.txt
+8. *!.  SubForWork\UpdateBase.txt
+9. *!   SubForWork\UpdateBothSame_ForBase.txt
+10.  !*  SubForWork\UpdateBothSame_ForWork.txt
+11. .!*  SubForWork\UpdateWork.txt
+12. *!.  UpdateBase.txt
+13. *!.  UpdateBaseAlmostSame.txt
+14. *=.  UpdateBaseAlmostSameToSame.txt
+15. *!*  UpdateBoth.txt
+16. *!*  UpdateBothAlmostSame.txt
+17. *=*  UpdateSame.txt
+18. .!*  UpdateWork.txt
+19. .!*  UpdateWorkAlmostSame.txt
+20. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewBase.txt"
 
-手動で同期したら、コミットしてください。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewBase.txt (+新規)
 ★ワーク（WORK）: NewBase.txt ( なし)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース (+新規) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -805,6 +879,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >del  "%FullPath(..)%\FilesA\Project - Synced\Work\NewBase.txt"
@@ -813,14 +888,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewBase.txt (.不変)
 ★ワーク（WORK）: NewBase.txt ( なし)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -834,41 +909,47 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. +!+ NewNotSame.txt
-2. +=+ NewSame.txt
-3.  !+ NewWork.txt
-4. -   SubForWork\DeleteBaseFromOnly.txt
-5. - - SubForWork\DeleteBoth.txt
-6.   - SubForWork\DeleteWorkFromOnly.txt
-7. *!. SubForWork\UpdateBase.txt
-8. *!  SubForWork\UpdateBothSame_ForBase.txt
-9.  !* SubForWork\UpdateBothSame_ForWork.txt
-10. .!* SubForWork\UpdateWork.txt
-11. *!. UpdateBase.txt
-12. *!* UpdateBoth.txt
-13. *=* UpdateSame.txt
-14. .!* UpdateWork.txt
+1. +!+  NewNotSame.txt
+2. +=+  NewSame.txt
+3.  !+  NewWork.txt
+4. -    SubForWork\DeleteBaseFromOnly.txt
+5. - -  SubForWork\DeleteBoth.txt
+6.   -  SubForWork\DeleteWorkFromOnly.txt
+7. *!.  SubForWork\UpdateBase.txt
+8. *!   SubForWork\UpdateBothSame_ForBase.txt
+9.  !*  SubForWork\UpdateBothSame_ForWork.txt
+10. .!*  SubForWork\UpdateWork.txt
+11. *!.  UpdateBase.txt
+12. *!.  UpdateBaseAlmostSame.txt
+13. *=.  UpdateBaseAlmostSameToSame.txt
+14. *!*  UpdateBoth.txt
+15. *!*  UpdateBothAlmostSame.txt
+16. *=*  UpdateSame.txt
+17. .!*  UpdateWork.txt
+18. .!*  UpdateWorkAlmostSame.txt
+19. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewNotSame.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewNotSame.txt"
 
-手動で同期したら、コミットしてください。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewNotSame.txt (+新規)
 ★ワーク（WORK）: NewNotSame.txt (+新規)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース (+新規) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (+新規) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -877,6 +958,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >copy_ren  "%FullPath(..)%\FilesA\Project\Work\NewNotSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\NewNotSame.txt"
@@ -885,14 +967,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewNotSame.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewNotSame.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewNotSame.txt (.不変)
 ★ワーク（WORK）: NewNotSame.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -906,40 +988,46 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. +=+ NewSame.txt
-2.  !+ NewWork.txt
-3. -   SubForWork\DeleteBaseFromOnly.txt
-4. - - SubForWork\DeleteBoth.txt
-5.   - SubForWork\DeleteWorkFromOnly.txt
-6. *!. SubForWork\UpdateBase.txt
-7. *!  SubForWork\UpdateBothSame_ForBase.txt
-8.  !* SubForWork\UpdateBothSame_ForWork.txt
-9. .!* SubForWork\UpdateWork.txt
-10. *!. UpdateBase.txt
-11. *!* UpdateBoth.txt
-12. *=* UpdateSame.txt
-13. .!* UpdateWork.txt
+1. +=+  NewSame.txt
+2.  !+  NewWork.txt
+3. -    SubForWork\DeleteBaseFromOnly.txt
+4. - -  SubForWork\DeleteBoth.txt
+5.   -  SubForWork\DeleteWorkFromOnly.txt
+6. *!.  SubForWork\UpdateBase.txt
+7. *!   SubForWork\UpdateBothSame_ForBase.txt
+8.  !*  SubForWork\UpdateBothSame_ForWork.txt
+9. .!*  SubForWork\UpdateWork.txt
+10. *!.  UpdateBase.txt
+11. *!.  UpdateBaseAlmostSame.txt
+12. *=.  UpdateBaseAlmostSameToSame.txt
+13. *!*  UpdateBoth.txt
+14. *!*  UpdateBothAlmostSame.txt
+15. *=*  UpdateSame.txt
+16. .!*  UpdateWork.txt
+17. .!*  UpdateWorkAlmostSame.txt
+18. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewSame.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewSame.txt"
 
-手動で同期したら、コミットしてください。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewSame.txt (+新規)
 ★ワーク（WORK）: NewSame.txt (+新規)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース (+新規) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (+新規) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -948,6 +1036,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >copy_ren  "%FullPath(..)%\FilesA\Project\Work\NewSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\NewSame.txt"
@@ -956,14 +1045,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewSame.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewSame.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
+ベース ファイルとワーク ファイルは「同じ内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewSame.txt (.不変)
 ★ワーク（WORK）: NewSame.txt (.不変)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -977,39 +1066,45 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1.  !+ NewWork.txt
-2. -   SubForWork\DeleteBaseFromOnly.txt
-3. - - SubForWork\DeleteBoth.txt
-4.   - SubForWork\DeleteWorkFromOnly.txt
-5. *!. SubForWork\UpdateBase.txt
-6. *!  SubForWork\UpdateBothSame_ForBase.txt
-7.  !* SubForWork\UpdateBothSame_ForWork.txt
-8. .!* SubForWork\UpdateWork.txt
-9. *!. UpdateBase.txt
-10. *!* UpdateBoth.txt
-11. *=* UpdateSame.txt
-12. .!* UpdateWork.txt
+1.  !+  NewWork.txt
+2. -    SubForWork\DeleteBaseFromOnly.txt
+3. - -  SubForWork\DeleteBoth.txt
+4.   -  SubForWork\DeleteWorkFromOnly.txt
+5. *!.  SubForWork\UpdateBase.txt
+6. *!   SubForWork\UpdateBothSame_ForBase.txt
+7.  !*  SubForWork\UpdateBothSame_ForWork.txt
+8. .!*  SubForWork\UpdateWork.txt
+9. *!.  UpdateBase.txt
+10. *!.  UpdateBaseAlmostSame.txt
+11. *=.  UpdateBaseAlmostSameToSame.txt
+12. *!*  UpdateBoth.txt
+13. *!*  UpdateBothAlmostSame.txt
+14. *=*  UpdateSame.txt
+15. .!*  UpdateWork.txt
+16. .!*  UpdateWorkAlmostSame.txt
+17. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewWork.txt"
 
-手動で同期したら、コミットしてください。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewWork.txt ( なし)
 ★ワーク（WORK）: NewWork.txt (+新規)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (+新規) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1018,6 +1113,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >copy_ren  "%FullPath(..)%\FilesA\Project\Work\NewWork.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\NewWork.txt"
@@ -1026,14 +1122,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\NewWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\NewWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: NewWork.txt ( なし)
 ★ワーク（WORK）: NewWork.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1047,38 +1143,44 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. -   SubForWork\DeleteBaseFromOnly.txt
-2. - - SubForWork\DeleteBoth.txt
-3.   - SubForWork\DeleteWorkFromOnly.txt
-4. *!. SubForWork\UpdateBase.txt
-5. *!  SubForWork\UpdateBothSame_ForBase.txt
-6.  !* SubForWork\UpdateBothSame_ForWork.txt
-7. .!* SubForWork\UpdateWork.txt
-8. *!. UpdateBase.txt
-9. *!* UpdateBoth.txt
-10. *=* UpdateSame.txt
-11. .!* UpdateWork.txt
+1. -    SubForWork\DeleteBaseFromOnly.txt
+2. - -  SubForWork\DeleteBoth.txt
+3.   -  SubForWork\DeleteWorkFromOnly.txt
+4. *!.  SubForWork\UpdateBase.txt
+5. *!   SubForWork\UpdateBothSame_ForBase.txt
+6.  !*  SubForWork\UpdateBothSame_ForWork.txt
+7. .!*  SubForWork\UpdateWork.txt
+8. *!.  UpdateBase.txt
+9. *!.  UpdateBaseAlmostSame.txt
+10. *=.  UpdateBaseAlmostSameToSame.txt
+11. *!*  UpdateBoth.txt
+12. *!*  UpdateBothAlmostSame.txt
+13. *=*  UpdateSame.txt
+14. .!*  UpdateWork.txt
+15. .!*  UpdateWorkAlmostSame.txt
+16. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\DeleteBaseFromOnly.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\DeleteBaseFromOnly.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\DeleteBaseFromOnly.txt (-削除)
 ★ワーク（WORK）: SubForWork\DeleteBaseFromOnly.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (-削除) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1087,6 +1189,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >del  "%FullPath(..)%\FilesA\Project - Synced\Work\SubForWork\DeleteBaseFromOnly.txt"
@@ -1102,7 +1205,7 @@ Enterのみ: 再スキャンする
 ★ワーク（WORK）: SubForWork\DeleteBaseFromOnly.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1116,37 +1219,43 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. - - SubForWork\DeleteBoth.txt
-2.   - SubForWork\DeleteWorkFromOnly.txt
-3. *!. SubForWork\UpdateBase.txt
-4. *!  SubForWork\UpdateBothSame_ForBase.txt
-5.  !* SubForWork\UpdateBothSame_ForWork.txt
-6. .!* SubForWork\UpdateWork.txt
-7. *!. UpdateBase.txt
-8. *!* UpdateBoth.txt
-9. *=* UpdateSame.txt
-10. .!* UpdateWork.txt
+1. - -  SubForWork\DeleteBoth.txt
+2.   -  SubForWork\DeleteWorkFromOnly.txt
+3. *!.  SubForWork\UpdateBase.txt
+4. *!   SubForWork\UpdateBothSame_ForBase.txt
+5.  !*  SubForWork\UpdateBothSame_ForWork.txt
+6. .!*  SubForWork\UpdateWork.txt
+7. *!.  UpdateBase.txt
+8. *!.  UpdateBaseAlmostSame.txt
+9. *=.  UpdateBaseAlmostSameToSame.txt
+10. *!*  UpdateBoth.txt
+11. *!*  UpdateBothAlmostSame.txt
+12. *=*  UpdateSame.txt
+13. .!*  UpdateWork.txt
+14. .!*  UpdateWorkAlmostSame.txt
+15. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\DeleteBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\DeleteBoth.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\DeleteBoth.txt (-削除)
 ★ワーク（WORK）: SubForWork\DeleteBoth.txt (-削除)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (-削除) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (-削除) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1155,6 +1264,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >del  "%FullPath(..)%\FilesA\Project - Synced\Work\SubForWork\DeleteBoth.txt"
@@ -1170,7 +1280,7 @@ Enterのみ: 再スキャンする
 ★ワーク（WORK）: SubForWork\DeleteBoth.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1184,36 +1294,42 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1.   - SubForWork\DeleteWorkFromOnly.txt
-2. *!. SubForWork\UpdateBase.txt
-3. *!  SubForWork\UpdateBothSame_ForBase.txt
-4.  !* SubForWork\UpdateBothSame_ForWork.txt
-5. .!* SubForWork\UpdateWork.txt
-6. *!. UpdateBase.txt
-7. *!* UpdateBoth.txt
-8. *=* UpdateSame.txt
-9. .!* UpdateWork.txt
+1.   -  SubForWork\DeleteWorkFromOnly.txt
+2. *!.  SubForWork\UpdateBase.txt
+3. *!   SubForWork\UpdateBothSame_ForBase.txt
+4.  !*  SubForWork\UpdateBothSame_ForWork.txt
+5. .!*  SubForWork\UpdateWork.txt
+6. *!.  UpdateBase.txt
+7. *!.  UpdateBaseAlmostSame.txt
+8. *=.  UpdateBaseAlmostSameToSame.txt
+9. *!*  UpdateBoth.txt
+10. *!*  UpdateBothAlmostSame.txt
+11. *=*  UpdateSame.txt
+12. .!*  UpdateWork.txt
+13. .!*  UpdateWorkAlmostSame.txt
+14. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\DeleteWorkFromOnly.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\DeleteWorkFromOnly.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\DeleteWorkFromOnly.txt ( なし)
 ★ワーク（WORK）: SubForWork\DeleteWorkFromOnly.txt (-削除)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (-削除) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1222,6 +1338,7 @@ Enterのみ: 再スキャンする
 Enterのみ: 再スキャンする
 8. 同期をコミットする
 9. 戻る
+★改名・結合・分離・部分移動があったときの SyncFilesX の説明を参考。
 番号 >8
 -------------------------------------------------------------------------------
 >del  "%FullPath(..)%\FilesA\Project - Synced\Work\SubForWork\DeleteWorkFromOnly.txt"
@@ -1237,7 +1354,7 @@ Enterのみ: 再スキャンする
 ★ワーク（WORK）: SubForWork\DeleteWorkFromOnly.txt ( なし)
 
 1. Diff で開く：同期するファイル ( なし) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 ( なし) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 ( なし) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1251,35 +1368,41 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. *!. SubForWork\UpdateBase.txt
-2. *!  SubForWork\UpdateBothSame_ForBase.txt
-3.  !* SubForWork\UpdateBothSame_ForWork.txt
-4. .!* SubForWork\UpdateWork.txt
-5. *!. UpdateBase.txt
-6. *!* UpdateBoth.txt
-7. *=* UpdateSame.txt
-8. .!* UpdateWork.txt
+1. *!.  SubForWork\UpdateBase.txt
+2. *!   SubForWork\UpdateBothSame_ForBase.txt
+3.  !*  SubForWork\UpdateBothSame_ForWork.txt
+4. .!*  SubForWork\UpdateWork.txt
+5. *!.  UpdateBase.txt
+6. *!.  UpdateBaseAlmostSame.txt
+7. *=.  UpdateBaseAlmostSameToSame.txt
+8. *!*  UpdateBoth.txt
+9. *!*  UpdateBothAlmostSame.txt
+10. *=*  UpdateSame.txt
+11. .!*  UpdateWork.txt
+12. .!*  UpdateWorkAlmostSame.txt
+13. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateBase.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateBase.txt (*変更)
 ★ワーク（WORK）: SubForWork\UpdateBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1300,14 +1423,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateBase.txt (.不変)
 ★ワーク（WORK）: SubForWork\UpdateBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1321,34 +1444,40 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. *!  SubForWork\UpdateBothSame_ForBase.txt
-2.  !* SubForWork\UpdateBothSame_ForWork.txt
-3. .!* SubForWork\UpdateWork.txt
-4. *!. UpdateBase.txt
-5. *!* UpdateBoth.txt
-6. *=* UpdateSame.txt
-7. .!* UpdateWork.txt
+1. *!   SubForWork\UpdateBothSame_ForBase.txt
+2.  !*  SubForWork\UpdateBothSame_ForWork.txt
+3. .!*  SubForWork\UpdateWork.txt
+4. *!.  UpdateBase.txt
+5. *!.  UpdateBaseAlmostSame.txt
+6. *=.  UpdateBaseAlmostSameToSame.txt
+7. *!*  UpdateBoth.txt
+8. *!*  UpdateBothAlmostSame.txt
+9. *=*  UpdateSame.txt
+10. .!*  UpdateWork.txt
+11. .!*  UpdateWorkAlmostSame.txt
+12. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateBothSame_ForBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateBothSame_ForBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateBothSame_ForBase.txt (*変更)
 ★ワーク（WORK）: SubForWork\UpdateBothSame_ForBase.txt ( なし)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1365,14 +1494,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateBothSame_ForBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateBothSame_ForBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateBothSame_ForBase.txt (.不変)
 ★ワーク（WORK）: SubForWork\UpdateBothSame_ForBase.txt ( なし)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク ( なし) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1386,33 +1515,39 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1.  !* SubForWork\UpdateBothSame_ForWork.txt
-2. .!* SubForWork\UpdateWork.txt
-3. *!. UpdateBase.txt
-4. *!* UpdateBoth.txt
-5. *=* UpdateSame.txt
-6. .!* UpdateWork.txt
+1.  !*  SubForWork\UpdateBothSame_ForWork.txt
+2. .!*  SubForWork\UpdateWork.txt
+3. *!.  UpdateBase.txt
+4. *!.  UpdateBaseAlmostSame.txt
+5. *=.  UpdateBaseAlmostSameToSame.txt
+6. *!*  UpdateBoth.txt
+7. *!*  UpdateBothAlmostSame.txt
+8. *=*  UpdateSame.txt
+9. .!*  UpdateWork.txt
+10. .!*  UpdateWorkAlmostSame.txt
+11. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateBothSame_ForWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateBothSame_ForWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateBothSame_ForWork.txt ( なし)
 ★ワーク（WORK）: SubForWork\UpdateBothSame_ForWork.txt (*変更)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1429,14 +1564,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateBothSame_ForWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateBothSame_ForWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateBothSame_ForWork.txt ( なし)
 ★ワーク（WORK）: SubForWork\UpdateBothSame_ForWork.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース ( なし) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1450,32 +1585,38 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. .!* SubForWork\UpdateWork.txt
-2. *!. UpdateBase.txt
-3. *!* UpdateBoth.txt
-4. *=* UpdateSame.txt
-5. .!* UpdateWork.txt
+1. .!*  SubForWork\UpdateWork.txt
+2. *!.  UpdateBase.txt
+3. *!.  UpdateBaseAlmostSame.txt
+4. *=.  UpdateBaseAlmostSameToSame.txt
+5. *!*  UpdateBoth.txt
+6. *!*  UpdateBothAlmostSame.txt
+7. *=*  UpdateSame.txt
+8. .!*  UpdateWork.txt
+9. .!*  UpdateWorkAlmostSame.txt
+10. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateWork.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateWork.txt (.不変)
 ★ワーク（WORK）: SubForWork\UpdateWork.txt (*変更)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1496,14 +1637,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\SubForBase\UpdateWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\SubForWork\UpdateWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: SubForBase\UpdateWork.txt (.不変)
 ★ワーク（WORK）: SubForWork\UpdateWork.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1517,31 +1658,37 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. *!. UpdateBase.txt
-2. *!* UpdateBoth.txt
-3. *=* UpdateSame.txt
-4. .!* UpdateWork.txt
+1. *!.  UpdateBase.txt
+2. *!.  UpdateBaseAlmostSame.txt
+3. *=.  UpdateBaseAlmostSameToSame.txt
+4. *!*  UpdateBoth.txt
+5. *!*  UpdateBothAlmostSame.txt
+6. *=*  UpdateSame.txt
+7. .!*  UpdateWork.txt
+8. .!*  UpdateWorkAlmostSame.txt
+9. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBase.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateBase.txt (*変更)
 ★ワーク（WORK）: UpdateBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1562,14 +1709,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBase.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBase.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateBase.txt (.不変)
 ★ワーク（WORK）: UpdateBase.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1583,30 +1730,171 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. *!* UpdateBoth.txt
-2. *=* UpdateSame.txt
-3. .!* UpdateWork.txt
+1. *!.  UpdateBaseAlmostSame.txt
+2. *=.  UpdateBaseAlmostSameToSame.txt
+3. *!*  UpdateBoth.txt
+4. *!*  UpdateBothAlmostSame.txt
+5. *=*  UpdateSame.txt
+6. .!*  UpdateWork.txt
+7. .!*  UpdateWorkAlmostSame.txt
+8. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBaseAlmostSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBaseAlmostSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateBaseAlmostSame.txt (*変更)
+★ワーク（WORK）: UpdateBaseAlmostSame.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\FilesA\Project\Work\UpdateBaseAlmostSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\UpdateBaseAlmostSame.txt"
+>copy_ren  "%FullPath(..)%\FilesA\Project\Base\UpdateBaseAlmostSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Base\UpdateBaseAlmostSame.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBaseAlmostSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBaseAlmostSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateBaseAlmostSame.txt (.不変)
+★ワーク（WORK）: UpdateBaseAlmostSame.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. *=.  UpdateBaseAlmostSameToSame.txt
+2. *!*  UpdateBoth.txt
+3. *!*  UpdateBothAlmostSame.txt
+4. *=*  UpdateSame.txt
+5. .!*  UpdateWork.txt
+6. .!*  UpdateWorkAlmostSame.txt
+7. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBaseAlmostSameToSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBaseAlmostSameToSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateBaseAlmostSameToSame.txt (*変更)
+★ワーク（WORK）: UpdateBaseAlmostSameToSame.txt (.不変)
+
+1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が異なっていたのが同じになりました。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\FilesA\Project\Work\UpdateBaseAlmostSameToSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\UpdateBaseAlmostSameToSame.txt"
+>copy_ren  "%FullPath(..)%\FilesA\Project\Base\UpdateBaseAlmostSameToSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Base\UpdateBaseAlmostSameToSame.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBaseAlmostSameToSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBaseAlmostSameToSame.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateBaseAlmostSameToSame.txt (.不変)
+★ワーク（WORK）: UpdateBaseAlmostSameToSame.txt (.不変)
+
+1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. *!*  UpdateBoth.txt
+2. *!*  UpdateBothAlmostSame.txt
+3. *=*  UpdateSame.txt
+4. .!*  UpdateWork.txt
+5. .!*  UpdateWorkAlmostSame.txt
+6. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBoth.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateBoth.txt (*変更)
 ★ワーク（WORK）: UpdateBoth.txt (*変更)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1627,14 +1915,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBoth.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBoth.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateBoth.txt (.不変)
 ★ワーク（WORK）: UpdateBoth.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1648,29 +1936,96 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. *=* UpdateSame.txt
-2. .!* UpdateWork.txt
+1. *!*  UpdateBothAlmostSame.txt
+2. *=*  UpdateSame.txt
+3. .!*  UpdateWork.txt
+4. .!*  UpdateWorkAlmostSame.txt
+5. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
-98. ベースとワークが同じファイルをすべてコミットする
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBothAlmostSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBothAlmostSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateBothAlmostSame.txt (*変更)
+★ワーク（WORK）: UpdateBothAlmostSame.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\FilesA\Project\Work\UpdateBothAlmostSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\UpdateBothAlmostSame.txt"
+>copy_ren  "%FullPath(..)%\FilesA\Project\Base\UpdateBothAlmostSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Base\UpdateBothAlmostSame.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateBothAlmostSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateBothAlmostSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateBothAlmostSame.txt (.不変)
+★ワーク（WORK）: UpdateBothAlmostSame.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. *=*  UpdateSame.txt
+2. .!*  UpdateWork.txt
+3. .!*  UpdateWorkAlmostSame.txt
+4. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateSame.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateSame.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateSame.txt (*変更)
 ★ワーク（WORK）: UpdateSame.txt (*変更)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1687,14 +2042,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateSame.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateSame.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
+ベース ファイルとワーク ファイルは「同じ内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateSame.txt (.不変)
 ★ワーク（WORK）: UpdateSame.txt (.不変)
 
 1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1708,27 +2063,31 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-1. .!* UpdateWork.txt
+1. .!*  UpdateWork.txt
+2. .!*  UpdateWorkAlmostSame.txt
+3. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
 99. 終了
 番号 >1
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateWork.txt"
-ベース・ファイルとワーク・ファイルは「同じ内容」でした
-手動で同期したら、コミットしてください。
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateWork.txt (.不変)
 ★ワーク（WORK）: UpdateWork.txt (*変更)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1749,14 +2108,14 @@ Enterのみ: 再スキャンする
 -------------------------------------------------------------------------------
 ベース："%FullPath(..)%\FilesA\Project\Base\UpdateWork.txt"
 ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateWork.txt"
-ベース・ファイルとワーク・ファイルは「異なる内容」でした
+ベース ファイルとワーク ファイルは「異なる内容」でした。
 コミットしました。
 -------------------------------------------------------------------------------
 ★ベース（BASE）: UpdateWork.txt (.不変)
 ★ワーク（WORK）: UpdateWork.txt (.不変)
 
 1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
-2. Diff で開く：前回の同期 (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
 4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
 5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
 44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
@@ -1770,14 +2129,140 @@ Enterのみ: 再スキャンする
 %FullPath(..)%\FilesA\Project - Synced
 前回コミット時のベース: "Base"
 前回コミット時のワーク: "Work"
-*:同期されていないファイル、=:未同期でペースとワークの内容が同じ
 -------------------------------------------------------------------------------
 ■ベース（BASE）: "..\Project\Base"
 ■ワーク（WORK）: "..\Project\Work"
-（なし）
+1. .!*  UpdateWorkAlmostSame.txt
+2. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
 
-91. 再スキャンする
+91. 再スキャンする [Rescan]
 92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateWorkAlmostSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateWorkAlmostSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateWorkAlmostSame.txt (.不変)
+★ワーク（WORK）: UpdateWorkAlmostSame.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\FilesA\Project\Work\UpdateWorkAlmostSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\UpdateWorkAlmostSame.txt"
+>copy_ren  "%FullPath(..)%\FilesA\Project\Base\UpdateWorkAlmostSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Base\UpdateWorkAlmostSame.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateWorkAlmostSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateWorkAlmostSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateWorkAlmostSame.txt (.不変)
+★ワーク（WORK）: UpdateWorkAlmostSame.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+1. .=*  UpdateWorkAlmostSameToSame.txt
+左右両方あるファイルの数＝ 21/35 (60%%)
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+98. ★ ベースとワークが同じファイルをすべてコミットする [AutoCommit]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateWorkAlmostSameToSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateWorkAlmostSameToSame.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateWorkAlmostSameToSame.txt (.不変)
+★ワーク（WORK）: UpdateWorkAlmostSameToSame.txt (*変更)
+
+1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が異なっていたのが同じになりました。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\FilesA\Project\Work\UpdateWorkAlmostSameToSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Work\UpdateWorkAlmostSameToSame.txt"
+>copy_ren  "%FullPath(..)%\FilesA\Project\Base\UpdateWorkAlmostSameToSame.txt", "%FullPath(..)%\FilesA\Project - Synced\Base\UpdateWorkAlmostSameToSame.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\FilesA\Project\Base\UpdateWorkAlmostSameToSame.txt"
+ワーク："%FullPath(..)%\FilesA\Project\Work\UpdateWorkAlmostSameToSame.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateWorkAlmostSameToSame.txt (.不変)
+★ワーク（WORK）: UpdateWorkAlmostSameToSame.txt (.不変)
+
+1. Diff で開く：同期するファイル (=同じ) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\FilesA\Project - Synced
+前回コミット時のベース: "Base"
+前回コミット時のワーク: "Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\Base"
+■ワーク（WORK）: "..\Project\Work"
+なし（同期完了）
+左右両方あるファイルの数＝ 21/35 (60%%)
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
 97. すべてのファイルを表示する
 99. 終了
 番号 >99

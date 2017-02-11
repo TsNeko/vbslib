@@ -19,6 +19,7 @@ ExceptFile = *.exe
 ExceptFile = *.lib
 ExceptFile = *.dll
 ------------------------------------------------
+相対パスの基準は、設定ファイルがあるフォルダーです。
 
 
 出力の例：
@@ -27,16 +28,17 @@ ExceptFile = *.dll
 チェックするファイルまたはフォルダーのパス: TestData
 設定ファイルのパス: TestData\SettingForCheckEnglish.ini
 
-<FILE path="TestData\KanjiInUnicode.txt">
+<FILE path="KanjiInUnicode.txt">
   <LINE num="2" text="漢字"/>
   <LINE num="4" text="です。"/>
   <SUMMARY count="2"/>
 </FILE>
 
-<FILE path="TestData\SJisInAscii.txt">
+<FILE path="SJisInAscii.txt">
   <LINE num="2" text="シフトJIS"/>
   <LINE num="4" text="です。"/>
   <SUMMARY count="2"/>
 </FILE>
 -------------------------------------------------------------
-
+相対パスの基準は、設定ファイルがあるフォルダーです。
+ただし、/Setting オプションがないときは、チェックするフォルダーです。

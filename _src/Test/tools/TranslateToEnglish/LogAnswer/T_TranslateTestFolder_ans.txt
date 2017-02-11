@@ -1,0 +1,21 @@
+>del  "T_Translate_work"
+>del  "_work"
+>copy  "T_Translate\SubFolders\*", "_work"
+>TranslateTest  "_work". "JP", "EN"
+<WARNING msg="翻訳ファイルに書かれたパスのファイルまたはフォルダーが見つかりません。" path="%FullPath(..)%\_work\T_NotFoundTargetErr.txt"/>
+<ERROR msg="警告がありました。" translator_path="%FullPath(..)%\_work\T_NotFoundTargetErr.trans"/>
+
+>del  "T_Translate_work"
+>del  "_work"
+>del  "T_Translate_work"
+>del  "_work"
+>copy  "T_Translate\SubFolders\*", "_work"
+>TranslateTest  "_work". "JP", "EN"
+<WARNING msg="翻訳ファイルに書かれたパスのファイルまたはフォルダーが見つかりません。" path="%FullPath(..)%\_work\T_NotFoundTargetErr.txt"/>
+<ERROR msg="警告がありました。" translator_path="%FullPath(..)%\_work\T_NotFoundTargetErr.trans"/>
+
+>fc  "T_Translate_work", "T_Translate_ans\SubFolders"
+same.
+>del  "T_Translate_work"
+>del  "_work"
+Pass.

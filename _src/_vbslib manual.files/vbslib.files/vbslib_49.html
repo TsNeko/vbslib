@@ -1,0 +1,1425 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_49.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_49.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 913 --> 
+<PAGE>
+<A id="svgcats_vml_p913" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '913' );">←</A>
+<A href="#svgcats_vml_p914" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_48.html#svgcats_vml_p912" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_48.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:553px; height:641px;" fillcolor="white"/>
+<DIV id="text913_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="SkipToSection">
+SkipToSection</A></DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:284px; width:184px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text913_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:291px; line-height:13px; white-space:nowrap">
+SkipToSection&nbsp; Array( 5, 2 )</DIV>
+<DIV id="text913_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:264px; line-height:15px; white-space:nowrap">
+サンプル： セクション番号 5,2 から実行する（ 5,1 より前は実行をスキップする。）</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:47px; width:232px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text913_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:54px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SkipToSection( Num as integer )</DIV>
+<DIV id="text913_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:84px; line-height:15px; white-space:nowrap">
+指定した番号のセクションより前のセクションをスキップするように設定します。</DIV>
+<DIV id="text913_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:110px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text913_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:110px; line-height:15px; white-space:nowrap">
+Num</DIV>
+<DIV id="text913_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:110px; line-height:15px; white-space:nowrap">
+次に実行するセクション番号</DIV>
+<DIV id="text913_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:145px; line-height:15px; white-space:nowrap">
+通常、メイン関数から呼び出します。<BR/>
+はじめは 0 を指定して、セクション番号を echo 出力させます。<BR/>
+次に、スキップしたいセクションを調べて、次に実行したいセクション番号を指定します。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:223px; width:112px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text913_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:230px; line-height:13px; white-space:nowrap">
+SkipToSection&nbsp; 5</DIV>
+<DIV id="text913_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:203px; line-height:15px; white-space:nowrap">
+サンプル： セクション番号 5 から実行する（ 5 より前は実行をスキップする。）</DIV>
+<DIV id="text913_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:17px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text913_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:572px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text913_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:389px; line-height:15px; white-space:nowrap">
+セクション番号は、下記のように echo 出力されます。 SkipToSection を一度も呼んで<BR/>
+いないときや、スキップ中は出力されません。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:427px; width:124px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text913_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:434px; line-height:13px; white-space:nowrap">
+&lt;Section num='4'/&gt;</DIV>
+<DIV id="text913_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:595px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text913_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:595px; line-height:15px; white-space:nowrap">
+<A name="T_SkipToSection">
+→ T_SkipToSection フォルダ</A></DIV>
+<DIV id="text913_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:472px; line-height:15px; white-space:nowrap">
+一度も SkipToSection が呼ばれていないときは、グローバル変数 g_SkipSection が<BR/>
+Empty になっています。</DIV>
+<DIV id="text913_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:329px; line-height:15px; white-space:nowrap">
+サンプル： セクション番号を表示させない、かつ、実行のスキップをしない。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:349px; width:136px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text913_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:356px; line-height:13px; white-space:nowrap">
+SkipToSection&nbsp; Empty</DIV>
+<DIV id="text913_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:524px; line-height:15px; white-space:nowrap">
+NotSkipSection にブレークポイントを張ると、セクションごとにブレークします。</DIV>
+<DIV id="text913_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:223px; margin-top:572px; line-height:15px; white-space:nowrap">
+<A href="#SkipSection_Start">
+→ SkipSection::Start</A></DIV>
+<DIV id="text913_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:361px; margin-top:572px; line-height:15px; white-space:nowrap">
+<A href="#SkipSection_End">
+→ SkipSection::End_</A></DIV>
+<DIV id="text913_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:62px; margin-top:572px; line-height:15px; white-space:nowrap">
+<A href="#SetBreakAtSection">
+→ SetBreakAtSection</A></DIV>
+
+<v:line from="0,0" to="553,0"/>
+<v:line from="553,0" to="553,641"/>
+<v:line from="553,641" to="0,641"/>
+<v:line from="0,641" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 914 --> 
+<PAGE>
+<A id="svgcats_vml_p914" class="to_tree" style="margin-top:646px;" onClick="selectTreeElem( '914' );">←</A>
+<A href="#svgcats_vml_p915" class="to_next_page" style="margin-top:646px;">▼</A>
+<A href="#svgcats_vml_p913" class="to_prev_page" style="margin-top:646px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:657px; width:608px; height:417px;" fillcolor="white"/>
+<DIV id="text914_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:674px; line-height:15px; white-space:nowrap">
+<A name="SkipSection_Start">
+SkipSection::Start</A></DIV>
+<DIV id="text914_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:178px; margin-top:674px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:704px; width:262px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text914_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:711px; line-height:13px; white-space:nowrap">
+Function&nbsp; SkipSection::Start() as boolean</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:803px; width:544px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text914_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:809px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; section : Set section = new SkipSection<BR/>
+<BR/>
+&nbsp; If section.Start() Then&nbsp; '// section 1<BR/>
+&nbsp; &nbsp; &nbsp; :<BR/>
+&nbsp; &nbsp; section.End_<BR/>
+&nbsp; End If<BR/>
+<BR/>
+&nbsp; If section.Start() Then&nbsp; '// section 2<BR/>
+&nbsp; &nbsp; If exist( "out.txt" ) Then&nbsp; '// 条件によって、しないことがある処理は、section の中へ<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; :<BR/>
+&nbsp; &nbsp; End If<BR/>
+&nbsp; &nbsp; section.End_<BR/>
+&nbsp; End If</DIV>
+<DIV id="text914_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:784px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text914_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:741px; line-height:15px; white-space:nowrap">
+本関数を呼び出した場所をセクションの開始場所とします。</DIV>
+<DIV id="text914_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:1026px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text914_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:1026px; line-height:15px; white-space:nowrap">
+→ T_SkipToSection フォルダ</DIV>
+
+<v:line from="0,657" to="608,657"/>
+<v:line from="608,657" to="608,1074"/>
+<v:line from="608,1074" to="0,1074"/>
+<v:line from="0,1074" to="0,657"/>
+
+</PAGE>
+ 
+<!-- page 915 --> 
+<PAGE>
+<A id="svgcats_vml_p915" class="to_tree" style="margin-top:1079px;" onClick="selectTreeElem( '915' );">←</A>
+<A href="#svgcats_vml_p916" class="to_next_page" style="margin-top:1079px;">▼</A>
+<A href="#svgcats_vml_p914" class="to_prev_page" style="margin-top:1079px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1090px; width:256px; height:153px;" fillcolor="white"/>
+<DIV id="text915_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1107px; line-height:15px; white-space:nowrap">
+<A name="SkipSection_End">
+SkipSection::End_</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1137px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text915_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1144px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SkipSection::End_()</DIV>
+<DIV id="text915_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1179px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text915_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:61px; margin-top:1179px; line-height:15px; white-space:nowrap">
+<A href="#SkipSection_Start">
+→ SkipSection::Start</A></DIV>
+
+<v:line from="0,1090" to="256,1090"/>
+<v:line from="256,1090" to="256,1243"/>
+<v:line from="256,1243" to="0,1243"/>
+<v:line from="0,1243" to="0,1090"/>
+
+</PAGE>
+ 
+<!-- page 916 --> 
+<PAGE>
+<A id="svgcats_vml_p916" class="to_tree" style="margin-top:1248px;" onClick="selectTreeElem( '916' );">←</A>
+<A href="#svgcats_vml_p917" class="to_next_page" style="margin-top:1248px;">▼</A>
+<A href="#svgcats_vml_p915" class="to_prev_page" style="margin-top:1248px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1259px; width:542px; height:451px;" fillcolor="white"/>
+<DIV id="text916_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1276px; line-height:15px; white-space:nowrap">
+<A name="NotSkipSection">
+NotSkipSection</A></DIV>
+<DIV id="text916_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:1276px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1306px; width:238px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text916_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1313px; line-height:13px; white-space:nowrap">
+Function&nbsp; NotSkipSection() as boolean</DIV>
+<DIV id="text916_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1403px; line-height:15px; white-space:nowrap">
+本関数を呼び出した場所をセクションの開始場所とします。</DIV>
+<DIV id="text916_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1429px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text916_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1429px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text916_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:154px; margin-top:1429px; line-height:15px; white-space:nowrap">
+SkipToSection で設定されたセクション以降かどうか</DIV>
+<DIV id="text916_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1504px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:1526px; width:172px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text916_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:1532px; line-height:15px; white-space:nowrap">
+For Each i&nbsp; As arr<BR/>
+&nbsp; If NotSkipSection() Then<BR/>
+&nbsp; &nbsp; DoTest<BR/>
+&nbsp; End If<BR/>
+Next</DIV>
+<DIV id="text916_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1461px; line-height:15px; white-space:nowrap">
+本関数を呼び出すとセクション番号を＋１します。<BR/>
+SkipToSection が呼ばれていたら、セクション番号を echo 出力します。</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:1653px; width:124px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text916_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:1660px; line-height:13px; white-space:nowrap">
+&lt;Section num='5'/&gt;</DIV>
+<DIV id="text916_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1631px; line-height:15px; white-space:nowrap">
+echo 出力の例：</DIV>
+<DIV id="text916_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:385px; margin-top:1355px; line-height:15px; white-space:nowrap">
+<A href="#SkipSection_Start">
+→ SkipSection::Start</A></DIV>
+<DIV id="text916_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:33px; margin-top:1355px; line-height:15px; white-space:nowrap">
+廃止予定です。 SkipSection::Start ～ End_ を使ってください</DIV>
+
+<v:line from="0,1259" to="542,1259"/>
+<v:line from="542,1259" to="542,1710"/>
+<v:line from="542,1710" to="0,1710"/>
+<v:line from="0,1710" to="0,1259"/>
+
+</PAGE>
+ 
+<!-- page 917 --> 
+<PAGE>
+<A id="svgcats_vml_p917" class="to_tree" style="margin-top:1715px;" onClick="selectTreeElem( '917' );">←</A>
+<A href="#svgcats_vml_p918" class="to_next_page" style="margin-top:1715px;">▼</A>
+<A href="#svgcats_vml_p916" class="to_prev_page" style="margin-top:1715px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1726px; width:328px; height:132px;" fillcolor="white"/>
+<DIV id="text917_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1743px; line-height:15px; white-space:nowrap">
+<A name="SetBreakAtSection">
+SetBreakAtSection</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1773px; width:190px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text917_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1780px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetBreakAtSection( Num )</DIV>
+<DIV id="text917_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1810px; line-height:15px; white-space:nowrap">
+指定のセクションでブレークするようにします。</DIV>
+<DIV id="text917_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:1743px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,1726" to="328,1726"/>
+<v:line from="328,1726" to="328,1858"/>
+<v:line from="328,1858" to="0,1858"/>
+<v:line from="0,1858" to="0,1726"/>
+
+</PAGE>
+ 
+<!-- page 918 --> 
+<PAGE>
+<A id="svgcats_vml_p918" class="to_tree" style="margin-top:1863px;" onClick="selectTreeElem( '918' );">←</A>
+<A href="#svgcats_vml_p919" class="to_next_page" style="margin-top:1863px;">▼</A>
+<A href="#svgcats_vml_p917" class="to_prev_page" style="margin-top:1863px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1874px; width:473px; height:303px;" fillcolor="white"/>
+<DIV id="text918_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1891px; line-height:15px; white-space:nowrap">
+<A name="GetSkipSectionGlobal">
+GetSkipSectionGlobal</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1921px; width:334px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text918_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1928px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetSkipSectionGlobal() as SkipSectionGlobal</DIV>
+<DIV id="text918_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1958px; line-height:15px; white-space:nowrap">
+セクションを管理するオブジェクトを返します。</DIV>
+<DIV id="text918_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1984px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text918_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1984px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text918_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:1984px; line-height:15px; white-space:nowrap">
+セクションを管理するオブジェクト</DIV>
+<DIV id="text918_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:2020px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text918_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:2020px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text918_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:2020px; line-height:15px; white-space:nowrap">
+GetSkipSectionGlobal 関数</DIV>
+<DIV id="text918_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:2044px; line-height:15px; white-space:nowrap">
+SkipSectionGlobal クラス</DIV>
+<DIV id="text918_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:2044px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text918_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2097px; line-height:15px; white-space:nowrap">
+<A name="SkipSectionGlobal">
+SkipSectionGlobal クラス</A></DIV>
+<DIV id="text918_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:45px; margin-top:2129px; line-height:15px; white-space:nowrap">
+<A href="#OnStart_SkipSectionGlobal">
+→ OnStart</A></DIV>
+<DIV id="text918_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:147px; margin-top:2129px; line-height:15px; white-space:nowrap">
+セクションを開始する直前でコールバックする関数。</DIV>
+
+<v:line from="0,1874" to="473,1874"/>
+<v:line from="473,1874" to="473,2177"/>
+<v:line from="473,2177" to="0,2177"/>
+<v:line from="0,2177" to="0,1874"/>
+
+</PAGE>
+ 
+<!-- page 919 --> 
+<PAGE>
+<A id="svgcats_vml_p919" class="to_tree" style="margin-top:2182px;" onClick="selectTreeElem( '919' );">←</A>
+<A href="#svgcats_vml_p920" class="to_next_page" style="margin-top:2182px;">▼</A>
+<A href="#svgcats_vml_p918" class="to_prev_page" style="margin-top:2182px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2193px; width:463px; height:415px;" fillcolor="white"/>
+<DIV id="text919_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2210px; line-height:15px; white-space:nowrap">
+<A name="OnStart_SkipSectionGlobal">
+OnStart (SkipSectionGlobal)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2240px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text919_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2247px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SkipSectionGlobal::OnStart( CallbackObject as variant )</DIV>
+<DIV id="text919_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2277px; line-height:15px; white-space:nowrap">
+セクションを開始する直前でコールバックする関数。</DIV>
+<DIV id="text919_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2303px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text919_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2303px; line-height:15px; white-space:nowrap">
+CallbackObject</DIV>
+<DIV id="text919_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:208px; margin-top:2303px; line-height:15px; white-space:nowrap">
+GetSkipSectionGlobal().CallbackObject</DIV>
+<v:rect style="position:absolute; margin-left:31px; margin-top:2370px; width:292px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text919_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:39px; margin-top:2376px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main( Opt, AppKey )<BR/>
+&nbsp; &nbsp; Set ss = GetSkipSectionGlobal()<BR/>
+&nbsp; &nbsp; Set ss.OnStart = GetRef("CheckOnCallback")<BR/>
+&nbsp; &nbsp; Set ss.CallbackObject = Nothing<BR/>
+&nbsp; &nbsp; RunTestPrompt AppKey.NewWritable( "." )<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; CheckOnCallback( Argument1 )<BR/>
+&nbsp; &nbsp; echo&nbsp; "CheckOnCallback"<BR/>
+End Sub</DIV>
+<DIV id="text919_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2347px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text919_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2560px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text919_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:2560px; line-height:15px; white-space:nowrap">
+<A href="vbslib_48.html#Start_SectionTree">
+→ Start (SectionTree)</A></DIV>
+<DIV id="text919_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:228px; margin-top:2560px; line-height:15px; white-space:nowrap">
+セクションの開始を指定します。</DIV>
+
+<v:line from="0,2193" to="463,2193"/>
+<v:line from="463,2193" to="463,2608"/>
+<v:line from="463,2608" to="0,2608"/>
+<v:line from="0,2608" to="0,2193"/>
+
+</PAGE>
+ 
+<!-- page 920 --> 
+<PAGE>
+<A id="svgcats_vml_p920" class="to_tree" style="margin-top:2613px;" onClick="selectTreeElem( '920' );">←</A>
+<A href="#svgcats_vml_p921" class="to_next_page" style="margin-top:2613px;">▼</A>
+<A href="#svgcats_vml_p919" class="to_prev_page" style="margin-top:2613px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2624px; width:498px; height:629px;" fillcolor="white"/>
+<DIV id="text920_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2641px; line-height:15px; white-space:nowrap">
+<A name="call_vbs">
+call_vbs</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:2671px; width:436px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text920_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:2678px; line-height:13px; white-space:nowrap">
+Function&nbsp; call_vbs( path as string, func as string, param as variant )</DIV>
+<DIV id="text920_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2708px; line-height:15px; white-space:nowrap">
+指定した VBScript ファイルの中の関数を呼び出し、終了するまで待ちます。</DIV>
+<DIV id="text920_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2736px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text920_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:2736px; line-height:15px; white-space:nowrap">
+path</DIV>
+<DIV id="text920_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:2755px; line-height:15px; white-space:nowrap">
+func</DIV>
+<DIV id="text920_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:157px; margin-top:2736px; line-height:15px; white-space:nowrap">
+VBScript ファイルのパス</DIV>
+<DIV id="text920_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:157px; margin-top:2755px; line-height:15px; white-space:nowrap">
+呼び出す関数の名前</DIV>
+<DIV id="text920_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3006px; line-height:15px; white-space:nowrap">
+path に環境変数を含めることができます。 （%var% 形式）</DIV>
+<DIV id="text920_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:157px; margin-top:2775px; line-height:15px; white-space:nowrap">
+関数に渡すパラメータ</DIV>
+<DIV id="text920_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:2775px; line-height:15px; white-space:nowrap">
+param</DIV>
+<DIV id="text920_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:157px; margin-top:2794px; line-height:15px; white-space:nowrap">
+関数の返り値</DIV>
+<DIV id="text920_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:2794px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text920_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2827px; line-height:15px; white-space:nowrap">
+現在のプロセスのまま、別の .vbs ファイルを呼び出します。</DIV>
+<DIV id="text920_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:101px; margin-top:2641px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text920_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3144px; line-height:15px; white-space:nowrap">
+グローバル変数は、呼び出し先で宣言したものが、使えるようになります。</DIV>
+<DIV id="text920_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3095px; line-height:15px; white-space:nowrap">
+呼び出し先に関数を実行するときのカレントフォルダは、そのスクリプト<BR/>
+ファイルがあるフォルダになります。</DIV>
+<DIV id="text920_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3036px; line-height:15px; white-space:nowrap">
+path に相対パスを指定するときは注意が必要です。</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:2884px; width:394px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text920_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:2891px; line-height:13px; white-space:nowrap">
+call_vbs&nbsp; "%ProgramFiles%\Movie Maker\moviemk.vbs", "FuncA", ""</DIV>
+<DIV id="text920_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2861px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text920_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:2935px; line-height:15px; white-space:nowrap">
+呼び出し先の関数は、次の型にしてください。</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:2959px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text920_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:2966px; line-height:13px; white-space:nowrap">
+Function&nbsp; FuncA( Param )</DIV>
+<DIV id="text920_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:141px; margin-top:2641px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text920_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:3180px; line-height:15px; white-space:nowrap">
+<A href="vbslib_59.html#g_SrcPath">
+g_SrcPath</A></DIV>
+<DIV id="text920_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:3180px; line-height:15px; white-space:nowrap">
+は、で、グローバル領域を実行しているときだけでなく、呼び出す</DIV>
+<DIV id="text920_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:3196px; line-height:15px; white-space:nowrap">
+関数を実行しているときも、path 引数に指定したパスのフル・パスが入ります。</DIV>
+<DIV id="text920_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:3052px; line-height:15px; white-space:nowrap">
+<A href="vbslib_59.html#g_start_in_path">
+→ g_start_in_path</A></DIV>
+
+<v:line from="0,2624" to="498,2624"/>
+<v:line from="498,2624" to="498,3253"/>
+<v:line from="498,3253" to="0,3253"/>
+<v:line from="0,3253" to="0,2624"/>
+
+</PAGE>
+ 
+<!-- page 921 --> 
+<PAGE>
+<A id="svgcats_vml_p921" class="to_tree" style="margin-top:3258px;" onClick="selectTreeElem( '921' );">←</A>
+<A href="#svgcats_vml_p922" class="to_next_page" style="margin-top:3258px;">▼</A>
+<A href="#svgcats_vml_p920" class="to_prev_page" style="margin-top:3258px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3269px; width:591px; height:1114px;" fillcolor="white"/>
+<DIV id="text921_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3286px; line-height:15px; white-space:nowrap">
+<A name="FuncRedir_add">
+FuncRedir_add</A></DIV>
+<DIV id="text921_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:161px; margin-top:3286px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text921_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:3776px; line-height:15px; white-space:nowrap">
+ModuleC_pre.vbs</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:3796px; width:292px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text921_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:3803px; line-height:13px; white-space:nowrap">
+Dim&nbsp; g_FuncA : FuncRedir_add&nbsp; g_FuncA, "FuncA"</DIV>
+<DIV id="text921_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:3349px; line-height:15px; white-space:nowrap">
+関数コールをリダイレクト（横取り）します。</DIV>
+<DIV id="text921_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:3835px; line-height:15px; white-space:nowrap">
+ModuleC.vbs</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:3853px; width:268px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text921_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:3859px; line-height:15px; white-space:nowrap">
+Sub&nbsp; FuncA( Param1 )<BR/>
+&nbsp; If GetVar( "FuncA_Redir" ) = "Over" Then<BR/>
+&nbsp; &nbsp; echo&nbsp; "overrided"<BR/>
+&nbsp; Else<BR/>
+&nbsp; &nbsp; g_FuncA.CallSub1&nbsp; Param1<BR/>
+&nbsp; End If<BR/>
+End Sub</DIV>
+<DIV id="text921_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:295px; margin-top:3803px; line-height:13px; white-space:nowrap">
+FuncA</DIV>
+<DIV id="text921_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:247px; margin-top:3803px; line-height:13px; white-space:nowrap">
+FuncA</DIV>
+<DIV id="text921_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:97px; margin-top:3803px; line-height:13px; white-space:nowrap">
+FuncA</DIV>
+<DIV id="text921_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:85px; margin-top:3860px; line-height:13px; white-space:nowrap">
+FuncA</DIV>
+<DIV id="text921_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:91px; margin-top:3920px; line-height:13px; white-space:nowrap">
+FuncA</DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:3312px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text921_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:3319px; line-height:13px; white-space:nowrap">
+Sub&nbsp; FuncRedir_add( out_Redir as FuncRedir, Name as string )</DIV>
+<DIV id="text921_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:3436px; line-height:15px; white-space:nowrap">
+上書きする前の関数を呼び出さないときは、FuncRedir_add を呼び出す必要はありません。<BR/>
+FuncRedir_add の第1引数に指定して取得したオブジェクト使って、上書きする前の関数を<BR/>
+呼び出します。</DIV>
+<DIV id="text921_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4074px; line-height:15px; white-space:nowrap">
+<A name="FuncRedir">
+FuncRedir オブジェクトのメソッド一覧</A></DIV>
+<DIV id="text921_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:4135px; line-height:15px; white-space:nowrap">
+<A name="CallFunctionX">
+Sub&nbsp; FuncRedir::CallSub0()<BR/>
+Sub&nbsp; FuncRedir::CallSub1( Param1 )<BR/>
+Sub&nbsp; FuncRedir::CallSub2( Param1, Param2 )<BR/>
+Sub&nbsp; FuncRedir::CallSub3( Param1, Param2, Param3 )<BR/>
+Sub&nbsp; FuncRedir::CallSub4( Param1, Param2, Param3, Param4 )<BR/>
+Function&nbsp; FuncRedir::CallFunction0()<BR/>
+Function&nbsp; FuncRedir::CallFunction1( Param1 )<BR/>
+Function&nbsp; FuncRedir::CallFunction2( Param1, Param2 )<BR/>
+Function&nbsp; FuncRedir::CallFunction3( Param1, Param2, Param3 )<BR/>
+Function&nbsp; FuncRedir::CallFunction4( Param1, Param2, Param3, Param4 )</A></DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:3724px; width:184px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text921_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:3730px; line-height:15px; white-space:nowrap">
+&nbsp; include&nbsp; "ModuleC_pre.vbs"<BR/>
+&nbsp; include&nbsp; "ModuleC.vbs"</DIV>
+<DIV id="text921_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:4104px; line-height:15px; white-space:nowrap">
+上書きする前の関数を呼び出します。</DIV>
+<DIV id="text921_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:4310px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text921_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:4310px; line-height:15px; white-space:nowrap">
+→ T_FuncRedir.vbs</DIV>
+<DIV id="text921_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:3983px; line-height:15px; white-space:nowrap">
+→ T_NameAdd_vbslib フォルダ</DIV>
+<DIV id="text921_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:41px; margin-top:3983px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text921_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:262px; margin-top:4336px; line-height:15px; white-space:nowrap">
+→ マクロ・リダイレクト</DIV>
+<DIV id="text921_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:4336px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text921_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:4336px; line-height:15px; white-space:nowrap">
+<A href="vbslib_60.html#var">
+→ バージョン判定、環境変数</A></DIV>
+<DIV id="text921_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:82px; margin-top:4002px; line-height:15px; white-space:nowrap">
+<A href="vbslib_60.html#var">
+→ バージョン判定、環境変数</A></DIV>
+<v:rect style="position:absolute; margin-left:351px; margin-top:3853px; width:202px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text921_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:359px; margin-top:3859px; line-height:15px; white-space:nowrap">
+Sub&nbsp; FuncX()<BR/>
+&nbsp; Dim&nbsp; v_:Set v_= new VarStack<BR/>
+&nbsp; SetVar&nbsp; "FuncA_Redir", "Over"<BR/>
+&nbsp; FuncA<BR/>
+End Sub</DIV>
+<DIV id="text921_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:345px; margin-top:3835px; line-height:15px; white-space:nowrap">
+ModuleX.vbs</DIV>
+<v:line style="position:absolute;" from="335,3865" to="256,3865" strokecolor="#000000" strokeweight="1pt"/>
+<v:shape style="position:absolute; margin-left:256px; margin-top:3860px; width:10px; height:10px"
+ fillcolor="#000000" strokecolor="#000000" strokeweight="1pt"
+ path="m 0,500 l 1000,1000, 1000,0 x e"/>
+<v:line style="position:absolute;" from="335,3865" to="335,3911" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="335,3911" to="359,3911" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text921_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:34px; margin-top:3502px; line-height:15px; white-space:nowrap">
+リダイレクト先の関数が定義してあるスクリプト・ファイルと、別のファイルから FuncRedir_add <BR/>
+を呼び出してください。</DIV>
+<DIV id="text921_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:3534px; line-height:15px; white-space:nowrap">
+たとえば、下記の ModuleC.vbs と ModuleC_pre.vbs のように分けてください。</DIV>
+<DIV id="text921_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:3551px; line-height:15px; white-space:nowrap">
+そうしないと、リダイレクトする前の関数が上書きされた後で、FuncRedir_add が呼ばれる<BR/>
+ことになり、終わりのない再帰呼び出しになり、メモリ不足（スタック不足）のエラーになる<BR/>
+でしょう。</DIV>
+<DIV id="text921_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3630px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text921_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:3705px; line-height:15px; white-space:nowrap">
+Main.vbs</DIV>
+<DIV id="text921_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:164px; margin-top:3776px; line-height:15px; white-space:nowrap">
+FuncRedir_add を呼び出すためのファイル</DIV>
+<DIV id="text921_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:130px; margin-top:3835px; line-height:15px; white-space:nowrap">
+リダイレクト先</DIV>
+<DIV id="text921_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:435px; margin-top:3835px; line-height:15px; white-space:nowrap">
+FuncA の呼び出し元</DIV>
+<DIV id="text921_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:225px; margin-top:3377px; line-height:15px; white-space:nowrap">
+<A href="#FuncRedir">
+FuncRedir オブジェクト</A></DIV>
+<DIV id="text921_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:3377px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text921_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:3377px; line-height:15px; white-space:nowrap">
+out_Redir</DIV>
+<DIV id="text921_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:3396px; line-height:15px; white-space:nowrap">
+Name</DIV>
+<DIV id="text921_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:178px; margin-top:3377px; line-height:15px; white-space:nowrap">
+（出力）</DIV>
+<DIV id="text921_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:178px; margin-top:3396px; line-height:15px; white-space:nowrap">
+リダイレクトされる関数の名前</DIV>
+<DIV id="text921_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:3659px; line-height:15px; white-space:nowrap">
+FuncA 関数の定義をリダイレクトし、環境変数 FuncA_Redir の値によって、リダイレクト元か<BR/>
+リダイレクト先かのどちらかの FuncA 関数を呼び出すかを選べるようにします。</DIV>
+
+<v:line from="0,3269" to="591,3269"/>
+<v:line from="591,3269" to="591,4383"/>
+<v:line from="591,4383" to="0,4383"/>
+<v:line from="0,4383" to="0,3269"/>
+
+</PAGE>
+ 
+<!-- page 922 --> 
+<PAGE>
+<A id="svgcats_vml_p922" class="to_tree" style="margin-top:4388px;" onClick="selectTreeElem( '922' );">←</A>
+<A href="#svgcats_vml_p923" class="to_next_page" style="margin-top:4388px;">▼</A>
+<A href="#svgcats_vml_p921" class="to_prev_page" style="margin-top:4388px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4399px; width:588px; height:552px;" fillcolor="white"/>
+<DIV id="text922_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4416px; line-height:15px; white-space:nowrap">
+<A name="CallForEach">
+CallForEach</A></DIV>
+<DIV id="text922_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:137px; margin-top:4416px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:4446px; width:460px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text922_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:4453px; line-height:13px; white-space:nowrap">
+Function&nbsp; CallForEach0( Func as Function, Collection as array or variant )</DIV>
+<DIV id="text922_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:4549px; line-height:15px; white-space:nowrap">
+Collection のそれぞれの要素を引数に渡して、関数 Func を複数回呼び出します。</DIV>
+<DIV id="text922_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:4577px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text922_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:4577px; line-height:15px; white-space:nowrap">
+Func</DIV>
+<DIV id="text922_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:4596px; line-height:15px; white-space:nowrap">
+Collection</DIV>
+<DIV id="text922_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:4577px; line-height:15px; white-space:nowrap">
+呼び出す関数（GetRef使用）</DIV>
+<DIV id="text922_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:4596px; line-height:15px; white-space:nowrap">
+配列、または単純変数、または Empty</DIV>
+<DIV id="text922_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:4616px; line-height:15px; white-space:nowrap">
+関数に渡すパラメータ</DIV>
+<DIV id="text922_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:4616px; line-height:15px; white-space:nowrap">
+Param1</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:4477px; width:382px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text922_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:4484px; line-height:13px; white-space:nowrap">
+Function&nbsp; CallForEach1( Func, Collection, Param1 as variant )</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:4508px; width:496px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text922_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:4515px; line-height:13px; white-space:nowrap">
+Function&nbsp; CallForEach2( Func, Collection, Param1 as variant, Param2 as variant )</DIV>
+<DIV id="text922_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:36px; margin-top:4861px; line-height:12px; white-space:nowrap">
+キーワード：</DIV>
+<DIV id="text922_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#000000; margin-left:100px; margin-top:4861px; line-height:12px; white-space:nowrap">
+<A name="CallForEach0">
+CallForEach0, CallForEach1, CallForEach2, CallForEach3, CallForEach4</A></DIV>
+<DIV id="text922_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:4718px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text922_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:4636px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text922_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:4636px; line-height:15px; white-space:nowrap">
+関数 Func の返り値（Collection が単純変数のときのみ）</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:4741px; width:514px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text922_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:4748px; line-height:13px; white-space:nowrap">
+&nbsp; CallForEach2&nbsp; GetRef("CallForEach_copy"), Array( "a.txt", "b.txt" ), "src", "dst"</DIV>
+<DIV id="text922_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:4775px; line-height:15px; white-space:nowrap">
+上記コードは下記コードと同じ処理内容です。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:4798px; width:262px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text922_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:4804px; line-height:15px; white-space:nowrap">
+&nbsp; CallForEach_copy&nbsp; "a.txt", "src", "dst"<BR/>
+&nbsp; CallForEach_copy&nbsp; "b.txt", "src", "dst"</DIV>
+<DIV id="text922_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:4902px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text922_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:4902px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_13.html#vbsool_event">
+→ EventResponders : イベント応答 (vbsool)</A></DIV>
+<DIV id="text922_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:36px; margin-top:4668px; line-height:15px; white-space:nowrap">
+なるべく、CallForEach を使わずに、For ループを使って、それぞれの要素に対して<BR/>
+処理してください。</DIV>
+
+<v:line from="0,4399" to="588,4399"/>
+<v:line from="588,4399" to="588,4951"/>
+<v:line from="588,4951" to="0,4951"/>
+<v:line from="0,4951" to="0,4399"/>
+
+</PAGE>
+ 
+<!-- page 923 --> 
+<PAGE>
+<A id="svgcats_vml_p923" class="to_tree" style="margin-top:4956px;" onClick="selectTreeElem( '923' );">←</A>
+<A href="#svgcats_vml_p924" class="to_next_page" style="margin-top:4956px;">▼</A>
+<A href="#svgcats_vml_p922" class="to_prev_page" style="margin-top:4956px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4967px; width:634px; height:560px;" fillcolor="white"/>
+<DIV id="text923_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4984px; line-height:15px; white-space:nowrap">
+<A name="CallForEach_copy">
+CallForEach_copy</A></DIV>
+<DIV id="text923_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:4984px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:5014px; width:574px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text923_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:5021px; line-height:13px; white-space:nowrap">
+Sub&nbsp; CallForEach_copy( StepPath as string, FromFolderPath as string, ToFolderPath as string )</DIV>
+<DIV id="text923_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:111px; margin-top:5051px; line-height:15px; white-space:nowrap">
+に使えるファイルコピーです。</DIV>
+<DIV id="text923_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:5079px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text923_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5079px; line-height:15px; white-space:nowrap">
+StepPath</DIV>
+<DIV id="text923_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5098px; line-height:15px; white-space:nowrap">
+FromFolderPath</DIV>
+<DIV id="text923_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:5079px; line-height:15px; white-space:nowrap">
+ファイルへの相対パス。 基準は FromFolderPath と ToFolderPath</DIV>
+<DIV id="text923_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:5098px; line-height:15px; white-space:nowrap">
+コピー元のフォルダ</DIV>
+<DIV id="text923_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:218px; margin-top:5118px; line-height:15px; white-space:nowrap">
+コピー先のフォルダ</DIV>
+<DIV id="text923_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:5118px; line-height:15px; white-space:nowrap">
+ToFolderPath</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5177px; width:532px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text923_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5184px; line-height:13px; white-space:nowrap">
+&nbsp; CallForEach2&nbsp; GetRef("CallForEach_copy"), Array( "a.txt", "folder\*" ), "src", "dst"</DIV>
+<DIV id="text923_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:5212px; line-height:15px; white-space:nowrap">
+上記コードは下記コードと同じ処理内容です。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5235px; width:466px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text923_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5241px; line-height:15px; white-space:nowrap">
+&nbsp; copy&nbsp; "src\a.txt", "dst"<BR/>
+&nbsp; copy&nbsp; "src\folder\*", "dst\folder"&nbsp; &nbsp; '// copy "src\folder", "dst" と同じ</DIV>
+<DIV id="text923_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:5051px; line-height:15px; white-space:nowrap">
+<A href="#CallForEach">
+CallForEach</A></DIV>
+<DIV id="text923_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5453px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text923_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:5453px; line-height:15px; white-space:nowrap">
+→ T_EachCopy.vbs # [T_EachCopy1]</DIV>
+<DIV id="text923_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:5291px; line-height:15px; white-space:nowrap">
+フォルダーをコピーするとき、パスの末尾に "\*" があってもなくても構いません。</DIV>
+<DIV id="text923_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5155px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text923_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:5324px; line-height:15px; white-space:nowrap">
+ワイルドカードを使っても、サブ・フォルダーはコピーしません。</DIV>
+<DIV id="text923_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:386px; margin-top:5324px; line-height:15px; white-space:nowrap">
+<A href="vbslib_35.html#ExpandWildcard">
+ExpandWildcard</A></DIV>
+<DIV id="text923_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:482px; margin-top:5324px; line-height:15px; white-space:nowrap">
+と組み合わせて</DIV>
+<DIV id="text923_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:5338px; line-height:15px; white-space:nowrap">
+ください。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5361px; width:448px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text923_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5367px; line-height:15px; white-space:nowrap">
+&nbsp; Set c = g_VBS_Lib<BR/>
+<BR/>
+&nbsp; ExpandWildcard&nbsp; "src\*.doc", c.File or c.SubFolder, folder, step_paths<BR/>
+&nbsp; CallForEach2&nbsp; GetRef("CallForEach_copy"), step_paths, "src", "dst"</DIV>
+<DIV id="text923_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:5479px; line-height:15px; white-space:nowrap">
+<A href="vbslib_24.html#CopyFunction">
+→ CopyFunction 型、コピー関数型</A></DIV>
+<DIV id="text923_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5479px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,4967" to="634,4967"/>
+<v:line from="634,4967" to="634,5527"/>
+<v:line from="634,5527" to="0,5527"/>
+<v:line from="0,5527" to="0,4967"/>
+
+</PAGE>
+ 
+<!-- page 924 --> 
+<PAGE>
+<A id="svgcats_vml_p924" class="to_tree" style="margin-top:5532px;" onClick="selectTreeElem( '924' );">←</A>
+<A href="#svgcats_vml_p925" class="to_next_page" style="margin-top:5532px;">▼</A>
+<A href="#svgcats_vml_p923" class="to_prev_page" style="margin-top:5532px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5543px; width:454px; height:162px;" fillcolor="white"/>
+<DIV id="text924_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5560px; line-height:15px; white-space:nowrap">
+<A name="CallForEach_move">
+CallForEach_move</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:5590px; width:394px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text924_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:5597px; line-height:13px; white-space:nowrap">
+Sub&nbsp; CallForEach_move( FilePath, FromFolderPath, ToFolderPath )</DIV>
+<DIV id="text924_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:111px; margin-top:5627px; line-height:15px; white-space:nowrap">
+に使えるファイルの移動です。</DIV>
+<DIV id="text924_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:5627px; line-height:15px; white-space:nowrap">
+<A href="#CallForEach">
+CallForEach</A></DIV>
+<DIV id="text924_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:5560px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text924_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:5655px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text924_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:78px; margin-top:5655px; line-height:15px; white-space:nowrap">
+<A href="#CallForEach_copy">
+→ CallForEach_copy</A></DIV>
+
+<v:line from="0,5543" to="454,5543"/>
+<v:line from="454,5543" to="454,5705"/>
+<v:line from="454,5705" to="0,5705"/>
+<v:line from="0,5705" to="0,5543"/>
+
+</PAGE>
+ 
+<!-- page 925 --> 
+<PAGE>
+<A id="svgcats_vml_p925" class="to_tree" style="margin-top:5710px;" onClick="selectTreeElem( '925' );">←</A>
+<A href="#svgcats_vml_p926" class="to_next_page" style="margin-top:5710px;">▼</A>
+<A href="#svgcats_vml_p924" class="to_prev_page" style="margin-top:5710px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5721px; width:576px; height:282px;" fillcolor="white"/>
+<DIV id="text925_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5738px; line-height:15px; white-space:nowrap">
+<A name="CallForEach_del">
+CallForEach_del</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5769px; width:280px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text925_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5776px; line-height:13px; white-space:nowrap">
+Sub&nbsp; CallForEach_del( FilePath, FolderPath )</DIV>
+<DIV id="text925_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:113px; margin-top:5805px; line-height:15px; white-space:nowrap">
+に使えるファイルまたはフォルダの削除です。</DIV>
+<DIV id="text925_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:5805px; line-height:15px; white-space:nowrap">
+<A href="#CallForEach">
+CallForEach</A></DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5873px; width:514px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text925_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5880px; line-height:13px; white-space:nowrap">
+&nbsp; &nbsp; CallForEach1&nbsp; GetRef("CallForEach_del"), Array( "a.txt", "folder\*" ), "folder"</DIV>
+<DIV id="text925_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:50px; margin-top:5908px; line-height:15px; white-space:nowrap">
+上記コードは下記コードと同じ処理内容です。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5931px; width:172px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text925_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5937px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; del&nbsp; "folder\a.txt"<BR/>
+&nbsp; &nbsp; del&nbsp; "folder\folder\*"</DIV>
+<DIV id="text925_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5851px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text925_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:5738px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,5721" to="576,5721"/>
+<v:line from="576,5721" to="576,6003"/>
+<v:line from="576,6003" to="0,6003"/>
+<v:line from="0,6003" to="0,5721"/>
+
+</PAGE>
+ 
+<!-- page 926 --> 
+<PAGE>
+<A id="svgcats_vml_p926" class="to_tree" style="margin-top:6008px;" onClick="selectTreeElem( '926' );">←</A>
+<A href="#svgcats_vml_p927" class="to_next_page" style="margin-top:6008px;">▼</A>
+<A href="#svgcats_vml_p925" class="to_prev_page" style="margin-top:6008px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6019px; width:588px; height:482px;" fillcolor="white"/>
+<DIV id="text926_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6036px; line-height:15px; white-space:nowrap">
+<A name="Transpose">
+Transpose</A></DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:6167px; width:298px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text926_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:6173px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<BR/>
+&nbsp; &nbsp; copy&nbsp; t_source,&nbsp; t_destination<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; t_source = "C:\From.txt"<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; t_destination = "C:\To.txt"</DIV>
+<DIV id="text926_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6140px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text926_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:6071px; line-height:15px; white-space:nowrap">
+文を実行する順番を入れ替えます。<BR/>
+たとえば、関数の引数の代入（詳細）を後で書くほうが可読性が上がるときに使います。<BR/>
+Transpose は、順番の入れ替えを示すだけで、何もしません。</DIV>
+<DIV id="text926_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:6354px; line-height:15px; white-space:nowrap">
+上記のコードは、下記のコードと同じ処理を行います。</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:6380px; width:190px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text926_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:6386px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; source = "C:\From.txt"<BR/>
+&nbsp; &nbsp; destination = "C:\To.txt"<BR/>
+&nbsp; &nbsp; copy&nbsp; source, destination</DIV>
+<DIV id="text926_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:41px; margin-top:6277px; line-height:15px; white-space:nowrap">
+前半と後半（Transpose : Else の前後）をつなぐ変数の名前の先頭は、<BR/>
+t_ から始めるコーディング ルールを推奨します。<BR/>
+上記のコードは、説明のために後半が短いため、変数を介さないほうが読みやすいですが、<BR/>
+一般に後半が長いときは読みやすくなります。</DIV>
+<DIV id="text926_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:6173px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; &nbsp; &nbsp; Transpose : For i=0 To 1 : If i=1 Then<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Else ' Transpose<BR/>
+<BR/>
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Transpose : End If : Next</DIV>
+<DIV id="text926_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6453px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text926_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:86px; margin-top:6453px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,6019" to="588,6019"/>
+<v:line from="588,6019" to="588,6501"/>
+<v:line from="588,6501" to="0,6501"/>
+<v:line from="0,6501" to="0,6019"/>
+
+</PAGE>
+ 
+<!-- page 927 --> 
+<PAGE>
+<A id="svgcats_vml_p927" class="to_tree" style="margin-top:6506px;" onClick="selectTreeElem( '927' );">←</A>
+<A href="#svgcats_vml_p928" class="to_next_page" style="margin-top:6506px;">▼</A>
+<A href="#svgcats_vml_p926" class="to_prev_page" style="margin-top:6506px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6517px; width:527px; height:396px;" fillcolor="white"/>
+<DIV id="text927_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6534px; line-height:15px; white-space:nowrap">
+<A name="SetTaskStartTime">
+SetTaskStartTime</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6564px; width:400px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text927_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6571px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetTaskStartTime( TaskName as string, StartTime as string )</DIV>
+<DIV id="text927_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6601px; line-height:15px; white-space:nowrap">
+タスク・スケジューラーに登録済みの、指定のタスクを開始する時刻を変更します。</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:6709px; width:412px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text927_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:6715px; line-height:15px; white-space:nowrap">
+&nbsp; echo&nbsp; "タスクの開始時間を再設定します。"<BR/>
+&nbsp; Dim&nbsp; name : name = input( "タスク名&gt;" )<BR/>
+&nbsp; echo&nbsp; "例： 13:00 ... 今が午前10時なら、今日の午後1時に実行する"<BR/>
+&nbsp; echo&nbsp; "例：&nbsp; 1:00 ... 今が午前10時なら、明日の午前1時に実行する"<BR/>
+&nbsp; echo&nbsp; "例： +1:00 ... 今から1時間後に実行する"<BR/>
+&nbsp; Dim&nbsp; after : after = input( "いつ実行を開始しますか&gt;" )<BR/>
+&nbsp; SetTaskStartTime&nbsp; name, after</DIV>
+<DIV id="text927_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:53px; margin-top:6806px; line-height:13px; white-space:nowrap">
+SetTaskStartTime</DIV>
+<DIV id="text927_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6687px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text927_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:190px; margin-top:6536px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text927_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:103px; margin-top:6687px; line-height:15px; white-space:nowrap">
+→ samples/TaskScheduler フォルダ</DIV>
+<DIV id="text927_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:6847px; line-height:15px; white-space:nowrap">
+<A href="#GetTaskList">
+→ GetTaskList</A></DIV>
+<DIV id="text927_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6847px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text927_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:65px; margin-top:6865px; line-height:15px; white-space:nowrap">
+→ schtasks /Create</DIV>
+<DIV id="text927_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6629px; line-height:15px; white-space:nowrap">
+StartTime の先頭を + にすると、現在の時刻からの差分を指定できます。<BR/>
+例） +1:30 … １時間半後</DIV>
+
+<v:line from="0,6517" to="527,6517"/>
+<v:line from="527,6517" to="527,6913"/>
+<v:line from="527,6913" to="0,6913"/>
+<v:line from="0,6913" to="0,6517"/>
+
+</PAGE>
+ 
+<!-- page 928 --> 
+<PAGE>
+<A id="svgcats_vml_p928" class="to_tree" style="margin-top:6918px;" onClick="selectTreeElem( '928' );">←</A>
+<A href="#svgcats_vml_p929" class="to_next_page" style="margin-top:6918px;">▼</A>
+<A href="#svgcats_vml_p927" class="to_prev_page" style="margin-top:6918px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6929px; width:502px; height:339px;" fillcolor="white"/>
+<DIV id="text928_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6946px; line-height:15px; white-space:nowrap">
+<A name="GetTaskList">
+GetTaskList</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6976px; width:280px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text928_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6983px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetTaskList( EmptyParam as Empty )</DIV>
+<DIV id="text928_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7013px; line-height:15px; white-space:nowrap">
+タスク・スケジューラーに登録済みの、タスクを一覧します。</DIV>
+<DIV id="text928_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7047px; line-height:15px; white-space:nowrap">
+返り値は、タスクの集合である辞書型です。<BR/>
+タスクの集合の Key は タスク名、Item は１つのタスクを表す辞書型です。<BR/>
+１つのタスクを表す辞書型の Key は タスクの属性名、Item は属性の値です。</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:7141px; width:244px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text928_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:7147px; line-height:15px; white-space:nowrap">
+&nbsp; Set&nbsp; tasks = GetTaskList( Empty )<BR/>
+&nbsp; Set&nbsp; task = tasks.Item( "\Task1" )<BR/>
+&nbsp; start&nbsp; task.Item( "実行するタスク" )</DIV>
+<DIV id="text928_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7119px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text928_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:190px; margin-top:6948px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text928_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:7220px; line-height:15px; white-space:nowrap">
+→ schtasks /Query</DIV>
+<DIV id="text928_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7220px; line-height:15px; white-space:nowrap">
+参考</DIV>
+
+<v:line from="0,6929" to="502,6929"/>
+<v:line from="502,6929" to="502,7268"/>
+<v:line from="502,7268" to="0,7268"/>
+<v:line from="0,7268" to="0,6929"/>
+
+</PAGE>
+ 
+<!-- page 929 --> 
+<PAGE>
+<A id="svgcats_vml_p929" class="to_tree" style="margin-top:7273px;" onClick="selectTreeElem( '929' );">←</A>
+<A href="#svgcats_vml_p930" class="to_next_page" style="margin-top:7273px;">▼</A>
+<A href="#svgcats_vml_p928" class="to_prev_page" style="margin-top:7273px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7284px; width:578px; height:1061px;" fillcolor="white"/>
+<v:image src="929/image01.png"
+   style="position:absolute; margin-left:52px; margin-top:8176px; width:14px; height:17px;"/>
+<DIV id="text929_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7301px; line-height:15px; white-space:nowrap">
+<A name="MakeFile">
+MakeFileClass （メイクファイル）</A></DIV>
+<DIV id="text929_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:101px; margin-top:7522px; line-height:15px; white-space:nowrap">
+→ Makefile</DIV>
+<DIV id="text929_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:61px; margin-top:7522px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text929_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:8249px; line-height:15px; white-space:nowrap">
+→ T_MakeRule フォルダ</DIV>
+<DIV id="text929_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:8249px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text929_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7332px; line-height:15px; white-space:nowrap">
+make コマンドのように、ファイルのタイムスタンプを比較して、必要ならコマンドを実行します。</DIV>
+<DIV id="text929_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7363px; line-height:15px; white-space:nowrap">
+一般的なメイクファイルと、MakeFileClass との対応関係を示します。</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:7418px; width:232px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text929_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:7424px; line-height:15px; white-space:nowrap">
+Target.txt : Source1.txt Source2.txt<BR/>
+&nbsp; &nbsp; command</DIV>
+<DIV id="text929_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:61px; margin-top:7467px; line-height:15px; white-space:nowrap">
+Target.txt が無いときか、Source1.txt または Source2.txt より古いときに、<BR/>
+command を実行します。 ただし、Source1.txt および Source2.txt に対する<BR/>
+ルールのコマンドを実行した後で実行します。</DIV>
+<DIV id="text929_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7568px; line-height:15px; white-space:nowrap">
+MakeFileClass では、次のように記述します。</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:7591px; width:358px; height:250px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text929_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:7597px; line-height:15px; white-space:nowrap">
+Sub&nbsp; Main()<BR/>
+&nbsp; &nbsp; Set mk = new MakeFileClass<BR/>
+&nbsp; &nbsp; mk.AddRule&nbsp; new_Target_txt_Rule()<BR/>
+&nbsp; &nbsp; mk.Make<BR/>
+End Sub<BR/>
+<BR/>
+Function&nbsp; new_Target_txt_Rule()<BR/>
+&nbsp; &nbsp; Set o = new MakeRule<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; o.Sources = Array( "Source1.txt", "Source2.txt" )<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; o.Target = "Target.txt"<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Set o.Command = GetRef("Target_txt_Command")<BR/>
+&nbsp; &nbsp; Set new_Target_txt_Rule = o<BR/>
+End Function<BR/>
+Sub&nbsp; Target_txt_Command( Param, Rule )<BR/>
+&nbsp; &nbsp; copy_ren&nbsp; Rule.Sources(0), Rule.Target<BR/>
+End Sub</DIV>
+<DIV id="text929_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#00B700; margin-left:125px; margin-top:7763px; line-height:13px; white-space:nowrap">
+Target_txt</DIV>
+<DIV id="text929_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#00B700; margin-left:137px; margin-top:7688px; line-height:13px; white-space:nowrap">
+Target_txt</DIV>
+<DIV id="text929_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#00B700; margin-left:83px; margin-top:7793px; line-height:13px; white-space:nowrap">
+Target_txt</DIV>
+<DIV id="text929_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#00B700; margin-left:245px; margin-top:7748px; line-height:13px; white-space:nowrap">
+Target_txt</DIV>
+<DIV id="text929_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:173px; margin-top:7733px; line-height:13px; white-space:nowrap">
+Target.txt</DIV>
+<DIV id="text929_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:221px; margin-top:7718px; line-height:13px; white-space:nowrap">
+Source1.txt</DIV>
+<DIV id="text929_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:311px; margin-top:7718px; line-height:13px; white-space:nowrap">
+Source2.txt</DIV>
+<DIV id="text929_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#00B700; margin-left:173px; margin-top:7628px; line-height:13px; white-space:nowrap">
+Target_txt</DIV>
+<DIV id="text929_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:183px; margin-top:7522px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_16.html#rollback">
+→ ロールバック</A></DIV>
+<v:line style="position:absolute;" from="54,8146" to="101,8146" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="101,8146" to="90,8142" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="101,8146" to="90,8150" strokecolor="#7CFF11" strokeweight="1pt"/>
+<DIV id="text929_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:120px; margin-top:8138px; line-height:15px; white-space:nowrap">
+MakeRule の source と target の関係</DIV>
+<v:line style="position:absolute;" from="54,8165" to="101,8165" strokecolor="#FF9F11" strokeweight="1pt"/>
+<v:oval style="position:absolute; margin-left:98px; margin-top:8162px; width:5px; height:5px;" fillcolor="#FF9F11" strokecolor="#FF9F11" strokeweight="1pt"/>
+<DIV id="text929_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF8000; margin-left:120px; margin-top:8157px; line-height:15px; white-space:nowrap">
+MakeRule で実行するコマンド</DIV>
+<DIV id="text929_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7941px; line-height:15px; white-space:nowrap">
+<A name="MakeFileLegend">
+メイクファイルの図の記法例 （参考）</A></DIV>
+<DIV id="text929_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#800000; font-weight: bold; margin-left:71px; margin-top:8177px; line-height:15px; white-space:nowrap">
+File</DIV>
+<DIV id="text929_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:120px; margin-top:8176px; line-height:15px; white-space:nowrap">
+最初に更新するファイル</DIV>
+<DIV id="text929_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:155px; margin-top:7613px; line-height:13px; white-space:nowrap">
+<A href="#MakeFileClass">
+MakeFileClass</A></DIV>
+<DIV id="text929_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:149px; margin-top:7703px; line-height:13px; white-space:nowrap">
+<A href="vbslib_50.html#MakeRule">
+MakeRule</A></DIV>
+<DIV id="text929_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:28px; margin-top:8001px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text929_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:8031px; line-height:13px; white-space:nowrap">
+Target.txt</DIV>
+<DIV id="text929_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:243px; margin-top:8031px; line-height:13px; white-space:nowrap">
+Source.txt</DIV>
+<v:line style="position:absolute;" from="231,8036" to="121,8036" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="121,8036" to="132,8040" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="121,8036" to="132,8032" strokecolor="#7CFF11" strokeweight="1pt"/>
+<DIV id="text929_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:54px; margin-top:8119px; line-height:13px; white-space:nowrap">
+MakeRule を返す関数名</DIV>
+<DIV id="text929_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#800000; margin-left:295px; margin-top:8050px; line-height:13px; white-space:nowrap">
+by new_Target_txt_Rule</DIV>
+<DIV id="text929_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF8000; margin-left:227px; margin-top:8048px; line-height:15px; white-space:nowrap">
+生成する</DIV>
+<DIV id="text929_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7394px; line-height:15px; white-space:nowrap">
+一般的なメイクファイル （vbslibではない）</DIV>
+<DIV id="text929_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:7969px; line-height:15px; white-space:nowrap">
+ここでは、メイクファイルで指定された「構成」を図に表すときの記法を示します。</DIV>
+<DIV id="text929_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:28px; margin-top:8090px; line-height:15px; white-space:nowrap">
+凡例</DIV>
+<DIV id="text929_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:149px; margin-top:7793px; line-height:13px; white-space:nowrap">
+Command</DIV>
+<v:line style="position:absolute;" from="221,8057" to="182,8036" strokecolor="#FF9F11" strokeweight="1pt"/>
+<v:oval style="position:absolute; margin-left:179px; margin-top:8033px; width:5px; height:5px;" fillcolor="#FF9F11" strokecolor="#FF9F11" strokeweight="1pt"/>
+<DIV id="text929_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:8225px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text929_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:8225px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text929_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:47px; margin-top:7857px; line-height:15px; white-space:nowrap">
+<A href="vbslib_50.html#Target_MakeRule_Wildcard">
+ワイルドカードを指定</A></DIV>
+<DIV id="text929_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:7857px; line-height:15px; white-space:nowrap">
+すれば、</DIV>
+<DIV id="text929_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:219px; margin-top:7857px; line-height:15px; white-space:nowrap">
+暗黙ルール</DIV>
+<DIV id="text929_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:287px; margin-top:7857px; line-height:15px; white-space:nowrap">
+を作ることができます。</DIV>
+<DIV id="text929_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:182px; margin-top:7879px; line-height:15px; white-space:nowrap">
+<A href="#m_DebugMode_MakeFileClass">
+DebugMode</A></DIV>
+<DIV id="text929_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:252px; margin-top:7879px; line-height:15px; white-space:nowrap">
+を設定して詳細な情報を確認してください。</DIV>
+<DIV id="text929_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:7879px; line-height:15px; white-space:nowrap">
+うまく動作しないときは、</DIV>
+<DIV id="text929_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:185px; margin-top:8225px; line-height:15px; white-space:nowrap">
+<A href="vbslib_50.html#MakeFileClass_d">
+→ データ構造 (MakeFileClass)</A></DIV>
+<DIV id="text929_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:8278px; line-height:15px; white-space:nowrap">
+<A href="vbslib_50.html#OpenForMakeRuleOfRevisionFolder">
+→ OpenForMakeRuleOfRevisionFolder</A></DIV>
+<DIV id="text929_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:8278px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text929_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:8297px; line-height:15px; white-space:nowrap">
+→ CheckEnglishOnly_src\Test.vbs</DIV>
+<DIV id="text929_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:284px; margin-top:8297px; line-height:15px; white-space:nowrap">
+ソースに更新があったときだけコピーする</DIV>
+
+<v:line from="0,7284" to="578,7284"/>
+<v:line from="578,7284" to="578,8345"/>
+<v:line from="578,8345" to="0,8345"/>
+<v:line from="0,8345" to="0,7284"/>
+
+</PAGE>
+ 
+<!-- page 930 --> 
+<PAGE>
+<A id="svgcats_vml_p930" class="to_tree" style="margin-top:8350px;" onClick="selectTreeElem( '930' );">←</A>
+<A href="#svgcats_vml_p931" class="to_next_page" style="margin-top:8350px;">▼</A>
+<A href="#svgcats_vml_p929" class="to_prev_page" style="margin-top:8350px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8361px; width:526px; height:301px;" fillcolor="white"/>
+<DIV id="text930_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8378px; line-height:15px; white-space:nowrap">
+<A name="MakeFileClass">
+MakeFileClass</A></DIV>
+<DIV id="text930_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8501px; line-height:13px; white-space:nowrap">
+<A href="#m_Name_MakeFileClass">
+.Name</A></DIV>
+<DIV id="text930_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8499px; line-height:15px; white-space:nowrap">
+メイクファイルの名前。</DIV>
+<DIV id="text930_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8547px; line-height:13px; white-space:nowrap">
+<A href="#m_Delegate_MakeFileClass">
+.Delegate</A></DIV>
+<DIV id="text930_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8545px; line-height:15px; white-space:nowrap">
+ユーザー定義の委譲先オブジェクト。</DIV>
+<DIV id="text930_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8570px; line-height:13px; white-space:nowrap">
+<A href="#m_DebugMode_MakeFileClass">
+.DebugMode</A></DIV>
+<DIV id="text930_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8593px; line-height:13px; white-space:nowrap">
+<A href="#m_DebugMode_MakeFileClass">
+.DebugMode_Param1</A></DIV>
+<DIV id="text930_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8568px; line-height:15px; white-space:nowrap">
+デバッグモード</DIV>
+<DIV id="text930_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8591px; line-height:15px; white-space:nowrap">
+デバッグモードのパラメーター</DIV>
+<DIV id="text930_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8616px; line-height:13px; white-space:nowrap">
+<A href="vbslib_50.html#MakeFileClassConst">
+.c</A></DIV>
+<DIV id="text930_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8614px; line-height:15px; white-space:nowrap">
+定数の集まり</DIV>
+<DIV id="text930_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8455px; line-height:13px; white-space:nowrap">
+<A href="#AddRule_MakeFileClass">
+.AddRule</A></DIV>
+<DIV id="text930_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8478px; line-height:13px; white-space:nowrap">
+<A href="#Make_MakeFileClass">
+.Make</A></DIV>
+<DIV id="text930_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8476px; line-height:15px; white-space:nowrap">
+メイクを実行します。</DIV>
+<DIV id="text930_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8453px; line-height:15px; white-space:nowrap">
+メイクファイルのルールを登録します。</DIV>
+<DIV id="text930_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:146px; margin-top:8378px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text930_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:8416px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text930_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:90px; margin-top:8416px; line-height:15px; white-space:nowrap">
+<A href="#MakeFile">
+→ メイクファイル</A></DIV>
+<DIV id="text930_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:24px; margin-top:8524px; line-height:13px; white-space:nowrap">
+<A href="#Variables_MakeFileClass">
+.Variables</A></DIV>
+<DIV id="text930_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:165px; margin-top:8522px; line-height:15px; white-space:nowrap">
+ユーザー定義変数の集まり。</DIV>
+<DIV id="text930_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:275px; margin-top:8378px; line-height:15px; white-space:nowrap">
+<A href="#MakeFile">
+&lt;&lt; MakeFileClass （メイクファイル）</A></DIV>
+
+<v:line from="0,8361" to="526,8361"/>
+<v:line from="526,8361" to="526,8662"/>
+<v:line from="526,8662" to="0,8662"/>
+<v:line from="0,8662" to="0,8361"/>
+
+</PAGE>
+ 
+<!-- page 931 --> 
+<PAGE>
+<A id="svgcats_vml_p931" class="to_tree" style="margin-top:8667px;" onClick="selectTreeElem( '931' );">←</A>
+<A href="#svgcats_vml_p932" class="to_next_page" style="margin-top:8667px;">▼</A>
+<A href="#svgcats_vml_p930" class="to_prev_page" style="margin-top:8667px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8678px; width:391px; height:160px;" fillcolor="white"/>
+<DIV id="text931_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8695px; line-height:15px; white-space:nowrap">
+<A name="AddRule_MakeFileClass">
+AddRule (MakeFileClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8725px; width:334px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text931_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8732px; line-height:13px; white-space:nowrap">
+Sub&nbsp; MakeFileClass::AddRule( a_MakeRule as MakeRule )</DIV>
+<DIV id="text931_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8762px; line-height:15px; white-space:nowrap">
+メイクファイルのルールを登録します。</DIV>
+<DIV id="text931_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:291px; margin-top:8732px; line-height:13px; white-space:nowrap">
+<A href="vbslib_50.html#MakeRule">
+MakeRule</A></DIV>
+<DIV id="text931_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8790px; line-height:15px; white-space:nowrap">
+a_MakeRule 引数に配列を指定することもできます。</DIV>
+
+<v:line from="0,8678" to="391,8678"/>
+<v:line from="391,8678" to="391,8838"/>
+<v:line from="391,8838" to="0,8838"/>
+<v:line from="0,8838" to="0,8678"/>
+
+</PAGE>
+ 
+<!-- page 932 --> 
+<PAGE>
+<A id="svgcats_vml_p932" class="to_tree" style="margin-top:8843px;" onClick="selectTreeElem( '932' );">←</A>
+<A href="#svgcats_vml_p933" class="to_next_page" style="margin-top:8843px;">▼</A>
+<A href="#svgcats_vml_p931" class="to_prev_page" style="margin-top:8843px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8854px; width:459px; height:132px;" fillcolor="white"/>
+<DIV id="text932_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8871px; line-height:15px; white-space:nowrap">
+<A name="Make_MakeFileClass">
+Make (MakeFileClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8901px; width:172px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text932_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8908px; line-height:13px; white-space:nowrap">
+Sub&nbsp; MakeFileClass::Make()</DIV>
+<DIV id="text932_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8938px; line-height:15px; white-space:nowrap">
+登録されているメイクファイルのルールに従って、メイクを実行します。</DIV>
+
+<v:line from="0,8854" to="459,8854"/>
+<v:line from="459,8854" to="459,8986"/>
+<v:line from="459,8986" to="0,8986"/>
+<v:line from="0,8986" to="0,8854"/>
+
+</PAGE>
+ 
+<!-- page 933 --> 
+<PAGE>
+<A id="svgcats_vml_p933" class="to_tree" style="margin-top:8991px;" onClick="selectTreeElem( '933' );">←</A>
+<A href="#svgcats_vml_p934" class="to_next_page" style="margin-top:8991px;">▼</A>
+<A href="#svgcats_vml_p932" class="to_prev_page" style="margin-top:8991px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9002px; width:531px; height:162px;" fillcolor="white"/>
+<DIV id="text933_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9019px; line-height:15px; white-space:nowrap">
+<A name="m_Name_MakeFileClass">
+Name (MakeFileClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9049px; width:220px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text933_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9056px; line-height:13px; white-space:nowrap">
+Dim&nbsp; MakeFileClass::Name as string</DIV>
+<DIV id="text933_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9086px; line-height:15px; white-space:nowrap">
+メイクファイルの名前。<BR/>
+MakeFileClass::DebugMode に MakeFileClass::c.OutDebugXML を設定するときに<BR/>
+表示されます。</DIV>
+
+<v:line from="0,9002" to="531,9002"/>
+<v:line from="531,9002" to="531,9164"/>
+<v:line from="531,9164" to="0,9164"/>
+<v:line from="0,9164" to="0,9002"/>
+
+</PAGE>
+ 
+<!-- page 934 --> 
+<PAGE>
+<A id="svgcats_vml_p934" class="to_tree" style="margin-top:9169px;" onClick="selectTreeElem( '934' );">←</A>
+<A href="#svgcats_vml_p935" class="to_next_page" style="margin-top:9169px;">▼</A>
+<A href="#svgcats_vml_p933" class="to_prev_page" style="margin-top:9169px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9180px; width:594px; height:219px;" fillcolor="white"/>
+<DIV id="text934_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9197px; line-height:15px; white-space:nowrap">
+<A name="Variables_MakeFileClass">
+Variables (MakeFileClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:9229px; width:328px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text934_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:9236px; line-height:13px; white-space:nowrap">
+Dim&nbsp; MakeFileClass::Variables as LazyDictionaryClass</DIV>
+<DIV id="text934_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:9265px; line-height:15px; white-space:nowrap">
+ユーザー定義変数の集まり。</DIV>
+<DIV id="text934_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:233px; margin-top:9236px; line-height:13px; white-space:nowrap">
+<A href="vbslib_13.html#LazyDictionaryClass">
+LazyDictionaryClass</A></DIV>
+<DIV id="text934_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:9292px; line-height:15px; white-space:nowrap">
+MakeFileClass を生成した時点で、LazyDictionaryClass のオブジェクトは生成されています。</DIV>
+<DIV id="text934_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:9311px; line-height:15px; white-space:nowrap">
+Variables が指しているオブジェクトは、</DIV>
+<DIV id="text934_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:248px; margin-top:9311px; line-height:15px; white-space:nowrap">
+<A href="vbslib_50.html#Variables_MakeRule">
+MakeRule::Variables</A></DIV>
+<DIV id="text934_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:367px; margin-top:9311px; line-height:15px; white-space:nowrap">
+でも参照できます。</DIV>
+<DIV id="text934_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:9330px; line-height:15px; white-space:nowrap">
+MakeRule::Variables で自動的に設定される変数と同じ名前の変数をユーザーが定義すると<BR/>
+上書きされてしまうので注意してください。</DIV>
+
+<v:line from="0,9180" to="594,9180"/>
+<v:line from="594,9180" to="594,9399"/>
+<v:line from="594,9399" to="0,9399"/>
+<v:line from="0,9399" to="0,9180"/>
+
+</PAGE>
+ 
+<!-- page 935 --> 
+<PAGE>
+<A id="svgcats_vml_p935" class="to_tree" style="margin-top:9404px;" onClick="selectTreeElem( '935' );">←</A>
+<A href="#svgcats_vml_p936" class="to_next_page" style="margin-top:9404px;">▼</A>
+<A href="#svgcats_vml_p934" class="to_prev_page" style="margin-top:9404px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9415px; width:666px; height:376px;" fillcolor="white"/>
+<DIV id="text935_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9432px; line-height:15px; white-space:nowrap">
+<A name="m_Delegate_MakeFileClass">
+Delegate (MakeFileClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9462px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text935_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9469px; line-height:13px; white-space:nowrap">
+Dim&nbsp; MakeFileClass::Delegate as variant</DIV>
+<DIV id="text935_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9499px; line-height:15px; white-space:nowrap">
+委譲先となるユーザー定義オブジェクト。</DIV>
+<v:rect style="position:absolute; margin-left:46px; margin-top:9599px; width:310px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text935_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:9605px; line-height:15px; white-space:nowrap">
+Sub&nbsp; main()<BR/>
+&nbsp; Dim mk : Set mk = new MakeFileClass<BR/>
+&nbsp; mk.AddRule&nbsp; new_Target_txt_Rule()<BR/>
+&nbsp; mk.Delegate = "ABC"<BR/>
+&nbsp; mk.Make<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; Target_txt_Command( a_MakeFile, a_MakeRule )<BR/>
+&nbsp; echo&nbsp; a_MakeFile.Delegate<BR/>
+End Sub</DIV>
+<DIV id="text935_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:35px; margin-top:9527px; line-height:15px; white-space:nowrap">
+MakeFileClass クラスのオブジェクトを生成するときにユーザ定義オブジェクトを Delegate に格納しておくと、<BR/>
+MakeRule::Command で呼ばれる関数の中で、第1引数である MakeFileClass オブジェクトの <BR/>
+Delegate からユーザ定義オブジェクトを、参照することができるようになります。</DIV>
+<DIV id="text935_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:84px; margin-top:9651px; line-height:13px; white-space:nowrap">
+Delegate</DIV>
+<DIV id="text935_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:168px; margin-top:9726px; line-height:13px; white-space:nowrap">
+Delegate</DIV>
+
+<v:line from="0,9415" to="666,9415"/>
+<v:line from="666,9415" to="666,9791"/>
+<v:line from="666,9791" to="0,9791"/>
+<v:line from="0,9791" to="0,9415"/>
+
+</PAGE>
+ 
+<!-- page 936 --> 
+<PAGE>
+<A id="svgcats_vml_p936" class="to_tree" style="margin-top:9796px;" onClick="selectTreeElem( '936' );">←</A>
+<A href="vbslib_50.html#svgcats_vml_p937" class="to_next_page" style="margin-top:9796px;">▼</A>
+<A href="#svgcats_vml_p935" class="to_prev_page" style="margin-top:9796px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9807px; width:538px; height:508px;" fillcolor="white"/>
+<DIV id="text936_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9824px; line-height:15px; white-space:nowrap">
+<A name="m_DebugMode_MakeFileClass">
+DebugMode (MakeFileClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9854px; width:298px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text936_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9860px; line-height:15px; white-space:nowrap">
+Dim&nbsp; MakeFileClass::DebugMode as integer<BR/>
+Dim&nbsp; MakeFileClass::DebugMode_Param1 as variant</DIV>
+<DIV id="text936_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9903px; line-height:15px; white-space:nowrap">
+メイクファイルのデバッグモード</DIV>
+<DIV id="text936_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9946px; line-height:15px; white-space:nowrap">
+DebugMode = MakeFileClass::c.OutDebugXML のとき</DIV>
+<DIV id="text936_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9972px; line-height:15px; white-space:nowrap">
+メイクを実行する直前に、どのコマンドがあって、どのコマンドを実行するのかを<BR/>
+XML で表示します。 スクリプトは、pause によって一時停止します。</DIV>
+<DIV id="text936_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10025px; line-height:15px; white-space:nowrap">
+DebugMode = MakeFileClass::c.BreakBeforeCommand のとき</DIV>
+<DIV id="text936_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:10077px; line-height:13px; white-space:nowrap">
+DebugMode_Param1 as string</DIV>
+<DIV id="text936_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:235px; margin-top:10075px; line-height:15px; white-space:nowrap">
+ブレークする MakeRule::Target の一部<BR/>
+Empty = すべて Stop する</DIV>
+<DIV id="text936_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10053px; line-height:15px; white-space:nowrap">
+指定の MakeRule のコマンドを実行する直前で Stop します。</DIV>
+<DIV id="text936_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10128px; line-height:15px; white-space:nowrap">
+DebugMode = MakeFileClass::c.Watch のとき</DIV>
+<DIV id="text936_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10154px; line-height:15px; white-space:nowrap">
+それぞれの MakeRule のコマンドを実行する前と後で、指定の関数を呼び出します。</DIV>
+<DIV id="text936_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:10180px; line-height:13px; white-space:nowrap">
+DebugMode_Param1 as Sub</DIV>
+<DIV id="text936_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:212px; margin-top:10179px; line-height:15px; white-space:nowrap">
+呼び出す関数。GetRef を使ってください</DIV>
+<DIV id="text936_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:46px; margin-top:10228px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ( Delegate as variant, Rule as MakeRule ) </DIV>
+<DIV id="text936_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10203px; line-height:15px; white-space:nowrap">
+呼び出す関数のパラメーターは、MakeRule::Command と同じです。</DIV>
+<DIV id="text936_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:10267px; line-height:15px; white-space:nowrap">
+c は、MakeFileClass::c で参照できる MakeFileClassConst オブジェクトです。</DIV>
+
+<v:line from="0,9807" to="538,9807"/>
+<v:line from="538,9807" to="538,10315"/>
+<v:line from="538,10315" to="0,10315"/>
+<v:line from="0,10315" to="0,9807"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10315px;">
+<A id="svgcats_vml_p936" class="to_tree" onClick="selectTreeElem( '936' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10315px;">
+<A id="page_group_bottom" href="vbslib_50.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

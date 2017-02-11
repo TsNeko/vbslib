@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ModuleAssort2_Projects>
+
+<ProjectCache  path="${_ProjectCache}"/>
+<Variable      name="${_ProjectCache}"  value="..\_ProjectCache"  type="FullPathType"/>
+
+<Variable  name="${Masters}"  value="."  type="FullPathType"/>
+
+<Project  name="Project-A\01">
+	Project-B  <Module  master="${_ProjectCache}\Project-B\01"  project="."/>
+	Module-A   <Module  master="${Masters}\Module-A\01"         project="."/>
+</Project>
+
+<MakeRule>
+	<Output path="${_ProjectCache}\Project-B\*"/>
+	<Input  path="${_ProjectCache}\Project-C\*"/>
+	<Revisions>01</Revisions>
+</MakeRule>
+
+<Project  name="Project-C\01">
+	Module-B  <Module  master="${Masters}\Module-B\01"  project="C"/>
+</Project>
+
+</ModuleAssort2_Projects>

@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_56.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_56.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 1049 --> 
+<PAGE>
+<A id="svgcats_vml_p1049" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '1049' );">←</A>
+<A href="#svgcats_vml_p1050" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_55.html#svgcats_vml_p1048" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_55.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:595px; height:544px;" fillcolor="white"/>
+<DIV id="text1049_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="AssertValue">
+AssertValue</A></DIV>
+<DIV id="text1049_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:497px; line-height:15px; white-space:nowrap">
+→ T_Value.vbs # [T_AssertValue]</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:47px; width:478px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1049_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:53px; line-height:15px; white-space:nowrap">
+Sub&nbsp; AssertValue( Name as string, TestValue as variant, PassValue as variant,<BR/>
+&nbsp; &nbsp; CompareOption as interger )</DIV>
+<DIV id="text1049_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:102px; line-height:15px; white-space:nowrap">
+値が範囲内であるかどうかをチェックし、範囲外なら詳細なメッセージを付けてエラーにします。</DIV>
+<DIV id="text1049_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:128px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1049_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:128px; line-height:15px; white-space:nowrap">
+Name</DIV>
+<DIV id="text1049_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:147px; line-height:15px; white-space:nowrap">
+TestValue</DIV>
+<DIV id="text1049_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:215px; margin-top:128px; line-height:15px; white-space:nowrap">
+値の名前、エラーメッセージ用</DIV>
+<DIV id="text1049_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:215px; margin-top:147px; line-height:15px; white-space:nowrap">
+チェック対象の値</DIV>
+<DIV id="text1049_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:166px; line-height:15px; white-space:nowrap">
+PassValue</DIV>
+<DIV id="text1049_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:215px; margin-top:166px; line-height:15px; white-space:nowrap">
+範囲</DIV>
+<DIV id="text1049_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:185px; line-height:15px; white-space:nowrap">
+CompareOption</DIV>
+<DIV id="text1049_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:215px; margin-top:185px; line-height:15px; white-space:nowrap">
+比較オプション</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:257px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1049_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:264px; line-height:13px; white-space:nowrap">
+AssertValue&nbsp; "EqualNumber", a, 1, Empty</DIV>
+<DIV id="text1049_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:233px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1049_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:292px; line-height:15px; white-space:nowrap">
+a = 1 であるかチェックします。</DIV>
+<DIV id="text1049_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:497px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:400px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1049_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:407px; line-height:13px; white-space:nowrap">
+AssertValue&nbsp; "Str", a, Array( "A", "ABC" ), c.CaseSensitive</DIV>
+<DIV id="text1049_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:433px; line-height:15px; white-space:nowrap">
+a = "A" または a = "ABC" であるかチェックします。</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:331px; width:334px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1049_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:338px; line-height:13px; white-space:nowrap">
+AssertValue&nbsp; "RangeNumber", a, Array( 1, 3 ), c.Range</DIV>
+<DIV id="text1049_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:365px; line-height:15px; white-space:nowrap">
+1 ≦ a ≦ 3 であるかチェックします。</DIV>
+<DIV id="text1049_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:476px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1049_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:476px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,0" to="595,0"/>
+<v:line from="595,0" to="595,544"/>
+<v:line from="595,544" to="0,544"/>
+<v:line from="0,544" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 1050 --> 
+<PAGE>
+<A id="svgcats_vml_p1050" class="to_tree" style="margin-top:549px;" onClick="selectTreeElem( '1050' );">←</A>
+<A href="#svgcats_vml_p1051" class="to_next_page" style="margin-top:549px;">▼</A>
+<A href="#svgcats_vml_p1049" class="to_prev_page" style="margin-top:549px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:560px; width:583px; height:392px;" fillcolor="white"/>
+<DIV id="text1050_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:577px; line-height:15px; white-space:nowrap">
+<A name="AssertString">
+AssertString</A></DIV>
+<DIV id="text1050_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:884px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1050_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:884px; line-height:15px; white-space:nowrap">
+<A href="vbslib_51.html#GetDiffStringCmdLine">
+→ GetDiffStringCmdLine, GetDiffStringCmdLine3</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:807px; width:172px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1050_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:814px; line-height:13px; white-space:nowrap">
+AssertString&nbsp; "ABC", "AxC"</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:607px; width:526px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1050_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:614px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AssertString( TestString as string, AnswerString as string, Option_ as integer )</DIV>
+<DIV id="text1050_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:644px; line-height:15px; white-space:nowrap">
+文字列が等しいことをチェックし、異なっていたら文字列を比較する Diff ツールを開きます。</DIV>
+<DIV id="text1050_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:670px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1050_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:670px; line-height:15px; white-space:nowrap">
+TestString</DIV>
+<DIV id="text1050_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:689px; line-height:15px; white-space:nowrap">
+AnswerString</DIV>
+<DIV id="text1050_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:670px; line-height:15px; white-space:nowrap">
+テストする文字列</DIV>
+<DIV id="text1050_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:689px; line-height:15px; white-space:nowrap">
+答の文字列</DIV>
+<DIV id="text1050_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:708px; line-height:15px; white-space:nowrap">
+Option_</DIV>
+<DIV id="text1050_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:784px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1050_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:278px; margin-top:710px; line-height:13px; white-space:nowrap">
+<A href="vbslib_12.html#CaseSensitive_get_Consts">
+c.CaseSensitive</A></DIV>
+<DIV id="text1050_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:708px; line-height:15px; white-space:nowrap">
+Empty または</DIV>
+<DIV id="text1050_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:855px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1050_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:855px; line-height:15px; white-space:nowrap">
+→ TestScript.vbs</DIV>
+<DIV id="text1050_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:745px; line-height:15px; white-space:nowrap">
+文字列に含まれるすべての文字の文字コードも Diff ツールで比較します。</DIV>
+<DIV id="text1050_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:904px; line-height:15px; white-space:nowrap">
+<A href="vbslib_40.html#new_BinaryArrayAsText">
+→ new_BinaryArrayAsText</A></DIV>
+
+<v:line from="0,560" to="583,560"/>
+<v:line from="583,560" to="583,952"/>
+<v:line from="583,952" to="0,952"/>
+<v:line from="0,952" to="0,560"/>
+
+</PAGE>
+ 
+<!-- page 1051 --> 
+<PAGE>
+<A id="svgcats_vml_p1051" class="to_tree" style="margin-top:957px;" onClick="selectTreeElem( '1051' );">←</A>
+<A href="#svgcats_vml_p1052" class="to_next_page" style="margin-top:957px;">▼</A>
+<A href="#svgcats_vml_p1050" class="to_prev_page" style="margin-top:957px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:968px; width:475px; height:341px;" fillcolor="white"/>
+<DIV id="text1051_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:985px; line-height:15px; white-space:nowrap">
+<A name="AssertD_TypeName">
+AssertD_TypeName</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1015px; width:418px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1051_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1022px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AssertD_TypeName( in_Value as variant, in_TypeName as string )</DIV>
+<DIV id="text1051_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1052px; line-height:15px; white-space:nowrap">
+値の型の名前をチェックします。 （デバッグ時のみ）</DIV>
+<DIV id="text1051_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1078px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1051_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1078px; line-height:15px; white-space:nowrap">
+in_Value</DIV>
+<DIV id="text1051_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1097px; line-height:15px; white-space:nowrap">
+in_TypeName</DIV>
+<DIV id="text1051_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:1078px; line-height:15px; white-space:nowrap">
+チェックする値</DIV>
+<DIV id="text1051_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:1097px; line-height:15px; white-space:nowrap">
+型やクラスの名前</DIV>
+<DIV id="text1051_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:1261px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1051_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1261px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1051_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:1145px; line-height:15px; white-space:nowrap">
+<A href="vbslib_59.html#g_is_debug">
+g_is_debug</A></DIV>
+<DIV id="text1051_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:96px; margin-top:1145px; line-height:15px; white-space:nowrap">
+が 0 のときは、何もしません。 高速化のため。</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1210px; width:238px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1051_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1217px; line-height:13px; white-space:nowrap">
+AssertD_TypeName&nbsp; self, "SampleClass"</DIV>
+<DIV id="text1051_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1186px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1051_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1128px; line-height:15px; white-space:nowrap">
+型名をソースのコメントに書くときよりは信頼できるようになります。</DIV>
+
+<v:line from="0,968" to="475,968"/>
+<v:line from="475,968" to="475,1309"/>
+<v:line from="475,1309" to="0,1309"/>
+<v:line from="0,1309" to="0,968"/>
+
+</PAGE>
+ 
+<!-- page 1052 --> 
+<PAGE>
+<A id="svgcats_vml_p1052" class="to_tree" style="margin-top:1314px;" onClick="selectTreeElem( '1052' );">←</A>
+<A href="#svgcats_vml_p1053" class="to_next_page" style="margin-top:1314px;">▼</A>
+<A href="#svgcats_vml_p1051" class="to_prev_page" style="margin-top:1314px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1325px; width:435px; height:354px;" fillcolor="white"/>
+<DIV id="text1052_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1342px; line-height:15px; white-space:nowrap">
+<A name="ErrorValue">
+ErrorValue</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1513px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1052_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1520px; line-height:13px; white-space:nowrap">
+ErrorValue&nbsp; "Sample", 1</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1372px; width:322px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1052_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1379px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ErrorValue( Name as string, Value as Variant )</DIV>
+<DIV id="text1052_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1409px; line-height:15px; white-space:nowrap">
+問題がある値をメッセージに含めたエラーを発生させます。</DIV>
+<DIV id="text1052_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1435px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1052_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1435px; line-height:15px; white-space:nowrap">
+Name</DIV>
+<DIV id="text1052_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1454px; line-height:15px; white-space:nowrap">
+Value</DIV>
+<DIV id="text1052_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:1435px; line-height:15px; white-space:nowrap">
+値の名前</DIV>
+<DIV id="text1052_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:1454px; line-height:15px; white-space:nowrap">
+問題がある値</DIV>
+<DIV id="text1052_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1490px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:1580px; width:358px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1052_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:1587px; line-height:13px; white-space:nowrap">
+&lt;ERROR msg="値が想定外です" name="Sample" now_value="1"/&gt;</DIV>
+<DIV id="text1052_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:109px; margin-top:1490px; line-height:15px; white-space:nowrap">
+スクリプトの例</DIV>
+<DIV id="text1052_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:1560px; line-height:15px; white-space:nowrap">
+上記スクリプトを実行した時のエラーメッセージ</DIV>
+<DIV id="text1052_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1631px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1052_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:1631px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,1325" to="435,1325"/>
+<v:line from="435,1325" to="435,1679"/>
+<v:line from="435,1679" to="0,1679"/>
+<v:line from="0,1679" to="0,1325"/>
+
+</PAGE>
+ 
+<!-- page 1053 --> 
+<PAGE>
+<A id="svgcats_vml_p1053" class="to_tree" style="margin-top:1684px;" onClick="selectTreeElem( '1053' );">←</A>
+<A href="#svgcats_vml_p1054" class="to_next_page" style="margin-top:1684px;">▼</A>
+<A href="#svgcats_vml_p1052" class="to_prev_page" style="margin-top:1684px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1695px; width:559px; height:102px;" fillcolor="white"/>
+<DIV id="text1053_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1712px; line-height:15px; white-space:nowrap">
+<A name="test_target_others">
+その他</A></DIV>
+<DIV id="text1053_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:1749px; line-height:15px; white-space:nowrap">
+<A href="vbslib_31.html#ConvertToFullPath">
+→ ConvertToFullPath</A></DIV>
+<DIV id="text1053_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:1749px; line-height:15px; white-space:nowrap">
+テキストファイルの中の相対パスをフル・パスに変換します。</DIV>
+
+<v:line from="0,1695" to="559,1695"/>
+<v:line from="559,1695" to="559,1797"/>
+<v:line from="559,1797" to="0,1797"/>
+<v:line from="0,1797" to="0,1695"/>
+
+</PAGE>
+ 
+<!-- page 1054 --> 
+<PAGE>
+<A id="svgcats_vml_p1054" class="to_tree" style="margin-top:1802px;" onClick="selectTreeElem( '1054' );">←</A>
+<A href="#svgcats_vml_p1055" class="to_next_page" style="margin-top:1802px;">▼</A>
+<A href="#svgcats_vml_p1053" class="to_prev_page" style="margin-top:1802px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1813px; width:192px; height:104px;" fillcolor="white"/>
+<DIV id="text1054_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1830px; line-height:15px; white-space:nowrap">
+<A name="measure_duration">
+性能計測</A></DIV>
+<DIV id="text1054_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:1869px; line-height:15px; white-space:nowrap">
+<A href="vbslib_21.html#BenchStart">
+→ BenchStart</A></DIV>
+<DIV id="text1054_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1869px; line-height:15px; white-space:nowrap">
+参考</DIV>
+
+<v:line from="0,1813" to="192,1813"/>
+<v:line from="192,1813" to="192,1917"/>
+<v:line from="192,1917" to="0,1917"/>
+<v:line from="0,1917" to="0,1813"/>
+
+</PAGE>
+ 
+<!-- page 1055 --> 
+<PAGE>
+<A id="svgcats_vml_p1055" class="to_tree" style="margin-top:1922px;" onClick="selectTreeElem( '1055' );">←</A>
+<A href="#svgcats_vml_p1056" class="to_next_page" style="margin-top:1922px;">▼</A>
+<A href="#svgcats_vml_p1054" class="to_prev_page" style="margin-top:1922px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1933px; width:468px; height:313px;" fillcolor="white"/>
+<DIV id="text1055_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1950px; line-height:15px; white-space:nowrap">
+<A name="devtool">
+開発環境操作</A></DIV>
+<DIV id="text1055_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:170px; margin-top:2033px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューションをビルドします</DIV>
+<DIV id="text1055_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:2054px; line-height:15px; white-space:nowrap">
+<A href="#devenv_clean">
+→ devenv_clean</A></DIV>
+<DIV id="text1055_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:170px; margin-top:2054px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューションをクリーンします</DIV>
+<DIV id="text1055_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:2012px; line-height:15px; white-space:nowrap">
+<A href="#devenv">
+→ devenv_rebuild</A></DIV>
+<DIV id="text1055_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:2033px; line-height:15px; white-space:nowrap">
+<A href="#devenv_build">
+→ devenv_build</A></DIV>
+<DIV id="text1055_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:170px; margin-top:2012px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューションをリビルドします</DIV>
+<DIV id="text1055_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:34px; margin-top:2075px; line-height:15px; white-space:nowrap">
+<A href="#devenv_ver_name">
+→ devenv_ver_name 環境変数</A></DIV>
+<DIV id="text1055_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:2179px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1055_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:2198px; line-height:15px; white-space:nowrap">
+→ Module Mixer 3</DIV>
+<v:rect style="position:absolute; margin-left:84px; margin-top:2114px; width:107px; height:18px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1055_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:92px; margin-top:2116px; line-height:15px; white-space:nowrap">
+VisualStudio.vbs</DIV>
+<DIV id="text1055_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:21px; margin-top:2116px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<DIV id="text1055_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:2150px; line-height:15px; white-space:nowrap">
+→ T_devenv フォルダ</DIV>
+<DIV id="text1055_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:21px; margin-top:2150px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1055_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1983px; line-height:15px; white-space:nowrap">
+Visual Studio 2005～2010 を操作します。</DIV>
+<DIV id="text1055_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:2179px; line-height:15px; white-space:nowrap">
+→ MSBuild</DIV>
+
+<v:line from="0,1933" to="468,1933"/>
+<v:line from="468,1933" to="468,2246"/>
+<v:line from="468,2246" to="0,2246"/>
+<v:line from="0,2246" to="0,1933"/>
+
+</PAGE>
+ 
+<!-- page 1056 --> 
+<PAGE>
+<A id="svgcats_vml_p1056" class="to_tree" style="margin-top:2251px;" onClick="selectTreeElem( '1056' );">←</A>
+<A href="#svgcats_vml_p1057" class="to_next_page" style="margin-top:2251px;">▼</A>
+<A href="#svgcats_vml_p1055" class="to_prev_page" style="margin-top:2251px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2262px; width:468px; height:634px;" fillcolor="white"/>
+<DIV id="text1056_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2279px; line-height:15px; white-space:nowrap">
+<A name="devenv">
+devenv_rebuild</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:2309px; width:388px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1056_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:2316px; line-height:13px; white-space:nowrap">
+Sub&nbsp; devenv_rebuild( SlnPath as string, ConfigName as string )</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2560px; width:262px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1056_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2566px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; ds_:Set ds_= new CurDirStack<BR/>
+&nbsp; pushd&nbsp; "src"<BR/>
+&nbsp; devenv_rebuild&nbsp; "sample.sln", "Release"<BR/>
+&nbsp; popd</DIV>
+<DIV id="text1056_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:2369px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1056_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:60px; margin-top:2759px; line-height:15px; white-space:nowrap">
+<A href="http://msdn2.microsoft.com/ja-jp/library/xee0c8y7(VS.80).aspx" target="_blank">
+→ Devenv コマンド ライン スイッチ (Web)</A></DIV>
+<DIV id="text1056_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:2777px; line-height:15px; white-space:nowrap">
+→ コマンドライン・コンパイル</DIV>
+<DIV id="text1056_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:2279px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1056_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:60px; margin-top:2795px; line-height:15px; white-space:nowrap">
+<A href="#devenv_ver_name">
+→ devenv_ver_name 環境変数</A></DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2638px; width:382px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1056_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2645px; line-height:13px; white-space:nowrap">
+&nbsp; devenv_rebuild&nbsp; "src\sample_%devenv_ver_name%.sln", "Debug"</DIV>
+<DIV id="text1056_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:2343px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューションをリビルドします。</DIV>
+<DIV id="text1056_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:2369px; line-height:15px; white-space:nowrap">
+SlnPath</DIV>
+<DIV id="text1056_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:2388px; line-height:15px; white-space:nowrap">
+ConfigName</DIV>
+<DIV id="text1056_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:2369px; line-height:15px; white-space:nowrap">
+ソリューション・ファイルのパス(.sln)</DIV>
+<DIV id="text1056_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:2388px; line-height:15px; white-space:nowrap">
+設定名（"Release"など）</DIV>
+<DIV id="text1056_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:2428px; line-height:15px; white-space:nowrap">
+ソリューション・ファイルに書かれたバージョン情報を元に、<BR/>
+コンパイラのバージョンを自動的に選択します。</DIV>
+<DIV id="text1056_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:2459px; line-height:15px; white-space:nowrap">
+ビルドに失敗したら、E_BuildFail エラーになります。</DIV>
+<DIV id="text1056_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2759px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2672px; width:286px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1056_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2679px; line-height:13px; white-space:nowrap">
+&nbsp; devenv_rebuild&nbsp; "sample.sln", "Release|x64"</DIV>
+<DIV id="text1056_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:2705px; line-height:15px; white-space:nowrap">
+Release|x64 が使えるかどうかは、.sln ファイルをテキストファイル<BR/>
+で開いて、そのコンフィグがあるかどうかで判断してください。</DIV>
+<DIV id="text1056_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2829px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1056_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:2829px; line-height:15px; white-space:nowrap">
+→ T_devenv.vbs # [T_devenv_build]</DIV>
+<DIV id="text1056_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:76px; margin-top:2848px; line-height:15px; white-space:nowrap">
+→ T_devenv.vbs # [T_devenv_build_MultiFolder]</DIV>
+<DIV id="text1056_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2501px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1056_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:92px; margin-top:2501px; line-height:15px; white-space:nowrap">
+→ VisualStudio.vbs</DIV>
+<DIV id="text1056_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2534px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,2262" to="468,2262"/>
+<v:line from="468,2262" to="468,2896"/>
+<v:line from="468,2896" to="0,2896"/>
+<v:line from="0,2896" to="0,2262"/>
+
+</PAGE>
+ 
+<!-- page 1057 --> 
+<PAGE>
+<A id="svgcats_vml_p1057" class="to_tree" style="margin-top:2901px;" onClick="selectTreeElem( '1057' );">←</A>
+<A href="#svgcats_vml_p1058" class="to_next_page" style="margin-top:2901px;">▼</A>
+<A href="#svgcats_vml_p1056" class="to_prev_page" style="margin-top:2901px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2912px; width:435px; height:154px;" fillcolor="white"/>
+<DIV id="text1057_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2929px; line-height:15px; white-space:nowrap">
+<A name="devenv_build">
+devenv_build</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:2959px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1057_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:2966px; line-height:13px; white-space:nowrap">
+Sub&nbsp; devenv_build( SlnPath as string, ConfigName as string )</DIV>
+<DIV id="text1057_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:2993px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューションをビルドします。</DIV>
+<DIV id="text1057_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:2929px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1057_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:3018px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1057_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:78px; margin-top:3018px; line-height:15px; white-space:nowrap">
+<A href="#devenv">
+→ devenv_rebuild</A></DIV>
+
+<v:line from="0,2912" to="435,2912"/>
+<v:line from="435,2912" to="435,3066"/>
+<v:line from="435,3066" to="0,3066"/>
+<v:line from="0,3066" to="0,2912"/>
+
+</PAGE>
+ 
+<!-- page 1058 --> 
+<PAGE>
+<A id="svgcats_vml_p1058" class="to_tree" style="margin-top:3071px;" onClick="selectTreeElem( '1058' );">←</A>
+<A href="#svgcats_vml_p1059" class="to_next_page" style="margin-top:3071px;">▼</A>
+<A href="#svgcats_vml_p1057" class="to_prev_page" style="margin-top:3071px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3082px; width:377px; height:311px;" fillcolor="white"/>
+<DIV id="text1058_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3099px; line-height:15px; white-space:nowrap">
+<A name="devenv_clean">
+devenv_clean</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:3236px; width:226px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1058_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:3242px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; ds_:Set ds_= new CurDirStack<BR/>
+&nbsp; pushd&nbsp; "src"<BR/>
+&nbsp; devenv_clean&nbsp; "sample.sln"<BR/>
+&nbsp; popd</DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:3129px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1058_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:3136px; line-height:13px; white-space:nowrap">
+Sub&nbsp; devenv_clean( SlnPath as string )</DIV>
+<DIV id="text1058_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3214px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1058_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3163px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューションをクリーンします。</DIV>
+<DIV id="text1058_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3189px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1058_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:3189px; line-height:15px; white-space:nowrap">
+SlnPath</DIV>
+<DIV id="text1058_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:3189px; line-height:15px; white-space:nowrap">
+ソリューション・ファイルのパス(.sln)</DIV>
+<DIV id="text1058_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:3099px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1058_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:3321px; line-height:15px; white-space:nowrap">
+<A href="#devenv_ver_name">
+→ devenv_ver_name 環境変数</A></DIV>
+<DIV id="text1058_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3321px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1058_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3345px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1058_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3345px; line-height:15px; white-space:nowrap">
+→ T_devenv.vbs # [T_devenv_build_MultiFolder]</DIV>
+
+<v:line from="0,3082" to="377,3082"/>
+<v:line from="377,3082" to="377,3393"/>
+<v:line from="377,3393" to="0,3393"/>
+<v:line from="0,3393" to="0,3082"/>
+
+</PAGE>
+ 
+<!-- page 1059 --> 
+<PAGE>
+<A id="svgcats_vml_p1059" class="to_tree" style="margin-top:3398px;" onClick="selectTreeElem( '1059' );">←</A>
+<A href="#svgcats_vml_p1060" class="to_next_page" style="margin-top:3398px;">▼</A>
+<A href="#svgcats_vml_p1058" class="to_prev_page" style="margin-top:3398px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3409px; width:633px; height:435px;" fillcolor="white"/>
+<DIV id="text1059_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3426px; line-height:15px; white-space:nowrap">
+<A name="devenv_upgrade">
+devenv_upgrade</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:3456px; width:340px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1059_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:3463px; line-height:13px; white-space:nowrap">
+Sub&nbsp; devenv_upgrade( SlnPath as string, Opt as Empty )</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:3671px; width:238px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1059_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:3677px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; ds_:Set ds_= new CurDirStack<BR/>
+&nbsp; pushd&nbsp; "src"<BR/>
+&nbsp; devenv_upgrade&nbsp; "sample.sln", Empty<BR/>
+&nbsp; popd</DIV>
+<DIV id="text1059_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3649px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1059_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3490px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューション・ファイルを新しい Visual Studio 用に変換します。</DIV>
+<DIV id="text1059_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3516px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1059_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:3516px; line-height:15px; white-space:nowrap">
+SlnPath</DIV>
+<DIV id="text1059_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:172px; margin-top:3516px; line-height:15px; white-space:nowrap">
+古い Visual Studio のソリューション・ファイルのパス(.sln)</DIV>
+<DIV id="text1059_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:3758px; line-height:15px; white-space:nowrap">
+<A href="#devenv_ver_name">
+→ devenv_ver_name 環境変数</A></DIV>
+<DIV id="text1059_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3562px; line-height:15px; white-space:nowrap">
+新しいバージョンとは、現在の PC にインストールされている Visual Studio のうち、<BR/>
+最も新しいバージョンのことです。</DIV>
+<DIV id="text1059_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:3777px; line-height:15px; white-space:nowrap">
+<A href="http://msdn.microsoft.com/ja-jp/library/w15a82ay(VS.90).aspx" target="_blank">
+→ /Upgrade (devenv.exe) (Web)</A></DIV>
+<DIV id="text1059_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:3758px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1059_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:3534px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text1059_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:172px; margin-top:3534px; line-height:15px; white-space:nowrap">
+Empty または、c.MakeBackup</DIV>
+<DIV id="text1059_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3605px; line-height:15px; white-space:nowrap">
+Opt に、c.MakeBackup を指定すると、変換前のファイルのバックアップを作成します。<BR/>
+ただし、c は、get_VisualStudioConsts の返り値です。</DIV>
+<DIV id="text1059_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:3426px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1059_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:3796px; line-height:15px; white-space:nowrap">
+<A href="http://blogs.msdn.com/b/vcblog/archive/2010/03/25/to-the-command-line-enthusiasts-some-quick-know-hows-for-upgrading-to-vs-2010.aspx" target="_blank">
+→ To the command line enthusiasts Some quick know-hows for Upgrading to VS 2010 (Web)</A></DIV>
+
+<v:line from="0,3409" to="633,3409"/>
+<v:line from="633,3409" to="633,3844"/>
+<v:line from="633,3844" to="0,3844"/>
+<v:line from="0,3844" to="0,3409"/>
+
+</PAGE>
+ 
+<!-- page 1060 --> 
+<PAGE>
+<A id="svgcats_vml_p1060" class="to_tree" style="margin-top:3849px;" onClick="selectTreeElem( '1060' );">←</A>
+<A href="#svgcats_vml_p1061" class="to_next_page" style="margin-top:3849px;">▼</A>
+<A href="#svgcats_vml_p1059" class="to_prev_page" style="margin-top:3849px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3860px; width:339px; height:205px;" fillcolor="white"/>
+<DIV id="text1060_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3877px; line-height:15px; white-space:nowrap">
+<A name="get_VisualStudioConsts">
+get_VisualStudioConsts</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:3907px; width:280px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1060_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:3914px; line-height:13px; white-space:nowrap">
+Function&nbsp; get_VisualStudioConsts() as Object</DIV>
+<DIV id="text1060_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3941px; line-height:15px; white-space:nowrap">
+VisualStudio.vbs で使う定数の集合。</DIV>
+<DIV id="text1060_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:3974px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:3993px; width:262px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1060_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:3999px; line-height:15px; white-space:nowrap">
+Dim&nbsp; c : Set c = get_VisualStudioConsts()<BR/>
+'// c.MakeBackup</DIV>
+<DIV id="text1060_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:3877px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,3860" to="339,3860"/>
+<v:line from="339,3860" to="339,4065"/>
+<v:line from="339,4065" to="0,4065"/>
+<v:line from="0,4065" to="0,3860"/>
+
+</PAGE>
+ 
+<!-- page 1061 --> 
+<PAGE>
+<A id="svgcats_vml_p1061" class="to_tree" style="margin-top:4070px;" onClick="selectTreeElem( '1061' );">←</A>
+<A href="#svgcats_vml_p1062" class="to_next_page" style="margin-top:4070px;">▼</A>
+<A href="#svgcats_vml_p1060" class="to_prev_page" style="margin-top:4070px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4081px; width:650px; height:489px;" fillcolor="white"/>
+<DIV id="text1061_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4098px; line-height:15px; white-space:nowrap">
+<A name="devenv_ver_name">
+devenv_ver_name 環境変数</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:4170px; width:394px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1061_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:4177px; line-height:13px; white-space:nowrap">
+&nbsp; devenv_rebuild&nbsp; "src\sample_%devenv_ver_name%.sln", "Release"</DIV>
+<DIV id="text1061_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4129px; line-height:15px; white-space:nowrap">
+</DIV>
+<DIV id="text1061_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4129px; line-height:15px; white-space:nowrap">
+devenv_rebuild, devenv_clean などに指定する .sln ファイルのパスには、<BR/>
+%devenv_ver_name% を指定することができます。</DIV>
+<DIV id="text1061_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4210px; line-height:15px; white-space:nowrap">
+インストールされている Visual Studio に応じて、次の文字列に変換されます。</DIV>
+<DIV id="text1061_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:4231px; line-height:15px; white-space:nowrap">
+Visual Studio 2015 … "vs2015"<BR/>
+Visual Studio 2013 … "vs2013"<BR/>
+Visual Studio 2012 … "vs2012"<BR/>
+Visual Studio 2010 … "vs2010"<BR/>
+Visual Studio 2008 … "vs2008"<BR/>
+Visual Studio 2005 … "vs2005"</DIV>
+<DIV id="text1061_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4351px; line-height:15px; white-space:nowrap">
+複数の Visual Studio がインストールされているときは、デフォルトでは最新のものが設定されますが、<BR/>
+PC の環境変数や、SetVar で devenv_ver_name を設定することで、バージョンを選択できます。</DIV>
+<v:rect style="position:absolute; margin-left:52px; margin-top:4436px; width:310px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1061_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:60px; margin-top:4442px; line-height:15px; white-space:nowrap">
+get_DevEnvObj<BR/>
+echo&nbsp; "Default: " + GetVar( "%devenv_ver_name%" )</DIV>
+<DIV id="text1061_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4396px; line-height:15px; white-space:nowrap">
+GetVar や env で、devenv_ver_name 環境変数の値を取得するときは、その前に<BR/>
+get_DevEnvObj を実行してください。</DIV>
+<DIV id="text1061_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:245px; margin-top:4098px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1061_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4498px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1061_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:76px; margin-top:4498px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_03.html#T_devenv">
+→ [T_devenv]</A></DIV>
+<DIV id="text1061_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:4523px; line-height:15px; white-space:nowrap">
+→ devenv_ver_name 環境変数</DIV>
+<DIV id="text1061_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4523px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1061_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:60px; margin-top:4443px; line-height:13px; white-space:nowrap">
+<A name="get_DevEnvObj">
+get_DevEnvObj</A></DIV>
+<DIV id="text1061_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:240px; margin-top:4458px; line-height:13px; white-space:nowrap">
+devenv_ver_name</DIV>
+
+<v:line from="0,4081" to="650,4081"/>
+<v:line from="650,4081" to="650,4570"/>
+<v:line from="650,4570" to="0,4570"/>
+<v:line from="0,4570" to="0,4081"/>
+
+</PAGE>
+ 
+<!-- page 1062 --> 
+<PAGE>
+<A id="svgcats_vml_p1062" class="to_tree" style="margin-top:4575px;" onClick="selectTreeElem( '1062' );">←</A>
+<A href="#svgcats_vml_p1063" class="to_next_page" style="margin-top:4575px;">▼</A>
+<A href="#svgcats_vml_p1061" class="to_prev_page" style="margin-top:4575px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4586px; width:536px; height:236px;" fillcolor="white"/>
+<DIV id="text1062_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4603px; line-height:15px; white-space:nowrap">
+<A name="devenv_platform">
+devenv_platform 環境変数</A></DIV>
+<DIV id="text1062_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4633px; line-height:15px; white-space:nowrap">
+devenv_platform 環境変数の値は、"" (Win32 or x86) または "x64\" です。<BR/>
+初期値は、"" です。 "" 以外のときは、末尾に \ を付けてください。<BR/>
+64bit アプリケーションをビルドするときは、"x64\" を設定してからビルドしてください。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:4720px; width:430px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1062_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:4726px; line-height:15px; white-space:nowrap">
+set_ "devenv_platform", "x64\"<BR/>
+<BR/>
+devenv_build&nbsp; "Example.sln", "Release"<BR/>
+Assert&nbsp; exist(env("sample sln\%devenv_platform%Release\Example.exe"))</DIV>
+<DIV id="text1062_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4697px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1062_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:230px; margin-top:4772px; line-height:13px; white-space:nowrap">
+%devenv_platform%</DIV>
+
+<v:line from="0,4586" to="536,4586"/>
+<v:line from="536,4586" to="536,4822"/>
+<v:line from="536,4822" to="0,4822"/>
+<v:line from="0,4822" to="0,4586"/>
+
+</PAGE>
+ 
+<!-- page 1063 --> 
+<PAGE>
+<A id="svgcats_vml_p1063" class="to_tree" style="margin-top:4827px;" onClick="selectTreeElem( '1063' );">←</A>
+<A href="#svgcats_vml_p1064" class="to_next_page" style="margin-top:4827px;">▼</A>
+<A href="#svgcats_vml_p1062" class="to_prev_page" style="margin-top:4827px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4838px; width:621px; height:195px;" fillcolor="white"/>
+<DIV id="text1063_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4855px; line-height:15px; white-space:nowrap">
+<A name="IsVisualStudioInstalled">
+IsVisualStudioInstalled</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:4885px; width:562px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1063_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:4892px; line-height:13px; white-space:nowrap">
+Function&nbsp; IsVisualStudioInstalled( VersionNum as integer, IsExpress as boolean ) as boolean</DIV>
+<DIV id="text1063_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:4945px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1063_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:4919px; line-height:15px; white-space:nowrap">
+指定したバージョンの Visual Studio がインストールされているかどうかを返します。</DIV>
+<DIV id="text1063_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:4945px; line-height:15px; white-space:nowrap">
+VersionNum</DIV>
+<DIV id="text1063_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:4945px; line-height:15px; white-space:nowrap">
+バージョン番号 </DIV>
+<DIV id="text1063_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:4965px; line-height:15px; white-space:nowrap">
+IsExpress</DIV>
+<DIV id="text1063_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:4965px; line-height:15px; white-space:nowrap">
+Express 版かどうか</DIV>
+<DIV id="text1063_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:4855px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1063_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:188px; margin-top:4985px; line-height:15px; white-space:nowrap">
+インストールされているかどうか</DIV>
+<DIV id="text1063_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:4985px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+
+<v:line from="0,4838" to="621,4838"/>
+<v:line from="621,4838" to="621,5033"/>
+<v:line from="621,5033" to="0,5033"/>
+<v:line from="0,5033" to="0,4838"/>
+
+</PAGE>
+ 
+<!-- page 1064 --> 
+<PAGE>
+<A id="svgcats_vml_p1064" class="to_tree" style="margin-top:5038px;" onClick="selectTreeElem( '1064' );">←</A>
+<A href="#svgcats_vml_p1065" class="to_next_page" style="margin-top:5038px;">▼</A>
+<A href="#svgcats_vml_p1063" class="to_prev_page" style="margin-top:5038px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5049px; width:524px; height:129px;" fillcolor="white"/>
+<DIV id="text1064_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5066px; line-height:15px; white-space:nowrap">
+<A name="GetVisualStudioVersionNum">
+GetVisualStudioVersionNum</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:5096px; width:454px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1064_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:5103px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetVisualStudioVersionNum( VersionString as string ) as integer</DIV>
+<DIV id="text1064_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:5130px; line-height:15px; white-space:nowrap">
+Visual Studio のバージョン文字列（例："vs2008"）を数値（例：2008）に変換します。</DIV>
+<DIV id="text1064_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:223px; margin-top:5066px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,5049" to="524,5049"/>
+<v:line from="524,5049" to="524,5178"/>
+<v:line from="524,5178" to="0,5178"/>
+<v:line from="0,5178" to="0,5049"/>
+
+</PAGE>
+ 
+<!-- page 1065 --> 
+<PAGE>
+<A id="svgcats_vml_p1065" class="to_tree" style="margin-top:5183px;" onClick="selectTreeElem( '1065' );">←</A>
+<A href="#svgcats_vml_p1066" class="to_next_page" style="margin-top:5183px;">▼</A>
+<A href="#svgcats_vml_p1064" class="to_prev_page" style="margin-top:5183px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5194px; width:535px; height:207px;" fillcolor="white"/>
+<DIV id="text1065_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5211px; line-height:15px; white-space:nowrap">
+<A name="GetSlnFileVersion">
+GetSlnFileVersion</A></DIV>
+<v:rect style="position:absolute; margin-left:27px; margin-top:5241px; width:430px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1065_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:35px; margin-top:5247px; line-height:15px; white-space:nowrap">
+Sub&nbsp; GetSlnFileVersion( SlnPath as string, out_VersionNum as integer,<BR/>
+&nbsp; &nbsp; out_IsExpress as boolean )</DIV>
+<DIV id="text1065_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:5291px; line-height:15px; white-space:nowrap">
+指定のソリューション・ファイルが使える Visual Studio のバージョンを返します。</DIV>
+<DIV id="text1065_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:5317px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1065_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:5317px; line-height:15px; white-space:nowrap">
+SlnPath</DIV>
+<DIV id="text1065_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:212px; margin-top:5317px; line-height:15px; white-space:nowrap">
+Visual Studio のソリューション・ファイルのパス(.sln)</DIV>
+<DIV id="text1065_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:5335px; line-height:15px; white-space:nowrap">
+out_VersionNum</DIV>
+<DIV id="text1065_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:212px; margin-top:5335px; line-height:15px; white-space:nowrap">
+（出力） バージョン番号。 2012, 2010, 2008, 2005</DIV>
+<DIV id="text1065_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:5211px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1065_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:93px; margin-top:5353px; line-height:15px; white-space:nowrap">
+out_IsExpress</DIV>
+<DIV id="text1065_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:212px; margin-top:5353px; line-height:15px; white-space:nowrap">
+（出力） Express 版かどうか</DIV>
+
+<v:line from="0,5194" to="535,5194"/>
+<v:line from="535,5194" to="535,5401"/>
+<v:line from="535,5401" to="0,5401"/>
+<v:line from="0,5401" to="0,5194"/>
+
+</PAGE>
+ 
+<!-- page 1066 --> 
+<PAGE>
+<A id="svgcats_vml_p1066" class="to_tree" style="margin-top:5406px;" onClick="selectTreeElem( '1066' );">←</A>
+<A href="#svgcats_vml_p1067" class="to_next_page" style="margin-top:5406px;">▼</A>
+<A href="#svgcats_vml_p1065" class="to_prev_page" style="margin-top:5406px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5417px; width:492px; height:164px;" fillcolor="white"/>
+<DIV id="text1066_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5434px; line-height:15px; white-space:nowrap">
+<A name="VisualStudioSlnClass">
+VisualStudioSlnClass</A></DIV>
+<DIV id="text1066_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:5465px; line-height:15px; white-space:nowrap">
+Visual Studio の *.sln ファイルを読み込みます。</DIV>
+<DIV id="text1066_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:5434px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1066_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5533px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1066_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:5533px; line-height:15px; white-space:nowrap">
+→ T_devenv.vbs # [T_devenv_SlnLoad]</DIV>
+<DIV id="text1066_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:5497px; line-height:15px; white-space:nowrap">
+<A href="#Load_VisualStudioSlnClass">
+Load</A></DIV>
+<DIV id="text1066_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:57px; margin-top:5497px; line-height:15px; white-space:nowrap">
+してから</DIV>
+<DIV id="text1066_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:163px; margin-top:5497px; line-height:15px; white-space:nowrap">
+や</DIV>
+<DIV id="text1066_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:110px; margin-top:5497px; line-height:15px; white-space:nowrap">
+<A href="#Projects_VisualStudioSlnClass">
+Projects</A></DIV>
+<DIV id="text1066_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:184px; margin-top:5497px; line-height:15px; white-space:nowrap">
+<A href="#ConfigurationPlatforms_VisualStudioSlnClass">
+ConfigurationPlatforms</A></DIV>
+<DIV id="text1066_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:319px; margin-top:5497px; line-height:15px; white-space:nowrap">
+にアクセスしてください。</DIV>
+
+<v:line from="0,5417" to="492,5417"/>
+<v:line from="492,5417" to="492,5581"/>
+<v:line from="492,5581" to="0,5581"/>
+<v:line from="0,5581" to="0,5417"/>
+
+</PAGE>
+ 
+<!-- page 1067 --> 
+<PAGE>
+<A id="svgcats_vml_p1067" class="to_tree" style="margin-top:5586px;" onClick="selectTreeElem( '1067' );">←</A>
+<A href="#svgcats_vml_p1068" class="to_next_page" style="margin-top:5586px;">▼</A>
+<A href="#svgcats_vml_p1066" class="to_prev_page" style="margin-top:5586px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5597px; width:415px; height:158px;" fillcolor="white"/>
+<DIV id="text1067_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5614px; line-height:15px; white-space:nowrap">
+<A name="Load_VisualStudioSlnClass">
+Load (VisualStudioSlnClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5644px; width:352px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1067_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5651px; line-height:13px; white-space:nowrap">
+Sub&nbsp; VisualStudioSlnClass::Load( SlnFilePath as string )</DIV>
+<DIV id="text1067_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5681px; line-height:15px; white-space:nowrap">
+Visual Studio の *.sln ファイルを読み込みます。</DIV>
+<DIV id="text1067_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5707px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1067_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5707px; line-height:15px; white-space:nowrap">
+SlnFilePath</DIV>
+<DIV id="text1067_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5707px; line-height:15px; white-space:nowrap">
+*.sln ファイルのパス</DIV>
+<DIV id="text1067_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:260px; margin-top:5614px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+
+<v:line from="0,5597" to="415,5597"/>
+<v:line from="415,5597" to="415,5755"/>
+<v:line from="415,5755" to="0,5755"/>
+<v:line from="0,5755" to="0,5597"/>
+
+</PAGE>
+ 
+<!-- page 1068 --> 
+<PAGE>
+<A id="svgcats_vml_p1068" class="to_tree" style="margin-top:5760px;" onClick="selectTreeElem( '1068' );">←</A>
+<A href="#svgcats_vml_p1069" class="to_next_page" style="margin-top:5760px;">▼</A>
+<A href="#svgcats_vml_p1067" class="to_prev_page" style="margin-top:5760px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5771px; width:553px; height:160px;" fillcolor="white"/>
+<DIV id="text1068_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5788px; line-height:15px; white-space:nowrap">
+<A name="Projects_VisualStudioSlnClass">
+Projects (VisualStudioSlnClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5818px; width:496px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1068_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5825px; line-height:13px; white-space:nowrap">
+Dim&nbsp; VisualStudioSlnClass::Projects as ArrayClass of VisualStudioSlnProjectClass</DIV>
+<DIV id="text1068_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5855px; line-height:15px; white-space:nowrap">
+ソリューションの中にあるプロジェクトの一覧。</DIV>
+<DIV id="text1068_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:351px; margin-top:5825px; line-height:13px; white-space:nowrap">
+<A href="#VisualStudioSlnProjectClass">
+VisualStudioSlnProjectClass</A></DIV>
+<DIV id="text1068_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:5883px; line-height:15px; white-space:nowrap">
+<A href="#Load_VisualStudioSlnClass">
+Load</A></DIV>
+<DIV id="text1068_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:67px; margin-top:5883px; line-height:15px; white-space:nowrap">
+してからアクセスしてください。</DIV>
+
+<v:line from="0,5771" to="553,5771"/>
+<v:line from="553,5771" to="553,5931"/>
+<v:line from="553,5931" to="0,5931"/>
+<v:line from="0,5931" to="0,5771"/>
+
+</PAGE>
+ 
+<!-- page 1069 --> 
+<PAGE>
+<A id="svgcats_vml_p1069" class="to_tree" style="margin-top:5936px;" onClick="selectTreeElem( '1069' );">←</A>
+<A href="#svgcats_vml_p1070" class="to_next_page" style="margin-top:5936px;">▼</A>
+<A href="#svgcats_vml_p1068" class="to_prev_page" style="margin-top:5936px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5947px; width:307px; height:206px;" fillcolor="white"/>
+<DIV id="text1069_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5964px; line-height:15px; white-space:nowrap">
+<A name="VisualStudioSlnProjectClass">
+VisualStudioSlnProjectClass</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5994px; width:250px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1069_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6000px; line-height:15px; white-space:nowrap">
+Class&nbsp; VisualStudioSlnProjectClass<BR/>
+&nbsp; &nbsp; Public&nbsp; ProjectName&nbsp; &nbsp;'// as string<BR/>
+&nbsp; &nbsp; Public&nbsp; RelativePath&nbsp; '// as string<BR/>
+&nbsp; &nbsp; Public&nbsp; ProjectGuid&nbsp; &nbsp;'// as string<BR/>
+End Class </DIV>
+<DIV id="text1069_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:253px; margin-top:5964px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1069_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:6105px; line-height:15px; white-space:nowrap">
+<A href="#VisualStudioSlnClass">
+→ VisualStudioSlnClass</A></DIV>
+<DIV id="text1069_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6105px; line-height:15px; white-space:nowrap">
+参考</DIV>
+
+<v:line from="0,5947" to="307,5947"/>
+<v:line from="307,5947" to="307,6153"/>
+<v:line from="307,6153" to="0,6153"/>
+<v:line from="0,6153" to="0,5947"/>
+
+</PAGE>
+ 
+<!-- page 1070 --> 
+<PAGE>
+<A id="svgcats_vml_p1070" class="to_tree" style="margin-top:6158px;" onClick="selectTreeElem( '1070' );">←</A>
+<A href="#svgcats_vml_p1071" class="to_next_page" style="margin-top:6158px;">▼</A>
+<A href="#svgcats_vml_p1069" class="to_prev_page" style="margin-top:6158px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6169px; width:481px; height:178px;" fillcolor="white"/>
+<DIV id="text1070_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6186px; line-height:15px; white-space:nowrap">
+<A name="ConfigurationPlatforms_VisualStudioSlnClass">
+ConfigurationPlatforms (VisualStudioSlnClass)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6216px; width:388px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1070_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6222px; line-height:15px; white-space:nowrap">
+Dim&nbsp; VisualStudioSlnClass::ConfigurationPlatforms<BR/>
+&nbsp; &nbsp; as ArrayClass of VisualStudioSlnConfigurationPlatformClass</DIV>
+<DIV id="text1070_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6271px; line-height:15px; white-space:nowrap">
+ソリューションの中にあるコンフィギュレーションとプラットフォームの一覧。</DIV>
+<DIV id="text1070_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:6299px; line-height:15px; white-space:nowrap">
+<A href="#Load_VisualStudioSlnClass">
+Load</A></DIV>
+<DIV id="text1070_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:67px; margin-top:6299px; line-height:15px; white-space:nowrap">
+してからアクセスしてください。</DIV>
+<DIV id="text1070_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:159px; margin-top:6238px; line-height:13px; white-space:nowrap">
+<A href="#VisualStudioSlnConfigurationPlatformClass">
+VisualStudioSlnConfigurationPlatformClass</A></DIV>
+
+<v:line from="0,6169" to="481,6169"/>
+<v:line from="481,6169" to="481,6347"/>
+<v:line from="481,6347" to="0,6347"/>
+<v:line from="0,6347" to="0,6169"/>
+
+</PAGE>
+ 
+<!-- page 1071 --> 
+<PAGE>
+<A id="svgcats_vml_p1071" class="to_tree" style="margin-top:6352px;" onClick="selectTreeElem( '1071' );">←</A>
+<A href="#svgcats_vml_p1072" class="to_next_page" style="margin-top:6352px;">▼</A>
+<A href="#svgcats_vml_p1070" class="to_prev_page" style="margin-top:6352px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6363px; width:457px; height:185px;" fillcolor="white"/>
+<DIV id="text1071_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6380px; line-height:15px; white-space:nowrap">
+<A name="VisualStudioSlnConfigurationPlatformClass">
+VisualStudioSlnConfigurationPlatformClass</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6410px; width:400px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1071_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6416px; line-height:15px; white-space:nowrap">
+Class&nbsp; VisualStudioSlnConfigurationPlatformClass<BR/>
+&nbsp; &nbsp; Public&nbsp; Configuration&nbsp; &nbsp;'// as string. "Debug", "Release"<BR/>
+&nbsp; &nbsp; Public&nbsp; Platform&nbsp; &nbsp; &nbsp; &nbsp; '// as string. "Win32", "x86", "x64"<BR/>
+End Class </DIV>
+<DIV id="text1071_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:6500px; line-height:15px; white-space:nowrap">
+<A href="#VisualStudioSlnClass">
+→ VisualStudioSlnClass</A></DIV>
+<DIV id="text1071_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6500px; line-height:15px; white-space:nowrap">
+参考</DIV>
+
+<v:line from="0,6363" to="457,6363"/>
+<v:line from="457,6363" to="457,6548"/>
+<v:line from="457,6548" to="0,6548"/>
+<v:line from="0,6548" to="0,6363"/>
+
+</PAGE>
+ 
+<!-- page 1072 --> 
+<PAGE>
+<A id="svgcats_vml_p1072" class="to_tree" style="margin-top:6553px;" onClick="selectTreeElem( '1072' );">←</A>
+<A href="#svgcats_vml_p1073" class="to_next_page" style="margin-top:6553px;">▼</A>
+<A href="#svgcats_vml_p1071" class="to_prev_page" style="margin-top:6553px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6564px; width:577px; height:271px;" fillcolor="white"/>
+<DIV id="text1072_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6581px; line-height:15px; white-space:nowrap">
+<A name="DeleteProjectInVisualStudioSln">
+DeleteProjectInVisualStudioSln</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6611px; width:520px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1072_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6618px; line-height:13px; white-space:nowrap">
+Sub&nbsp; DeleteProjectInVisualStudioSln( SlnFilePath as string, ProjectNameh as string )</DIV>
+<DIV id="text1072_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6648px; line-height:15px; white-space:nowrap">
+Visual Studio の *.sln ファイルの中にある１つのプロジェクトを削除します。</DIV>
+<DIV id="text1072_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6674px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1072_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6674px; line-height:15px; white-space:nowrap">
+SlnFilePath</DIV>
+<DIV id="text1072_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6693px; line-height:15px; white-space:nowrap">
+ProjectNameh</DIV>
+<DIV id="text1072_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:202px; margin-top:6674px; line-height:15px; white-space:nowrap">
+*.sln ファイルのパス</DIV>
+<DIV id="text1072_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:202px; margin-top:6693px; line-height:15px; white-space:nowrap">
+削除するプロジェクトの名前</DIV>
+<DIV id="text1072_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:162px; margin-top:6734px; line-height:15px; white-space:nowrap">
+<A href="#VisualStudioSlnProjectClass">
+VisualStudioSlnProjectClass::ProjectName</A></DIV>
+<DIV id="text1072_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:291px; margin-top:6581px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1072_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6787px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1072_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:6787px; line-height:15px; white-space:nowrap">
+→ T_devenv.vbs # [T_devenv_DeleteProjectsInSln]</DIV>
+<DIV id="text1072_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6734px; line-height:15px; white-space:nowrap">
+プロジェクトの名前は、</DIV>
+<DIV id="text1072_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:411px; margin-top:6734px; line-height:15px; white-space:nowrap">
+から参照できます。</DIV>
+
+<v:line from="0,6564" to="577,6564"/>
+<v:line from="577,6564" to="577,6835"/>
+<v:line from="577,6835" to="0,6835"/>
+<v:line from="0,6835" to="0,6564"/>
+
+</PAGE>
+ 
+<!-- page 1073 --> 
+<PAGE>
+<A id="svgcats_vml_p1073" class="to_tree" style="margin-top:6840px;" onClick="selectTreeElem( '1073' );">←</A>
+<A href="#svgcats_vml_p1074" class="to_next_page" style="margin-top:6840px;">▼</A>
+<A href="#svgcats_vml_p1072" class="to_prev_page" style="margin-top:6840px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6851px; width:116px; height:101px;" fillcolor="white"/>
+<DIV id="text1073_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6868px; line-height:15px; white-space:nowrap">
+その他</DIV>
+<DIV id="text1073_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:24px; margin-top:6904px; line-height:15px; white-space:nowrap">
+<A href="vbslib_43.html#c_lang_source">
+→ C言語</A></DIV>
+
+<v:line from="0,6851" to="116,6851"/>
+<v:line from="116,6851" to="116,6952"/>
+<v:line from="116,6952" to="0,6952"/>
+<v:line from="0,6952" to="0,6851"/>
+
+</PAGE>
+ 
+<!-- page 1074 --> 
+<PAGE>
+<A id="svgcats_vml_p1074" class="to_tree" style="margin-top:6957px;" onClick="selectTreeElem( '1074' );">←</A>
+<A href="#svgcats_vml_p1075" class="to_next_page" style="margin-top:6957px;">▼</A>
+<A href="#svgcats_vml_p1073" class="to_prev_page" style="margin-top:6957px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6968px; width:599px; height:434px;" fillcolor="white"/>
+<DIV id="text1074_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:19px; margin-top:6985px; line-height:15px; white-space:nowrap">
+<A name="system">
+インストール、レジストリ、OS</A></DIV>
+<DIV id="text1074_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7329px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_16.html#reg">
+→ レジストリ (VBS)</A></DIV>
+<DIV id="text1074_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:7058px; line-height:15px; white-space:nowrap">
+レジストリのサブキーを列挙します。</DIV>
+<DIV id="text1074_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7079px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#RegEnumValues">
+→ RegEnumValues</A></DIV>
+<DIV id="text1074_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:7079px; line-height:15px; white-space:nowrap">
+指定のレジストリ・キーに入っている値を列挙します。</DIV>
+<DIV id="text1074_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7121px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#RegExport">
+→ RegExport</A></DIV>
+<DIV id="text1074_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:7121px; line-height:15px; white-space:nowrap">
+レジストリ・キーの値を .reg ファイルに出力します。</DIV>
+<DIV id="text1074_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7181px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#RegWrite">
+→ RegWrite</A></DIV>
+<DIV id="text1074_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:7224px; line-height:15px; white-space:nowrap">
+ファイルをダブルクリックしたときに開くプログラムを設定します。</DIV>
+<DIV id="text1074_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:7245px; line-height:15px; white-space:nowrap">
+ファイルの右クリック・メニューの１つの項目を追加します。</DIV>
+<DIV id="text1074_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:7181px; line-height:15px; white-space:nowrap">
+レジストリにライトします。</DIV>
+<DIV id="text1074_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7100px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#RegExists">
+→ RegExists</A></DIV>
+<DIV id="text1074_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:7100px; line-height:15px; white-space:nowrap">
+指定のレジストリ・キーか値が存在するかどうかを判定します。</DIV>
+<DIV id="text1074_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:7351px; line-height:15px; white-space:nowrap">
+<A href="vbslib_60.html#var">
+→ バージョン判定、環境変数</A></DIV>
+<DIV id="text1074_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7022px; line-height:15px; white-space:nowrap">
+<A href="#Shutdown">
+→ Shutdown</A></DIV>
+<DIV id="text1074_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:7022px; line-height:15px; white-space:nowrap">
+PC の電源を切ります。</DIV>
+<DIV id="text1074_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7058px; line-height:15px; white-space:nowrap">
+<A href="#RegEnumKeys">
+→ RegEnumKeys</A></DIV>
+<DIV id="text1074_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7160px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#RegRead">
+→ RegRead</A></DIV>
+<DIV id="text1074_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:7160px; line-height:15px; white-space:nowrap">
+レジストリからリードします。</DIV>
+<DIV id="text1074_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:7224px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#InstallRegistryFileOpen">
+→ InstallRegistryFileOpen</A></DIV>
+<DIV id="text1074_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:36px; margin-top:7245px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#InstallRegistryFileVerb">
+→ InstallRegistryFileVerb</A></DIV>
+<DIV id="text1074_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:27px; margin-top:7329px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1074_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:27px; margin-top:7296px; line-height:15px; white-space:nowrap">
+他にもあります。左のツリーから選択してください。</DIV>
+
+<v:line from="0,6968" to="599,6968"/>
+<v:line from="599,6968" to="599,7402"/>
+<v:line from="599,7402" to="0,7402"/>
+<v:line from="0,7402" to="0,6968"/>
+
+</PAGE>
+ 
+<!-- page 1075 --> 
+<PAGE>
+<A id="svgcats_vml_p1075" class="to_tree" style="margin-top:7407px;" onClick="selectTreeElem( '1075' );">←</A>
+<A href="#svgcats_vml_p1076" class="to_next_page" style="margin-top:7407px;">▼</A>
+<A href="#svgcats_vml_p1074" class="to_prev_page" style="margin-top:7407px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7418px; width:576px; height:1967px;" fillcolor="white"/>
+<v:image src="1075/image01.jpg"
+   style="position:absolute; margin-left:50px; margin-top:8104px; width:231px; height:136px;"/>
+<DIV id="text1075_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7435px; line-height:15px; white-space:nowrap">
+<A name="Shutdown">
+Shutdown</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:7471px; width:406px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:7478px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Shutdown( Operation as string, CountDownTimeSec as integer )</DIV>
+<DIV id="text1075_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7508px; line-height:15px; white-space:nowrap">
+PC の電源を切ります。</DIV>
+<DIV id="text1075_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:7534px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1075_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:7534px; line-height:15px; white-space:nowrap">
+Operation</DIV>
+<DIV id="text1075_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:7553px; line-height:15px; white-space:nowrap">
+CountDownTimeSec</DIV>
+<DIV id="text1075_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:235px; margin-top:7534px; line-height:15px; white-space:nowrap">
+電源の切り方（下記）</DIV>
+<DIV id="text1075_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:235px; margin-top:7553px; line-height:15px; white-space:nowrap">
+電源を切るまでの時間（秒）</DIV>
+<DIV id="text1075_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:305px; margin-top:7437px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1075_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:142px; margin-top:7439px; line-height:12px; white-space:nowrap">
+<A href="#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:7671px; width:244px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:7677px; line-height:15px; white-space:nowrap">
+RunProg&nbsp; "cscript&nbsp; main_child.vbs", ""<BR/>
+Shutdown&nbsp; Empty, Empty</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:8302px; width:298px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:8308px; line-height:15px; white-space:nowrap">
+Function&nbsp; Setting_getShutdownOperation()<BR/>
+&nbsp; Setting_getShutdownOperation = "PowerOff"<BR/>
+End Function<BR/>
+<BR/>
+Function&nbsp; Setting_getShutdownCountDownTimeSec()<BR/>
+&nbsp; Setting_getShutdownCountDownTimeSec = 60<BR/>
+End Function</DIV>
+<DIV id="text1075_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:7651px; line-height:15px; white-space:nowrap">
+main_child が終了したらデフォルト設定で電源を切る。</DIV>
+<DIV id="text1075_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:7801px; line-height:15px; white-space:nowrap">
+30秒後にスリープする</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:7821px; width:142px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:7828px; line-height:13px; white-space:nowrap">
+Shutdown&nbsp; "Sleep", 30</DIV>
+<DIV id="text1075_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8260px; line-height:15px; white-space:nowrap">
+デフォルト設定は、</DIV>
+<DIV id="text1075_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:142px; margin-top:8260px; line-height:15px; white-space:nowrap">
+<A href="vbslib_08.html#setting_vbs">
+setting フォルダ</A></DIV>
+<DIV id="text1075_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:8260px; line-height:15px; white-space:nowrap">
+に下記の関数の定義によって設定します。</DIV>
+<DIV id="text1075_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8277px; line-height:15px; white-space:nowrap">
+関数定義がないときは、"PowerOff", 60 になります。</DIV>
+<DIV id="text1075_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:8055px; line-height:15px; white-space:nowrap">
+Shutdown 関数を呼び出すと、カウントダウンを始め、下記のウィンドウが開きます。<BR/>
+ただし、CountDownTimeSec = 0 のときは開きません。</DIV>
+<DIV id="text1075_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9337px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1075_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:7875px; line-height:15px; white-space:nowrap">
+Operation 引数</DIV>
+<DIV id="text1075_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:7900px; line-height:15px; white-space:nowrap">
+次のいずれかの文字列を指定できます。</DIV>
+<DIV id="text1075_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:54px; margin-top:7921px; line-height:13px; white-space:nowrap">
+"PowerOff", "Reboot", "Hibernate", "Sleep", "Standby"</DIV>
+<DIV id="text1075_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:294px; margin-top:8140px; line-height:15px; white-space:nowrap">
+[OK] を押せば、すぐに電源を切ります。<BR/>
+&nbsp;[キャンセル]を押すか、VBScript の<BR/>
+コンソールを閉じると、電源を切らなく<BR/>
+なります。</DIV>
+<DIV id="text1075_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:86px; margin-top:9337px; line-height:15px; white-space:nowrap">
+→ T_Shutdown_Manually.vbs</DIV>
+<DIV id="text1075_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:7945px; line-height:15px; white-space:nowrap">
+スリープするときは、scriptlib\vbslib_XXX\SetSuspendState フォルダが必要です。<BR/>
+Sleep と Standby は同じです。<BR/>
+Windows 8 タブレットのコネクテッド・スタンバイ には対応していません。</DIV>
+<DIV id="text1075_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:271px; margin-top:9337px; line-height:15px; white-space:nowrap">
+それぞれの OS のバージョンで行うこと</DIV>
+<DIV id="text1075_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:55px; margin-top:7725px; line-height:15px; white-space:nowrap">
+エラーが発生しても、電源を切るには、</DIV>
+<DIV id="text1075_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:271px; margin-top:7725px; line-height:15px; white-space:nowrap">
+RunProg などで、メイン処理を行う子プロセス</DIV>
+<DIV id="text1075_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:55px; margin-top:7741px; line-height:15px; white-space:nowrap">
+を起動して、子プロセスが終了する（RunProg から戻る）まで待ってから、Shutdown<BR/>
+を実行してください。 こうすれば、Ctrl-C や閉じるボタンが押されても電源が切れます。</DIV>
+<DIV id="text1075_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:302px; margin-top:7693px; line-height:15px; white-space:nowrap">
+通常 60秒後にシャットダウンします。</DIV>
+<DIV id="text1075_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8446px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1075_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:121px; margin-top:8446px; line-height:15px; white-space:nowrap">
+音楽を鳴らしながら、60秒待ち、スリープする</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:8469px; width:406px; height:175px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:8475px; line-height:15px; white-space:nowrap">
+g_CommandPrompt = 1&nbsp; &nbsp;'// この行だけ SetupVbslibParameters に記述<BR/>
+<BR/>
+Sub&nbsp; main()<BR/>
+&nbsp; Play&nbsp; "******.mp3"<BR/>
+<BR/>
+&nbsp; Dim&nbsp; e&nbsp; ' as Err2<BR/>
+&nbsp; If TryStart(e) Then&nbsp; On Error Resume Next<BR/>
+&nbsp; &nbsp; Shutdown "Sleep", 60<BR/>
+&nbsp; If TryEnd Then&nbsp; On Error GoTo 0<BR/>
+&nbsp; e.Clear&nbsp; '// ユーザ・キャンセルしてもウィンドウを閉じるため<BR/>
+End Sub</DIV>
+<DIV id="text1075_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:8653px; line-height:15px; white-space:nowrap">
+このスクリプトを、Windows のタスクに登録しておくと、１時間ごとにスリープに入ることを<BR/>
+試みるようなことができます。 </DIV>
+<DIV id="text1075_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:48px; margin-top:8691px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1075_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:86px; margin-top:8691px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#task">
+→ タスク （Windows でのスケジュール実行）</A></DIV>
+<DIV id="text1075_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8738px; line-height:15px; white-space:nowrap">
+Windows 7 では、地デジの予約録画などによる、</DIV>
+<DIV id="text1075_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:302px; margin-top:8738px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_04.html#half_sleep">
+「半スリープ状態」</A></DIV>
+<DIV id="text1075_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:409px; margin-top:8738px; line-height:15px; white-space:nowrap">
+から、</DIV>
+<DIV id="text1075_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8754px; line-height:15px; white-space:nowrap">
+Shutdown "Sleep" してもスリープ状態になりません。</DIV>
+<DIV id="text1075_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8810px; line-height:15px; white-space:nowrap">
+<A name="wakeonlan">
+wakeonlan : 無停電 Linux サーバーから別の PC の電源を入れる</A></DIV>
+<v:rect style="position:absolute; margin-left:67px; margin-top:9078px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:75px; margin-top:9085px; line-height:13px; white-space:nowrap">
+wakeonlan &lt;電源を入れるPCのMACアドレス&gt;</DIV>
+<DIV id="text1075_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8842px; line-height:15px; white-space:nowrap">
+まず、電源を入れる PC の準備をします。</DIV>
+<v:rect style="position:absolute; margin-left:55px; margin-top:9267px; width:472px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_47" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:63px; margin-top:9274px; line-height:13px; white-space:nowrap">
+/usr/bin/net rpc -S &lt;マシン名&gt; -U &lt;アカウント名&gt;%&lt;パスワード&gt; shutdown -t 10</DIV>
+<DIV id="text1075_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:63px; margin-top:9299px; line-height:15px; white-space:nowrap">
+&lt;アカウント名&gt; は、&lt;ユーザ名&gt; または &lt;ドメイン名&gt;\\&lt;ユーザ名&gt;</DIV>
+<DIV id="text1075_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:120px; margin-top:9228px; line-height:15px; white-space:nowrap">
+<A href="vbslib_05.html#shutdown_sth">
+vbslib Prompt.vbs の Shutdown</A></DIV>
+<DIV id="text1075_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9162px; line-height:15px; white-space:nowrap">
+電源を落とすには、リモート・デスクトップ経由で、コマンドプロンプトから</DIV>
+<DIV id="text1075_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:298px; margin-top:9228px; line-height:15px; white-space:nowrap">
+を実行するか、無停電 Linux サーバー</DIV>
+<DIV id="text1075_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9243px; line-height:15px; white-space:nowrap">
+から下記のコマンドを入力してください。</DIV>
+<DIV id="text1075_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:63px; margin-top:8869px; line-height:15px; white-space:nowrap">
+Windows XP の場合、<BR/>
+[ スタート &gt; マイコンピューター ] を右クリック [ プロパティ &gt; ハードウェア &gt; デバイス<BR/>
+マネージャ ] から、ネットワーク アダプタの子ノードの中から該当するアダプタを<BR/>
+右クリック [ プロパティ ]、[ 詳細設定 &gt; Wake Up Capabilities ] を [ Magic Packet ]、<BR/>
+[ 電源の管理 &gt; このデバイスで、コンピュータのスタンバイ状態を解除できるように<BR/>
+する ] にチェックします。<BR/>
+PC の電源を切ってから、再度電源を入れてすぐに BIOS の設定画面を開き（機種<BR/>
+依存です。例：F2を押す）、Wake On LAN を有効にします（例：Power &gt; Automatic <BR/>
+Power On &gt; Wake on LAN = Primary）</DIV>
+<DIV id="text1075_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9036px; line-height:15px; white-space:nowrap">
+『無停電の Linux サーバー』 にログインして、wakeonlan コマンドを実行します。<BR/>
+なお、MAC アドレスは、コマンドプロンプトから ipconfig /all を実行すると分かります。</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:9115px; width:190px; height:19px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_55" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:9119px; line-height:13px; white-space:nowrap">
+./wakeonlan 11:22:33:44:55:66</DIV>
+<DIV id="text1075_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:66px; margin-top:9117px; line-height:15px; white-space:nowrap">
+例：</DIV>
+<v:rect style="position:absolute; margin-left:70px; margin-top:9187px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1075_57" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:78px; margin-top:9194px; line-height:13px; white-space:nowrap">
+shutdown /s /f</DIV>
+<DIV id="text1075_58" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9228px; line-height:15px; white-space:nowrap">
+を実行するか、</DIV>
+<DIV id="text1075_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:7597px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1075_60" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:85px; margin-top:7597px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1075_61" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:179px; margin-top:7597px; line-height:15px; white-space:nowrap">
+→ SetSuspendState フォルダー</DIV>
+<DIV id="text1075_62" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:7651px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1075_63" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:7801px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1075_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:22px; margin-top:8021px; line-height:15px; white-space:nowrap">
+補足</DIV>
+
+<v:line from="0,7418" to="576,7418"/>
+<v:line from="576,7418" to="576,9385"/>
+<v:line from="576,9385" to="0,9385"/>
+<v:line from="0,9385" to="0,7418"/>
+
+</PAGE>
+ 
+<!-- page 1076 --> 
+<PAGE>
+<A id="svgcats_vml_p1076" class="to_tree" style="margin-top:9390px;" onClick="selectTreeElem( '1076' );">←</A>
+<A href="#svgcats_vml_p1077" class="to_next_page" style="margin-top:9390px;">▼</A>
+<A href="#svgcats_vml_p1075" class="to_prev_page" style="margin-top:9390px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9401px; width:450px; height:171px;" fillcolor="white"/>
+<DIV id="text1076_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9418px; line-height:15px; white-space:nowrap">
+IsScreenSaverRunning</DIV>
+<DIV id="text1076_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:375px; margin-top:9420px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1076_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:212px; margin-top:9422px; line-height:12px; white-space:nowrap">
+<A href="#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:9454px; width:274px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1076_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:9461px; line-height:13px; white-space:nowrap">
+Function&nbsp; IsScreenSaverRunning() as boolean</DIV>
+<DIV id="text1076_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9491px; line-height:15px; white-space:nowrap">
+スクリーンセーバーが動いているかどうかを返します。</DIV>
+<DIV id="text1076_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:86px; margin-top:9524px; line-height:15px; white-space:nowrap">
+→ T_ScreenSaver_Manually.vbs # [T_IsScreenSaverRunning]</DIV>
+<DIV id="text1076_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:9524px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+
+<v:line from="0,9401" to="450,9401"/>
+<v:line from="450,9401" to="450,9572"/>
+<v:line from="450,9572" to="0,9572"/>
+<v:line from="0,9572" to="0,9401"/>
+
+</PAGE>
+ 
+<!-- page 1077 --> 
+<PAGE>
+<A id="svgcats_vml_p1077" class="to_tree" style="margin-top:9577px;" onClick="selectTreeElem( '1077' );">←</A>
+<A href="vbslib_57.html#svgcats_vml_p1078" class="to_next_page" style="margin-top:9577px;">▼</A>
+<A href="#svgcats_vml_p1076" class="to_prev_page" style="margin-top:9577px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9588px; width:550px; height:508px;" fillcolor="white"/>
+<DIV id="text1077_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9605px; line-height:15px; white-space:nowrap">
+<A name="RegEnumKeys">
+RegEnumKeys</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:9641px; width:490px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1077_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:9648px; line-height:13px; white-space:nowrap">
+Sub&nbsp; RegEnumKeys( Path as string, out_Keys as array of string, Opt as integer )</DIV>
+<DIV id="text1077_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9678px; line-height:15px; white-space:nowrap">
+レジストリのサブキーを列挙します。</DIV>
+<DIV id="text1077_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9704px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1077_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:9704px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text1077_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:9723px; line-height:15px; white-space:nowrap">
+out_Keys</DIV>
+<DIV id="text1077_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:9704px; line-height:15px; white-space:nowrap">
+レジストリのキーのパス</DIV>
+<DIV id="text1077_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:9723px; line-height:15px; white-space:nowrap">
+（出力） サブキーのフルパスの配列。 末尾に \ は無い</DIV>
+<DIV id="text1077_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9783px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:97px; margin-top:9781px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1077_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:105px; margin-top:9785px; line-height:13px; white-space:nowrap">
+System.vbs</DIV>
+<v:rect style="position:absolute; margin-left:34px; margin-top:9920px; width:388px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1077_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:9926px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; keys<BR/>
+<BR/>
+&nbsp; RegEnumKeys&nbsp; "HKEY_CURRENT_USER\Software\_Test", keys, Empty<BR/>
+<BR/>
+'// keys(0) = "HKEY_CURRENT_USER\Software\_Test\Sub"<BR/>
+'// keys(1) = "HKEY_CURRENT_USER\Software\_Test\Sub2"</DIV>
+<DIV id="text1077_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:28px; margin-top:9901px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1077_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:9742px; line-height:15px; white-space:nowrap">
+Opt</DIV>
+<DIV id="text1077_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:9742px; line-height:15px; white-space:nowrap">
+オプション。 Empty か F_SubFolder</DIV>
+<DIV id="text1077_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:151px; margin-top:9610px; line-height:12px; white-space:nowrap">
+<A href="#system">
+[ 親: システム、OS、レジストリ ]</A></DIV>
+<DIV id="text1077_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:319px; margin-top:9608px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1077_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9817px; line-height:15px; white-space:nowrap">
+サブキーが無いときは、UBound( out_Keys ) = -1 になります。</DIV>
+<DIV id="text1077_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:9843px; line-height:15px; white-space:nowrap">
+Path の末尾に \ があってもなくても、キー（フォルダーのようなもの）を指定したことに<BR/>
+なります。</DIV>
+<DIV id="text1077_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10039px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1077_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:10039px; line-height:15px; white-space:nowrap">
+→ T_Reg.vbs</DIV>
+<DIV id="text1077_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:158px; margin-top:10039px; line-height:15px; white-space:nowrap">
+T_Reg1</DIV>
+
+<v:line from="0,9588" to="550,9588"/>
+<v:line from="550,9588" to="550,10096"/>
+<v:line from="550,10096" to="0,10096"/>
+<v:line from="0,10096" to="0,9588"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10096px;">
+<A id="svgcats_vml_p1077" class="to_tree" onClick="selectTreeElem( '1077' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10096px;">
+<A id="page_group_bottom" href="vbslib_57.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

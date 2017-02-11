@@ -1,0 +1,188 @@
+@echo off
+rem ********************************************************************
+rem * File: Make.bat
+rem ********************************************************************
+
+call :SetVariables
+call :Main
+if errorlevel 1 ( echo ^<%error_message%/^> & pause & exit /b )
+exit
+
+
+rem ********************************************************************
+rem * Function: Main
+rem *    Calls test functions.
+rem ********************************************************************
+:Main
+	call :Step1
+		if errorlevel 1 ( exit /b )
+
+	call :Step2
+		if errorlevel 1 ( exit /b )
+
+	echo Pass.
+	pause
+goto :eof
+
+
+rem ********************************************************************
+rem * Function: SetVariables
+rem ********************************************************************
+:SetVariables
+	set host_vbs=C:\home\mem_cache\MyDoc\src\vbslib new\_src\Test\tools\T_ModuleAssort2\T_ModuleAssort2.vbs
+goto :eof
+
+
+rem ********************************************************************
+rem * Function: Step1
+rem *
+rem * Description:
+rem *    Output - ${Files}\Step2\01
+rem *    Input  - ${Files}\Step3A\02
+rem *    Input  - ${Files}\Step3B\03
+rem ********************************************************************
+:Step1
+	cd "R:\home\mem_cache\MyDoc\src\vbslib new\_src\Test\vbslib_test\T_MakeRule\RFiles4"
+	call :CleanOutputFolder  "Step2\Work"
+	call :CopyInputFolder  "Step3A\02"  "Step3A\Work"
+	call :CopyInputFolder  "Step3B\03"  "Step3B\Work"
+		if errorlevel 1 ( exit /b )
+
+	Command 2 /R0:"01" /R1:"02" /R2:"03" /O0:"Step2\Work" /I1:"Step3A\Work" /I2:"Step3B\Work"
+		if errorlevel 1 ( call :Error & exit /b )
+
+	cscript "%host_vbs%" CopyOutputFolder  "Step2\Work"  "Step2\01"
+		call :EndOfVBSLib & if errorlevel 1 ( exit /b )
+goto :eof
+
+
+rem ********************************************************************
+rem * Function: Step2
+rem *
+rem * Description:
+rem *    Output - ${Files}\Step1\01
+rem *    Input  - ${Files}\Step2\01
+rem ********************************************************************
+:Step2
+	cd "R:\home\mem_cache\MyDoc\src\vbslib new\_src\Test\vbslib_test\T_MakeRule\_WorkD"
+	call :CleanOutputFolder  "..\RFiles4\Step1\Work"
+	call :CopyInputFolder  "..\RFiles4\Step2\01"  "..\RFiles4\Step2\Work"
+		if errorlevel 1 ( exit /b )
+
+	Command 1 /R0:"01" /R1:"01" /O0:"..\RFiles4\Step1\Work" /I1:"..\RFiles4\Step2\Work"
+		if errorlevel 1 ( call :Error & exit /b )
+
+	cscript "%host_vbs%" CopyOutputFolder  "..\RFiles4\Step1\Work"  "..\RFiles4\Step1\01"
+		call :EndOfVBSLib & if errorlevel 1 ( exit /b )
+goto :eof
+
+
+rem ********************************************************************
+rem * Function: CleanOutputFolder
+rem *
+rem * Arguments:
+rem *    "%~1" - OutputFolder path.
+rem ********************************************************************
+:CleanOutputFolder
+	del    "%~1"
+	mkdir  "%~1"
+goto :eof
+
+
+rem ********************************************************************
+rem * Function: CopyInputFolder
+rem *
+rem * Arguments:
+rem *    "%~1" - Source in Master.
+rem *    "%~2" - Destination in Work.
+rem ********************************************************************
+:CopyInputFolder
+	if not exist "%~2" (
+		mkdir  "%~2"
+		xcopy /E /Y /Q  "%~1"  "%~2" )
+goto :eof
+
+
+Sub  CopyOutputFolder( )
+	source_in_work = InputPath( "" )
+	destination_in_master = InputPath( "" )
+
+	If not exist( destination_in_master ) Then
+		copy_ren  source_in_work,  destination_in_master
+	ElseIf IsSameFolder( source_in_work,  destination_in_master,  Empty ) Then
+		del  source_in_work
+	Else
+		echo  ""
+		echo  "移動先のフォルダーがすでに存在しています。"
+		echo  "手動で下記のコピーを行ってください。"
+		echo  "Base: "+ g_sh.CurrentDirectory
+		echo  "From: "+ GetStepPath( source_in_work,  Empty )
+		echo  "To:   "+ GetStepPath( destination_in_master,  Empty )
+		Pause
+	End If
+End Sub
+
+
+rem ********************************************************************
+rem * Section: batlib
+rem ********************************************************************
+
+
+rem ********************************************************************
+rem * Function: Error
+rem *
+rem * Arguments:
+rem *    "%~1" - Value of setting %errorlevel%.
+rem *
+rem * Return Value:
+rem *    %errorlevel% - %~1. Number type
+rem *
+rem * Description:
+rem *    This sets %error_message% variable.
+rem *    This adds %error_ID% variable.
+rem *    This echos each command from %error_ID% was matched %echo_error_ID%.
+rem ********************************************************************
+:Error
+	set /A error_ID = %error_ID% + 1
+
+	set error_message=ERROR  errorlevel="%~1"  error_message="%~2"  error_ID="%error_ID%"
+		rem // "echo %error_message%" cannot execute, if there are "<" and ">" of "<ERROR/>".
+
+	if "%error_ID%" == "%echo_error_ID%"  (
+		echo.
+		echo ===============================================================================
+		echo ^<%error_message%/^>
+		call :DebugBreak
+		echo.
+		echo.
+		echo on
+	)
+
+	exit /b %~1
+goto :eof
+
+
+rem ********************************************************************
+rem * Function: ClearError
+rem *
+rem * Arguments:
+rem *    None.
+rem *
+rem * Return Value:
+rem *    None.
+rem ********************************************************************
+:ClearError
+	set error_message=
+	exit /b 0
+goto :eof
+
+
+rem ********************************************************************
+rem * Function: EndOfVBSLib
+rem ********************************************************************
+:EndOfVBSLib
+	if "%errorlevel%" == "21" ( call :Error 1 & exit /b )
+	call :ClearError
+goto :eof
+
+

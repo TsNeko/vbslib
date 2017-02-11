@@ -1,0 +1,43 @@
+%MultiLine%
+設定ファイル（.proja）のパス >3_EmptyFolder\WithEmpty__.xml.proja
+
+%MultiLine%
+%RegExp(.*パス)% >_work
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(..\_work)%
+Module in Project = .
+
+Project Name = Project-A\02
+Module in Masters = ${Masters}\ModuleA\02
+
+%MultiLine%
+番号またはコマンド>Assort
+
+${Masters}\ModuleA\02
+${Masters}\ModuleB\02
+${Masters}\ModuleC\02
+${Masters}\ModuleFA\02
+${Masters}\ModuleFB\02
+${Masters}\ModuleFC\02
+>del  "%FullPath(.)%\Masters\ModuleFC\Work"
+
+正しくチェックアウトできるか確認しています ...
+%RegExp(.*)%
+
+${Masters}\ModuleA\02
+${Masters}\ModuleB\02
+${Masters}\ModuleC\02
+${Masters}\ModuleFA\02
+${Masters}\ModuleFB\02
+${Masters}\ModuleFC\02
+
+>MakeFolderMD5List  "%RegExp(.*)%"
+>CheckFolderMD5List "%RegExp(.*)%"
+
+Project-A\02
+を正しくチェックアウトできることを確認しました。
+%MultiLine%
+警告の数 = 0
+%MultiLine%
+番号またはコマンド>Exit

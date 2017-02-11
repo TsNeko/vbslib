@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<txmx:TextSectionMixer  xmlns:txmx="http://sage-p.com/TextSectionMixer/2015">
+	<Variable  name="${Library}"  value="Library.txmx.xml"/>
+	<txmx:Library  path="${Library}"/>
+	<!-- txmx:Library の中で定義した変数は、ここで使えます -->
+	<txmx:SourceFile  path="Project_NaturalDocsC1.c"  type="C_Type"  parser="NaturalDocs"/>
+	<txmx:Project>
+		<txmx:CreateFile  path="clib.c"  type="C_Type"/>
+		<txmx:CreateFile  path="clib.h"  type="H_Function_Type"/>
+		<txmx:CreateFile  path="clib_typedef.h"  type="H_Typedef_Type"  order="reverse"/>
+
+		<txmx:UseSymbol>main</txmx:UseSymbol>
+
+		<txmx:SymbolFilter  symbol="main">
+			<txmx:PathFilter>main.c</txmx:PathFilter>
+		</txmx:SymbolFilter>
+	</txmx:Project>
+</txmx:TextSectionMixer>

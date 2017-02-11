@@ -38,11 +38,11 @@ End Sub
 '// ここの内部から Main 関数を呼び出しています。
 '// また、scriptlib フォルダーを探して、vbslib をインクルードしています
 
-'// vbslib is provided under 3-clause BSD license.
-'// Copyright (C) 2007-2014 Sofrware Design Gallery "Sage Plaisir 21" All Rights Reserved.
+'// vbslib include is provided under 3-clause BSD license.
+'// Copyright (C) Sofrware Design Gallery "Sage Plaisir 21" All Rights Reserved.
 
 Dim  g_Vers : If IsEmpty( g_Vers ) Then
-Set  g_Vers = CreateObject("Scripting.Dictionary") : g_Vers.Add "vbslib", 99.99
+Set  g_Vers = CreateObject("Scripting.Dictionary") : g_Vers("vbslib") = 99.99
 Dim  g_debug, g_debug_params, g_admin, g_vbslib_path, g_CommandPrompt, g_fs, g_sh, g_AppKey
 Dim  g_MainPath, g_SrcPath, g_f, g_include_path, g_i, g_debug_tree, g_debug_process, g_is_compile_debug
 Dim  g_is64bitWSH

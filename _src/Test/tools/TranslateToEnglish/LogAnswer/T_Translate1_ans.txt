@@ -1,0 +1,57 @@
+>copy  "T_Translate\*", "T_Translate_work"
+>Translate  "T_Translate_work\T_Translate_MultiTarget.trans". "JP", "EN"
+T_Translate_MultiTarget1.txt
+T_Translate_MultiTarget2.c
+All texts are English.
+>AssertFC  "T_Translate_work\T_Translate_MultiTarget1.txt" "T_Translate_ans\T_Translate_MultiTarget1.txt"
+>AssertFC  "T_Translate_work\T_Translate_MultiTarget2.c" "T_Translate_ans\T_Translate_MultiTarget2.c"
+>Translate  "T_Translate_work\T_Translate1.trans". "JP", "EN"
+T_Translate1.txt
+All texts are English.
+>AssertFC  "T_Translate_work\T_Translate1.txt" "T_Translate_ans\T_Translate1.txt"
+>Translate  "T_Translate_work\Not_jp_to_en\T_TranslateReverse.trans". "EN", "JP"
+T_TranslateReverse.txt
+All texts are English.
+>AssertFC  "T_Translate_work\Not_jp_to_en\T_TranslateReverse.txt" "T_Translate_ans\Not_jp_to_en\T_TranslateReverse.txt"
+>Translate  "T_Translate_work\T_TranslateUtf8NoBomLf.trans". "JP", "EN"
+T_TranslateUtf8NoBomLf.txt
+All texts are English.
+>Translate  "T_Translate_work\T_TranslateUtf8NoBomLf2.trans". "JP", "EN"
+T_TranslateUtf8NoBomLf2.xml
+<File warning_count="1" path="%FullPath(..)%\T_Translate_work\T_TranslateUtf8NoBomLf2.xml">
+<WARNING msg="Not English character exists" line_num="12">
+残る日本語
+</WARNING>
+</File>
+>Translate  "T_Translate_work\T_Translate_MultiLine.trans". "JP", "EN"
+T_Translate_MultiLine.txt
+All texts are English.
+>AssertFC  "T_Translate_work\T_Translate_MultiLine.txt" "T_Translate_ans\T_Translate_MultiLine.txt"
+>Translate  "T_Translate_work\Not_jp_to_en\T_TransXml.xml". "JP", "EN"
+T_TransXml.txt
+All texts are English.
+>AssertFC  "T_Translate_work\Not_jp_to_en\T_TransXml.txt" "T_Translate_ans\Not_jp_to_en\T_TransXml.txt"
+>Translate  "T_Translate_work\T_ByLength.trans". "JP", "EN"
+T_ByLength.txt
+All texts are English.
+>AssertFC  "T_Translate_work\T_ByLength.txt" "T_Translate_ans\T_ByLength.txt"
+>Translate  "T_Translate_work\T_BaseFolder.trans". "JP", "EN"
+T_BaseFolder.txt
+All texts are English.
+T_BaseFolder.txt
+All texts are English.
+>AssertFC  "T_Translate_work\sub1\T_BaseFolder.txt" "T_Translate_ans\sub1\T_BaseFolder.txt"
+>AssertFC  "T_Translate_work\sub2\T_BaseFolder.txt" "T_Translate_ans\sub2\T_BaseFolder.txt"
+>Translate  "T_Translate_work\T_Translate_RemainJP.trans". "JP", "EN"
+T_Translate_RemainJP.txt
+<File warning_count="1" path="%FullPath(..)%\T_Translate_work\T_Translate_RemainJP.txt">
+<WARNING msg="Not English character exists" line_num="10">
+  // サブ関数
+</WARNING>
+</File>
+<ERROR msg="警告がありました。" translator_path="T_Translate_work\T_Translate_RemainJP.trans"/>
+>AssertFC  "T_Translate_work\T_Translate_RemainJP.txt" "T_Translate_ans\T_Translate_RemainJP.txt"
+>Translate  "T_Translate_work\NotFound.trans". "JP", "EN"
+ファイルが見つかりません。 : %FullPath(..)%\T_Translate_work\NotFound.trans
+>del  "T_Translate_work"
+Pass.

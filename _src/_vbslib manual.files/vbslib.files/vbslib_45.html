@@ -1,0 +1,1761 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_45.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_45.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 841 --> 
+<PAGE>
+<A id="svgcats_vml_p841" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '841' );">←</A>
+<A href="#svgcats_vml_p842" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_44.html#svgcats_vml_p840" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_44.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:547px; height:990px;" fillcolor="white"/>
+<DIV id="text841_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="PositionOfXML_Class">
+PositionOfXML_Class</A></DIV>
+<DIV id="text841_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:53px; line-height:15px; white-space:nowrap">
+文字列の中にある XML要素の文字位置を調べます。 内部で</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:166px; width:400px; height:295px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text841_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:172px; line-height:15px; white-space:nowrap">
+Set xml = new PositionOfXML_Class<BR/>
+<BR/>
+xml.Load&nbsp; "Data.xml"<BR/>
+<BR/>
+Set test_tag = xml.SelectSingleNode( "//Tag[1]" )<BR/>
+current_pos = test_tag.PositionOfLeftOfStartTag<BR/>
+next_pos&nbsp; &nbsp; = test_tag.PositionOfNextOfEndTag<BR/>
+<BR/>
+Set&nbsp; file = OpenForReplace( "Data.xml",&nbsp; Empty )<BR/>
+text_0 = Left( file.Text,&nbsp; current_pos - 1 )<BR/>
+text_1 = Mid( file.Text,&nbsp; current_pos,&nbsp; next_pos - current_pos )<BR/>
+text_2 = Mid( file.Text,&nbsp; next_pos )<BR/>
+<BR/>
+file.Text = text_0 + _<BR/>
+&nbsp; &nbsp; vbTab +"&lt;Test"+ vbCRLF +"name=""A""/&gt;"+ vbCRLF + _<BR/>
+&nbsp; &nbsp; text_1 + _<BR/>
+&nbsp; &nbsp; vbTab +"&lt;Test"+ vbCRLF +"name=""B""/&gt;"+ _<BR/>
+&nbsp; &nbsp; text_2<BR/>
+file = Empty</DIV>
+<DIV id="text841_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:139px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text841_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:508px; line-height:15px; white-space:nowrap">
+Data.xml</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:530px; width:124px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text841_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:536px; line-height:15px; white-space:nowrap">
+&lt;X&gt;&lt;Tests&gt;<BR/>
+&nbsp; &nbsp; &lt;Test<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; name="0"/&gt;<BR/>
+&nbsp; &nbsp; &lt;Test<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; name="1"/&gt;<BR/>
+&lt;/Tests&gt;&lt;/X&gt;</DIV>
+<v:line style="position:absolute;" from="185,595" to="214,595" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="214,595" to="203,591" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="214,595" to="203,599" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:236px; margin-top:530px; width:124px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text841_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:244px; margin-top:536px; line-height:15px; white-space:nowrap">
+&lt;X&gt;&lt;Tests&gt;<BR/>
+&nbsp; &nbsp; &lt;Test<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; name="A"/&gt;<BR/>
+&nbsp; &nbsp; &lt;Test<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; name="0"/&gt;<BR/>
+&nbsp; &nbsp; &lt;Test<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; name="B"/&gt;<BR/>
+&nbsp; &nbsp; &lt;Test<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; name="1"/&gt;<BR/>
+&lt;/Tests&gt;&lt;/X&gt;</DIV>
+<DIV id="text841_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:71px; margin-top:203px; line-height:13px; white-space:nowrap">
+<A href="#Load_PositionOfXML_Class">
+Load</A></DIV>
+<DIV id="text841_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:161px; margin-top:233px; line-height:13px; white-space:nowrap">
+<A href="#SelectSingleNode_PositionOfXML_Class">
+SelectSingleNode</A></DIV>
+<DIV id="text841_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:119px; margin-top:293px; line-height:13px; white-space:nowrap">
+<A href="vbslib_31.html#OpenForReplace">
+OpenForReplace</A></DIV>
+<DIV id="text841_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:268px; margin-top:552px; line-height:13px; white-space:nowrap">
+&lt;Test</DIV>
+<DIV id="text841_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:268px; margin-top:612px; line-height:13px; white-space:nowrap">
+&lt;Test</DIV>
+<DIV id="text841_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:119px; margin-top:383px; line-height:13px; white-space:nowrap">
+&lt;Test"+ vbCRLF +"name=""A""/&gt;</DIV>
+<DIV id="text841_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:119px; margin-top:413px; line-height:13px; white-space:nowrap">
+&lt;Test"+ vbCRLF +"name=""B""/&gt;</DIV>
+<DIV id="text841_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:292px; margin-top:627px; line-height:13px; white-space:nowrap">
+name="B"/&gt;</DIV>
+<DIV id="text841_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:292px; margin-top:567px; line-height:13px; white-space:nowrap">
+name="A"/&gt;</DIV>
+<DIV id="text841_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:716px; line-height:15px; white-space:nowrap">
+MS-XML の DOM では、以下のように整形された XML しか保存できません。</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:742px; width:160px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text841_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:748px; line-height:15px; white-space:nowrap">
+&lt;X&gt; <BR/>
+&nbsp; &nbsp; &lt;Tests&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Test name="A"/&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Test name="0"/&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Test name="B"/&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Test name="1"/&gt;<BR/>
+&nbsp; &nbsp; &lt;/Tests&gt;<BR/>
+&lt;/X&gt;</DIV>
+<DIV id="text841_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:480px; line-height:15px; white-space:nowrap">
+上記スクリプトは、たとえば以下の編集を行います。</DIV>
+<DIV id="text841_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:916px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text841_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:916px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text841_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:916px; line-height:15px; white-space:nowrap">
+T_PositionOfXML</DIV>
+<DIV id="text841_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:891px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text841_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:82px; margin-top:891px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text841_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:941px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text841_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:82px; margin-top:941px; line-height:15px; white-space:nowrap">
+<A href="vbslib_44.html#OpenForReplaceXML">
+→ OpenForReplaceXML</A></DIV>
+<DIV id="text841_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:83px; line-height:15px; white-space:nowrap">
+XML要素を追加・変更・削除しても、空白の数や属性の順番が変わって、<BR/>
+XML 文書が崩れてしまうという XML規格の問題を回避することができます。</DIV>
+<DIV id="text841_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:368px; margin-top:53px; line-height:15px; white-space:nowrap">
+DOM</DIV>
+<DIV id="text841_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:401px; margin-top:53px; line-height:15px; white-space:nowrap">
+は使っていません。</DIV>
+<DIV id="text841_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:292px; margin-top:916px; line-height:15px; white-space:nowrap">
+T_PositionOfXML_TryUI</DIV>
+
+<v:line from="0,0" to="547,0"/>
+<v:line from="547,0" to="547,990"/>
+<v:line from="547,990" to="0,990"/>
+<v:line from="0,990" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 842 --> 
+<PAGE>
+<A id="svgcats_vml_p842" class="to_tree" style="margin-top:995px;" onClick="selectTreeElem( '842' );">←</A>
+<A href="#svgcats_vml_p843" class="to_next_page" style="margin-top:995px;">▼</A>
+<A href="#svgcats_vml_p841" class="to_prev_page" style="margin-top:995px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1006px; width:477px; height:191px;" fillcolor="white"/>
+<DIV id="text842_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1023px; line-height:15px; white-space:nowrap">
+<A name="Load_PositionOfXML_Class">
+Load (PositionOfXML_Class)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1053px; width:346px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text842_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1060px; line-height:13px; white-space:nowrap">
+Sub&nbsp; PositionOfXML_Class::Load( in_FilePath as string )</DIV>
+<DIV id="text842_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1090px; line-height:15px; white-space:nowrap">
+XML ファイルをロードします。</DIV>
+<DIV id="text842_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1116px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text842_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1116px; line-height:15px; white-space:nowrap">
+in_FilePath</DIV>
+<DIV id="text842_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:1116px; line-height:15px; white-space:nowrap">
+ロードする XML ファイルのパス</DIV>
+<DIV id="text842_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1149px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text842_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:298px; margin-top:1023px; line-height:15px; white-space:nowrap">
+<A href="#PositionOfXML_Class">
+&lt;&lt;&nbsp; PositionOfXML_Class</A></DIV>
+<DIV id="text842_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:1149px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,1006" to="477,1006"/>
+<v:line from="477,1006" to="477,1197"/>
+<v:line from="477,1197" to="0,1197"/>
+<v:line from="0,1197" to="0,1006"/>
+
+</PAGE>
+ 
+<!-- page 843 --> 
+<PAGE>
+<A id="svgcats_vml_p843" class="to_tree" style="margin-top:1202px;" onClick="selectTreeElem( '843' );">←</A>
+<A href="#svgcats_vml_p844" class="to_next_page" style="margin-top:1202px;">▼</A>
+<A href="#svgcats_vml_p842" class="to_prev_page" style="margin-top:1202px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1213px; width:765px; height:1011px;" fillcolor="white"/>
+<DIV id="text843_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1230px; line-height:15px; white-space:nowrap">
+<A name="SelectSingleNode_PositionOfXML_Class">
+SelectSingleNode (PositionOfXML_Class)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:1260px; width:430px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text843_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:1266px; line-height:15px; white-space:nowrap">
+Function&nbsp; PositionOfXML_Class::SelectSingleNode( in_XPath as string )<BR/>
+&nbsp; &nbsp; as PositionOfXML_ElementClass</DIV>
+<DIV id="text843_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1313px; line-height:15px; white-space:nowrap">
+指定した XML 要素を探して、その位置情報にアクセスするオブジェクトを返します。</DIV>
+<DIV id="text843_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1339px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text843_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1339px; line-height:15px; white-space:nowrap">
+in_XPath</DIV>
+<DIV id="text843_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:1339px; line-height:15px; white-space:nowrap">
+XML 要素を指す XPath。 ただし一部の形式のみ</DIV>
+<DIV id="text843_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2178px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text843_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:84px; margin-top:2178px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text843_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1392px; line-height:15px; white-space:nowrap">
+in_XPath 引数に指定できる </DIV>
+<DIV id="text843_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:1360px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text843_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:1360px; line-height:15px; white-space:nowrap">
+XML の位置情報にアクセスするオブジェクト または Nothing</DIV>
+<DIV id="text843_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1525px; line-height:15px; white-space:nowrap">
+<A name="PositionOfXML_ElementClass">
+PositionOfXML_ElementClass</A></DIV>
+<DIV id="text843_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:75px; margin-top:1282px; line-height:13px; white-space:nowrap">
+<A href="#PositionOfXML_ElementClass">
+PositionOfXML_ElementClass</A></DIV>
+<v:rect style="position:absolute; margin-left:66px; margin-top:1421px; width:64px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text843_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:74px; margin-top:1428px; line-height:13px; white-space:nowrap">
+//Tag[1]</DIV>
+<v:rect style="position:absolute; margin-left:143px; margin-top:1421px; width:94px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text843_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:151px; margin-top:1428px; line-height:13px; white-space:nowrap">
+//Tag[last()]</DIV>
+<DIV id="text843_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:94px; margin-top:1617px; line-height:13px; white-space:nowrap">
+<A name="PositionOfLeftOfStartTag">
+.PositionOfLeftOfStartTag</A></DIV>
+<DIV id="text843_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:275px; margin-top:1615px; line-height:15px; white-space:nowrap">
+開始タグまたは空要素タグの行頭または前のタグの直後の文字の位置</DIV>
+<DIV id="text843_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:94px; margin-top:1646px; line-height:13px; white-space:nowrap">
+<A name="PositionOfNextOfEndTag">
+.PositionOfNextOfEndTag</A></DIV>
+<DIV id="text843_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:1646px; line-height:13px; white-space:nowrap">
+integer</DIV>
+<DIV id="text843_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:1617px; line-height:13px; white-space:nowrap">
+integer</DIV>
+<DIV id="text843_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:94px; margin-top:2051px; line-height:13px; white-space:nowrap">
+.PositionOfNextOfStartTag</DIV>
+<DIV id="text843_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:2022px; line-height:15px; white-space:nowrap">
+以下は、まだ開発されていません。</DIV>
+<DIV id="text843_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2051px; line-height:13px; white-space:nowrap">
+integer</DIV>
+<DIV id="text843_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:94px; margin-top:2078px; line-height:13px; white-space:nowrap">
+.PositionOfLeftOfFirstAttribute</DIV>
+<DIV id="text843_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:94px; margin-top:2105px; line-height:13px; white-space:nowrap">
+.PositionOfNextOfLastAttribute</DIV>
+<DIV id="text843_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2078px; line-height:13px; white-space:nowrap">
+integer</DIV>
+<DIV id="text843_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:2105px; line-height:13px; white-space:nowrap">
+integer</DIV>
+<DIV id="text843_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:275px; margin-top:1644px; line-height:15px; white-space:nowrap">
+終了タグまたは空要素タグの次の行の先頭または終了タグの直後の文字の位置</DIV>
+<DIV id="text843_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:2049px; line-height:15px; white-space:nowrap">
+開始タグの次の行の先頭または開始タグの直後の文字の位置</DIV>
+<DIV id="text843_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:2077px; line-height:15px; white-space:nowrap">
+最初の属性の行頭またはタグ名の直後の文字の位置</DIV>
+<DIV id="text843_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:2105px; line-height:15px; white-space:nowrap">
+最後の属性の次の行の先頭または最後の属性の直後の文字の位置</DIV>
+<DIV id="text843_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2144px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text843_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:66px; margin-top:2144px; line-height:15px; white-space:nowrap">
+<A href="http://www.w3.org/TR/xml11/" target="_blank">
+→ XML 1.1 - 3.1 Start-Tags, End-Tags, and Empty-Element Tags (Web)</A></DIV>
+<DIV id="text843_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:364px; margin-top:1230px; line-height:15px; white-space:nowrap">
+<A href="#PositionOfXML_Class">
+&lt;&lt;&nbsp; PositionOfXML_Class</A></DIV>
+<DIV id="text843_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:1558px; line-height:15px; white-space:nowrap">
+以下のプロパティから、XML タグの前後などの文字の位置を取得できます。<BR/>
+文字の位置は、VB の InStr 関数などで扱う位置と同じで、先頭が 1 で、文字単位で +1 した整数値です。<BR/>
+ファイルのバイナリの位置とは異なります。</DIV>
+<v:rect style="position:absolute; margin-left:74px; margin-top:1710px; width:100px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text843_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:82px; margin-top:1716px; line-height:15px; white-space:nowrap">
+*&nbsp; &nbsp;&lt;Tag&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Sub/&gt;<BR/>
+&nbsp; &nbsp; &lt;/Tag&gt;<BR/>
++</DIV>
+<DIV id="text843_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:82px; margin-top:1717px; line-height:13px; white-space:nowrap">
+*</DIV>
+<v:rect style="position:absolute; margin-left:74px; margin-top:1825px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text843_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:82px; margin-top:1832px; line-height:13px; white-space:nowrap">
+&lt;Previous/&gt;*&nbsp; &nbsp;&lt;Tag/&gt;+&nbsp; &nbsp;&lt;Next/&gt;</DIV>
+<DIV id="text843_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:1684px; line-height:15px; white-space:nowrap">
+同じ行に別のタグがないとき：</DIV>
+<DIV id="text843_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:1800px; line-height:15px; white-space:nowrap">
+同じ行に別のタグがあるとき：</DIV>
+<DIV id="text843_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:82px; margin-top:1762px; line-height:13px; white-space:nowrap">
++</DIV>
+<DIV id="text843_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:189px; margin-top:1717px; line-height:13px; white-space:nowrap">
+* = PositionOfLeftOfStartTag が指す文字</DIV>
+<DIV id="text843_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:189px; margin-top:1762px; line-height:13px; white-space:nowrap">
++ = PositionOfNextOfEndTag が指す文字</DIV>
+<DIV id="text843_44" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:148px; margin-top:1832px; line-height:13px; white-space:nowrap">
+*</DIV>
+<DIV id="text843_45" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:208px; margin-top:1832px; line-height:13px; white-space:nowrap">
++</DIV>
+<DIV id="text843_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:1920px; line-height:15px; white-space:nowrap">
+厳密にいえば、同じ行に別のタグがあるかどうかではなく、<BR/>
+タグの左の位置のプロパティは、同じ行の左側に別のタグがるかどうか、<BR/>
+タグの次の位置のプロパティは、同じ行の右側に別のタグがるかどうかです。<BR/>
+同じ行の右側に別のタグがあっても、タグの左の位置のプロパティは、<BR/>
+上記の「同じ行に別のタグがないとき」に該当します。</DIV>
+<DIV id="text843_47" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:82px; margin-top:1880px; line-height:13px; white-space:nowrap">
++ = PositionOfNextOfEndTag が指す文字</DIV>
+<DIV id="text843_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:82px; margin-top:1862px; line-height:13px; white-space:nowrap">
+* = PositionOfLeftOfStartTag が指す文字</DIV>
+<DIV id="text843_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:1392px; line-height:15px; white-space:nowrap">
+XPath</DIV>
+<DIV id="text843_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:236px; margin-top:1392px; line-height:15px; white-space:nowrap">
+は、以下の形式のみです。</DIV>
+<DIV id="text843_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1463px; line-height:15px; white-space:nowrap">
+該当する XML 要素がなければ、Nothing を返します。<BR/>
+[ ] の中は、1以上の整数です。 要素数(=last()) より大きいときは、Nothing を返します。</DIV>
+
+<v:line from="0,1213" to="765,1213"/>
+<v:line from="765,1213" to="765,2224"/>
+<v:line from="765,2224" to="0,2224"/>
+<v:line from="0,2224" to="0,1213"/>
+
+</PAGE>
+ 
+<!-- page 844 --> 
+<PAGE>
+<A id="svgcats_vml_p844" class="to_tree" style="margin-top:2229px;" onClick="selectTreeElem( '844' );">←</A>
+<A href="#svgcats_vml_p845" class="to_next_page" style="margin-top:2229px;">▼</A>
+<A href="#svgcats_vml_p843" class="to_prev_page" style="margin-top:2229px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2240px; width:622px; height:556px;" fillcolor="white"/>
+<DIV id="text844_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2257px; line-height:15px; white-space:nowrap">
+<A name="XmlRead">
+XmlRead</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2287px; width:538px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text844_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2294px; line-height:13px; white-space:nowrap">
+Function&nbsp; XmlRead( in_BaseXmlElement as IXMLDOMElement,&nbsp; in_XPath as string ) as string</DIV>
+<DIV id="text844_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2327px; line-height:15px; white-space:nowrap">
+XML のタグの間のテキスト、または XML の属性の値を取得します。</DIV>
+<DIV id="text844_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2353px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text844_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2353px; line-height:15px; white-space:nowrap">
+in_BaseXmlElement</DIV>
+<DIV id="text844_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2372px; line-height:15px; white-space:nowrap">
+in_XPath</DIV>
+<DIV id="text844_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:225px; margin-top:2353px; line-height:15px; white-space:nowrap">
+in_XPath の基準となる XML要素（タグ）</DIV>
+<DIV id="text844_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:225px; margin-top:2372px; line-height:15px; white-space:nowrap">
+タグの間のテキスト、または XML の属性の位置を表す in_XPath</DIV>
+<DIV id="text844_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2391px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text844_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:225px; margin-top:2391px; line-height:15px; white-space:nowrap">
+テキストまたは XML 属性の値。文字列型</DIV>
+<DIV id="text844_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2431px; line-height:15px; white-space:nowrap">
+タグの間のテキストは、厳密には in_XPath = "/Root/Elem/text()" ですが、in_XPath = <BR/>
+"/Root/Elem" を指定してください。<BR/>
+<BR/>
+in_XPath に指定したタグ（XML要素）やXML属性が存在しないときは、Empty を返します。<BR/>
+<BR/>
+in_XPath が相対パスのときは、in_BaseXmlElement のタグが基準になります。 <BR/>
+in_XPath にフル・パスを指定することもできます。</DIV>
+<DIV id="text844_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2647px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text844_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2701px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text844_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:2701px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text844_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:2647px; line-height:15px; white-space:nowrap">
+→ getAttribute (IXMLDOMElement)</DIV>
+<DIV id="text844_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:299px; margin-top:2647px; line-height:15px; white-space:nowrap">
+<A href="vbslib_57.html#RegRead">
+→ RegRead</A></DIV>
+<DIV id="text844_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2562px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:2586px; width:400px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text844_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:2592px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set root = LoadXML( "in.xml", Empty )&nbsp; '// as IXMLDOMElement<BR/>
+&nbsp; &nbsp; value = XmlRead( root, "./Tag1/@attr1" )</DIV>
+<DIV id="text844_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:231px; margin-top:2608px; line-height:13px; white-space:nowrap">
+Tag1/@attr1</DIV>
+<DIV id="text844_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:123px; margin-top:2608px; line-height:13px; white-space:nowrap">
+XmlRead</DIV>
+<DIV id="text844_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:2731px; line-height:15px; white-space:nowrap">
+<A href="#CutIndentOfMultiLineText">
+→ CutIndentOfMultiLineText</A></DIV>
+<DIV id="text844_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2731px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text844_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:281px; margin-top:2731px; line-height:15px; white-space:nowrap">
+XML のタグの間の複数行のテキスト</DIV>
+<DIV id="text844_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:2749px; line-height:15px; white-space:nowrap">
+<A href="#XmlReadBoolean">
+→ XmlReadBoolean</A></DIV>
+<DIV id="text844_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2678px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text844_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:2678px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text844_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:174px; margin-top:2701px; line-height:15px; white-space:nowrap">
+T_XmlRead</DIV>
+
+<v:line from="0,2240" to="622,2240"/>
+<v:line from="622,2240" to="622,2796"/>
+<v:line from="622,2796" to="0,2796"/>
+<v:line from="0,2796" to="0,2240"/>
+
+</PAGE>
+ 
+<!-- page 845 --> 
+<PAGE>
+<A id="svgcats_vml_p845" class="to_tree" style="margin-top:2801px;" onClick="selectTreeElem( '845' );">←</A>
+<A href="#svgcats_vml_p846" class="to_next_page" style="margin-top:2801px;">▼</A>
+<A href="#svgcats_vml_p844" class="to_prev_page" style="margin-top:2801px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2812px; width:664px; height:515px;" fillcolor="white"/>
+<DIV id="text845_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2829px; line-height:15px; white-space:nowrap">
+XmlReadOrError</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2859px; width:514px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text845_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2865px; line-height:15px; white-space:nowrap">
+Function&nbsp; XmlReadOrError( in_BaseXmlElement as IXMLDOMElement,&nbsp; in_XPath as string,<BR/>
+&nbsp; &nbsp; in_FilePath&nbsp; as string ) as string</DIV>
+<DIV id="text845_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2912px; line-height:15px; white-space:nowrap">
+XML にデータが記述されていなければエラーになる</DIV>
+<DIV id="text845_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:385px; margin-top:2912px; line-height:15px; white-space:nowrap">
+です。</DIV>
+<DIV id="text845_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:329px; margin-top:2912px; line-height:15px; white-space:nowrap">
+<A href="#XmlRead">
+XmlRead</A></DIV>
+<DIV id="text845_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2979px; line-height:15px; white-space:nowrap">
+in_FilePath</DIV>
+<DIV id="text845_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:224px; margin-top:2979px; line-height:15px; white-space:nowrap">
+Empty または エラーメッセージに表示する XML ファイルの名前</DIV>
+<DIV id="text845_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2941px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text845_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2941px; line-height:15px; white-space:nowrap">
+in_BaseXmlElement</DIV>
+<DIV id="text845_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2960px; line-height:15px; white-space:nowrap">
+in_XPath</DIV>
+<DIV id="text845_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:224px; margin-top:2941px; line-height:15px; white-space:nowrap">
+in_XPath の基準となる XML要素（タグ）</DIV>
+<DIV id="text845_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:224px; margin-top:2960px; line-height:15px; white-space:nowrap">
+タグの間のテキスト、または XML の属性の位置を表す in_XPath</DIV>
+<DIV id="text845_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:2998px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text845_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:224px; margin-top:2998px; line-height:15px; white-space:nowrap">
+テキストまたは XML 属性の値。文字列型</DIV>
+<DIV id="text845_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:3110px; line-height:15px; white-space:nowrap">
+エラーメッセージは、下記のようになります。</DIV>
+<DIV id="text845_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3258px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text845_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3237px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text845_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3279px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:3130px; width:466px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text845_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:3137px; line-height:13px; white-space:nowrap">
+&lt;ERROR msg="見つかりません"&nbsp; file="Setting.xml"&nbsp; name="/Root/Tag1/@attr1"/&gt;</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:3056px; width:412px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text845_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:3062px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Set root = LoadXML( "in.xml", Empty )&nbsp; '// as IXMLDOMElement<BR/>
+&nbsp; &nbsp; value = XmlReadOrError( root, "./Tag1/@attr1", "Setting.xml" )</DIV>
+<DIV id="text845_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3034px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text845_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3258px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs # [T_XmlRead]</DIV>
+<DIV id="text845_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:3279px; line-height:15px; white-space:nowrap">
+<A href="#XmlRead">
+→ XmlRead</A></DIV>
+<DIV id="text845_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:277px; margin-top:3078px; line-height:13px; white-space:nowrap">
+Tag1/@attr1</DIV>
+<DIV id="text845_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:127px; margin-top:3078px; line-height:13px; white-space:nowrap">
+XmlReadOrError</DIV>
+<DIV id="text845_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:3169px; line-height:15px; white-space:nowrap">
+in_FilePath = Empty のときのエラーメッセージは、下記のようになります。</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:3189px; width:346px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text845_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:3196px; line-height:13px; white-space:nowrap">
+&lt;ERROR msg="見つかりません"&nbsp; name="/Root/Tag1/@attr1"/&gt;</DIV>
+<DIV id="text845_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:3237px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,2812" to="664,2812"/>
+<v:line from="664,2812" to="664,3327"/>
+<v:line from="664,3327" to="0,3327"/>
+<v:line from="0,3327" to="0,2812"/>
+
+</PAGE>
+ 
+<!-- page 846 --> 
+<PAGE>
+<A id="svgcats_vml_p846" class="to_tree" style="margin-top:3332px;" onClick="selectTreeElem( '846' );">←</A>
+<A href="#svgcats_vml_p847" class="to_next_page" style="margin-top:3332px;">▼</A>
+<A href="#svgcats_vml_p845" class="to_prev_page" style="margin-top:3332px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3343px; width:567px; height:335px;" fillcolor="white"/>
+<DIV id="text846_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3360px; line-height:15px; white-space:nowrap">
+<A name="Read_XML_Encoding">
+Read_XML_Encoding</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3390px; width:364px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text846_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3397px; line-height:13px; white-space:nowrap">
+Function&nbsp; Read_XML_Encoding( in_Path as string ) as string</DIV>
+<DIV id="text846_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3426px; line-height:15px; white-space:nowrap">
+XML ファイルから、?xml タグの encoding 属性を読みます。</DIV>
+<DIV id="text846_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3452px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text846_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3452px; line-height:15px; white-space:nowrap">
+in_Path</DIV>
+<DIV id="text846_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:172px; margin-top:3452px; line-height:15px; white-space:nowrap">
+XML ファイルのパス</DIV>
+<DIV id="text846_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:3605px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text846_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:3605px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text846_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:3586px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text846_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:3586px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text846_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:3605px; line-height:15px; white-space:nowrap">
+T_LoadXML</DIV>
+<DIV id="text846_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:3632px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text846_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:80px; margin-top:3632px; line-height:15px; white-space:nowrap">
+<A href="vbslib_29.html#ReadUnicodeFileBOM">
+→ ReadUnicodeFileBOM</A></DIV>
+<DIV id="text846_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:172px; margin-top:3471px; line-height:15px; white-space:nowrap">
+encoding 属性の値、文字コード セット名</DIV>
+<DIV id="text846_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3471px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text846_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3505px; line-height:15px; white-space:nowrap">
+?xml タグ（XML宣言）の encoding 属性が設定されてなく、UTF-16 の BOM があるときは、<BR/>
+"UTF-16" が返ります。 encoding 属性が設定されてなく、BOM がないときは、"UTF-8" <BR/>
+が返ります。 encoding 属性が設定されてないときに "UTF-8" であるのは、HTML5 の<BR/>
+仕様です。</DIV>
+
+<v:line from="0,3343" to="567,3343"/>
+<v:line from="567,3343" to="567,3678"/>
+<v:line from="567,3678" to="0,3678"/>
+<v:line from="0,3678" to="0,3343"/>
+
+</PAGE>
+ 
+<!-- page 847 --> 
+<PAGE>
+<A id="svgcats_vml_p847" class="to_tree" style="margin-top:3683px;" onClick="selectTreeElem( '847' );">←</A>
+<A href="#svgcats_vml_p848" class="to_next_page" style="margin-top:3683px;">▼</A>
+<A href="#svgcats_vml_p846" class="to_prev_page" style="margin-top:3683px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3694px; width:607px; height:655px;" fillcolor="white"/>
+<DIV id="text847_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3711px; line-height:15px; white-space:nowrap">
+<A name="XmlReadBoolean">
+XmlReadBoolean</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3741px; width:466px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text847_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3747px; line-height:15px; white-space:nowrap">
+Function&nbsp; XmlRead( in_BaseXmlElement as IXMLDOMElement, in_XPath as string,<BR/>
+&nbsp; &nbsp; in_DefaultValue as boolean,&nbsp; in_FilePath as string or Empty ) as string</DIV>
+<DIV id="text847_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3795px; line-height:15px; white-space:nowrap">
+XML のタグの間のテキスト、または XML の属性の値を、論理型で取得します。 </DIV>
+<DIV id="text847_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3821px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text847_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3821px; line-height:15px; white-space:nowrap">
+in_BaseXmlElement</DIV>
+<DIV id="text847_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3840px; line-height:15px; white-space:nowrap">
+in_XPath</DIV>
+<DIV id="text847_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:3821px; line-height:15px; white-space:nowrap">
+in_XPath の基準となる XML要素（タグ）</DIV>
+<DIV id="text847_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:3840px; line-height:15px; white-space:nowrap">
+タグの間のテキスト、または XML の属性の位置を表す in_XPath</DIV>
+<DIV id="text847_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3897px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text847_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:3897px; line-height:15px; white-space:nowrap">
+タグの間の値、または XML 属性の値。 論理型</DIV>
+<DIV id="text847_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3859px; line-height:15px; white-space:nowrap">
+in_DefaultValue</DIV>
+<DIV id="text847_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3878px; line-height:15px; white-space:nowrap">
+in_FilePath</DIV>
+<DIV id="text847_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:3859px; line-height:15px; white-space:nowrap">
+in_Path が指す XML ノードがないときの返り値</DIV>
+<DIV id="text847_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:211px; margin-top:3878px; line-height:15px; white-space:nowrap">
+エラーが発生したときに表示するファイルのパス、または Empty</DIV>
+<DIV id="text847_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3972px; line-height:15px; white-space:nowrap">
+タグの間のテキストは、厳密には in_XPath = "/Root/Elem/text()" ですが、in_XPath = <BR/>
+"/Root/Elem" を指定してください。<BR/>
+<BR/>
+in_XPath が相対パスのときは、in_BaseXmlElement のタグが基準になります。 <BR/>
+in_XPath にフル・パスを指定することもできます。</DIV>
+<DIV id="text847_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4302px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text847_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4104px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4128px; width:406px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text847_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4134px; line-height:15px; white-space:nowrap">
+&nbsp; Set root = LoadXML( "in.xml", Empty ) '// as IXMLDOMElement<BR/>
+&nbsp; value = XmlReadBoolean( root, "./Tag1/@attr1", False, "a.xml" )</DIV>
+<DIV id="text847_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:111px; margin-top:4150px; line-height:13px; white-space:nowrap">
+XmlReadBoolean</DIV>
+<DIV id="text847_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:65px; margin-top:4302px; line-height:15px; white-space:nowrap">
+<A href="#XmlRead">
+→ XmlRead</A></DIV>
+<DIV id="text847_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4276px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text847_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:78px; margin-top:4276px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs # [T_XmlReadBoolean]</DIV>
+<DIV id="text847_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3939px; line-height:15px; white-space:nowrap">
+XML に記述する値は、Yes, No, True, False のいずれかです。 大文字小文字は区別しません。</DIV>
+<DIV id="text847_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:4178px; line-height:15px; white-space:nowrap">
+XML の例：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4198px; width:226px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text847_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4205px; line-height:13px; white-space:nowrap">
+&lt;Root&gt; &lt;Tag1&nbsp; attr1="yes"/&gt; &lt;/Root&gt;</DIV>
+<DIV id="text847_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4250px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text847_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:78px; margin-top:4250px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text847_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4065px; line-height:15px; white-space:nowrap">
+in_DefaultValue には、Empty など、オブジェクト型以外を指定できます。</DIV>
+
+<v:line from="0,3694" to="607,3694"/>
+<v:line from="607,3694" to="607,4349"/>
+<v:line from="607,4349" to="0,4349"/>
+<v:line from="0,4349" to="0,3694"/>
+
+</PAGE>
+ 
+<!-- page 848 --> 
+<PAGE>
+<A id="svgcats_vml_p848" class="to_tree" style="margin-top:4354px;" onClick="selectTreeElem( '848' );">←</A>
+<A href="#svgcats_vml_p849" class="to_next_page" style="margin-top:4354px;">▼</A>
+<A href="#svgcats_vml_p847" class="to_prev_page" style="margin-top:4354px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4365px; width:619px; height:265px;" fillcolor="white"/>
+<DIV id="text848_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4382px; line-height:15px; white-space:nowrap">
+<A name="XmlSelect">
+XmlSelect</A></DIV>
+<DIV id="text848_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4582px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text848_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:4582px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs # T_XmlSelect</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:4412px; width:562px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text848_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:4419px; line-height:13px; white-space:nowrap">
+Function&nbsp; XmlSelect( BaseXmlElement as IXMLDOMElement,&nbsp; XPath as string ) as IXMLDOMElement</DIV>
+<DIV id="text848_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4452px; line-height:15px; white-space:nowrap">
+XML のタグのオブジェクトを返します。 もし、該当する XML のタグが無ければ生成して返します。</DIV>
+<DIV id="text848_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4478px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text848_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4478px; line-height:15px; white-space:nowrap">
+BaseXmlElement</DIV>
+<DIV id="text848_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4497px; line-height:15px; white-space:nowrap">
+XPath</DIV>
+<DIV id="text848_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:4478px; line-height:15px; white-space:nowrap">
+XPathForXmlElement の基準となる XML要素（タグ）</DIV>
+<DIV id="text848_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:4497px; line-height:15px; white-space:nowrap">
+XML 要素（タグ）の位置を表す XPath</DIV>
+<DIV id="text848_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4516px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text848_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:4516px; line-height:15px; white-space:nowrap">
+XML 要素（タグ）のオブジェクト</DIV>
+<DIV id="text848_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4552px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text848_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:4552px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,4365" to="619,4365"/>
+<v:line from="619,4365" to="619,4630"/>
+<v:line from="619,4630" to="0,4630"/>
+<v:line from="0,4630" to="0,4365"/>
+
+</PAGE>
+ 
+<!-- page 849 --> 
+<PAGE>
+<A id="svgcats_vml_p849" class="to_tree" style="margin-top:4635px;" onClick="selectTreeElem( '849' );">←</A>
+<A href="#svgcats_vml_p850" class="to_next_page" style="margin-top:4635px;">▼</A>
+<A href="#svgcats_vml_p848" class="to_prev_page" style="margin-top:4635px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4646px; width:511px; height:251px;" fillcolor="white"/>
+<DIV id="text849_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4663px; line-height:15px; white-space:nowrap">
+<A name="XmlAttrDic">
+XmlAttrDic</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:4693px; width:454px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text849_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:4700px; line-height:13px; white-space:nowrap">
+Function&nbsp; XmlAttrDic( XmlElem as IXMLDOMElement ) as dictionary of string</DIV>
+<DIV id="text849_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4730px; line-height:15px; white-space:nowrap">
+XML 要素（タグ）の属性を、辞書にします。</DIV>
+<DIV id="text849_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4756px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text849_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4756px; line-height:15px; white-space:nowrap">
+XmlElem</DIV>
+<DIV id="text849_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4756px; line-height:15px; white-space:nowrap">
+XML 要素</DIV>
+<DIV id="text849_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:4775px; line-height:15px; white-space:nowrap">
+キーが属性名、アイテムが属性値の辞書</DIV>
+<DIV id="text849_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:4775px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text849_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:67px; margin-top:4849px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs # [T_XmlAttrDic]</DIV>
+<DIV id="text849_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:4849px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text849_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:4815px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text849_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4815px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+
+<v:line from="0,4646" to="511,4646"/>
+<v:line from="511,4646" to="511,4897"/>
+<v:line from="511,4897" to="0,4897"/>
+<v:line from="0,4897" to="0,4646"/>
+
+</PAGE>
+ 
+<!-- page 850 --> 
+<PAGE>
+<A id="svgcats_vml_p850" class="to_tree" style="margin-top:4902px;" onClick="selectTreeElem( '850' );">←</A>
+<A href="#svgcats_vml_p851" class="to_next_page" style="margin-top:4902px;">▼</A>
+<A href="#svgcats_vml_p849" class="to_prev_page" style="margin-top:4902px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4913px; width:613px; height:515px;" fillcolor="white"/>
+<DIV id="text850_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4930px; line-height:15px; white-space:nowrap">
+<A name="LinkedXML">
+GetHRefBase</A></DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:5120px; width:328px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:5126px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; base, x<BR/>
+<BR/>
+&nbsp; Set base = GetHRefBase( "sample.xml", Array("X") )<BR/>
+&nbsp; Set x = base.href( "target.xml#name1" )<BR/>
+&nbsp; Assert&nbsp; x.getAttribute( "name" ) = "name1"</DIV>
+<DIV id="text850_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5222px; line-height:15px; white-space:nowrap">
+sample.xml</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:5241px; width:226px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:5247px; line-height:15px; white-space:nowrap">
+&lt;Root&gt;<BR/>
+&lt;A href="target.xml#name1"&gt;Link&lt;/A&gt;<BR/>
+&lt;/Root&gt;</DIV>
+<DIV id="text850_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:318px; margin-top:5222px; line-height:15px; white-space:nowrap">
+target.xml</DIV>
+<v:rect style="position:absolute; margin-left:317px; margin-top:5241px; width:118px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:325px; margin-top:5247px; line-height:15px; white-space:nowrap">
+&lt;Root&gt;<BR/>
+&lt;X name="name1"/&gt;<BR/>
+&lt;/Root&gt;</DIV>
+<v:line style="position:absolute;" from="265,5268" to="321,5268" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="321,5268" to="310,5264" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="321,5268" to="310,5272" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:25px; margin-top:4960px; width:556px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text850_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:4967px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetHRefBase( BasePath as string, TargetTagNames as array of string ) as HRefBase</DIV>
+<DIV id="text850_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4997px; line-height:15px; white-space:nowrap">
+HTML の A href のようなリンクを取得するためのオブジェクトを返します。</DIV>
+<DIV id="text850_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5023px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text850_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5023px; line-height:15px; white-space:nowrap">
+BasePath</DIV>
+<DIV id="text850_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:217px; margin-top:5023px; line-height:15px; white-space:nowrap">
+基準となる XML ファイルのパス</DIV>
+<DIV id="text850_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5041px; line-height:15px; white-space:nowrap">
+TargetTagNames</DIV>
+<DIV id="text850_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:217px; margin-top:5041px; line-height:15px; white-space:nowrap">
+リンク先となる id, name 属性を持つタグの名前の配列</DIV>
+<DIV id="text850_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:217px; margin-top:5059px; line-height:15px; white-space:nowrap">
+リンクを取得するためのオブジェクト</DIV>
+<DIV id="text850_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5059px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text850_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5093px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text850_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:142px; margin-top:5172px; line-height:13px; white-space:nowrap">
+<A href="#href_HRefBase">
+href</A></DIV>
+<DIV id="text850_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5340px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text850_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:5340px; line-height:15px; white-space:nowrap">
+<A href="#href_HRefBase">
+→ href (HRefBase)</A></DIV>
+<DIV id="text850_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:208px; margin-top:5157px; line-height:13px; white-space:nowrap">
+"sample.xml"</DIV>
+<DIV id="text850_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:178px; margin-top:5172px; line-height:13px; white-space:nowrap">
+"target.xml#name1"</DIV>
+<DIV id="text850_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:100px; margin-top:5263px; line-height:13px; white-space:nowrap">
+"target.xml#name1"</DIV>
+<DIV id="text850_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:5360px; line-height:15px; white-space:nowrap">
+<A href="#LinkedXMLs">
+→ LinkedXMLs クラス</A></DIV>
+<DIV id="text850_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:214px; margin-top:5360px; line-height:15px; white-space:nowrap">
+循環参照検出あり</DIV>
+<DIV id="text850_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5314px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text850_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:5314px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs # [T_HRefBase]</DIV>
+<DIV id="text850_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:4930px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text850_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:328px; margin-top:5157px; line-height:13px; white-space:nowrap">
+"X"</DIV>
+<DIV id="text850_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:5380px; line-height:15px; white-space:nowrap">
+<A href="vbslib_35.html#GetTagJumpParams">
+→ GetTagJumpParams</A></DIV>
+
+<v:line from="0,4913" to="613,4913"/>
+<v:line from="613,4913" to="613,5428"/>
+<v:line from="613,5428" to="0,5428"/>
+<v:line from="0,5428" to="0,4913"/>
+
+</PAGE>
+ 
+<!-- page 851 --> 
+<PAGE>
+<A id="svgcats_vml_p851" class="to_tree" style="margin-top:5433px;" onClick="selectTreeElem( '851' );">←</A>
+<A href="#svgcats_vml_p852" class="to_next_page" style="margin-top:5433px;">▼</A>
+<A href="#svgcats_vml_p850" class="to_prev_page" style="margin-top:5433px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5444px; width:556px; height:360px;" fillcolor="white"/>
+<DIV id="text851_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5461px; line-height:15px; white-space:nowrap">
+<A name="href_HRefBase">
+href (HRefBase)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5491px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text851_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5498px; line-height:13px; white-space:nowrap">
+Function&nbsp; HRefBase::href( URL as string ) as IXMLDOMElement</DIV>
+<DIV id="text851_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5528px; line-height:15px; white-space:nowrap">
+HTML の A href のようなリンクのリンク先となる XML タグを取得します。</DIV>
+<DIV id="text851_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5554px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text851_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5554px; line-height:15px; white-space:nowrap">
+URL</DIV>
+<DIV id="text851_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:5554px; line-height:15px; white-space:nowrap">
+リンク先のURL</DIV>
+<DIV id="text851_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:150px; margin-top:5572px; line-height:15px; white-space:nowrap">
+リンク先の XML タグ</DIV>
+<DIV id="text851_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5572px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text851_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5709px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text851_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:5709px; line-height:15px; white-space:nowrap">
+<A href="#LinkedXML">
+→ GetHRefBase</A></DIV>
+<DIV id="text851_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5602px; line-height:15px; white-space:nowrap">
+他の XML ファイルへのリンクがあるときは、内部で自動的に LoadXML が呼ばれます。</DIV>
+<DIV id="text851_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:5461px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text851_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:191px; margin-top:5709px; line-height:15px; white-space:nowrap">
+HRefBase オブジェクトの取得</DIV>
+<DIV id="text851_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:5729px; line-height:15px; white-space:nowrap">
+<A href="#GetLinkTargetNode_LinkedXMLs">
+→ GetLinkTargetNode (LinkedXMLs)</A></DIV>
+<DIV id="text851_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:5631px; line-height:15px; white-space:nowrap">
+<A href="vbslib_33.html#period3">
+パスにピリオドを３つ並べる</A></DIV>
+<DIV id="text851_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:190px; margin-top:5631px; line-height:15px; white-space:nowrap">
+こともできます。</DIV>
+<DIV id="text851_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5659px; line-height:15px; white-space:nowrap">
+リンク先が見つからないときはエラーになります。</DIV>
+<DIV id="text851_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:303px; margin-top:5498px; line-height:13px; white-space:nowrap">
+IXMLDOMElement</DIV>
+<DIV id="text851_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5756px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text851_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:5756px; line-height:15px; white-space:nowrap">
+→ getElementById (HTMLDocument)</DIV>
+<DIV id="text851_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:400px; margin-top:5461px; line-height:15px; white-space:nowrap">
+<A href="#LinkedXML">
+&lt;&lt; GetHRefBase</A></DIV>
+
+<v:line from="0,5444" to="556,5444"/>
+<v:line from="556,5444" to="556,5804"/>
+<v:line from="556,5804" to="0,5804"/>
+<v:line from="0,5804" to="0,5444"/>
+
+</PAGE>
+ 
+<!-- page 852 --> 
+<PAGE>
+<A id="svgcats_vml_p852" class="to_tree" style="margin-top:5809px;" onClick="selectTreeElem( '852' );">←</A>
+<A href="#svgcats_vml_p853" class="to_next_page" style="margin-top:5809px;">▼</A>
+<A href="#svgcats_vml_p851" class="to_prev_page" style="margin-top:5809px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5820px; width:559px; height:751px;" fillcolor="white"/>
+<DIV id="text852_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5837px; line-height:15px; white-space:nowrap">
+<A name="LinkedXMLs">
+LinkedXMLs クラス</A></DIV>
+<DIV id="text852_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6338px; line-height:15px; white-space:nowrap">
+データ構造</DIV>
+<DIV id="text852_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; font-weight: bold; margin-left:36px; margin-top:6372px; line-height:13px; white-space:nowrap">
+<A href="#XmlTagNamesHavingIdName_LinkedXMLs">
+.XmlTagNamesHavingIdName as array of string</A></DIV>
+<DIV id="text852_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:6395px; line-height:13px; white-space:nowrap">
+.SourceXmlPath as string</DIV>
+<DIV id="text852_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:6418px; line-height:13px; white-space:nowrap">
+.SourceXmlRootElem as IXMLDOMElement</DIV>
+<DIV id="text852_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:6464px; line-height:13px; white-space:nowrap">
+.TargetXmlPath as string</DIV>
+<DIV id="text852_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:6487px; line-height:13px; white-space:nowrap">
+.TargetXmlRootElem as IXMLDOMElement</DIV>
+<DIV id="text852_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:343px; margin-top:6393px; text-align: right; line-height:15px; white-space:nowrap">
+リンク元の XML ファイルのパス</DIV>
+<DIV id="text852_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:325px; margin-top:6416px; text-align: right; line-height:15px; white-space:nowrap">
+SourceXmlPath のルート XML タグ</DIV>
+<DIV id="text852_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:343px; margin-top:6462px; text-align: right; line-height:15px; white-space:nowrap">
+リンク先の XML ファイルのパス</DIV>
+<DIV id="text852_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:328px; margin-top:6485px; text-align: right; line-height:15px; white-space:nowrap">
+TargetXmlPath のルート XML タグ</DIV>
+<DIV id="text852_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:348px; margin-top:6370px; text-align: right; line-height:15px; white-space:nowrap">
+リンク先になれるタグ名の配列</DIV>
+<DIV id="text852_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:5870px; line-height:15px; white-space:nowrap">
+HTML の A href のようなリンクの、リンク先となる XML タグを取得します。<BR/>
+他の XML ファイルへのリンクがあるときは、内部で自動的に LoadXML が呼ばれます。<BR/>
+リンク先のリンク先が、循環参照しているかどうかを検出することもできます。</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:6088px; width:436px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text852_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:6094px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; Dim&nbsp; root, a, x, linker<BR/>
+<BR/>
+&nbsp; &nbsp; Set root = LoadXML( "sample.xml", Empty )<BR/>
+&nbsp; &nbsp; Set a = root.selectSingleNode( "./A" )&nbsp; '// A タグ<BR/>
+<BR/>
+&nbsp; &nbsp; Set linker = new LinkedXMLs<BR/>
+&nbsp; &nbsp; linker.XmlTagNamesHavingIdName = Array( "X" )<BR/>
+&nbsp; &nbsp; linker.StartNavigation&nbsp; "sample.xml", root<BR/>
+&nbsp; &nbsp; Set x = linker.GetLinkTargetNode( "target.xml#name1" )&nbsp; '// X タグ<BR/>
+&nbsp; &nbsp; linker.EndNavigation</DIV>
+<DIV id="text852_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:5969px; line-height:15px; white-space:nowrap">
+sample.xml</DIV>
+<DIV id="text852_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:46px; margin-top:6067px; line-height:15px; white-space:nowrap">
+スクリプト</DIV>
+<v:rect style="position:absolute; margin-left:57px; margin-top:5988px; width:226px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text852_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:65px; margin-top:5994px; line-height:15px; white-space:nowrap">
+&lt;Root&gt;<BR/>
+&lt;A href="target.xml#name1"&gt;Link&lt;/A&gt;<BR/>
+&lt;/Root&gt;</DIV>
+<DIV id="text852_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:331px; margin-top:5969px; line-height:15px; white-space:nowrap">
+target.xml</DIV>
+<v:rect style="position:absolute; margin-left:330px; margin-top:5988px; width:118px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text852_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:338px; margin-top:5994px; line-height:15px; white-space:nowrap">
+&lt;Root&gt;<BR/>
+&lt;X name="name1"/&gt;<BR/>
+&lt;/Root&gt;</DIV>
+<v:line style="position:absolute;" from="278,6015" to="334,6015" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="334,6015" to="323,6011" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="334,6015" to="323,6019" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text852_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:209px; margin-top:6125px; line-height:13px; white-space:nowrap">
+"sample.xml"</DIV>
+<DIV id="text852_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:329px; margin-top:6185px; line-height:13px; white-space:nowrap">
+"X"</DIV>
+<DIV id="text852_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:293px; margin-top:6215px; line-height:13px; white-space:nowrap">
+"target.xml#name1"</DIV>
+<DIV id="text852_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:233px; margin-top:6200px; line-height:13px; white-space:nowrap">
+"sample.xml"</DIV>
+<DIV id="text852_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:36px; margin-top:6264px; line-height:15px; white-space:nowrap">
+他の XML ファイルへのリンクがあるときは、内部で LoadXML が呼ばれ、返される XML<BR/>
+ルートタグは、内部にキャッシュされます。 最新の情報に更新するとき（キャッシュを<BR/>
+クリアするとき）は、LinkedXMLs オブジェクトを再生成してください。</DIV>
+<DIV id="text852_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:230px; margin-top:5837px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text852_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:179px; margin-top:6215px; line-height:13px; white-space:nowrap">
+<A href="#GetLinkTargetNode_LinkedXMLs">
+GetLinkTargetNode</A></DIV>
+<DIV id="text852_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:131px; margin-top:6230px; line-height:13px; white-space:nowrap">
+<A href="#EndNavigation_LinkedXMLs">
+EndNavigation</A></DIV>
+<DIV id="text852_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:131px; margin-top:6200px; line-height:13px; white-space:nowrap">
+<A href="#StartNavigation_LinkedXMLs">
+StartNavigation</A></DIV>
+<DIV id="text852_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:131px; margin-top:6185px; line-height:13px; white-space:nowrap">
+<A href="#XmlTagNamesHavingIdName_LinkedXMLs">
+XmlTagNamesHavingIdName</A></DIV>
+<DIV id="text852_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6523px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text852_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:79px; margin-top:6523px; line-height:15px; white-space:nowrap">
+<A href="#LinkedXML">
+→ GetHRefBase</A></DIV>
+<DIV id="text852_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:61px; margin-top:5926px; line-height:15px; white-space:nowrap">
+<A href="#LinkedXML">
+→ GetHRefBase</A></DIV>
+<DIV id="text852_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5926px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text852_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; font-weight: bold; margin-left:36px; margin-top:6441px; line-height:13px; white-space:nowrap">
+.TargetLocation as string</DIV>
+<DIV id="text852_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:276px; margin-top:6439px; line-height:15px; white-space:nowrap">
+直前のリンク先のパス、# を含む場合もある</DIV>
+
+<v:line from="0,5820" to="559,5820"/>
+<v:line from="559,5820" to="559,6571"/>
+<v:line from="559,6571" to="0,6571"/>
+<v:line from="0,6571" to="0,5820"/>
+
+</PAGE>
+ 
+<!-- page 853 --> 
+<PAGE>
+<A id="svgcats_vml_p853" class="to_tree" style="margin-top:6576px;" onClick="selectTreeElem( '853' );">←</A>
+<A href="#svgcats_vml_p854" class="to_next_page" style="margin-top:6576px;">▼</A>
+<A href="#svgcats_vml_p852" class="to_prev_page" style="margin-top:6576px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6587px; width:647px; height:311px;" fillcolor="white"/>
+<DIV id="text853_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6604px; line-height:15px; white-space:nowrap">
+<A name="XmlTagNamesHavingIdName_LinkedXMLs">
+XmlTagNamesHavingIdName (LinkedXMLs)</A></DIV>
+<DIV id="text853_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6670px; line-height:15px; white-space:nowrap">
+getLinkTargetNode メソッドでリンク先にできる XML のid 属性や name 属性を持つ XML タグ名の配列。</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:6723px; width:472px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text853_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:6729px; line-height:15px; white-space:nowrap">
+Set linker = new LinkedXMLs<BR/>
+linker.XmlTagNamesHavingIdName = Array( "TestCases", "TestCase", "SubCase" )</DIV>
+<DIV id="text853_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6704px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:6826px; width:454px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text853_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:6832px; line-height:15px; white-space:nowrap">
+&lt;A href="#name1"&gt;1&lt;/A&gt;&nbsp; &nbsp;&lt;A href="#name2"&gt;2&lt;/A&gt;&nbsp; &nbsp; &lt;A href="#name3"&gt;3&lt;/A&gt;<BR/>
+&lt;TestCases id="name1"/&gt;&nbsp; &lt;TestCase name="name2"/&gt;&nbsp; &lt;Others id="name3"/&gt;</DIV>
+<DIV id="text853_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:6784px; line-height:15px; white-space:nowrap">
+XmlTagNamesHavingIdName に指定した名前を持つタグにリンクすることができます。<BR/>
+下記の A href のうち、name1, name2 はリンク先が見つかりますが、name3 は見つかりません。</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6634px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text853_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6641px; line-height:13px; white-space:nowrap">
+Dim&nbsp; LinkedXMLs::XmlTagNamesHavingIdName as string</DIV>
+<DIV id="text853_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:281px; margin-top:6745px; line-height:13px; white-space:nowrap">
+"TestCases", "TestCase", "SubCase"</DIV>
+
+<v:line from="0,6587" to="647,6587"/>
+<v:line from="647,6587" to="647,6898"/>
+<v:line from="647,6898" to="0,6898"/>
+<v:line from="0,6898" to="0,6587"/>
+
+</PAGE>
+ 
+<!-- page 854 --> 
+<PAGE>
+<A id="svgcats_vml_p854" class="to_tree" style="margin-top:6903px;" onClick="selectTreeElem( '854' );">←</A>
+<A href="#svgcats_vml_p855" class="to_next_page" style="margin-top:6903px;">▼</A>
+<A href="#svgcats_vml_p853" class="to_prev_page" style="margin-top:6903px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6914px; width:674px; height:266px;" fillcolor="white"/>
+<DIV id="text854_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6931px; line-height:15px; white-space:nowrap">
+<A name="StartNavigation_LinkedXMLs">
+StartNavigation (LinkedXMLs)</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6961px; width:598px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text854_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6968px; line-height:13px; white-space:nowrap">
+Sub&nbsp; LinkedXMLs::StartNavigation( SourceLocation as string, SourceXmlRootElem as IXMLDOMElement )</DIV>
+<DIV id="text854_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:6931px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text854_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6998px; line-height:15px; white-space:nowrap">
+現在の XML ファイル（リンク元）の情報を指定します。</DIV>
+<DIV id="text854_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7024px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text854_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7024px; line-height:15px; white-space:nowrap">
+SourceLocation</DIV>
+<DIV id="text854_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7043px; line-height:15px; white-space:nowrap">
+SourceXmlRootElem</DIV>
+<DIV id="text854_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:233px; margin-top:7024px; line-height:15px; white-space:nowrap">
+現在の XML ファイルのパス。相対パスでも可能。 # があれば付けること</DIV>
+<DIV id="text854_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:233px; margin-top:7043px; line-height:15px; white-space:nowrap">
+SourceXmlPath のファイルのルート XML タグ (下記)</DIV>
+<DIV id="text854_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7085px; line-height:15px; white-space:nowrap">
+SourceXmlRootElem 引数</DIV>
+<DIV id="text854_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:38px; margin-top:7117px; line-height:15px; white-space:nowrap">
+初めてリンク先を探すときは、LoadXML の返り値を指定します。<BR/>
+リンク先の更にリンク先を探すときは、LinkedXMLs::TargetXmlRootElem を指定します。</DIV>
+
+<v:line from="0,6914" to="674,6914"/>
+<v:line from="674,6914" to="674,7180"/>
+<v:line from="674,7180" to="0,7180"/>
+<v:line from="0,7180" to="0,6914"/>
+
+</PAGE>
+ 
+<!-- page 855 --> 
+<PAGE>
+<A id="svgcats_vml_p855" class="to_tree" style="margin-top:7185px;" onClick="selectTreeElem( '855' );">←</A>
+<A href="#svgcats_vml_p856" class="to_next_page" style="margin-top:7185px;">▼</A>
+<A href="#svgcats_vml_p854" class="to_prev_page" style="margin-top:7185px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7196px; width:471px; height:130px;" fillcolor="white"/>
+<DIV id="text855_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7213px; line-height:15px; white-space:nowrap">
+<A name="EndNavigation_LinkedXMLs">
+EndNavigation (LinkedXMLs)</A></DIV>
+<DIV id="text855_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:7213px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7243px; width:208px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text855_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7250px; line-height:13px; white-space:nowrap">
+Sub&nbsp; LinkedXMLs::EndNavigation()</DIV>
+<DIV id="text855_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:35px; margin-top:7278px; line-height:15px; white-space:nowrap">
+<A href="#StartNavigation_LinkedXMLs">
+StartNavigation</A></DIV>
+<DIV id="text855_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:130px; margin-top:7278px; line-height:15px; white-space:nowrap">
+で指定した現在の XML ファイルの終了を指定します。</DIV>
+
+<v:line from="0,7196" to="471,7196"/>
+<v:line from="471,7196" to="471,7326"/>
+<v:line from="471,7326" to="0,7326"/>
+<v:line from="0,7326" to="0,7196"/>
+
+</PAGE>
+ 
+<!-- page 856 --> 
+<PAGE>
+<A id="svgcats_vml_p856" class="to_tree" style="margin-top:7331px;" onClick="selectTreeElem( '856' );">←</A>
+<A href="#svgcats_vml_p857" class="to_next_page" style="margin-top:7331px;">▼</A>
+<A href="#svgcats_vml_p855" class="to_prev_page" style="margin-top:7331px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7342px; width:586px; height:641px;" fillcolor="white"/>
+<DIV id="text856_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7359px; line-height:15px; white-space:nowrap">
+<A name="GetLinkTargetNode_LinkedXMLs">
+GetLinkTargetNode (LinkedXMLs)</A></DIV>
+<DIV id="text856_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:279px; margin-top:7359px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7389px; width:526px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text856_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7396px; line-height:13px; white-space:nowrap">
+Function&nbsp; LinkedXMLs::GetLinkTargetNode( TargetLocation as string ) as IXMLDOMElement</DIV>
+<DIV id="text856_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7426px; line-height:15px; white-space:nowrap">
+リンク先となる XML タグを取得します。</DIV>
+<DIV id="text856_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7452px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text856_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7452px; line-height:15px; white-space:nowrap">
+TargetLocation</DIV>
+<DIV id="text856_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7471px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text856_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:7452px; line-height:15px; white-space:nowrap">
+リンク先のパス。 target.xml#name 形式</DIV>
+<DIV id="text856_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:204px; margin-top:7471px; line-height:15px; white-space:nowrap">
+リンク先のタグ</DIV>
+<DIV id="text856_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7597px; line-height:15px; white-space:nowrap">
+本関数が成功すると、Me.TargetXmlPath（リンク先の XML ファイルのパス）と、<BR/>
+Me.TargetXmlRootElem （TargetXmlPath のルート XML タグ）も更新されます。</DIV>
+<DIV id="text856_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7723px; line-height:15px; white-space:nowrap">
+StartNavigation をネストしていくと、GetLinkTargetNode で、循環参照エラーを検出できます。</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:7746px; width:466px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text856_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:7752px; line-height:15px; white-space:nowrap">
+linker.StartNavigation&nbsp; "sample.xml", root<BR/>
+Set a = linker.GetLinkTargetNode( "#a" )<BR/>
+&nbsp; linker.StartNavigation&nbsp; linker.TargetLocation, linker.TargetXmlRootElem<BR/>
+&nbsp; Set b = linker.GetLinkTargetNode( "#b" )<BR/>
+&nbsp; &nbsp; linker.StartNavigation&nbsp; linker.TargetLocation, linker.TargetXmlRootElem<BR/>
+&nbsp; &nbsp; Set a2 = linker.GetLinkTargetNode( "#a" )&nbsp; '// 循環参照エラー<BR/>
+&nbsp; &nbsp; linker.EndNavigation<BR/>
+&nbsp; linker.EndNavigation<BR/>
+linker.EndNavigation<BR/>
+<BR/>
+linker.StartNavigation&nbsp; "sample.xml", root<BR/>
+Set b = linker.GetLinkTargetNode( "#b" )&nbsp; '// 循環参照エラーにならない<BR/>
+linker.EndNavigation</DIV>
+<DIV id="text856_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7697px; line-height:15px; white-space:nowrap">
+循環参照エラーの検出</DIV>
+<v:rect style="position:absolute; margin-left:56px; margin-top:7522px; width:352px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text856_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:64px; margin-top:7528px; line-height:15px; white-space:nowrap">
+&nbsp; linker.StartNavigation&nbsp; "sample.xml", root<BR/>
+&nbsp; Set x = linker.GetLinkTargetNode( "target.xml#name1" )<BR/>
+&nbsp; linker.EndNavigation</DIV>
+<DIV id="text856_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:7501px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text856_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:280px; margin-top:7544px; line-height:13px; white-space:nowrap">
+"target.xml#name1"</DIV>
+<DIV id="text856_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:7642px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text856_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:7642px; line-height:15px; white-space:nowrap">
+<A href="#href_HRefBase">
+→ href (HRefBase)</A></DIV>
+<DIV id="text856_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:459px; margin-top:7396px; line-height:13px; white-space:nowrap">
+IXMLDOMElement</DIV>
+
+<v:line from="0,7342" to="586,7342"/>
+<v:line from="586,7342" to="586,7983"/>
+<v:line from="586,7983" to="0,7983"/>
+<v:line from="0,7983" to="0,7342"/>
+
+</PAGE>
+ 
+<!-- page 857 --> 
+<PAGE>
+<A id="svgcats_vml_p857" class="to_tree" style="margin-top:7988px;" onClick="selectTreeElem( '857' );">←</A>
+<A href="#svgcats_vml_p858" class="to_next_page" style="margin-top:7988px;">▼</A>
+<A href="#svgcats_vml_p856" class="to_prev_page" style="margin-top:7988px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7999px; width:662px; height:1452px;" fillcolor="white"/>
+<DIV id="text857_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8016px; line-height:15px; white-space:nowrap">
+<A name="ParseAttributesInXML">
+ParseAttributesInXML</A></DIV>
+<DIV id="text857_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9403px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text857_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:9403px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text857_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9381px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text857_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:9381px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8046px; width:412px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8052px; line-height:15px; white-space:nowrap">
+Function&nbsp; ParseAttributesInXML( in_AttributesString as string,<BR/>
+&nbsp; &nbsp; in_AttributeNames as array of string ) as dictionary of string</DIV>
+<DIV id="text857_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8100px; line-height:15px; white-space:nowrap">
+文字列の中にある XML のタグの属性の部分を解析します。 </DIV>
+<DIV id="text857_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8126px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text857_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8126px; line-height:15px; white-space:nowrap">
+in_AttributesString</DIV>
+<DIV id="text857_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:8126px; line-height:15px; white-space:nowrap">
+XML のタグの属性の部分。 文字列型</DIV>
+<DIV id="text857_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:8165px; line-height:15px; white-space:nowrap">
+XML 属性の名前をキーとした、属性値の辞書</DIV>
+<DIV id="text857_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8165px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text857_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8415px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:8438px; width:514px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:8444px; line-height:15px; white-space:nowrap">
+Set attrs = ParseAttributesInXML( "a=""Apple""&nbsp; b=""Banana""",&nbsp; Array( "a", "b" ) )<BR/>
+Assert&nbsp; attrs( "a" ) = "Apple"<BR/>
+Assert&nbsp; attrs( "b" ) = "Banana"</DIV>
+<DIV id="text857_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8521px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:50px; margin-top:8545px; width:580px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:58px; margin-top:8551px; line-height:15px; white-space:nowrap">
+Set attrs = ParseAttributesInXML( "Text1&nbsp; a=""Apple""&nbsp; c=""Cherry""",&nbsp; Array( "a", "b", "" ) )<BR/>
+Assert&nbsp; attrs( "a" ) = "Apple"<BR/>
+Assert&nbsp; not attrs.Exists( "b" )<BR/>
+Assert&nbsp; not attrs.Exists( "c" )<BR/>
+Assert&nbsp; attrs( "" )&nbsp; = "Text1&nbsp; c=""Cherry"""</DIV>
+<DIV id="text857_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:8145px; line-height:15px; white-space:nowrap">
+in_AttributeNames</DIV>
+<DIV id="text857_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:237px; margin-top:8145px; line-height:15px; white-space:nowrap">
+解析する XML 属性の名前の配列</DIV>
+<DIV id="text857_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8656px; line-height:15px; white-space:nowrap">
+補足</DIV>
+<DIV id="text857_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:8680px; line-height:15px; white-space:nowrap">
+" " で囲まれた属性値に " を含めるときは、&amp;quot; に置き換えてください。<BR/>
+' ' で囲まれた属性値に ' を含めるときは、&amp;apos; に置き換えてください。<BR/>
+属性値は " " で囲んでも ' ' で囲んでも上記以外の違いはありません。<BR/>
+ただし、" " または ' ' で囲む必要があります。<BR/>
+= の隣には空白があってもなくても構いません。</DIV>
+<DIV id="text857_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:58px; margin-top:9359px; line-height:15px; white-space:nowrap">
+→ XML - 実体参照、文字参照</DIV>
+<DIV id="text857_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9359px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text857_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:114px; margin-top:8890px; line-height:15px; white-space:nowrap">
+実体参照や文字参照（例：&amp;amp）</DIV>
+<DIV id="text857_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:9213px; line-height:15px; white-space:nowrap">
+属性値以外のテキストに、解析対象の属性を設定するような形式（名="値"）を設定するとき<BR/>
+（例： 属性 a を解析するときに attrs( "" ) に "a=""A""" を残すとき）は、<BR/>
+= を &amp;#x3D; に置き換えてください。 例： "a&amp;#x3D;""A"""。</DIV>
+<DIV id="text857_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:8890px; line-height:15px; white-space:nowrap">
+属性値に</DIV>
+<DIV id="text857_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:300px; margin-top:8890px; line-height:15px; white-space:nowrap">
+を含めることができます。 しかし、設定値には、&lt;, &gt;, &amp; </DIV>
+<DIV id="text857_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:8772px; line-height:15px; white-space:nowrap">
+本関数の in_AttributesString 引数に指定できる「vbslib の XML 属性」 の文字列は、XML の文法と<BR/>
+しては認められていないもの（例： &lt;, &gt;, &amp; が含まれている文字列）でも、ほぼ問題なく解析できます。</DIV>
+<DIV id="text857_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:9070px; line-height:15px; white-space:nowrap">
+同じ属性名の属性が in_AttributesString 引数に複数あったときは、それぞれの属性値の間に<BR/>
+改行 vbCRLF が入る形でまとめられます。 XML の文法では同じ属性名の属性は、認められて<BR/>
+いません。</DIV>
+<DIV id="text857_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:262px; margin-top:8445px; line-height:13px; white-space:nowrap">
+"a=""Apple""&nbsp; b=""Banana"""</DIV>
+<DIV id="text857_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:262px; margin-top:8552px; line-height:13px; white-space:nowrap">
+"Text1&nbsp; a=""Apple""&nbsp; c=""Cherry"""</DIV>
+<DIV id="text857_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:196px; margin-top:8612px; line-height:13px; white-space:nowrap">
+"Text1&nbsp; c=""Cherry"""</DIV>
+<DIV id="text857_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:8905px; line-height:15px; white-space:nowrap">
+をそのまま記述できます。 XML の文法としては認められていませんが、実体参照に変換して記述<BR/>
+する必要はありません。 ただし、属性値に実体参照や文字参照（例：&amp;amp）と同じ形式（&amp; から<BR/>
+始まり、英数字があり、; で終わる形式）の文字列を設定したいときだけは、<BR/>
+&amp; を &amp;amp; に置き換えてください。 </DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:8816px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:8823px; line-height:13px; white-space:nowrap">
+"If ( c &lt; d&nbsp; &amp;&amp;&nbsp; e &gt; f ) { a = ""Apple &lt; &gt; &amp;"" }"</DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:8847px; width:106px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:8854px; line-height:13px; white-space:nowrap">
+a="Apple &lt; &gt; &amp;"</DIV>
+<DIV id="text857_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:8821px; line-height:15px; white-space:nowrap">
+入力：</DIV>
+<DIV id="text857_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:8852px; line-height:15px; white-space:nowrap">
+出力：</DIV>
+<DIV id="text857_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:9019px; line-height:15px; white-space:nowrap">
+出力：</DIV>
+<DIV id="text857_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:8988px; line-height:15px; white-space:nowrap">
+入力：</DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:9014px; width:148px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:9021px; line-height:13px; white-space:nowrap">
+a= " &lt; &gt; &amp;quot &amp;quot;"</DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:8983px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_40" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:8990px; line-height:13px; white-space:nowrap">
+"a=' &lt; &gt; &amp;quot &amp;amp;quot;'"</DIV>
+<DIV id="text857_41" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:235px; margin-top:8990px; line-height:13px; white-space:nowrap">
+&amp;amp;quot;</DIV>
+<DIV id="text857_42" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:235px; margin-top:9021px; line-height:13px; white-space:nowrap">
+&amp;quot;</DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:9162px; width:130px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:9169px; line-height:13px; white-space:nowrap">
+a= "1"+ vbCRLF +"2"</DIV>
+<DIV id="text857_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:9136px; line-height:15px; white-space:nowrap">
+入力：</DIV>
+<DIV id="text857_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:9167px; line-height:15px; white-space:nowrap">
+出力：</DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:9131px; width:118px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_46" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:9138px; line-height:13px; white-space:nowrap">
+"a=""1"" a=""2"""</DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:9270px; width:100px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_47" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:9277px; line-height:13px; white-space:nowrap">
+"a&amp;#x3D;""A"""</DIV>
+<DIV id="text857_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:9306px; line-height:15px; white-space:nowrap">
+出力：</DIV>
+<v:rect style="position:absolute; margin-left:137px; margin-top:9301px; width:136px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text857_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:145px; margin-top:9308px; line-height:13px; white-space:nowrap">
+attrs("")= "a=""A"""</DIV>
+<DIV id="text857_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:91px; margin-top:9275px; line-height:15px; white-space:nowrap">
+入力：</DIV>
+<DIV id="text857_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:170px; margin-top:9403px; line-height:15px; white-space:nowrap">
+T_ParseAttributesInXML</DIV>
+<DIV id="text857_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8206px; line-height:15px; white-space:nowrap">
+XML タグの属性の形式は、名="値" または 名='値' です。</DIV>
+<DIV id="text857_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8235px; line-height:15px; white-space:nowrap">
+文字列に = 文字を含む場合、XML タグの属性の可能性がありますが、= の左が解析対象の属性名<BR/>
+ではないときや、= の右が " または ' ではないときは、一般の文字列として扱われます。 XML の文法<BR/>
+としては認められていませんが、エラーにはなりません。 また、</DIV>
+<DIV id="text857_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8313px; line-height:15px; white-space:nowrap">
+in_AttributeNames 引数に指定した配列に空の文字列 "" が含まれるときは、XML タグの属性を<BR/>
+削除した残りの文字列を出力することができます。<BR/>
+XML 属性が削除した部分の空白の文字数は、XML 属性の両隣にある空白の文字数の小さいほう<BR/>
+になります。 ただし、前（左）の XML 属性が抜かれたときに右隣の空白が少なくなったら、次（右）の <BR/>
+XML 属性の左隣の空白はその少なくなった文字数が使われます。</DIV>
+<DIV id="text857_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:386px; margin-top:8265px; line-height:15px; white-space:nowrap">
+実体参照や文字参照（例：&amp;amp）</DIV>
+<DIV id="text857_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8281px; line-height:15px; white-space:nowrap">
+で記述すれば、XML タグの属性の形式と同じ形式の値も出力することができます（エスケープ）。</DIV>
+
+<v:line from="0,7999" to="662,7999"/>
+<v:line from="662,7999" to="662,9451"/>
+<v:line from="662,9451" to="0,9451"/>
+<v:line from="0,9451" to="0,7999"/>
+
+</PAGE>
+ 
+<!-- page 858 --> 
+<PAGE>
+<A id="svgcats_vml_p858" class="to_tree" style="margin-top:9456px;" onClick="selectTreeElem( '858' );">←</A>
+<A href="#svgcats_vml_p859" class="to_next_page" style="margin-top:9456px;">▼</A>
+<A href="#svgcats_vml_p857" class="to_prev_page" style="margin-top:9456px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9467px; width:562px; height:414px;" fillcolor="white"/>
+<DIV id="text858_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9484px; line-height:15px; white-space:nowrap">
+<A name="DecodeCharacterReferencesOfXML">
+DecodeCharacterReferencesOfXML</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9514px; width:454px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text858_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9521px; line-height:13px; white-space:nowrap">
+Function&nbsp; DecodeCharacterReferencesOfXML( in_String as string ) as string</DIV>
+<DIV id="text858_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:269px; margin-top:9551px; line-height:15px; white-space:nowrap">
+をデコードします。</DIV>
+<DIV id="text858_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9577px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text858_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9577px; line-height:15px; white-space:nowrap">
+in_String</DIV>
+<DIV id="text858_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9596px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text858_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:9577px; line-height:15px; white-space:nowrap">
+実体参照や文字参照を含む文字列</DIV>
+<DIV id="text858_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:169px; margin-top:9596px; line-height:15px; white-space:nowrap">
+実体参照や文字参照を対応する文字に変換した文字列</DIV>
+<DIV id="text858_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9833px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text858_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:9833px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text858_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9811px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text858_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:9811px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text858_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9551px; line-height:15px; white-space:nowrap">
+XML の実体参照や文字参照（例：&amp;amp）</DIV>
+<DIV id="text858_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9631px; line-height:15px; white-space:nowrap">
+本関数の in_String 引数に指定できる「vbslib の XML 属性」 の文字列は、XML の文法と<BR/>
+しては認められていないもの（例： &lt;, &gt;, &amp; が含まれている文字列）でも、ほぼ問題なく<BR/>
+解析できます。</DIV>
+<DIV id="text858_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:9683px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text858_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:9683px; line-height:15px; white-space:nowrap">
+<A href="#ParseAttributesInXML">
+→ ParseAttributesInXML</A></DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:9748px; width:466px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text858_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:9754px; line-height:15px; white-space:nowrap">
+a_string = DecodeCharacterReferencesOfXML( "&amp;amp; &amp;lt; &amp;gt; &amp;quot; &amp; &lt; &gt;" )<BR/>
+Assert&nbsp; a_string = "&amp; &lt; &gt; "" &amp; &lt; &gt;"</DIV>
+<DIV id="text858_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9726px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text858_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:174px; margin-top:9833px; line-height:15px; white-space:nowrap">
+T_ParseAttributesInXML</DIV>
+<DIV id="text858_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:308px; margin-top:9755px; line-height:13px; white-space:nowrap">
+"&amp;amp; &amp;lt; &amp;gt; &amp;quot; &amp; &lt; &gt;"</DIV>
+<DIV id="text858_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:164px; margin-top:9770px; line-height:13px; white-space:nowrap">
+"&amp; &lt; &gt; "" &amp; &lt; &gt;"</DIV>
+
+<v:line from="0,9467" to="562,9467"/>
+<v:line from="562,9467" to="562,9881"/>
+<v:line from="562,9881" to="0,9881"/>
+<v:line from="0,9881" to="0,9467"/>
+
+</PAGE>
+ 
+<!-- page 859 --> 
+<PAGE>
+<A id="svgcats_vml_p859" class="to_tree" style="margin-top:9886px;" onClick="selectTreeElem( '859' );">←</A>
+<A href="vbslib_46.html#svgcats_vml_p860" class="to_next_page" style="margin-top:9886px;">▼</A>
+<A href="#svgcats_vml_p858" class="to_prev_page" style="margin-top:9886px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9897px; width:628px; height:2814px;" fillcolor="white"/>
+<DIV id="text859_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9914px; line-height:15px; white-space:nowrap">
+<A name="CutIndentOfMultiLineText">
+CutIndentOfMultiLineText</A></DIV>
+<v:rect style="position:absolute; margin-left:64px; margin-top:11590px; width:310px; height:205px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:72px; margin-top:11596px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; text_template = _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; vbCRLF +_<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; vbTab + vbTab +"Line1"+ vbCRLF +_<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; vbTab + vbTab + vbTab +"Line2"+ vbCRLF +_<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; vbTab + "Line3"+ vbCRLF +_<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; vbTab + vbTab<BR/>
+<BR/>
+&nbsp; &nbsp; output = CutIndentOfMultiLineText( text )<BR/>
+<BR/>
+&nbsp; &nbsp; Assert&nbsp; output = _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; vbTab +"Line1"+ vbCRLF +_<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; vbTab + vbTab +"Line2"+ vbCRLF +_<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; "Line3"+ vbCRLF</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:9944px; width:526px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:9950px; line-height:15px; white-space:nowrap">
+Function&nbsp; CutIndentOfMultiLineText( in_Text as string,&nbsp; in_Indent as string or Empty,<BR/>
+&nbsp; &nbsp; in_NewLine as string,&nbsp; in_Option as boolean or Empty ) as string</DIV>
+<DIV id="text859_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9998px; line-height:15px; white-space:nowrap">
+インデントをカットします。 また、XML で改行コードが混在したテキストを扱います。</DIV>
+<DIV id="text859_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10024px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text859_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:10024px; line-height:15px; white-space:nowrap">
+in_Text</DIV>
+<DIV id="text859_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:10024px; line-height:15px; white-space:nowrap">
+インデントをカットする前の文字列。改行コードは、LF</DIV>
+<DIV id="text859_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:10043px; line-height:15px; white-space:nowrap">
+in_Indent</DIV>
+<DIV id="text859_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:10043px; line-height:15px; white-space:nowrap">
+Empty か、代わりに追加する文字数*インデントの文字、例："1*"+ vbTab</DIV>
+<DIV id="text859_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:12601px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text859_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:43px; margin-top:11199px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text859_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:12574px; line-height:15px; white-space:nowrap">
+→ T_XML.vbs</DIV>
+<DIV id="text859_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:12574px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text859_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:171px; margin-top:12574px; line-height:15px; white-space:nowrap">
+T_XmlText</DIV>
+<DIV id="text859_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:12553px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text859_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:12553px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text859_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:12619px; line-height:15px; white-space:nowrap">
+<A href="vbslib_46.html#MultiTextXML_Class">
+→ MultiTextXML_Class</A></DIV>
+<DIV id="text859_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:11048px; line-height:15px; white-space:nowrap">
+すべての行がインデントしてから（タブ文字や空白文字から）始まる場合、そのインデントを<BR/>
+カットします。 XML パーサーは、<BR/>
+先頭行が空行のときは、その先頭行をカットします（XML パーサーは、HTML パーサーと<BR/>
+異なり、先頭の空行をカットしません）。<BR/>
+最終行がインデントしかなく、末尾に改行文字がないときは、その最終行をカットします（XML <BR/>
+パーサーは、HTML パーサーと異なり、末尾の空行はカットしません）。</DIV>
+<DIV id="text859_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:12637px; line-height:15px; white-space:nowrap">
+<A href="vbslib_19.html#GetTab">
+→ GetTab</A></DIV>
+<DIV id="text859_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:12655px; line-height:15px; white-space:nowrap">
+<A href="vbslib_46.html#XmlText">
+→ XmlText</A></DIV>
+<DIV id="text859_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:43px; margin-top:12085px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text859_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:11879px; line-height:15px; white-space:nowrap">
+XML パーサーは、改行コードを LF に統一してしまいます。 そのため、本関数では、改行コードが<BR/>
+混在したテキストも読み込む（アプリケーションが扱う）ことができるように、in_Text 引数（XML <BR/>
+テキスト）の行末に改行コードを指定します。<BR/>
+　　・行末の "\r"+ LF は CR の改行<BR/>
+　　・行末の "\n"+ LF は LF の改行<BR/>
+　　・行末の "\r\n"+ LF は CR+LF の改行<BR/>
+　　・行末の その他の文字+ LF は、in_NewLine 引数に指定した改行<BR/>
+なお、この拡張（行末の改行コード指定）は、標準的な XML との互換性を考慮して、特定の XML <BR/>
+属性に指定するオプション（例： cut_indent="yes"）があるときだけ有効にするようなアプリケー<BR/>
+ションにすべきです。 CutIndentOfMultiLineText 関数の in_Option 引数に <BR/>
+g_VBS_Lib.KeepLineSeparators を指定したときも、行末の その他の文字+ LF は、LF の改行に<BR/>
+なります。</DIV>
+<DIV id="text859_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:81px; margin-top:12085px; line-height:15px; white-space:nowrap">
+→ XML の改行文字の正規化による副作用</DIV>
+<v:rect style="position:absolute; margin-left:64px; margin-top:11252px; width:184px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_24" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:72px; margin-top:11258px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; &lt;Text&nbsp; cut_indent="yes"&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Line2<BR/>
+&nbsp; &nbsp; Line3<BR/>
+&nbsp; &nbsp; &lt;/Text&gt;</DIV>
+<v:line style="position:absolute;" from="257,11346" to="257,11367" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="257,11367" to="261,11356" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="257,11367" to="253,11356" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:64px; margin-top:11495px; width:130px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:72px; margin-top:11501px; line-height:15px; white-space:nowrap">
+^&nbsp; &nbsp;Line1(改行)<BR/>
+^&nbsp; &nbsp;^&nbsp; &nbsp;Line2(改行)<BR/>
+Line3(改行)</DIV>
+<DIV id="text859_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:11232px; line-height:15px; white-space:nowrap">
+XML ファイル：</DIV>
+<DIV id="text859_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:11475px; line-height:15px; white-space:nowrap">
+CutIndentOfMultiLineText の返り値：</DIV>
+<DIV id="text859_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:11570px; line-height:15px; white-space:nowrap">
+スクリプト：</DIV>
+<DIV id="text859_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:11015px; line-height:15px; white-space:nowrap">
+<A name="CutIndentOfMultiLineText_Indent">
+インデントと、上下の端の空行について</A></DIV>
+<DIV id="text859_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:11853px; line-height:15px; white-space:nowrap">
+<A name="CutIndentOfMultiLineText_CRLF">
+改行コードについて</A></DIV>
+<DIV id="text859_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:11354px; line-height:15px; white-space:nowrap">
+XML パーサーの出力：</DIV>
+<v:rect style="position:absolute; margin-left:64px; margin-top:11374px; width:154px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:72px; margin-top:11380px; line-height:15px; white-space:nowrap">
+(改行)<BR/>
+^&nbsp; &nbsp;^&nbsp; &nbsp;Line1(改行)<BR/>
+^&nbsp; &nbsp;^&nbsp; &nbsp;^&nbsp; &nbsp;Line2(改行)<BR/>
+^&nbsp; &nbsp;Line3(改行)<BR/>
+^&nbsp; &nbsp;</DIV>
+<v:line style="position:absolute;" from="285,11453" to="285,11475" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="285,11475" to="289,11464" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="285,11475" to="281,11464" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:43px; margin-top:11144px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text859_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:84px; margin-top:11144px; line-height:15px; white-space:nowrap">
+<A href="http://www.atmarkit.co.jp/ait/articles/0102/28/news001.html" target="_blank">
+→ XMLを学ぼう（10）：落とし穴になる空白文字と改行文字 - ＠IT (Web)</A></DIV>
+<DIV id="text859_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:277px; margin-top:11257px; line-height:15px; white-space:nowrap">
+cut_indent="yes" は、（対応アプリケーション<BR/>
+では）、インデントをカットすることを示しています。<BR/>
+アプリケーションの内部では、このオプションがある<BR/>
+ときだけ、CutIndentOfMultiLineText を呼び出します。</DIV>
+<v:rect style="position:absolute; margin-left:81px; margin-top:12173px; width:184px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_38" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:89px; margin-top:12179px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; &lt;Text&nbsp; cut_indent="yes"&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Line2\n<BR/>
+&nbsp; &nbsp; Line3\r<BR/>
+&nbsp; &nbsp; Line4\r\n<BR/>
+&nbsp; &nbsp; &lt;/Text&gt;</DIV>
+<v:rect style="position:absolute; margin-left:81px; margin-top:12443px; width:118px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:89px; margin-top:12449px; line-height:15px; white-space:nowrap">
+^&nbsp; &nbsp;Line1(CR+LF)<BR/>
+^&nbsp; &nbsp;^&nbsp; &nbsp;Line2(LF)<BR/>
+Line3(CR)<BR/>
+Line4(CR+LF)</DIV>
+<DIV id="text859_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:12153px; line-height:15px; white-space:nowrap">
+XML ファイル：</DIV>
+<DIV id="text859_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:12423px; line-height:15px; white-space:nowrap">
+CutIndentOfMultiLineText の返り値：</DIV>
+<DIV id="text859_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:70px; margin-top:12287px; line-height:15px; white-space:nowrap">
+XML パーサーの出力：</DIV>
+<v:rect style="position:absolute; margin-left:81px; margin-top:12307px; width:154px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_43" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:89px; margin-top:12313px; line-height:15px; white-space:nowrap">
+(LF)<BR/>
+^&nbsp; &nbsp;^&nbsp; &nbsp;Line1(LF)<BR/>
+^&nbsp; &nbsp;^&nbsp; &nbsp;^&nbsp; &nbsp;Line2\n(LF)<BR/>
+^&nbsp; &nbsp;Line3\r(LF)<BR/>
+^&nbsp; &nbsp;Line4\r\n(LF)<BR/>
+^&nbsp; &nbsp;</DIV>
+<DIV id="text859_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:43px; margin-top:12130px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text859_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:244px; margin-top:11391px; line-height:15px; white-space:nowrap">
+^ は、タブ文字</DIV>
+<DIV id="text859_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:262px; margin-top:12324px; line-height:15px; white-space:nowrap">
+^ は、タブ文字</DIV>
+<DIV id="text859_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:284px; margin-top:12175px; line-height:15px; white-space:nowrap">
+cut_indent="yes" は、（対応アプリケーション<BR/>
+では）、改行文字の種類によって区別します。<BR/>
+アプリケーションの内部では、このオプションがある<BR/>
+ときだけ、CutIndentOfMultiLineText を呼び出します。</DIV>
+<DIV id="text859_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10133px; line-height:15px; white-space:nowrap">
+本関数を呼び出すアプリケーションが入出力する XML ファイルは、複数行のテキスト（タグの間）<BR/>
+が記述しやすくなります。 ただし、cut_indent="yes" 属性（名前はアプリケーションの仕様による）<BR/>
+を付ける必要があります。</DIV>
+<v:rect style="position:absolute; margin-left:66px; margin-top:10360px; width:184px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:74px; margin-top:10366px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; &lt;Text&nbsp; cut_indent="yes"&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line2<BR/>
+&nbsp; &nbsp; &lt;/Text&gt;</DIV>
+<v:rect style="position:absolute; margin-left:306px; margin-top:10360px; width:94px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_50" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:314px; margin-top:10366px; line-height:15px; white-space:nowrap">
+<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line2<BR/>
+&nbsp; &nbsp; </DIV>
+<v:line style="position:absolute;" from="264,10395" to="292,10395" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="292,10395" to="281,10391" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="292,10395" to="281,10399" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="414,10395" to="442,10395" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="442,10395" to="431,10391" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="442,10395" to="431,10399" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:456px; margin-top:10375px; width:46px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_53" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:464px; margin-top:10381px; line-height:15px; white-space:nowrap">
+Line1<BR/>
+Line2</DIV>
+<DIV id="text859_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:10342px; line-height:15px; white-space:nowrap">
+XML ファイル：</DIV>
+<DIV id="text859_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:426px; margin-top:10343px; line-height:15px; white-space:nowrap">
+CutIndentOfMultiLineText<BR/>
+の返り値：</DIV>
+<DIV id="text859_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:264px; margin-top:10343px; line-height:15px; white-space:nowrap">
+XML パーサーの出力：</DIV>
+<DIV id="text859_57" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:60px; margin-top:10950px; line-height:13px; white-space:nowrap">
+g_VBS_Lib.KeepLineSeparators</DIV>
+<DIV id="text859_58" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10872px; line-height:15px; white-space:nowrap">
+<A name="CutIndentOfMultiLineText_in_Option">
+in_Option 引数について</A></DIV>
+<DIV id="text859_59" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:60px; margin-top:10899px; line-height:15px; white-space:nowrap">
+Empty または、下記の定数の論理和 (or) を指定できます。</DIV>
+<DIV id="text859_60" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:60px; margin-top:10927px; line-height:13px; white-space:nowrap">
+g_VBS_Lib.CutLineSeparators</DIV>
+<DIV id="text859_61" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:255px; margin-top:10925px; line-height:15px; white-space:nowrap">
+末尾が改行文字ならその改行を１つカットして返します。</DIV>
+<DIV id="text859_62" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:255px; margin-top:10948px; line-height:15px; white-space:nowrap">
+<A href="#CutIndentOfMultiLineText_CRLF">
+→ 改行コードについて</A></DIV>
+<DIV id="text859_63" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:10100px; line-height:15px; white-space:nowrap">
+カットした後の文字列</DIV>
+<DIV id="text859_64" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:10100px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text859_65" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:293px; margin-top:10081px; line-height:15px; white-space:nowrap">
+<A href="#CutIndentOfMultiLineText_in_Option">
+→ in_Option 引数について</A></DIV>
+<DIV id="text859_66" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:10081px; line-height:15px; white-space:nowrap">
+Empty または 下記</DIV>
+<DIV id="text859_67" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:10081px; line-height:15px; white-space:nowrap">
+in_Option</DIV>
+<v:rect style="position:absolute; margin-left:66px; margin-top:10747px; width:520px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_68" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:74px; margin-top:10753px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; If set_item.getAttribute( "cut_indent" ) = "yes" Then<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; text = CutIndentOfMultiLineText( text,&nbsp; set_item.getAttribute( "indent" ), _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Empty,&nbsp; g_VBS_Lib.CutLastLineSeparator )<BR/>
+&nbsp; &nbsp; End If</DIV>
+<DIV id="text859_69" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:10728px; line-height:15px; white-space:nowrap">
+スクリプト：</DIV>
+<DIV id="text859_70" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:10314px; line-height:15px; white-space:nowrap">
+<A name="CutIndentOfMultiLineText_eg">
+サンプル</A></DIV>
+<DIV id="text859_71" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:10586px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text859_72" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:10615px; line-height:15px; white-space:nowrap">
+XML ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:66px; margin-top:10633px; width:286px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_73" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:74px; margin-top:10639px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; &lt;Text&nbsp; cut_indent="yes"&nbsp; indent="1*&amp;#9;"&gt;<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line2<BR/>
+&nbsp; &nbsp; &lt;/Text&gt;</DIV>
+<v:rect style="position:absolute; margin-left:395px; margin-top:10633px; width:70px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_74" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:403px; margin-top:10639px; line-height:15px; white-space:nowrap">
+^&nbsp; &nbsp;Line1<BR/>
+^&nbsp; &nbsp;Line2</DIV>
+<v:line style="position:absolute;" from="353,10653" to="381,10653" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="381,10653" to="370,10649" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="381,10653" to="370,10657" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_76" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:365px; margin-top:10601px; line-height:15px; white-space:nowrap">
+CutIndentOfMultiLineText<BR/>
+の返り値：</DIV>
+<DIV id="text859_77" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:403px; margin-top:10676px; line-height:15px; white-space:nowrap">
+^ は、タブ文字</DIV>
+<DIV id="text859_78" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:59px; margin-top:10260px; line-height:15px; white-space:nowrap">
+<A href="#CutIndentOfMultiLineText_CRLF">
+→ 改行コードについて</A></DIV>
+<DIV id="text859_79" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:59px; margin-top:10238px; line-height:15px; white-space:nowrap">
+<A href="#CutIndentOfMultiLineText_Indent">
+→ インデントと、上下の端の空行について</A></DIV>
+<DIV id="text859_80" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:59px; margin-top:10216px; line-height:15px; white-space:nowrap">
+<A href="#CutIndentOfMultiLineText_in_Option">
+→ in_Option 引数について</A></DIV>
+<DIV id="text859_81" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:59px; margin-top:10194px; line-height:15px; white-space:nowrap">
+<A href="#CutIndentOfMultiLineText_eg">
+→ サンプル</A></DIV>
+<DIV id="text859_82" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:81px; margin-top:12601px; line-height:15px; white-space:nowrap">
+<A href="vbslib_07.html#Translate_sth">
+→ Translate コマンド &gt;&gt; サンプル ： 複数行のテキストを翻訳する</A></DIV>
+<DIV id="text859_83" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:10062px; line-height:15px; white-space:nowrap">
+in_NewLine</DIV>
+<DIV id="text859_84" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:10062px; line-height:15px; white-space:nowrap">
+返り値の改行コード、Empty(CR+LF), vbCRLF, vbLF, "CR+LF", "LF"</DIV>
+<DIV id="text859_85" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:140px; margin-top:10367px; line-height:13px; white-space:nowrap">
+cut_indent</DIV>
+<DIV id="text859_86" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:140px; margin-top:10640px; line-height:13px; white-space:nowrap">
+cut_indent</DIV>
+<DIV id="text859_87" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:248px; margin-top:10640px; line-height:13px; white-space:nowrap">
+indent</DIV>
+<DIV id="text859_88" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:260px; margin-top:10754px; line-height:13px; white-space:nowrap">
+cut_indent</DIV>
+<DIV id="text859_89" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:506px; margin-top:10769px; line-height:13px; white-space:nowrap">
+indent</DIV>
+<DIV id="text859_90" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:83px; margin-top:10436px; line-height:15px; white-space:nowrap">
+または</DIV>
+<v:rect style="position:absolute; margin-left:66px; margin-top:10460px; width:238px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text859_91" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:74px; margin-top:10466px; line-height:15px; white-space:nowrap">
+&nbsp; &nbsp; &lt;Text&nbsp; cut_indent="yes"&gt;&lt;![CDATA[<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line1<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Line2<BR/>
+&nbsp; &nbsp; ]]&gt;&lt;/Text&gt;</DIV>
+<DIV id="text859_92" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:330px; margin-top:10466px; line-height:15px; white-space:nowrap">
+→ CDATA セクション</DIV>
+
+<v:line from="0,9897" to="628,9897"/>
+<v:line from="628,9897" to="628,12711"/>
+<v:line from="628,12711" to="0,12711"/>
+<v:line from="0,12711" to="0,9897"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:12711px;">
+<A id="svgcats_vml_p859" class="to_tree" onClick="selectTreeElem( '859' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:12711px;">
+<A id="page_group_bottom" href="vbslib_46.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

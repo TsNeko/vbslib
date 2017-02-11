@@ -1,0 +1,76 @@
+%MultiLine%
+設定ファイル（.proja）のパス >1_Open\Test.xml.proja
+
+%MultiLine%
+%RegExp(.*パス)% >1_Open\ProjectA
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectA)%
+Module in Project = .
+
+Project Name = Project-A\01
+Module in Masters = ${Masters}\ModuleA\01
+
+%MultiLine%
+番号またはコマンド>4
+Setting_openFolder "%FullPath(Masters\ModuleA\01)%"
+番号またはコマンド>6
+Setting_openFolder "%FullPath(ProjectA)%"
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >${ProjA}\A.txt
+
+Setting_openFolder "%FullPath(Masters\ModuleA\01\A.txt)%"
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectA)%
+Module in Project = .
+File   in Project = A.txt
+
+Project Name = Project-A\01
+Module in Masters = ${Masters}\ModuleA\01
+
+%MultiLine%
+番号またはコマンド>4
+Setting_openFolder "%FullPath(Masters\ModuleA\01\A.txt)%"
+番号またはコマンド>6
+Setting_openFolder "%FullPath(ProjectA\A.txt)%"
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >1_Open\ProjectA\NotFound.txt
+
+%MultiLine%
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectA)%
+Module in Project = .
+File   in Project = NotFound.txt
+
+Project Name = Project-A\01
+Module in Masters = ${Masters}\ModuleA\01
+
+%MultiLine%
+番号またはコマンド>4
+
+"1_Open\Masters\ModuleA\01\NotFound.txt" が表示できません。
+%MultiLine%
+番号またはコマンド>6
+
+"1_Open\ProjectA\NotFound.txt" が表示できません。
+%MultiLine%
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >1_Open\OutOfProjectA
+
+%MultiLine%
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectA)%
+Module in Project = .
+File   in Project = NotFound.txt
+
+Project Name = Project-A\01
+Module in Masters = ${Masters}\ModuleA\01
+
+%MultiLine%
+番号またはコマンド>Exit

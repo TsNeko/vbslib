@@ -1,0 +1,467 @@
+>SetVar  "Setting_getDiffCmdLine", "ArgsLog"
+%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_SyncFilesX.xml
+
+同期するファイルの一覧：
+  中央の記号の意味: [=]同じ [!]異なる [ ]両方不在
+  左右の記号の意味: [*]変更 [+]追加 [-]削除 [.]不変 [ ]不在
+  左はベース、右はワーク
+
+■ベース（BASE）: "..\Project\T_Parent_Base\Main"
+■ワーク（WORK）: "..\Project\T_Parent_Work\Main"
+1. .!* ..\..\UpdateWork_InWork.txt
+2. *!* ..\Sub\A\UpdateBoth.txt
+3. *!* ..\Sub_Work\A\UpdateBoth.txt
+4. *!* ..\UpdateBoth.txt
+5. .!* UpdateWork.txt
+
+-------------------------------------------------------------------------------
+%FullPath(..)%\_work\FilesC\Project - Synced
+前回コミット時のベース: "T_Parent_Base"
+前回コミット時のワーク: "T_Parent_Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\T_Parent_Base\Main"
+■ワーク（WORK）: "..\Project\T_Parent_Work\Main"
+1. .!*  ..\..\UpdateWork_InWork.txt
+2. *!*  ..\Sub\A\UpdateBoth.txt
+3. *!*  ..\Sub_Work\A\UpdateBoth.txt
+4. *!*  ..\UpdateBoth.txt
+5. .!*  UpdateWork.txt
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+96. ★ 自動マージしてコミットする [AutoMerge]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\UpdateWork_InBase.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\UpdateWork_InWork.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\..\UpdateWork_InBase.txt (.不変)
+★ワーク（WORK）: ..\..\UpdateWork_InWork.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >2
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\..)%\scriptlib\vbslib\ArgsLog.exe"  DiffForTest.exe "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\_parent\UpdateWork_InBase.txt" "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\_parent\UpdateWork_InWork.txt"
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\UpdateWork_InBase.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\UpdateWork_InWork.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\..\UpdateWork_InBase.txt (.不変)
+★ワーク（WORK）: ..\..\UpdateWork_InWork.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が同じだったのが異なるようになりました。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\UpdateWork_InWork.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\_parent\UpdateWork_InWork.txt"
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\UpdateWork_InBase.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\_parent\UpdateWork_InBase.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\UpdateWork_InBase.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\UpdateWork_InWork.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\..\UpdateWork_InBase.txt (.不変)
+★ワーク（WORK）: ..\..\UpdateWork_InWork.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\_work\FilesC\Project - Synced
+前回コミット時のベース: "T_Parent_Base"
+前回コミット時のワーク: "T_Parent_Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\T_Parent_Base\Main"
+■ワーク（WORK）: "..\Project\T_Parent_Work\Main"
+1. *!*  ..\Sub\A\UpdateBoth.txt
+2. *!*  ..\Sub_Work\A\UpdateBoth.txt
+3. *!*  ..\UpdateBoth.txt
+4. .!*  UpdateWork.txt
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+96. ★ 自動マージしてコミットする [AutoMerge]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub\A\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub\A\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\Sub\A\UpdateBoth.txt (*変更)
+★ワーク（WORK）: ..\Sub\A\UpdateBoth.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >2
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\..)%\scriptlib\vbslib\ArgsLog.exe"  DiffForTest.exe "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\Sub\A\UpdateBoth.txt" "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\Sub\A\UpdateBoth.txt"
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub\A\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub\A\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\Sub\A\UpdateBoth.txt (*変更)
+★ワーク（WORK）: ..\Sub\A\UpdateBoth.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が同じだったのが異なるようになりました。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub\A\UpdateBoth.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\Sub\A\UpdateBoth.txt"
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub\A\UpdateBoth.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\Sub\A\UpdateBoth.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub\A\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub\A\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\Sub\A\UpdateBoth.txt (.不変)
+★ワーク（WORK）: ..\Sub\A\UpdateBoth.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\_work\FilesC\Project - Synced
+前回コミット時のベース: "T_Parent_Base"
+前回コミット時のワーク: "T_Parent_Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\T_Parent_Base\Main"
+■ワーク（WORK）: "..\Project\T_Parent_Work\Main"
+1. *!*  ..\Sub_Work\A\UpdateBoth.txt
+2. *!*  ..\UpdateBoth.txt
+3. .!*  UpdateWork.txt
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+96. ★ 自動マージしてコミットする [AutoMerge]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub_Base\A\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub_Work\A\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\Sub_Base\A\UpdateBoth.txt (*変更)
+★ワーク（WORK）: ..\Sub_Work\A\UpdateBoth.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >2
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\..)%\scriptlib\vbslib\ArgsLog.exe"  DiffForTest.exe "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\Sub_Base\A\UpdateBoth.txt" "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\Sub_Work\A\UpdateBoth.txt"
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub_Base\A\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub_Work\A\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\Sub_Base\A\UpdateBoth.txt (*変更)
+★ワーク（WORK）: ..\Sub_Work\A\UpdateBoth.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が同じだったのが異なるようになりました。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub_Work\A\UpdateBoth.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\Sub_Work\A\UpdateBoth.txt"
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub_Base\A\UpdateBoth.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\Sub_Base\A\UpdateBoth.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Sub_Base\A\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Sub_Work\A\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\Sub_Base\A\UpdateBoth.txt (.不変)
+★ワーク（WORK）: ..\Sub_Work\A\UpdateBoth.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\_work\FilesC\Project - Synced
+前回コミット時のベース: "T_Parent_Base"
+前回コミット時のワーク: "T_Parent_Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\T_Parent_Base\Main"
+■ワーク（WORK）: "..\Project\T_Parent_Work\Main"
+1. *!*  ..\UpdateBoth.txt
+2. .!*  UpdateWork.txt
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+96. ★ 自動マージしてコミットする [AutoMerge]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\UpdateBoth.txt (*変更)
+★ワーク（WORK）: ..\UpdateBoth.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >2
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\..)%\scriptlib\vbslib\ArgsLog.exe"  DiffForTest.exe "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\UpdateBoth.txt" "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\UpdateBoth.txt"
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\UpdateBoth.txt (*変更)
+★ワーク（WORK）: ..\UpdateBoth.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (*変更) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が同じだったのが異なるようになりました。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\UpdateBoth.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\_parent\UpdateBoth.txt"
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\UpdateBoth.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\_parent\UpdateBoth.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\UpdateBoth.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\UpdateBoth.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: ..\UpdateBoth.txt (.不変)
+★ワーク（WORK）: ..\UpdateBoth.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\_work\FilesC\Project - Synced
+前回コミット時のベース: "T_Parent_Base"
+前回コミット時のワーク: "T_Parent_Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\T_Parent_Base\Main"
+■ワーク（WORK）: "..\Project\T_Parent_Work\Main"
+1. .!*  UpdateWork.txt
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+96. ★ 自動マージしてコミットする [AutoMerge]
+99. 終了
+番号 >1
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Main\UpdateWork.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Main\UpdateWork.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateWork.txt (.不変)
+★ワーク（WORK）: UpdateWork.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >2
+-------------------------------------------------------------------------------
+>start  "%FullPath(..\..)%\scriptlib\vbslib\ArgsLog.exe"  DiffForTest.exe "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\UpdateWork.txt" "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\UpdateWork.txt"
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Main\UpdateWork.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Main\UpdateWork.txt"
+ベース ファイルとワーク ファイルは「同じ内容」でした。
+次のメニューの 1.で開く２つのファイルを手動で同期したら、コミットしてください。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateWork.txt (.不変)
+★ワーク（WORK）: UpdateWork.txt (*変更)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (=同じ) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (*変更) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >8
+
+★[WARNING] ベースとワークで内容が同じだったのが異なるようになりました。
+
+警告がありましたが、よろしいですか(y/n)y
+-------------------------------------------------------------------------------
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Main\UpdateWork.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Work\UpdateWork.txt"
+>copy_ren  "%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Main\UpdateWork.txt", "%FullPath(..)%\_work\FilesC\Project - Synced\T_Parent_Base\UpdateWork.txt"
+コミットしました。
+-------------------------------------------------------------------------------
+ベース："%FullPath(..)%\_work\FilesC\Project\T_Parent_Base\Main\UpdateWork.txt"
+ワーク："%FullPath(..)%\_work\FilesC\Project\T_Parent_Work\Main\UpdateWork.txt"
+ベース ファイルとワーク ファイルは「異なる内容」でした。
+コミットしました。
+-------------------------------------------------------------------------------
+★ベース（BASE）: UpdateWork.txt (.不変)
+★ワーク（WORK）: UpdateWork.txt (.不変)
+
+1. Diff で開く：同期するファイル (!異なる) [ ベース / ワーク ]
+2. Diff で開く：前回コミット時の同期内容 (!異なる) [ ベース / ワーク ]
+4. Diff で開く：ベース (.不変) [ 前回コミット時 / 現在 ]
+5. Diff で開く：ワーク (.不変) [ 前回コミット時 / 現在 ]
+44.Diff で開く：[ 前回コミット時のベース / ベース / ワーク ]
+55.Diff で開く：[ ベース / ワーク / 前回コミット時のワーク ]
+6. ファイルまたはフォルダーを開く
+Enterのみ: 再スキャンする
+8. 同期をコミットする
+9. 戻る
+番号 >9
+-------------------------------------------------------------------------------
+%FullPath(..)%\_work\FilesC\Project - Synced
+前回コミット時のベース: "T_Parent_Base"
+前回コミット時のワーク: "T_Parent_Work"
+-------------------------------------------------------------------------------
+■ベース（BASE）: "..\Project\T_Parent_Base\Main"
+■ワーク（WORK）: "..\Project\T_Parent_Work\Main"
+なし（同期完了）
+
+91. 再スキャンする [Rescan]
+92. ルート・フォルダーを開く
+93. 状況を分析する [Analyze]
+97. すべてのファイルを表示する
+99. 終了
+番号 >99
+Pass.

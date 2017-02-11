@@ -1,0 +1,90 @@
+<Switches>
+	<SwitchNow  target_set_names="SetB, SetY"/>
+
+	<Switch  set_names="SetA, SetB"/>
+	<Switch  set_names="SetX, SetY, SetZ"/>
+	<Switch  set_names="NotUsedSetA, NotUsedSetB"/>
+
+	<Variable  name="${Text1}"  value="Text1"/>
+
+	<T_Variable  name="${Set}">
+		<SetA>ValueOfSetA</SetA>
+		<SetB>ValueOfSetB</SetB>
+	</T_Variable>
+
+
+	<File  path="${Text1}.txt">
+		<T>
+			<SetA>English1</SetA>
+			<SetB>English2</SetB>
+		</T>
+		<T  line="head">
+			<SetX>ëO</SetX>
+			<SetY>íÜ</SetY>
+			<SetZ>å„</SetZ>
+		</T>
+		<T  line="whole">
+			<SetX>èº</SetX>
+			<SetY>í|</SetY>
+			<SetZ>î~</SetZ>
+		</T>
+		<T>
+			<SetA>Only1ëO</SetA>
+			<SetB>Only1å„</SetB>
+		</T>
+		<T>
+			<NotUsedSetA>NA</NotUsedSetA>
+			<NotUsedSetB>NB</NotUsedSetB>
+		</T>
+		<T>
+			<SetA>
+				<SetX>A and X</SetX>
+				<SetY>A and Y</SetY>
+				<SetZ>A and Z</SetZ>
+			</SetA>
+			<SetB>
+				<SetX>B and X</SetX>
+				<SetY>B and Y</SetY>
+				<SetZ>B and Z</SetZ>
+			</SetB>
+		</T>
+		<T>
+			<LinesStart  attribute_of="T">Start</LinesStart>
+			<LinesEnd    attribute_of="T">End</LinesEnd>
+
+			<SetA>1A</SetA>
+			<SetB>1B</SetB>
+		</T>
+		<T>
+			<LinesStart  attribute_of="T">Start</LinesStart>
+			<LinesEnd    attribute_of="T">End</LinesEnd>
+
+			<SetX>2X</SetX>
+			<SetY  cut_indent="yes"  variable="yes">
+				2Y
+				${Set}
+			</SetY>
+			<SetZ></SetZ>
+		</T>
+	</File>
+	<File  path="Text2.txt">
+		<T>
+			<SetA>English2</SetA>
+			<SetB>English1</SetB>
+		</T>
+	</File>
+	<File  path="File.txt">
+		<T  text_type="path">
+			<SetX>File\FileX.txt</SetX>
+			<SetY>File\FileY.txt</SetY>
+			<SetZ></SetZ>
+		</T>
+	</File>
+	<File  path="Folder">
+		<T  text_type="path">
+			<SetX>File\FolderX</SetX>
+			<SetY>File\FolderY</SetY>
+			<SetZ></SetZ>
+		</T>
+	</File>
+</Switches>

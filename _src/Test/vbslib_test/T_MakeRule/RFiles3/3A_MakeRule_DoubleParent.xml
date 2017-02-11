@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MakeRuleOfRevisionFolder>
+
+	<Variable  name="${Files}"  value="."  type="FullPathType"/>
+
+	<MakeRule>
+		<Output path="${Files}\Step1\*"/>
+		<Input_ path="${Files}\Step2A\*"/>
+		<Input_ path="${Files}\Step2B\*"/>
+		<Command></Command>
+		<Revisions>01</Revisions>
+	</MakeRule>
+
+	<MakeRule>
+		<Output path="${Files}\Step2A\*"/>
+		<Output path="${Files}\Step2B\*"/>
+		<Input_ path="${Files}\Step3A\*"/>
+		<Input_ path="${Files}\Step3B\*"/>
+		<Command></Command>
+		<Revisions>01</Revisions>
+	</MakeRule>
+
+	<MakeRule>
+		<Output path="${Files}\Step3A\*"/>
+		<Input_ path="${Files}\Step4A\*"/>
+		<Command></Command>
+		<Revisions>01</Revisions>
+	</MakeRule>
+
+	<MakeRule>
+		<Output path="${Files}\Step3B\*"/>
+		<Input_ path="${Files}\Step4B\*"/>
+		<Command></Command>
+		<RevisionSet>01, 02</RevisionSet>
+	</MakeRule>
+
+	<MakeRule>
+		<Output path="${Files}\Step4A\*"/>
+		<Output path="${Files}\Step4B\*"/>
+		<Input_ path="${Files}\Step5\*"/>
+		<Command></Command>
+		<RevisionSet>01, 02, 03</RevisionSet>
+	</MakeRule>
+
+</MakeRuleOfRevisionFolder>

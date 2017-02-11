@@ -3,19 +3,19 @@
 >OpenForWrite  "_work\file1.txt"
 === OpenForWrite _work\file2.txt
 >OpenForWrite  "_work\file2.txt"
-Break by "file2.txt"
+Break by "file2.txt" (1)
 >del  "_work\*"
-Break by "file2.txt"
+Break by "file2.txt" (2)
 >del  "_work"
 === copy data\* _work\copyed
 >copy  "data\*", "_work\copyed"
-Break by "file2.txt"
+Break by "file2.txt" (3)
 === move _work\copyed\* _work\moved
 >move  "_work\copyed\*", "_work\moved"
-Break by "file2.txt"
+Break by "file2.txt" (4)
 === del  _work\moved\file2.txt
 >del  "_work\moved\file2.txt"
-Break by "file2.txt"
+Break by "file2.txt" (5)
 === copy  _work\moved\* _work\copyed
 >copy  "_work\moved\*", "_work\copyed"
 === del _work\moved\file1.txt
@@ -25,13 +25,13 @@ Break by "file2.txt"
 >del  "_work"
 === copy data _work\copyed
 >copy  "data", "_work\copyed"
-Break by "file2.txt"
+Break by "file2.txt" (6)
 === move _work\copyed\data _work\moved
 >move  "_work\copyed\data", "_work\moved"
-Break by "file2.txt"
+Break by "file2.txt" (7)
 === del  _work\moved\data\file2.txt
 >del  "_work\moved\data\file2.txt"
-Break by "file2.txt"
+Break by "file2.txt" (8)
 === copy  _work\moved\data _work\copyed
 >copy  "_work\moved\data", "_work\copyed"
 === del _work\moved\data
@@ -41,12 +41,13 @@ Break by "file2.txt"
 >del  "_work"
 === CreateFile  _work\file2.txt
 >CreateFile  "_work\file2.txt", "file2"
-Break by "file2.txt"
+Break by "file2.txt" (9)
+Break by "file2.txt" (10)
 >del  "_work"
-Break by "file2.txt"
+Break by "file2.txt" (11)
 === ConvertToFullPath data\file2.txt _work\file2.txt
 >ConvertToFullPath "data\file2.txt", "_work\file2.txt"
-Break by "file2.txt"
+Break by "file2.txt" (12)
 >del  "_work"
-Break by "file2.txt"
+Break by "file2.txt" (13)
 Pass.

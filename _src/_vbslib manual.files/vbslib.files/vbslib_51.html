@@ -1,0 +1,1327 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_51.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_51.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 958 --> 
+<PAGE>
+<A id="svgcats_vml_p958" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '958' );">←</A>
+<A href="#svgcats_vml_p959" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_50.html#svgcats_vml_p957" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_50.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:582px; height:659px;" fillcolor="white"/>
+<DIV id="text958_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="ChildProcess_main">
+メイン・プロセス側が使う ParentProcess オブジェクト、new_ParentProcess</A></DIV>
+<DIV id="text958_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:476px; line-height:15px; white-space:nowrap">
+ParentProcess オブジェクトのメンバー</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:497px; width:502px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text958_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:503px; line-height:15px; white-space:nowrap">
+Class&nbsp; ParentChildProcess<BR/>
+&nbsp; Public&nbsp; m_OutFile 'as TextStream (Write) ... 子プロセスへ渡す XML ファイル<BR/>
+&nbsp; Public&nbsp; m_InXML 'as IXMLDOMElement ... メイン・プロセスに戻される ルートXML要素<BR/>
+<BR/>
+&nbsp; Public&nbsp; m_TempPath ' as string. 送受信ファイルができるフォルダのパス<BR/>
+&nbsp; Public&nbsp; m_DateID ' as string. 例："090401". /ChildProcess オプションに渡す値<BR/>
+&nbsp; Public&nbsp; m_FileID ' as string. 例："1". /ChildProcess オプションに渡す値<BR/>
+End Class</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:217px; width:502px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text958_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:223px; line-height:15px; white-space:nowrap">
+&nbsp; sample.Name = "A" : sample.Value = 1<BR/>
+<BR/>
+&nbsp; '// 子プロセス起動前に、送るオブジェクトをXMLファイルに変換する<BR/>
+&nbsp; Dim&nbsp; pr : new_ParentProcess_Object&nbsp; pr, Empty '//[out] pr as ParentChildProcess<BR/>
+&nbsp; pr.m_OutFile.WriteLine&nbsp; sample.xml<BR/>
+<BR/>
+<BR/>
+&nbsp; '// 子プロセスを起動する<BR/>
+&nbsp; Dim r : r= RunProg( "cscript.exe T_ChildProcess1_Sub.vbs", pr )<BR/>
+&nbsp; CheckTestErrLevel&nbsp; r<BR/>
+<BR/>
+<BR/>
+&nbsp; '// 子プロセス終了後に、戻されたXMLファイルをオブジェクトに戻す<BR/>
+&nbsp; sample.loadXML&nbsp; pr.m_InXML.selectSingleNode( _<BR/>
+&nbsp; &nbsp; TypeName( sample ) +"[@name='"+ sample.Name +"']" )</DIV>
+<DIV id="text958_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:196px; line-height:15px; white-space:nowrap">
+使用サンプル：</DIV>
+<DIV id="text958_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:52px; line-height:15px; white-space:nowrap">
+子プロセスに、データを受け渡しするときは、new_ParentProcess_Object で生成した<BR/>
+ParentProcess オブジェクトを RunProg に渡します。</DIV>
+<DIV id="text958_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:98px; line-height:15px; white-space:nowrap">
+new_ParentProcess で生成した ParentProcess オブジェクトには、他の子プロセスと受け渡し<BR/>
+するファイルの名前が重複しない番号が m_FileID に入っています。 複数の子プロセスを<BR/>
+平行して同時に動かすときは、ParentProcess オブジェクトをもう１つ生成してください。<BR/>
+前の子プロセスが終わってから次の子プロセスを動かすときは、同じ ParentProcess<BR/>
+オブジェクトが使えます。</DIV>
+<DIV id="text958_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:494px; margin-top:17px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text958_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:422px; margin-top:344px; line-height:13px; white-space:nowrap">
+pr</DIV>
+<DIV id="text958_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:254px; margin-top:284px; line-height:13px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_14.html#xml_prop">
+xml</A></DIV>
+
+<v:line from="0,0" to="582,0"/>
+<v:line from="582,0" to="582,659"/>
+<v:line from="582,659" to="0,659"/>
+<v:line from="0,659" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 959 --> 
+<PAGE>
+<A id="svgcats_vml_p959" class="to_tree" style="margin-top:664px;" onClick="selectTreeElem( '959' );">←</A>
+<A href="#svgcats_vml_p960" class="to_next_page" style="margin-top:664px;">▼</A>
+<A href="#svgcats_vml_p958" class="to_prev_page" style="margin-top:664px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:675px; width:644px; height:716px;" fillcolor="white"/>
+<DIV id="text959_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:692px; line-height:15px; white-space:nowrap">
+<A name="ChildProcess_sub">
+子プロセス側が使う ChildProcess オブジェクト、get_ChildProcess</A></DIV>
+<DIV id="text959_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:26px; margin-top:728px; line-height:15px; white-space:nowrap">
+vbs_inc モジュールは、vbslib をインクルードする前に自動的に /ChildProcess オプションがあるかどうかを<BR/>
+判定し、あれば ChildProcess オブジェクトを生成します。 ChildProcess オブジェクトは、get_ChildProcess</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:866px; width:430px; height:265px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text959_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:872px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; pr, sample<BR/>
+<BR/>
+&nbsp; '// プログラム開始時に、送られてきたXMLファイルをオブジェクトに戻す<BR/>
+&nbsp; Set pr = get_ChildProcess()&nbsp; ' as ParentChildProcess<BR/>
+&nbsp; new_ObjectFromStream&nbsp; sample, "SampleClass", pr<BR/>
+<BR/>
+<BR/>
+&nbsp; '// main<BR/>
+&nbsp; If not IsEmpty( sample ) Then<BR/>
+&nbsp; &nbsp; sample.Value = 2<BR/>
+&nbsp; End If<BR/>
+<BR/>
+<BR/>
+&nbsp; '// プログラム終了時に、戻すオブジェクトをXMLファイルに変換する<BR/>
+&nbsp; If not pr is Nothing Then<BR/>
+&nbsp; &nbsp; If not IsEmpty( sample ) Then&nbsp; pr.m_OutFile.WriteLine&nbsp; sample.xml<BR/>
+&nbsp; End If</DIV>
+<DIV id="text959_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:131px; margin-top:760px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_12.html#get_ClassA">
+静的オブジェクト</A></DIV>
+<DIV id="text959_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:226px; margin-top:760px; line-height:15px; white-space:nowrap">
+であり、メインプロセスからの情報を m_InXML から入力し、</DIV>
+<DIV id="text959_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:26px; margin-top:760px; line-height:15px; white-space:nowrap">
+関数で取得できる</DIV>
+<DIV id="text959_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:1162px; line-height:15px; white-space:nowrap">
+ChildProcess オブジェクトのメンバー</DIV>
+<DIV id="text959_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:845px; line-height:15px; white-space:nowrap">
+使用サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:48px; margin-top:1183px; width:514px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text959_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:56px; margin-top:1189px; line-height:15px; white-space:nowrap">
+Class&nbsp; ParentChildProcess<BR/>
+&nbsp; Public&nbsp; m_InXML 'as IXMLDOMElement ... メイン・プロセスから渡される ルートXML要素<BR/>
+&nbsp; Public&nbsp; m_OutFile 'as TextStream (Write) ... メイン・プロセスへ戻す XML ファイル<BR/>
+<BR/>
+&nbsp; Public&nbsp; m_TempPath ' as string. 送受信ファイルができるフォルダのパス<BR/>
+&nbsp; Public&nbsp; m_DateID ' as string. 例："090401". ファイル名の一部<BR/>
+&nbsp; Public&nbsp; m_FileID ' as string. 例："1". ファイル名の一部<BR/>
+End Class</DIV>
+<DIV id="text959_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:777px; line-height:15px; white-space:nowrap">
+メインプロセスへ戻す情報を、m_OutFile に出力することができます。<BR/>
+<BR/>
+/ChildProcess オプションがないときは、get_ChildProcess 関数が、Nothing オブジェクトを返します。</DIV>
+<DIV id="text959_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:1343px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text959_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:149px; margin-top:1343px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_14.html#xml_prop">
+→ xml プロパティ</A></DIV>
+<DIV id="text959_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:1343px; line-height:15px; white-space:nowrap">
+→ XPath</DIV>
+<DIV id="text959_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:454px; margin-top:692px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text959_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:452px; margin-top:1098px; line-height:13px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_14.html#xml_prop">
+xml</A></DIV>
+
+<v:line from="0,675" to="644,675"/>
+<v:line from="644,675" to="644,1391"/>
+<v:line from="644,1391" to="0,1391"/>
+<v:line from="0,1391" to="0,675"/>
+
+</PAGE>
+ 
+<!-- page 960 --> 
+<PAGE>
+<A id="svgcats_vml_p960" class="to_tree" style="margin-top:1396px;" onClick="selectTreeElem( '960' );">←</A>
+<A href="#svgcats_vml_p961" class="to_next_page" style="margin-top:1396px;">▼</A>
+<A href="#svgcats_vml_p959" class="to_prev_page" style="margin-top:1396px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:1407px; width:600px; height:754px;" fillcolor="white"/>
+<DIV id="text960_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:1424px; line-height:15px; white-space:nowrap">
+<A name="InterProcessData">
+InterProcessData インターフェース（ライブラリ用）</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:1499px; width:502px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text960_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:1505px; line-height:15px; white-space:nowrap">
+Class&nbsp; InterProcessData&nbsp; '// defined_as_interface<BR/>
+&nbsp; Public Sub&nbsp; OnCallInParent( a_ParentProcess as ParentChildProcess ) : End Sub<BR/>
+&nbsp; Public Sub&nbsp; loadXML( XmlObject as IXMLDOMElement ) : End Sub<BR/>
+&nbsp; Public Sub&nbsp; OnReturnInChild( a_ChildProcess as ParentChildProcess ) : End Sub<BR/>
+&nbsp; Public Sub&nbsp; OnReturnInParent( a_ParentProcess as ParentChildProcess ) : End Sub<BR/>
+End Class<BR/>
+<BR/>
+Function&nbsp; new_InterProcessData()<BR/>
+&nbsp; Set new_InterProcessData = new InterProcessData<BR/>
+End Function</DIV>
+<DIV id="text960_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:1674px; line-height:15px; white-space:nowrap">
+→ T_ChildProcess2_include.vbs</DIV>
+<DIV id="text960_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:26px; margin-top:2113px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text960_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1456px; line-height:15px; white-space:nowrap">
+ライブラリが自動的に子プロセスに受け渡しをするオブジェクトに必要なインターフェースです。<BR/>
+Err2 は、このインターフェースを持っています。</DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:1931px; width:466px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text960_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:1937px; line-height:15px; white-space:nowrap">
+Dim&nbsp; g_Sample<BR/>
+<BR/>
+Sub&nbsp; InitializeModule_Sample&nbsp; '// vbslib モジュールのグローバル・初期化関数<BR/>
+&nbsp; '// NewChildProcessOnStart の後で<BR/>
+&nbsp; new_ObjectFromStream&nbsp; g_Sample, "SampleClass", get_ChildProcess()<BR/>
+&nbsp; If not IsEmpty( g_Sample ) Then&nbsp; g_InterProcess.m_Data.Add&nbsp; g_Sample<BR/>
+End Sub</DIV>
+<DIV id="text960_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:2080px; line-height:15px; white-space:nowrap">
+<A href="vbslib_59.html#g_InitializeModule">
+→ グローバル変数の初期化、後始末、g_InitializeModule、g_FinalizeModule</A></DIV>
+<DIV id="text960_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:2113px; line-height:15px; white-space:nowrap">
+→ T_ChildProcess2.vbs</DIV>
+<DIV id="text960_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:1674px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text960_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:2060px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text960_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:75px; margin-top:2060px; line-height:15px; white-space:nowrap">
+→ T_ChildProcess2_Sub.vbs</DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:1754px; width:508px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text960_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:1760px; line-height:15px; white-space:nowrap">
+&nbsp; '// 子プロセスと送受信するオブジェクトを登録する<BR/>
+&nbsp; Dim sample : Set sample = new SampleClass&nbsp; '// has_interface_of InterProcessData<BR/>
+&nbsp; g_InterProcess.m_Data.Add&nbsp; sample</DIV>
+<DIV id="text960_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1727px; line-height:15px; white-space:nowrap">
+子プロセスに渡すオブジェクトは、g_InterProcess.m_Data as ArrayClass に登録してください。</DIV>
+<DIV id="text960_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:1861px; line-height:15px; white-space:nowrap">
+子プロセスのライブラリの初期化（vbslib モジュールのグローバル・初期化関数）で、<BR/>
+get_ChildProcess as ParentChildProcess から、new_ObjectFromStream などを使って、<BR/>
+オブジェクトを受け取ってください。 メイン・プロセスに渡すオブジェクトは、<BR/>
+g_InterProcess.m_Data as ArrayClass に登録してください。</DIV>
+<DIV id="text960_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:31px; margin-top:1816px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text960_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:68px; margin-top:1816px; line-height:15px; white-space:nowrap">
+→ T_ChildProcess2.vbs</DIV>
+
+<v:line from="0,1407" to="600,1407"/>
+<v:line from="600,1407" to="600,2161"/>
+<v:line from="600,2161" to="0,2161"/>
+<v:line from="0,2161" to="0,1407"/>
+
+</PAGE>
+ 
+<!-- page 961 --> 
+<PAGE>
+<A id="svgcats_vml_p961" class="to_tree" style="margin-top:2166px;" onClick="selectTreeElem( '961' );">←</A>
+<A href="#svgcats_vml_p962" class="to_next_page" style="margin-top:2166px;">▼</A>
+<A href="#svgcats_vml_p960" class="to_prev_page" style="margin-top:2166px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2177px; width:575px; height:407px;" fillcolor="white"/>
+<DIV id="text961_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:2446px; line-height:15px; white-space:nowrap">
+ライブラリのデータを格納後、g_InterProcess のデータを格納直前に、<BR/>
+＋１されます。</DIV>
+<DIV id="text961_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2194px; line-height:15px; white-space:nowrap">
+<A name="g_InterProcess">
+g_InterProcess オブジェクト</A></DIV>
+<DIV id="text961_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:293px; margin-top:2194px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:2252px; width:418px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text961_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:2258px; line-height:15px; white-space:nowrap">
+Dim&nbsp; g_InterProcess ' as InterProcess<BR/>
+<BR/>
+Class InterProcess<BR/>
+&nbsp; Public Property Get&nbsp; ProcessCallID&nbsp; &nbsp;'// as ArrayClass of integer<BR/>
+&nbsp; Public&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;InterProcessUserData&nbsp; '// as string<BR/>
+End Class</DIV>
+<DIV id="text961_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2226px; line-height:15px; white-space:nowrap">
+メイン・プロセスと子プロセスで共有する変数です。</DIV>
+<DIV id="text961_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:32px; margin-top:2378px; line-height:13px; white-space:nowrap">
+.ProcessCallID&nbsp; ' as ArrayClass of integer</DIV>
+<DIV id="text961_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:51px; margin-top:2403px; line-height:15px; white-space:nowrap">
+ProcessCallID(0) = メイン・プロセスが子プロセスを起動した回数。<BR/>
+ProcessCallID(1) = 子プロセスが孫プロセスを起動した回数。</DIV>
+<DIV id="text961_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:143px; margin-top:2461px; line-height:15px; white-space:nowrap">
+<A href="vbslib_50.html#subpro_flow">
+→ 処理フロー (/ChildProcess オプション)</A></DIV>
+<DIV id="text961_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:32px; margin-top:2506px; line-height:13px; white-space:nowrap">
+.InterProcessUserData as string</DIV>
+<DIV id="text961_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:248px; margin-top:2505px; line-height:15px; white-space:nowrap">
+アプリケーション・ユーザーがデバッグ用に使えます</DIV>
+<DIV id="text961_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:75px; margin-top:2536px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_03.html#T_ChildProcessID">
+→ [T_ChildProcessID] ProcessCallID や InterProcessUserData</A></DIV>
+<DIV id="text961_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:2536px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+
+<v:line from="0,2177" to="575,2177"/>
+<v:line from="575,2177" to="575,2584"/>
+<v:line from="575,2584" to="0,2584"/>
+<v:line from="0,2584" to="0,2177"/>
+
+</PAGE>
+ 
+<!-- page 962 --> 
+<PAGE>
+<A id="svgcats_vml_p962" class="to_tree" style="margin-top:2589px;" onClick="selectTreeElem( '962' );">←</A>
+<A href="#svgcats_vml_p963" class="to_next_page" style="margin-top:2589px;">▼</A>
+<A href="#svgcats_vml_p961" class="to_prev_page" style="margin-top:2589px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2600px; width:624px; height:284px;" fillcolor="white"/>
+<DIV id="text962_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2617px; line-height:15px; white-space:nowrap">
+<A name="trou_ChildProcess">
+困ったときは (/ChildProcess)</A></DIV>
+<DIV id="text962_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2657px; line-height:15px; white-space:nowrap">
+受け渡しの内容を確認するには</DIV>
+<DIV id="text962_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:2724px; line-height:13px; white-space:nowrap">
+%Temp%\Report\090401\ChildProcess_1\In.xml</DIV>
+<DIV id="text962_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:2741px; line-height:13px; white-space:nowrap">
+%Temp%\Report\090401\ChildProcess_1\Out.xml</DIV>
+<DIV id="text962_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2685px; line-height:15px; white-space:nowrap">
+下記の XML ファイルを確認してください。<BR/>
+ただし、ParentProcess オブジェクトが削除されたら、XML ファイルも削除されるので注意してください。</DIV>
+<DIV id="text962_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:2766px; line-height:15px; white-space:nowrap">
+<A href="vbslib_50.html#ChildProcess">
+→ 子プロセスへの受け渡し (/ChildProcess オプション)</A></DIV>
+<DIV id="text962_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:2766px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text962_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:2809px; line-height:15px; white-space:nowrap">
+アプリケーションからデータが送れない</DIV>
+<DIV id="text962_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2836px; line-height:15px; white-space:nowrap">
+RunProg の第2引数に、ParentProcess オブジェクトを指定しているか確認してください。</DIV>
+
+<v:line from="0,2600" to="624,2600"/>
+<v:line from="624,2600" to="624,2884"/>
+<v:line from="624,2884" to="0,2884"/>
+<v:line from="0,2884" to="0,2600"/>
+
+</PAGE>
+ 
+<!-- page 963 --> 
+<PAGE>
+<A id="svgcats_vml_p963" class="to_tree" style="margin-top:2889px;" onClick="selectTreeElem( '963' );">←</A>
+<A href="#svgcats_vml_p964" class="to_next_page" style="margin-top:2889px;">▼</A>
+<A href="#svgcats_vml_p962" class="to_prev_page" style="margin-top:2889px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2900px; width:593px; height:342px;" fillcolor="white"/>
+<DIV id="text963_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2917px; line-height:15px; white-space:nowrap">
+<A name="GetCScriptGUI_CommandLine">
+GetCScriptGUI_CommandLine</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:2947px; width:430px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text963_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:2954px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetCScriptGUI_CommandLine( Parameters as string ) as string</DIV>
+<DIV id="text963_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2984px; line-height:15px; white-space:nowrap">
+ダブルクリックしたときに、vbslib のコマンド・プロンプトを開くコマンドラインを返します。</DIV>
+<DIV id="text963_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3010px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text963_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3010px; line-height:15px; white-space:nowrap">
+Parameters</DIV>
+<DIV id="text963_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:3010px; line-height:15px; white-space:nowrap">
+cscript.exe に渡すパラメーター</DIV>
+<DIV id="text963_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:184px; margin-top:3029px; line-height:15px; white-space:nowrap">
+コマンドライン</DIV>
+<DIV id="text963_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3029px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text963_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3107px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:3130px; width:526px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text963_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:3136px; line-height:15px; white-space:nowrap">
+command_line = GetCScriptGUI_CommandLine( "sample.vbs" )<BR/>
+Assert&nbsp; command_line = _<BR/>
+&nbsp; &nbsp; """%windir%\System32\cmd.exe"" /K (""%windir%\SysWOW64\cscript.exe"" sample.vbs)"</DIV>
+<DIV id="text963_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3065px; line-height:15px; white-space:nowrap">
+Windows のバージョンによって、返り値の内容は変わります。</DIV>
+<DIV id="text963_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:259px; margin-top:2917px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text963_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:3194px; line-height:15px; white-space:nowrap">
+環境変数を展開するときは、</DIV>
+<DIV id="text963_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:209px; margin-top:3194px; line-height:15px; white-space:nowrap">
+<A href="vbslib_47.html#env">
+→ env</A></DIV>
+
+<v:line from="0,2900" to="593,2900"/>
+<v:line from="593,2900" to="593,3242"/>
+<v:line from="593,3242" to="0,3242"/>
+<v:line from="0,3242" to="0,2900"/>
+
+</PAGE>
+ 
+<!-- page 964 --> 
+<PAGE>
+<A id="svgcats_vml_p964" class="to_tree" style="margin-top:3247px;" onClick="selectTreeElem( '964' );">←</A>
+<A href="#svgcats_vml_p965" class="to_next_page" style="margin-top:3247px;">▼</A>
+<A href="#svgcats_vml_p963" class="to_prev_page" style="margin-top:3247px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3258px; width:514px; height:455px;" fillcolor="white"/>
+<DIV id="text964_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3275px; line-height:15px; white-space:nowrap">
+<A name="OpenFolder">
+OpenFolder</A></DIV>
+<v:rect style="position:absolute; margin-left:29px; margin-top:3305px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text964_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:37px; margin-top:3312px; line-height:13px; white-space:nowrap">
+Sub&nbsp; OpenFolder( in_FolderOrFilePath )</DIV>
+<DIV id="text964_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3370px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text964_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3370px; line-height:15px; white-space:nowrap">
+in_FolderOrFilePath</DIV>
+<DIV id="text964_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:227px; margin-top:3370px; line-height:15px; white-space:nowrap">
+フォルダー、またはファイルのパス</DIV>
+<DIV id="text964_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3342px; line-height:15px; white-space:nowrap">
+フォルダーを開きます。 フォルダーがなければユーザーに処理を選ばせます。</DIV>
+<DIV id="text964_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3405px; line-height:15px; white-space:nowrap">
+フォルダーを開く処理は、OpenFolder 関数の内部から</DIV>
+<DIV id="text964_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:336px; margin-top:3405px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_openFolder">
+Setting_openFolder 関数</A></DIV>
+<DIV id="text964_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3422px; line-height:15px; white-space:nowrap">
+を呼び出すことで行います。</DIV>
+<DIV id="text964_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3458px; line-height:15px; white-space:nowrap">
+in_FolderOrFilePath 引数の親フォルダーがあれば、そのフォルダーを開きます。<BR/>
+親フォルダーがなければ、以下のメニューを開きます。</DIV>
+<v:rect style="position:absolute; margin-left:70px; margin-top:3497px; width:280px; height:100px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text964_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:78px; margin-top:3503px; line-height:15px; white-space:nowrap">
+"C:\Folder\Sub\File.txt" が見つかりません。<BR/>
+&nbsp; 1. フォルダーを作る C:\Folder\Sub\File.txt<BR/>
+&nbsp; 2. フォルダーを作る C:\Folder\Sub<BR/>
+&nbsp; 3. フォルダーを開く C:\Folder<BR/>
+&nbsp; 9. 続きを実行する<BR/>
+番号&gt;</DIV>
+<DIV id="text964_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3618px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text964_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3640px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text964_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3665px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text964_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:67px; margin-top:3665px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_openFolder">
+→ Setting_openFolder</A></DIV>
+<DIV id="text964_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:3618px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text964_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:3640px; line-height:15px; white-space:nowrap">
+→ T_OpenFolder_Manually.vbs</DIV>
+
+<v:line from="0,3258" to="514,3258"/>
+<v:line from="514,3258" to="514,3713"/>
+<v:line from="514,3713" to="0,3713"/>
+<v:line from="0,3713" to="0,3258"/>
+
+</PAGE>
+ 
+<!-- page 965 --> 
+<PAGE>
+<A id="svgcats_vml_p965" class="to_tree" style="margin-top:3718px;" onClick="selectTreeElem( '965' );">←</A>
+<A href="#svgcats_vml_p966" class="to_next_page" style="margin-top:3718px;">▼</A>
+<A href="#svgcats_vml_p964" class="to_prev_page" style="margin-top:3718px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:3729px; width:590px; height:1071px;" fillcolor="white"/>
+<DIV id="text965_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3746px; line-height:15px; white-space:nowrap">
+<A name="GetEditorCmdLine">
+GetEditorCmdLine</A></DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:3790px; width:406px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:3797px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetEditorCmdLine( PathAndFragment as string ) as string</DIV>
+<DIV id="text965_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:226px; margin-top:4575px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_getEditorCmdLine">
+Setting_getEditorCmdLine</A></DIV>
+<DIV id="text965_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3886px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text965_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3886px; line-height:15px; white-space:nowrap">
+PathAndFragment</DIV>
+<DIV id="text965_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:3905px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text965_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:227px; margin-top:3886px; line-height:15px; white-space:nowrap">
+テキストファイルへのパスと行番号またはキーワード</DIV>
+<DIV id="text965_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:227px; margin-top:3905px; line-height:15px; white-space:nowrap">
+コマンドライン</DIV>
+<DIV id="text965_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4276px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4296px; width:292px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4303px; line-height:13px; white-space:nowrap">
+start&nbsp; GetEditorCmdLine( "File1.txt#[Func1]" )</DIV>
+<DIV id="text965_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:4276px; line-height:15px; white-space:nowrap">
+File1.txt を開いて "[Func1]" を含む行にジャンプします</DIV>
+<DIV id="text965_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4575px; line-height:15px; white-space:nowrap">
+テキストファイルを開くエディタは、</DIV>
+<DIV id="text965_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:372px; margin-top:4575px; line-height:15px; white-space:nowrap">
+関数を定義することで変更でき</DIV>
+<DIV id="text965_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4590px; line-height:15px; white-space:nowrap">
+ます。 Setting_getEditorCmdLine の i=2、i=3 のどちらかに対応すれば、指定の行へジャンプ<BR/>
+できます。 i=0、i=1 のどちらかに対応していれば、ファイルを開くことだけはできます。</DIV>
+<DIV id="text965_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:4734px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text965_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:3762px; line-height:15px; white-space:nowrap">
+<A name="GetSearchOpenCmdLine">
+GetSearchOpenCmdLine</A></DIV>
+<DIV id="text965_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4631px; line-height:15px; white-space:nowrap">
+GetSearchOpenCmdLine は廃止予定です。 GetEditorCmdLine を使ってください。</DIV>
+<DIV id="text965_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4177px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4197px; width:268px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4204px; line-height:13px; white-space:nowrap">
+start&nbsp; GetEditorCmdLine( "File1.txt(10)" )</DIV>
+<DIV id="text965_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4110px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4130px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4137px; line-height:13px; white-space:nowrap">
+start&nbsp; GetEditorCmdLine( "File1.txt" )</DIV>
+<DIV id="text965_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:106px; margin-top:4110px; line-height:15px; white-space:nowrap">
+File1.txt を開きます</DIV>
+<DIV id="text965_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:4177px; line-height:15px; white-space:nowrap">
+File1.txt の10行目を開きます</DIV>
+<DIV id="text965_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:190px; margin-top:3941px; line-height:15px; white-space:nowrap">
+の設定が反映されます。</DIV>
+<DIV id="text965_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:3860px; line-height:15px; white-space:nowrap">
+テキスト・エディターを起動するコマンドラインを返します。</DIV>
+<DIV id="text965_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:37px; margin-top:3941px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_getEditorCmdLine">
+Setting_getEditorCmdLine</A></DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4229px; width:262px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4236px; line-height:13px; white-space:nowrap">
+start&nbsp; GetEditorCmdLine( "File1.txt:10" )</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4329px; width:292px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_28" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4336px; line-height:13px; white-space:nowrap">
+start&nbsp; GetEditorCmdLine( "File1.txt:[Func1]" )</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:3820px; width:430px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:3827px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetSearchOpenCmdLine( PathAndFragment as string ) as string</DIV>
+<DIV id="text965_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:4665px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text965_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:4665px; line-height:15px; white-space:nowrap">
+<A href="http://www.venus.dti.ne.jp/mw31/apsaly/TagJump.html" target="_blank">
+→ タグジャンプ&nbsp; - テキストエディタ Apsaly (Web)</A></DIV>
+<DIV id="text965_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:3964px; line-height:15px; white-space:nowrap">
+PathAndFragment には、タグジャンプ形式の文字列（パス＋行番号、または、パス＋行内容）<BR/>
+を指定できます。 形式については下記のサンプルを参照してください。</DIV>
+<DIV id="text965_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:4734px; line-height:15px; white-space:nowrap">
+<A href="vbslib_35.html#GetTagJumpParams">
+→ GetTagJumpParams</A></DIV>
+<DIV id="text965_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:43px; margin-top:4362px; line-height:15px; white-space:nowrap">
+キーワードの直前の文字がコロン ( : ) のときは、数字のみのキーワードを指定できません。</DIV>
+<DIV id="text965_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:4008px; line-height:15px; white-space:nowrap">
+返り値に含まれるファイル・パスは、フル・パスになります。</DIV>
+<DIV id="text965_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:471px; margin-top:3825px; line-height:15px; white-space:nowrap">
+（廃止予定）</DIV>
+<DIV id="text965_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:4752px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_openFolder">
+→ Setting_openFolder</A></DIV>
+<DIV id="text965_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:4734px; line-height:15px; white-space:nowrap">
+タグジャンプ形式のパスの解析</DIV>
+<DIV id="text965_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:232px; margin-top:4752px; line-height:15px; white-space:nowrap">
+フォルダーを開く</DIV>
+<DIV id="text965_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:174px; margin-top:3762px; line-height:15px; white-space:nowrap">
+（廃止予定）</DIV>
+<DIV id="text965_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:4688px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text965_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4711px; line-height:15px; white-space:nowrap">
+→ T_Path.vbs</DIV>
+<DIV id="text965_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:4711px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text965_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:181px; margin-top:4711px; line-height:15px; white-space:nowrap">
+T_GetEditorCmdLine</DIV>
+<DIV id="text965_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4688px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text965_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:4397px; line-height:15px; white-space:nowrap">
+File1.txt を開いて "Func1" を行末に含む行にジャンプします</DIV>
+<DIV id="text965_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4397px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4417px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_48" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4424px; line-height:13px; white-space:nowrap">
+start&nbsp; GetEditorCmdLine( "File1.txt#Func1${\n}" )</DIV>
+<DIV id="text965_49" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:4506px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text965_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:4506px; line-height:15px; white-space:nowrap">
+File1.txt を開いて "Func1" を２番目に含む行にジャンプします</DIV>
+<v:rect style="position:absolute; margin-left:43px; margin-top:4526px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_51" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:51px; margin-top:4533px; line-height:13px; white-space:nowrap">
+start&nbsp; GetEditorCmdLine( "File1.txt#Func1${+2}" )</DIV>
+<DIV id="text965_52" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:4451px; line-height:15px; white-space:nowrap">
+\n は、C言語の改行の表現と同じです。</DIV>
+<DIV id="text965_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:87px; margin-top:4469px; line-height:15px; white-space:nowrap">
+${ } は、</DIV>
+<DIV id="text965_54" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:182px; margin-top:4469px; line-height:15px; white-space:nowrap">
+の表現と同じです。</DIV>
+<DIV id="text965_55" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:129px; margin-top:4469px; line-height:15px; white-space:nowrap">
+<A href="vbslib_13.html#LazyDictionaryClass">
+${ } 変数</A></DIV>
+<DIV id="text965_56" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:37px; margin-top:4037px; line-height:15px; white-space:nowrap">
+拡張子が pdf で a.pdf#page=2 のように path を指定すると、Internet Explorer で指定した<BR/>
+ページが開きます。（Internet Explorer の設定変更や仕様変更により使えなくなる可能性が<BR/>
+あります。）</DIV>
+<v:rect style="position:absolute; margin-left:365px; margin-top:4417px; width:46px; height:25px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_57" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:373px; margin-top:4424px; line-height:13px; white-space:nowrap">
+${\n}</DIV>
+<v:rect style="position:absolute; margin-left:364px; margin-top:4526px; width:76px; height:25px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_58" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:372px; margin-top:4533px; line-height:13px; white-space:nowrap">
+${+number}</DIV>
+<v:rect style="position:absolute; margin-left:351px; margin-top:4296px; width:58px; height:25px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_59" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:359px; margin-top:4303px; line-height:13px; white-space:nowrap">
+#string</DIV>
+<v:rect style="position:absolute; margin-left:351px; margin-top:4329px; width:58px; height:25px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_60" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:359px; margin-top:4336px; line-height:13px; white-space:nowrap">
+:string</DIV>
+<v:rect style="position:absolute; margin-left:322px; margin-top:4197px; width:58px; height:25px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_61" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:330px; margin-top:4204px; line-height:13px; white-space:nowrap">
+#number</DIV>
+<v:rect style="position:absolute; margin-left:322px; margin-top:4229px; width:58px; height:25px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text965_62" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:330px; margin-top:4236px; line-height:13px; white-space:nowrap">
+:number</DIV>
+
+<v:line from="0,3729" to="590,3729"/>
+<v:line from="590,3729" to="590,4800"/>
+<v:line from="590,4800" to="0,4800"/>
+<v:line from="0,4800" to="0,3729"/>
+
+</PAGE>
+ 
+<!-- page 966 --> 
+<PAGE>
+<A id="svgcats_vml_p966" class="to_tree" style="margin-top:4805px;" onClick="selectTreeElem( '966' );">←</A>
+<A href="#svgcats_vml_p967" class="to_next_page" style="margin-top:4805px;">▼</A>
+<A href="#svgcats_vml_p965" class="to_prev_page" style="margin-top:4805px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4816px; width:602px; height:1272px;" fillcolor="white"/>
+<DIV id="text966_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4833px; line-height:15px; white-space:nowrap">
+<A name="GetDiffCmdLine">
+GetDiffCmdLine, GetDiffCmdLine3, GetDiffCmdLine3Ex</A></DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:4861px; width:436px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:4868px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetDiffCmdLine( PathA as string, PathB as string ) as string</DIV>
+<DIV id="text966_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:445px; margin-top:4833px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text966_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:4982px; line-height:15px; white-space:nowrap">
+Diff ツール（比較するプログラム）を起動するコマンドラインを返します。</DIV>
+<DIV id="text966_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:338px; margin-top:5011px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_getDiffCmdLine">
+Setting_getDiffCmdLine</A></DIV>
+<DIV id="text966_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:5071px; line-height:15px; white-space:nowrap">
+の設定によって変わります。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5135px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5142px; line-height:13px; white-space:nowrap">
+start&nbsp; GetDiffCmdLine( "file1.txt", "file2.txt" )</DIV>
+<DIV id="text966_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:5470px; line-height:15px; white-space:nowrap">
+返り値の例：</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5489px; width:358px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5496px; line-height:13px; white-space:nowrap">
+"C:\Program Files\Diff.exe" "C:\FileA.txt" "C:\FileB.txt"</DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:4892px; width:544px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:4899px; line-height:13px; white-space:nowrap">
+Function&nbsp; GetDiffCmdLine3( PathA as string, PathB as string, PathC as string ) as string</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5390px; width:328px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5397px; line-height:13px; white-space:nowrap">
+start&nbsp; GetDiffCmdLine( "file1.txt(5)", "file2.txt" )</DIV>
+<DIV id="text966_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:107px; margin-top:5369px; line-height:15px; white-space:nowrap">
+file1.txt の 5行目と、それに対応する file2.txt を表示する</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5270px; width:394px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5277px; line-height:13px; white-space:nowrap">
+start&nbsp; GetDiffCmdLine3( "file1.txt", "file2.txt", "file3.txt" )</DIV>
+<DIV id="text966_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:107px; margin-top:5251px; line-height:15px; white-space:nowrap">
+file1.txt、file2.txt、file3.txt を表示する</DIV>
+<DIV id="text966_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:5421px; line-height:15px; white-space:nowrap">
+設定されている Diff ツールが行番号指定に対応していないときは、5行目ではなく先頭の<BR/>
+行を表示します。</DIV>
+<DIV id="text966_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:56px; margin-top:5301px; line-height:15px; white-space:nowrap">
+設定されている Diff ツールが３つのファイルを同時に比較することができないときは、<BR/>
+３つのファイルのうち、比較する２つのファイルを選択するスクリプト diff3to2.vbs を<BR/>
+起動するコマンドラインを返します。</DIV>
+<DIV id="text966_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5116px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text966_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5251px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text966_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5369px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text966_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5542px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5566px; width:460px; height:280px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5572px; line-height:15px; white-space:nowrap">
+&nbsp; Dim&nbsp; folder_a,&nbsp; folder_b,&nbsp; step_path<BR/>
+<BR/>
+&nbsp; folder_a = "C:\folder_a\"<BR/>
+&nbsp; folder_b = "C:\folder_b\"<BR/>
+<BR/>
+&nbsp; Do<BR/>
+&nbsp; &nbsp; echo&nbsp; ""<BR/>
+&nbsp; &nbsp; echo&nbsp; "２つのフォルダーの中にあるテキストファイルを Diff で表示します"<BR/>
+&nbsp; &nbsp; echo&nbsp; folder_a<BR/>
+&nbsp; &nbsp; echo&nbsp; folder_b<BR/>
+&nbsp; &nbsp; echo&nbsp; ""<BR/>
+&nbsp; &nbsp; echo&nbsp; "Enter のみ : 終了"<BR/>
+&nbsp; &nbsp; step_path = input( "共通の相対パス &gt;" )<BR/>
+&nbsp; &nbsp; If step_path = "" Then&nbsp; Exit Do<BR/>
+<BR/>
+&nbsp; &nbsp; start&nbsp; GetDiffCmdLine( GetFullPath( step_path, folder_a ), _<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GetFullPath( step_path, folder_b ) )<BR/>
+&nbsp; Loop</DIV>
+<DIV id="text966_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:108px; margin-top:5542px; line-height:15px; white-space:nowrap">
+相対パスを１つ入力して、Diff を開くプロンプト</DIV>
+<DIV id="text966_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:6040px; line-height:15px; white-space:nowrap">
+<A href="#DiffCUI">
+→ DiffCUI</A></DIV>
+<DIV id="text966_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6040px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text966_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:354px; margin-top:5055px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_getFolderDiffCmdLine">
+Setting_getFolderDiffCmdLine</A></DIV>
+<DIV id="text966_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:5181px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:5200px; width:286px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_27" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:5207px; line-height:13px; white-space:nowrap">
+start&nbsp; GetDiffCmdLine( "folder1", "folder2" )</DIV>
+<DIV id="text966_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:5011px; line-height:15px; white-space:nowrap">
+ファイルのパスが指定されたときに起動するツールは、</DIV>
+<DIV id="text966_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:475px; margin-top:5011px; line-height:15px; white-space:nowrap">
+の設定によって</DIV>
+<DIV id="text966_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:5027px; line-height:15px; white-space:nowrap">
+変わります。</DIV>
+<DIV id="text966_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:5055px; line-height:15px; white-space:nowrap">
+フォルダーのパスが指定されたときに起動するツールは、</DIV>
+<DIV id="text966_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:107px; margin-top:5116px; line-height:15px; white-space:nowrap">
+テキスト ファイルを比較するツールを起動する。</DIV>
+<DIV id="text966_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:5181px; line-height:15px; white-space:nowrap">
+フォルダーを比較するツールを起動する。</DIV>
+<v:rect style="position:absolute; margin-left:26px; margin-top:4923px; width:490px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text966_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:34px; margin-top:4929px; line-height:15px; white-space:nowrap">
+Function&nbsp; GetDiffCmdLine3Ex( PathA as string, PathB as string, PathC as string,<BR/>
+&nbsp; &nbsp; in_Option&nbsp; as Empty or DiffCmdLineOptionClass ) as string</DIV>
+<DIV id="text966_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5890px; line-height:15px; white-space:nowrap">
+<A name="DiffCmdLineOptionClass">
+DiffCmdLineOptionClass</A></DIV>
+<DIV id="text966_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:196px; margin-top:4945px; line-height:13px; white-space:nowrap">
+<A href="#DiffCmdLineOptionClass">
+DiffCmdLineOptionClass</A></DIV>
+<DIV id="text966_37" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#408080; margin-left:110px; margin-top:5958px; line-height:13px; white-space:nowrap">
+.IsComparing(i)</DIV>
+<DIV id="text966_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:226px; margin-top:5957px; line-height:15px; white-space:nowrap">
+(i+1) 番目のフォルダーを比較するかどうか。<BR/>
+初期値は True。<BR/>
+3つのパスは指定するけど、そのうち一部だけ比較する<BR/>
+ときは、比較しないフォルダーについて False にします。</DIV>
+<DIV id="text966_39" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:42px; margin-top:5958px; line-height:13px; white-space:nowrap">
+boolean</DIV>
+<DIV id="text966_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:42px; margin-top:5923px; line-height:15px; white-space:nowrap">
+<A href="#GetDiffCmdLine">
+GetDiffCmdLine3Ex 関数</A></DIV>
+<DIV id="text966_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:187px; margin-top:5923px; line-height:15px; white-space:nowrap">
+に指定するオプション。</DIV>
+
+<v:line from="0,4816" to="602,4816"/>
+<v:line from="602,4816" to="602,6088"/>
+<v:line from="602,6088" to="0,6088"/>
+<v:line from="0,6088" to="0,4816"/>
+
+</PAGE>
+ 
+<!-- page 967 --> 
+<PAGE>
+<A id="svgcats_vml_p967" class="to_tree" style="margin-top:6093px;" onClick="selectTreeElem( '967' );">←</A>
+<A href="#svgcats_vml_p968" class="to_next_page" style="margin-top:6093px;">▼</A>
+<A href="#svgcats_vml_p966" class="to_prev_page" style="margin-top:6093px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6104px; width:613px; height:593px;" fillcolor="white"/>
+<DIV id="text967_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6121px; line-height:15px; white-space:nowrap">
+<A name="GetDiffStringCmdLine">
+GetDiffStringCmdLine, GetDiffStringCmdLine3</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6151px; width:436px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text967_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6157px; line-height:15px; white-space:nowrap">
+Function&nbsp; GetDiffStringCmdLine( StringA as string, StringB as string )<BR/>
+&nbsp; &nbsp; as DiffCmdLineClass</DIV>
+<DIV id="text967_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6255px; line-height:15px; white-space:nowrap">
+Diff ツールを起動して、文字列を比較するコマンドラインを返します。</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6200px; width:556px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text967_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6206px; line-height:15px; white-space:nowrap">
+Function&nbsp; GetDiffStringCmdLine3( StringA as string, StringB as string, StringC as string )<BR/>
+&nbsp; &nbsp; as DiffCmdLineClass</DIV>
+<DIV id="text967_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:6376px; line-height:15px; white-space:nowrap">
+<A href="#GetDiffCmdLine">
+GetDiffCmdLine, GetDiffCmdLine3</A></DIV>
+<DIV id="text967_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:234px; margin-top:6376px; line-height:15px; white-space:nowrap">
+との違いは、引数が比較する内容の文字列であることです。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:6448px; width:274px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text967_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:6455px; line-height:13px; white-space:nowrap">
+start&nbsp; GetDiffStringCmdLine( "ABC", "AxC" )</DIV>
+<DIV id="text967_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6422px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text967_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6284px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text967_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6284px; line-height:15px; white-space:nowrap">
+StringA</DIV>
+<DIV id="text967_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6303px; line-height:15px; white-space:nowrap">
+StringB</DIV>
+<DIV id="text967_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:6284px; line-height:15px; white-space:nowrap">
+比較する文字列 A</DIV>
+<DIV id="text967_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:6303px; line-height:15px; white-space:nowrap">
+比較する文字列 B</DIV>
+<DIV id="text967_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6322px; line-height:15px; white-space:nowrap">
+StringC</DIV>
+<DIV id="text967_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:6322px; line-height:15px; white-space:nowrap">
+比較する文字列 C</DIV>
+<DIV id="text967_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:6341px; line-height:15px; white-space:nowrap">
+コマンドラインの文字列、または、</DIV>
+<DIV id="text967_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6341px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text967_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6499px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:6525px; width:304px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text967_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:6531px; line-height:15px; white-space:nowrap">
+Set diff_ = GetDiffStringCmdLine( "ABC", "AxC" )<BR/>
+RunProg&nbsp; diff_, ""<BR/>
+Pause<BR/>
+diff_.Remove</DIV>
+<DIV id="text967_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:110px; margin-top:6499px; line-height:15px; white-space:nowrap">
+Diff ツールを開き、Diff ツールを閉じたら一時的に作成されるファイルを削除する</DIV>
+<DIV id="text967_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:364px; margin-top:6341px; line-height:15px; white-space:nowrap">
+<A href="#DiffCmdLineClass">
+DiffCmdLineClass</A></DIV>
+<DIV id="text967_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6651px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text967_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:64px; margin-top:6651px; line-height:15px; white-space:nowrap">
+<A href="vbslib_56.html#AssertString">
+→ AssertString</A></DIV>
+<DIV id="text967_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6621px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text967_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:6621px; line-height:15px; white-space:nowrap">
+→ TestScript.vbs</DIV>
+
+<v:line from="0,6104" to="613,6104"/>
+<v:line from="613,6104" to="613,6697"/>
+<v:line from="613,6697" to="0,6697"/>
+<v:line from="0,6697" to="0,6104"/>
+
+</PAGE>
+ 
+<!-- page 968 --> 
+<PAGE>
+<A id="svgcats_vml_p968" class="to_tree" style="margin-top:6702px;" onClick="selectTreeElem( '968' );">←</A>
+<A href="#svgcats_vml_p969" class="to_next_page" style="margin-top:6702px;">▼</A>
+<A href="#svgcats_vml_p967" class="to_prev_page" style="margin-top:6702px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6713px; width:427px; height:517px;" fillcolor="white"/>
+<DIV id="text968_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6730px; line-height:15px; white-space:nowrap">
+<A name="DiffCmdLineClass">
+DiffCmdLineClass</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6995px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text968_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7002px; line-height:13px; white-space:nowrap">
+Default Property Get&nbsp; DiffCmdLineClass::CmdLine() as string</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7074px; width:202px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text968_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7081px; line-height:13px; white-space:nowrap">
+Sub&nbsp; DiffCmdLineClass::Remove()</DIV>
+<DIV id="text968_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7032px; line-height:15px; white-space:nowrap">
+Diff ツールを起動して、文字列を比較するコマンドライン。</DIV>
+<DIV id="text968_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7108px; line-height:15px; white-space:nowrap">
+比較する文字列が入ったファイルを削除します。</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6760px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text968_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6767px; line-height:13px; white-space:nowrap">
+Dim&nbsp; DiffCmdLineClass::PathA as string</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6841px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text968_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6848px; line-height:13px; white-space:nowrap">
+Dim&nbsp; DiffCmdLineClass::PathB as string</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:6915px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text968_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:6922px; line-height:13px; white-space:nowrap">
+Dim&nbsp; DiffCmdLineClass::PathC as string</DIV>
+<DIV id="text968_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6797px; line-height:15px; white-space:nowrap">
+比較する文字列 A が入ったファイルのパス。</DIV>
+<DIV id="text968_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6875px; line-height:15px; white-space:nowrap">
+比較する文字列 B が入ったファイルのパス。</DIV>
+<DIV id="text968_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6952px; line-height:15px; white-space:nowrap">
+Empty または、比較する文字列 C が入ったファイルのパス。</DIV>
+<DIV id="text968_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7182px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text968_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:7182px; line-height:15px; white-space:nowrap">
+→ TestScript.vbs</DIV>
+<DIV id="text968_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7153px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text968_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:7153px; line-height:15px; white-space:nowrap">
+<A href="#GetDiffStringCmdLine">
+→ GetDiffStringCmdLine</A></DIV>
+
+<v:line from="0,6713" to="427,6713"/>
+<v:line from="427,6713" to="427,7230"/>
+<v:line from="427,7230" to="0,7230"/>
+<v:line from="0,7230" to="0,6713"/>
+
+</PAGE>
+ 
+<!-- page 969 --> 
+<PAGE>
+<A id="svgcats_vml_p969" class="to_tree" style="margin-top:7235px;" onClick="selectTreeElem( '969' );">←</A>
+<A href="#svgcats_vml_p970" class="to_next_page" style="margin-top:7235px;">▼</A>
+<A href="#svgcats_vml_p968" class="to_prev_page" style="margin-top:7235px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7246px; width:631px; height:583px;" fillcolor="white"/>
+<DIV id="text969_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7263px; line-height:15px; white-space:nowrap">
+<A name="GetDiffOneLineCmdLine">
+GetDiffOneLineCmdLine</A></DIV>
+<DIV id="text969_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7731px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text969_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:7731px; line-height:15px; white-space:nowrap">
+→ TestScript.vbs</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7293px; width:574px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text969_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7299px; line-height:15px; white-space:nowrap">
+Function&nbsp; GetDiffOneLineCmdLine( in_PathAndLineNumA as string, in_PathAndLineNumB as string )<BR/>
+&nbsp; &nbsp; as DiffCmdLineClass</DIV>
+<DIV id="text969_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7344px; line-height:15px; white-space:nowrap">
+Diff ツールを起動して、指定した行を 1文字ずつ比較するコマンドラインを返します。</DIV>
+<DIV id="text969_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7373px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text969_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7373px; line-height:15px; white-space:nowrap">
+in_PathAndLineNumA</DIV>
+<DIV id="text969_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7392px; line-height:15px; white-space:nowrap">
+in_PathAndLineNumB</DIV>
+<DIV id="text969_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:239px; margin-top:7373px; line-height:15px; white-space:nowrap">
+比較するファイルのパスと行番号、または、比較する文字列</DIV>
+<DIV id="text969_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:239px; margin-top:7392px; line-height:15px; white-space:nowrap">
+比較するファイルのパスと行番号、または、比較する文字列</DIV>
+<DIV id="text969_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7411px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text969_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:428px; margin-top:7411px; line-height:15px; white-space:nowrap">
+<A href="#DiffCmdLineClass">
+DiffCmdLineClass</A></DIV>
+<DIV id="text969_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:239px; margin-top:7411px; line-height:15px; white-space:nowrap">
+コマンドラインの文字列、または、</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:7481px; width:388px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text969_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:7488px; line-height:13px; white-space:nowrap">
+start&nbsp; GetDiffOneLineCmdLine( "FileA.txt(3)", "FileB.txt(4)" )</DIV>
+<DIV id="text969_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7455px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text969_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7532px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:7558px; width:418px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text969_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:7564px; line-height:15px; white-space:nowrap">
+Set diff_ = GetDiffOneLineCmdLine( "FileA.txt(3)", "FileB.txt(4)" )<BR/>
+RunProg&nbsp; diff_, ""<BR/>
+Pause<BR/>
+diff_.Remove</DIV>
+<DIV id="text969_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:110px; margin-top:7532px; line-height:15px; white-space:nowrap">
+Diff ツールを開き、Diff ツールを閉じたら一時的に作成されるファイルを削除する</DIV>
+<DIV id="text969_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7755px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text969_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:7755px; line-height:15px; white-space:nowrap">
+→ T_fc.vbs</DIV>
+<DIV id="text969_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:153px; margin-top:7755px; line-height:15px; white-space:nowrap">
+T_GetDiffOneLineCmdLine</DIV>
+<DIV id="text969_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:7779px; line-height:15px; white-space:nowrap">
+<A href="vbslib_03.html#Diff1">
+→ Diff1 コマンド</A></DIV>
+<DIV id="text969_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7779px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text969_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:110px; margin-top:7651px; line-height:15px; white-space:nowrap">
+ファイルの比較ではなく、文字列を比較するときは、要素数１の配列を渡します。</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:7677px; width:496px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text969_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:7684px; line-height:13px; white-space:nowrap">
+start&nbsp; GetDiffOneLineCmdLine( Array( "Yes, it is." ),&nbsp; Array( "Yes, it was." ) )</DIV>
+<DIV id="text969_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7651px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+
+<v:line from="0,7246" to="631,7246"/>
+<v:line from="631,7246" to="631,7829"/>
+<v:line from="631,7829" to="0,7829"/>
+<v:line from="0,7829" to="0,7246"/>
+
+</PAGE>
+ 
+<!-- page 970 --> 
+<PAGE>
+<A id="svgcats_vml_p970" class="to_tree" style="margin-top:7834px;" onClick="selectTreeElem( '970' );">←</A>
+<A href="#svgcats_vml_p971" class="to_next_page" style="margin-top:7834px;">▼</A>
+<A href="#svgcats_vml_p969" class="to_prev_page" style="margin-top:7834px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7845px; width:540px; height:612px;" fillcolor="white"/>
+<DIV id="text970_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7862px; line-height:15px; white-space:nowrap">
+<A name="DiffCUI">
+DiffCUI</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:7892px; width:466px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text970_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:7899px; line-height:13px; white-space:nowrap">
+Sub&nbsp; DiffCUI( FilePaths as array of string, FileLabels as array of string )</DIV>
+<DIV id="text970_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7929px; line-height:15px; white-space:nowrap">
+Diff ツールがないときに、コマンドラインだけで使える比較ツール。</DIV>
+<DIV id="text970_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:7955px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text970_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7955px; line-height:15px; white-space:nowrap">
+FilePaths</DIV>
+<DIV id="text970_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:7974px; line-height:15px; white-space:nowrap">
+FileLabels</DIV>
+<DIV id="text970_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:7955px; line-height:15px; white-space:nowrap">
+比較するファイル パスの配列</DIV>
+<DIV id="text970_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:7974px; line-height:15px; white-space:nowrap">
+比較するファイルの役割名の配列</DIV>
+<DIV id="text970_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8406px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text970_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8385px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text970_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8364px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text970_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:83px; margin-top:8364px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text970_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:71px; margin-top:8385px; line-height:15px; white-space:nowrap">
+→ T_SyncFiles.vbs</DIV>
+<DIV id="text970_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:8406px; line-height:15px; white-space:nowrap">
+<A href="#GetDiffCmdLine">
+→ GetDiffCmdLine, GetDiffCmdLine3</A></DIV>
+<DIV id="text970_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:47px; margin-top:8257px; line-height:15px; white-space:nowrap">
+<A href="vbslib_09.html#Setting_getEditorCmdLine_Check">
+テキストエディターで開くファイルのパスをテストでチェックする</A></DIV>
+<DIV id="text970_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8217px; line-height:15px; white-space:nowrap">
+Diff ツールで開くファイルのパスをテストでチェックするとき</DIV>
+<DIV id="text970_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8241px; line-height:15px; white-space:nowrap">
+DiffCUI は、比較しているそれぞれのファイルを開くメニューがあり、</DIV>
+<DIV id="text970_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:47px; margin-top:8273px; line-height:15px; white-space:nowrap">
+方法と組み合わせれば、Diff ツールで開くファイルのパスをチェックできます。</DIV>
+<DIV id="text970_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:85px; margin-top:8300px; line-height:15px; white-space:nowrap">
+<A href="#DiffCUI_InCurrentProcess">
+→ DiffCUI_InCurrentProcess</A></DIV>
+<DIV id="text970_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:85px; margin-top:8319px; line-height:15px; white-space:nowrap">
+→ _src\Test\tools\T_SyncFiles\SettingForTest.vbs</DIV>
+<DIV id="text970_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:46px; margin-top:8300px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<v:rect style="position:absolute; margin-left:39px; margin-top:8042px; width:334px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text970_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:47px; margin-top:8048px; line-height:15px; white-space:nowrap">
+&nbsp;1. 差分を調べて、結果をテキスト・エディターで開く<BR/>
+&nbsp;4. 01 のファイルを開く<BR/>
+&nbsp;5. 02 のファイルを開く<BR/>
+&nbsp;*. 03 のファイルは、存在しません<BR/>
+&nbsp;**. コピーする（コピー元(4以上)×10＋コピー先(4以上)<BR/>
+&nbsp; &nbsp; &nbsp;例：45 ＝ 01 → 02<BR/>
+&nbsp;99. 戻る<BR/>
+操作の番号を入力してください &gt;</DIV>
+<DIV id="text970_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:8017px; line-height:15px; white-space:nowrap">
+本関数を呼び出すと、以下のように表示されます。</DIV>
+
+<v:line from="0,7845" to="540,7845"/>
+<v:line from="540,7845" to="540,8457"/>
+<v:line from="540,8457" to="0,8457"/>
+<v:line from="0,8457" to="0,7845"/>
+
+</PAGE>
+ 
+<!-- page 971 --> 
+<PAGE>
+<A id="svgcats_vml_p971" class="to_tree" style="margin-top:8462px;" onClick="selectTreeElem( '971' );">←</A>
+<A href="#svgcats_vml_p972" class="to_next_page" style="margin-top:8462px;">▼</A>
+<A href="#svgcats_vml_p970" class="to_prev_page" style="margin-top:8462px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8473px; width:564px; height:392px;" fillcolor="white"/>
+<DIV id="text971_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8490px; line-height:15px; white-space:nowrap">
+<A name="DiffCUI_InCurrentProcess">
+DiffCUI_InCurrentProcess</A></DIV>
+<DIV id="text971_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:83px; margin-top:8555px; line-height:15px; white-space:nowrap">
+<A href="vbslib_46.html#InCurrentProcessFunc">
+InCurrentProcessFunc</A></DIV>
+<DIV id="text971_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:8555px; line-height:15px; white-space:nowrap">
+<A href="vbslib_46.html#start">
+start</A></DIV>
+<DIV id="text971_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:66px; margin-top:8555px; line-height:15px; white-space:nowrap">
+に</DIV>
+<DIV id="text971_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:215px; margin-top:8555px; line-height:15px; white-space:nowrap">
+を指定して、</DIV>
+<DIV id="text971_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:288px; margin-top:8555px; line-height:15px; white-space:nowrap">
+<A href="#DiffCUI">
+DiffCUI</A></DIV>
+<DIV id="text971_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:336px; margin-top:8555px; line-height:15px; white-space:nowrap">
+を呼び出すために経由する関数。</DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:8520px; width:370px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text971_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:8527px; line-height:13px; white-space:nowrap">
+Function&nbsp; DiffCUI_InCurrentProcess( CommandLine as string )</DIV>
+<DIV id="text971_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8817px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text971_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:83px; margin-top:8817px; line-height:15px; white-space:nowrap">
+→ PC_setting_default.vbs</DIV>
+<v:rect style="position:absolute; margin-left:42px; margin-top:8612px; width:490px; height:175px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text971_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:50px; margin-top:8618px; line-height:15px; white-space:nowrap">
+&gt;start&nbsp; \?InCurrentProcessFunc\DiffCUI_InCurrentProcess -i=33 "C:\Folder\01" "C<BR/>
+:\Folder\02" "C:\Folder\03"<BR/>
+-------------------------------------------------------------------------------<BR/>
+&nbsp;1. 差分を調べて、結果をテキスト・エディターで開く<BR/>
+&nbsp;4. 01 のファイルを開く<BR/>
+&nbsp;5. 02 のファイルを開く<BR/>
+&nbsp;*. 03 のファイルは、存在しません<BR/>
+&nbsp;**. コピーする（コピー元(4以上)×10＋コピー先(4以上)<BR/>
+&nbsp; &nbsp; &nbsp;例：45 ＝ 01 → 02<BR/>
+&nbsp;99. 戻る<BR/>
+操作の番号を入力してください &gt;</DIV>
+<DIV id="text971_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:8587px; line-height:15px; white-space:nowrap">
+start に本関数の返り値を指定すると、以下のように表示されます。</DIV>
+
+<v:line from="0,8473" to="564,8473"/>
+<v:line from="564,8473" to="564,8865"/>
+<v:line from="564,8865" to="0,8865"/>
+<v:line from="0,8865" to="0,8473"/>
+
+</PAGE>
+ 
+<!-- page 972 --> 
+<PAGE>
+<A id="svgcats_vml_p972" class="to_tree" style="margin-top:8870px;" onClick="selectTreeElem( '972' );">←</A>
+<A href="#svgcats_vml_p973" class="to_next_page" style="margin-top:8870px;">▼</A>
+<A href="#svgcats_vml_p971" class="to_prev_page" style="margin-top:8870px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8881px; width:594px; height:313px;" fillcolor="white"/>
+<DIV id="text972_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8898px; line-height:15px; white-space:nowrap">
+<A name="Sleep">
+Sleep</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:8929px; width:190px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text972_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:8936px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Sleep( msec as integer )</DIV>
+<DIV id="text972_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:8967px; line-height:15px; white-space:nowrap">
+指定した時間だけ待ちます。</DIV>
+<DIV id="text972_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:8990px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text972_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:8990px; line-height:15px; white-space:nowrap">
+msec</DIV>
+<DIV id="text972_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:8990px; line-height:15px; white-space:nowrap">
+待つ時間（ミリ秒）</DIV>
+<DIV id="text972_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:101px; margin-top:8898px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:102px; margin-top:9023px; width:94px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text972_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:110px; margin-top:9030px; line-height:13px; white-space:nowrap">
+&nbsp; Sleep&nbsp; 1000</DIV>
+<DIV id="text972_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9028px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<v:rect style="position:absolute; margin-left:102px; margin-top:9066px; width:460px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text972_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:110px; margin-top:9073px; line-height:13px; white-space:nowrap">
+&nbsp; Dim&nbsp; n : For n = 5 To 1 Step -1 : echo&nbsp; n : Sleep&nbsp; 1000 : Next : echo&nbsp; 0</DIV>
+<DIV id="text972_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9071px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text972_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:110px; margin-top:9098px; line-height:15px; white-space:nowrap">
+5秒のカウントダウン</DIV>
+<DIV id="text972_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:9146px; line-height:15px; white-space:nowrap">
+<A href="..\dos_batch.files\dos_batch_04.html#timeout">
+→ timeout (バッチファイル)</A></DIV>
+<DIV id="text972_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9146px; line-height:15px; white-space:nowrap">
+関連</DIV>
+
+<v:line from="0,8881" to="594,8881"/>
+<v:line from="594,8881" to="594,9194"/>
+<v:line from="594,9194" to="0,9194"/>
+<v:line from="0,9194" to="0,8881"/>
+
+</PAGE>
+ 
+<!-- page 973 --> 
+<PAGE>
+<A id="svgcats_vml_p973" class="to_tree" style="margin-top:9199px;" onClick="selectTreeElem( '973' );">←</A>
+<A href="vbslib_52.html#svgcats_vml_p974" class="to_next_page" style="margin-top:9199px;">▼</A>
+<A href="#svgcats_vml_p972" class="to_prev_page" style="margin-top:9199px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9210px; width:601px; height:1338px;" fillcolor="white"/>
+<v:rect style="position:absolute; margin-left:214px; margin-top:10258px; width:9px; height:45px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="116,10302" to="211,10302" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="211,10302" to="200,10298" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="211,10302" to="200,10306" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="116,10258" to="211,10258" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="211,10258" to="200,10254" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="211,10258" to="200,10262" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="311,10205" to="133,10205" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="133,10205" to="144,10209" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="133,10205" to="144,10201" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="311,10106" to="311,10417" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:line style="position:absolute;" from="117,10111" to="117,10338" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<DIV id="text973_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9227px; line-height:15px; white-space:nowrap">
+<A name="WaitForFile">
+WaitForFile</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:9258px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:9265px; line-height:13px; white-space:nowrap">
+Function&nbsp; WaitForFile( Path as string ) as string</DIV>
+<DIV id="text973_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9296px; line-height:15px; white-space:nowrap">
+指定したファイルが作られるまで待ちます。</DIV>
+<DIV id="text973_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9319px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text973_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:9319px; line-height:15px; white-space:nowrap">
+Path</DIV>
+<DIV id="text973_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:9319px; line-height:15px; white-space:nowrap">
+待つファイルのパス</DIV>
+<DIV id="text973_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9421px; line-height:15px; white-space:nowrap">
+何かの処理（前処理）が終わってから行う処理があるときに使います。<BR/>
+前処理が終わるときに、終わったことを示すファイルを作るようにすれば、<BR/>
+本関数が使えるようになります。</DIV>
+<DIV id="text973_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:77px; margin-top:10458px; line-height:15px; white-space:nowrap">
+<A href="vbslib_29.html#CreateFile">
+→ CreateFile</A></DIV>
+<DIV id="text973_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:130px; margin-top:9227px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text973_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:98px; margin-top:9338px; line-height:15px; white-space:nowrap">
+返り値</DIV>
+<DIV id="text973_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:9338px; line-height:15px; white-space:nowrap">
+ファイルの1行目の内容（末尾に改行文字なし）</DIV>
+<DIV id="text973_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; font-weight: bold; margin-left:34px; margin-top:9479px; line-height:15px; white-space:nowrap">
+本関数から抜ける直前で、対象のファイルを削除します。</DIV>
+<v:rect style="position:absolute; margin-left:102px; margin-top:9374px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:110px; margin-top:9381px; line-height:13px; white-space:nowrap">
+&nbsp; WaitForFile&nbsp; "Result.txt"</DIV>
+<DIV id="text973_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9379px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text973_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9977px; line-height:15px; white-space:nowrap">
+複数のプロセスで通信をするときは、同期に使用するファイルを最終的に<BR/>
+削除する責任を持つ<BR/>
+形にしてください。 そうしないと、同期に使用するファイルを相手に通知する<BR/>
+前に削除してしまう可能性が生まれて、サブ・スレッドが永遠に待ち続ける<BR/>
+ことになってしまいます。</DIV>
+<DIV id="text973_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:34px; margin-top:10458px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<v:roundrect style="position:absolute; margin-left:249px; margin-top:10084px; width:158px; height:22px;" arcsize="0.454545" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:256px; margin-top:10088px; line-height:15px; white-space:nowrap">
+サブ・スレッド （サーバー）</DIV>
+<v:line style="position:absolute;" from="117,10137" to="294,10137" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="294,10137" to="283,10133" strokecolor="#000000" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="294,10137" to="283,10141" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:197px; margin-top:10120px; line-height:15px; white-space:nowrap">
+起動</DIV>
+<DIV id="text973_26" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:127px; margin-top:10159px; line-height:13px; white-space:nowrap">
+WaitForFile</DIV>
+<v:rect style="position:absolute; margin-left:112px; margin-top:10104px; width:9px; height:65px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<v:rect style="position:absolute; margin-left:306px; margin-top:10139px; width:9px; height:228px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_29" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:235px; margin-top:10190px; line-height:13px; white-space:nowrap">
+CreateFile</DIV>
+<v:rect style="position:absolute; margin-left:112px; margin-top:10207px; width:9px; height:120px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_31" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:230px; margin-top:10356px; line-height:13px; white-space:nowrap">
+WaitForFile</DIV>
+<DIV id="text973_32" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:138px; margin-top:10243px; line-height:13px; white-space:nowrap">
+CreateFile で終えると</DIV>
+<DIV id="text973_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:267px; margin-top:10278px; line-height:13px; white-space:nowrap">
+(busy)</DIV>
+<DIV id="text973_34" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:138px; margin-top:10288px; line-height:13px; white-space:nowrap">
+delete</DIV>
+<DIV id="text973_35" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:218px; margin-top:10393px; line-height:13px; white-space:nowrap">
+待ち続ける...</DIV>
+<DIV id="text973_36" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:104px; margin-top:10348px; line-height:13px; white-space:nowrap">
+終了</DIV>
+<DIV id="text973_37" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:18px; margin-top:9800px; line-height:15px; white-space:nowrap">
+通信の注意</DIV>
+<DIV id="text973_38" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:151px; margin-top:9992px; line-height:15px; white-space:nowrap">
+ホスト側が WaitForFile で待って通信を終える</DIV>
+<v:roundrect style="position:absolute; margin-left:38px; margin-top:10084px; width:179px; height:22px;" arcsize="0.454545" fillcolor="#E1EEE8" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_39" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:45px; margin-top:10088px; line-height:15px; white-space:nowrap">
+メイン・スレッド （クライアント）</DIV>
+<DIV id="text973_40" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:34px; margin-top:9833px; line-height:15px; white-space:nowrap">
+同期に使うファイルは、2つのスレッド（クライアントとサーバー）で別のファイル名にしてください。</DIV>
+<DIV id="text973_41" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9851px; line-height:15px; white-space:nowrap">
+そうしないと、自分が作成（送信）したファイルを待つ（受信する）形になり、待たないことに<BR/>
+なってしまうからです。</DIV>
+<DIV id="text973_42" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#FF0000; margin-left:34px; margin-top:9898px; line-height:15px; white-space:nowrap">
+送信ファイルを作成する前に、受信したファイルを削除してください。</DIV>
+<DIV id="text973_43" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9914px; line-height:15px; white-space:nowrap">
+そうしないと、相手が次の受信ファイルを先に作ってしまい、そのファイルを削除してしまう<BR/>
+からです。 また、前の通信の残りがあるときでも正しく動くように、クライアントは、前の受信<BR/>
+ファイルを削除してから、送信ファイルを作成してください。</DIV>
+<DIV id="text973_44" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:10437px; line-height:15px; white-space:nowrap">
+→ T_Call_Target.vbs # [T_WaitForFile]</DIV>
+<DIV id="text973_45" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:34px; margin-top:10437px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text973_46" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:10479px; line-height:15px; white-space:nowrap">
+→ FileT_wait (clib)</DIV>
+<DIV id="text973_47" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:18px; margin-top:9535px; line-height:15px; white-space:nowrap">
+エラーを発生させるファイルを作る</DIV>
+<DIV id="text973_48" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9565px; line-height:15px; white-space:nowrap">
+WaitForFile で待っているファイルが、XML 形式のテキストで、ルートのタグが &lt;ERROR&gt;<BR/>
+のときは、WaitForFile の内部からエラーを発生させます。</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9631px; width:268px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_49" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9637px; line-height:15px; white-space:nowrap">
+&lt;?xml version="1.0" encoding="Shift_JIS"?&gt;<BR/>
+&lt;ERROR num="3" msg="エラー"/&gt;</DIV>
+<DIV id="text973_50" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:53px; margin-top:9610px; line-height:15px; white-space:nowrap">
+作成するファイルの例</DIV>
+<DIV id="text973_51" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:34px; margin-top:9689px; line-height:15px; white-space:nowrap">
+上記の場合、Err オブジェクトの内容は、次のようになります。</DIV>
+<v:rect style="position:absolute; margin-left:60px; margin-top:9715px; width:382px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text973_52" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:68px; margin-top:9721px; line-height:15px; white-space:nowrap">
+Assert&nbsp; Err.Number = 3<BR/>
+Assert&nbsp; Err.Description = "&lt;ERROR num=""3"" msg=""エラー""/&gt;"</DIV>
+<DIV id="text973_53" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:77px; margin-top:10500px; line-height:15px; white-space:nowrap">
+→ OnTime (Excel)</DIV>
+
+<v:line from="0,9210" to="601,9210"/>
+<v:line from="601,9210" to="601,10548"/>
+<v:line from="601,10548" to="0,10548"/>
+<v:line from="0,10548" to="0,9210"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10548px;">
+<A id="svgcats_vml_p973" class="to_tree" onClick="selectTreeElem( '973' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10548px;">
+<A id="page_group_bottom" href="vbslib_52.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

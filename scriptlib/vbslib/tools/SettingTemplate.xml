@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><MultiText><Text id="Setting_openFolder"><![CDATA[
+------------------------------------------------------------
+'***********************************************************************
+'* Function: Setting_openFolder
+'*    フォルダーを開きます。
+'***********************************************************************
+Sub  Setting_openFolder( in_Path )
+	echo_v  "Setting> Setting_openFolder """+ in_Path +""""
+	echo_v  "設定の前なので実行はスキップしました。設定したらこれを削除してください。"
+	Exit Sub
+
+	If g_fs.FolderExists( in_Path ) Then
+		g_sh.Run "explorer """ + in_Path + """"
+	ElseIf g_fs.FileExists( in_Path ) Then
+		g_sh.Run "explorer /SELECT, """ + Path + """"
+	Else
+		Err.Raise  1,, """" + in_Path + """ が見つかりません。"
+	End If
+End Sub
+------------------------------------------------------------
+]]></Text><Text id="Setting_getEditorCmdLine"><![CDATA[
+------------------------------------------------------------
+'***********************************************************************
+'* Function: Setting_getEditorCmdLine
+'*    テキスト エディターを開くためのコマンドラインを返します。
+'***********************************************************************
+Function  Setting_getEditorCmdLine( i )
+	echo_v  "Setting> Setting_getEditorCmdLine """+ CStr( i ) +""""
+
+'// ここから、
+	echo_v  "設定の前なので実行はスキップしました。設定したらこれを削除してください。"
+	Setting_getEditorCmdLine = """"+ g_vbslib_ver_folder +"ArgsLog.exe""  Editor  ""%1#%2"" -Y=%L"
+		'// これは、何も開かないための設定です。
+	Exit Function
+'// ここまで削除してください。
+
+
+	'// exe 変数に、実行ファイルのパスを設定してください。
+	'// また、下記の行番号(%L)を指定するオプションを編集してください。
+	'// そのオプションが分からないときは、%L がある行を削除してください。
+	'// %2 は、検索キーワードです。
+	'// デフォルトに戻すときは、Function ～ End Function 全体とその前の ' から始まる行を削除してください。
+
+	exe = g_sh.ExpandEnvironmentStrings( "%WinDir%\notepad.exe" )
+
+	If i = 0 Then  ret = exe
+	If i = 1 Then  ret = """"+ exe +""" ""%1"""
+	If i = 2 Then  ret = """"+ exe +""" -Y=%L ""%1"""
+	Setting_getEditorCmdLine = ret
+End Function
+------------------------------------------------------------
+]]></Text><Text id="Setting_getDiffCmdLine"><![CDATA[
+------------------------------------------------------------
+'***********************************************************************
+'* Function: Setting_getDiffCmdLine
+'*    ファイルに対して Diff ツールを開くためのコマンドラインを返します。
+'***********************************************************************
+Function  Setting_getDiffCmdLine( i )
+	echo_v  "Setting> Setting_getDiffCmdLine """+ CStr( i ) +""""
+
+'// ここから、
+	echo_v  "設定の前なので実行はスキップしました。設定したらこれを削除してください。"
+	Setting_getDiffCmdLine = """"+ g_vbslib_ver_folder +"ArgsLog.exe""  Diff  ""%1""  ""%2""  ""%3"" -Y=%L"
+		'// これは、何も開かないための設定です。
+	Exit Function
+'// ここまで削除してください。
+
+
+	'// exe 変数に、実行ファイルのパスを設定してください。
+	'// また、下記の行番号(%L)を指定するオプションを編集してください。
+	'// そのオプションが分からないときは、%L がある行を削除してください。
+	'// デフォルトに戻すときは、Function ～ End Function 全体とその前の ' から始まる行を削除してください。
+
+	exe = g_sh.ExpandEnvironmentStrings( "%WinDir%\notepad.exe" )
+
+	If i = 0 Then  ret = exe
+	If i = 2 Then  ret = """"+ exe +""" ""%1"" ""%2"""
+	If i = 3 Then  ret = """"+ exe +""" ""%1"" ""%2"" ""%3"""
+	If i = 21 Then ret = """"+ exe +""" -Y=%L -ActiveFile=""%1"" ""%1"" ""%2"""
+	If i = 22 Then ret = """"+ exe +""" -Y=%L -ActiveFile=""%2"" ""%1"" ""%2"""
+	If i = 31 Then ret = """"+ exe +""" -Y=%L -ActiveFile=""%1"" ""%1"" ""%2"" ""%3"""
+	If i = 32 Then ret = """"+ exe +""" -Y=%L -ActiveFile=""%2"" ""%1"" ""%2"" ""%3"""
+	If i = 33 Then ret = """"+ exe +""" -Y=%L -ActiveFile=""%3"" ""%1"" ""%2"" ""%3"""
+	Setting_getDiffCmdLine = ret
+End Function
+------------------------------------------------------------
+]]></Text><Text id="Setting_getFolderDiffCmdLine"><![CDATA[
+------------------------------------------------------------
+'***********************************************************************
+'* Function: Setting_getFolderDiffCmdLine
+'*    フォルダーに対して Diff ツールを開くためのコマンドラインを返します。
+'***********************************************************************
+Function  Setting_getFolderDiffCmdLine( i )
+	echo_v  "Setting> Setting_getFolderDiffCmdLine """+ CStr( i ) +""""
+
+'// ここから、
+	echo_v  "設定の前なので実行はスキップしました。設定したらこれを削除してください。"
+	Setting_getFolderDiffCmdLine = """"+ g_vbslib_ver_folder +"ArgsLog.exe""  DiffFolder  ""%1""  ""%2""  ""%3"""
+		'// これは、何も開かないための設定です。
+	Exit Function
+'// ここまで削除してください。
+
+
+	'// exe 変数に、実行ファイルのパスを設定してください。
+ 	'// デフォルトに戻すときは、Function ～ End Function 全体とその前の ' から始まる行を削除してください。
+
+	exe = g_sh.ExpandEnvironmentStrings( "%WinDir%\notepad.exe" )
+
+	If i = 0 Then  ret = exe
+	If i = 2 Then  ret = """"+ exe +""" ""%1"" ""%2"""
+	If i = 3 Then  ret = """"+ exe +""" ""%1"" ""%2"" ""%3"""
+	Setting_getFolderDiffCmdLine = ret
+End Function
+------------------------------------------------------------
+]]></Text></MultiText>

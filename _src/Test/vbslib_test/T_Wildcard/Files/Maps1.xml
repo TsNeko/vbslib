@@ -1,0 +1,24 @@
+<Root>
+	<Folder path="1\*.txt" attr="X">
+		<Except path="1\Except"/>
+		<Except path="1\Except\*.txt"/>
+	</Folder>
+
+	<Folder path="1\*.txt" attr="Y" map="MapY">
+		<Except path="1\Sub"/>
+		<Except path="1\Sub\*"/>
+	</Folder>
+
+	<Parent map="MapZ">
+		<Folder path="1\*\A.txt" attr="Z">
+			<Except path="1\Except"/>
+			<Except path="1\Except\*\A.txt"/>
+		</Folder>
+		<Folder path="1\A.txt" attr="Z2"/>
+	</Parent>
+	<Parent1 map="MapA">
+		<Parent2>
+			<Folder path="1\A.txt" attr="A"/>
+		</Parent2>
+	</Parent1>
+</Root>

@@ -1,0 +1,37 @@
+%MultiLine%
+Project Root = %FullPath(..\_work)%
+Module in Project = .
+
+Project Name = Project-A\01
+Module in Masters = ${Masters}\ModuleA\01
+
+%MultiLine%
+番号またはコマンド>Assort
+
+${Masters}\ModuleA\01
+${Masters}\ModuleB\01
+${Masters}\ModuleC\01
+${Masters}\ModuleFA\01
+${Masters}\ModuleFB\01
+${Masters}\ModuleFC\01
+
+正しくチェックアウトできるか確認しています ...
+%RegExp(.*)%
+
+${Masters}\ModuleA\01
+${Masters}\ModuleB\01
+${Masters}\ModuleC\01
+${Masters}\ModuleFA\01
+${Masters}\ModuleFB\01
+${Masters}\ModuleFC\01
+
+>MakeFolderMD5List  "%RegExp(.*)%"
+>CheckFolderMD5List "%RegExp(.*)%"
+
+Project-A\01
+を正しくチェックアウトできることを確認しました。
+下記 date 属性を設定ファイルに追加することをお勧めします。
+%MultiLine%
+警告の数 = 0
+%MultiLine%
+番号またはコマンド>Exit

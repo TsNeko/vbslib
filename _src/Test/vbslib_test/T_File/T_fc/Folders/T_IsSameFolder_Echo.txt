@@ -9,9 +9,9 @@
 
 >CreateFile  "_work\A\new.txt", "new"
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\A\new.txt"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\A\new.txt" not_found_path="_work\B\new.txt"/>
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\A\new.txt"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\A\new.txt" not_found_path="_work\B\new.txt"/>
 
 >CreateFile  "_work\A\sub1\txt.txt", "update"
 >IsSameFolder  "_work\A", "_work\B"
@@ -20,11 +20,11 @@
 
 >CreateFile  "_work\A\sub1\new.txt", "new"
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\A\sub1\new.txt"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\A\sub1\new.txt" not_found_path="_work\B\sub1\new.txt"/>
 >IsSameFolder  "_work\A", "_work\B"
 
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\A\sub1\new"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\A\sub1\new" not_found_path="_work\B\sub1\new"/>
 >IsSameFolder  "_work\A", "_work\B"
 
 >CreateFile  "_work\B\txt.txt", "update"
@@ -35,9 +35,9 @@
 
 >CreateFile  "_work\B\new.txt", "new"
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\B\new.txt"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\B\new.txt" not_found_path="_work\A\new.txt"/>
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\B\new.txt"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\B\new.txt" not_found_path="_work\A\new.txt"/>
 
 >CreateFile  "_work\B\sub1\txt.txt", "update"
 >IsSameFolder  "_work\A", "_work\B"
@@ -46,11 +46,11 @@
 
 >CreateFile  "_work\B\sub1\new.txt", "new"
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\B\sub1\new.txt"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\B\sub1\new.txt" not_found_path="_work\A\sub1\new.txt"/>
 >IsSameFolder  "_work\A", "_work\B"
 
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\B\sub1\new"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\B\sub1\new" not_found_path="_work\A\sub1\new"/>
 >IsSameFolder  "_work\A", "_work\B"
 
 >IsSameFolder  "_work\A\sub1\txt.txt", "_work\B\sub1\txt.txt"
@@ -81,7 +81,7 @@
 >IsSameFolder  "_work\A", "_work\B"
 >IsSameFolder  "_work\A", "_work\B"
 >IsSameFolder  "_work\A", "_work\B"
-<ERROR msg="片方のフォルダーにしか存在しません" path="_work\B\sub1\new2.txt"/>
+<ERROR msg="片方のフォルダーにしか存在しません" found_path="_work\B\sub1\new2.txt" not_found_path="_work\A\sub1\new2.txt"/>
 >IsSameFolder  "_work\A", "_work\NotFound"
 <ERROR msg="見つかりません" path="_work\NotFound"/>
 >IsSameFolder  "_work\NotFound", "_work\B"

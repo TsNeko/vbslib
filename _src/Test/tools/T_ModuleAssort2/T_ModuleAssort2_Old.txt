@@ -1,0 +1,101 @@
+
+
+	'// Create "Files" folder.
+	mkdir  in_OutputFolderPath
+	project_num = 0
+	For Each  project_tag_name  In  Me.SettingFile.ProjectTags.Keys
+		project_name = Me.SettingFile.ProjectTags( project_tag_name )
+		GetDicItemOrError  Me.SettingFile.Projects,  project_name,  project_,  "Project"  '// Set "project_"
+			AssertD_TypeName  project_, "ModuleAssort2_ProjectInFileClass"
+		Me_DefragmentOption.Delegate.IsFill = project_.IsFillKS
+
+		echo  project_tag_name +" : "+ project_name
+		For Each  module  In  project_.Modules.Items
+			AssertD_TypeName  module, "ModuleAssort2_ModuleInFileClass"
+			Set Me_DefragmentOption.Delegate.Module = module
+
+			echo  "    "+ module.PathInMasters
+			destination = ReplaceRootPath( module.FullPathInMasters, _
+				common_parent_path,  output_file_folder_path,  True )
+			Set ec = new EchoOff
+
+			Me.CheckOutOneFolder  module.FullPathInMasters,  destination
+			ec = Empty
+		Next
+		echo  ""
+		Dic_add  files, Me_DefragmentOption.Delegate.Files  '// Set "files"
+		Set Me_DefragmentOption.Delegate.Files = CreateObject( "Scripting.Dictionary" )
+		project_num = project_num + 1
+	Next
+	SetDateLastModified  files
+
+	calling_template = _
+		"${T}call  :CopyFunction  ""${Source}""  ""${Destination}"""+ vbCRLF + _
+		"${T}${T}if errorlevel 1 ( exit /b )"+ vbCRLF + _
+		""+ vbCRLF
+
+		Set files_array( project_num ) = Me_DefragmentOption.Delegate.Files
+
+		calling_codes = ""
+		For Each  module  In  project_.Modules.Items
+			source = GetStepPath( module.FullPathInMasters,  common_parent_path )
+			destination = GetStepPath( module.FullPathInWorkProject,  project_.FullPath )
+			destination = Replace( destination,  "..",  "_parent" )
+			If destination = "." Then
+				destination = "%output_path%"
+			Else
+				destination = "%output_path%\"+ destination
+			End If
+
+			calling_code = Replace( calling_template,  "${T}",  vbTab )
+			calling_code = Replace( calling_code,  "${Source}",  "Files\"+ source )
+			calling_code = Replace( calling_code,  "${Destination}",  destination )
+			calling_codes = calling_codes + calling_code
+		Next
+
+		batch = Replace( batch,  "${Calling}",  calling_codes )
+		batch = Replace( batch,  "${FileCount}",  CStr( files_array( project_num ).Count ) )
+
+		project_file_list = ""
+		For Each  full_path  In  files_array( project_num ).Keys
+			step_path = GetStepPath( full_path,  output_file_folder_path )
+			p2 = InStr( all_hash_list,  " "+ step_path + vbCRLF )
+			p1 = InStrRev( all_hash_list,  vbLF,  p2 ) + 1
+			p3 = InStr( p2,  all_hash_list,  vbLF ) + 1
+			line = Mid( all_hash_list,  p1,  p3 - p1 )
+
+			project_file_list = project_file_list + line
+		Next
+		batch = batch + project_file_list
+
+
+
+			"${T}echo Ckeck out batch of ${ProjectTagName}:"+ vbCRLF + _
+			"${T}echo Enter only: ${ProjectTagName}"+ vbCRLF + _
+			"${T}set /p output_path=Output Path^>"+ vbCRLF + _
+			"${T}if ""%output_path%"" == """"  set output_path=${ProjectTagName}"+ vbCRLF + _
+			""+ vbCRLF + _
+			"${Calling}" + _
+			"${T}echo ${FileCount} files"+ vbCRLF + _
+			"${T}echo Completed."+ vbCRLF + _
+			"rem ********************************************************************"+ vbCRLF + _
+			"rem * Function: ChechOut"+ vbCRLF + _
+			"rem *"+ vbCRLF + _
+			"rem * Arguments:"+ vbCRLF + _
+			"rem *    ""%~1"" - Path of source folder."+ vbCRLF + _
+			"rem *    ""%~2"" - Path of destination folder."+ vbCRLF + _
+			"rem ********************************************************************"+ vbCRLF + _
+			":CopyFunction"+ vbCRLF + _
+			"${T}echo %~1"+ vbCRLF + _
+			""+ vbCRLF + _
+			"${T}if not exist ""%~2"" ( mkdir ""%~2"" )"+ vbCRLF + _
+			"${T}xcopy /E /Y /Q  ""%~1""  ""%~2"" > nul"+ vbCRLF + _
+			"goto :eof"+ vbCRLF + _
+			""+ vbCRLF + _
+			""+ vbCRLF + _
+			"rem ********************************************************************"+ vbCRLF + _
+			"rem * Title: MD5 File List of This Check Out"+ vbCRLF + _
+			"rem *    But this batch file does not check hash values."+ vbCRLF + _
+			"rem ********************************************************************"+ vbCRLF + _
+			""+ vbCRLF
+

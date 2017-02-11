@@ -1,18 +1,33 @@
   ((( リリース手順 )))
 
-・同期 : _replica フォルダーで同期する。
-・(vbslib)\_src\Test\tools\T_VbsLibUpdater を更新する。そこの README を参照。
+・同期 : _src\_replica フォルダーで同期する。
+・★ _src\Test\tools\T_VbsLibUpdater を更新する。そこの README を参照。
 ・自動テスト : TestALL.bat を使って、自動テストを行う。
   最終的には、Cドライブに vbslib フォルダーを配置してテストすること。
-・日付 : コメントにある日付を更新する（_replica\2 Sync vbslib フォルダー）。 
+・Test\FastUser.vbs（下記）が %APPDATA%\Scripts にあるケースとないケース
+
+・マニュアルに「書きかけ」が無いことをチェックする。
+・日付 : コメントにある日付を更新する（_src\_replica\2 Sync vbslib フォルダー）。 
+  Sync vbslib.xml の vbslib_copyright にバージョン番号があります。
   また、vbslib.svg にあるものも更新。
 ・英語版のテスト : 英語版に変えて、文法エラーが出ないこと（_replica\3.Translate フォルダー）
+  vbslib Prompt の英訳、途中まででも英訳
+
+・scriptlib の差分から、更新履歴.txt に追加する。
+・新機能や大きな仕様変更は、g_is_vbslib_for_fast_user 変数が True でなければエラーにする。
+  _src\_replica フォルダーで同期する。
+  g_is_vbslib_for_fast_user = True が書かれた %APPDATA%\Scripts\FastUser.vbs を
+  削除してからテストする。
+
+・ドキュメント : ..\..\vbslib doc フォルダーで、ドキュメントを作成する。
 ・以上で、変更があったら、最初からやりなおし。
 ・コミット : https://localhost/svn/vbslib
 
 ・手動テスト : （正式版のみ）自動テストのログの最後に書かれた、手動テストを行う。
-・ドキュメント : ..\..\vbslib doc フォルダーで、ドキュメントを作成する。
 ・コミット : https://localhost/svn/vbslib
+
+・テストがパスしたら、scriptlib\GPL と _src\Test\tools\scriptlib\GPL の
+  Doxygen と NaturalDocs を削除する。
 
 ・vbslib の Git Hub ( https://github.com/TsNeko/vbslib.git ) は、ドキュメント\vbslib_pub_git にあります。
 

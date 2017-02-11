@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MakeRuleOfRevisionFolder>
+
+	<Variable  name="${Files}"  value="."  type="FullPathType"/>
+
+	<MakeRule>
+		<Output path="${Files}\Step1\*"/>
+		<Input_ path="${Files}\Step2\*"/>
+		<Command  current_folder="${Files}\_WorkD"><![CDATA[
+			cmd /C ..\CommandA.bat 1E /R0:"${Revision[0]}" /R1:"${Revision[1]}" /O0:"${Output[0]}" /I1:"${Input[1]}" ${Files} > _log.txt
+		]]></Command>
+		<Revisions>01</Revisions>
+	</MakeRule>
+
+	<MakeRule>
+		<Output path="${Files}\Step2\*"/>
+		<Input_ path="${Files}\Step3A\*"/>
+		<Input_ path="${Files}\Step3B\*"/>
+		<Command  current_folder="${Files}"  expected_error_level="21"><![CDATA[
+			cmd /C CommandA.bat 2 /R2:"${Revision[2]}" /I2:"${Input[2]}"
+		]]></Command>
+		<RevisionSet>01, 02, 03</RevisionSet>
+	</MakeRule>
+
+</MakeRuleOfRevisionFolder>

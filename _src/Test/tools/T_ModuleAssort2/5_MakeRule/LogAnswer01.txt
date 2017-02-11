@@ -1,0 +1,30 @@
+%MultiLine%
+Make Tree:
+%FullPath(..)%\_ProjectCache\Project-A\01
+	${_ProjectCache}\Project-B\01
+		${_ProjectCache}\Project-C\01
+			${Masters}\Module-B\01
+	${Masters}\Module-A\01
+
+-------------------------------------------------------------------------------
+Section: Step1
+Output: ${_ProjectCache}\Project-C\01 <= Work
+Input:  ${Masters}\Module-B\01 => Work
+Current Directory: %FullPath(..)%
+Command: 
+
+-------------------------------------------------------------------------------
+Section: Step2
+Output: ${_ProjectCache}\Project-B\01 <= Work
+Input:  ${_ProjectCache}\Project-C\01 => Work
+Current Directory: %FullPath(..)%\5_MakeRule
+Command: 
+
+-------------------------------------------------------------------------------
+Section: Step3
+Output: ${_ProjectCache}\Project-A\01 <= Work
+Input:  ${_ProjectCache}\Project-B\01 => Work
+Input:  ${Masters}\Module-A\01 => Work
+Current Directory: %FullPath(..)%
+Command: 
+%MultiLine%

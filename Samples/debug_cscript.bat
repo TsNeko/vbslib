@@ -4,5 +4,5 @@ REM   .vbs ƒtƒ@ƒCƒ‹‚ğ‚±‚Ìƒoƒbƒ`ƒtƒ@ƒCƒ‹‚Éƒhƒ‰ƒbƒO•ƒhƒƒbƒv‚·‚é‚ÆA‚»‚Ì .vbs ƒtƒ
 
 for %%i in (*.vbs) do set debug_script_path=%%i
 if not "%~1"=="" for %%i in ("%~1") do cd "%%~di%%~pi" & set debug_script_path=%%~ni%%~xi
+
 start "" cscript //x "%debug_script_path%"
- 

@@ -1,0 +1,13 @@
+<txmx:TextSectionMixer  xmlns:txmx="http://sage-p.com/TextSectionMixer/2015">
+	<!-- %APPDATA%\Scripts\ModuleMixerLibrary.xml -->
+
+	<txmx:Library  path="LibraryVBS.txmx.xml"/>
+	<Variable  name="${LibraryA}"  value="."/>
+	<SuperClass  priority="1000"  parser="NaturalDocs"  base_path="${LibraryA}"  cache_path="${LibraryA}\_txsc">
+	<txmx:SourceFile  path="${LibraryA}\*\Library_*.c"          type="C_Type"/>
+	<txmx:SourceFile  path="${LibraryA}\*\Library_*.h"          type="H_Function_Type">
+		<Except path="${LibraryA}\*\Library_*_typedef.h"/>
+	</txmx:SourceFile>
+	<txmx:SourceFile  path="${LibraryA}\*\Library_*_typedef.h"  type="H_Typedef_Type"/>
+	</SuperClass>
+</txmx:TextSectionMixer>

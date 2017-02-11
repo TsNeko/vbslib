@@ -1,0 +1,65 @@
+%MultiLine%
+番号またはコマンド>Assort
+
+${Masters}\Base\01
+    <WARNING msg="違いがあります"
+     master="${Masters}\Base\01"
+     project="Sub"
+     step_path="Filled.txt"/>
+
+    プロジェクトから抽出したモジュール： ${Masters}\Base\Work
+
+${Masters}\ModuleA\01
+    <WARNING msg="違いがあります"
+     master="${Masters}\ModuleA\01"
+     project="."
+     step_path="Empty.txt"/>
+
+    <WARNING msg="ファイルの構成が異なります。"
+%MultiLine%
+
+${Masters}\Base\WorkNewFiles
+%MultiLine%
+
+警告の数 = 4
+-------------------------------------------------------------------------------
+ 1. ${Masters}\Base\01
+*2. ${Masters}\ModuleA\01
+-------------------------------------------------------------------------------
+%MultiLine%
+上記の番号、または、パス >1
+%MultiLine%
+番号またはコマンド>AssortOne
+
+${Masters}\Base\01
+    <WARNING msg="違いがあります"
+     master="${Masters}\Base\01"
+     project="Sub"
+     step_path="Filled.txt"/>
+
+    <WARNING msg="すべてのモジュールを同時にアソートしていません。"/>
+
+警告の数 = 2
+-------------------------------------------------------------------------------
+*1. ${Masters}\Base\01
+ 2. ${Masters}\ModuleA\01
+-------------------------------------------------------------------------------
+%MultiLine%
+上記の番号、または、パス >2
+%MultiLine%
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA\01
+                    ${Masters}\ModuleA\Work
+%MultiLine%
+番号またはコマンド>AssortOne
+
+${Masters}\ModuleA\01
+    <WARNING msg="違いがあります"
+%MultiLine%
+    <WARNING msg="すべてのモジュールを同時にアソートしていません。"/>
+%MultiLine%
+-------------------------------------------------------------------------------
+*1. ${Masters}\ModuleA\01
+ 2. ${Masters}\Base\01
+-------------------------------------------------------------------------------
+%MultiLine%

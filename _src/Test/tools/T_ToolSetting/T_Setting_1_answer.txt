@@ -1,0 +1,146 @@
+-------------------------------------------------------------------------------
+vbslib 外部プログラム設定
+%MultiLine%
+1. 設定ファイルを入れるフォルダーの一覧 [List]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+ 1. vbslib のデフォルト設定（変更しないでください）：
+  %FullPath(.)%\scriptlib\vbslib\setting_default
+
+ 2. PC 全体の設定：
+  %Env(USERPROFILE)%\AppData\Roaming\Scripts
+
+ 3. USB メモリーに入っている PC 全体の設定：
+%MultiLine%
+ 4. フォルダーごとの設定：
+  %FullPath(.)%\scriptlib\vbslib\setting
+
+ 5.（スクリプト内部で include した設定ファイル）
+
+ 数字が大きいほど優先されます。
+%MultiLine%
+-------------------------------------------------------------------------------
+%MultiLine%
+2. フォルダーを開くプログラムの設定とテスト [Folder]
+%MultiLine%
+番号またはコマンド名>2
+%MultiLine%
+1. フォルダーを開くテスト [Open]
+%MultiLine%
+>OpenFolder  "%FullPath(.)%\scriptlib"
+TestDefault> Open folder "%FullPath(.)%\scriptlib"
+%MultiLine%
+現在の設定は、以下のファイルにあります。 下のほうにあるファイルの設定が優先されます。
+%FullPath(.)%\scriptlib\vbslib\setting_default\PC_setting_default.vbs
+
+1. 設定する [Set]
+%MultiLine%
+>CreateFile  "%FullPath(.)%\scriptlib\vbslib\setting\PC_setting.vbs", ""+vbCRLF+...
+%MultiLine%
+新規作成しました。
+%MultiLine%
+1. フォルダーを開くテスト [Open]
+%MultiLine%
+Setting> Setting_openFolder "%FullPath(.)%\scriptlib"
+設定の前なので実行はスキップしました。設定したらこれを削除してください。
+%MultiLine%
+現在の設定は、以下のファイルにあります。 下のほうにあるファイルの設定が優先されます。
+%FullPath(.)%\scriptlib\vbslib\setting_default\PC_setting_default.vbs
+%FullPath(.)%\scriptlib\vbslib\setting\PC_setting.vbs
+
+1. 設定する [Set]
+%MultiLine%
+-------------------------------------------------------------------------------
+%MultiLine%
+3. テキストファイルを開くプログラムの設定とテスト [Text]
+%MultiLine%
+1. テキスト ファイルを開くテスト [Open]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  editor  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_PC_setting_default.vbs#%%2" -Y=%%L
+%MultiLine%
+2. 10行目を開くテスト [OpenLine]
+%MultiLine%
+番号またはコマンド名>2
+%MultiLine%
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  editor  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_PC_setting_default.vbs#%2" -Y=10
+%MultiLine%
+3. キーワード Setting_getEditorCmdLine を検索して開くテスト [OpenKeyword]
+%MultiLine%
+番号またはコマンド名>3
+%MultiLine%
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  editor  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_PC_setting_default.vbs#Setting_getEditorCmdLine" -Y=%%L
+%MultiLine%
+1. 設定する [Set]
+%MultiLine%
+>CreateFile  "%FullPath(.)%\scriptlib\vbslib\setting\PC_setting.vbs", ""+vbCRLF+...
+%MultiLine%
+Setting> Setting_getEditorCmdLine "2"
+設定の前なので実行はスキップしました。設定したらこれを削除してください。
+Setting> Setting_getEditorCmdLine "1"
+設定の前なので実行はスキップしました。設定したらこれを削除してください。
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  Editor  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_PC_setting_default.vbs#%%2" -Y=%%L
+%MultiLine%
+-------------------------------------------------------------------------------
+%MultiLine%
+4. テキストファイルを比較するプログラムの設定とテスト [Diff]
+%MultiLine%
+1. テキスト ファイルを比較するテスト [Open]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+TestDefault> Setting_getDiffCmdLine( 2 )
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  diff  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_VbsLib4_Include.txt"  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_VbsLib5_Include.txt"  "%%3" -Y=
+%MultiLine%
+2. 3行目と 5行目を開くテスト [OpenLine]
+%MultiLine%
+番号またはコマンド名>2
+%MultiLine%
+TestDefault> Setting_getDiffCmdLine( 21 )
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  diff  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_VbsLib4_Include.txt"  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_VbsLib5_Include.txt"  "%%3" -Y=3
+%MultiLine%
+1. 設定する [Set]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+>CreateFile  "%FullPath(.)%\scriptlib\vbslib\setting\PC_setting.vbs", ""+vbCRLF+...
+%MultiLine%
+1. テキスト ファイルを比較するテスト [Open]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+Setting> Setting_getDiffCmdLine "2"
+設定の前なので実行はスキップしました。設定したらこれを削除してください。
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  Diff  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_VbsLib4_Include.txt"  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_VbsLib5_Include.txt"  "%%3" -Y=
+-------------------------------------------------------------------------------
+%MultiLine%
+5. フォルダーを比較するプログラムの設定とテスト [DiffFolder]
+%MultiLine%
+現在の設定は、以下のファイルにあります。 下のほうにあるファイルの設定が優先されます。
+%MultiLine%
+1. フォルダーを比較するテスト [Open]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  diff_fo  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_setting_default"  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_setting"  "%%3"
+%MultiLine%
+1. 設定する [Set]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+>CreateFile  "%FullPath(.)%\scriptlib\vbslib\setting\PC_setting.vbs", ""+vbCRLF+...
+%MultiLine%
+1. フォルダーを比較するテスト [Open]
+%MultiLine%
+番号またはコマンド名>1
+%MultiLine%
+Setting> Setting_getFolderDiffCmdLine "2"
+設定の前なので実行はスキップしました。設定したらこれを削除してください。
+>start  "%FullPath(.)%\scriptlib\vbslib\ArgsLog.exe"  DiffFolder  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_setting_default"  "%Env(USERPROFILE)%\AppData\Local\Temp\Report\%RegExp(......)%\Test_setting"  "%%3"
+%MultiLine%
+vbslib 外部プログラム設定
+%MultiLine%
+番号またはコマンド名>9
+-------------------------------------------------------------------------------

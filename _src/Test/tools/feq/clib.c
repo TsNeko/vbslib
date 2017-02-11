@@ -1,3 +1,4 @@
+/* Character Code Encoding: "WHITE SQUARE" is □ */
 /* The source file was composed by module mixer */ 
 
 #include  "include_c.h"
@@ -486,9 +487,9 @@ err:  e = E_OTHERS;  goto fin;
 /***********************************************************************
   <<< [FileT_isSameBinaryFile] >>> 
 ************************************************************************/
-int  FileT_isSameBinaryFile( const TCHAR* PathA, const TCHAR* PathB, int Flags, bool* out_IsSame )
+errnum_t  FileT_isSameBinaryFile( const TCHAR* PathA, const TCHAR* PathB, int Flags, bool* out_IsSame )
 {
-	int       e;
+	errnum_t  e;
 	HANDLE    file_a = INVALID_HANDLE_VALUE;
 	HANDLE    file_b = INVALID_HANDLE_VALUE;
 	HANDLE    mem_a  = INVALID_HANDLE_VALUE;
@@ -505,11 +506,11 @@ int  FileT_isSameBinaryFile( const TCHAR* PathA, const TCHAR* PathB, int Flags, 
 
 	// file_a,  file_b : open PathA,  PathB
 	file_a = CreateFile( PathA, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
-											 FILE_ATTRIBUTE_NORMAL, 0 );
+		FILE_ATTRIBUTE_NORMAL, 0 );
 	IF( file_a == INVALID_HANDLE_VALUE ) goto err_gt;
 
 	file_b = CreateFile( PathB, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
-											 FILE_ATTRIBUTE_NORMAL, 0 );
+		FILE_ATTRIBUTE_NORMAL, 0 );
 	IF( file_b == INVALID_HANDLE_VALUE ) goto err_gt;
 
 	// size_a,  size_b : size of file_a, file_b
@@ -582,7 +583,7 @@ int  FileT_callByNestFind( const TCHAR* Path, BitField Flags, void* Argument, Fu
 
 
 		/* FullPathMem の最後に \ が無いなら追加する */
-		p = _tcschr( data.FullPathMem, _T('\0') );
+		p = StrT_chr( data.FullPathMem, _T('\0') );
 		p--;
 		if ( *p != _T('\\') ) {
 			p++;
@@ -676,7 +677,7 @@ int  FileT_callByNestFind_sub( FileT_CallByNestFindDataIn* m )
 		if ( data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
 			TCHAR*  prev_fname = m->FileName;
 
-			p = _tcschr( m->FileName, _T('\0') );
+			p = StrT_chr( m->FileName, _T('\0') );
 
 			IF( p >= m->FullPathMem + (sizeof(m->FullPathMem) / sizeof(TCHAR)) - 2 )goto err_fa;
 			*p = _T('\\');  *(p+1) = _T('\0');
@@ -796,6 +797,74 @@ errnum_t  FileT_closeAndNULL( FILE** in_out_File, errnum_t e )
 
 
 
+ 
+/***********************************************************************
+* Class: ViewOfFileClass
+************************************************************************/
+
+/***********************************************************************
+* Function: ViewOfFileClass_initConst
+************************************************************************/
+void  ViewOfFileClass_initConst( ViewOfFileClass* self )
+{
+	self->Data   = NULL;
+	self->File   = INVALID_HANDLE_VALUE;
+	self->Memory = INVALID_HANDLE_VALUE;
+}
+
+
+ 
+/***********************************************************************
+* Function: ViewOfFileClass_initializeFromBinaryFile
+************************************************************************/
+errnum_t  ViewOfFileClass_initializeFromBinaryFile( ViewOfFileClass* self,
+	const TCHAR* Path )
+{
+	errnum_t  e;
+
+
+	self->File = CreateFile( Path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+		FILE_ATTRIBUTE_NORMAL, 0 );
+	IF( self->File == INVALID_HANDLE_VALUE ) { e=E_GET_LAST_ERROR; goto fin; }
+
+	self->Size = GetFileSize( self->File, NULL );
+
+	self->Memory = CreateFileMapping( self->File, NULL, PAGE_READONLY, 0, self->Size, NULL );
+		IF( self->Memory == INVALID_HANDLE_VALUE ) { e=E_GET_LAST_ERROR; goto fin; }
+
+	self->Data = MapViewOfFile( self->Memory, FILE_MAP_READ, 0, 0, 0 );
+		IF ( self->Data == NULL ) { e=E_GET_LAST_ERROR; goto fin; }
+
+
+	e=0;
+fin:
+	if ( e != 0 ) {
+		e= ViewOfFileClass_finalize( self, e );
+	}
+	return  e;
+}
+
+
+ 
+/***********************************************************************
+* Function: ViewOfFileClass_finalize
+************************************************************************/
+errnum_t  ViewOfFileClass_finalize( ViewOfFileClass* self,  errnum_t e )
+{
+	BOOL  b;
+
+	if ( self->Data != NULL )                 { b= UnmapViewOfFile( self->Data ); IF(!b&&!e) e=SaveWindowsLastError(); }
+	if ( self->Memory != INVALID_HANDLE_VALUE ) { b= CloseHandle( self->Memory ); IF(!b&&!e) e=SaveWindowsLastError(); }
+	if ( self->File   != INVALID_HANDLE_VALUE ) { b= CloseHandle( self->File );   IF(!b&&!e) e=SaveWindowsLastError(); }
+	self->Data   = NULL;
+	self->File   = INVALID_HANDLE_VALUE;
+	self->Memory = INVALID_HANDLE_VALUE;
+
+	return  e;
+}
+
+
+/* Section: Global */
  
 /*=================================================================*/
 /* <<< [Error4/Error4.c] >>> */ 
@@ -1214,7 +1283,7 @@ void  Error4_getErrStr( int ErrNum, TCHAR* out_ErrStr, size_t ErrStrSize )
 			FormatMessage( FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_FROM_SYSTEM,
 				NULL, err_win, LANG_USER_DEFAULT,
 				str_pointer,  (TCHAR*)( (char*)out_ErrStr + ErrStrSize ) - str_pointer, NULL );
-			str_pointer = _tcschr( str_pointer, _T('\0') );
+			str_pointer = StrT_chr( str_pointer, _T('\0') );
 			if ( *( str_pointer - 2 ) == _T('\r') && *( str_pointer - 1 ) == _T('\n') )
 				str_pointer -= 2;
 			stcpy_part_r( out_ErrStr, ErrStrSize, str_pointer, NULL, _T("\"/>"), NULL );
@@ -1249,6 +1318,16 @@ errnum_t  SaveWindowsLastError()
 ************************************************************************/
 void  Error4_showToStdErr( int err_num )
 {
+	Error4_showToStdIO( stderr, err_num );
+}
+
+
+ 
+/***********************************************************************
+  <<< [Error4_showToStdIO] >>> 
+************************************************************************/
+void  Error4_showToStdIO( FILE* out, int err_num )
+{
 	TCHAR  msg[1024];
 	#if _UNICODE
 		char  msg2[1024];
@@ -1259,13 +1338,13 @@ void  Error4_showToStdErr( int err_num )
 		#if _UNICODE
 			setlocale( LC_ALL, ".OCP" );
 			sprintf_s( msg2, sizeof(msg2), "%S", msg );
-			fprintf( stderr, "%s\n", msg2 );  // _ftprintf_s では日本語が出ません
+			fprintf( out, "%s\n", msg2 );  // _ftprintf_s では日本語が出ません
 		#else
-			fprintf( stderr, "%s\n", msg );
+			fprintf( out, "%s\n", msg );
 		#endif
 
 		#if ERR2_ENABLE_ERROR_BREAK
-			fprintf( stderr, "（開発者へ）メイン関数で SetBreakErrorID( %d ); を呼び出してください。\n",
+			fprintf( out, "（開発者へ）メイン関数で SetBreakErrorID( %d ); を呼び出してください。\n",
 				g_Err2.ErrID );
 		#else
 #if 0
@@ -1273,7 +1352,7 @@ void  Error4_showToStdErr( int err_num )
 				/* Not show the message for developper */
 			}
 			else {
-				fprintf( stderr, "（開発者へ）ERR2_ENABLE_ERROR_BREAK を定義して再コンパイルしてください。\n" );
+				fprintf( out, "（開発者へ）ERR2_ENABLE_ERROR_BREAK を定義して再コンパイルしてください。\n" );
 			}
 #endif
 		#endif
@@ -1326,6 +1405,35 @@ errnum_t  StrT_cpy( TCHAR* Dst, size_t DstSize, const TCHAR* Src )
 		*(TCHAR*)( (char*) Dst + DstSize ) = _T('\0');
 		return  E_FEW_ARRAY;
 	}
+}
+
+ 
+/***********************************************************************
+  <<< [StrT_chr] >>> 
+************************************************************************/
+TCHAR*  StrT_chr( const TCHAR* String, TCHAR Key )
+{
+	const TCHAR*  return_value = _tcschr( String, Key );
+
+	if ( return_value == NULL  &&  Key == _T('\0') ) {
+		return_value = String + _tcslen( String );
+	}
+
+	return  (TCHAR*) return_value;
+}
+
+ 
+/***********************************************************************
+  <<< [StrT_chrNext] >>> 
+************************************************************************/
+TCHAR*  StrT_chrNext( const TCHAR* in_Start, TCHAR in_KeyCharactor )
+{
+	const TCHAR*  p = _tcschr( in_Start, in_KeyCharactor );
+
+	if ( p != NULL )
+		{ p += 1; }
+
+	return  (TCHAR*) p;
 }
 
  
@@ -1385,6 +1493,7 @@ errnum_t  MallocAndCopyStringByLength( const TCHAR** out_NewString, const TCHAR*
 	size_t  size = ( CountOfCharacter + 1 ) * sizeof(TCHAR);
 
 	ASSERT_D( *out_NewString == NULL, __noop() );
+	ASSERT_D( CountOfCharacter < 0x7FFFFFFF, __noop() );
 
 	str = (TCHAR*) malloc( size );
 	if ( str == NULL ) { return  E_FEW_MEMORY; }
@@ -1500,19 +1609,38 @@ bool  StrT_isCIdentifier( TCHAR Character )
 TCHAR*  StrT_searchOverOfCIdentifier( const TCHAR* Text )
 {
 	const TCHAR*  p;
-	TCHAR         c;
+
+	for ( p = Text;
+		StrT_isCIdentifier( *p );
+		p += 1 )
+	{
+	}
+	return  (TCHAR*) p;
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrT_searchOverOfIdiom] >>> 
+************************************************************************/
+TCHAR*  StrT_searchOverOfIdiom( const TCHAR* Text )
+{
+	const TCHAR*  p;
 
 	p = Text;
-	c = *p;
-	for (;;) {
-		if ( StrT_isCIdentifier( c ) ) {
-			p += 1;
-			c = *p;
-		}
-		else {
-			return  (TCHAR*) p;
-		}
+	for ( p = Text;
+		StrT_isCIdentifier( *p )  ||  *p == _T(' ');
+		p += 1 )
+	{
 	}
+
+	for ( p -= 1;
+		*p == _T(' ')  &&  p >= Text;
+		p -= 1 )
+	{
+	}
+
+	return  (TCHAR*) p + 1;
 }
 
 
@@ -1520,19 +1648,19 @@ TCHAR*  StrT_searchOverOfCIdentifier( const TCHAR* Text )
 /***********************************************************************
   <<< [StrT_cmp_part] >>> 
 ************************************************************************/
-int  StrT_cmp_part( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
-	const TCHAR* StringB )
+int  StrT_cmp_part( const TCHAR* in_StringA_Start, const TCHAR* in_StringA_Over,
+	const TCHAR* in_StringB )
 {
 	const TCHAR*  a;
 	const TCHAR*  b;
 	TCHAR  aa;
 	TCHAR  bb;
 
-	a = StringA_Start;
-	b = StringB;
+	a = in_StringA_Start;
+	b = in_StringB;
 
 	for (;;) {
-		if ( a >= StringA_Over ) {
+		if ( a >= in_StringA_Over ) {
 			bb = *b;
 			if ( bb == _T('\0') )
 				{ return  0; }
@@ -1557,19 +1685,60 @@ int  StrT_cmp_part( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
 
  
 /***********************************************************************
+  <<< [StrT_cmp_i_part] >>> 
+************************************************************************/
+int  StrT_cmp_i_part( const TCHAR* in_StringA_Start, const TCHAR* in_StringA_Over,
+	const TCHAR* in_StringB )
+{
+	const TCHAR*  a;
+	const TCHAR*  b;
+	TCHAR  aa;
+	TCHAR  bb;
+
+	a = in_StringA_Start;
+	b = in_StringB;
+
+	for (;;) {
+		if ( a >= in_StringA_Over ) {
+			bb = *b;
+			if ( bb == _T('\0') )
+				{ return  0; }
+			else
+				{ return  -bb; }
+		}
+
+		aa = *a;
+		bb = *b;
+
+		if ( bb == _T('\0') )
+			{ return  aa; }
+
+		if ( aa != bb ) {
+			if ( _totlower( aa ) != _totlower( bb ) )
+				{ return  aa - bb; }
+		}
+
+		a += 1;
+		b += 1;
+	}
+}
+
+
+ 
+/***********************************************************************
   <<< [StrT_cmp_part2] >>> 
 ************************************************************************/
-int  StrT_cmp_part2( const TCHAR* StringA_Start, const TCHAR* StringA_Over,
-	const TCHAR* StringB_Start, const TCHAR* StringB_Over )
+int  StrT_cmp_part2( const TCHAR* in_StringA_Start, const TCHAR* in_StringA_Over,
+	const TCHAR* in_StringB_Start, const TCHAR* in_StringB_Over )
 {
-	int  length_A = StringA_Over - StringA_Start;
-	int  length_B = StringB_Over - StringB_Start;
+	int  length_A = in_StringA_Over - in_StringA_Start;
+	int  length_B = in_StringB_Over - in_StringB_Start;
 
 	if ( length_A != length_B ) {
 		return  length_A - length_B;
 	}
 	else {
-		return  _tcsncmp( StringA_Start, StringB_Start, length_A );
+		return  _tcsncmp( in_StringA_Start, in_StringB_Start, length_A );
 	}
 }
 
@@ -1583,7 +1752,7 @@ TCHAR*  StrT_refFName( const TCHAR* s )
 	const TCHAR*  p;
 	TCHAR  c;
 
-	p = _tcschr( s, _T('\0') );
+	p = StrT_chr( s, _T('\0') );
 
 	if ( p == s )  return  (TCHAR*) s;
 
@@ -1603,17 +1772,33 @@ TCHAR*  StrT_refExt( const TCHAR* s )
 {
 	const TCHAR*  p;
 
-	p = _tcschr( s, _T('\0') );
+	p = StrT_chr( s, _T('\0') );
 
-	if ( p == s )  return  (TCHAR*) s;
+	if ( p == s )  { return  (TCHAR*) s; }
 
 	for ( p--; p>s; p-- ) {
 		if ( *p == _T('.') )  return  (TCHAR*) p+1;
-		if ( *p == _T('/') || *p == _T('\\') )  return  (TCHAR*) _tcschr( p, _T('\0') );
+		if ( *p == _T('/') || *p == _T('\\') )
+			{ return  (TCHAR*) StrT_chr( p, _T('\0') ); }
 	}
 	if ( *p == _T('.') )  return  (TCHAR*) p+1;
 
-	return  (TCHAR*) _tcschr( s, _T('\0') );
+	return  (TCHAR*) StrT_chr( s, _T('\0') );
+}
+
+
+ 
+/***********************************************************************
+* Function: StrT_cutFragmentInPath
+************************************************************************/
+void  StrT_cutFragmentInPath( TCHAR* in_out_Path )
+{
+	TCHAR*  p;
+
+	p = _tcschr( in_out_Path, _T('#') );
+	if ( p != NULL ) {
+		*p = _T('\0');
+	}
 }
 
 
@@ -1653,7 +1838,7 @@ errnum_t  StrT_trim( TCHAR* out_Str, size_t out_Str_Size, const TCHAR* in_Str )
 	TCHAR   c;
 
 	p1 = in_Str;  while ( *p1 == _T(' ') || *p1 == _T('\t') )  p1++;
-	for ( p2 = _tcschr( p1, _T('\0') ) - 1;  p2 >= p1;  p2-- ) {
+	for ( p2 = StrT_chr( p1, _T('\0') ) - 1;  p2 >= p1;  p2-- ) {
 		c = *p2;
 		if ( c != _T(' ') && c != _T('\t') && c != _T('\n') && c != _T('\r') )
 			break;
@@ -1664,11 +1849,43 @@ errnum_t  StrT_trim( TCHAR* out_Str, size_t out_Str_Size, const TCHAR* in_Str )
 
  
 /***********************************************************************
+  <<< [StrT_cutPart] >>> 
+************************************************************************/
+errnum_t  StrT_cutPart( TCHAR*  in_out_String,  TCHAR*  in_StartOfCut,  TCHAR*  in_OverOfCut )
+{
+	errnum_t  e;
+	TCHAR*    over_of_cut = StrT_chr( in_StartOfCut, _T('\0') );
+
+#ifndef  NDEBUG
+	TCHAR*    over_of_string = StrT_chr( in_out_String, _T('\0') );
+
+	ASSERT_D( over_of_cut == over_of_string,   e=E_OTHERS; goto fin );
+	ASSERT_D( in_StartOfCut >= in_out_String,   e=E_OTHERS; goto fin );
+	ASSERT_D( in_StartOfCut <= over_of_string,  e=E_OTHERS; goto fin );
+	ASSERT_D( in_OverOfCut  >= in_out_String,   e=E_OTHERS; goto fin );
+	ASSERT_D( in_OverOfCut  <= over_of_string,  e=E_OTHERS; goto fin );
+	ASSERT_D( in_StartOfCut <= in_OverOfCut,    e=E_OTHERS; goto fin );
+#endif
+	UNREFERENCED_VARIABLE( in_out_String );
+
+	memmove( in_StartOfCut,  in_OverOfCut,
+		PointerType_diff( over_of_cut + 1,  in_OverOfCut ) );
+
+	e=0;
+#ifndef  NDEBUG
+fin:
+#endif
+	return  e;
+}
+
+
+ 
+/***********************************************************************
   <<< [StrT_cutLastOf] >>> 
 ************************************************************************/
 errnum_t  StrT_cutLastOf( TCHAR* in_out_Str, TCHAR Charactor )
 {
-	TCHAR*  last = _tcschr( in_out_Str, _T('\0') );
+	TCHAR*  last = StrT_chr( in_out_Str, _T('\0') );
 
 	if ( last > in_out_Str ) {
 		if ( *( last - 1 ) == Charactor )
@@ -1691,7 +1908,7 @@ errnum_t  StrT_cutLineComment( TCHAR* out_Str, size_t out_Str_Size, const TCHAR*
 	p1 = in_Str;  while ( *p1 == _T(' ') || *p1 == _T('\t') )  p1++;
 
 	p2 = _tcsstr( p1, CommentSign );
-	if ( p2 == NULL )  p2 = _tcschr( p1, _T('\0') );
+	if ( p2 == NULL )  p2 = StrT_chr( p1, _T('\0') );
 
 	for ( p2 = p2 - 1;  p2 >= p1;  p2-- ) {
 		c = *p2;
@@ -1699,6 +1916,207 @@ errnum_t  StrT_cutLineComment( TCHAR* out_Str, size_t out_Str_Size, const TCHAR*
 			break;
 	}
 	return  stcpy_part_r( out_Str, out_Str_Size, out_Str, NULL, p1, p2+1 );
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrT_insert] >>> 
+************************************************************************/
+errnum_t  StrT_insert( TCHAR*  in_out_WholeString,  size_t  in_MaxSize_of_WholeString,
+	TCHAR*  in_out_Target_in_WholeString,  TCHAR**  out_NextTarget_in_WholeString,
+	const TCHAR*  in_InsertString )
+{
+	errnum_t  e;
+	TCHAR*    over_of_whole_string = StrT_chr( in_out_WholeString, _T('\0') );
+	size_t    insert_length = _tcslen( in_InsertString );
+
+	ASSERT_D( in_out_Target_in_WholeString >= in_out_WholeString,   e=E_OTHERS; goto fin );
+	ASSERT_D( in_out_Target_in_WholeString <= over_of_whole_string, e=E_OTHERS; goto fin );
+
+	ASSERT_R( PointerType_diff( over_of_whole_string + 1,  in_out_WholeString ) + ( insert_length * sizeof(TCHAR) )
+		<= in_MaxSize_of_WholeString,  e=E_FEW_ARRAY; goto fin );
+
+	memmove( in_out_Target_in_WholeString + insert_length,  in_out_Target_in_WholeString,
+		PointerType_diff( over_of_whole_string + 1,  in_out_Target_in_WholeString ) );
+
+	memcpy( in_out_Target_in_WholeString,  in_InsertString,  insert_length * sizeof(TCHAR) );
+
+	if ( out_NextTarget_in_WholeString != NULL ) {
+		*out_NextTarget_in_WholeString = in_out_Target_in_WholeString + insert_length;
+	}
+
+	e=0;
+fin:
+	return  e;
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrHS_insert] >>> 
+************************************************************************/
+errnum_t  StrHS_insert( TCHAR**  in_out_WholeString,
+	int  in_TargetIndexInWholeString,  int*  out_NextWholeInWholeString,
+	const TCHAR*  in_InsertString )
+{
+	errnum_t  e;
+	TCHAR*    string = *in_out_WholeString;
+	size_t    target_length = _tcslen( string );
+	size_t    insert_length = _tcslen( in_InsertString );
+	size_t    max_size = _msize( string ) / sizeof( TCHAR );
+	size_t    new_max_size = target_length + insert_length + 1;
+	TCHAR*    next_target;
+
+
+	if ( max_size < new_max_size ) {
+		TCHAR*  new_string = (TCHAR*) realloc( string,  new_max_size * sizeof( TCHAR ) );
+
+		IF ( new_string == NULL ) { e=E_FEW_MEMORY; goto fin; }
+		max_size = new_max_size;
+		string = new_string;
+	}
+
+	e= StrT_insert( string,  max_size * sizeof( TCHAR ),
+		string + in_TargetIndexInWholeString,  &next_target,
+		in_InsertString ); IF(e){goto fin;}
+
+	if ( out_NextWholeInWholeString != NULL ) {
+		*out_NextWholeInWholeString = next_target - string;
+	}
+
+	e=0;
+fin:
+	*in_out_WholeString = string;
+	return  e;
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrHS_printfPartV] >>> 
+************************************************************************/
+errnum_t  StrHS_printfPartV( TCHAR**  in_out_String,
+	int  in_IndexInString,  int*  out_NextIndexInString,
+	const TCHAR*  in_Format,  va_list  in_VaList )
+{
+	enum { first_max_size = 40 };
+	enum { size_times = 4 };
+
+	errnum_t  e;
+	size_t    max_size;
+	TCHAR*    string = *in_out_String;
+
+
+	if ( string == NULL ) {
+		max_size = 0;
+
+		ASSERT_R( in_IndexInString == 0,  e=E_OTHERS; goto fin );
+	}
+	else {
+		max_size = _msize( string ) / sizeof( TCHAR );
+
+		ASSERT_R( in_IndexInString >= 0  &&  (size_t) in_IndexInString < max_size,
+			e=E_OTHERS; goto fin );
+		ASSERT_D( (size_t) in_IndexInString <= _tcslen( string ), __noop() );
+	}
+
+
+	if ( string == NULL ) {
+		string = (TCHAR*) malloc( first_max_size * sizeof( TCHAR ) );
+		max_size = first_max_size;
+	}
+
+
+	for (;;) {
+
+		#if _MSC_VER
+			#pragma warning(push)
+			#pragma warning(disable: 4996)
+		#endif
+
+		#ifdef  _UNICODE
+			int  r = _vsnwprintf( string + in_IndexInString,  max_size - in_IndexInString,
+				in_Format,  in_VaList );
+		#else
+			int  r = _vsnprintf( string + in_IndexInString,  max_size - in_IndexInString,
+				in_Format,  in_VaList );
+		#endif
+
+		#if _MSC_VER
+			#pragma warning(pop)
+		#endif
+
+		if ( r >= 0 ) {
+			if ( out_NextIndexInString != NULL ) {
+				*out_NextIndexInString = in_IndexInString + r;
+			}
+
+			break;
+		}
+
+		{
+			size_t  new_max_size = max_size * size_times + first_max_size;
+			TCHAR*  new_string = (TCHAR*) realloc( string,  new_max_size * sizeof( TCHAR ) );
+
+			IF ( new_string == NULL ) { e=E_FEW_MEMORY; goto fin; }
+			max_size = new_max_size;
+			string = new_string;
+		}
+	}
+
+	e=0;
+fin:
+	*in_out_String = string;
+	return  e;
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrHS_printfPart] >>> 
+************************************************************************/
+errnum_t  StrHS_printfPart( TCHAR**  in_out_String,
+	int  in_IndexInString,  int*  out_NextIndexInString,
+	const TCHAR*  in_Format,  ... )
+{
+	errnum_t  e;
+	va_list   va;
+	va_start( va, in_Format );
+
+	e = StrHS_printfPartV( in_out_String,  in_IndexInString,  out_NextIndexInString,  in_Format,  va );
+
+	va_end( va );
+	return  e;
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrHS_printfV] >>> 
+************************************************************************/
+errnum_t  StrHS_printfV( TCHAR**  in_out_String,
+	const TCHAR*  in_Format,  va_list  in_VaList )
+{
+	return  StrHS_printfPartV( in_out_String,  0,  NULL,  in_Format,  in_VaList );
+}
+
+
+ 
+/***********************************************************************
+  <<< [StrHS_printf] >>> 
+************************************************************************/
+errnum_t  StrHS_printf( TCHAR**  in_out_String,
+	const TCHAR*  in_Format,  ... )
+{
+	errnum_t  e;
+	va_list   va;
+	va_start( va, in_Format );
+
+	e = StrHS_printfPartV( in_out_String,  0,  NULL,  in_Format,  va );
+
+	va_end( va );
+	return  e;
 }
 
 
@@ -1811,7 +2229,7 @@ errnum_t  StrT_parseCSV_f( const TCHAR* StringOfCSV, bit_flags32_t* out_ReadFlag
 	bit_flags32_t  read_flags;
 	bit_flags32_t  next_read_flag;
 	TCHAR*         out_str;
-	size_t         str_size;
+	size_t         str_size = SIZE_MAX;  /* SIZE_MAX = Avoid warning */
 
 
 	va_start( va, Types );
@@ -2332,6 +2750,17 @@ bool  StrT_isFullPath( const TCHAR* path )
 		const TCHAR*  slash = _tcschr( path, _T('/') );
 		const TCHAR*  colon = _tcschr( path, _T(':') );
 
+		if ( colon != NULL ) {
+			const TCHAR*  p;
+
+			for ( p = path;  p < colon;  p += 1 ) {
+				if ( ! _istalnum( *p ) ) {
+					colon = NULL;
+					break;
+				}
+			}
+		}
+
 		ret = ( colon != NULL ) &&
 			( back_slash == colon + 1  ||  slash == colon + 1 );
 	}
@@ -2351,7 +2780,6 @@ errnum_t  StrT_getFullPath_part( TCHAR* out_FullPath, size_t FullPathSize, TCHAR
 	const TCHAR*  separator_path;
 	TCHAR*        out_full_path_over = (TCHAR*)( (uint8_t*) out_FullPath + FullPathSize );
 	TCHAR*        null_position = NULL;
-
 
 	#if  CHECK_ARG
 		/* "BasePath" must be out of "out_FullPath" */
@@ -2552,7 +2980,7 @@ errnum_t  StrT_getFullPath_part( TCHAR* out_FullPath, size_t FullPathSize, TCHAR
 
 	/* Cut last \. */
 	{
-		TCHAR*  over = _tcschr( OutStart, _T('\0') );
+		TCHAR*  over = StrT_chr( OutStart, _T('\0') );
 
 		while ( over - 2 >= OutStart  &&
 				*( over - 1 ) == _T('.')  &&  *( over - 2 ) == separator ) {
@@ -2640,7 +3068,7 @@ errnum_t  StrT_getParentFullPath_part( TCHAR* Str, size_t StrSize, TCHAR* StrSta
 
 
 	/* Cut last \ */
-	p = _tcschr( StrStart, _T('\0') );
+	p = StrT_chr( StrStart, _T('\0') );
 	if ( p > StrStart ) {
 		TCHAR  c = *( p - 1 );
 		if ( c == _T('\\')  ||  c == _T('/') )
@@ -2761,9 +3189,8 @@ errnum_t  StrT_getStepPath( TCHAR* out_StepPath, size_t StepPathSize,
 
 
 	/* FullPath と BasePath の関係が、片方の一部がもう片方の全体であるとき */
-	if (  abs_char == _T('/')  ||  abs_char == _T('\\')  ||
-	     base_char == _T('/')  || base_char == _T('\\')  ) {
-	     /* other character is '\0' */
+	if ( ( ( abs_char == _T('/')  ||  abs_char == _T('\\') )  &&  base_char == _T('\0') ) ||
+	     (  base_char == _T('/')  || base_char == _T('\\') )  &&   abs_char == _T('\0') ) {
 
 		if ( separator == 0 )
 			{ separator = abs_char; }
@@ -2886,11 +3313,11 @@ errnum_t  StrT_addLastOfFileName( TCHAR* out_Path, size_t PathSize,
 	size_t          copy_size;
 	size_t          free_size;
 	char*           out_pos;
-	const TCHAR*    last_pos_in_base = _tcschr( BasePath, _T('\0') );
+	const TCHAR*    last_pos_in_base = StrT_chr( BasePath, _T('\0') );
 	const TCHAR*    term_pos_in_base;
 	const TCHAR*     add_pos_in_base;
 	const TCHAR*  period_pos_in_base = _tcsrchr( BasePath, _T('.') );  // > term_pos_in_base
-	const TCHAR*    last_pos_in_add  = _tcschr( AddName, _T('\0') );
+	const TCHAR*    last_pos_in_add  = StrT_chr( AddName, _T('\0') );
 	const TCHAR*    term_pos_in_add;
 	const TCHAR*  period_pos_in_add  = _tcsrchr( AddName,  _T('.') );  // > term_pos_in_add
 
@@ -2918,9 +3345,9 @@ errnum_t  StrT_addLastOfFileName( TCHAR* out_Path, size_t PathSize,
 	}
 	else {
 		if ( term_pos_in_base < BasePath )
-			add_pos_in_base = _tcschr( BasePath, _T('\0') );
+			add_pos_in_base = StrT_chr( BasePath, _T('\0') );
 		else
-			add_pos_in_base = _tcschr( term_pos_in_base, _T('\0') );
+			add_pos_in_base = StrT_chr( term_pos_in_base, _T('\0') );
 	}
 
 
@@ -2978,17 +3405,100 @@ err_fa:
 
  
 /***********************************************************************
+  <<< [StrT_encodeToValidPath] >>> 
+************************************************************************/
+errnum_t  StrT_encodeToValidPath( TCHAR* out_Path,  size_t in_OutPathSize,  const TCHAR* in_Path,  bool  in_IsName )
+{
+	errnum_t  e;
+
+	int  i_in;   /* index of "in_Path" */
+	int  i_out = 0;  /* index of "out_Path" */
+	int  i_out_over = (int)( in_OutPathSize / sizeof(TCHAR) );
+	bool is_colon = in_IsName;
+
+	ASSERT_R( in_Path != out_Path,  e=E_OTHERS; goto fin );
+
+	for ( i_in = 0;  ;  i_in += 1 ) {
+		bool  is_percent;
+		int   chara = in_Path[ i_in ];  /* a character */
+
+		if ( chara == _T('\0') )
+			{ break; }
+
+
+		/* Set "is_percent" */
+		switch ( chara ) {
+			case _T(','):  case _T(';'):  case _T('*'):  case _T('?'):  case _T('"'):
+			case _T('<'):  case _T('>'):  case _T('|'):  case _T('%'):
+				is_percent = true;
+				break;
+			case _T(':'):
+				is_percent = is_colon;
+				is_colon = true;
+				break;
+			case _T('\\'):  case _T('/'):
+				is_percent = in_IsName;
+				is_colon = true;
+				break;
+			default:
+				is_percent = false;
+				break;
+		}
+
+
+		/* Set "out_Path[ i_out ]" */
+		if ( is_percent ) {
+			int  high = chara / 0x10;
+			int  low  = chara & 0xF;
+
+			if ( high <= 9 ) {
+				high += _T('0');
+			} else {
+				high = ( high - 0xA ) + _T('a');
+			}
+
+			if ( low <= 9 ) {
+				low += _T('0');
+			} else {
+				low = ( low - 0xA ) + _T('a');
+			}
+
+			ASSERT_R( i_out + 3 < i_out_over,  e=E_FEW_ARRAY; goto fin );
+
+			out_Path[ i_out + 0 ] = _T('%');
+			out_Path[ i_out + 1 ] = (TCHAR) high;
+			out_Path[ i_out + 2 ] = (TCHAR) low;
+			i_out += 3;
+		}
+		else {
+			ASSERT_R( i_out + 1 < i_out_over,  e=E_FEW_ARRAY; goto fin );
+
+			out_Path[ i_out ] = (TCHAR) chara;
+			i_out += 1;
+		}
+	}
+
+	e=0;
+fin:
+	out_Path[ i_out ] = _T('\0');
+
+	return  e;
+}
+
+
+ 
+/***********************************************************************
   <<< [Strs_init] >>> 
 ************************************************************************/
 enum { Strs_FirstSize = 0x0F00 };
 
 errnum_t  Strs_init( Strs* self )
 {
-	char*  p;
+	byte_t*  p;
 
 	self->MemoryAddress = NULL;
 
-	p = (char*) malloc( Strs_FirstSize );
+	p = (byte_t*) malloc( Strs_FirstSize );
 	IF( p == NULL )  return  E_FEW_MEMORY;
 
 	self->MemoryAddress = p;
@@ -3048,7 +3558,7 @@ errnum_t  Strs_toEmpty( Strs* self )
 ************************************************************************/
 errnum_t  Strs_add( Strs* self, const TCHAR* Str, const TCHAR** out_AllocStr )
 {
-	return  Strs_addBinary( self, Str, _tcschr( Str, _T('\0') ) + 1, out_AllocStr );
+	return  Strs_addBinary( self, Str, StrT_chr( Str, _T('\0') ) + 1, out_AllocStr );
 }
 
 
@@ -3058,8 +3568,8 @@ errnum_t  Strs_addBinary( Strs* self, const TCHAR* Str, const TCHAR* StrOver, co
 	size_t  str_size;
 	size_t  elem_size;
 
-	str_size  = ( (char*) StrOver - (char*) Str );
-	elem_size = ( sizeof(TCHAR*) + str_size + sizeof(void*) - 1 ) & ~(sizeof(void*) - 1);
+	str_size  = ( (byte_t*) StrOver - (byte_t*) Str );
+	elem_size = ( sizeof(TCHAR*) + str_size + ( sizeof(void*) - 1 ) ) & ~(sizeof(void*) - 1);
 
 	if ( self->NextElem + elem_size > self->MemoryOver )
 		{ e= Strs_expandSize( self, str_size ); IF(e)goto fin; }
@@ -3126,10 +3636,10 @@ errnum_t  Strs_freeLast( Strs* self, TCHAR* AllocStr )
 	}
 
 	// [ FirstStr | NextStr | TCHAR[] | NULL    | TCHAR[] | ... ]
-	else if ( (char*) prev_of_last_str >= self->MemoryAddress  &&
-	          (char*) prev_of_last_str <  self->MemoryOver ) {
-		self->NextElem = (char*)last_str - sizeof(TCHAR*);
-		self->PointerToNextStrInPrevElem = (TCHAR**)( (char*)prev_of_last_str - sizeof(TCHAR*) );
+	else if ( (byte_t*) prev_of_last_str >= self->MemoryAddress  &&
+	          (byte_t*) prev_of_last_str <  self->MemoryOver ) {
+		self->NextElem = (byte_t*)last_str - sizeof(TCHAR*);
+		self->PointerToNextStrInPrevElem = (TCHAR**)( (byte_t*)prev_of_last_str - sizeof(TCHAR*) );
 	}
 
 	// [ FirstStr | NextStr | TCHAR[] | NextStr | TCHAR[] ], [ NULL | TCHAR[] | ... ]
@@ -3174,7 +3684,7 @@ errnum_t  Strs_expandSize( Strs* self, size_t FreeSize )
 	Strs*   mp2;
 	size_t  elem_size = ( sizeof(TCHAR*) + FreeSize + sizeof(void*) - 1 ) & ~(sizeof(void*) - 1);
 	size_t  memory_size;
-	char*   new_memory;
+	byte_t* new_memory;
 
 	// [ NULL     | ... ]
 	// [ FirstStr | NULL    | TCHAR[] | ... ]
@@ -3186,7 +3696,7 @@ errnum_t  Strs_expandSize( Strs* self, size_t FreeSize )
 		//=== alloc
 		mp = (Strs*) malloc( sizeof(Strs) ); IF(mp==NULL) goto err_fm;
 		memory_size = ( self->MemoryOver - self->MemoryAddress ) * 2;
-		new_memory = (char*) malloc( memory_size );
+		new_memory = (byte_t*) malloc( memory_size );
 		IF( new_memory == NULL )  { free( mp );  goto err_fm; }
 
 		//=== move old memory
@@ -3222,8 +3732,8 @@ errnum_t  Strs_commit( Strs* self, TCHAR* StrOver )
 	size_t  elem_size;
 
 	if ( StrOver == NULL )
-		{ StrOver = _tcschr( (TCHAR*)( self->NextElem + sizeof(TCHAR*) ), _T('\0') ) + 1; }
-	elem_size = ( ( (char*)StrOver - self->NextElem ) + sizeof(void*) - 1 ) & ~(sizeof(void*) - 1);
+		{ StrOver = StrT_chr( (TCHAR*)( self->NextElem + sizeof(TCHAR*) ), _T('\0') ) + 1; }
+	elem_size = ( ( (byte_t*)StrOver - self->NextElem ) + sizeof(void*) - 1 ) & ~(sizeof(void*) - 1);
 
 	//=== fill elem
 	*(TCHAR**) self->NextElem = NULL;
@@ -3236,6 +3746,39 @@ errnum_t  Strs_commit( Strs* self, TCHAR* StrOver )
 	self->NextElem = self->NextElem + elem_size;
 
 	return  0;
+}
+
+
+ 
+/***********************************************************************
+  <<< [Strs_allocateArray] >>> 
+************************************************************************/
+errnum_t  Strs_allocateArray( Strs* self,  TCHAR*** out_PointerArray,  int* out_Count )
+{
+	errnum_t  e;
+	TCHAR*    p;
+	TCHAR**   pp;
+	int       count;
+
+	count = 0;
+	for ( Strs_forEach( self, &p ) ) {
+		count += 1;
+	}
+
+	e= HeapMemory_allocateArray( &pp, count ); IF(e){goto fin;}
+
+	count = 0;
+	for ( Strs_forEach( self, &p ) ) {
+		pp[ count ] = p;
+		count += 1;
+	}
+
+	*out_PointerArray = pp;
+	*out_Count = count;
+
+	e=0;
+fin:
+	return  e;
 }
 
 
@@ -3439,7 +3982,7 @@ int  GetDebugBreakCount()
 /***********************************************************************
   <<< [Set2_init] >>> 
 ************************************************************************/
-int  Set2_init( Set2* m, int FirstSize )
+errnum_t  Set2_init( Set2* m, int FirstSize )
 {
 	m->First = malloc( FirstSize );
 	if ( m->First == NULL )  return  E_FEW_MEMORY;
@@ -3456,7 +3999,7 @@ int  Set2_init( Set2* m, int FirstSize )
 /***********************************************************************
   <<< [Set2_finish] >>> 
 ************************************************************************/
-int  Set2_finish( Set2* m, int e )
+errnum_t  Set2_finish( Set2* m, errnum_t e )
 {
 	if ( m->First != NULL )  { free( m->First );  m->First = NULL; }
 	return  e;
@@ -3466,7 +4009,7 @@ int  Set2_finish( Set2* m, int e )
 /***********************************************************************
   <<< [Set2_ref_imp] >>> 
 ************************************************************************/
-int  Set2_ref_imp( Set2* m, int iElem, void* out_pElem, size_t ElemSize )
+errnum_t  Set2_ref_imp( Set2* m, int iElem, void* out_pElem, size_t ElemSize )
 {
 	int    e;
 	char*  p;
@@ -3548,9 +4091,9 @@ void*  Set2_IteratorClass_getPrevious( Set2_IteratorClass* self )
 /***********************************************************************
   <<< [Set2_alloc_imp] >>> 
 ************************************************************************/
-int  Set2_alloc_imp( Set2* m, void* pp, size_t size )
+errnum_t  Set2_alloc_imp( Set2* m, void* pp, size_t size )
 {
-	int  e;
+	errnum_t  e;
 
 	e= Set2_expandIfOverByAddr( m, (char*) m->Next + size ); IF(e)goto fin;
 	*(void**)pp = m->Next;
@@ -3564,10 +4107,13 @@ fin:
 }
 
 
-int  Set2_allocMulti_sub( Set2* m, void* out_pElem, size_t ElemsSize )
+/***********************************************************************
+  <<< [Set2_allocMulti_sub] >>> 
+************************************************************************/
+errnum_t  Set2_allocMulti_sub( Set2* m, void* out_pElem, size_t ElemsSize )
 {
-	int    e;
-	char*  p;
+	errnum_t  e;
+	char*     p;
 
 	e= Set2_expandIfOverByAddr( m, (char*) m->Next + ElemsSize ); IF(e)goto fin;
 	p = (char*) m->Next;
@@ -3596,7 +4142,7 @@ errnum_t  Set2_expandIfOverByAddr_imp( Set2* m, void* OverAddrBasedOnNowFirst )
 	offset_of_next = (unsigned)( (char*)OverAddrBasedOnNowFirst - (char*)m->First );
 	offset_of_over = (unsigned)( ( (char*)m->Over - (char*)m->First ) ) * 2;
 	IF_D( offset_of_next >= 0x80000000 ) { e=E_OTHERS; goto fin; }
-	IF_D( offset_of_over == 0 ) { e=E_OTHERS; goto fin; }
+	if ( offset_of_over == 0 ) { offset_of_over = 0x100; }
 	while ( offset_of_over < offset_of_next ) { offset_of_over *= 2; }
 	IF( offset_of_over >= 0x10000000 ) { e=E_OTHERS; goto fin; }
 
@@ -3620,15 +4166,45 @@ fin:
 
  
 /***********************************************************************
+  <<< [Set2_free_imp] >>> 
+************************************************************************/
+errnum_t  Set2_free_imp( Set2* self,  void* in_PointerOfPointer,  size_t  in_Size_ofElement,  errnum_t  e )
+{
+	void*  element;
+
+	element = *(void**) in_PointerOfPointer;
+
+	if ( element != NULL ) {
+		if ( element != ( (byte_t*) self->Next - in_Size_ofElement ) ) {
+			if ( e == 0 ) { e=E_OTHERS; }
+		}
+		else {
+			#ifndef NDEBUG
+				memset( element, 0xFE, in_Size_ofElement );
+			#endif
+
+			self->Next = element;
+
+			*(void**) in_PointerOfPointer = NULL;
+		}
+	}
+	return  e;
+}
+
+
+ 
+/***********************************************************************
   <<< [Set2_separate] >>> 
 ************************************************************************/
-int  Set2_separate( Set2* m, int NextSize, void** allocate_Array )
+errnum_t  Set2_separate( Set2* m, int NextSize, void** allocate_Array )
 {
-	int    e;
-	void*  p = m->First;
+	errnum_t  e;
+	void*     p = m->First;
 
 	if ( NextSize == 0 ) {
 		m->First = NULL;
+		m->Next  = NULL;
+		m->Over  = NULL;
 	}
 	else {
 		e= Set2_init( m, NextSize ); IF(e)goto fin;
@@ -3645,10 +4221,10 @@ fin:
 /***********************************************************************
   <<< [Set2_pop_imp] >>> 
 ************************************************************************/
-int  Set2_pop_imp( Set2* m, void* pp, size_t size )
+errnum_t  Set2_pop_imp( Set2* m, void* pp, size_t size )
 {
-	int    e;
-	void*  p;
+	errnum_t  e;
+	void*     p;
 
 	p = (char*) m->Next - size;
 
@@ -3715,10 +4291,16 @@ errnum_t  vswprintf_r( wchar_t* s, size_t s_size, const wchar_t* format, va_list
 {
 	size_t  tsize = s_size / sizeof(wchar_t);
 
-	#pragma warning(push)
-	#pragma warning(disable: 4996)
-		int  r = _vsnwprintf( s, tsize, format, va );
-	#pragma warning(pop)
+	#if _MSC_VER
+		#pragma warning(push)
+		#pragma warning(disable: 4996)
+	#endif
+
+	int  r = _vsnwprintf( s, tsize, format, va );
+
+	#if _MSC_VER
+		#pragma warning(pop)
+	#endif
 
 	if ( r == (int) tsize || r == -1 ) { s[tsize-1] = '\0';  return E_FEW_ARRAY; }
 	else  return  0;
@@ -3754,7 +4336,8 @@ errnum_t  stcpy_part_r( TCHAR* s, size_t s_size, TCHAR* s_start, TCHAR** p_s_las
 
 	IF_D( s_start < s || (char*)s_start >= (char*)s + s_size )  { return 1; }
 
-	if ( src_over == NULL )  { src_over = _tcschr( src, _T('\0') ); }
+	if ( src_over == NULL )  { src_over = StrT_chr( src, _T('\0') ); }
+	IF_D( src > src_over )  { return 1; }
 	src_size = (char*)src_over - (char*)src;
 	IF ( src_size >= s_space ) {
 		s_space -= sizeof(TCHAR);
@@ -3789,7 +4372,7 @@ errnum_t  stprintf_part_r( TCHAR* s, size_t s_size, TCHAR* s_start, TCHAR** p_s_
 	IF_D( s_start < s || (char*)s_start >= (char*)s + s_size ) {return E_OTHERS;}
 
 	e = vstprintf_r( s_start, s_size - ( (char*)s_start - (char*)s), format, va );
-	va_end( va );  if ( p_s_last != NULL )  *p_s_last = _tcschr( s_start, '\0' );
+	va_end( va );  if ( p_s_last != NULL )  *p_s_last = StrT_chr( s_start, '\0' );
 	return  e;
 }
 

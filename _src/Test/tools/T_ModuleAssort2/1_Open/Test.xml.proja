@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ModuleAssort2_Projects>
+<ProjectCache  path="${_Project}"/>
+
+<ProjectTag  name="Project-A"    value="Project-A\01"/>
+<ProjectTag  name="Project-A\B"  value="Project-B\02"/>
+
+<Variable  name="${Masters}"  value="Masters"      type="FullPathType"/>
+<Variable  name="${_Project}" value="..\_Project"  type="FullPathType"/>
+<Variable  name="${ProjA}"    value="ProjectA"     type="FullPathType"/>
+<Variable  name="${ProjB}"    value="ProjectB"     type="FullPathType"/>
+<Variable  name="${ProjC}"    value="ProjectC"     type="FullPathType"/>
+<Variable  name="${B}"        value="B"/>
+
+<Project  name="Project-A\01"  path="${ProjA}">
+	ModuleA  <Module  master="${Masters}\ModuleA\01"  project="."/>
+</Project>
+
+<Project  name="Project-B\02"  path="${ProjB}">
+	ModuleA  <Module  master="${Masters}\ModuleA\02"  project="."/>
+	ModuleB  <Module  master="${Masters}\ModuleB\02"  project="${B}"/>
+</Project>
+<Project  name="Project-B\01"  path="${ProjB}">
+	ModuleA  <Module  master="${Masters}\ModuleA\01"  project="."/>
+	ModuleB  <Module  master="${Masters}\ModuleB\01"  project="${B}"/>
+</Project>
+<Project  name="Project-B\00"  path="${ProjB}">
+</Project>
+
+<Project  name="Project-C\02"  path="${ProjC}">
+	ModuleA  <Module  master="${Masters}\ModuleA\02"  project="A"/>
+	ModuleB  <Module  master="${Masters}\ModuleB\02"  project="B"/>
+</Project>
+
+</ModuleAssort2_Projects>

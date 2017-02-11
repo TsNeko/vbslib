@@ -1,0 +1,1 @@
+start "" "..\vbslib Prompt.vbs" StopScreenSaver

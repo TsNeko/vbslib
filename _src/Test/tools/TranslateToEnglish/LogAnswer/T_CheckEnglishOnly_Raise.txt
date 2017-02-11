@@ -1,0 +1,16 @@
+>CheckEnglishOnly  "T_CheckEnglishOnly", "T_CheckEnglishOnly\SettingForCheckEnglish.ini"
+ ((( CheckEnglishOnly )))
+テキストファイルが英語だけになっているかチェックします。
+チェックするファイルまたはフォルダーのパス: T_CheckEnglishOnly
+設定ファイルのパス: T_CheckEnglishOnly\SettingForCheckEnglish.ini
+%MultiLine%
+<FILE path="SJisInAscii.txt">
+  <LINE num="2" text="シフトJIS"/>
+  <LINE num="4" text="です。"/>
+  <SUMMARY count="2"/>
+</FILE>
+%MultiLine%
+<ERROR errnum="1"/>
+
+InputCommand >> T_CheckEnglishOnly_Main >> ERROR
+

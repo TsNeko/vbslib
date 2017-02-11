@@ -1,0 +1,57 @@
+<PickUpCopies>
+	<Variable  name="${ExceptExts}"  value="*.ini, ${FolderPath}\B.txt"/>
+	<Variable  name="${FolderPath}"  value="1"/>
+
+
+	Test case of Wildcard, Variable in Except.
+	<PickUpCopy  id="1"  default_source_path="${FolderPath}"  default_destination_path="${SourceFolderName}_out">
+		<Folder  path=".">
+			<Except  path="${ExceptExts}"/>
+			<Except  path="Except"/>
+		</Folder>
+	</PickUpCopy>
+
+
+	Test case of ID (id). Empty Folder.
+	<PickUpCopy  id="2"  default_source_path="..\data"  default_destination_path="${SourceFolderName}_out2">
+		<File  path="f1.txt"/>
+		<File  path="fo2"/> ... Empty Folder.
+	</PickUpCopy>
+
+
+	Regular Expression.
+	<PickUpCopy  id="RegExp"  default_source_path="NotFound"  default_destination_path="${SourceFolderName}_out">
+		<File  path='${RegExp(".*\\B\.ini")}'/>
+	</PickUpCopy>
+
+
+	Test case of folder excepted in sub folder.
+	<PickUpCopy  id="folder_in_folder"  default_source_path="not used"  default_destination_path="not used">
+		<Folder  path=".">
+			<Except  path="*\fo1\"/>
+		</Folder>
+	</PickUpCopy>
+
+	<PickUpCopy  id="folder_in_folder2"  default_source_path="not used"  default_destination_path="not used">
+		<Folder  path=".">
+			<Except  path="*\t1\"/>
+			<Except  path="*.txt"/>
+		</Folder>
+	</PickUpCopy>
+
+
+	<PickUpCopy  id="error1"  default_source_path="1"  default_destination_path="_work">
+		<Folder  path="not found 1"/>
+	</PickUpCopy>
+
+	<PickUpCopy  id="error2"  default_source_path="1"  default_destination_path="_work">
+		<Folder  path=".">
+			<Except  path="not found 2"/> ... This is not an error.
+		</Folder>
+	</PickUpCopy>
+
+	<PickUpCopy  id="error3"  default_source_path="not found 3"  default_destination_path="_work">
+		<Folder  path="."/>
+	</PickUpCopy>
+
+</PickUpCopies>

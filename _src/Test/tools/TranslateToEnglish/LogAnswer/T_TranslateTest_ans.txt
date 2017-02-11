@@ -1,0 +1,67 @@
+>del  "in"
+>del  "out"
+
+SectionTree >> T_TranslateTest_1
+<Section tree="T_TranslateTest_1">
+>copy  "T_Translate\T_Translate_MultiTarget.trans", "in"
+>copy  "T_Translate\T_Translate_MultiTarget1.txt", "in"
+>copy  "T_Translate\T_Translate_MultiTarget2.c", "in"
+>TranslateTest  "in\T_Translate_MultiTarget.trans". "JP", "EN"
+T_Translate_MultiTarget1.txt
+T_Translate_MultiTarget2.c
+All texts are English.
+>AssertFC  "out\T_Translate_MultiTarget1.txt" "T_Translate_ans\T_Translate_MultiTarget1.txt"
+>AssertFC  "out\T_Translate_MultiTarget2.c" "T_Translate_ans\T_Translate_MultiTarget2.c"
+>fc  "out\T_Translate_MultiTarget1.txt", "T_Translate\T_Translate_MultiTarget1.txt"
+different.
+>fc  "out\T_Translate_MultiTarget2.c", "T_Translate\T_Translate_MultiTarget2.c"
+different.
+>AssertFC  "in\T_Translate_MultiTarget.trans" "T_Translate_ans\trans\T_Translate_MultiTarget.trans"
+>del  "in"
+>del  "out"
+</Section>
+
+SectionTree >> T_Translate_RemainJP
+<Section tree="T_Translate_RemainJP">
+>copy  "T_Translate\T_Translate_RemainJP.trans", "in"
+>copy  "T_Translate\T_Translate_RemainJP.txt", "in"
+>TranslateTest  "in\T_Translate_RemainJP.trans". "JP", "EN"
+T_Translate_RemainJP.txt
+<File warning_count="1" path="%FullPath(..)%\in\T_Translate_RemainJP.txt">
+<WARNING msg="Not English character exists" line_num="10">
+  // サブ関数
+</WARNING>
+</File>
+<ERROR msg="警告がありました。" translator_path="in\T_Translate_RemainJP.trans"/>
+>AssertFC  "out\T_Translate_RemainJP.txt" "T_Translate_ans\T_Translate_RemainJP.txt"
+>fc  "out\T_Translate_RemainJP.txt", "T_Translate\T_Translate_RemainJP.txt"
+different.
+>AssertFC  "in\T_Translate_RemainJP.trans" "T_Translate_ans\trans\T_Translate_RemainJP.trans"
+</Section>
+
+SectionTree >> T_Translate_Linux
+<Section tree="T_Translate_Linux">
+>copy  "T_Translate\sub3\T_Translate_Linux.trans", "in"
+>copy  "T_Translate\sub3\T_Translate_Linux.txt", "in"
+>TranslateTest  "in\T_Translate_Linux.trans". "JP", "EN"
+T_Translate_Linux.txt
+All texts are English.
+>AssertFC  "in\T_Translate_Linux.trans" "T_Translate_ans\trans\T_Translate_Linux.trans"
+>CreateFile  "in\T_Translate_Linux.txt", "#!/bin/bash -eE
+                  #// Content-Type: text/plain; charset=utf-8
+                  #// -eE オプションは、エラーが起きたら中断します
+                  #// -x オプションは、*１行ずつコマンドを表示します
+"
+>TranslateTest  "in\T_Translate_Linux.trans". "JP", "EN"
+T_Translate_Linux.txt
+<File warning_count="1" path="%FullPath(..)%\in\T_Translate_Linux.txt">
+<WARNING msg="Not English character exists" line_num="4">
+                  #// -x オプションは、*１行ずつコマンドを表示します
+</WARNING>
+</File>
+<ERROR msg="警告がありました。" translator_path="in\T_Translate_Linux.trans"/>
+</Section>
+>AssertFC  "in\T_Translate_Linux.trans" "T_Translate_ans\trans\T_Translate_Linux_Modified.trans"
+>del  "in"
+>del  "out"
+Pass.

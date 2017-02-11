@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0014)about:internet --> <!-- for too much local security warning -->
+<HTML lang="ja" xmlns:v="urn:schemas-microsoft-com:vml"> 
+<HEAD>
+
+<META http-equiv="Content-Type" content="text/html; charset=shift_jis"/>
+<TITLE>vbslib</TITLE>
+
+<STYLE type="text/css">
+v\:line, v\:rect, v\:fill, v\:image, v\:stroke, v\:roundrect, v\:oval, v\:shape, v\:path, v\:textpath
+  { behavior: url(#default#VML); }
+A { text-decoration:none; }
+A.to_tree { color:#CCDDCC; position:absolute; margin-left:0px; font-size:8pt; }
+A.to_next_page { position:absolute; margin-left:40px; font-size:8pt; }
+A.to_prev_page { position:absolute; margin-left:58px; font-size:8pt; }
+A:visited { color:blue }
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+DIV.tooltip { color:blue; }
+DIV.tooltip textarea { display:none; margin-top:-5px; overflow:hidden; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+</STYLE>
+
+<SCRIPT type="text/javascript">
+//<![CDATA[
+
+function  onLoad()
+{
+  var  divs, i
+
+  if ( !document.getElementsByTagName )  return;
+
+  divs = document.getElementsByTagName( "A" );
+  for ( i = 0; i < divs.length; i++ ) {
+    if ( divs[i].className == "to_tree" ) {
+      divs[i].style.color = "blue";
+      divs[i].style.cursor = "hand";
+    }
+  }
+}
+
+function  selectTreeElem( num )
+{
+  var tree_url, i1, i2, fname, fname2
+
+  if ( parent.frames.length == 0 ) {
+    location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+     "&f2=vbslib.files/vbslib_55.html&sub2=svgcats_vml_p" + num;
+  }
+  else {
+    tree_url = parent.tree.location.href;
+    i1 = tree_url.lastIndexOf( "/" );
+    i2 = tree_url.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname = tree_url.substring( i1 + 1 );
+    i1 = fname.lastIndexOf( "#" );
+    if ( i1 >= 0 )  fname = fname.substring( 0, i1 );
+    fname2 = "vbslib.files/vbslib_tree.html";
+    i1 = fname2.lastIndexOf( "/" );
+    i2 = fname2.lastIndexOf( "\\" );
+    if ( i2 > i1 )  i1 = i2;
+    fname2 = fname2.substring( i1 + 1 );
+    if ( fname == fname2 )
+      parent.tree.selectTreeElem( "svgcats_index_p" + num );
+    else
+      location.href = "../vbslib.html?f1=vbslib.files/vbslib_tree.html&sub1=svgcats_index_p" + num +
+       "&f2=vbslib.files/vbslib_55.html&sub2=svgcats_vml_p" + num;
+  }
+}
+
+<!-- start of insert [PATCH_OF:urlrep_tooltip] -->
+function  over( text, value, cols ){ text.style.display = "inline";
+  text.cols=cols; text.rows=1; text.value=value; text.focus(); text.select(); }
+function  out( text ){ text.style.display = "none"; }
+<!-- end of [PATCH_OF:urlrep_tooltip] -->
+
+//]]>
+</SCRIPT>
+
+</HEAD>
+<BODY bgcolor="#CCDDCC" onLoad="onLoad();">
+
+<DIV style="position:absolute; margin-left:0px; margin-top:8px; color:red; font-size:8pt;">
+(for Internet Explorer)</DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8px; width:130px; height:16px;" fillcolor="white" strokecolor="white"/>
+
+<PAGESET>
+ 
+<!-- page 1031 --> 
+<PAGE>
+<A id="svgcats_vml_p1031" class="to_tree" style="margin-top:-11px;" onClick="selectTreeElem( '1031' );">←</A>
+<A href="#svgcats_vml_p1032" class="to_next_page" style="margin-top:-11px;">▼</A>
+<A href="vbslib_54.html#svgcats_vml_p1030" class="to_prev_page" style="margin-top:-11px;">▲</A>
+<DIV style="position:absolute; margin-left:20px; margin-top:-16px;">
+<A id="page_group_top" href="vbslib_54.html#page_group_bottom" style="text-decoration:none;">↑</A></DIV>
+<v:rect style="position:absolute; margin-left:0px; margin-top:0px; width:529px; height:711px;" fillcolor="white"/>
+<DIV id="text1031_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:23px; margin-top:17px; line-height:15px; white-space:nowrap">
+<A name="ReadTestCase_aggregate">
+aggregate 属性</A></DIV>
+<DIV id="text1031_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:52px; line-height:15px; white-space:nowrap">
+TestCase タグの子の SubCase タグに、別の TestCase タグの子を追加するときは、<BR/>
+aggregate 属性を使います。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:119px; width:406px; height:250px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1031_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:125px; line-height:15px; white-space:nowrap">
+&lt;?xml version="1.0" encoding="Shift_JIS"?&gt;<BR/>
+&lt;TestCases&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test1" aggregate="#TestCase_Common"&gt;<BR/>
+&lt;SubCase&nbsp; name="a" InputDataA="123" InputDataB="123"/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test2" aggregate="#TestCase_Common"&gt;<BR/>
+&lt;SubCase&nbsp; name="b" InputDataA="123" InputDataB="ABC"/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_Common"&gt;<BR/>
+&lt;SubCase&nbsp; name="c" InputDataA="ABC" InputDataB="ABC"/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;/TestCases&gt;</DIV>
+<DIV id="text1031_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:100px; line-height:15px; white-space:nowrap">
+サンプル XML ファイル： T_Test1_Data.xml</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:407px; width:340px; height:220px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1031_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:413px; line-height:15px; white-space:nowrap">
+&lt;?xml version="1.0" encoding="Shift_JIS"?&gt;<BR/>
+&lt;TestCases&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test1"&gt;<BR/>
+&lt;SubCase&nbsp; name="a" InputDataA="123" InputDataB="123"/&gt;<BR/>
+&lt;SubCase&nbsp; name="c" InputDataA="ABC" InputDataB="ABC"/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test2"&gt;<BR/>
+&lt;SubCase&nbsp; name="b" InputDataA="123" InputDataB="ABC"/&gt;<BR/>
+&lt;SubCase&nbsp; name="c" InputDataA="ABC" InputDataB="ABC"/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;/TestCases&gt;</DIV>
+<DIV id="text1031_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:31px; margin-top:382px; line-height:15px; white-space:nowrap">
+上のファイルと下のファイルは、同じデータになります。</DIV>
+<DIV id="text1031_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:333px; margin-top:171px; line-height:13px; white-space:nowrap">
+TestCase_Common</DIV>
+<DIV id="text1031_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:333px; margin-top:231px; line-height:13px; white-space:nowrap">
+TestCase_Common</DIV>
+<DIV id="text1031_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:129px; margin-top:291px; line-height:13px; white-space:nowrap">
+TestCase_Common</DIV>
+<DIV id="text1031_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:260px; margin-top:21px; line-height:12px; white-space:nowrap">
+<A href="vbslib_54.html#ReadTestCase">
+[ 親: ReadTestCase ]</A></DIV>
+<DIV id="text1031_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:646px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1031_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:646px; line-height:15px; white-space:nowrap">
+→ T_TestCaseData.vbs # [T_BaseTestCaseData]</DIV>
+<DIV id="text1031_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:117px; margin-top:663px; line-height:15px; white-space:nowrap">
+→ T_TestCaseData.xml # T_AggregateTestCaseData_1 など</DIV>
+<DIV id="text1031_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:51px; margin-top:306px; line-height:13px; white-space:nowrap">
+SubCase</DIV>
+<DIV id="text1031_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:51px; margin-top:489px; line-height:13px; white-space:nowrap">
+SubCase</DIV>
+<DIV id="text1031_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:51px; margin-top:564px; line-height:13px; white-space:nowrap">
+SubCase</DIV>
+
+<v:line from="0,0" to="529,0"/>
+<v:line from="529,0" to="529,711"/>
+<v:line from="529,711" to="0,711"/>
+<v:line from="0,711" to="0,0"/>
+
+</PAGE>
+ 
+<!-- page 1032 --> 
+<PAGE>
+<A id="svgcats_vml_p1032" class="to_tree" style="margin-top:716px;" onClick="selectTreeElem( '1032' );">←</A>
+<A href="#svgcats_vml_p1033" class="to_next_page" style="margin-top:716px;">▼</A>
+<A href="#svgcats_vml_p1031" class="to_prev_page" style="margin-top:716px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:727px; width:638px; height:1258px;" fillcolor="white"/>
+<DIV id="text1032_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:744px; line-height:15px; white-space:nowrap">
+<A name="cress_case">
+クロス・ケース</A></DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:818px; width:556px; height:310px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1032_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:824px; line-height:15px; white-space:nowrap">
+Sub&nbsp; T_Test1( Opt, AppKey )<BR/>
+&nbsp; Dim&nbsp; x, y, mix<BR/>
+<BR/>
+&nbsp; Dim cases_x : Set cases_x = ReadTestCase( "T_Test1_Data.xml", "TestCase_for_T_Test1_x" )<BR/>
+&nbsp; Dim cases_y : Set cases_y = ReadTestCase( "T_Test1_Data.xml", "TestCase_for_T_Test1_y" )<BR/>
+&nbsp; Set mix = CreateObject( "Scripting.Dictionary" )<BR/>
+&nbsp; For Each y&nbsp; In cases_y.Items<BR/>
+&nbsp; &nbsp; For Each x&nbsp; In cases_x.Items<BR/>
+&nbsp; &nbsp; &nbsp; mix.RemoveAll : Dic_add&nbsp; mix, x : Dic_add&nbsp; mix, y<BR/>
+&nbsp; &nbsp; &nbsp; T_Test1_main&nbsp; Opt, AppKey, mix<BR/>
+&nbsp; &nbsp; Next<BR/>
+&nbsp; Next<BR/>
+&nbsp; Pass<BR/>
+End Sub<BR/>
+<BR/>
+'// ループが増えてもインデントを深くさせないため、テストの実施は *_main 関数にする<BR/>
+Sub&nbsp; T_Test1_main( Opt, AppKey, x )<BR/>
+&nbsp; echo&nbsp; x<BR/>
+&nbsp; FuncA&nbsp; x("InputData"), ReadFile( x("CurrentFolder") +"\file.txt" )<BR/>
+End Sub</DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:1176px; width:412px; height:400px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1032_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:1182px; line-height:15px; white-space:nowrap">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;<BR/>
+&lt;TestCases&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test1_x"&gt;<BR/>
+&lt;SubCase&nbsp; name="Number"<BR/>
+&nbsp; InputData = "123"<BR/>
+&nbsp; Answer&nbsp; &nbsp; = "ans%Num%.txt"&nbsp; _comment2= "FilePath with variable"<BR/>
+/&gt;<BR/>
+&lt;SubCase&nbsp; name="Alphabet"<BR/>
+&nbsp; InputData = "ABC"<BR/>
+&nbsp; Answer&nbsp; &nbsp; = "ans2.txt"<BR/>
+/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test1_y"&gt; &lt;!-- This is cross case --&gt;<BR/>
+&lt;SubCase&nbsp; name="CurrentFolder"<BR/>
+&nbsp; CurrentFolder = "."<BR/>
+&nbsp; StepPath&nbsp; &nbsp; &nbsp; = "Data\"<BR/>
+/&gt;<BR/>
+&lt;SubCase&nbsp; name="SubFolder"<BR/>
+&nbsp; CurrentFolder = "Data"<BR/>
+&nbsp; StepPath&nbsp; &nbsp; &nbsp; = ""<BR/>
+/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;/TestCases&gt;</DIV>
+<DIV id="text1032_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:121px; margin-top:1095px; line-height:13px; white-space:nowrap">
+InputData</DIV>
+<DIV id="text1032_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:277px; margin-top:1095px; line-height:13px; white-space:nowrap">
+CurrentFolder</DIV>
+<DIV id="text1032_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:1153px; line-height:15px; white-space:nowrap">
+サンプル XML ファイル： T_Test1_Data.xml</DIV>
+<DIV id="text1032_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:27px; margin-top:773px; line-height:15px; white-space:nowrap">
+テストケースの値が、表の縦軸と横軸にあり、表の全てをテストする場合は、下記のように二重ループに<BR/>
+して、Dic_add を使ってテストデータを結合します。</DIV>
+<v:line style="position:absolute;" from="141,1109" to="100,1257" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="99,1420" to="306,1110" strokecolor="#FF9F11" strokeweight="1pt"/>
+<DIV id="text1032_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:267px; margin-top:747px; line-height:12px; white-space:nowrap">
+<A href="vbslib_54.html#ReadTestCase">
+[ 親: ReadTestCase ]</A></DIV>
+<DIV id="text1032_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:79px; margin-top:825px; line-height:13px; white-space:nowrap">
+T_Test1</DIV>
+<DIV id="text1032_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:85px; margin-top:960px; line-height:13px; white-space:nowrap">
+T_Test1</DIV>
+<DIV id="text1032_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:79px; margin-top:1065px; line-height:13px; white-space:nowrap">
+T_Test1</DIV>
+<DIV id="text1032_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:1618px; line-height:15px; white-space:nowrap">
+<A name="cress_case_dic">
+XML ファイルを使わない、クロス・ケースのサンプル</A></DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:1643px; width:508px; height:310px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1032_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:1649px; line-height:15px; white-space:nowrap">
+Sub&nbsp; T_Test1( Opt, AppKey )<BR/>
+&nbsp; &nbsp; Set t = CreateObject( "Scripting.Dictionary" )<BR/>
+<BR/>
+&nbsp; &nbsp; For Each&nbsp; endian&nbsp; In Array( "LittleEndian", "BigEndian" )<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; For Each&nbsp; language&nbsp; In Array( "VBScript", "C" )<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t("Endian") = endian<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t("Language") = language<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; T_Test1_Main&nbsp; t<BR/>
+&nbsp; &nbsp; &nbsp; &nbsp; Next<BR/>
+&nbsp; &nbsp; Next<BR/>
+<BR/>
+&nbsp; &nbsp; Pass<BR/>
+End Sub<BR/>
+<BR/>
+<BR/>
+'// ループが増えてもインデントを深くさせないため、テストの実施は *_Main 関数にする<BR/>
+Sub&nbsp; T_Test1_Main( Opt, AppKey, x )<BR/>
+&nbsp; echo&nbsp; x<BR/>
+&nbsp; FuncA&nbsp; x("Endian"), x("Language")<BR/>
+End Sub</DIV>
+
+<v:line from="0,727" to="638,727"/>
+<v:line from="638,727" to="638,1985"/>
+<v:line from="638,1985" to="0,1985"/>
+<v:line from="0,1985" to="0,727"/>
+
+</PAGE>
+ 
+<!-- page 1033 --> 
+<PAGE>
+<A id="svgcats_vml_p1033" class="to_tree" style="margin-top:1990px;" onClick="selectTreeElem( '1033' );">←</A>
+<A href="#svgcats_vml_p1034" class="to_next_page" style="margin-top:1990px;">▼</A>
+<A href="#svgcats_vml_p1032" class="to_prev_page" style="margin-top:1990px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2001px; width:627px; height:520px;" fillcolor="white"/>
+<DIV id="text1033_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2018px; line-height:15px; white-space:nowrap">
+<A name="ReadTestCase_LookUpDic">
+テスト・ケースの選択</A></DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:2085px; width:520px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1033_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:2091px; line-height:15px; white-space:nowrap">
+Sub&nbsp; T_Test1( Opt, AppKey )<BR/>
+&nbsp; Dim&nbsp; x<BR/>
+<BR/>
+&nbsp; Dim cases : Set cases = ReadTestCase( "T_Test1_Data.xml", "TestCase_for_T_Test1" )<BR/>
+&nbsp; Set x = cases.LookUpDic( "name", "Alphabet" )<BR/>
+&nbsp; T_Test1_main&nbsp; Opt, AppKey, x<BR/>
+&nbsp; Pass<BR/>
+End Sub</DIV>
+<DIV id="text1033_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2056px; line-height:15px; white-space:nowrap">
+SubCase タグの中から、特定のタグだけ選択するときは、ArrayClass の LookUpDic を使ってください。</DIV>
+<v:rect style="position:absolute; margin-left:37px; margin-top:2254px; width:268px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1033_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:45px; margin-top:2260px; line-height:15px; white-space:nowrap">
+&lt;?xml version="1.0" encoding="Shift_JIS"?&gt;<BR/>
+&lt;TestCases&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test1"&gt;<BR/>
+&lt;SubCase&nbsp; name="Number"<BR/>
+&nbsp; InputData = "123"<BR/>
+&nbsp; Answer&nbsp; &nbsp; = "ans%Num%.txt"<BR/>
+/&gt;<BR/>
+&lt;SubCase&nbsp; name="Alphabet"<BR/>
+&nbsp; InputData = "ABC"<BR/>
+&nbsp; Answer&nbsp; &nbsp; = "ans2.txt"<BR/>
+/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;/TestCases&gt;</DIV>
+<DIV id="text1033_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:2234px; line-height:15px; white-space:nowrap">
+サンプル XML ファイル： T_Test1_Data.xml</DIV>
+<DIV id="text1033_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:207px; margin-top:2152px; line-height:13px; white-space:nowrap">
+"name", "Alphabet"</DIV>
+<v:line style="position:absolute;" from="456,2159" to="193,2302" strokecolor="#7CFF11" strokeweight="1pt"/>
+<DIV id="text1033_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:267px; margin-top:2021px; line-height:12px; white-space:nowrap">
+<A href="vbslib_54.html#ReadTestCase">
+[ 親: ReadTestCase ]</A></DIV>
+<v:line style="position:absolute;" from="292,2171" to="170,2378" strokecolor="#FF9F11" strokeweight="1pt"/>
+
+<v:line from="0,2001" to="627,2001"/>
+<v:line from="627,2001" to="627,2521"/>
+<v:line from="627,2521" to="0,2521"/>
+<v:line from="0,2521" to="0,2001"/>
+
+</PAGE>
+ 
+<!-- page 1034 --> 
+<PAGE>
+<A id="svgcats_vml_p1034" class="to_tree" style="margin-top:2526px;" onClick="selectTreeElem( '1034' );">←</A>
+<A href="#svgcats_vml_p1035" class="to_next_page" style="margin-top:2526px;">▼</A>
+<A href="#svgcats_vml_p1033" class="to_prev_page" style="margin-top:2526px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2537px; width:618px; height:399px;" fillcolor="white"/>
+<DIV id="text1034_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2554px; line-height:15px; white-space:nowrap">
+<A name="case_embed">
+スクリプトからテストケースを指定する</A></DIV>
+<DIV id="text1034_2" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:318px; margin-top:2557px; line-height:12px; white-space:nowrap">
+<A href="vbslib_54.html#ReadTestCase">
+[ 親: ReadTestCase ]</A></DIV>
+<v:rect style="position:absolute; margin-left:41px; margin-top:2609px; width:532px; height:295px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1034_3" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:49px; margin-top:2615px; line-height:15px; white-space:nowrap">
+Sub&nbsp; T_Test1( Opt, AppKey )<BR/>
+&nbsp; Dim&nbsp; x, y<BR/>
+<BR/>
+&nbsp; Dim cases : Set cases_x = ReadTestCase( "T_Test1_Data.xml", "TestCase_for_T_Test1" )<BR/>
+&nbsp; For Each x&nbsp; In cases_x.Items<BR/>
+&nbsp; &nbsp; For Each y&nbsp; In Array( 2, 3 )<BR/>
+&nbsp; &nbsp; &nbsp; x("y") = y<BR/>
+&nbsp; &nbsp; &nbsp; T_Test1_main&nbsp; Opt, AppKey, x<BR/>
+&nbsp; &nbsp; &nbsp; x.Remove&nbsp; "y"<BR/>
+&nbsp; &nbsp; Next<BR/>
+&nbsp; Next<BR/>
+&nbsp; Pass<BR/>
+End Sub<BR/>
+<BR/>
+'// ループが増えてもインデントを深くさせないため、テストの実施は *_main 関数にする<BR/>
+Sub&nbsp; T_Test1_main( Opt, AppKey, x )<BR/>
+&nbsp; echo&nbsp; x<BR/>
+&nbsp; FuncA&nbsp; x("InputData"), ReadFile( x("y") +"\file.txt" )<BR/>
+End Sub</DIV>
+<DIV id="text1034_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:27px; margin-top:2583px; line-height:15px; white-space:nowrap">
+テストケースの値を XML ファイルではなく、スクリプトに埋め込む場合は、下記のように代入します。</DIV>
+<DIV id="text1034_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:85px; margin-top:2706px; line-height:13px; white-space:nowrap">
+x("y") = y</DIV>
+<DIV id="text1034_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:193px; margin-top:2691px; line-height:13px; white-space:nowrap">
+( 2, 3 )</DIV>
+<DIV id="text1034_7" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:79px; margin-top:2841px; line-height:13px; white-space:nowrap">
+T_Test1</DIV>
+<DIV id="text1034_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:85px; margin-top:2721px; line-height:13px; white-space:nowrap">
+T_Test1</DIV>
+<DIV id="text1034_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:79px; margin-top:2616px; line-height:13px; white-space:nowrap">
+T_Test1</DIV>
+<DIV id="text1034_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:259px; margin-top:2871px; line-height:13px; white-space:nowrap">
+x("y")</DIV>
+<v:line style="position:absolute;" from="118,2717" to="263,2872" strokecolor="#7CFF11" strokeweight="1pt"/>
+<DIV id="text1034_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:85px; margin-top:2736px; line-height:13px; white-space:nowrap">
+x.Remove&nbsp; "y"</DIV>
+
+<v:line from="0,2537" to="618,2537"/>
+<v:line from="618,2537" to="618,2936"/>
+<v:line from="618,2936" to="0,2936"/>
+<v:line from="0,2936" to="0,2537"/>
+
+</PAGE>
+ 
+<!-- page 1035 --> 
+<PAGE>
+<A id="svgcats_vml_p1035" class="to_tree" style="margin-top:2941px;" onClick="selectTreeElem( '1035' );">←</A>
+<A href="#svgcats_vml_p1036" class="to_next_page" style="margin-top:2941px;">▼</A>
+<A href="#svgcats_vml_p1034" class="to_prev_page" style="margin-top:2941px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:2952px; width:632px; height:1922px;" fillcolor="white"/>
+<v:image src="1035/image01.png"
+   style="position:absolute; margin-left:193px; margin-top:3076px; width:31px; height:35px;"/>
+<v:image src="1035/image02.jpg"
+   style="position:absolute; margin-left:447px; margin-top:3078px; width:35px; height:32px;"/>
+<v:image src="1035/image03.jpg"
+   style="position:absolute; margin-left:78px; margin-top:3077px; width:25px; height:33px;"/>
+<v:image src="1035/image04.jpg"
+   style="position:absolute; margin-left:314px; margin-top:3077px; width:25px; height:33px;"/>
+<DIV id="text1035_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:2969px; line-height:15px; white-space:nowrap">
+<A name="TempParams">
+TempParams.txt - C言語のプログラムにデータを渡す</A></DIV>
+<DIV id="text1035_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:2999px; line-height:15px; white-space:nowrap">
+C言語の標準ライブラリだけを使うときは、fgets を使った１行ずつ読み込むような単純なファイル・リード<BR/>
+しかできませんが、VBScript で XML などのデータを整理することで、C言語のプログラムに複雑な<BR/>
+動きをさせることができるようになります。</DIV>
+<DIV id="text1035_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:187px; margin-top:3116px; line-height:15px; white-space:nowrap">
+Test.vbs</DIV>
+<DIV id="text1035_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:412px; margin-top:3116px; line-height:15px; white-space:nowrap">
+C言語のプログラム</DIV>
+<v:line style="position:absolute;" from="116,3093" to="178,3093" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:shape style="position:absolute; margin-left:168px; margin-top:3088px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<v:line style="position:absolute;" from="237,3095" to="299,3095" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:shape style="position:absolute; margin-left:289px; margin-top:3090px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<v:line style="position:absolute;" from="353,3096" to="434,3096" strokecolor="#000000" strokeweight="1pt">
+    <v:stroke dashstyle="dash"/>
+</v:line>
+<v:shape style="position:absolute; margin-left:424px; margin-top:3091px; width:10px; height:10px"
+ fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"
+ path="m 1000,500 l 0,0, 0,1000 x e"/>
+<DIV id="text1035_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:61px; margin-top:3116px; line-height:15px; white-space:nowrap">
+T_Test1.xml</DIV>
+<DIV id="text1035_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:283px; margin-top:3116px; line-height:15px; white-space:nowrap">
+TempParams.txt</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:3192px; width:388px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1035_14" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:3198px; line-height:15px; white-space:nowrap">
+Sub&nbsp; T_Test1_main( tests, x )&nbsp; // x is from ReadTestCase<BR/>
+&nbsp; Dim&nbsp; f : Set f = OpenForWrite( "TempParams.txt", Empty )<BR/>
+&nbsp; f.WriteLine&nbsp; x("Param1") &amp; " // Param1"<BR/>
+&nbsp; f = Empty<BR/>
+<BR/>
+&nbsp; r= RunProg( "CLangProg.exe /TempParams:TempParams.txt", "" )<BR/>
+<BR/>
+&nbsp; del&nbsp; "TempParams.txt"</DIV>
+<DIV id="text1035_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3162px; line-height:15px; white-space:nowrap">
+vbs スクリプトのサンプル (Test.vbs)</DIV>
+<DIV id="text1035_16" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:317px; margin-top:3199px; line-height:13px; white-space:nowrap">
+<A href="vbslib_54.html#ReadTestCase">
+ReadTestCase</A></DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:3376px; width:502px; height:640px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1035_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:3382px; line-height:15px; white-space:nowrap">
+int&nbsp; Params_read( Params* m, FILE* f );<BR/>
+<BR/>
+int&nbsp; T_Sample()<BR/>
+{<BR/>
+&nbsp; int&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;e;<BR/>
+&nbsp; errno_t&nbsp; &nbsp; &nbsp;et;<BR/>
+&nbsp; FILE*&nbsp; &nbsp; &nbsp; &nbsp;f = NULL;<BR/>
+&nbsp; TCHAR&nbsp; &nbsp; &nbsp; &nbsp;s[256];<BR/>
+&nbsp; TCHAR&nbsp; &nbsp; &nbsp; &nbsp;path[256];<BR/>
+<BR/>
+&nbsp; //=== ReadTestCase<BR/>
+&nbsp; e= GetCommandLineNamed( _T("TempParams"), false, s, sizeof(s) ); IF(e)goto fin;<BR/>
+&nbsp; e= StrT_getFullPath( path, sizeof(path), s, NULL );<BR/>
+&nbsp; et= _tfopen_s( &amp;f, path, _T("rt") ); IF(et)goto err_no;<BR/>
+&nbsp; e= Params_read( &amp;params, f ); IF(e)goto fin;<BR/>
+<BR/>
+&nbsp; //=== Test Main<BR/>
+&nbsp; // Write here ...<BR/>
+<BR/>
+&nbsp; e=0;<BR/>
+fin:<BR/>
+&nbsp; if(f!=NULL){ee= fclose( f ); IF(ee&amp;&amp;!e)e=E_Errno;}<BR/>
+}<BR/>
+<BR/>
+<BR/>
+int&nbsp; Params_read( Params* m, FILE* f )<BR/>
+{<BR/>
+&nbsp; int&nbsp; &nbsp; e;<BR/>
+&nbsp; int&nbsp; &nbsp; i;<BR/>
+&nbsp; TCHAR&nbsp; line[256];<BR/>
+<BR/>
+&nbsp; line[0] = '\0';<BR/>
+&nbsp; _fgetts( line, _countof(line), f );<BR/>
+<BR/>
+&nbsp; e= StrT_cutLineComment( line, sizeof(line), line, _T("//") ); IF(e)goto fin;<BR/>
+&nbsp; m-&gt;BufferSize = _ttoi( line );<BR/>
+<BR/>
+&nbsp; _fgetts( line, _countof(line), f );&nbsp; // skip space line<BR/>
+&nbsp; e=0;<BR/>
+fin:<BR/>
+&nbsp; return&nbsp; e;<BR/>
+}</DIV>
+<DIV id="text1035_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:3350px; line-height:15px; white-space:nowrap">
+C言語のテスト・プログラムのサンプル (CLangProg.exe)</DIV>
+<v:line style="position:absolute;" from="303,3575" to="342,3289" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="217,3575" to="303,3575" strokecolor="#7CFF11" strokeweight="1pt"/>
+<v:line style="position:absolute;" from="207,3587" to="217,3575" strokecolor="#7CFF11" strokeweight="1pt"/>
+<DIV id="text1035_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:83px; margin-top:3893px; line-height:13px; white-space:nowrap">
+StrT_cutLineComment</DIV>
+<DIV id="text1035_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4612px; line-height:15px; white-space:nowrap">
+TempParams.txt ファイルの データ型の名前</DIV>
+<DIV id="text1035_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:4643px; line-height:15px; white-space:nowrap">
+テスト・データが複数のデータ構造を持つときは、データ構造を識別するシンボルを<BR/>
+TempParams.txt ファイルに記述する必要があります。</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:4712px; width:256px; height:130px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1035_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:4718px; line-height:15px; white-space:nowrap">
+DataTypeA&nbsp; // データ型の名前<BR/>
+100&nbsp; &nbsp; &nbsp; &nbsp; // DataTypeA の１つ目のデータ<BR/>
+200&nbsp; &nbsp; &nbsp; &nbsp; // DataTypeA の２つ目のデータ<BR/>
+<BR/>
+DataTypeB&nbsp; // データ型の名前<BR/>
+100&nbsp; &nbsp; &nbsp; &nbsp; // DataTypeB の１つ目のデータ<BR/>
+200&nbsp; &nbsp; &nbsp; &nbsp; // DataTypeB の２つ目のデータ<BR/>
+300&nbsp; &nbsp; &nbsp; &nbsp; // DataTypeB の３つ目のデータ</DIV>
+<DIV id="text1035_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4310px; line-height:15px; white-space:nowrap">
+TempParams.txt ファイルの フラグド構造体パラメーター</DIV>
+<DIV id="text1035_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:80px; margin-top:4559px; line-height:15px; white-space:nowrap">
+→ フラグド構造体パラメーター</DIV>
+<DIV id="text1035_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:42px; margin-top:4559px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1035_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:4052px; line-height:15px; white-space:nowrap">
+TempParams.txt ファイルの基本形</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:4180px; width:304px; height:85px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1035_30" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:4186px; line-height:15px; white-space:nowrap">
+100&nbsp; &nbsp; // １つ目のテスト・ケースの１つ目のデータ<BR/>
+200&nbsp; &nbsp; // １つ目のテスト・ケースの２つ目のデータ<BR/>
+<BR/>
+110&nbsp; &nbsp; // ２つ目のテスト・ケースの１つ目のデータ<BR/>
+210&nbsp; &nbsp; // ２つ目のテスト・ケースの２つ目のデータ</DIV>
+<DIV id="text1035_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:4082px; line-height:15px; white-space:nowrap">
+多くの場合、テスト・データを単純に並べていくだけで、テストを実施することはできるでしょう。<BR/>
+テスト・ケースが複数あるときは、空行で区切るとよいでしょう。<BR/>
+clib の StrT_cutLineComment 関数を使えば、コメントを入れることができます。<BR/>
+下記は、struct { int a; int b; } TestData[2]; という構造になります。</DIV>
+<DIV id="text1035_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:42px; margin-top:4341px; line-height:15px; white-space:nowrap">
+１つのテスト・ケースにおいて、それぞれのデータを使うかどうかを表すには、１つ目のデータを<BR/>
+ビットフィールドの数値として使い、ビットが1であれば対応するデータが記述されているように<BR/>
+します。</DIV>
+<v:rect style="position:absolute; margin-left:76px; margin-top:4426px; width:310px; height:115px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1035_33" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:84px; margin-top:4432px; line-height:15px; white-space:nowrap">
+0x07&nbsp; &nbsp;// ビットフィールド。 ビット０、１、２が１<BR/>
+100&nbsp; &nbsp; // １つ目のデータ<BR/>
+200&nbsp; &nbsp; // ２つ目のデータ<BR/>
+300&nbsp; &nbsp; // ３つ目のデータ<BR/>
+<BR/>
+0x02&nbsp; &nbsp;// ビットフィールド。 ビット１のみが１<BR/>
+200&nbsp; &nbsp; // ２つ目のデータ</DIV>
+<DIV id="text1035_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:4159px; line-height:15px; white-space:nowrap">
+TempParams.txt</DIV>
+<DIV id="text1035_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:4403px; line-height:15px; white-space:nowrap">
+TempParams.txt</DIV>
+<DIV id="text1035_36" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:62px; margin-top:4690px; line-height:15px; white-space:nowrap">
+TempParams.txt</DIV>
+
+<v:line from="0,2952" to="632,2952"/>
+<v:line from="632,2952" to="632,4874"/>
+<v:line from="632,4874" to="0,4874"/>
+<v:line from="0,4874" to="0,2952"/>
+
+</PAGE>
+ 
+<!-- page 1036 --> 
+<PAGE>
+<A id="svgcats_vml_p1036" class="to_tree" style="margin-top:4879px;" onClick="selectTreeElem( '1036' );">←</A>
+<A href="#svgcats_vml_p1037" class="to_next_page" style="margin-top:4879px;">▼</A>
+<A href="#svgcats_vml_p1035" class="to_prev_page" style="margin-top:4879px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:4890px; width:566px; height:173px;" fillcolor="white"/>
+<DIV id="text1036_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:4907px; line-height:15px; white-space:nowrap">
+<A name="ReadTestCase_Debug">
+ReadTestCase 内部のデバッグ</A></DIV>
+<v:rect style="position:absolute; margin-left:33px; margin-top:4966px; width:448px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1036_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:41px; margin-top:4972px; line-height:15px; white-space:nowrap">
+If IsEmpty( g_ReadTestCase ) Then&nbsp; Set g_ReadTestCase = new XmlObjReader<BR/>
+g_ReadTestCase.IsVerbose = True<BR/>
+Skipped</DIV>
+<DIV id="text1036_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:4940px; line-height:15px; white-space:nowrap">
+下記のように IsVerbose を True にすると、XML をリードする処理のステップを表示します。</DIV>
+
+<v:line from="0,4890" to="566,4890"/>
+<v:line from="566,4890" to="566,5063"/>
+<v:line from="566,5063" to="0,5063"/>
+<v:line from="0,5063" to="0,4890"/>
+
+</PAGE>
+ 
+<!-- page 1037 --> 
+<PAGE>
+<A id="svgcats_vml_p1037" class="to_tree" style="margin-top:5068px;" onClick="selectTreeElem( '1037' );">←</A>
+<A href="#svgcats_vml_p1038" class="to_next_page" style="margin-top:5068px;">▼</A>
+<A href="#svgcats_vml_p1036" class="to_prev_page" style="margin-top:5068px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5079px; width:628px; height:809px;" fillcolor="white"/>
+<DIV id="text1037_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5096px; line-height:15px; white-space:nowrap">
+<A name="SetReadTestCase">
+SetReadTestCase</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5126px; width:520px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1037_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5133px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetReadTestCase( XmlPath as string, TestCaseID as string, Condition as string )</DIV>
+<DIV id="text1037_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5163px; line-height:15px; white-space:nowrap">
+デバッグ用に、テストケースを指定します。</DIV>
+<DIV id="text1037_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5189px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1037_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5189px; line-height:15px; white-space:nowrap">
+XmlPath</DIV>
+<DIV id="text1037_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5208px; line-height:15px; white-space:nowrap">
+TestCaseID</DIV>
+<DIV id="text1037_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5189px; line-height:15px; white-space:nowrap">
+テストケースが書かれた XML ファイルのパス</DIV>
+<DIV id="text1037_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5208px; line-height:15px; white-space:nowrap">
+XML ファイルの中の &lt;TestCase&gt; タグの id 属性の値</DIV>
+<DIV id="text1037_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:5227px; line-height:15px; white-space:nowrap">
+Condition</DIV>
+<DIV id="text1037_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:177px; margin-top:5227px; line-height:15px; white-space:nowrap">
+テストケースを指定する条件文</DIV>
+<v:rect style="position:absolute; margin-left:91px; margin-top:5258px; width:100px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1037_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:99px; margin-top:5262px; line-height:13px; white-space:nowrap">
+TestScript.vbs</DIV>
+<DIV id="text1037_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5260px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:5371px; width:556px; height:160px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1037_13" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:5377px; line-height:15px; white-space:nowrap">
+Sub&nbsp; T_Test1( Opt, AppKey )<BR/>
+&nbsp; Dim&nbsp; testcases, x<BR/>
+<BR/>
+&nbsp; SetReadTestCase&nbsp; "T_Test1_Data.xml", "TestCase_for_T_Test1", "name='Alphabet'" : Skipped<BR/>
+&nbsp; Set x = ReadTestCase( "T_Test1_Data.xml", "TestCase_for_T_Test1" )<BR/>
+&nbsp; For Each x&nbsp; In testcases.Items&nbsp; '// x は、InputData="ABC" の１回ループのみになる<BR/>
+&nbsp; &nbsp; T_Test1_main&nbsp; Opt, AppKey, x<BR/>
+&nbsp; Next<BR/>
+&nbsp; Pass<BR/>
+End Sub</DIV>
+<DIV id="text1037_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5351px; line-height:15px; white-space:nowrap">
+サンプル・コード：</DIV>
+<v:rect style="position:absolute; margin-left:40px; margin-top:5585px; width:406px; height:235px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1037_15" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:48px; margin-top:5591px; line-height:15px; white-space:nowrap">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;<BR/>
+&lt;TestCases&gt;<BR/>
+<BR/>
+&lt;TestCase id="TestCase_for_T_Test1"&gt;<BR/>
+&lt;SubCase&nbsp; name="Number"<BR/>
+&nbsp; InputData = "123"<BR/>
+&nbsp; Answer&nbsp; &nbsp; = "ans%Num%.txt"&nbsp; _comment2= "FilePath with variable"<BR/>
+/&gt;<BR/>
+&lt;SubCase&nbsp; name="Alphabet"<BR/>
+&nbsp; InputData = "ABC"<BR/>
+&nbsp; Answer&nbsp; &nbsp; = "ans2.txt"<BR/>
+/&gt;<BR/>
+&lt;/TestCase&gt;<BR/>
+<BR/>
+&lt;/TestCases&gt;</DIV>
+<DIV id="text1037_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5565px; line-height:15px; white-space:nowrap">
+サンプル XML ファイル： T_Test1_Data.xml</DIV>
+<v:line style="position:absolute;" from="201,5710" to="491,5436" strokecolor="#7CFF11" strokeweight="1pt"/>
+<DIV id="text1037_18" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:60px; margin-top:5423px; line-height:13px; white-space:nowrap">
+SetReadTestCase</DIV>
+<DIV id="text1037_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:33px; margin-top:5297px; line-height:15px; white-space:nowrap">
+<A href="vbslib_54.html#ReadTestCase">
+ReadTestCase</A></DIV>
+<DIV id="text1037_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:120px; margin-top:5297px; line-height:15px; white-space:nowrap">
+を呼び出す前に、SetReadTestCase を呼び出すコードを追加すると、</DIV>
+<DIV id="text1037_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5312px; line-height:15px; white-space:nowrap">
+ReadTestCase の返り値が、SetReadTestCase で指定した１つのケースだけになります。</DIV>
+<DIV id="text1037_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:172px; margin-top:5096px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1037_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:19px; margin-top:5840px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1037_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:5840px; line-height:15px; white-space:nowrap">
+→ T_TestCaseData.vbs # [T_SetReadTestCase]</DIV>
+<DIV id="text1037_25" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#0000FF; margin-left:546px; margin-top:5423px; line-height:13px; white-space:nowrap">
+<A href="#Skipped">
+Skipped</A></DIV>
+
+<v:line from="0,5079" to="628,5079"/>
+<v:line from="628,5079" to="628,5888"/>
+<v:line from="628,5888" to="0,5888"/>
+<v:line from="0,5888" to="0,5079"/>
+
+</PAGE>
+ 
+<!-- page 1038 --> 
+<PAGE>
+<A id="svgcats_vml_p1038" class="to_tree" style="margin-top:5893px;" onClick="selectTreeElem( '1038' );">←</A>
+<A href="#svgcats_vml_p1039" class="to_next_page" style="margin-top:5893px;">▼</A>
+<A href="#svgcats_vml_p1037" class="to_prev_page" style="margin-top:5893px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:5904px; width:481px; height:459px;" fillcolor="white"/>
+<DIV id="text1038_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:5921px; line-height:15px; white-space:nowrap">
+<A name="SetStartSectionTree">
+SetStartSectionTree</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:5951px; width:316px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1038_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:5958px; line-height:13px; white-space:nowrap">
+Sub&nbsp; SetStartSectionTree( SectionNames as string )</DIV>
+<DIV id="text1038_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:5988px; line-height:15px; white-space:nowrap">
+実行するセクションを設定します。</DIV>
+<DIV id="text1038_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6014px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1038_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:6014px; line-height:15px; white-space:nowrap">
+SectionNames</DIV>
+<DIV id="text1038_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:205px; margin-top:6014px; line-height:15px; white-space:nowrap">
+セクション名。 CSV形式</DIV>
+<DIV id="text1038_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:6046px; line-height:15px; white-space:nowrap">
+ファイル：</DIV>
+<v:rect style="position:absolute; margin-left:94px; margin-top:6044px; width:75px; height:19px;" fillcolor="#FFFFFF" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1038_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:102px; margin-top:6048px; line-height:13px; white-space:nowrap">
+vbslib.vbs</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:6111px; width:190px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1038_9" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:6118px; line-height:13px; white-space:nowrap">
+&nbsp; SetStartSectionTree&nbsp; "Sec1"</DIV>
+<DIV id="text1038_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:6089px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<v:rect style="position:absolute; margin-left:32px; margin-top:6174px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1038_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:40px; margin-top:6181px; line-height:13px; white-space:nowrap">
+&nbsp; SetStartSectionTree&nbsp; "Sec1, SubSec2"</DIV>
+<DIV id="text1038_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:6152px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1038_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:108px; margin-top:6152px; line-height:15px; white-space:nowrap">
+Sec1 セクションの中の SubSec2 セクションから実行します。</DIV>
+<DIV id="text1038_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:108px; margin-top:6089px; line-height:15px; white-space:nowrap">
+Sec1 セクションから実行します。</DIV>
+<DIV id="text1038_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:8pt; color:#0000FF; margin-left:235px; margin-top:5923px; line-height:12px; white-space:nowrap">
+<A href="vbslib_48.html#SectionTree">
+[ 親: SectionTree クラス ]</A></DIV>
+<DIV id="text1038_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:6228px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1038_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:6228px; line-height:15px; white-space:nowrap">
+→ T_SectionTree.vbs # [T_SectionTree_SetStart]</DIV>
+<DIV id="text1038_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:195px; margin-top:5922px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1038_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:23px; margin-top:6314px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1038_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:6314px; line-height:15px; white-space:nowrap">
+<A href="vbslib_48.html#SectionTree">
+→ SectionTree クラス</A></DIV>
+<DIV id="text1038_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:6246px; line-height:15px; white-space:nowrap">
+→ T_SectionTree.vbs # [T_SectionTree_SetStart2]</DIV>
+<DIV id="text1038_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:6264px; line-height:15px; white-space:nowrap">
+→ T_SectionTree.vbs # [T_SectionTree_SetStart3]</DIV>
+<DIV id="text1038_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:72px; margin-top:6282px; line-height:15px; white-space:nowrap">
+→ T_SectionTree.vbs # [T_SectionTree_SetStartMiss]</DIV>
+
+<v:line from="0,5904" to="481,5904"/>
+<v:line from="481,5904" to="481,6363"/>
+<v:line from="481,6363" to="0,6363"/>
+<v:line from="0,6363" to="0,5904"/>
+
+</PAGE>
+ 
+<!-- page 1039 --> 
+<PAGE>
+<A id="svgcats_vml_p1039" class="to_tree" style="margin-top:6368px;" onClick="selectTreeElem( '1039' );">←</A>
+<A href="#svgcats_vml_p1040" class="to_next_page" style="margin-top:6368px;">▼</A>
+<A href="#svgcats_vml_p1038" class="to_prev_page" style="margin-top:6368px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6379px; width:496px; height:227px;" fillcolor="white"/>
+<DIV id="text1039_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6396px; line-height:15px; white-space:nowrap">
+<A name="Pass">
+Pass</A></DIV>
+<v:rect style="position:absolute; margin-left:30px; margin-top:6427px; width:70px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1039_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:38px; margin-top:6434px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Pass</DIV>
+<DIV id="text1039_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:6468px; line-height:15px; white-space:nowrap">
+テストがパスしたことを、テストスクリプトに知らせて、プログラムを終了します。</DIV>
+<DIV id="text1039_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:94px; margin-top:6396px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1039_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:6498px; line-height:15px; white-space:nowrap">
+内部的には、エラー 21 が発生します。</DIV>
+<DIV id="text1039_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:69px; margin-top:6528px; line-height:15px; white-space:nowrap">
+<A href="vbslib_60.html#fin">
+→ 正常終了時の動作</A></DIV>
+<DIV id="text1039_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6558px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1039_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6528px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1039_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:6558px; line-height:15px; white-space:nowrap">
+→ T_SomeTests.vbs # T_TestReport</DIV>
+<DIV id="text1039_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:284px; margin-top:6558px; line-height:15px; white-space:nowrap">
+の T_SampA</DIV>
+
+<v:line from="0,6379" to="496,6379"/>
+<v:line from="496,6379" to="496,6606"/>
+<v:line from="496,6606" to="0,6606"/>
+<v:line from="0,6606" to="0,6379"/>
+
+</PAGE>
+ 
+<!-- page 1040 --> 
+<PAGE>
+<A id="svgcats_vml_p1040" class="to_tree" style="margin-top:6611px;" onClick="selectTreeElem( '1040' );">←</A>
+<A href="#svgcats_vml_p1041" class="to_next_page" style="margin-top:6611px;">▼</A>
+<A href="#svgcats_vml_p1039" class="to_prev_page" style="margin-top:6611px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6622px; width:564px; height:185px;" fillcolor="white"/>
+<DIV id="text1040_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6639px; line-height:15px; white-space:nowrap">
+<A name="Fail">
+Fail</A></DIV>
+<v:rect style="position:absolute; margin-left:30px; margin-top:6670px; width:70px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1040_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:38px; margin-top:6677px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Fail</DIV>
+<DIV id="text1040_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:24px; margin-top:6711px; line-height:15px; white-space:nowrap">
+テストが失敗したことを、ユーザーやテストスクリプトに知らせて、プログラムを終了します。<BR/>
+エラーが発生したときと同じ動きをします。つまり、Fail の後は実行しません。</DIV>
+<DIV id="text1040_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:94px; margin-top:6639px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1040_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:6759px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1040_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:69px; margin-top:6759px; line-height:15px; white-space:nowrap">
+→ T_SomeTests.vbs # T_TestReport</DIV>
+<DIV id="text1040_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:284px; margin-top:6759px; line-height:15px; white-space:nowrap">
+の T_SampB</DIV>
+
+<v:line from="0,6622" to="564,6622"/>
+<v:line from="564,6622" to="564,6807"/>
+<v:line from="564,6807" to="0,6807"/>
+<v:line from="0,6807" to="0,6622"/>
+
+</PAGE>
+ 
+<!-- page 1041 --> 
+<PAGE>
+<A id="svgcats_vml_p1041" class="to_tree" style="margin-top:6812px;" onClick="selectTreeElem( '1041' );">←</A>
+<A href="#svgcats_vml_p1042" class="to_next_page" style="margin-top:6812px;">▼</A>
+<A href="#svgcats_vml_p1040" class="to_prev_page" style="margin-top:6812px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:6823px; width:635px; height:179px;" fillcolor="white"/>
+<DIV id="text1041_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:6840px; line-height:15px; white-space:nowrap">
+<A name="Skip">
+Skip</A></DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:6870px; width:70px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1041_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:6877px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Skip</DIV>
+<DIV id="text1041_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:6911px; line-height:15px; white-space:nowrap">
+テストが実行できる状況ではないことを、テストスクリプトに知らせて、プログラムを終了します。<BR/>
+エラーが発生したときと同じ動きをします。つまり、Skip の後は実行しないで、次のテストを実行します。</DIV>
+<DIV id="text1041_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:94px; margin-top:6840px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1041_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:6954px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1041_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:6954px; line-height:15px; white-space:nowrap">
+→ T_SomeTests.vbs # T_TestReport</DIV>
+<DIV id="text1041_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:289px; margin-top:6954px; line-height:15px; white-space:nowrap">
+の T_SampC</DIV>
+
+<v:line from="0,6823" to="635,6823"/>
+<v:line from="635,6823" to="635,7002"/>
+<v:line from="635,7002" to="0,7002"/>
+<v:line from="0,7002" to="0,6823"/>
+
+</PAGE>
+ 
+<!-- page 1042 --> 
+<PAGE>
+<A id="svgcats_vml_p1042" class="to_tree" style="margin-top:7007px;" onClick="selectTreeElem( '1042' );">←</A>
+<A href="#svgcats_vml_p1043" class="to_next_page" style="margin-top:7007px;">▼</A>
+<A href="#svgcats_vml_p1041" class="to_prev_page" style="margin-top:7007px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7018px; width:546px; height:238px;" fillcolor="white"/>
+<DIV id="text1042_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7035px; line-height:15px; white-space:nowrap">
+<A name="Skipped">
+Skipped</A></DIV>
+<v:rect style="position:absolute; margin-left:35px; margin-top:7065px; width:88px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1042_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:43px; margin-top:7072px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Skipped</DIV>
+<DIV id="text1042_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:29px; margin-top:7106px; line-height:15px; white-space:nowrap">
+デバッグなどの理由で、テストの一部を一時的にスキップしたことを、テストスクリプトに<BR/>
+知らせます。 Skipped を呼んだテスト項目は、Pass を呼び出しても Fail します。<BR/>
+このときのエラーメッセージは、次のようになります。</DIV>
+<DIV id="text1042_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:105px; margin-top:7035px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<v:rect style="position:absolute; margin-left:47px; margin-top:7164px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1042_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:55px; margin-top:7171px; line-height:13px; white-space:nowrap">
+Pass But Skipped. Cut calling "Skipped" function.</DIV>
+<DIV id="text1042_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:29px; margin-top:7209px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1042_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:7209px; line-height:15px; white-space:nowrap">
+<A href="..\vbslib_test2.files\vbslib_test2_02.html#T_Skip">
+→ [T_Skip] テストをスキップする</A></DIV>
+
+<v:line from="0,7018" to="546,7018"/>
+<v:line from="546,7018" to="546,7256"/>
+<v:line from="546,7256" to="0,7256"/>
+<v:line from="0,7256" to="0,7018"/>
+
+</PAGE>
+ 
+<!-- page 1043 --> 
+<PAGE>
+<A id="svgcats_vml_p1043" class="to_tree" style="margin-top:7261px;" onClick="selectTreeElem( '1043' );">←</A>
+<A href="#svgcats_vml_p1044" class="to_next_page" style="margin-top:7261px;">▼</A>
+<A href="#svgcats_vml_p1042" class="to_prev_page" style="margin-top:7261px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7272px; width:480px; height:320px;" fillcolor="white"/>
+<DIV id="text1043_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7289px; line-height:15px; white-space:nowrap">
+<A name="ManualTest">
+ManualTest</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:7316px; width:250px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1043_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:7323px; line-height:13px; white-space:nowrap">
+Sub&nbsp; ManualTest( TestSymbol as string )</DIV>
+<DIV id="text1043_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7355px; line-height:15px; white-space:nowrap">
+テストが手動テストであることを、テストスクリプトに知らせます。</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:7481px; width:160px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1043_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:7488px; line-height:13px; white-space:nowrap">
+ManualTest&nbsp; tests.Symbol</DIV>
+<DIV id="text1043_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7423px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1043_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:83px; margin-top:7514px; line-height:15px; white-space:nowrap">
+<A href="vbslib_53.html#Tests">
+→ Tests クラス</A></DIV>
+<DIV id="text1043_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:52px; margin-top:7514px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1043_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:155px; margin-top:7289px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1043_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7382px; line-height:15px; white-space:nowrap">
+手動テストは最低限にしてください。</DIV>
+<v:rect style="position:absolute; margin-left:45px; margin-top:7450px; width:154px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1043_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:53px; margin-top:7457px; line-height:13px; white-space:nowrap">
+ManualTest&nbsp; "T_Sample1"</DIV>
+<DIV id="text1043_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:71px; margin-top:7544px; line-height:15px; white-space:nowrap">
+<A href="vbslib_53.html#tp_hint">
+→ テストプログラム作成のヒント</A></DIV>
+<DIV id="text1043_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:30px; margin-top:7544px; line-height:15px; white-space:nowrap">
+参考</DIV>
+
+<v:line from="0,7272" to="480,7272"/>
+<v:line from="480,7272" to="480,7592"/>
+<v:line from="480,7592" to="0,7592"/>
+<v:line from="0,7592" to="0,7272"/>
+
+</PAGE>
+ 
+<!-- page 1044 --> 
+<PAGE>
+<A id="svgcats_vml_p1044" class="to_tree" style="margin-top:7597px;" onClick="selectTreeElem( '1044' );">←</A>
+<A href="#svgcats_vml_p1045" class="to_next_page" style="margin-top:7597px;">▼</A>
+<A href="#svgcats_vml_p1043" class="to_prev_page" style="margin-top:7597px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:7608px; width:558px; height:729px;" fillcolor="white"/>
+<DIV id="text1044_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:7625px; line-height:15px; white-space:nowrap">
+<A name="Assert">
+Assert</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:7655px; width:226px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1044_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:7662px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Assert( Condition as boolean )</DIV>
+<DIV id="text1044_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7688px; line-height:15px; white-space:nowrap">
+条件が満たされているかをチェックします。</DIV>
+<DIV id="text1044_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7724px; line-height:15px; white-space:nowrap">
+満たされていなければ、Fail を呼び出します。<BR/>
+If not Condition Then&nbsp; Fail とほぼ同じですが（違いは下記）、正しい条件文を記述する<BR/>
+ことになるので、ソースの可読性があがります。<BR/>
+また、If 文を使わないので、マルチステートメント（１行に複数の文）が記述できます。<BR/>
+g_debug の設定にかかわらず常にチェックします。</DIV>
+<v:rect style="position:absolute; margin-left:36px; margin-top:7980px; width:436px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1044_5" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:7987px; line-height:13px; white-space:nowrap">
+Public Property Let&nbsp; VarA(x) : Assert x &gt;= 0 : VarA = x : End Property</DIV>
+<DIV id="text1044_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:112px; margin-top:7625px; line-height:15px; white-space:nowrap">
+(src)</DIV>
+<DIV id="text1044_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:7816px; line-height:15px; white-space:nowrap">
+If Condition と If not Condition は、完全に反対の関係ではありません。<BR/>
+たとえば、If 4 と If not 4 は、どちらも真です。<BR/>
+完全に反対の関係は次のように複数行になります。<BR/>
+&nbsp; If Condition Then<BR/>
+&nbsp; Else<BR/>
+&nbsp; &nbsp; ***<BR/>
+&nbsp; End If<BR/>
+よって、正しい条件文を記述することは If Then Fail より Assert の方が簡単になります。</DIV>
+<DIV id="text1044_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:272px; margin-top:7987px; line-height:13px; white-space:nowrap">
+x &gt;= 0</DIV>
+<DIV id="text1044_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8268px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1044_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:8268px; line-height:15px; white-space:nowrap">
+<A href="#Fail">
+→ Fail</A></DIV>
+<DIV id="text1044_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:68px; margin-top:8285px; line-height:15px; white-space:nowrap">
+<A href="vbslib_62.html#raise">
+→ Raise</A></DIV>
+<DIV id="text1044_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:139px; margin-top:8268px; line-height:15px; white-space:nowrap">
+テストが失敗したことを、ユーザーやテストスクリプトに知らせます。</DIV>
+<DIV id="text1044_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:139px; margin-top:8285px; line-height:15px; white-space:nowrap">
+新規にエラーを発生させます。</DIV>
+<DIV id="text1044_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:7960px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1044_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8032px; line-height:15px; white-space:nowrap">
+トラブルシューティング</DIV>
+<DIV id="text1044_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:44px; margin-top:8061px; line-height:15px; white-space:nowrap">
+左辺全体を括弧で囲むと、エラーになります。</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:8083px; width:394px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1044_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:8090px; line-height:13px; white-space:nowrap">
+Assert&nbsp; ( a + 2 ) = 0&nbsp; '// エラー: 型が一致しません。: 'Assert'</DIV>
+<DIV id="text1044_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:44px; margin-top:8120px; line-height:15px; white-space:nowrap">
+上記は、( a + 2 ) = 0 の評価を行ってから Assert を呼び出すのではなく、<BR/>
+a + 2 を配列番号とした Assert 配列に 0 を代入するように解釈されます。</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:8184px; width:166px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1044_19" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:8190px; line-height:15px; white-space:nowrap">
+Assert&nbsp; a + 2 = 0<BR/>
+Assert&nbsp; ( ( a + 2 ) = 0 )</DIV>
+<DIV id="text1044_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:44px; margin-top:8162px; line-height:15px; white-space:nowrap">
+以下のように括弧を削除するか、括弧を追加してください。</DIV>
+
+<v:line from="0,7608" to="558,7608"/>
+<v:line from="558,7608" to="558,8337"/>
+<v:line from="558,8337" to="0,8337"/>
+<v:line from="0,8337" to="0,7608"/>
+
+</PAGE>
+ 
+<!-- page 1045 --> 
+<PAGE>
+<A id="svgcats_vml_p1045" class="to_tree" style="margin-top:8342px;" onClick="selectTreeElem( '1045' );">←</A>
+<A href="#svgcats_vml_p1046" class="to_next_page" style="margin-top:8342px;">▼</A>
+<A href="#svgcats_vml_p1044" class="to_prev_page" style="margin-top:8342px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8353px; width:588px; height:582px;" fillcolor="white"/>
+<DIV id="text1045_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8370px; line-height:15px; white-space:nowrap">
+<A name="AssertExist">
+AssertExist</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:8400px; width:238px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1045_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:8407px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AssertExist( in_Path as string )</DIV>
+<DIV id="text1045_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:8433px; line-height:15px; white-space:nowrap">
+ファイルまたはフォルダが存在するかどうかをチェックします。</DIV>
+<v:rect style="position:absolute; margin-left:36px; margin-top:8601px; width:178px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1045_4" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:8608px; line-height:13px; white-space:nowrap">
+AssertExist&nbsp; "settings.txt"</DIV>
+<DIV id="text1045_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:8581px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1045_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:8778px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1045_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:8465px; line-height:15px; white-space:nowrap">
+存在しなければ、エラーメッセージの中にパスが含まれます。<BR/>
+このため、デバッガを起動しなくてもユーザーが対応できる可能性が高まります。<BR/>
+エラーコードは、E_PathNotFound になります。<BR/>
+逆に、AssertExist では、存在するときにエラーにすることはできません。</DIV>
+<DIV id="text1045_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:122px; margin-top:8608px; line-height:13px; white-space:nowrap">
+"settings.txt"</DIV>
+<DIV id="text1045_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:8643px; line-height:15px; white-space:nowrap">
+エラーメッセージのサンプル：</DIV>
+<v:rect style="position:absolute; margin-left:36px; margin-top:8663px; width:520px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1045_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:8670px; line-height:13px; white-space:nowrap">
+&lt;ERROR msg="ファイルまたはフォルダーが見つかりません" path="C:\Folder\setting.txt"/&gt;</DIV>
+<DIV id="text1045_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:8800px; line-height:15px; white-space:nowrap">
+→ T_File.vbs</DIV>
+<DIV id="text1045_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8800px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1045_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8845px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1045_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:8845px; line-height:15px; white-space:nowrap">
+<A href="vbslib_25.html#exist">
+→ exist</A></DIV>
+<DIV id="text1045_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:8750px; line-height:15px; white-space:nowrap">
+<A href="vbslib_52.html#TestCommon_setVariables">
+→ TestCommon_setVariables</A></DIV>
+<DIV id="text1045_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8750px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1045_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:258px; margin-top:8750px; line-height:15px; white-space:nowrap">
+Test.vbs で共通のファイルの存在チェック</DIV>
+<DIV id="text1045_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:8778px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1045_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:258px; margin-top:8822px; line-height:15px; white-space:nowrap">
+T_AssertExist_UNC</DIV>
+<DIV id="text1045_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:8800px; line-height:15px; white-space:nowrap">
+T_AssertExist</DIV>
+<DIV id="text1045_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:8822px; line-height:15px; white-space:nowrap">
+→ T_FileMutex_Manually.vbs</DIV>
+<DIV id="text1045_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:8542px; line-height:15px; white-space:nowrap">
+大文字小文字が異なると、echo_v 関数で警告を表示しますが、継続します。</DIV>
+<v:rect style="position:absolute; margin-left:36px; margin-top:8694px; width:490px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1045_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:8701px; line-height:13px; white-space:nowrap">
+&lt;WARNING msg="大文字小文字が異なります" call="C:\file.txt" name="C:\File.txt"/&gt;</DIV>
+<DIV id="text1045_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:8887px; line-height:15px; white-space:nowrap">
+→ 大文字小文字に統一することの副作用</DIV>
+<DIV id="text1045_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:8866px; line-height:15px; white-space:nowrap">
+<A href="#Assert2Exist">
+→ Assert2Exist</A></DIV>
+<DIV id="text1045_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:183px; margin-top:8778px; line-height:15px; white-space:nowrap">
+→ vbslib_mini.vbs</DIV>
+
+<v:line from="0,8353" to="588,8353"/>
+<v:line from="588,8353" to="588,8935"/>
+<v:line from="588,8935" to="0,8935"/>
+<v:line from="0,8935" to="0,8353"/>
+
+</PAGE>
+ 
+<!-- page 1046 --> 
+<PAGE>
+<A id="svgcats_vml_p1046" class="to_tree" style="margin-top:8940px;" onClick="selectTreeElem( '1046' );">←</A>
+<A href="#svgcats_vml_p1047" class="to_next_page" style="margin-top:8940px;">▼</A>
+<A href="#svgcats_vml_p1045" class="to_prev_page" style="margin-top:8940px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:8951px; width:576px; height:529px;" fillcolor="white"/>
+<DIV id="text1046_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:8968px; line-height:15px; white-space:nowrap">
+<A name="Assert2Exist">
+Assert2Exist</A></DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:8998px; width:376px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1046_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:9005px; line-height:13px; white-space:nowrap">
+Sub&nbsp; Assert2Exist( in_PathA as string,&nbsp; in_PathB as string )</DIV>
+<DIV id="text1046_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9031px; line-height:15px; white-space:nowrap">
+ファイルまたはフォルダが２つとも存在するかどうかをチェックします。</DIV>
+<DIV id="text1046_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9063px; line-height:15px; white-space:nowrap">
+１つでも存在しなければ、エラーメッセージの中に２つのパスが含まれます。<BR/>
+２つを比較するときに使うとよいでしょう。<BR/>
+このため、デバッガを起動しなくてもユーザーが対応できる可能性が高まります。<BR/>
+エラーコードは、E_PathNotFound になります。</DIV>
+<DIV id="text1046_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9140px; line-height:15px; white-space:nowrap">
+大文字小文字が異なると、echo_v 関数で警告を表示しますが、継続します。</DIV>
+<v:rect style="position:absolute; margin-left:36px; margin-top:9199px; width:244px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1046_6" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:9206px; line-height:13px; white-space:nowrap">
+Assert2Exist&nbsp; "FileA.txt", "FileB.txt"</DIV>
+<DIV id="text1046_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9179px; line-height:15px; white-space:nowrap">
+サンプル：</DIV>
+<DIV id="text1046_8" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:128px; margin-top:9206px; line-height:13px; white-space:nowrap">
+"FileA.txt", "FileB.txt"</DIV>
+<DIV id="text1046_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9241px; line-height:15px; white-space:nowrap">
+エラーメッセージのサンプル：</DIV>
+<v:rect style="position:absolute; margin-left:36px; margin-top:9261px; width:430px; height:70px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1046_10" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:9267px; line-height:15px; white-space:nowrap">
+&lt;ERROR msg="片方または両方のファイルまたはフォルダーが見つかりません"<BR/>
+&nbsp;path_A="C:\Folder\FileA.txt"<BR/>
+&nbsp;path_B="C:\Folder\FileB.txt"<BR/>
+&nbsp;not_exist="A,B"/&gt;</DIV>
+<v:rect style="position:absolute; margin-left:36px; margin-top:9341px; width:490px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1046_11" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:44px; margin-top:9348px; line-height:13px; white-space:nowrap">
+&lt;WARNING msg="大文字小文字が異なります" call="C:\file.txt" name="C:\File.txt"/&gt;</DIV>
+<DIV id="text1046_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:9387px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1046_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:9409px; line-height:15px; white-space:nowrap">
+→ T_File.vbs</DIV>
+<DIV id="text1046_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9409px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1046_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9387px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1046_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:166px; margin-top:9409px; line-height:15px; white-space:nowrap">
+T_Assert2Exist</DIV>
+<DIV id="text1046_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9431px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1046_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:74px; margin-top:9431px; line-height:15px; white-space:nowrap">
+<A href="#AssertExist">
+→ AssertExist</A></DIV>
+
+<v:line from="0,8951" to="576,8951"/>
+<v:line from="576,8951" to="576,9480"/>
+<v:line from="576,9480" to="0,9480"/>
+<v:line from="0,9480" to="0,8951"/>
+
+</PAGE>
+ 
+<!-- page 1047 --> 
+<PAGE>
+<A id="svgcats_vml_p1047" class="to_tree" style="margin-top:9485px;" onClick="selectTreeElem( '1047' );">←</A>
+<A href="#svgcats_vml_p1048" class="to_next_page" style="margin-top:9485px;">▼</A>
+<A href="#svgcats_vml_p1046" class="to_prev_page" style="margin-top:9485px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9496px; width:579px; height:459px;" fillcolor="white"/>
+<DIV id="text1047_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9513px; line-height:15px; white-space:nowrap">
+AssertFullPath</DIV>
+<v:rect style="position:absolute; margin-left:28px; margin-top:9543px; width:412px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1047_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:36px; margin-top:9550px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AssertFullPath( in_Path as string,&nbsp; in_NameOfPath as string )</DIV>
+<DIV id="text1047_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9576px; line-height:15px; white-space:nowrap">
+指定したパスがフル パスでなければ、エラーにします。</DIV>
+<DIV id="text1047_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:9606px; line-height:15px; white-space:nowrap">
+【引数】</DIV>
+<DIV id="text1047_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9606px; line-height:15px; white-space:nowrap">
+in_Path</DIV>
+<DIV id="text1047_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:97px; margin-top:9625px; line-height:15px; white-space:nowrap">
+in_NameOfPath</DIV>
+<DIV id="text1047_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:9606px; line-height:15px; white-space:nowrap">
+調べるパス</DIV>
+<DIV id="text1047_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:210px; margin-top:9625px; line-height:15px; white-space:nowrap">
+指定したパスを設定する場所</DIV>
+<DIV id="text1047_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9661px; line-height:15px; white-space:nowrap">
+フル パスでなければ、次のエラーメッセージを表示します。</DIV>
+<DIV id="text1047_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:74px; margin-top:9907px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1047_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:9907px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:9684px; width:292px; height:55px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1047_12" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:9690px; line-height:15px; white-space:nowrap">
+&lt;ERROR msg="フル パスを設定してください。<BR/>
+可能ならフル パスの先頭は変数にしてください。"<BR/>
+name="Tag/@file"&nbsp; path="Sub\File.txt"/&gt;"</DIV>
+<DIV id="text1047_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9757px; line-height:15px; white-space:nowrap">
+XML ファイルに</DIV>
+<DIV id="text1047_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:120px; margin-top:9757px; line-height:15px; white-space:nowrap">
+<A href="vbslib_14.html#VariableTag">
+&lt;Variable&gt; タグ</A></DIV>
+<DIV id="text1047_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:209px; margin-top:9757px; line-height:15px; white-space:nowrap">
+が指定できるなら、</DIV>
+<DIV id="text1047_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:314px; margin-top:9757px; line-height:15px; white-space:nowrap">
+<A href="vbslib_14.html#Variable_FullPathType">
+type="FullPathType"</A></DIV>
+<DIV id="text1047_17" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:30px; margin-top:9774px; line-height:15px; white-space:nowrap">
+<A href="vbslib_14.html#Variable_Env">
+OS の環境変数を指定する</A></DIV>
+<DIV id="text1047_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:439px; margin-top:9757px; line-height:15px; white-space:nowrap">
+や</DIV>
+<DIV id="text1047_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:9774px; line-height:15px; white-space:nowrap">
+ことで、${ } 変数にフル パスを設定することができます。</DIV>
+<DIV id="text1047_20" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:30px; margin-top:9791px; line-height:15px; white-space:nowrap">
+たとえば、XML ファイルの一部を次のように記述します。</DIV>
+<v:rect style="position:absolute; margin-left:49px; margin-top:9819px; width:376px; height:40px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1047_21" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:57px; margin-top:9825px; line-height:15px; white-space:nowrap">
+&lt;Variable&nbsp; name="${Base}"&nbsp; value=".."&nbsp; type="FullPathType"/&gt;<BR/>
+&lt;Tag file="${Base}\File.txt"/&gt; ... file 属性はフル パス</DIV>
+<DIV id="text1047_22" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:123px; margin-top:9841px; line-height:13px; white-space:nowrap">
+${Base}\File.txt</DIV>
+<DIV id="text1047_23" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:48px; margin-top:9867px; line-height:15px; white-space:nowrap">
+変数 ${Base} の値は、XML ファイルがあるフォルダーの親フォルダーのフル パスです。</DIV>
+
+<v:line from="0,9496" to="579,9496"/>
+<v:line from="579,9496" to="579,9955"/>
+<v:line from="579,9955" to="0,9955"/>
+<v:line from="0,9955" to="0,9496"/>
+
+</PAGE>
+ 
+<!-- page 1048 --> 
+<PAGE>
+<A id="svgcats_vml_p1048" class="to_tree" style="margin-top:9960px;" onClick="selectTreeElem( '1048' );">←</A>
+<A href="vbslib_56.html#svgcats_vml_p1049" class="to_next_page" style="margin-top:9960px;">▼</A>
+<A href="#svgcats_vml_p1047" class="to_prev_page" style="margin-top:9960px;">▲</A>
+<v:rect style="position:absolute; margin-left:0px; margin-top:9971px; width:578px; height:891px;" fillcolor="white"/>
+<DIV id="text1048_1" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#008000; font-weight: bold; margin-left:24px; margin-top:9988px; line-height:15px; white-space:nowrap">
+<A name="AssertFC">
+AssertFC</A></DIV>
+<v:rect style="position:absolute; margin-left:25px; margin-top:10018px; width:310px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1048_2" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:33px; margin-top:10025px; line-height:13px; white-space:nowrap">
+Sub&nbsp; AssertFC( Path1 as string, Path2 as string )</DIV>
+<DIV id="text1048_3" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10055px; line-height:15px; white-space:nowrap">
+2つのテキストファイルを比較して、異なれば diff ツールを開きます。</DIV>
+<DIV id="text1048_4" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10083px; line-height:15px; white-space:nowrap">
+テキストファイルの文字コードが自動判定できるなら、文字コードが異なっても<BR/>
+テキストが同じであれば、同じと判定します。</DIV>
+<DIV id="text1048_5" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10126px; line-height:15px; white-space:nowrap">
+文字コードが異なれば必ず異なると判定するときは、</DIV>
+<DIV id="text1048_6" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:72px; margin-top:10210px; line-height:15px; white-space:nowrap">
+<A href="vbslib_31.html#PercentFunction">
+→ % を使った文字列変換関数</A></DIV>
+<DIV id="text1048_7" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:33px; margin-top:10210px; line-height:15px; white-space:nowrap">
+参考</DIV>
+<DIV id="text1048_8" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10179px; line-height:15px; white-space:nowrap">
+Path2 のファイルの内容に、% を使った文字列変換関数を使うことができます。<BR/>
+% 文字を使うとき（文字列変換関数からエスケープするとき）は、%% と記述します。 </DIV>
+<DIV id="text1048_9" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:431px; margin-top:10126px; line-height:15px; white-space:nowrap">
+を使ってください。</DIV>
+<DIV id="text1048_10" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:330px; margin-top:10126px; line-height:15px; white-space:nowrap">
+<A href="vbslib_26.html#IsSameBinaryFile">
+IsSameBinaryFile</A></DIV>
+<DIV id="text1048_11" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10749px; line-height:15px; white-space:nowrap">
+テスト</DIV>
+<DIV id="text1048_12" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:10771px; line-height:15px; white-space:nowrap">
+<A href="vbslib_25.html#IsSameTextFile">
+→ IsSameTextFile のテスト</A></DIV>
+<DIV id="text1048_13" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:95px; margin-top:10788px; line-height:15px; white-space:nowrap">
+c.RightHasPercentFunction or c.ErrorIfNotSame のケース</DIV>
+<DIV id="text1048_14" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10143px; line-height:15px; white-space:nowrap">
+テキスト ファイルの内容の大文字と小文字を区別しません。</DIV>
+<DIV id="text1048_15" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10701px; line-height:15px; white-space:nowrap">
+ソース</DIV>
+<DIV id="text1048_16" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:10701px; line-height:15px; white-space:nowrap">
+→ TestScript.vbs</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:10301px; width:502px; height:220px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1048_17" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:10307px; line-height:15px; white-space:nowrap">
+Sub&nbsp; T_Sample( Opt, AppKey )<BR/>
+&nbsp; &nbsp; Set w_= AppKey.NewWritable( Array( "_out.txt" ) ).Enable()<BR/>
+<BR/>
+&nbsp; &nbsp; RunProg&nbsp; "cscript //nologo "+ WScript.ScriptName +" T_Sample_Sub", "_out.txt"<BR/>
+<BR/>
+&nbsp; &nbsp; AssertFC&nbsp; "_out.txt", "T_Sample_ans.txt"<BR/>
+&nbsp; &nbsp; del&nbsp; "_out.txt"<BR/>
+<BR/>
+&nbsp; &nbsp; Pass<BR/>
+End Sub<BR/>
+<BR/>
+Sub&nbsp; T_Sample_Sub( Opt, AppKey )<BR/>
+&nbsp; &nbsp; '// 標準出力へ出力する処理<BR/>
+End Sub</DIV>
+<DIV id="text1048_18" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10280px; line-height:15px; white-space:nowrap">
+サンプル</DIV>
+<DIV id="text1048_19" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:100px; margin-top:10280px; line-height:15px; white-space:nowrap">
+<A name="TestStdout">
+標準出力への出力内容をチェックするテスト</A></DIV>
+<DIV id="text1048_20" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#FF0000; margin-left:76px; margin-top:10383px; line-height:13px; white-space:nowrap">
+AssertFC</DIV>
+<DIV id="text1048_21" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:10749px; line-height:15px; white-space:nowrap">
+→ T_fc_Manually.vbs</DIV>
+<DIV id="text1048_22" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:212px; margin-top:10749px; line-height:15px; white-space:nowrap">
+T_AssertFC</DIV>
+<v:rect style="position:absolute; margin-left:44px; margin-top:10588px; width:202px; height:25px;" fillcolor="#E7E7E7" strokecolor="#000000" strokeweight="1pt"/>
+<DIV id="text1048_23" style="position:absolute; font-family: 'ＭＳ ゴシック'; font-size:9pt; color:#000000; margin-left:52px; margin-top:10595px; line-height:13px; white-space:nowrap">
+g_Vers("AssertFC_Diff") = False</DIV>
+<DIV id="text1048_24" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10546px; line-height:15px; white-space:nowrap">
+下記のコードを書いた後は、diff ツールが開かなくなります。<BR/>
+下記のコードがあってもなくても、例外は発生します。</DIV>
+<DIV id="text1048_25" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10239px; line-height:15px; white-space:nowrap">
+異なっていたら、E_TestFail エラーになります。</DIV>
+<DIV id="text1048_26" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:73px; margin-top:10721px; line-height:15px; white-space:nowrap">
+→ vbslib.vbs</DIV>
+<DIV id="text1048_27" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:185px; margin-top:10701px; line-height:15px; white-space:nowrap">
+AssertFC</DIV>
+<DIV id="text1048_28" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:185px; margin-top:10721px; line-height:15px; white-space:nowrap">
+<A href="vbslib_25.html#IsSameTextFile">
+IsSameTextFile</A></DIV>
+<DIV id="text1048_29" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#408080; font-weight: bold; margin-left:24px; margin-top:10816px; line-height:15px; white-space:nowrap">
+関連</DIV>
+<DIV id="text1048_30" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#0000FF; margin-left:73px; margin-top:10816px; line-height:15px; white-space:nowrap">
+<A href="..\vbs_memo.files\vbs_memo_16.html#log2">
+→ ログ</A></DIV>
+<DIV id="text1048_31" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:296px; margin-top:10749px; line-height:15px; white-space:nowrap">
+→ AssertFC フォルダー</DIV>
+<DIV id="text1048_32" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10635px; line-height:15px; white-space:nowrap">
+比較の詳細を調べたいときは、IsSameTextFile 関数</DIV>
+<DIV id="text1048_33" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:327px; margin-top:10635px; line-height:15px; white-space:nowrap">
+(vbslib.vbs)</DIV>
+<DIV id="text1048_34" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:398px; margin-top:10635px; line-height:15px; white-space:nowrap">
+の中で is_debugging</DIV>
+<DIV id="text1048_35" style="position:absolute; font-family: 'ＭＳ Ｐゴシック'; font-size:10pt; color:#000000; margin-left:33px; margin-top:10651px; line-height:15px; white-space:nowrap">
+を検索して見つかるソース コードを参照してください。</DIV>
+
+<v:line from="0,9971" to="578,9971"/>
+<v:line from="578,9971" to="578,10862"/>
+<v:line from="578,10862" to="0,10862"/>
+<v:line from="0,10862" to="0,9971"/>
+
+<DIV style="position:absolute; margin-left:0px; margin-top:10862px;">
+<A id="svgcats_vml_p1048" class="to_tree" onClick="selectTreeElem( '1048' );">←</A></DIV>
+<DIV style="position:absolute; margin-left:20px; margin-top:10862px;">
+<A id="page_group_bottom" href="vbslib_56.html#page_group_top" style="text-decoration:none;">↓</A></DIV>
+</PAGE>
+ 
+</PAGESET>
+
+<TABLE height="100%" style="position:absolute; margin-top:-9999px"><TR><TD></TD></TR></TABLE>
+
+</BODY>
+</HTML> 
+ 

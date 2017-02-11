@@ -1,0 +1,128 @@
+%MultiLine%
+設定ファイル（.proja）のパス >2A_Fragment\Projects\Sub\Main.xml.proja
+
+%MultiLine%
+%RegExp(.*パス)% >2A_Fragment\ProjectWork\Copy\A_Copy.txt
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectWork)%
+Module in Project = Copy
+File   in Project = Copy\A_Copy.txt
+
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA_Copy\02
+                    ${Masters}\ModuleA_Copy\Work
+
+%MultiLine%
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >2A_Fragment\Masters\ModuleA\02\A.txt
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectWork)%
+Module in Project = .
+File   in Project = A.txt
+
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA\02
+
+%MultiLine%
+番号またはコマンド>4
+Setting_openFolder "%FullPath(Masters\ModuleA\02\A.txt)%"
+番号またはコマンド>6
+Setting_openFolder "%FullPath(ProjectWork\A.txt)%"
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >${Masters}\ModuleA_Copy\02
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectWork)%
+Module in Project = Copy
+
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA_Copy\02
+                    ${Masters}\ModuleA_Copy\Work
+
+%MultiLine%
+番号またはコマンド>4
+Setting_openFolder "%FullPath(Masters\ModuleA_Copy\02)%"
+番号またはコマンド>6
+Setting_openFolder "%FullPath(ProjectWork\Copy)%"
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >2A_Fragment\Masters\ModuleA_Copy\02\A_Copy.txt
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectWork)%
+Module in Project = Copy
+File   in Project = Copy\A_Copy.txt
+
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA_Copy\02
+                    ${Masters}\ModuleA_Copy\Work
+
+%MultiLine%
+番号またはコマンド>4
+
+"2A_Fragment\Masters\ModuleA_Copy\02\A_Copy.txt" が表示できません。
+%MultiLine%
+番号またはコマンド>6
+Setting_openFolder "%FullPath(ProjectWork\Copy\A_Copy.txt)%"
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >2A_Fragment\Masters\ModuleA_Copy\01
+
+<ERROR msg="プロジェクト（Project/@path属性）の外、および、そのプロジェクトが使うマスターの外のようです。"  path="%FullPath(.)%\Masters\ModuleA_Copy\01"/>
+%MultiLine%
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectWork)%
+Module in Project = Copy
+File   in Project = Copy\A_Copy.txt
+
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA_Copy\02
+                    ${Masters}\ModuleA_Copy\Work
+
+%MultiLine%
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >2A_Fragment\Masters\NotFound
+
+<ERROR msg="プロジェクト（Project/@path属性）の外、および、そのプロジェクトが使うマスターの外のようです。"%RegExp(.*/>)%
+%MultiLine%
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectWork)%
+Module in Project = Copy
+File   in Project = Copy\A_Copy.txt
+
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA_Copy\02
+                    ${Masters}\ModuleA_Copy\Work
+
+%MultiLine%
+番号またはコマンド>GoTo
+-------------------------------------------------------------------------------
+%MultiLine%
+%RegExp(.*パス)% >2A_Fragment\Masters\ModuleA_Copy\Work
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(ProjectWork)%
+Module in Project = Copy
+
+Project Name = Project\01
+Module in Masters = ${Masters}\ModuleA_Copy\02
+                    ${Masters}\ModuleA_Copy\Work
+
+%MultiLine%
+番号またはコマンド>4
+Setting_openFolder "%FullPath(Masters\ModuleA_Copy\02)%"
+番号またはコマンド>5
+Setting_openFolder "%FullPath(Masters\ModuleA_Copy\Work)%"
+番号またはコマンド>6
+Setting_openFolder "%FullPath(ProjectWork\Copy)%"
+番号またはコマンド>Exit

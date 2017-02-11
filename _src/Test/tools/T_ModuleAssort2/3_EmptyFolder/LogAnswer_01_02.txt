@@ -1,0 +1,88 @@
+%MultiLine%
+設定ファイル（.proja）のパス >3_EmptyFolder\WithEmpty__.xml.proja
+
+%MultiLine%
+%RegExp(.*パス)% >_work
+
+-------------------------------------------------------------------------------
+Project Root = %FullPath(..\_work)%
+Module in Project = .
+
+Project Name = Project-A\01
+Module in Masters = ${Masters}\ModuleA\01
+
+%MultiLine%
+番号またはコマンド>Assort
+
+${Masters}\ModuleA\01
+    <WARNING msg="プロジェクトにフォルダーがありません"
+     master="${Masters}\ModuleA\01"
+     project="."
+     step_path="A"/>
+
+    プロジェクトから抽出したモジュール： ${Masters}\ModuleA\Work
+
+${Masters}\ModuleB\01
+    <WARNING msg="違いがあります"
+     master="${Masters}\ModuleB\01"
+     project="."
+     step_path="B.txt"/>
+
+    プロジェクトから抽出したモジュール： ${Masters}\ModuleB\Work
+
+${Masters}\ModuleC\01
+    <WARNING msg="違いがあります"
+     master="${Masters}\ModuleC\01"
+     project="."
+     step_path="Sub\C.txt"/>
+
+    プロジェクトから抽出したモジュール： ${Masters}\ModuleC\Work
+
+${Masters}\ModuleFA\01
+    <WARNING msg="ハッシュ値（＝ファイルの内容）に違いがあります"
+     master="${Masters}\ModuleFA\01\_FullSet.txt"
+     project="F"
+     step_path="A"/>
+
+    プロジェクトから抽出したモジュール： ${Masters}\ModuleFA\Work
+
+${Masters}\ModuleFB\01
+    <WARNING msg="ハッシュ値（＝ファイルの内容）に違いがあります"
+     master="${Masters}\ModuleFB\01\_FullSet.txt"
+     project="F"
+     step_path="B.txt"/>
+
+    プロジェクトから抽出したモジュール： ${Masters}\ModuleFB\Work
+
+${Masters}\ModuleFC\01
+    <WARNING msg="ハッシュ値（＝ファイルの内容）に違いがあります"
+     master="${Masters}\ModuleFC\01\_FullSet.txt"
+     project="F"
+     step_path="Sub\C.txt"/>
+
+    プロジェクトから抽出したモジュール： ${Masters}\ModuleFC\Work
+
+${Masters}\ModuleA\WorkNewFiles
+    <WARNING msg="WorkNewFiles フォルダーにできたファイルを、
+    該当するモジュールの Work フォルダーに移動してください。
+    Work フォルダーに _FullSet.txt ファイルがあるときは、
+    WorkNewFiles\_FullSet.txt から行を移動してください。
+    ただし、行末のパスは、基準が _FullSet.txt ファイルがある
+    フォルダーになるように変更してください。"/>
+
+警告の数 = 7
+-------------------------------------------------------------------------------
+*1. ${Masters}\ModuleA\01
+ 2. ${Masters}\ModuleB\01
+ 3. ${Masters}\ModuleC\01
+ 4. ${Masters}\ModuleFA\01
+ 5. ${Masters}\ModuleFB\01
+ 6. ${Masters}\ModuleFC\01
+-------------------------------------------------------------------------------
+%MultiLine%
+Module in Masters = ${Masters}\ModuleA\01
+                    ${Masters}\ModuleA\Work
+%MultiLine%
+番号またはコマンド>7
+Setting_openFolder "%FullPath(Masters\ModuleA\WorkNewFiles)%"
+番号またはコマンド>Exit
