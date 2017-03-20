@@ -115,8 +115,6 @@ struct _TxMxListUpClass {
 	SearchStringByAC_Class        NameSearcher;
 };
 
-errnum_t  ListUpUsingTxMxKeywords(void);
-
 /* Private */
 errnum_t  TxMxListUpClass_getFileFromPath( TxMxListUpClass* self,
 	TCHAR*  Path,  TxScFileClass*  out_File );

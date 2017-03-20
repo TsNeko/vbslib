@@ -163,6 +163,13 @@ typedef  unsigned int    uint_fast8_t;
 
  
 /***********************************************************************
+  <<< [INT_DECIMAL_LENGTH_MAX] >>> 
+************************************************************************/
+#define  INT_DECIMAL_LENGTH_MAX  12
+
+
+ 
+/***********************************************************************
   <<< [INVALID_ARRAY_INDEX] >>> 
 ************************************************************************/
 enum { INVALID_ARRAY_INDEX = -1 };
@@ -541,6 +548,52 @@ extern PrintfCounterClass  g_PrintfCounter;
 
 #endif
 
+
+ 
+/***********************************************************************
+  <<< [printf_to_file] >>> 
+************************************************************************/
+
+#ifndef USE_PRINTF_MULTI_PROCESS
+	#define  USE_PRINTF_MULTI_PROCESS  0
+#endif
+
+#if USE_PRINTF_MULTI_PROCESS
+	#undef   USE_PRINTF_MULTI_THREAD
+	#define  USE_PRINTF_MULTI_THREAD  1
+#else
+	#ifndef USE_PRINTF_MULTI_THREAD
+		#define  USE_PRINTF_MULTI_THREAD  1
+	#endif
+#endif
+
+TCHAR*  GetLogOptionPath(void);
+void  printf_to_file( const char* fmt, ... );
+void  printf_file_start( bool IsDelete, int IndentWidth );
+int   printf_get_path( TCHAR** out_Path );
+int   printf_set_path( const TCHAR* Path );
+
+#ifndef   USE_printf_to
+ #define  USE_printf_to  USE_printf_to_file
+#endif
+
+#if  USE_printf_to == USE_printf_to_file
+ #define  printf  printf_to_file
+#endif
+
+#if  USE_printf_to == USE_printf_to_file
+typedef struct _PrintfFileWorkClass  PrintfFileWorkClass;
+struct _PrintfFileWorkClass {
+	FILE*   File;
+#if USE_PRINTF_MULTI_THREAD
+	HANDLE  Mutex;
+	int     ThreadIndex;
+#endif
+};
+void      printf_lock_init_const( PrintfFileWorkClass* out_Work );
+errnum_t  printf_lock( PrintfFileWorkClass* out_Work );
+errnum_t  printf_unlock( PrintfFileWorkClass* work,  errnum_t e );
+#endif
 
  
 errnum_t  vsprintf_r( char* s, size_t s_size, const char* format, va_list va ); 
@@ -2278,6 +2331,7 @@ errnum_t  SaveWindowsLastError(void);
 ************************************************************************/
 void  Error4_showToStdErr( int err_num );
 void  Error4_showToStdIO( FILE* out, int err_num );
+void  Error4_showToPrintf( int err_num );
 
 
  
@@ -3357,6 +3411,11 @@ errnum_t  CopyWithoutComment_C_Language( ListClass*  in_Tokens,  TCHAR*  in_Text
 #if  __cplusplus
  extern "C" {  /* Start of C Symbol */ 
 #endif
+
+
+ 
+#include  <shlobj.h> 
+#pragma comment(lib, "shell32.lib")
 
 
  

@@ -13,9 +13,9 @@ vbslib runs on Windows XP/7/8/10 (32bit,64bit).
 '* vbslib is provided under 3-clause BSD license.
 '* Copyright (C) Sofrware Design Gallery "Sage Plaisir 21" All Rights Reserved.
 '*
-'* - $Version: vbslib 5.92 $
-'* - $ModuleRevision: {vbslib}\Public\592 $
-'* - $Date: ${Date} $
+'* - $Version: vbslib 5.93 $
+'* - $ModuleRevision: {vbslib}\Public\593 $
+'* - $Date: 2017-03-20T20:00:00+09:00 $
 
 
 Contact:

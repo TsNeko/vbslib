@@ -1,0 +1,26 @@
+%MultiLine%
+ModuleAssort Downloader
+モジュールやプロジェクトをダウンロードします。
+
+サーバーのパス >_work\Pub
+
+Enter のみ：%Env(USERPROFILE)%\Downloads\ModuleAssort\Pub
+ダウンロードしたファイルを入れる、ローカル フォルダーのパス >%Env(USERPROFILE)%\Downloads\_ModuleAssortTest
+
+指定したローカル フォルダーは存在しません。作りますか。[Y/N]y
+
+%MultiLine%
+サーバーの中のパス >Projects\A
+>Download  "%FullPath(..\..\..\)%\_work\Pub\Modules\ModuleA\01\_Fragment.7z"
+${Masters}\ModuleA\01
+(count_of_cheking_existence = 0)
+Setting_openFolder "%Env(USERPROFILE)%\Downloads\_ModuleAssortTest\Projects\A"
+
+サーバーの中のパス >Modules\ModuleA\01
+>CopyFolder  "%Env(USERPROFILE)%\Downloads\_ModuleAssortTest\Modules\ModuleA\01"
+(count_of_cheking_existence = 0)
+Setting_openFolder "%Env(USERPROFILE)%\Downloads\_ModuleAssortTest\Modules\ModuleA\01"
+
+サーバーの中のパス >unknown
+見つかりません : %FullPath(..\..\..)%\_work\Pub\unknown
+サーバーの中のパス >

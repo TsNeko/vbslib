@@ -9,6 +9,7 @@ T_Updater_scriptlib フォルダーを作ります。
 以下のフォルダーにあるファイルのうち、
   ・T_Updater_scriptlib\4.01 full updated answer\scriptlib
   ・T_Updater_scriptlib\4.01 part updated answer\scriptlib
+  ・T_Updater_scriptlib\4.91 part updated answer\scriptlib
 を vbslib Prompt.vbs の 7. ConvertToNewVbsLib コマンドで更新
 してください。 更新したら .zip を更新してください。
 

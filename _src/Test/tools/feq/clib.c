@@ -1363,6 +1363,45 @@ void  Error4_showToStdIO( FILE* out, int err_num )
 
  
 /***********************************************************************
+  <<< [Error4_showToPrintf] >>> 
+************************************************************************/
+void  Error4_showToPrintf( int err_num )
+{
+	TCHAR  msg[1024];
+	#if _UNICODE
+		char  msg2[1024];
+	#endif
+
+	if ( err_num != 0 ) {
+		Error4_getErrStr( err_num, msg, sizeof(msg) );
+		#if _UNICODE
+			setlocale( LC_ALL, ".OCP" );
+			sprintf_s( msg2, sizeof(msg2), "%S", msg );
+			printf( "%s\n", msg2 );  // _ftprintf_s では日本語が出ません
+		#else
+			printf( "%s\n", msg );
+		#endif
+
+		#if ERR2_ENABLE_ERROR_BREAK
+			fprintf( out, "（開発者へ）メイン関数で SetBreakErrorID( %d ); を呼び出してください。\n",
+				g_Err2.ErrID );
+		#else
+#if 0
+			if ( err_num == E_FEW_MEMORY  ||  gs.WindowsLastError == ERROR_NOT_ENOUGH_MEMORY ) {
+				/* Not show the message for developper */
+			}
+			else {
+				fprintf( out, "（開発者へ）ERR2_ENABLE_ERROR_BREAK を定義して再コンパイルしてください。\n" );
+			}
+#endif
+		#endif
+	}
+	IfErrThenBreak();
+}
+
+
+ 
+/***********************************************************************
   <<< [Error4_raiseErrno] >>> 
 ************************************************************************/
 #include <errno.h>

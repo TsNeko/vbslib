@@ -5,15 +5,16 @@
 /* Main function is "_tWinMain" */
 
 
-errnum_t  GetTextFromClipboard(void);
+errnum_t  GetTextFromClipboard( AppKey** ref_AppKey );
 errnum_t  SetTextToClipboard(void);
 errnum_t  touch(void);
 errnum_t  SetDateLastModified(void);
-errnum_t  CutSharpIf(void);
+errnum_t  CutSharpIf( AppKey** ref_AppKey );
 errnum_t  CutFFFE( bool  in_IsAppend );
-errnum_t  MakeTextSectionIndexFile(void);
-errnum_t  ConvertDocumentCommentFormat( AppKey* in_AppKey );
-errnum_t  CutCommentC_Command(void);
+errnum_t  MakeTextSectionIndexFile( AppKey** ref_AppKey );
+errnum_t  ConvertDocumentCommentFormat( AppKey** ref_AppKey );
+errnum_t  CutCommentC_Command( AppKey** ref_AppKey );
+errnum_t  ListUpUsingTxMxKeywords( AppKey** ref_AppKey );
 errnum_t  ListUpUsingTxMxKeywords_Main( TCHAR* in_SettingPath, TCHAR* in_OutKeywordsPath );
 errnum_t  CutCommentC_1( const TCHAR*  in_InputPath,  const TCHAR*  in_OutputPath );
 errnum_t  ReadCharacterEncodingCharacterCommand( CharacterCodeSetEnum*  out_CharacterCode );
@@ -42,7 +43,7 @@ int APIENTRY  _tWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		e= AppKey_newWritable( &app_key, NULL, GetLogOptionPath(), NULL ); IF(e)goto fin;
 		printf_file_start( true, 0 );
 	#endif
-//SetBreakErrorID( 1 );
+SetBreakErrorID( 1 );
 //_CrtSetBreakAlloc( 2285 );/* [TODO] */
 
 	UNREFERENCED_VARIABLE_4( hInstance, hPrevInstance, lpCmdLine, nCmdShow );
@@ -51,7 +52,7 @@ int APIENTRY  _tWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	e= GetCommandLineUnnamed( 1, command_name, sizeof( command_name ) ); IF(e){goto fin;}
 	if ( _tcscmp( command_name, _T("GetTextFromClipboard") ) == 0 )
-		{ e= GetTextFromClipboard(); IF(e){goto fin;} }
+		{ e= GetTextFromClipboard( &app_key ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("SetTextToClipboard") ) == 0 )
 		{ e= SetTextToClipboard(); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("touch") ) == 0 )
@@ -59,19 +60,19 @@ int APIENTRY  _tWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	else if ( _tcscmp( command_name, _T("SetDateLastModified") ) == 0 )
 		{ e= SetDateLastModified(); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("CutSharpIf") ) == 0 )
-		{ e= CutSharpIf(); IF(e){goto fin;} }
+		{ e= CutSharpIf( &app_key ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("CutFFFE") ) == 0 )
 		{ e= CutFFFE( false ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("AppendCutFFFE") ) == 0 )
 		{ e= CutFFFE( true ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("MakeTextSectionIndexFile") ) == 0 )
-		{ e= MakeTextSectionIndexFile(); IF(e){goto fin;} }
+		{ e= MakeTextSectionIndexFile( &app_key ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("ListUpUsingTxMxKeywords") ) == 0 )
-		{ e= ListUpUsingTxMxKeywords(); IF(e){goto fin;} }
+		{ e= ListUpUsingTxMxKeywords( &app_key ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("ConvertDocumentCommentFormat") ) == 0 )
-		{ e= ConvertDocumentCommentFormat( app_key ); IF(e){goto fin;} }
+		{ e= ConvertDocumentCommentFormat( &app_key ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("CutCommentC") ) == 0 )
-		{ e= CutCommentC_Command(); IF(e){goto fin;} }
+		{ e= CutCommentC_Command( &app_key ); IF(e){goto fin;} }
 	else if ( _tcscmp( command_name, _T("ReadCharacterEncodingCharacter") ) == 0 ) {
 		e= ReadCharacterEncodingCharacterCommand( &character_code_set ); IF(e){goto fin;}
 		return_value = (int) character_code_set;
@@ -82,7 +83,7 @@ int APIENTRY  _tWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	e=0;
 fin:
 	e= Globals_finalize( e );
-	Error4_showToStdIO( stdout, e );
+	Error4_showToPrintf( e );
 	IfErrThenBreak();
 	#ifndef  NDEBUG
 	if ( _CrtDumpMemoryLeaks() )  DebugBreak();
@@ -99,7 +100,7 @@ err:  e = E_OTHERS;  goto fin;
 /***********************************************************************
   <<< [GetTextFromClipboard] >>> 
 ************************************************************************/
-errnum_t  GetTextFromClipboard()
+errnum_t  GetTextFromClipboard( AppKey** ref_AppKey )
 {
 	errnum_t  e;
 	BOOL      b;
@@ -116,7 +117,7 @@ errnum_t  GetTextFromClipboard()
 
 
 	e= GetCommandLineNamed( _T("Out"), false, out_path, sizeof(out_path) ); IF(e){goto fin;}
-	e= AppKey_newWritable( NULL, NULL, out_path, NULL ); IF(e){goto fin;}
+	e= AppKey_newWritable( ref_AppKey, NULL, out_path, NULL ); IF(e){goto fin;}
 
 	b= OpenClipboard( NULL ); IF(!b)goto err;
 	data = GetClipboardData( CF_UNICODETEXT ); IF(data==NULL)goto err_nf;
@@ -310,6 +311,8 @@ errnum_t  SetDateLastModified()
 			TCHAR   path[ MAX_PATH ];
 			TCHAR   time_stamp_string[ W3CDTF_MAX_LENGTH + 1 ];
 			int     bias_minute;
+			bool    is_read_only = false;
+			DWORD   attributes = 0;  /* 0 is for warning C4701 */
 
 			SYSTEMTIME  file_time_for_system;
 			FILETIME    file_time;
@@ -325,10 +328,30 @@ errnum_t  SetDateLastModified()
 
 			file = CreateFile( path, GENERIC_WRITE, 0, NULL, OPEN_EXISTING,
 				FILE_ATTRIBUTE_NORMAL , 0 );
-				IF( file == INVALID_HANDLE_VALUE ) { e=SaveWindowsLastError(); goto fin; }
+			if ( file == INVALID_HANDLE_VALUE ) {
+				attributes = GetFileAttributes( path );
+
+				IF ( attributes == INVALID_FILE_ATTRIBUTES ) {
+					Error4_printf( _T("<ERROR msg=\"Not found\" path=\"%s\"/>"),  path );
+					e=E_ORIGINAL; goto fin;
+				}
+				else if ( attributes & FILE_ATTRIBUTE_READONLY ) {
+					SetFileAttributes( path,  attributes & ~FILE_ATTRIBUTE_READONLY );
+					is_read_only = true;
+					file = CreateFile( path, GENERIC_WRITE, 0, NULL, OPEN_EXISTING,
+						FILE_ATTRIBUTE_NORMAL , 0 );
+				}
+				IF ( file == INVALID_HANDLE_VALUE ) { e=SaveWindowsLastError(); goto fin; }
+			}
+
 
 			b= SetFileTime( file, NULL, NULL, &file_time );
 				IF(!b){ e=SaveWindowsLastError(); goto fin; }
+
+
+			if ( is_read_only ) {
+				SetFileAttributes( path,  attributes );
+			}
 
 			e= CloseHandleInFin( file, e );
 			file = INVALID_HANDLE_VALUE;
@@ -349,7 +372,7 @@ fin:
 ************************************************************************/
 #define  SYMBOL_MAX_SIZE  256
 
-errnum_t  CutSharpIf()
+errnum_t  CutSharpIf( AppKey** ref_AppKey )
 {
 	errnum_t  e;
 	Set2      directives;
@@ -383,7 +406,7 @@ errnum_t  CutSharpIf()
 	e= FileT_openForRead( &r_file, source_path ); IF(e){goto fin;}
 	e= FileT_readAll( r_file, &text, NULL ); IF(e){goto fin;}
 
-	e= AppKey_newWritable( NULL, NULL, out_path, NULL ); IF(e){goto fin;}
+	e= AppKey_newWritable( ref_AppKey, NULL, out_path, NULL ); IF(e){goto fin;}
 	e= FileT_openForWrite( &w_file, out_path, 0 ); IF(e){goto fin;}
 
 
@@ -448,7 +471,7 @@ errnum_t  MakeTextSectionIndexFile_readSetting( MakeTextSectionIndexFileClass* w
 /***********************************************************************
   <<< [MakeTextSectionIndexFile] >>> 
 ************************************************************************/
-errnum_t  MakeTextSectionIndexFile()
+errnum_t  MakeTextSectionIndexFile( AppKey** ref_AppKey )
 {
 	errnum_t   e;
 	FILE*      read_file = NULL;
@@ -460,7 +483,6 @@ errnum_t  MakeTextSectionIndexFile()
 	int        index_of_path;
 	int        input_output_path_count;
 	int        r;
-	AppKey*    app_key = NULL;
 	
 	LineNumberIndexClass            line_nums;
 	MakeTextSectionIndexFileClass   work_body;
@@ -510,7 +532,7 @@ errnum_t  MakeTextSectionIndexFile()
 		e= LexicalAnalize_C_Language( text, &tokens ); IF(e){goto fin;}
 		e= MakeNaturalComments_C_Language( &tokens, &line_nums, &comments, &config ); IF(e){goto fin;}
 
-		e= AppKey_newWritable( &app_key, NULL, output_path, NULL ); IF(e){goto fin;}
+		e= AppKey_newWritable( ref_AppKey, NULL, output_path, NULL ); IF(e){goto fin;}
 		
 		e= FileT_openForWrite( &write_file, output_path, F_Unicode ); IF(e){goto fin;}
 		r= _ftprintf_s( write_file, _T("<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n") );
@@ -646,7 +668,7 @@ errnum_t  TxMxListUp_outputUsedNames( TxMxListUpClass* work,  TCHAR* in_OutKeywo
 /***********************************************************************
   <<< [ListUpUsingTxMxKeywords] >>> 
 ************************************************************************/
-errnum_t  ListUpUsingTxMxKeywords()
+errnum_t  ListUpUsingTxMxKeywords( AppKey** ref_AppKey )
 {
 	errnum_t  e;
 	TCHAR     setting_path[_MAX_PATH];
@@ -658,7 +680,7 @@ errnum_t  ListUpUsingTxMxKeywords()
 	e= StrT_addLastOfFileName( out_keywords_path, sizeof(out_keywords_path),
 		setting_path, _T("_out") ); IF(e){goto fin;}
 
-	e= AppKey_newWritable( NULL, NULL, out_keywords_path, NULL ); IF(e){goto fin;}
+	e= AppKey_newWritable( ref_AppKey, NULL, out_keywords_path, NULL ); IF(e){goto fin;}
 
 	e= ListUpUsingTxMxKeywords_Main( setting_path, out_keywords_path );
 		IF(e){goto fin;}
@@ -1429,7 +1451,7 @@ errnum_t  ConvertDCF_Class_convert( ConvertDCF_Class*  work );
 /***********************************************************************
   <<< [ConvertDocumentCommentFormat] >>> 
 ************************************************************************/
-errnum_t  ConvertDocumentCommentFormat( AppKey* in_AppKey )
+errnum_t  ConvertDocumentCommentFormat( AppKey** ref_AppKey )
 {
 	errnum_t  e;
 	TCHAR     setting_path[_MAX_PATH];
@@ -1472,7 +1494,7 @@ errnum_t  ConvertDocumentCommentFormat( AppKey* in_AppKey )
 			path_count += 1;
 		#endif
 
-		e= AppKey_newWritable_byArray( &in_AppKey, NULL, paths, path_count ); IF(e){goto fin;}
+		e= AppKey_newWritable_byArray( ref_AppKey, NULL, paths, path_count ); IF(e){goto fin;}
 	}
 
 
@@ -2460,7 +2482,7 @@ fin:
 /***********************************************************************
   <<< [CutCommentC_Command] >>> 
 ************************************************************************/
-errnum_t  CutCommentC_Command()
+errnum_t  CutCommentC_Command( AppKey** ref_AppKey )
 {
 	errnum_t  e;
 	TCHAR     setting_path[MAX_PATH*2];
@@ -2473,7 +2495,6 @@ errnum_t  CutCommentC_Command()
 	FILE*     file = NULL;
 	int       line_num;
 	int       error_count = 0;
-	AppKey*   app_key = NULL;
 
 	enum { waiting_src, waiting_dst }  mode;
 
@@ -2543,7 +2564,7 @@ errnum_t  CutCommentC_Command()
 
 			dst_path = path;
 
-			e= AppKey_newWritable( &app_key, NULL, dst_path, NULL ); IF(e){goto fin;}
+			e= AppKey_newWritable( ref_AppKey, NULL, dst_path, NULL ); IF(e){goto fin;}
 
 			e= CutCommentC_1( src_path,  dst_path );
 				IF ( e ) {
@@ -2616,10 +2637,10 @@ errnum_t  ReadCharacterEncodingCharacter( const TCHAR*  in_InputPath,  size_t  i
 	data[ in_ReadSize - 1 ] = '\0';
 
 
-	if ( data[0] == (char) 0xEF  &&  data[1] == (char) 0xBB  &&  data[2] == (char) 0xBF ) {
+	if ( (int) data[0] == 0xEF  &&  (int) data[1] == 0xBB  &&  (int) data[2] == 0xBF ) {
 		character_code_set = gc_CharacterCodeSetEnum_UTF_8;
 	}
-	else if ( data[0] == (char) 0xFF  &&  data[1] == (char) 0xFE ) {
+	else if ( (int) data[0] == 0xFF  &&  (int) data[1] == 0xFE ) {
 		character_code_set = gc_CharacterCodeSetEnum_UTF_16;
 	}
 	else if ( data[0] == '<'  &&  data[1] == '?'  &&

@@ -2,6 +2,7 @@
 call :SetVariables
 
 %close_at_end%  %cscript% //nologo "%vbslib_root%\vbslib Prompt.vbs"  ts  "" "" "" /AutoExit:800
+if not "%errorlevel%" == "21" ( pause )
 
 goto :eof
 

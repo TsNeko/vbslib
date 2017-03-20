@@ -1023,6 +1023,7 @@ errnum_t  SaveWindowsLastError(void);
 ************************************************************************/
 void  Error4_showToStdErr( int err_num );
 void  Error4_showToStdIO( FILE* out, int err_num );
+void  Error4_showToPrintf( int err_num );
 
 
  

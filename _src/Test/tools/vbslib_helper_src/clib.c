@@ -5747,6 +5747,45 @@ void  Error4_showToStdIO( FILE* out, int err_num )
 
 
  
+/***********************************************************************
+  <<< [Error4_showToPrintf] >>> 
+************************************************************************/
+void  Error4_showToPrintf( int err_num )
+{
+	TCHAR  msg[1024];
+	#if _UNICODE
+		char  msg2[1024];
+	#endif
+
+	if ( err_num != 0 ) {
+		Error4_getErrStr( err_num, msg, sizeof(msg) );
+		#if _UNICODE
+			setlocale( LC_ALL, ".OCP" );
+			sprintf_s( msg2, sizeof(msg2), "%S", msg );
+			printf( "%s\n", msg2 );  // _ftprintf_s では日本語が出ません
+		#else
+			printf( "%s\n", msg );
+		#endif
+
+		#if ERR2_ENABLE_ERROR_BREAK
+			fprintf( out, "（開発者へ）メイン関数で SetBreakErrorID( %d ); を呼び出してください。\n",
+				g_Err2.ErrID );
+		#else
+#if 0
+			if ( err_num == E_FEW_MEMORY  ||  gs.WindowsLastError == ERROR_NOT_ENOUGH_MEMORY ) {
+				/* Not show the message for developper */
+			}
+			else {
+				fprintf( out, "（開発者へ）ERR2_ENABLE_ERROR_BREAK を定義して再コンパイルしてください。\n" );
+			}
+#endif
+		#endif
+	}
+	IfErrThenBreak();
+}
+
+
+ 
 /*=================================================================*/
 /* <<< [CRT_plus_2/CRT_plus_2.c] >>> */ 
 /*=================================================================*/
@@ -12274,6 +12313,284 @@ DictionaryAA_NodeClass*  DictionaryAA_IteratorClass_getNext(
 #if USE_PRINTF_COUNTER
 	PrintfCounterClass  g_PrintfCounter;
 #endif
+
+
+ 
+/***********************************************************************
+  <<< [printf_to_file] >>> 
+************************************************************************/
+
+#if USE_PRINTF_MULTI_THREAD
+	enum { g_PrintfMultiThreadCountMax = 8 };
+	DWORD  g_printf_file_tid[ g_PrintfMultiThreadCountMax ];
+	bool   g_printf_file_clear;
+#endif
+
+TCHAR  g_printf_file_path[MAX_PATH];
+int    g_printf_file_indent;
+
+static DWORD  gs_locked_thread = 0;
+
+
+void  printf_lock_init_const( PrintfFileWorkClass* out_Work )
+{
+	out_Work->File = NULL;
+	#if USE_PRINTF_MULTI_THREAD
+		out_Work->Mutex = NULL;
+		out_Work->ThreadIndex = 0;
+	#endif
+}
+
+errnum_t  printf_lock( PrintfFileWorkClass* out_Work )
+{
+	errnum_t  e;
+	TCHAR*    path;
+	DWORD     tid = GetCurrentThreadId();
+	FILE*     file = NULL;
+#if USE_PRINTF_MULTI_THREAD
+	HANDLE    mutex = NULL;
+	int       thread_index = 0;
+#endif
+
+	printf_lock_init_const( out_Work );
+
+	e= printf_get_path( &path ); IF(e){goto fin;}
+
+	#if USE_PRINTF_MULTI_THREAD
+		mutex = CreateMutex( NULL, TRUE, TEXT("printf_file_mutex") );
+			IF ( mutex == NULL ) { e=E_GET_LAST_ERROR; goto fin; }
+		if ( gs_locked_thread == tid )
+			{ DebugBreak(); } /* Re-entrant error */
+			/* Call "GetLogOptionPath" and "AppKey_newWritable" */
+		gs_locked_thread = tid;
+
+		if ( ! g_printf_file_clear ) {
+			if ( path != NULL )  _tremove( path );
+			g_printf_file_clear = true;
+		}
+		for ( thread_index = 0;  thread_index < _countof( g_printf_file_tid );  thread_index += 1 ) {
+			if ( g_printf_file_tid[ thread_index ] == 0  ||  g_printf_file_tid[ thread_index ] == tid )
+				{ break; }
+		}
+		g_printf_file_tid[ thread_index ] = tid;
+	#endif
+
+	if ( path[0] == _T('\0') )
+		{ file = stdout; }
+	else {
+		errno_t  en;
+
+		en= _tfopen_s( &file, path, _T("a") );
+		if(en){ DebugBreak(); }
+	}
+
+fin:
+	out_Work->File = file;
+	#if USE_PRINTF_MULTI_THREAD
+		out_Work->Mutex = mutex;
+		out_Work->ThreadIndex = thread_index;
+	#endif
+	if ( e != 0 ) {
+		printf_unlock( out_Work, e );
+	}
+	return  e;
+}
+
+
+errnum_t  printf_unlock( PrintfFileWorkClass* work,  errnum_t e )
+{
+	FILE*     file  = work->File;
+#if USE_PRINTF_MULTI_THREAD
+	HANDLE    mutex = work->Mutex;
+#endif
+
+	if ( file != stdout  &&  file != NULL )
+		{ fclose( file ); }
+
+	#if USE_PRINTF_MULTI_THREAD
+		if ( mutex != NULL ) {
+			gs_locked_thread = 0;
+			ReleaseMutex( mutex );
+			CloseHandle( mutex );
+		}
+	#endif
+
+	printf_lock_init_const( work );
+
+	return  e;
+}
+
+
+void  printf_to_file( const char* format, ... )
+{
+	enum { num_8_tab = 8 };
+
+	va_list   va;
+	errnum_t  e;
+	int       r;
+	FILE*     file = NULL;
+	int       thread_index = 0;
+
+	ErrStackAreaClass    err_stack;
+	PrintfFileWorkClass  work;
+
+	PushErr( &err_stack );
+
+	e= printf_lock( &work ); if(e){goto fin;}
+
+	file = work.File;
+	thread_index = work.ThreadIndex;
+
+
+	#if USE_PRINTF_COUNTER
+	if ( g_PrintfCounter.Count == 0 ) {
+		char*  process_ID;
+
+		#if USE_PRINTF_MULTI_PROCESS
+			process_ID = "ProcessID:";
+		#else
+			process_ID = "";
+		#endif
+
+		fprintf_s( file, "%*s|{%sg_PrintfCounter.BreakIndent:g_PrintfCounter.BreakCount}\n",
+			thread_index * num_8_tab + g_printf_file_indent, "", process_ID );
+	}
+	#endif
+
+	#if USE_PRINTF_MULTI_THREAD
+		fprintf_s( file, "%*s", thread_index * num_8_tab + g_printf_file_indent + 1, "|" );
+	#endif
+
+	#if USE_PRINTF_COUNTER
+	{
+		char  process_ID[ INT_DECIMAL_LENGTH_MAX + 5 ];
+
+		#if USE_PRINTF_MULTI_PROCESS
+			sprintf_s( process_ID, _countof( process_ID ), "%d:", GetCurrentProcessId() );
+		#else
+			process_ID[0] = '\0';
+		#endif
+
+		g_PrintfCounter.Count ++;
+		fprintf_s( file, "{%s%d:%d}", process_ID, thread_index * num_8_tab + g_printf_file_indent,
+			g_PrintfCounter.Count );
+	}
+	#endif
+
+	va_start( va, format );
+	r= vfprintf_s( file, format, va );
+	va_end( va );
+	IF(r<0){ e=E_ERRNO; goto fin; }
+
+	e=0;
+fin:
+	e= printf_unlock( &work, e );
+
+	IfErrThenBreak();
+	PopErr( &err_stack );
+	#if USE_PRINTF_COUNTER
+	if ( g_PrintfCounter.BreakCount > 0  &&
+		g_PrintfCounter.Count >= g_PrintfCounter.BreakCount  &&
+		thread_index * num_8_tab + g_printf_file_indent == g_PrintfCounter.BreakIndent )
+		{ DebugBreakR(); }
+	#endif
+
+	return;
+}
+
+
+//[printf_file_start]
+void  printf_file_start( bool IsDelete, int IndentWidth )
+{
+	g_printf_file_indent = IndentWidth;
+
+	if ( IsDelete ) {
+		int  e;
+		TCHAR*  path;
+
+		e= printf_get_path( &path ); IF(e)return;
+		if ( path != NULL )  _tremove( path );
+	}
+	#if USE_PRINTF_MULTI_THREAD
+		g_printf_file_clear = true;
+	#endif
+}
+
+
+// [printf_get_path]
+int  printf_get_path( TCHAR** out_Path )
+{
+	int   e;
+	BOOL  b;
+	TCHAR  desktop[MAX_PATH];
+
+	if ( g_printf_file_path[0] == '\0' ) {
+		b= SHGetSpecialFolderPath( NULL, desktop, CSIDL_DESKTOP, FALSE ); IF(!b){goto err_gt;}
+		e= StrT_getFullPath( g_printf_file_path, sizeof(g_printf_file_path),
+			_T("DebugOut.txt"), desktop ); IF(e){goto err_gt;}
+	}
+	if ( g_printf_file_path[0] == '*' ) {
+		*out_Path = _T("");
+	}
+	else {
+		*out_Path = g_printf_file_path;
+	}
+	e=0;
+fin:
+	return  e;
+
+err_gt: e= E_GET_LAST_ERROR; goto fin;
+}
+
+
+// [printf_set_path]
+int  printf_set_path( const TCHAR* Path )
+{
+	int  e;
+
+	if ( Path[0] == _T('\0') ) {
+		g_printf_file_path[0] = _T('*'); 
+		g_printf_file_path[1] = _T('\0'); 
+		e = 0;
+	}
+	else {
+		e= StrT_cpy( g_printf_file_path, sizeof(g_printf_file_path), Path );
+			IF(e){goto fin;}
+	}
+fin:
+	return  e;
+}
+
+
+ 
+/***********************************************************************
+  <<< [GetLogOptionPath] >>> 
+************************************************************************/
+TCHAR*  GetLogOptionPath()
+{
+	int     e;
+	TCHAR*  log_path = NULL;
+	TCHAR   log_opt_path[MAX_PATH];
+
+	e= GetCommandLineNamed( _T("Log"), false, log_opt_path, sizeof(log_opt_path) );
+		//[out] log_opt_path
+	if ( e != E_NOT_FOUND_SYMBOL ) { IF(e)goto fin; }
+	ClearError();
+	if ( !e ) {
+		e= printf_set_path( log_opt_path ); IF(e)goto fin;
+	}
+
+	e= printf_get_path( &log_path ); IF(e)goto fin;
+
+	e=0;
+fin:
+	if ( e ) {  // if error, return default path
+		printf_set_path( _T("") );
+		printf_get_path( &log_path );
+	}
+
+	return  log_path;
+}
 
 
  

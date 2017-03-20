@@ -1,3 +1,61 @@
+Title: 更新履歴 5.92→5.93
+
+[F] は、g_is_vbslib_for_fast_user = True のとき。
+
+zip.vbs
+	[F] 追加: DownloadAndExtractFileIn7zClass
+
+Network.vbs
+	[F] 追加: CopyWindowClass
+
+System.vbs
+	追加: CompileCSharp
+
+ToolsLib.vbs
+	修正: MakeFolderMD5List
+		エラーが発生した時は、MD5リストをロールバックするように修正。
+	修正: EnumerateToLeafPathDictionaryByFullSetFile
+		本体があるファイルのパス（leaf.BodyFullPath）に関する不具合を修正。
+	追加: GetNewestDate
+	追加: IsThereTimeStampInFolderMD5List
+	追加: ReadPathsInMD5List
+	[F] 追加: UpdateFolderMD5List
+	[F] 追加: CopyDiffByMD5List
+	[F] 追加: CopyDiffByMD5Lists
+	[F] 追加: OpenForDefragmentClass::DownloadStart
+	[F] 追加: EnumerateToLeafPathDictionaryByFullSetFile の in_MD5ListFilePath 引数に
+		OpenForDefragment の返り値も指定できる仕様を追加
+
+vbslib.vbs
+	追加: Confirm_VBS_Lib_ForFastUser
+	追加: EchoOff::Close
+	追加: ParentPathCompare
+	修正: IsWriteAccessDenied
+		フォルダーの中に読込み専用ファイルがあったときに、ロック状態として検出して
+		しまっていたのを、読込み専用エラーに修正
+	修正: GetFullPath
+		指定したパスにピリオドを３つ並べた場合、ルートの直下のフォルダーに
+		ヒットしない不具合を修正
+	修正: ReplaceRootPath
+		変換する前のルート・フォルダーにマッチしないとき、変換しない動作をしていたのを
+		エラーになるように修正
+	修正: Copy
+		コピー元のパスに存在しないときのエラーメッセージに、そのパスが表示されなかった
+		不具合を修正
+	修正: ShakerSortDicByKeyCompare
+		CompareFuncParam 引数が比較関数に渡らない不具合を修正
+	修正: NumStringCompare
+		数字より文字コードが小さい文字との比較が正しくない不具合を修正。
+		数値 0 があるとエラーになる不具合を修正。
+		最後の数字の前の比較が正しくない不具合を修正。
+	修正: devenv_ver_name 環境変数
+		Visual Studio 2015 をアンインストールしたときに、そのバージョンが設定されてしまう不具合を修正。
+	高速化: AppKeyClass::CheckWritable
+	[F] 変更: Input の表示を EchoOff で消えるように変更
+	[F] 高速化: SetDateLastModified
+
+
+===========================================================================
 Title: 更新履歴 5.91→5.92
 
 [F] は、g_is_vbslib_for_fast_user = True のとき。
